@@ -9,6 +9,7 @@
       padding: 20px;
       font-family: Arial, sans-serif;
       color: white;
+      min-height: 900000px;
     }
     h1 {
       text-align: center;
@@ -17,6 +18,7 @@
     .staff-container {
       max-width: 1000px;
       margin: 0 auto;
+      text-align: center;
     }
     .staff-role {
       background-color: #2a2a2a;
@@ -39,6 +41,7 @@
       border-radius: 4px;
       padding: 15px;
       margin-bottom: 20px;
+      text-align: center;
     }
     .staff-member h3 {
       margin: 0 0 10px;
@@ -52,7 +55,7 @@
     .staff-member img {
       display: block;
       max-width: 120px;
-      margin: 10px 0;
+      margin: 10px auto;
       border: 2px solid #555;
       border-radius: 5px;
     }
@@ -61,9 +64,95 @@
       font-size: 1.1em;
       text-decoration: underline;
     }
+    /* Hamburger menu styles */
+    .hamburger-menu {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .hamburger-menu input {
+      display: none;
+    }
+    .hamburger-menu label {
+      display: block;
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+    }
+    .hamburger-menu label span,
+    .hamburger-menu label span::before,
+    .hamburger-menu label span::after {
+      display: block;
+      background-color: #fff;
+      height: 4px;
+      width: 100%;
+      border-radius: 2px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .hamburger-menu label span::before,
+    .hamburger-menu label span::after {
+      content: "";
+      position: absolute;
+    }
+    .hamburger-menu label span::before {
+      top: -8px;
+    }
+    .hamburger-menu label span::after {
+      top: 8px;
+    }
+    /* Navigation overlay */
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #2a2a2a;
+      box-shadow: 2px 0 12px rgba(0, 0, 0, 0.4);
+      transition: left 0.3s ease;
+      z-index: 900;
+      padding-top: 60px;
+      text-align: center;
+    }
+    .nav-overlay a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+    /* Toggle nav overlay when checkbox is checked */
+    .hamburger-menu input:checked ~ .nav-overlay {
+      left: 0;
+    }
+    /* Animate hamburger icon into an X when checked */
+    .hamburger-menu input:checked + label span {
+      background: transparent;
+    }
+    .hamburger-menu input:checked + label span::before {
+      transform: rotate(45deg);
+      top: 0;
+    }
+    .hamburger-menu input:checked + label span::after {
+      transform: rotate(-45deg);
+      top: 0;
+    }
   </style>
 </head>
 <body>
+  <!-- Hamburger Menu -->
+  <div class="hamburger-menu">
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle">
+      <span></span>
+    </label>
+    <div class="nav-overlay">
+      <a href="index.html">Main Page</a>
+    </div>
+  </div>
+
   <h1>Our Staff</h1>
   <div class="staff-container">
 
@@ -72,13 +161,13 @@
       <h2>Owners</h2>
       <div class="staff-member">
         <h3>Server Owner: Laikrai</h3>
-        <img src="images\owner.png" alt="Owner @𝓛𝔸Ɨ𝓀">
+        <img src="images/owner.png" alt="Owner @𝓛𝔸Ɨ𝓀">
         <h4>About Me</h4>
         <p><!-- Owner's About Me --></p>
       </div>
       <div class="staff-member">
         <h3>Co-Owner: Sarha🌺</h3>
-        <img src="images\coown.png" alt="Co-Owner @𝒮𝒶𝓇𝒽𝒶🌺">
+        <img src="images/coown.png" alt="Co-Owner @𝒮𝒶𝓇𝒽𝒶🌺">
         <h4>About Me</h4>
         <p><!-- Co-Owner's About Me --></p>
       </div>
@@ -89,7 +178,7 @@
       <h2>Head Admin</h2>
       <div class="staff-member">
         <h3>Tasha</h3>
-        <img src="images\ha.png" alt="Head Admin @tasha">
+        <img src="images/ha.png" alt="Head Admin @tasha">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
@@ -100,13 +189,13 @@
       <h2>Admin</h2>
       <div class="staff-member">
         <h3>Ryuk</h3>
-        <img src="images\admin.png" alt="Admin @ɾყυƙ">
+        <img src="images/admin.png" alt="Admin @ɾყυƙ">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
       <div class="staff-member">
         <h3>V</h3>
-        <img src="images\admin.png" alt="Admin @𝐕">
+        <img src="images/admin.png" alt="Admin @𝐕">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
@@ -117,13 +206,13 @@
       <h2>Senior Moderator</h2>
       <div class="staff-member">
         <h3>Northie</h3>
-        <img src="images\srmod.png" alt="Senior Mod @Northie Del Gay">
+        <img src="images/srmod.png" alt="Senior Mod @Northie Del Gay">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
       <div class="staff-member">
         <h3>Hannah✰⋆｡</h3>
-        <img src="images\srmod.png" alt="Senior Mod @hannah✰⋆｡">
+        <img src="images/srmod.png" alt="Senior Mod @hannah✰⋆｡">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
@@ -134,43 +223,43 @@
       <h2>Moderator</h2>
       <div class="staff-member">
         <h3>LilPea</h3>
-        <img src="images\mod.png" alt="Moderator @!𝐋𝐢𝐋𝐏𝐄𝐀!">
+        <img src="images/mod.png" alt="Moderator @!𝐋𝐢𝐋𝐏𝐄𝐀!">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
       <div class="staff-member">
         <h3>Poet</h3>
-        <img src="images\mod.png" alt="Moderator @🎀 𝒫🍀𝑒𝓉 🎀">
+        <img src="images/mod.png" alt="Moderator @🎀 𝒫🍀𝑒𝓉 🎀">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
       <div class="staff-member">
         <h3>Sunnyboi</h3>
-        <img src="images\mod.png" alt="Moderator @sunnyboi">
+        <img src="images/mod.png" alt="Moderator @sunnyboi">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
       <div class="staff-member">
         <h3>Summer ❀⭒˙</h3>
-        <img src="images\mod.png" alt="Moderator @summer ❀⭒˙">
+        <img src="images/mod.png" alt="Moderator @summer ❀⭒˙">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
       <div class="staff-member">
         <h3>Marg</h3>
-        <img src="images\mod.png" alt="Moderator @Reading is STILL a skill">
+        <img src="images/mod.png" alt="Moderator @Reading is STILL a skill">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
       <div class="staff-member">
         <h3>Croissant</h3>
-        <img src="images\mod.png" alt="Moderator @croissant">
+        <img src="images/mod.png" alt="Moderator @croissant">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
       <div class="staff-member">
         <h3>Fish King</h3>
-        <img src="images\mod.png" alt="Moderator @Fish King">
+        <img src="images/mod.png" alt="Moderator @Fish King">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
@@ -181,7 +270,7 @@
       <h2>Trial Mod</h2>
       <div class="staff-member">
         <h3><!-- Add trial mod name(s) here --></h3>
-        <img src="images\trialmod.png" alt="Trial Mod">
+        <img src="images/trialmod.png" alt="Trial Mod">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
@@ -192,7 +281,7 @@
       <h2>Giveaway Manager</h2>
       <div class="staff-member">
         <h3><!-- Add giveaway manager name(s) here --></h3>
-        <img src="images\giveman.png" alt="Giveaway Manager">
+        <img src="images/giveman.png" alt="Giveaway Manager">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
@@ -200,21 +289,21 @@
 
     <!-- Event Director -->
     <div class="staff-role">
-        <h2>Event Manager</h2>
-        <div class="staff-member">
-          <h3>Croissant</h3>
-          <img src="images\event.png" alt="Event Director @croissant">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
-        </div>
+      <h2>Event Director</h2>
+      <div class="staff-member">
+        <h3><!-- Add event director name(s) here --></h3>
+        <img src="images/event.png" alt="Event Director">
+        <h4>About Me</h4>
+        <p><!-- About Me --></p>
       </div>
+    </div>
 
     <!-- Event Manager -->
     <div class="staff-role">
-      <h2>Event Director</h2>
+      <h2>Event Manager</h2>
       <div class="staff-member">
-        <h3><!-- Add event manager name(s) here --></h3>
-        <img src="images\event.png" alt="Event Manager">
+        <h3>Croissant</h3>
+        <img src="images/event.png" alt="Event Manager @croissant">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
@@ -225,13 +314,13 @@
       <h2>Trial Event Managers</h2>
       <div class="staff-member">
         <h3>Ghoul</h3>
-        <img src="images\trialevent.png" alt="Trial Event Manager @Ghoul">
+        <img src="images/trialevent.png" alt="Trial Event Manager @Ghoul">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
       <div class="staff-member">
         <h3>Im Night</h3>
-        <img src="images\trialevent.png" alt="Trial Event Manager @Im Night Now">
+        <img src="images/trialevent.png" alt="Trial Event Manager @Im Night Now">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
       </div>
