@@ -4,14 +4,14 @@
   <title>Our Staff</title>
   <style>
     body {
-
+      /* Fallback background color and background image */
       background-color: #000;
       background: url("images/background.png") no-repeat center center fixed;
       background-size: cover;
       margin: 0;
       padding: 20px;
       font-family: Arial, sans-serif;
-      color: rgb(255, 255, 255);
+      color: #fff;
       min-height: 900000px;
     }
     /* Hamburger Dropdown */
@@ -48,13 +48,13 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
-
+    
     h1 {
       text-align: center;
       margin-bottom: 30px;
     }
-
-
+    
+    /* Grid layout for staff roles */
     .staff-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -62,10 +62,9 @@
       max-width: 1200px;
       margin: 80px auto 20px; /* top margin to clear the hamburger */
     }
-
-
+    
     .staff-role {
-      background-color: transparent;
+      background-color: rgba(100, 100, 100, 0.3);
       border: 1px solid #1d0909;
       border-radius: 5px;
       padding: 15px;
@@ -77,10 +76,9 @@
       letter-spacing: 1px;
       text-align: center;
     }
-
-
+    
     details {
-      background-color: transparent;
+      background-color: rgba(100, 100, 100, 0.3);
       border: 1px solid #1d0909;
       border-radius: 4px;
       margin-bottom: 10px;
@@ -96,22 +94,21 @@
       outline: none;
       list-style: none;
       margin: 0;
+      color: #fff;
     }
     summary::-webkit-details-marker {
       display: none; /* hide default marker */
     }
-
-
+    
     .details-content {
       overflow: hidden;
       max-height: 0;
-      transition: max-height 0.7s ease; 
+      transition: max-height 0.7s ease;
     }
-
     details[open] .details-content {
-      max-height: 500px; 
+      max-height: 500px;
     }
-
+    
     .staff-member {
       text-align: center;
       padding: 10px;
@@ -120,8 +117,9 @@
       margin: 10px 0 5px;
       font-size: 1.1em;
       text-decoration: underline;
+      color: #fff;
     }
-
+    /* Circular staff images */
     .staff-member img {
       max-width: 100px;
       border: 2px solid #555;
@@ -134,14 +132,15 @@
     .staff-member p {
       margin: 0 0 10px;
       line-height: 1.4;
+      color: #fff;
     }
-
+    
     /* Apply for Staff Section */
     .apply-section {
       max-width: 1200px;
       margin: 40px auto;
       padding: 20px;
-      background-color: rgba(0,0,0,0.5); /* semi-transparent */
+      background-color: rgba(0, 0, 0, 0.5);
       border: 1px solid #1d0909;
       border-radius: 5px;
       text-align: center;
@@ -149,12 +148,14 @@
     .apply-section h2 {
       margin: 0;
       font-size: 1.8em;
+      color: #fff;
     }
     .apply-status {
       display: inline-flex;
       align-items: center;
       margin-top: 10px;
       font-size: 1.2em;
+      color: #fff;
     }
     .apply-status .dot {
       width: 12px;
