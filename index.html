@@ -18,7 +18,7 @@
       color: #fff;
       overflow-x: hidden;
     }
-
+    /* Background with Overlay & Parallax Effect */
     body {
       background: #000 url("images/background.png") no-repeat center center fixed;
       background-size: cover;
@@ -148,13 +148,14 @@
     }
     /* What We Offer Section with Slide-In Animation */
     #whatWeOffer {
-      margin: 20px;
+      margin: 20px auto;
       padding: 20px;
       border: 1px solid #444;
       background-color: rgba(42,42,42,0.9);
       border-radius: 5px;
       text-align: center;
       animation: slideIn 1s ease-out;
+      max-width: 800px; /* Reduced width */
     }
     @keyframes slideIn {
       from { transform: translateY(20px); opacity: 0; }
@@ -208,7 +209,7 @@
   <div class="dropdown">
     <button class="dropbtn"><i class="fa-solid fa-bars"></i></button>
     <div class="dropdown-content">
-      <a href="ourstaff.html">Active Moderation</a>
+      <a href="ourstaff.html">Meet Our Staff</a>
     </div>
   </div>
 
