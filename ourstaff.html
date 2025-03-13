@@ -3,18 +3,23 @@
 <head>
   <title>Our Staff</title>
   <style>
-    body {
-      /* Fallback background color and background image */
-      background-color: #000;
-      background: url("images/background.png") no-repeat center center fixed;
-      background-size: cover;
+    /* Make sure html and body both fill the viewport */
+    html, body {
+      height: 100%;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      background-color: #000; /* Fallback color */
       font-family: Arial, sans-serif;
-      color: #000000;
-      min-height: 900000px;
+      color: #fff;
     }
-    /* Hamburger Dropdown */
+
+    /* Set the background image to cover the page */
+    body {
+      background: #000 url("images/background.png") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    /* Hamburger Menu */
     .dropdown {
       position: absolute;
       top: 20px;
@@ -48,21 +53,24 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
-    
+
+    /* Page Title */
     h1 {
       text-align: center;
-      margin-bottom: 30px;
+      margin: 80px 0 30px; /* top margin ensures it's not under the menu */
     }
-    
-    /* Grid layout for staff roles */
+
+    /* Staff Container */
     .staff-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       max-width: 1200px;
-      margin: 80px auto 20px; /* top margin to clear the hamburger */
+      margin: 0 auto 40px; /* center container, space at bottom */
+      padding: 0 20px; /* optional side padding if you want some space */
     }
-    
+
+    /* Each staff role: slightly grey & transparent background */
     .staff-role {
       background-color: rgba(100, 100, 100, 0.3);
       border: 1px solid #1d0909;
@@ -75,14 +83,17 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       text-align: center;
+      color: #fff;
     }
-    
+
+    /* Collapsible details (each staff member) */
     details {
       background-color: rgba(100, 100, 100, 0.3);
       border: 1px solid #1d0909;
       border-radius: 4px;
       margin-bottom: 10px;
       transition: box-shadow 0.3s ease;
+      color: #fff;
     }
     details[open] {
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
@@ -92,14 +103,13 @@
       padding: 10px;
       font-weight: bold;
       outline: none;
-      list-style: none;
       margin: 0;
-      color: #fff;
     }
     summary::-webkit-details-marker {
       display: none; /* hide default marker */
     }
-    
+
+    /* Smooth roll-down effect */
     .details-content {
       overflow: hidden;
       max-height: 0;
@@ -108,7 +118,8 @@
     details[open] .details-content {
       max-height: 500px;
     }
-    
+
+    /* Staff Member Content */
     .staff-member {
       text-align: center;
       padding: 10px;
@@ -119,7 +130,6 @@
       text-decoration: underline;
       color: #fff;
     }
-    /* Circular staff images */
     .staff-member img {
       max-width: 100px;
       border: 2px solid #555;
@@ -134,13 +144,13 @@
       line-height: 1.4;
       color: #fff;
     }
-    
+
     /* Apply for Staff Section */
     .apply-section {
       max-width: 1200px;
-      margin: 40px auto;
+      margin: 0 auto 40px;
       padding: 20px;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0,0,0,0.5);
       border: 1px solid #1d0909;
       border-radius: 5px;
       text-align: center;
@@ -179,7 +189,7 @@
   </div>
 
   <h1>Our Staff</h1>
-  
+
   <!-- Staff Container -->
   <div class="staff-container">
 
@@ -426,9 +436,8 @@
         </div>
       </details>
     </div>
-
   </div>
-  
+
   <!-- Apply for Staff Section -->
   <div class="apply-section">
     <h2>Apply for Staff</h2>
@@ -439,13 +448,12 @@
   </div>
 
   <script>
-
+    // Only one <details> can be open at once
     document.addEventListener('DOMContentLoaded', () => {
       const allDetails = document.querySelectorAll('details');
       allDetails.forEach((detail) => {
         detail.addEventListener('toggle', () => {
           if (detail.open) {
-            // Close all other <details> elements
             allDetails.forEach((other) => {
               if (other !== detail) {
                 other.removeAttribute('open');
