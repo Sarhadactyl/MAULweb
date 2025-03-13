@@ -3,18 +3,16 @@
 <head>
   <title>Modded Among Us Lobbies</title>
   <style>
-
     body {
-      background-color: #373737; 
+      background-color: #1d1d1d; 
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
+      color: white;
     }
-
     .header {
       position: relative;
       text-align: center;
-      color: white;
       width: 100%;
       max-width: 100%;
       margin: 0 auto;
@@ -32,17 +30,34 @@
       font-size: 3em;
       margin: 0;
     }
-
     #memberCountContainer {
       margin: 20px;
       font-size: 1.2em;
+      color: white;
+      border: 1px solid #444;
+      padding: 10px;
+      display: inline-block;
+      background-color: #333;
+      border-radius: 5px;
+    }
+    .online-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: green;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    a {
+      color: white;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
   <div class="header">
-
     <img src="images/Modded-among-us_11zon.jpg" alt="Modded Among Us Header">
     <h1>Welcome to MAUL!</h1>
   </div>
@@ -53,18 +68,17 @@
   </p>
 
   <div id="memberCountContainer">
+    <span class="online-dot"></span>
     Online Members: <span id="memberCount">Loading...</span>
   </div>
 
   <script>
-   
     const serverId = "995954559044304896";
     const widgetUrl = `https://discord.com/api/guilds/${serverId}/widget.json`;
 
     fetch(widgetUrl)
       .then(response => response.json())
       .then(data => {
-        // 'presence_count' number of online members
         document.getElementById("memberCount").textContent = data.presence_count;
       })
       .catch(error => {
