@@ -9,6 +9,7 @@
       padding: 20px;
       font-family: Arial, sans-serif;
       color: white;
+      /* Make the page very tall if desired */
       min-height: 900000px;
     }
     /* Hamburger Dropdown Styles (matching index.html) */
@@ -45,84 +46,96 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
+
     h1 {
       text-align: center;
       margin-bottom: 30px;
     }
-    /* Grid layout for collapsible staff panels */
+
+    /* Grid layout for staff roles */
     .staff-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      max-width: 1000px;
-      margin: 60px auto 20px;
+      max-width: 1200px;
+      margin: 80px auto 20px; /* top margin to clear the hamburger */
     }
-    /* Collapsible panels using details/summary */
+
+    /* Each staff role is a "card" in the grid */
+    .staff-role {
+      background-color: #1a1a1a;
+      border: 1px solid #1d0909;
+      border-radius: 5px;
+      padding: 15px;
+    }
+    .staff-role h2 {
+      margin: 0 0 15px;
+      font-size: 1.6em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    /* Each staff member uses <details> for collapsible behavior */
     details {
       background-color: #212121;
       border: 1px solid #1d0909;
-      border-radius: 5px;
-      padding: 10px;
-      transition: all 0.3s ease;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      transition: box-shadow 0.3s ease;
     }
     details[open] {
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
     }
     summary {
-      font-size: 1.8em;
-      text-transform: uppercase;
-      letter-spacing: 1px;
       cursor: pointer;
-      list-style: none;
+      padding: 10px;
+      font-weight: bold;
       outline: none;
+      list-style: none;
+      margin: 0;
     }
     summary::-webkit-details-marker {
-      display: none;
+      display: none; /* hide default marker */
     }
-    .staff-content {
-      margin-top: 10px;
-      animation: fadeIn 0.5s ease-in-out;
+
+    /* The content inside details for the roll-down effect */
+    .details-content {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* When details is open, set a large max-height to reveal content */
+    details[open] .details-content {
+      max-height: 500px; /* adjust as needed */
     }
+
     .staff-member {
-      background-color: #212121;
-      border: 1px solid #1d0909;
-      border-radius: 4px;
-      padding: 15px;
-      margin-bottom: 15px;
       text-align: center;
-      transition: transform 0.2s;
+      padding: 10px;
     }
-    .staff-member:hover {
-      transform: scale(1.02);
+    .staff-member h4 {
+      margin: 10px 0 5px;
+      font-size: 1.1em;
+      text-decoration: underline;
     }
-    .staff-member h3 {
-      margin: 0 0 10px;
-      font-size: 1.3em;
-      font-weight: bold;
+    .staff-member img {
+      max-width: 100px;
+      border: 2px solid #555;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
     .staff-member p {
       margin: 0 0 10px;
       line-height: 1.4;
     }
-    .staff-member img {
-      display: block;
-      max-width: 120px;
-      margin: 10px auto;
-      border: 2px solid #555;
-      border-radius: 5px;
-    }
-    .staff-member h4 {
-      margin: 15px 0 5px;
-      font-size: 1.1em;
-      text-decoration: underline;
-    }
+
     /* Apply for Staff Section */
     .apply-section {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 40px auto;
       padding: 20px;
       background-color: #212121;
@@ -162,196 +175,262 @@
   </div>
 
   <h1>Our Staff</h1>
+  
+  <!-- Staff Container -->
   <div class="staff-container">
+
     <!-- Owners -->
-    <details>
-      <summary>Owners</summary>
-      <div class="staff-content">
-        <div class="staff-member">
-          <h3>Server Owner: Laikrai</h3>
-          <img src="images/owner.png" alt="Owner @𝓛𝔸Ɨ𝓀">
-          <h4>About Me</h4>
-          <p><!-- Owner's About Me --></p>
+    <div class="staff-role">
+      <h2>Owners</h2>
+      <details>
+        <summary>Server Owner: Laikrai</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/owner.png" alt="Owner @𝓛𝔸Ɨ𝓀">
+            <h4>About Me</h4>
+            <p><!-- Owner's About Me --></p>
+          </div>
         </div>
-        <div class="staff-member">
-          <h3>Co-Owner: Sarha🌺</h3>
-          <img src="images/coown.png" alt="Co-Owner @𝒮𝒶𝓇𝒽𝒶🌺">
-          <h4>About Me</h4>
-          <p><!-- Co-Owner's About Me --></p>
+      </details>
+      <details>
+        <summary>Co-Owner: Sarha🌺</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/coown.png" alt="Co-Owner @𝒮𝒶𝓇𝒽𝒶🌺">
+            <h4>About Me</h4>
+            <p><!-- Co-Owner's About Me --></p>
+          </div>
         </div>
-      </div>
-    </details>
+      </details>
+    </div>
 
     <!-- Head Admin -->
-    <details>
-      <summary>Head Admin</summary>
-      <div class="staff-content">
-        <div class="staff-member">
-          <h3>Tasha</h3>
-          <img src="images/ha.png" alt="Head Admin @tasha">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+    <div class="staff-role">
+      <h2>Head Admin</h2>
+      <details>
+        <summary>Tasha</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/ha.png" alt="Head Admin @tasha">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-      </div>
-    </details>
+      </details>
+    </div>
 
     <!-- Admin -->
-    <details>
-      <summary>Admin</summary>
-      <div class="staff-content">
-        <div class="staff-member">
-          <h3>Ryuk</h3>
-          <img src="images/admin.png" alt="Admin @ɾყυƙ">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+    <div class="staff-role">
+      <h2>Admin</h2>
+      <details>
+        <summary>Ryuk</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/admin.png" alt="Admin @ɾყυƙ">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-        <div class="staff-member">
-          <h3>V</h3>
-          <img src="images/admin.png" alt="Admin @𝐕">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+      </details>
+      <details>
+        <summary>V</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/admin.png" alt="Admin @𝐕">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-      </div>
-    </details>
+      </details>
+    </div>
 
     <!-- Senior Moderator -->
-    <details>
-      <summary>Senior Moderator</summary>
-      <div class="staff-content">
-        <div class="staff-member">
-          <h3>Northie</h3>
-          <img src="images/srmod.png" alt="Senior Mod @Northie Del Gay">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+    <div class="staff-role">
+      <h2>Senior Moderator</h2>
+      <details>
+        <summary>Northie</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/srmod.png" alt="Senior Mod @Northie Del Gay">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-        <div class="staff-member">
-          <h3>Hannah✰⋆｡</h3>
-          <img src="images/srmod.png" alt="Senior Mod @hannah✰⋆｡">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+      </details>
+      <details>
+        <summary>Hannah✰⋆｡</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/srmod.png" alt="Senior Mod @hannah✰⋆｡">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-      </div>
-    </details>
+      </details>
+    </div>
 
     <!-- Moderator -->
-    <details>
-      <summary>Moderator</summary>
-      <div class="staff-content">
-        <div class="staff-member">
-          <h3>LilPea</h3>
-          <img src="images/mod.png" alt="Moderator @!𝐋𝐢𝐋𝐏𝐄𝐀!">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+    <div class="staff-role">
+      <h2>Moderator</h2>
+      <details>
+        <summary>LilPea</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/mod.png" alt="Moderator @!𝐋𝐢𝐋𝐏𝐄𝐀!">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-        <div class="staff-member">
-          <h3>Poet</h3>
-          <img src="images/mod.png" alt="Moderator @🎀 𝒫🍀𝑒𝓉 🎀">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+      </details>
+      <details>
+        <summary>Poet</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/mod.png" alt="Moderator @🎀 𝒫🍀𝑒𝓉 🎀">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-        <div class="staff-member">
-          <h3>Sunnyboi</h3>
-          <img src="images/mod.png" alt="Moderator @sunnyboi">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+      </details>
+      <details>
+        <summary>Sunnyboi</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/mod.png" alt="Moderator @sunnyboi">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-        <div class="staff-member">
-          <h3>Summer ❀⭒˙</h3>
-          <img src="images/mod.png" alt="Moderator @summer ❀⭒˙">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+      </details>
+      <details>
+        <summary>Summer ❀⭒˙</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/mod.png" alt="Moderator @summer ❀⭒˙">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-        <div class="staff-member">
-          <h3>Marg</h3>
-          <img src="images/mod.png" alt="Moderator @Reading is STILL a skill">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+      </details>
+      <details>
+        <summary>Marg</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/mod.png" alt="Moderator @Reading is STILL a skill">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-        <div class="staff-member">
-          <h3>Croissant</h3>
-          <img src="images/mod.png" alt="Moderator @croissant">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+      </details>
+      <details>
+        <summary>Croissant</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/mod.png" alt="Moderator @croissant">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-        <div class="staff-member">
-          <h3>Fish King</h3>
-          <img src="images/mod.png" alt="Moderator @Fish King">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+      </details>
+      <details>
+        <summary>Fish King</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/mod.png" alt="Moderator @Fish King">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-      </div>
-    </details>
+      </details>
+    </div>
 
     <!-- Trial Mod -->
-    <details>
-      <summary>Trial Mod</summary>
-      <div class="staff-content">
-        <div class="staff-member">
-          <h3><!-- Add trial mod name(s) here --></h3>
-          <img src="images/trialmod.png" alt="Trial Mod">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+    <div class="staff-role">
+      <h2>Trial Mod</h2>
+      <details>
+        <summary>Trial Mods</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <h3><!-- Add trial mod name(s) here --></h3>
+            <img src="images/trialmod.png" alt="Trial Mod">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-      </div>
-    </details>
+      </details>
+    </div>
 
     <!-- Giveaway Manager -->
-    <details>
-      <summary>Giveaway Manager</summary>
-      <div class="staff-content">
-        <div class="staff-member">
-          <h3><!-- Add giveaway manager name(s) here --></h3>
-          <img src="images/giveman.png" alt="Giveaway Manager">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+    <div class="staff-role">
+      <h2>Giveaway Manager</h2>
+      <details>
+        <summary>Giveaway Manager</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <h3><!-- Add giveaway manager name(s) here --></h3>
+            <img src="images/giveman.png" alt="Giveaway Manager">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-      </div>
-    </details>
+      </details>
+    </div>
 
     <!-- Event Director -->
-    <details>
-      <summary>Event Director</summary>
-      <div class="staff-content">
-        <div class="staff-member">
-          <h3><!-- Add event director name(s) here --></h3>
-          <img src="images/event.png" alt="Event Director">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+    <div class="staff-role">
+      <h2>Event Director</h2>
+      <details>
+        <summary>Event Director</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <h3><!-- Add event director name(s) here --></h3>
+            <img src="images/event.png" alt="Event Director">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-      </div>
-    </details>
+      </details>
+    </div>
 
     <!-- Event Manager -->
-    <details>
-      <summary>Event Manager</summary>
-      <div class="staff-content">
-        <div class="staff-member">
-          <h3>Croissant</h3>
-          <img src="images/event.png" alt="Event Manager @croissant">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+    <div class="staff-role">
+      <h2>Event Manager</h2>
+      <details>
+        <summary>Croissant</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/event.png" alt="Event Manager @croissant">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-      </div>
-    </details>
+      </details>
+    </div>
 
     <!-- Trial Event Managers -->
-    <details>
-      <summary>Trial Event Managers</summary>
-      <div class="staff-content">
-        <div class="staff-member">
-          <h3>Ghoul</h3>
-          <img src="images/trialevent.png" alt="Trial Event Manager @Ghoul">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+    <div class="staff-role">
+      <h2>Trial Event Managers</h2>
+      <details>
+        <summary>Ghoul</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/trialevent.png" alt="Trial Event Manager @Ghoul">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-        <div class="staff-member">
-          <h3>Im Night</h3>
-          <img src="images/trialevent.png" alt="Trial Event Manager @Im Night Now">
-          <h4>About Me</h4>
-          <p><!-- About Me --></p>
+      </details>
+      <details>
+        <summary>Im Night</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/trialevent.png" alt="Trial Event Manager @Im Night Now">
+            <h4>About Me</h4>
+            <p><!-- About Me --></p>
+          </div>
         </div>
-      </div>
-    </details>
+      </details>
+    </div>
   </div>
   
   <!-- Apply for Staff Section -->
@@ -362,5 +441,24 @@
       <span>- Closed</span>
     </div>
   </div>
+
+  <script>
+    // Allow only one <details> to be open at a time across the page
+    document.addEventListener('DOMContentLoaded', () => {
+      const allDetails = document.querySelectorAll('details');
+      allDetails.forEach((detail) => {
+        detail.addEventListener('toggle', () => {
+          if (detail.open) {
+            // Close all other <details> elements
+            allDetails.forEach((other) => {
+              if (other !== detail) {
+                other.removeAttribute('open');
+              }
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
