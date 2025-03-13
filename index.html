@@ -2,15 +2,49 @@
 <html>
 <head>
   <title>Modded Among Us Lobbies</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    body {
-      background-color: #1d1d1d; 
+    /* Reset & custom font */
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      color: white;
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
     }
-    /* Hamburger Dropdown Styles */
+    /* Background with dark overlay & parallax effect */
+    body {
+      background: #000 url("images/background.png") no-repeat center center fixed;
+      background-size: cover;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      filter: brightness(0.6);
+      z-index: -2;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(29,29,29,0.9), rgba(29,29,29,0.9));
+      z-index: -1;
+    }
+    /* Hamburger Menu */
     .dropdown {
       position: absolute;
       top: 20px;
@@ -20,23 +54,28 @@
     .dropbtn {
       background-color: transparent;
       border: none;
-      color: white;
+      color: #fff;
       font-size: 30px;
       cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .dropbtn:hover {
+      transform: scale(1.1);
     }
     .dropdown-content {
       display: none;
       position: absolute;
       background-color: #2a2a2a;
       min-width: 160px;
-      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
       border-radius: 5px;
     }
     .dropdown-content a {
-      color: white;
+      color: #fff;
       padding: 12px 16px;
       text-decoration: none;
       display: block;
+      transition: background 0.3s;
     }
     .dropdown-content a:hover {
       background-color: #3a3a3a;
@@ -44,36 +83,36 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
-    /* Header Styles */
+    /* Header with fade-in animation */
     .header {
       position: relative;
       text-align: center;
-      width: 100%;
-      max-width: 100%;
-      margin: 0 auto;
-    }
-    .header img {
-      width: 100%;
-      height: auto;
-      display: block;
+      padding: 80px 20px;
+      overflow: hidden;
     }
     .header h1 {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       font-size: 3em;
       margin: 0;
+      animation: fadeIn 1s ease-out;
     }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Member Count */
     #memberCountContainer {
-      margin: 20px;
+      margin: 20px auto;
       font-size: 1.2em;
-      color: white;
+      color: #fff;
       border: 1px solid #444;
       padding: 10px;
       display: inline-block;
       background-color: #333;
       border-radius: 5px;
+      transition: background 0.3s;
+    }
+    #memberCountContainer:hover {
+      background-color: #444;
     }
     .online-dot {
       display: inline-block;
@@ -85,17 +124,38 @@
       vertical-align: middle;
     }
     a {
-      color: white;
+      color: #fff;
       text-decoration: underline;
+      transition: color 0.3s;
     }
-    /* What We Offer Section */
+    a:hover {
+      color: #ddd;
+    }
+    /* Info Paragraph Styling */
+    .info-paragraph {
+      font-size: 1.1em;
+      line-height: 1.6em;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+    /* What We Offer Section with slide-in animation */
     #whatWeOffer {
       margin: 20px;
       padding: 20px;
       border: 1px solid #444;
-      background-color: #2a2a2a;
+      background-color: rgba(42,42,42,0.9);
       border-radius: 5px;
       text-align: center;
+      animation: slideIn 1s ease-out;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
     #whatWeOffer h2 {
       margin-top: 0;
@@ -110,12 +170,16 @@
       line-height: 1.6;
     }
     .offer-item {
-      background-color: #3a3a3a;
+      background-color: rgba(58,58,58,0.8);
       border: 1px solid #444;
       border-radius: 4px;
       padding: 15px;
       margin-bottom: 20px;
       text-align: left;
+      transition: transform 0.3s;
+    }
+    .offer-item:hover {
+      transform: scale(1.02);
     }
     .offer-item h3 {
       margin: 0 0 10px;
@@ -127,37 +191,43 @@
       font-size: 0.95em;
       line-height: 1.4;
     }
+    /* MAUL Icon Style - smaller */
+    .maul-icon {
+      vertical-align: middle;
+      max-height: 0.8em;
+      margin: 0 0.3em;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Hamburger Menu  -->
+  <!-- Hamburger Menu -->
   <div class="dropdown">
-    <button class="dropbtn">&#9776;</button>
+    <button class="dropbtn"><i class="fa-solid fa-bars"></i></button>
     <div class="dropdown-content">
-      <!-- Link to our staff page ("Active Moderation") -->
       <a href="ourstaff.html">Active Moderation</a>
-      <!-- add more links here  -->
     </div>
   </div>
 
+  <!-- Header -->
   <div class="header">
-    <img src="images/Modded-among-us_11zon.jpg" alt="Modded Among Us Header">
     <h1>Welcome to MAUL!</h1>
   </div>
 
-  <!-- Enhanced Info Section -->
-  <p style="text-align:center; margin: 20px 0; font-size: 1.1em;">
+  <!-- Info Paragraph -->
+  <p class="info-paragraph">
     Welcome to the largest non-developer modded Among Us community on Discord! Every day, we host over 20 high-energy modded lobbies that keep the action alive, and our vibrant community has grown to over 13,800 active members – and we’re still expanding! Whether you’re looking for competitive play, a fun and friendly atmosphere, or expert support in modding and gameplay, you’ll find it here.
     <br>
-    <a href="https://discord.gg/MAUL" target="_blank">Join our Discord and be part of the excitement!</a>
+    <a href="https://discord.gg/MAUL" target="_blank"><i class="fa-brands fa-discord"></i> Join our Discord and be part of the excitement!</a>
   </p>
 
+  <!-- Member Count -->
   <div id="memberCountContainer">
     <span class="online-dot"></span>
     Online Members: <span id="memberCount">Loading...</span>
   </div>
 
+  <!-- What We Offer Section -->
   <section id="whatWeOffer">
     <h2>What We Offer</h2>
     <p>
@@ -165,8 +235,9 @@
       ·.·.· Welcome to Modded Among Us Lobbies ·.·.·
       <img src="images/maul.png" alt="MAUL Icon" class="maul-icon">
     </p>
-    <p>We are a server dedicated to running different types of modded Among Us lobbies, with a strong sense of community and support 💃</p>
-
+    <p>
+      We are a server dedicated to running various modded Among Us lobbies with a strong sense of community and support 💃
+    </p>
     <div class="offer-item">
       <h3>🎮 Frequent Lobbies</h3>
       <p>Multiple modded lobbies posted daily.</p>
@@ -177,7 +248,7 @@
     </div>
     <div class="offer-item">
       <h3>🤝 Expert Support</h3>
-      <p>Support for setting up/ joining modded Among Us lobbies.</p>
+      <p>Support for setting up and joining modded Among Us lobbies.</p>
     </div>
     <div class="offer-item">
       <h3>
@@ -206,6 +277,7 @@
   </section>
 
   <script>
+    // Fetch Discord widget info to update online member count
     const serverId = "995954559044304896";
     const widgetUrl = `https://discord.com/api/guilds/${serverId}/widget.json`;
 
