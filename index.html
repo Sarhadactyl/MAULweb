@@ -94,11 +94,32 @@
     .header h1 {
       font-size: 3em;
       margin: 0;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.6);
       animation: fadeIn 1s ease-out;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    .info-paragraph {
+      font-size: 1.1em;
+      line-height: 1.6em;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+    .info-paragraph a {
+      color: #fff;
+      text-decoration: underline;
+      transition: color 0.3s;
+    }
+    .info-paragraph a:hover {
+      color: #ddd;
     }
     /* Member Info Container */
     .member-info-container {
@@ -108,7 +129,6 @@
       margin: 20px auto;
       flex-wrap: wrap;
     }
-
     .member-box {
       font-size: 1.2em;
       color: #fff;
@@ -117,6 +137,9 @@
       background-color: #333;
       border-radius: 5px;
       transition: background 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     .member-box:hover {
       background-color: #444;
@@ -130,29 +153,26 @@
       margin-right: 5px;
       vertical-align: middle;
     }
-
     .total-dot {
       background-color: rgb(0, 180, 221);
     }
-    a {
+    /* Discord Button Style */
+    .discord-button {
+      background-color: #5865F2;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 12px;
       color: #fff;
-      text-decoration: underline;
-      transition: color 0.3s;
+      font-size: 1em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.3s;
+      text-decoration: none;
     }
-    a:hover {
-      color: #ddd;
-    }
-    /* Info Paragraph Styling */
-    .info-paragraph {
-      font-size: 1.1em;
-      line-height: 1.6em;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 800px;
-      margin: 20px auto;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    .discord-button:hover {
+      background-color: #4752C4;
     }
     /* What We Offer Section with Slide-In Animation */
     #whatWeOffer {
@@ -226,11 +246,13 @@
     <h1>Welcome to MAUL!</h1>
   </div>
 
-  <!-- Enhanced Info Paragraph Will Edit More-->
+  <!-- Enhanced Info Paragraph -->
   <p class="info-paragraph">
-    Welcome to the largest non-developer modded Among Us community on Discord! Every day, we host over 20 high-energy modded lobbies that keep the action alive, and our vibrant community has grown to over 13,800 active members – and we’re still expanding! Whether you’re looking for competitive play, a fun and friendly atmosphere, or expert support in modding and gameplay, you’ll find it here.
+    Welcome to the largest non-developer modded Among Us community on Discord! Every day, we host over 20 modded lobbies that keep the action alive, and our vibrant community has grown to over 13,800 active members – and we’re still expanding! Whether you’re looking for competitive play, a fun and friendly atmosphere, or expert support in modding and gameplay, you’ll find it here.
     <br>
-    <a href="https://discord.gg/MAUL" target="_blank"><i class="fa-brands fa-discord"></i> Join our Discord and be part of the excitement!</a>
+    <a href="https://discord.gg/MAUL" target="_blank">
+      <i class="fa-brands fa-discord"></i> Join our Discord and be part of the excitement!
+    </a>
   </p>
 
   <!-- Member Info Container -->
@@ -243,6 +265,9 @@
       <span class="online-dot total-dot"></span>
       Total Members: <span>13,800</span>
     </div>
+    <a href="https://discord.gg/MAUL" target="_blank" class="discord-button">
+      <i class="fa-brands fa-discord"></i> Discord
+    </a>
   </div>
 
   <!-- What We Offer Section -->
@@ -295,7 +320,6 @@
   </section>
 
   <script>
-
     const serverId = "995954559044304896";
     const widgetUrl = `https://discord.com/api/guilds/${serverId}/widget.json`;
 
