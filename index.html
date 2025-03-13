@@ -1,52 +1,77 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Modded Among Us Lobbies</title>
   <style>
-    /* styling for the body background */
+
     body {
-      background-color: #f0f0f0; /* light grey */
-      margin: 0; /* remove default margin if desired */
-      padding: 0; /* remove default padding if desired */
-      font-family: Arial, sans-serif; /* optional */
+      background-color: #373737; 
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
     }
 
-    /* styling for header with text over image */
     .header {
       position: relative;
       text-align: center;
-      color: white; /* Text color on top of image */
+      color: white;
       width: 100%;
-      max-width: 100%; /* Make sure it doesn't exceed the page width */
+      max-width: 100%;
       margin: 0 auto;
     }
     .header img {
-      width: 100%; 
-      height: auto; /* Keep the aspect ratio of the image */
+      width: 100%;
+      height: auto;
       display: block;
     }
     .header h1 {
-      position: absolute; 
-      top: 50%; 
-      left: 50%; 
-      transform: translate(-50%, -50%); 
-      font-size: 3em; 
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3em;
       margin: 0;
+    }
+
+    #memberCountContainer {
+      margin: 20px;
+      font-size: 1.2em;
     }
   </style>
 </head>
 <body>
 
   <div class="header">
-    <!-- Make sure the path here is correct relative to your HTML file -->
+
     <img src="images/Modded-among-us_11zon.jpg" alt="Modded Among Us Header">
     <h1>Welcome to MAUL!</h1>
   </div>
 
   <p>
     Some page stuff
-    <!-- Actual clickable link -->
     <a href="https://discord.gg/MAUL" target="_blank">Join our Discord!</a>
   </p>
+
+  <div id="memberCountContainer">
+    Online Members: <span id="memberCount">Loading...</span>
+  </div>
+
+  <script>
+   
+    const serverId = "995954559044304896";
+    const widgetUrl = `https://discord.com/api/guilds/${serverId}/widget.json`;
+
+    fetch(widgetUrl)
+      .then(response => response.json())
+      .then(data => {
+        // 'presence_count' number of online members
+        document.getElementById("memberCount").textContent = data.presence_count;
+      })
+      .catch(error => {
+        console.error("Error fetching Discord widget data:", error);
+        document.getElementById("memberCount").textContent = "Error";
+      });
+  </script>
 
 </body>
 </html>
