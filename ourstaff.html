@@ -8,12 +8,12 @@
       height: 100%;
       margin: 0;
       padding: 0;
-      background-color: #000; /* Fallback color */
+      background-color: #000; /* fallback color */
       font-family: Arial, sans-serif;
       color: #fff;
     }
 
-    /* Set the background image to cover the page */
+    /* Background image covering the screen */
     body {
       background: #000 url("images/background.png") no-repeat center center fixed;
       background-size: cover;
@@ -54,23 +54,23 @@
       display: block;
     }
 
-    /* Page Title */
+    /* Page Title (remove extra top margin) */
     h1 {
       text-align: center;
-      margin: 80px 0 30px; /* top margin ensures it's not under the menu */
+      margin: 20px 0 30px; /* Adjust as needed to remove black header */
     }
 
-    /* Staff Container */
+    /* Staff Container (reduce top margin) */
     .staff-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       max-width: 1200px;
-      margin: 0 auto 40px; /* center container, space at bottom */
-      padding: 0 20px; /* optional side padding if you want some space */
+      margin: 0 auto 40px; /* no top margin */
+      padding: 0 20px;     /* optional side padding */
     }
 
-    /* Each staff role: slightly grey & transparent background */
+    /* Slightly grey & transparent staff role cards */
     .staff-role {
       background-color: rgba(100, 100, 100, 0.3);
       border: 1px solid #1d0909;
@@ -377,8 +377,6 @@
     <!-- Events & Giveaways -->
     <div class="staff-role">
       <h2>Events & Giveaways</h2>
-      
-      <!-- Giveaway Manager -->
       <details>
         <summary>Giveaway Manager</summary>
         <div class="details-content">
@@ -390,8 +388,6 @@
           </div>
         </div>
       </details>
-
-      <!-- Event Director -->
       <details>
         <summary>Event Director</summary>
         <div class="details-content">
@@ -403,8 +399,6 @@
           </div>
         </div>
       </details>
-
-      <!-- Event Manager -->
       <details>
         <summary>Event Manager</summary>
         <div class="details-content">
@@ -416,8 +410,6 @@
           </div>
         </div>
       </details>
-
-      <!-- Trial Event Managers -->
       <details>
         <summary>Trial Event Managers</summary>
         <div class="details-content">
