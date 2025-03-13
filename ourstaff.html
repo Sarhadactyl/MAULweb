@@ -4,12 +4,46 @@
   <title>Our Staff</title>
   <style>
     body {
-      background-color: #1d1d1d;
+      background-color: #990000;
       margin: 0;
       padding: 20px;
       font-family: Arial, sans-serif;
       color: white;
       min-height: 900000px;
+    }
+    /* Hamburger Dropdown Styles (matching index.html) */
+    .dropdown {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+    }
+    .dropbtn {
+      background-color: transparent;
+      border: none;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #2a2a2a;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      border-radius: 5px;
+    }
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #3a3a3a;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
     h1 {
       text-align: center;
@@ -64,91 +98,13 @@
       font-size: 1.1em;
       text-decoration: underline;
     }
-    /* Hamburger menu styles */
-    .hamburger-menu {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-    }
-    .hamburger-menu input {
-      display: none;
-    }
-    .hamburger-menu label {
-      display: block;
-      width: 30px;
-      height: 22px;
-      cursor: pointer;
-    }
-    .hamburger-menu label span,
-    .hamburger-menu label span::before,
-    .hamburger-menu label span::after {
-      display: block;
-      background-color: #fff;
-      height: 4px;
-      width: 100%;
-      border-radius: 2px;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    .hamburger-menu label span::before,
-    .hamburger-menu label span::after {
-      content: "";
-      position: absolute;
-    }
-    .hamburger-menu label span::before {
-      top: -8px;
-    }
-    .hamburger-menu label span::after {
-      top: 8px;
-    }
-    /* Navigation overlay */
-    .nav-overlay {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 250px;
-      height: 100%;
-      background-color: #2a2a2a;
-      box-shadow: 2px 0 12px rgba(0, 0, 0, 0.4);
-      transition: left 0.3s ease;
-      z-index: 900;
-      padding-top: 60px;
-      text-align: center;
-    }
-    .nav-overlay a {
-      display: block;
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.2em;
-      margin: 20px 0;
-    }
-    /* Toggle nav overlay when checkbox is checked */
-    .hamburger-menu input:checked ~ .nav-overlay {
-      left: 0;
-    }
-    /* Animate hamburger icon into an X when checked */
-    .hamburger-menu input:checked + label span {
-      background: transparent;
-    }
-    .hamburger-menu input:checked + label span::before {
-      transform: rotate(45deg);
-      top: 0;
-    }
-    .hamburger-menu input:checked + label span::after {
-      transform: rotate(-45deg);
-      top: 0;
-    }
   </style>
 </head>
 <body>
   <!-- Hamburger Menu -->
-  <div class="hamburger-menu">
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle">
-      <span></span>
-    </label>
-    <div class="nav-overlay">
+  <div class="dropdown">
+    <button class="dropbtn">&#9776;</button>
+    <div class="dropdown-content">
       <a href="index.html">Main Page</a>
     </div>
   </div>
@@ -291,7 +247,7 @@
     <div class="staff-role">
       <h2>Event Director</h2>
       <div class="staff-member">
-        <h3>Croissant</h3>
+        <h3><!-- Add event director name(s) here --></h3>
         <img src="images/event.png" alt="Event Director">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
@@ -302,7 +258,7 @@
     <div class="staff-role">
       <h2>Event Manager</h2>
       <div class="staff-member">
-        <h3><!-- Add event director name(s) here --></h3>
+        <h3>Croissant</h3>
         <img src="images/event.png" alt="Event Manager @croissant">
         <h4>About Me</h4>
         <p><!-- About Me --></p>
