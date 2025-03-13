@@ -3,7 +3,7 @@
 <head>
   <title>Our Staff</title>
   <style>
-    /* Make sure html and body both fill the viewport */
+
     html, body {
       height: 100%;
       margin: 0;
@@ -54,23 +54,52 @@
       display: block;
     }
 
+    /* Apply for Staff Section */
+    .apply-section {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(0,0,0,0.5);
+      border: 1px solid #1d0909;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .apply-section h2 {
+      margin: 0;
+      font-size: 1.8em;
+      color: #fff;
+    }
+    .apply-links {
+      margin-top: 10px;
+      font-size: 1.2em;
+    }
+    .apply-links span,
+    .apply-links a {
+      margin: 0 15px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .apply-disclaimer {
+      margin-top: 10px;
+      font-size: 0.8em;
+      color: #ccc;
+    }
 
+    /* Page Heading */
     h1 {
       text-align: center;
       margin: 20px 0 30px;
     }
 
-
+    /* Staff Container (3 columns) */
     .staff-container {
       display: grid;
-      /* 3 columns of equal width */
       grid-template-columns: 1fr 1fr 1fr;
       gap: 20px;
       max-width: 1200px;
       margin: 0 auto 40px;
       padding: 0 20px;
     }
-
 
     .staff-role {
       background-color: rgba(100, 100, 100, 0.3);
@@ -145,39 +174,6 @@
       line-height: 1.4;
       color: #fff;
     }
-
-    /* Apply for Staff Section */
-    .apply-section {
-      max-width: 1200px;
-      margin: 0 auto 40px;
-      padding: 20px;
-      background-color: rgba(0,0,0,0.5);
-      border: 1px solid #1d0909;
-      border-radius: 5px;
-      text-align: center;
-    }
-    .apply-section h2 {
-      margin: 0;
-      font-size: 1.8em;
-      color: #fff;
-    }
-    .apply-status {
-      display: inline-flex;
-      align-items: center;
-      margin-top: 10px;
-      font-size: 1.2em;
-      color: #fff;
-    }
-    .apply-status .dot {
-      width: 12px;
-      height: 12px;
-      background-color: red;
-      border-radius: 50%;
-      margin-right: 8px;
-    }
-    .apply-status span {
-      font-weight: bold;
-    }
   </style>
 </head>
 <body>
@@ -189,11 +185,21 @@
     </div>
   </div>
 
+
+  <div class="apply-section">
+    <h2>Apply for Staff</h2>
+    <div class="apply-links">
+      <span>Moderation</span>
+      <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344252646743085096">Event Manager</a>
+      <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344252646743085096">Giveaway Manager</a>
+    </div>
+    <p class="apply-disclaimer">* Giveaway and Event Managers must open a ticket to apply.</p>
+  </div>
+
   <h1>Our Staff</h1>
 
   <!-- Staff Container (3 columns) -->
   <div class="staff-container">
-
     <!-- Row 1: Owners (col 1), Head Admin (col 2), Admin (col 3) -->
     <div class="staff-role" style="grid-column: 1;">
       <h2>Owners</h2>
@@ -429,17 +435,8 @@
     </div>
   </div>
 
-  <!-- Apply for Staff Section -->
-  <div class="apply-section">
-    <h2>Apply for Staff</h2>
-    <div class="apply-status">
-      <div class="dot"></div>
-      <span>- Closed</span>
-    </div>
-  </div>
-
   <script>
-    // Only one <details> can be open at once
+
     document.addEventListener('DOMContentLoaded', () => {
       const allDetails = document.querySelectorAll('details');
       allDetails.forEach((detail) => {
