@@ -78,6 +78,24 @@
       color: #fff;
       text-decoration: none;
       cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    /* hover effects ripple and highlight */
+    .apply-links span:hover,
+    .apply-links a:hover {
+      animation: ripple 0.6s ease-out;
+      color: #ff0;
+    }
+    @keyframes ripple {
+      0% {
+        text-shadow: 0 0 0 rgba(255,255,255,0.5);
+      }
+      50% {
+        text-shadow: 0 0 10px rgba(255,255,255,1);
+      }
+      100% {
+        text-shadow: 0 0 0 rgba(255,255,255,0.5);
+      }
     }
     /* Styling for closed Moderation text */
     .closed s {
@@ -91,8 +109,8 @@
       margin-right: 5px;
       vertical-align: middle;
     }
-    .red-dot { background-color: rgb(255, 0, 0); }
-    .green-dot { background-color: rgb(30, 255, 30); }
+    .red-dot { background-color: red; }
+    .green-dot { background-color: green; }
     .apply-disclaimer {
       margin-top: 10px;
       font-size: 0.8em;
@@ -186,6 +204,7 @@
       line-height: 1.4;
       color: #fff;
     }
+
 
     .modal {
       display: none;
@@ -509,7 +528,7 @@
         });
       });
 
-      // functionality for Moderation 
+      // Modal functionality for Moderation (closed)
       const moderation = document.getElementById('moderation');
       const modal = document.getElementById('modal');
       const closeModal = document.getElementById('close-modal');
