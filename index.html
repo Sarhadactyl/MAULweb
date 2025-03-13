@@ -10,6 +10,41 @@
       font-family: Arial, sans-serif;
       color: white;
     }
+    /* Hamburger Dropdown Styles */
+    .dropdown {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+    }
+    .dropbtn {
+      background-color: transparent;
+      border: none;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #2a2a2a;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      border-radius: 5px;
+    }
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #3a3a3a;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    /* Header Styles */
     .header {
       position: relative;
       text-align: center;
@@ -61,9 +96,6 @@
       background-color: #2a2a2a;
       border-radius: 5px;
       text-align: center;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
     }
     #whatWeOffer h2 {
       margin-top: 0;
@@ -83,21 +115,31 @@
       border-radius: 4px;
       padding: 15px;
       margin-bottom: 20px;
-      text-align: left; /* so the text lines up neatly */
+      text-align: left;
     }
     .offer-item h3 {
       margin: 0 0 10px;
-      font-size: 1.4em; /* slightly smaller */
+      font-size: 1.4em;
       font-weight: bold;
     }
     .offer-item p {
       margin: 0;
-      font-size: 0.95em; /* slightly smaller for a cleaner look */
+      font-size: 0.95em;
       line-height: 1.4;
     }
   </style>
 </head>
 <body>
+
+  <!-- Hamburger Menu  -->
+  <div class="dropdown">
+    <button class="dropbtn">&#9776;</button>
+    <div class="dropdown-content">
+      <!-- Link  ourstaff.html "Active Moderation" -->
+      <a href="ourstaff.html">Active Moderation</a>
+      <!-- add more links here  -->
+    </div>
+  </div>
 
   <div class="header">
     <img src="images/Modded-among-us_11zon.jpg" alt="Modded Among Us Header">
@@ -105,7 +147,7 @@
   </div>
 
   <p style="text-align:center; margin: 20px 0;">
-    Some page stuff    ❤️
+    Some page stuff❤️
     <a href="https://discord.gg/MAUL" target="_blank">Join our Discord!</a>
   </p>
 
