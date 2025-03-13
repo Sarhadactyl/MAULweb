@@ -8,12 +8,12 @@
       height: 100%;
       margin: 0;
       padding: 0;
-      background-color: #000; /* Fallback color */
+      background-color: #000; /* fallback color */
       font-family: Arial, sans-serif;
       color: #fff;
     }
 
-    /* Set the background image to cover the page */
+    /* Background image covering the screen */
     body {
       background: #000 url("images/background.png") no-repeat center center fixed;
       background-size: cover;
@@ -54,23 +54,24 @@
       display: block;
     }
 
-    /* Page Title */
+
     h1 {
       text-align: center;
-      margin: 80px 0 30px; /* top margin ensures it's not under the menu */
+      margin: 20px 0 30px;
     }
 
-    /* Staff Container */
+
     .staff-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      /* 3 columns of equal width */
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 20px;
       max-width: 1200px;
-      margin: 0 auto 40px; /* center container, space at bottom */
-      padding: 0 20px; /* optional side padding if you want some space */
+      margin: 0 auto 40px;
+      padding: 0 20px;
     }
 
-    /* Each staff role: slightly grey & transparent background */
+
     .staff-role {
       background-color: rgba(100, 100, 100, 0.3);
       border: 1px solid #1d0909;
@@ -190,11 +191,11 @@
 
   <h1>Our Staff</h1>
 
-  <!-- Staff Container -->
+  <!-- Staff Container (3 columns) -->
   <div class="staff-container">
 
-    <!-- Owners -->
-    <div class="staff-role">
+    <!-- Row 1: Owners (col 1), Head Admin (col 2), Admin (col 3) -->
+    <div class="staff-role" style="grid-column: 1;">
       <h2>Owners</h2>
       <details>
         <summary>Server Owner: Laikrai</summary>
@@ -218,8 +219,7 @@
       </details>
     </div>
 
-    <!-- Head Admin -->
-    <div class="staff-role">
+    <div class="staff-role" style="grid-column: 2;">
       <h2>Head Admin</h2>
       <details>
         <summary>Tasha</summary>
@@ -233,8 +233,7 @@
       </details>
     </div>
 
-    <!-- Admin -->
-    <div class="staff-role">
+    <div class="staff-role" style="grid-column: 3;">
       <h2>Admin</h2>
       <details>
         <summary>Ryuk</summary>
@@ -258,8 +257,8 @@
       </details>
     </div>
 
-    <!-- Senior Moderator -->
-    <div class="staff-role">
+    <!-- Row 2: Senior Mod (col 1), Moderator (col 2), Trial Mod (col 3) -->
+    <div class="staff-role" style="grid-column: 1;">
       <h2>Senior Moderator</h2>
       <details>
         <summary>Northie</summary>
@@ -283,8 +282,8 @@
       </details>
     </div>
 
-    <!-- Moderator -->
-    <div class="staff-role">
+    <!-- Moderator is centered (col 2) -->
+    <div class="staff-role" style="grid-column: 2;">
       <h2>Moderator</h2>
       <details>
         <summary>LilPea</summary>
@@ -358,8 +357,8 @@
       </details>
     </div>
 
-    <!-- Trial Mod -->
-    <div class="staff-role">
+    <!-- Trial Mod on right (col 3) -->
+    <div class="staff-role" style="grid-column: 3;">
       <h2>Trial Mod</h2>
       <details>
         <summary>Trial Mods</summary>
@@ -374,11 +373,9 @@
       </details>
     </div>
 
-    <!-- Events & Giveaways -->
-    <div class="staff-role">
+    <!-- Row 3: Place Events & Giveaways in the center column (col 2) -->
+    <div class="staff-role" style="grid-column: 2;">
       <h2>Events & Giveaways</h2>
-      
-      <!-- Giveaway Manager -->
       <details>
         <summary>Giveaway Manager</summary>
         <div class="details-content">
@@ -390,8 +387,6 @@
           </div>
         </div>
       </details>
-
-      <!-- Event Director -->
       <details>
         <summary>Event Director</summary>
         <div class="details-content">
@@ -403,8 +398,6 @@
           </div>
         </div>
       </details>
-
-      <!-- Event Manager -->
       <details>
         <summary>Event Manager</summary>
         <div class="details-content">
@@ -416,8 +409,6 @@
           </div>
         </div>
       </details>
-
-      <!-- Trial Event Managers -->
       <details>
         <summary>Trial Event Managers</summary>
         <div class="details-content">
