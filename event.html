@@ -39,30 +39,39 @@
     .stack-slide:hover {
       opacity: 1;
     }
-
     .stack-slide img {
       width: 100%;
       height: 100%;
       object-fit: contain; 
       display: block;
     }
-
+    /* Slide headings */
+    .slide-title {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      margin: 0;
+      color: #fff;
+      font-size: 1.2em;
+      background-color: rgba(0,0,0,0.3);
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+    /* Active/current slide */
     .stack-slide.active {
       z-index: 10;
       left: 0;
       opacity: 1; 
     }
-  
+    /* Next slides that peek in */
     .stack-slide.next1 {
       left: 10%;
       z-index: 9;
     }
- 
     .stack-slide.next2 {
       left: 20%;
       z-index: 8;
     }
-
     .stack-slide.hidden {
       left: 0;
       z-index: 1;
@@ -81,7 +90,7 @@
       cursor: pointer;
       border-radius: 50%;
       user-select: none;
-      z-index: 999; 
+      z-index: 999;
     }
     .prev:hover, .next:hover {
       background-color: rgba(0,0,0,0.8);
@@ -96,26 +105,33 @@
 </head>
 <body>
   <div class="stack-container">
-
+    <!-- Slide 1 -->
     <div class="stack-slide">
       <img src="images/event1.png" alt="Event 1">
+      <h2 class="slide-title">Event 1</h2>
     </div>
+    <!-- Slide 2 -->
     <div class="stack-slide">
       <img src="images/event2.png" alt="Event 2">
+      <h2 class="slide-title">Event 2</h2>
     </div>
+
     <div class="stack-slide">
       <img src="images/event3.png" alt="Event 3">
+      <h2 class="slide-title">Event 3</h2>
     </div>
     <div class="stack-slide">
       <img src="images/event4.png" alt="Event 4">
+      <h2 class="slide-title">Event 4</h2>
     </div>
     <div class="stack-slide">
       <img src="images/event5.png" alt="Event 5">
+      <h2 class="slide-title">Event 55</h2>
     </div>
     <div class="stack-slide">
       <img src="images/event6.png" alt="Event 6">
+      <h2 class="slide-title">Event 6</h2>
     </div>
-
 
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
@@ -129,7 +145,6 @@
     let currentIndex = 0;
     let slideInterval = setInterval(nextSlide, 3000); 
 
-
     updateSlides();
 
     function updateSlides() {
@@ -138,17 +153,13 @@
         slide.classList.remove('active', 'next1', 'next2', 'hidden');
       });
 
-
       slides[currentIndex].classList.add('active');
-
 
       const next1Index = (currentIndex + 1) % slides.length;
       slides[next1Index].classList.add('next1');
 
-
       const next2Index = (currentIndex + 2) % slides.length;
       slides[next2Index].classList.add('next2');
-
 
       slides.forEach((slide, i) => {
         if (i !== currentIndex && i !== next1Index && i !== next2Index) {
