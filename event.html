@@ -20,7 +20,7 @@
       justify-content: center;
       align-items: center;
     }
-    /* Carousel Container */
+
     .carousel-container {
       position: relative;
       width: 66%;
@@ -28,26 +28,27 @@
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0,0,0,0.7);
     }
- 
+
     .carousel-track {
       display: flex;
       transition: transform 0.5s ease;
     }
 
     .carousel-slide {
-      min-width: 80%;
-      margin: 0 10px;
-      opacity: 0.85;
+      min-width: 80%;             
+      margin: 0 10px;            
+      opacity: 0.85;             
       transition: opacity 0.3s ease;
     }
     .carousel-slide:hover {
-      opacity: 1;
+      opacity: 1;                
     }
     .carousel-slide img {
       width: 100%;
       height: 100%;
-      object-fit: contain; 
+      object-fit: contain;       
     }
+
     .prev, .next {
       position: absolute;
       top: 50%;
@@ -103,7 +104,7 @@
         <img src="images/event10.png" alt="Event 10">
       </div>
     </div>
-    <!-- Arrow Buttons -->
+
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
   </div>
@@ -113,14 +114,15 @@
     const slides = Array.from(document.querySelectorAll('.carousel-slide'));
     const prevButton = document.querySelector('.prev');
     const nextButton = document.querySelector('.next');
+
     let currentSlide = 0;
-    const slideWidth = slides[0].offsetWidth + 20; 
+
+    let slideWidth = slides[0].offsetWidth + 20;
 
 
     function updateSlidePosition() {
       track.style.transform = 'translateX(-' + (currentSlide * slideWidth) + 'px)';
     }
-
 
     function nextSlide() {
       currentSlide = (currentSlide + 1) % slides.length;
@@ -132,6 +134,10 @@
       currentSlide = (currentSlide - 1 + slides.length) % slides.length;
       updateSlidePosition();
     }
+
+
+    let slideInterval = setInterval(nextSlide, 3000);
+
 
     nextButton.addEventListener('click', () => {
       clearInterval(slideInterval);
@@ -145,11 +151,10 @@
       slideInterval = setInterval(nextSlide, 3000);
     });
 
-    let slideInterval = setInterval(nextSlide, 3000);
-    
+
     window.addEventListener('resize', () => {
-      const newSlideWidth = slides[0].offsetWidth + 20;
-      track.style.transform = 'translateX(-' + (currentSlide * newSlideWidth) + 'px)';
+      slideWidth = slides[0].offsetWidth + 20;
+      updateSlidePosition();
     });
   </script>
 </body>
