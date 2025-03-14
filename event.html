@@ -25,6 +25,7 @@
       height: 66vh;
       margin: auto;
       box-shadow: 0 0 20px rgba(0,0,0,0.7);
+      overflow: hidden;
     }
     .slideshow-container img {
       width: 100%;
@@ -37,7 +38,29 @@
       transition: opacity 1s ease;
     }
     .slideshow-container img.active {
-      opacity: 1;
+      opacity: 0.85;
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: #fff;
+      font-size: 2em;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      user-select: none;
+    }
+    .prev:hover, .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .prev {
+      left: 10px;
+    }
+    .next {
+      right: 10px;
     }
   </style>
 </head>
@@ -52,18 +75,48 @@
     <img src="images/event7.png" alt="Event 7">
     <img src="images/event8.png" alt="Event 8">
     <img src="images/event10.png" alt="Event 10">
+    
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
   </div>
 
   <script>
     const slides = document.querySelectorAll('.slideshow-container img');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
     let currentSlide = 0;
-    const slideInterval = setInterval(nextSlide, 3000);
+    let slideInterval = setInterval(nextSlide, 3000);
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+        }
+      });
+    }
 
     function nextSlide() {
-      slides[currentSlide].classList.remove('active');
       currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add('active');
+      showSlide(currentSlide);
     }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    nextButton.addEventListener('click', () => {
+      clearInterval(slideInterval);
+      nextSlide();
+      slideInterval = setInterval(nextSlide, 3000);
+    });
+
+    prevButton.addEventListener('click', () => {
+      clearInterval(slideInterval);
+      prevSlide();
+      slideInterval = setInterval(nextSlide, 3000);
+    });
   </script>
 </body>
 </html>
