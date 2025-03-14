@@ -12,6 +12,7 @@
       color: #fff;
       overflow: hidden;
     }
+
     body {
       background: #000 url("images/background.png") no-repeat center center fixed;
       background-size: cover;
@@ -19,32 +20,39 @@
       justify-content: center;
       align-items: center;
     }
-    .slideshow-container {
+    /* Carousel Container */
+    .carousel-container {
       position: relative;
       width: 66%;
       height: 66vh;
-      margin: auto;
-      box-shadow: 0 0 20px rgba(0,0,0,0.7);
       overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
     }
-    .slideshow-container img {
+ 
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-slide {
+      min-width: 80%;
+      margin: 0 10px;
+      opacity: 0.85;
+      transition: opacity 0.3s ease;
+    }
+    .carousel-slide:hover {
+      opacity: 1;
+    }
+    .carousel-slide img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-    .slideshow-container img.active {
-      opacity: 0.85;
+      object-fit: contain; 
     }
     .prev, .next {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0,0,0,0.5);
       border: none;
       color: #fff;
       font-size: 2em;
@@ -54,7 +62,7 @@
       user-select: none;
     }
     .prev:hover, .next:hover {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0,0,0,0.8);
     }
     .prev {
       left: 10px;
@@ -65,45 +73,64 @@
   </style>
 </head>
 <body>
-  <div class="slideshow-container">
-    <img src="images/event1.png" class="active" alt="Event 1">
-    <img src="images/event2.png" alt="Event 2">
-    <img src="images/event3.png" alt="Event 3">
-    <img src="images/event4.png" alt="Event 4">
-    <img src="images/event5.png" alt="Event 5">
-    <img src="images/event6.png" alt="Event 6">
-    <img src="images/event7.png" alt="Event 7">
-    <img src="images/event8.png" alt="Event 8">
-    <img src="images/event10.png" alt="Event 10">
-    
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="images/event1.png" alt="Event 1">
+      </div>
+      <div class="carousel-slide">
+        <img src="images/event2.png" alt="Event 2">
+      </div>
+      <div class="carousel-slide">
+        <img src="images/event3.png" alt="Event 3">
+      </div>
+      <div class="carousel-slide">
+        <img src="images/event4.png" alt="Event 4">
+      </div>
+      <div class="carousel-slide">
+        <img src="images/event5.png" alt="Event 5">
+      </div>
+      <div class="carousel-slide">
+        <img src="images/event6.png" alt="Event 6">
+      </div>
+      <div class="carousel-slide">
+        <img src="images/event7.png" alt="Event 7">
+      </div>
+      <div class="carousel-slide">
+        <img src="images/event8.png" alt="Event 8">
+      </div>
+      <div class="carousel-slide">
+        <img src="images/event10.png" alt="Event 10">
+      </div>
+    </div>
+    <!-- Arrow Buttons -->
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
   </div>
 
   <script>
-    const slides = document.querySelectorAll('.slideshow-container img');
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
     const prevButton = document.querySelector('.prev');
     const nextButton = document.querySelector('.next');
     let currentSlide = 0;
-    let slideInterval = setInterval(nextSlide, 3000);
+    const slideWidth = slides[0].offsetWidth + 20; 
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === index) {
-          slide.classList.add('active');
-        }
-      });
+
+    function updateSlidePosition() {
+      track.style.transform = 'translateX(-' + (currentSlide * slideWidth) + 'px)';
     }
+
 
     function nextSlide() {
       currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
+      updateSlidePosition();
     }
+
 
     function prevSlide() {
       currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      showSlide(currentSlide);
+      updateSlidePosition();
     }
 
     nextButton.addEventListener('click', () => {
@@ -116,6 +143,13 @@
       clearInterval(slideInterval);
       prevSlide();
       slideInterval = setInterval(nextSlide, 3000);
+    });
+
+    let slideInterval = setInterval(nextSlide, 3000);
+    
+    window.addEventListener('resize', () => {
+      const newSlideWidth = slides[0].offsetWidth + 20;
+      track.style.transform = 'translateX(-' + (currentSlide * newSlideWidth) + 'px)';
     });
   </script>
 </body>
