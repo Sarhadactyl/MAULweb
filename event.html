@@ -21,6 +21,7 @@
       flex-direction: column;
       align-items: center;
     }
+
     header {
       width: 100%;
       text-align: center;
@@ -34,6 +35,7 @@
       font-size: 3em;
       color: #fff;
     }
+
     .dropdown {
       position: absolute;
       top: 20px;
@@ -62,7 +64,7 @@
     .dropdown-content {
       display: none;
       position: absolute;
-      top: 30px; 
+      top: 30px;
       left: 0;
       background-color: #151313;
       min-width: 180px;
@@ -86,48 +88,40 @@
 
     .slideshow-container {
       position: relative;
- 
       width: 90%;
       max-width: 800px;
-      height: auto;
-      overflow: hidden;
-      margin-top: 20px;
-    }
-    .slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
+      min-height: 400px;
 
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      z-index: 1;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .slide {
+      display: none; 
+      width: 100%;
     }
     .slide.active {
-      opacity: 1;
-      z-index: 10;
+      display: block; 
     }
+
     .slide h2 {
-      position: absolute;
-      top: 20px; 
-      left: 50%;
-      transform: translateX(-50%);
+      margin: 10px 0;
+      text-align: center;
       font-size: 2em;
-      background: rgba(128,128,128,0.5); 
+      background: rgba(128,128,128,0.5);
       padding: 10px 20px;
       border-radius: 5px;
-      margin: 0;
-      text-align: center;
-      z-index: 999;
+      display: inline-block;
     }
+
     .slide img {
       display: block;
       margin: 0 auto;
-      margin-top: 70px;
       width: 100%;
       height: auto;
-      object-fit: contain; 
+      object-fit: contain;
     }
+
     .prev, .next {
       position: absolute;
       top: 50%;
@@ -151,6 +145,7 @@
     .next {
       right: 10px;
     }
+
     footer {
       text-align: center;
       padding: 15px;
@@ -205,12 +200,11 @@
         font-size: 2em;
       }
       .slide h2 {
-        font-size: 1.2em;
-        top: 10px;
+        font-size: 1.4em;
         padding: 5px 10px;
       }
-      .slide img {
-        margin-top: 50px;
+      .slideshow-container {
+        min-height: 300px;
       }
     }
   </style>
@@ -236,6 +230,7 @@
   </div>
 
   <div class="slideshow-container">
+
     <div class="slide active">
       <h2>TOU-R</h2>
       <img src="images/event1.png" alt="Event 1">
@@ -294,7 +289,6 @@
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
     let currentIndex = 0;
-    let slideInterval = setInterval(nextSlide, 3000);
 
     function showSlide(index) {
       slides.forEach((slide, i) => {
@@ -315,6 +309,8 @@
       showSlide(currentIndex);
     }
 
+    let slideInterval = setInterval(nextSlide, 3000);
+
     nextBtn.addEventListener('click', () => {
       clearInterval(slideInterval);
       nextSlide();
@@ -330,9 +326,12 @@
     const form = document.getElementById('eventSubmissionForm');
     form.addEventListener('submit', async (e) => {
       e.preventDefault(); 
+
       const formData = new FormData(form);
+
       const userID = formData.get('userID');
       const message = formData.get('message');
+
       formData.delete('userID');
       formData.delete('message');
 
