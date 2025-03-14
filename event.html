@@ -23,37 +23,52 @@
       position: relative;
       width: 66%;
       height: 66vh;
-
+      overflow: hidden;
       border: none;
       box-shadow: none;
-      overflow: hidden; 
     }
-
-
     .stack-slide {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0.7;
-      transition: opacity 0.3s ease;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;      
+      transition: opacity 0.3s ease, left 0.5s ease;
+      z-index: 1;
+    }
+    .stack-slide:hover {
+      opacity: 1;
+    }
+
+    .stack-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; 
+      display: block;
     }
 
     .stack-slide.active {
       z-index: 10;
-      opacity: 1;
+      left: 0;
+      opacity: 1; 
     }
-
-    .stack-slide:hover {
-      opacity: 1;
+  
+    .stack-slide.next1 {
+      left: 10%;
+      z-index: 9;
     }
  
-    .stack-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+    .stack-slide.next2 {
+      left: 20%;
+      z-index: 8;
     }
 
+    .stack-slide.hidden {
+      left: 0;
+      z-index: 1;
+      opacity: 0;
+      pointer-events: none;
+    }
     .prev, .next {
       position: absolute;
       top: 50%;
@@ -66,7 +81,7 @@
       cursor: pointer;
       border-radius: 50%;
       user-select: none;
-      z-index: 999;
+      z-index: 999; 
     }
     .prev:hover, .next:hover {
       background-color: rgba(0,0,0,0.8);
@@ -82,7 +97,7 @@
 <body>
   <div class="stack-container">
 
-    <div class="stack-slide active">
+    <div class="stack-slide">
       <img src="images/event1.png" alt="Event 1">
     </div>
     <div class="stack-slide">
@@ -107,6 +122,7 @@
       <img src="images/event10.png" alt="Event 10">
     </div>
 
+
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
   </div>
@@ -119,20 +135,42 @@
     let currentIndex = 0;
     let slideInterval = setInterval(nextSlide, 3000); 
 
-    function showSlide(index) {
 
-      slides.forEach(slide => slide.classList.remove('active'));
-      slides[index].classList.add('active');
+    updateSlides();
+
+    function updateSlides() {
+
+      slides.forEach(slide => {
+        slide.classList.remove('active', 'next1', 'next2', 'hidden');
+      });
+
+
+      slides[currentIndex].classList.add('active');
+
+
+      const next1Index = (currentIndex + 1) % slides.length;
+      slides[next1Index].classList.add('next1');
+
+
+      const next2Index = (currentIndex + 2) % slides.length;
+      slides[next2Index].classList.add('next2');
+
+
+      slides.forEach((slide, i) => {
+        if (i !== currentIndex && i !== next1Index && i !== next2Index) {
+          slide.classList.add('hidden');
+        }
+      });
     }
 
     function nextSlide() {
       currentIndex = (currentIndex + 1) % slides.length;
-      showSlide(currentIndex);
+      updateSlides();
     }
 
     function prevSlide() {
       currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      showSlide(currentIndex);
+      updateSlides();
     }
 
     nextBtn.addEventListener('click', () => {
