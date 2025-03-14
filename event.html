@@ -33,25 +33,25 @@
       opacity: 0.8;
       transition: opacity 0.3s ease, left 0.5s ease;
       z-index: 1;
+      text-align: center;
     }
     .stack-slide:hover {
       opacity: 1;
     }
+    .slide-title {
+      font-weight: bold;
+      font-size: 1.5em;
+      margin: 10px 0;
+      background-color: rgba(0,0,0,0.5);
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
     .stack-slide img {
       width: 100%;
-      height: 100%;
+      height: calc(100% - 50px); 
       object-fit: contain;
       display: block;
-    }
-    .slide-header {
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1.5em;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      z-index: 11; 
+      margin: auto;
     }
     .stack-slide.active {
       z-index: 10;
@@ -99,24 +99,28 @@
 </head>
 <body>
   <div class="stack-container">
-    <div class="slide-header" id="slide-header"></div>
-    
     <div class="stack-slide">
+      <div class="slide-title">Event 1</div>
       <img src="images/event1.png" alt="Event 1">
     </div>
     <div class="stack-slide">
+      <div class="slide-title">Event 2</div>
       <img src="images/event2.png" alt="Event 2">
     </div>
     <div class="stack-slide">
+      <div class="slide-title">Event 3</div>
       <img src="images/event3.png" alt="Event 3">
     </div>
     <div class="stack-slide">
+      <div class="slide-title">Event 4</div>
       <img src="images/event4.png" alt="Event 4">
     </div>
     <div class="stack-slide">
+      <div class="slide-title">Event 5</div>
       <img src="images/event5.png" alt="Event 5">
     </div>
     <div class="stack-slide">
+      <div class="slide-title">Event 6</div>
       <img src="images/event6.png" alt="Event 6">
     </div>
 
@@ -126,63 +130,54 @@
 
   <script>
     const slides = Array.from(document.querySelectorAll('.stack-slide'));
-    const headerEl = document.getElementById('slide-header');
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
-    
+
     let currentIndex = 0;
     let slideInterval = setInterval(nextSlide, 3000);
-
+    
     function updateSlides() {
       slides.forEach(slide => {
         slide.classList.remove('active', 'next1', 'next2', 'hidden');
       });
-
+      
       slides[currentIndex].classList.add('active');
-
+      
       const next1Index = (currentIndex + 1) % slides.length;
       slides[next1Index].classList.add('next1');
-
+      
       const next2Index = (currentIndex + 2) % slides.length;
       slides[next2Index].classList.add('next2');
-
+      
       slides.forEach((slide, i) => {
         if (i !== currentIndex && i !== next1Index && i !== next2Index) {
           slide.classList.add('hidden');
         }
       });
-      
-      const activeImageAlt = slides[currentIndex].querySelector('img').alt;
-      
-      headerEl.style.opacity = 0;
-      setTimeout(() => {
-        headerEl.textContent = activeImageAlt;
-        headerEl.style.opacity = 1;
-      }, 300);
     }
-
+    
     function nextSlide() {
       currentIndex = (currentIndex + 1) % slides.length;
       updateSlides();
     }
-
+    
     function prevSlide() {
       currentIndex = (currentIndex - 1 + slides.length) % slides.length;
       updateSlides();
     }
-
+    
     nextBtn.addEventListener('click', () => {
       clearInterval(slideInterval);
       nextSlide();
       slideInterval = setInterval(nextSlide, 3000);
     });
-
+    
     prevBtn.addEventListener('click', () => {
       clearInterval(slideInterval);
       prevSlide();
       slideInterval = setInterval(nextSlide, 3000);
     });
-
+    
     updateSlides();
   </script>
 </body>
