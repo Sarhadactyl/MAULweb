@@ -157,17 +157,22 @@
     }
     footer form {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      flex-wrap: wrap;
+      gap: 10px;
     }
-    footer input[type="text"] {
+    footer form > * {
+      width: 80%;
+      max-width: 400px;
+    }
+    footer input[type="text"],
+    footer textarea {
       padding: 10px;
       font-size: 1em;
       border: none;
       border-radius: 5px;
-      margin-right: 10px;
-      width: 250px;
+      width: 100%;
+      box-sizing: border-box;
     }
     footer input[type="file"] {
       padding: 10px;
@@ -175,7 +180,6 @@
       border: none;
       color: #000;
       border-radius: 5px;
-      margin-right: 10px;
       background-color: #fff; 
     }
     footer button {
@@ -244,14 +248,32 @@
   </div>
 
   <footer>
+
     <form id="eventSubmissionForm" enctype="multipart/form-data">
-      <input type="text" name="content" placeholder="Enter your submission here...">
-      <input type="file" name="file" accept="image/*">
+      <input 
+        type="text" 
+        name="userID" 
+        placeholder="Enter your Discord User ID" 
+        required 
+      >
+      <textarea 
+        name="message" 
+        placeholder="Enter your message here..." 
+        rows="3" 
+        required
+      ></textarea>
+      <input 
+        type="file" 
+        name="file" 
+        accept="image/*" 
+        required
+      >
       <button type="submit">Submit</button>
     </form>
   </footer>
 
   <script>
+
     const slides = document.querySelectorAll('.slide');
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
@@ -291,12 +313,17 @@
 
     const form = document.getElementById('eventSubmissionForm');
     form.addEventListener('submit', async (e) => {
-      e.preventDefault(); 
+      e.preventDefault();
 
       const formData = new FormData(form);
+      const userID = formData.get('userID');
+      const message = formData.get('message');
+      formData.delete('userID');
+      formData.delete('message');
+
+      formData.set('content', `<@${userID}>: ${message}`);
 
       try {
-
         const response = await fetch(
           'https://discord.com/api/webhooks/1350027630287523860/uu-sOfq1Cr96HS0R_pZgujot8kzICfFhJd2Akt7wLaYE20sskhhaKdwOoacPTWaQTIiK',
           {
@@ -307,6 +334,7 @@
 
         if (response.ok) {
           alert('Submission successful!');
+          form.reset();
         } else {
           alert('Error: ' + response.statusText);
         }
