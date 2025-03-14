@@ -7,7 +7,6 @@
         integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* Reset & Custom Font */
     html, body {
       height: 100%;
       margin: 0;
@@ -16,7 +15,6 @@
       color: #fff;
       overflow-x: hidden;
     }
-    /* Background with Overlay & Parallax Effect */
     body {
       background: #000 url("images/background.png") no-repeat center center fixed;
       background-size: cover;
@@ -42,7 +40,6 @@
       background: linear-gradient(to bottom, rgba(29,29,29,0.9), rgba(29,29,29,0.9));
       z-index: -1;
     }
-    /* Hamburger Menu (Top Left) */
     .dropdown {
       position: absolute;
       top: 20px;
@@ -59,7 +56,6 @@
     .dropbtn:hover {
       transform: scale(1.1);
     }
-    /* Custom Hamburger: three white lines */
     .hamburger {
       width: 30px;
       height: 22px;
@@ -94,7 +90,6 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
-    /* Header with Fade-In Animation */
     .header {
       position: relative;
       text-align: center;
@@ -110,6 +105,19 @@
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+    .special-events-header {
+      text-align: center;
+      margin: 20px auto;
+    }
+    .special-events-header a {
+      color: #fff;
+      font-size: 2em;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .special-events-header a:hover {
+      color: #ddd;
     }
     /* Enhanced Info Paragraph */
     .info-paragraph {
@@ -146,7 +154,6 @@
       padding: 10px 20px;
       background-color: #333;
       border-radius: 5px;
-      /* Uniform black shading on all member boxes */
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
       transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
       display: flex;
@@ -170,7 +177,6 @@
     .total-dot {
       background-color: rgb(0, 180, 221);
     }
-
     .discord-button {
       background-color: #4444;
       border: none;
@@ -182,7 +188,6 @@
       display: flex;
       align-items: center;
       gap: 8px;
-
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
       transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
       text-decoration: none;
@@ -192,7 +197,6 @@
       transform: scale(1.05);
       box-shadow: 0 0 10px rgba(0,0,0,1);
     }
-    /* What We Offer Section with Slide-In Animation */
     #whatWeOffer {
       margin: 20px auto;
       padding: 20px;
@@ -241,7 +245,6 @@
       font-size: 0.95em;
       line-height: 1.4;
     }
-    /* MAUL Icon Style - Smaller */
     .maul-icon {
       vertical-align: middle;
       max-height: 0.8em;
@@ -262,6 +265,7 @@
     </button>
     <div class="dropdown-content">
       <a href="ourstaff.html">Meet Our Staff</a>
+      <a href="https://moddedamong.us/event.html">Our Events</a>
     </div>
   </div>
 
@@ -270,7 +274,10 @@
     <h1>Welcome to MAUL!</h1>
   </div>
 
-  <!-- Enhanced Info Paragraph -->
+  <div class="special-events-header">
+    <a href="https://moddedamong.us/event.html">Special Events</a>
+  </div>
+
   <p class="info-paragraph">
     Welcome to the largest non-developer modded Among Us community on Discord! Every day, we host over 20 modded lobbies that keep the action alive, and our vibrant community has grown to over 13,800 active members – and we’re still expanding! Whether you’re looking for competitive play, a fun and friendly atmosphere, or expert support in modding and gameplay, you’ll find it here.
     <br>
@@ -278,8 +285,6 @@
       <i class="fa-brands fa-discord"></i> Join our Discord and be part of the excitement!
     </a>
   </p>
-
-  <!-- Member Info Container -->
   <div class="member-info-container">
     <div id="memberCountContainer" class="member-box">
       <span class="online-dot"></span>
@@ -294,16 +299,12 @@
     </a>
   </div>
 
-  <!-- What We Offer Section -->
   <section id="whatWeOffer">
     <h2>What We Offer</h2>
     <p>
       <img src="images/maul.png" alt="MAUL Icon" class="maul-icon">
       ·.·.· Welcome to Modded Among Us Lobbies ·.·.·
       <img src="images/maul.png" alt="MAUL Icon" class="maul-icon">
-    </p>
-    <p>
-      We are a server dedicated to running various modded Among Us lobbies with a strong sense of community and support 💃
     </p>
     <div class="offer-item">
       <h3>🎮 Frequent Lobbies</h3>
@@ -326,7 +327,11 @@
       <p>Enjoy a safe, well-managed environment with strong verification systems.</p>
     </div>
     <div class="offer-item">
-      <h3>🎉 Special Events</h3>
+      <h3>
+        <a href="https://moddedamong.us/event.html" style="color: white; text-decoration: none;">
+          🎉 Special Events
+        </a>
+      </h3>
       <p>Participate in Discord Game Nights, modded lobbies, and more!</p>
     </div>
     <div class="offer-item">
