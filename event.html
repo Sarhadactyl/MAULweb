@@ -3,7 +3,6 @@
 <head>
   <title>Event Slideshow</title>
   <style>
-
     html, body {
       height: 100%;
       margin: 0;
@@ -20,7 +19,6 @@
       flex-direction: column;
       align-items: center;
     }
-
     header {
       width: 100%;
       text-align: center;
@@ -34,7 +32,6 @@
       font-size: 3em;
       color: #fff;
     }
-
     .dropdown {
       position: absolute;
       top: 20px;
@@ -63,7 +60,7 @@
     .dropdown-content {
       display: none;
       position: absolute;
-      top: 30px;
+      top: 30px; 
       left: 0;
       background-color: #151313;
       min-width: 180px;
@@ -84,7 +81,6 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
-
     .slideshow-container {
       position: relative;
       width: 66%;
@@ -92,7 +88,6 @@
       overflow: hidden;
       margin-top: 20px;
     }
-
     .slide {
       position: absolute;
       top: 0;
@@ -107,7 +102,6 @@
       opacity: 1;
       z-index: 10;
     }
-
     .slide h2 {
       position: absolute;
       top: 20px; 
@@ -121,7 +115,6 @@
       text-align: center;
       z-index: 999;
     }
-
     .slide img {
       display: block;
       margin: 0 auto;
@@ -131,7 +124,6 @@
       max-height: calc(100% - 70px); 
       object-fit: contain;
     }
-
     .prev, .next {
       position: absolute;
       top: 50%;
@@ -155,7 +147,6 @@
     .next {
       right: 10px;
     }
-
     footer {
       text-align: center;
       padding: 15px;
@@ -185,6 +176,7 @@
       color: #000;
       border-radius: 5px;
       margin-right: 10px;
+      background-color: #fff; 
     }
     footer button {
       padding: 10px 20px;
@@ -252,9 +244,9 @@
   </div>
 
   <footer>
-    <form action="https://discord.com/api/webhooks/1350027630287523860/uu-sOfq1Cr96HS0R_pZgujot8kzICfFhJd2Akt7wLaYE20sskhhaKdwOoacPTWaQTIiK" method="post" enctype="multipart/form-data">
-      <input type="text" name="userSubmission" placeholder="Enter your submission here...">
-      <input type="file" name="eventImage" accept="image/*">
+    <form id="eventSubmissionForm" enctype="multipart/form-data">
+      <input type="text" name="content" placeholder="Enter your submission here...">
+      <input type="file" name="file" accept="image/*">
       <button type="submit">Submit</button>
     </form>
   </footer>
@@ -295,6 +287,32 @@
       clearInterval(slideInterval);
       prevSlide();
       slideInterval = setInterval(nextSlide, 3000);
+    });
+
+    const form = document.getElementById('eventSubmissionForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); 
+
+      const formData = new FormData(form);
+
+      try {
+
+        const response = await fetch(
+          'https://discord.com/api/webhooks/1350027630287523860/uu-sOfq1Cr96HS0R_pZgujot8kzICfFhJd2Akt7wLaYE20sskhhaKdwOoacPTWaQTIiK',
+          {
+            method: 'POST',
+            body: formData
+          }
+        );
+
+        if (response.ok) {
+          alert('Submission successful!');
+        } else {
+          alert('Error: ' + response.statusText);
+        }
+      } catch (err) {
+        alert('Error submitting: ' + err);
+      }
     });
   </script>
 </body>
