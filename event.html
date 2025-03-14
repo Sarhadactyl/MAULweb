@@ -3,6 +3,7 @@
 <head>
   <title>Event Slideshow</title>
   <style>
+
     html, body {
       height: 100%;
       margin: 0;
@@ -19,6 +20,7 @@
       flex-direction: column;
       align-items: center;
     }
+
 
     header {
       width: 100%;
@@ -90,8 +92,9 @@
       height: 66vh;
       overflow: hidden;
       margin-top: 20px;
-      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+
     }
+
     .slide {
       position: absolute;
       top: 0;
@@ -106,25 +109,29 @@
       opacity: 1;
       z-index: 10;
     }
-    .slide img {
-      width: 100%;
-      height: calc(100% - 60px);
-      object-fit: contain;
-      display: block;
-      margin: auto;
-    }
+
     .slide h2 {
       position: absolute;
-      top: 10px;
+      top: 20px; 
       left: 50%;
       transform: translateX(-50%);
-      font-size: 2.5em;
-      background: rgba(128,128,128,0.5);  
+      font-size: 2em;
+      background: rgba(128,128,128,0.5); 
       padding: 10px 20px;
       border-radius: 5px;
       margin: 0;
       text-align: center;
       z-index: 999;
+    }
+
+    .slide img {
+      display: block;
+      margin: 0 auto;
+      margin-top: 70px;  
+      width: 100%;
+      height: auto;
+      max-height: calc(100% - 70px); 
+      object-fit: contain;
     }
 
     .prev, .next {
@@ -194,7 +201,6 @@
     <h1>Our Events</h1>
   </header>
 
-
   <div class="dropdown">
     <button class="dropbtn">
       <div class="hamburger">
@@ -208,7 +214,6 @@
       <a href="https://moddedamong.us/ourstaff.html">Meet Our Staff</a>
     </div>
   </div>
-
   <div class="slideshow-container">
     <div class="slide active">
       <h2>TOU-R</h2>
@@ -238,6 +243,7 @@
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
   </div>
+
 
   <footer>
     <form action="#" method="post">
