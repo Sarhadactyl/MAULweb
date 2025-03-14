@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Stacked Photo Slideshow</title>
+  <title>Event Slideshow</title>
   <style>
     html, body {
       height: 100%;
@@ -19,58 +19,36 @@
       justify-content: center;
       align-items: center;
     }
-    .stack-container {
+    .slideshow-container {
       position: relative;
       width: 66%;
       height: 66vh;
       overflow: hidden;
     }
-    .stack-slide {
+    .slide {
       position: absolute;
-      top: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.8;
-      transition: opacity 0.3s ease, left 0.5s ease;
+      opacity: 0;
+      transition: opacity 0.5s ease;
       z-index: 1;
-      text-align: center;
     }
-    .stack-slide:hover {
+    .slide.active {
       opacity: 1;
+      z-index: 10;
     }
-    .slide-title {
-      font-weight: bold;
-      font-size: 1.5em;
-      margin: 10px 0;
-      background-color: rgba(0,0,0,0.5);
-      padding: 5px 10px;
-      border-radius: 4px;
-    }
-    .stack-slide img {
+    .slide img {
       width: 100%;
-      height: calc(100% - 50px); 
+      height: calc(100% - 60px); 
       object-fit: contain;
       display: block;
       margin: auto;
     }
-    .stack-slide.active {
-      z-index: 10;
-      left: 0;
-      opacity: 1;
-    }
-    .stack-slide.next1 {
-      left: 10%;
-      z-index: 9;
-    }
-    .stack-slide.next2 {
-      left: 20%;
-      z-index: 8;
-    }
-    .stack-slide.hidden {
-      left: 0;
-      z-index: 1;
-      opacity: 0;
-      pointer-events: none;
+    .slide h2 {
+      margin: 10px 0 0;
+      text-align: center;
+      font-size: 2em;
+      background: transparent;
     }
     .prev, .next {
       position: absolute;
@@ -98,29 +76,30 @@
   </style>
 </head>
 <body>
-  <div class="stack-container">
-    <div class="stack-slide">
-      <div class="slide-title">Event 1</div>
+  <div class="slideshow-container">
+
+    <div class="slide active">
+      <h2>Event 1</h2>
       <img src="images/event1.png" alt="Event 1">
     </div>
-    <div class="stack-slide">
-      <div class="slide-title">Event 2</div>
+    <div class="slide">
+      <h2>Event 2</h2>
       <img src="images/event2.png" alt="Event 2">
     </div>
-    <div class="stack-slide">
-      <div class="slide-title">Event 3</div>
+    <div class="slide">
+      <h2>Event 3</h2>
       <img src="images/event3.png" alt="Event 3">
     </div>
-    <div class="stack-slide">
-      <div class="slide-title">Event 4</div>
+    <div class="slide">
+      <h2>Event 4</h2>
       <img src="images/event4.png" alt="Event 4">
     </div>
-    <div class="stack-slide">
-      <div class="slide-title">Event 5</div>
+    <div class="slide">
+      <h2>Event 5</h2>
       <img src="images/event5.png" alt="Event 5">
     </div>
-    <div class="stack-slide">
-      <div class="slide-title">Event 6</div>
+    <div class="slide">
+      <h2>Event 6</h2>
       <img src="images/event6.png" alt="Event 6">
     </div>
 
@@ -129,56 +108,42 @@
   </div>
 
   <script>
-    const slides = Array.from(document.querySelectorAll('.stack-slide'));
+    const slides = document.querySelectorAll('.slide');
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
-
     let currentIndex = 0;
     let slideInterval = setInterval(nextSlide, 3000);
-    
-    function updateSlides() {
-      slides.forEach(slide => {
-        slide.classList.remove('active', 'next1', 'next2', 'hidden');
-      });
-      
-      slides[currentIndex].classList.add('active');
-      
-      const next1Index = (currentIndex + 1) % slides.length;
-      slides[next1Index].classList.add('next1');
-      
-      const next2Index = (currentIndex + 2) % slides.length;
-      slides[next2Index].classList.add('next2');
-      
+
+    function showSlide(index) {
       slides.forEach((slide, i) => {
-        if (i !== currentIndex && i !== next1Index && i !== next2Index) {
-          slide.classList.add('hidden');
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
         }
       });
     }
-    
+
     function nextSlide() {
       currentIndex = (currentIndex + 1) % slides.length;
-      updateSlides();
+      showSlide(currentIndex);
     }
-    
+
     function prevSlide() {
       currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      updateSlides();
+      showSlide(currentIndex);
     }
-    
+
     nextBtn.addEventListener('click', () => {
       clearInterval(slideInterval);
       nextSlide();
       slideInterval = setInterval(nextSlide, 3000);
     });
-    
+
     prevBtn.addEventListener('click', () => {
       clearInterval(slideInterval);
       prevSlide();
       slideInterval = setInterval(nextSlide, 3000);
     });
-    
-    updateSlides();
   </script>
 </body>
 </html>
