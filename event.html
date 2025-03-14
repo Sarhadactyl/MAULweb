@@ -24,15 +24,13 @@
       width: 66%;
       height: 66vh;
       overflow: hidden;
-      border: none;
-      box-shadow: none;
     }
     .stack-slide {
       position: absolute;
       top: 0;
       width: 100%;
       height: 100%;
-      opacity: 0.8;      
+      opacity: 0.8;
       transition: opacity 0.3s ease, left 0.5s ease;
       z-index: 1;
     }
@@ -42,28 +40,24 @@
     .stack-slide img {
       width: 100%;
       height: 100%;
-      object-fit: contain; 
+      object-fit: contain;
       display: block;
     }
-    /* Slide headings */
-    .slide-title {
+    .slide-header {
       position: absolute;
       top: 10px;
-      left: 10px;
-      margin: 0;
-      color: #fff;
-      font-size: 1.2em;
-      background-color: rgba(0,0,0,0.3);
-      padding: 5px 10px;
-      border-radius: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5em;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: 11; 
     }
-    /* Active/current slide */
     .stack-slide.active {
       z-index: 10;
       left: 0;
-      opacity: 1; 
+      opacity: 1;
     }
-    /* Next slides that peek in */
     .stack-slide.next1 {
       left: 10%;
       z-index: 9;
@@ -105,32 +99,25 @@
 </head>
 <body>
   <div class="stack-container">
-    <!-- Slide 1 -->
+    <div class="slide-header" id="slide-header"></div>
+    
     <div class="stack-slide">
       <img src="images/event1.png" alt="Event 1">
-      <h2 class="slide-title">Event 1</h2>
     </div>
-    <!-- Slide 2 -->
     <div class="stack-slide">
       <img src="images/event2.png" alt="Event 2">
-      <h2 class="slide-title">Event 2</h2>
     </div>
-
     <div class="stack-slide">
       <img src="images/event3.png" alt="Event 3">
-      <h2 class="slide-title">Event 3</h2>
     </div>
     <div class="stack-slide">
       <img src="images/event4.png" alt="Event 4">
-      <h2 class="slide-title">Event 4</h2>
     </div>
     <div class="stack-slide">
       <img src="images/event5.png" alt="Event 5">
-      <h2 class="slide-title">Event 55</h2>
     </div>
     <div class="stack-slide">
       <img src="images/event6.png" alt="Event 6">
-      <h2 class="slide-title">Event 6</h2>
     </div>
 
     <button class="prev">&#10094;</button>
@@ -139,16 +126,14 @@
 
   <script>
     const slides = Array.from(document.querySelectorAll('.stack-slide'));
+    const headerEl = document.getElementById('slide-header');
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
-
+    
     let currentIndex = 0;
-    let slideInterval = setInterval(nextSlide, 3000); 
-
-    updateSlides();
+    let slideInterval = setInterval(nextSlide, 3000);
 
     function updateSlides() {
-
       slides.forEach(slide => {
         slide.classList.remove('active', 'next1', 'next2', 'hidden');
       });
@@ -166,6 +151,14 @@
           slide.classList.add('hidden');
         }
       });
+      
+      const activeImageAlt = slides[currentIndex].querySelector('img').alt;
+      
+      headerEl.style.opacity = 0;
+      setTimeout(() => {
+        headerEl.textContent = activeImageAlt;
+        headerEl.style.opacity = 1;
+      }, 300);
     }
 
     function nextSlide() {
@@ -189,6 +182,8 @@
       prevSlide();
       slideInterval = setInterval(nextSlide, 3000);
     });
+
+    updateSlides();
   </script>
 </body>
 </html>
