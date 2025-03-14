@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Art</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    body {
+      background: #000 url("images/background.png") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 100px;
+    }
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      position: relative;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      color: #fff;
+    }
+    .dropdown {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+    .dropbtn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .hamburger {
+      width: 30px;
+      height: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger span {
+      display: block;
+      height: 4px;
+      background-color: #fff;
+      border-radius: 2px;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background-color: #151313;
+      min-width: 180px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .dropdown-content a {
+      color: rgba(255,255,255,0.95);
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s;
+    }
+    .dropdown-content a:hover {
+      background-color: #3a3a3a;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .slideshow-container {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      min-height: 400px;
+      margin: 20px 0;
+    }
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .slide.active {
+      opacity: 1;
+    }
+    .slide h2 {
+      margin: 10px 0;
+      text-align: center;
+      font-size: 2em;
+      background: rgba(128,128,128,0.5);
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+    .slide img {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      border: none;
+      color: #fff;
+      font-size: 2em;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      user-select: none;
+      z-index: 999;
+    }
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+    .prev {
+      left: 10px;
+    }
+    .next {
+      right: 10px;
+    }
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
+      .slideshow-container {
+        min-height: 300px;
+      }
+      .slide h2 {
+        font-size: 1.4em;
+        padding: 5px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>User Art</h1>
+  </header>
+
+  <div class="dropdown">
+    <button class="dropbtn">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+    <div class="dropdown-content">
+      <a href="https://moddedamong.us/">Main menu</a>
+      <a href="https://moddedamong.us/event.html">Our events</a>
+      <a href="https://moddedamong.us/staff.html">Meet Our staff</a>
+    </div>
+  </div>
+
+  <div class="slideshow-container">
+    <div class="slide active">
+      <h2>User Art 1</h2>
+      <img src="images/userart1.png" alt="User Art 1">
+    </div>
+    <div class="slide">
+      <h2>User Art 2</h2>
+      <img src="images/userart2.png" alt="User Art 2">
+    </div>
+    <div class="slide">
+      <h2>User Art 3</h2>
+      <img src="images/userart3.png" alt="User Art 3">
+    </div>
+    <div class="slide">
+      <h2>User Art 4</h2>
+      <img src="images/userart4.jpg" alt="User Art 4">
+    </div>
+    <div class="slide">
+      <h2>User Art 5</h2>
+      <img src="images/userart5.jpg" alt="User Art 5">
+    </div>
+    <div class="slide">
+      <h2>User Art 6</h2>
+      <img src="images/userart6.png" alt="User Art 6">
+    </div>
+    <div class="slide">
+      <h2>User Art 7</h2>
+      <img src="images/userart7.png" alt="User Art 7">
+    </div>
+    <div class="slide">
+      <h2>User Art 8</h2>
+      <img src="images/userart8.png" alt="User Art 8">
+    </div>
+    <div class="slide">
+      <h2>User Art 9</h2>
+      <img src="images/userart9.png" alt="User Art 9">
+    </div>
+    <div class="slide">
+      <h2>User Art 10</h2>
+      <img src="images/userart10.png" alt="User Art 10">
+    </div>
+    <div class="slide">
+      <h2>User Art 11</h2>
+      <img src="images/userart11.png" alt="User Art 11">
+    </div>
+    <div class="slide">
+      <h2>User Art 12</h2>
+      <img src="images/userart12.jpg" alt="User Art 12">
+    </div>
+
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+
+  <footer>
+    <p>
+      To get your user art featured here please <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904" style="color: blue; text-decoration: none;">Open a ticket</a>.
+    </p>
+  </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let currentIndex = 0;
+    let slideInterval = setInterval(nextSlide, 5000);
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      clearInterval(slideInterval);
+      nextSlide();
+      slideInterval = setInterval(nextSlide, 5000);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      clearInterval(slideInterval);
+      prevSlide();
+      slideInterval = setInterval(nextSlide, 5000);
+    });
+  </script>
+</body>
+</html>
