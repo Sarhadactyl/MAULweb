@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Event Slideshow</title>
+  <title>Stacked Photo Slideshow</title>
   <style>
     html, body {
       height: 100%;
@@ -12,7 +12,6 @@
       color: #fff;
       overflow: hidden;
     }
-
     body {
       background: #000 url("images/background.png") no-repeat center center fixed;
       background-size: cover;
@@ -20,33 +19,39 @@
       justify-content: center;
       align-items: center;
     }
-
-    .carousel-container {
+    .stack-container {
       position: relative;
       width: 66%;
       height: 66vh;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+
+      border: none;
+      box-shadow: none;
+      overflow: hidden; 
     }
 
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
 
-    .carousel-slide {
-      min-width: 80%;             
-      margin: 0 10px;            
-      opacity: 0.85;             
+    .stack-slide {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.7;
       transition: opacity 0.3s ease;
     }
-    .carousel-slide:hover {
-      opacity: 1;                
+
+    .stack-slide.active {
+      z-index: 10;
+      opacity: 1;
     }
-    .carousel-slide img {
+
+    .stack-slide:hover {
+      opacity: 1;
+    }
+ 
+    .stack-slide img {
       width: 100%;
       height: 100%;
-      object-fit: contain;       
+      object-fit: contain;
     }
 
     .prev, .next {
@@ -61,6 +66,7 @@
       cursor: pointer;
       border-radius: 50%;
       user-select: none;
+      z-index: 999;
     }
     .prev:hover, .next:hover {
       background-color: rgba(0,0,0,0.8);
@@ -74,32 +80,31 @@
   </style>
 </head>
 <body>
-  <div class="carousel-container">
-    <div class="carousel-track">
-      <div class="carousel-slide">
-        <img src="images/event1.png" alt="Event 1">
-      </div>
-      <div class="carousel-slide">
-        <img src="images/event2.png" alt="Event 2">
-      </div>
-      <div class="carousel-slide">
-        <img src="images/event3.png" alt="Event 3">
-      </div>
-      <div class="carousel-slide">
-        <img src="images/event4.png" alt="Event 4">
-      </div>
-      <div class="carousel-slide">
-        <img src="images/event5.png" alt="Event 5">
-      </div>
-      <div class="carousel-slide">
-        <img src="images/event6.png" alt="Event 6">
-      </div>
-      <div class="carousel-slide">
-        <img src="images/event8.png" alt="Event 8">
-      </div>
-      <div class="carousel-slide">
-        <img src="images/event10.png" alt="Event 10">
-      </div>
+  <div class="stack-container">
+
+    <div class="stack-slide active">
+      <img src="images/event1.png" alt="Event 1">
+    </div>
+    <div class="stack-slide">
+      <img src="images/event2.png" alt="Event 2">
+    </div>
+    <div class="stack-slide">
+      <img src="images/event3.png" alt="Event 3">
+    </div>
+    <div class="stack-slide">
+      <img src="images/event4.png" alt="Event 4">
+    </div>
+    <div class="stack-slide">
+      <img src="images/event5.png" alt="Event 5">
+    </div>
+    <div class="stack-slide">
+      <img src="images/event6.png" alt="Event 6">
+    </div>
+    <div class="stack-slide">
+      <img src="images/event8.png" alt="Event 8">
+    </div>
+    <div class="stack-slide">
+      <img src="images/event10.png" alt="Event 10">
     </div>
 
     <button class="prev">&#10094;</button>
@@ -107,51 +112,39 @@
   </div>
 
   <script>
-    const track = document.querySelector('.carousel-track');
-    const slides = Array.from(document.querySelectorAll('.carousel-slide'));
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.next');
+    const slides = Array.from(document.querySelectorAll('.stack-slide'));
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
 
-    let currentSlide = 0;
+    let currentIndex = 0;
+    let slideInterval = setInterval(nextSlide, 3000); 
 
-    let slideWidth = slides[0].offsetWidth + 20;
+    function showSlide(index) {
 
-
-    function updateSlidePosition() {
-      track.style.transform = 'translateX(-' + (currentSlide * slideWidth) + 'px)';
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
     }
 
     function nextSlide() {
-      currentSlide = (currentSlide + 1) % slides.length;
-      updateSlidePosition();
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
     }
-
 
     function prevSlide() {
-      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-      updateSlidePosition();
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
     }
 
-
-    let slideInterval = setInterval(nextSlide, 3000);
-
-
-    nextButton.addEventListener('click', () => {
+    nextBtn.addEventListener('click', () => {
       clearInterval(slideInterval);
       nextSlide();
       slideInterval = setInterval(nextSlide, 3000);
     });
 
-    prevButton.addEventListener('click', () => {
+    prevBtn.addEventListener('click', () => {
       clearInterval(slideInterval);
       prevSlide();
       slideInterval = setInterval(nextSlide, 3000);
-    });
-
-
-    window.addEventListener('resize', () => {
-      slideWidth = slides[0].offsetWidth + 20;
-      updateSlidePosition();
     });
   </script>
 </body>
