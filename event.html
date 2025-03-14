@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Slideshow</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow: hidden;
+    }
+    body {
+      background: #000 url("images/background.png") no-repeat center center fixed;
+      background-size: cover;
+    }
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      height: 100%;
+      margin: auto;
+    }
+    .slideshow-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .slideshow-container img.active {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="slideshow-container">
+    <img src="images/event1.png" class="active" alt="Event 1">
+    <img src="images/event2.png" alt="Event 2">
+    <img src="images/event3.png" alt="Event 3">
+    <img src="images/event4.png" alt="Event 4">
+    <img src="images/event5.png" alt="Event 5">
+    <img src="images/event6.png" alt="Event 6">
+    <img src="images/event7.png" alt="Event 7">
+    <img src="images/event8.png" alt="Event 8">
+    <img src="images/event10.png" alt="Event 10">
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slideshow-container img');
+    let currentSlide = 0;
+    const slideInterval = setInterval(nextSlide, 3000);
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+  </script>
+</body>
+</html>
