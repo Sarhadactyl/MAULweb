@@ -10,13 +10,11 @@
       background-color: #000;
       font-family: Arial, sans-serif;
       color: #fff;
-
       overflow-x: hidden;
     }
     body {
       background: #000 url("images/background.png") no-repeat center center fixed;
       background-size: cover;
-
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -91,19 +89,16 @@
       width: 90%;
       max-width: 800px;
       min-height: 400px;
-
       margin-top: 20px;
       margin-bottom: 20px;
     }
-
     .slide {
-      display: none; 
+      display: none;
       width: 100%;
     }
     .slide.active {
-      display: block; 
+      display: block;
     }
-
     .slide h2 {
       margin: 10px 0;
       text-align: center;
@@ -113,7 +108,6 @@
       border-radius: 5px;
       display: inline-block;
     }
-
     .slide img {
       display: block;
       margin: 0 auto;
@@ -156,45 +150,29 @@
     }
     footer form {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
+      justify-content: center;
       gap: 10px;
+      flex-wrap: wrap;
     }
     footer form > * {
-      width: 80%;
-      max-width: 400px;
+      flex: 1;
+      min-width: 120px;
+      max-width: 200px;
     }
-    footer input[type="text"],
-    footer textarea {
-      padding: 10px;
-      font-size: 1em;
-      border: none;
-      border-radius: 5px;
-      width: 100%;
-      box-sizing: border-box;
+    footer form textarea {
+      resize: none;
+      height: 40px;
     }
     footer input[type="file"] {
-      padding: 10px;
-      font-size: 1em;
-      border: none;
-      color: #000;
-      border-radius: 5px;
-      background-color: #fff; 
+      flex: 0 0 auto;
+      max-width: 150px;
     }
     footer button {
-      padding: 10px 20px;
-      font-size: 1em;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      background-color: #fff;
-      color: #000;
-      transition: background-color 0.3s;
+      flex: 0 0 auto;
+      max-width: 150px;
     }
-    footer button:hover {
-      background-color: #ddd;
-    }
-
     @media (max-width: 600px) {
       header h1 {
         font-size: 2em;
@@ -230,7 +208,6 @@
   </div>
 
   <div class="slideshow-container">
-
     <div class="slide active">
       <h2>TOU-R</h2>
       <img src="images/event1.png" alt="Event 1">
@@ -271,7 +248,7 @@
       <textarea 
         name="message" 
         placeholder="Enter your message here..." 
-        rows="3" 
+        rows="1" 
         required
       ></textarea>
       <input 
@@ -289,6 +266,7 @@
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
     let currentIndex = 0;
+    let slideInterval = setInterval(nextSlide, 3000);
 
     function showSlide(index) {
       slides.forEach((slide, i) => {
@@ -308,8 +286,6 @@
       currentIndex = (currentIndex - 1 + slides.length) % slides.length;
       showSlide(currentIndex);
     }
-
-    let slideInterval = setInterval(nextSlide, 3000);
 
     nextBtn.addEventListener('click', () => {
       clearInterval(slideInterval);
