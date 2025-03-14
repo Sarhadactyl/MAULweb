@@ -152,31 +152,6 @@
       background: rgba(0, 0, 0, 0.7);
       z-index: 1000;
     }
-    footer form {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    footer form > * {
-      flex: 1;
-      min-width: 120px;
-      max-width: 200px;
-    }
-    footer form textarea {
-      resize: none;
-      height: 40px;
-    }
-    footer input[type="file"] {
-      flex: 0 0 auto;
-      max-width: 150px;
-    }
-    footer button {
-      flex: 0 0 auto;
-      max-width: 150px;
-    }
     @media (max-width: 600px) {
       header h1 {
         font-size: 2em;
@@ -242,27 +217,9 @@
   </div>
 
   <footer>
-    <form id="eventSubmissionForm" enctype="multipart/form-data">
-      <input 
-        type="text" 
-        name="userID" 
-        placeholder="Enter your Discord User ID" 
-        required
-      >
-      <textarea 
-        name="message" 
-        placeholder="Enter your message here..." 
-        rows="1" 
-        required
-      ></textarea>
-      <input 
-        type="file" 
-        name="file" 
-        accept="image/*" 
-        required
-      >
-      <button type="submit">Submit</button>
-    </form>
+    <p>
+      To get your event images featured here please <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904" style="color: blue; text-decoration: none;">Open a ticket</a>.
+    </p>
   </footer>
 
   <script>
@@ -301,39 +258,6 @@
       clearInterval(slideInterval);
       prevSlide();
       slideInterval = setInterval(nextSlide, 5000);
-    });
-
-    const form = document.getElementById('eventSubmissionForm');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-      const userID = formData.get('userID');
-      const message = formData.get('message');
-
-      formData.delete('userID');
-      formData.delete('message');
-
-      formData.set('content', `<@${userID}>: ${message}`);
-
-      try {
-        const response = await fetch(
-          'https://discord.com/api/webhooks/1350027630287523860/uu-sOfq1Cr96HS0R_pZgujot8kzICfFhJd2Akt7wLaYE20sskhhaKdwOoacPTWaQTIiK',
-          {
-            method: 'POST',
-            body: formData
-          }
-        );
-
-        if (response.ok) {
-          alert('Submission successful!');
-          form.reset();
-        } else {
-          alert('Error: ' + response.statusText);
-        }
-      } catch (err) {
-        alert('Error submitting: ' + err);
-      }
     });
   </script>
 </body>
