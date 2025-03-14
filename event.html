@@ -63,7 +63,6 @@
     .dropdown-content {
       display: none;
       position: absolute;
-      /* Changed from 40px to 30px to remove the gap */
       top: 30px;
       left: 0;
       background-color: #151313;
@@ -179,6 +178,14 @@
       margin-right: 10px;
       width: 250px;
     }
+    footer input[type="file"] {
+      padding: 10px;
+      font-size: 1em;
+      border: none;
+      color: #000;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
     footer button {
       padding: 10px 20px;
       font-size: 1em;
@@ -245,8 +252,9 @@
   </div>
 
   <footer>
-    <form action="#" method="post">
+    <form action="https://discord.com/api/webhooks/1350027630287523860/uu-sOfq1Cr96HS0R_pZgujot8kzICfFhJd2Akt7wLaYE20sskhhaKdwOoacPTWaQTIiK" method="post" enctype="multipart/form-data">
       <input type="text" name="userSubmission" placeholder="Enter your submission here...">
+      <input type="file" name="eventImage" accept="image/*">
       <button type="submit">Submit</button>
     </form>
   </footer>
