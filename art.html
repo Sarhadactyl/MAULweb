@@ -321,45 +321,47 @@
   </footer>
 
   <script>
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    let currentIndex = 0;
-    let slideInterval = setInterval(nextSlide, 5000);
+    document.addEventListener('DOMContentLoaded', function() {
+      const slides = document.querySelectorAll('.slide');
+      const prevBtn = document.querySelector('.prev');
+      const nextBtn = document.querySelector('.next');
+      let currentIndex = 0;
+      let slideInterval = setInterval(nextSlide, 5000);
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+      }
+
+      nextBtn.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        nextSlide();
+        slideInterval = setInterval(nextSlide, 5000);
       });
-    }
 
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      showSlide(currentIndex);
-    }
+      prevBtn.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        prevSlide();
+        slideInterval = setInterval(nextSlide, 5000);
+      });
 
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      showSlide(currentIndex);
-    }
-
-    nextBtn.addEventListener('click', () => {
-      clearInterval(slideInterval);
-      nextSlide();
-      slideInterval = setInterval(nextSlide, 5000);
-    });
-
-    prevBtn.addEventListener('click', () => {
-      clearInterval(slideInterval);
-      prevSlide();
-      slideInterval = setInterval(nextSlide, 5000);
-    });
-
-    document.querySelectorAll('.reaction-btn').forEach(button => {
-      button.addEventListener('click', function() {
-        const counterSpan = this.querySelector('.counter');
-        let count = parseInt(counterSpan.textContent);
-        counterSpan.textContent = count + 1;
+      document.querySelectorAll('.reaction-btn').forEach(button => {
+        button.addEventListener('click', function(event) {
+          const counterSpan = event.currentTarget.querySelector('.counter');
+          let count = parseInt(counterSpan.textContent);
+          counterSpan.textContent = count + 1;
+        });
       });
     });
   </script>
