@@ -131,6 +131,43 @@
       display: none;
     }
 
+    .month-navigation {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    .month-navigation button {
+      background: #444;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .month-navigation button:hover {
+      background: #666;
+    }
+
+    .live-events-container {
+      margin-top: 20px;
+      width: 80%;
+      max-width: 600px;
+      padding: 15px;
+      border-radius: 10px;
+      background: rgba(255, 0, 0, 0.2);
+    }
+
+    .live-event {
+      padding: 10px;
+      background: rgba(255, 0, 0, 0.6);
+      border-radius: 5px;
+      margin-bottom: 5px;
+    }
+
     footer {
       position: fixed;
       bottom: 0;
@@ -149,61 +186,23 @@
     <h1>Event Calendar</h1>
   </header>
 
-  <div class="dropdown">
-    <button class="dropbtn">
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </button>
-    <div class="dropdown-content">
-      <a href="https://moddedamong.us/">Home</a>
-      <a href="https://moddedamong.us/art.html">User Art</a>
-      <a href="https://moddedamong.us/ourstaff.html">Meet Our Staff</a>
-      <a href="https://moddedamong.us/events.html">Event Slideshow</a>
-    </div>
-  </div>
-
   <div class="calendar-container">
-    <h2>March 2025</h2>
-    <div class="calendar">
-      <div class="day">1</div>
-      <div class="day">2</div>
-      <div class="day">3</div>
-      <div class="day">4</div>
-      <div class="day">5</div>
-      <div class="day">6</div>
-      <div class="day">7</div>
-      <div class="day">8</div>
-      <div class="day">9</div>
-      <div class="day">10</div>
-      <div class="day">11</div>
-      <div class="day">12</div>
-      <div class="day">13</div>
-      <div class="day event-day ongoing-event" data-event="Spring Scavenger Hunt (Ongoing)">14</div>
-      <div class="day event-day" data-event="Mafia Night">15</div>
-      <div class="day">16</div>
-      <div class="day">17</div>
-      <div class="day">18</div>
-      <div class="day">19</div>
-      <div class="day">20</div>
-      <div class="day">21</div>
-      <div class="day">22</div>
-      <div class="day">23</div>
-      <div class="day">24</div>
-      <div class="day">25</div>
-      <div class="day">26</div>
-      <div class="day">27</div>
-      <div class="day">28</div>
-      <div class="day">29</div>
-      <div class="day">30</div>
-      <div class="day">31</div>
+    <div class="month-navigation">
+      <button id="prevMonth">◀ Previous</button>
+      <h2 id="monthTitle">March 2025</h2>
+      <button id="nextMonth">Next ▶</button>
     </div>
+
+    <div class="calendar" id="calendarDays"></div>
 
     <div class="event-details">
       <h3 id="event-title"></h3>
     </div>
+  </div>
+
+  <div class="live-events-container">
+    <h2>🔴 LIVE Events</h2>
+    <div id="live-events-list"></div>
   </div>
 
   <footer>
@@ -213,24 +212,56 @@
   </footer>
 
   <script>
-    const days = document.querySelectorAll(".day");
-    const eventDetails = document.querySelector(".event-details");
-    const eventTitle = document.getElementById("event-title");
+    const events = {
+      "March 2025": { 14: "Spring Scavenger Hunt (Ongoing)", 15: "Mafia Night" },
+      "April 2025": { 5: "Art Contest Begins (Ongoing)", 12: "Among Us Tournament" },
+      "May 2025": { 20: "Minecraft Build Challenge", 25: "Server Anniversary" }
+    };
 
-    days.forEach(day => {
-      day.addEventListener("click", () => {
-        if (day.classList.contains("event-day")) {
-          let eventText = day.getAttribute("data-event");
-          if (day.classList.contains("ongoing-event")) {
-            eventText = `🔴 LIVE NOW: ${eventText}`;
+    const months = ["March 2025", "April 2025", "May 2025"];
+    let currentMonthIndex = 0;
+
+    const monthTitle = document.getElementById("monthTitle");
+    const calendarDays = document.getElementById("calendarDays");
+    const liveEventsList = document.getElementById("live-events-list");
+
+    function renderCalendar() {
+      const monthName = months[currentMonthIndex];
+      monthTitle.textContent = monthName;
+      calendarDays.innerHTML = "";
+      liveEventsList.innerHTML = "";
+
+      for (let i = 1; i <= 31; i++) {
+        let dayDiv = document.createElement("div");
+        dayDiv.classList.add("day");
+        dayDiv.textContent = i;
+
+        if (events[monthName] && events[monthName][i]) {
+          dayDiv.classList.add("event-day");
+          dayDiv.setAttribute("data-event", events[monthName][i]);
+
+          if (events[monthName][i].includes("(Ongoing)")) {
+            dayDiv.classList.add("ongoing-event");
+            let liveEvent = document.createElement("div");
+            liveEvent.classList.add("live-event");
+            liveEvent.textContent = `🔴 ${events[monthName][i]}`;
+            liveEventsList.appendChild(liveEvent);
           }
-          eventTitle.innerHTML = eventText;
-          eventDetails.style.display = "block";
-        } else {
-          eventDetails.style.display = "none";
         }
-      });
-    });
+
+        dayDiv.addEventListener("click", () => {
+          document.getElementById("event-title").innerHTML = dayDiv.getAttribute("data-event") || "No event";
+          document.querySelector(".event-details").style.display = "block";
+        });
+
+        calendarDays.appendChild(dayDiv);
+      }
+    }
+
+    document.getElementById("prevMonth").addEventListener("click", () => { if (currentMonthIndex > 0) currentMonthIndex--; renderCalendar(); });
+    document.getElementById("nextMonth").addEventListener("click", () => { if (currentMonthIndex < months.length - 1) currentMonthIndex++; renderCalendar(); });
+
+    renderCalendar();
   </script>
 
 </body>
