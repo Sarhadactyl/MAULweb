@@ -116,11 +116,15 @@
     }
 
     .event-day {
-      background: rgba(0, 255, 0, 0.6);
+      background: rgba(0, 255, 0, 0.6); 
     }
 
     .ongoing-event {
-      background: rgba(255, 165, 0, 0.8);
+      background: rgba(0, 255, 0, 0.8); 
+    }
+
+    .finished-event {
+      background: rgba(255, 0, 0, 0.8); 
     }
 
     .event-details {
@@ -129,6 +133,22 @@
       padding: 10px;
       border-radius: 5px;
       display: none;
+    }
+
+    .live-events-container {
+      margin-top: 20px;
+      width: 80%;
+      max-width: 600px;
+      padding: 15px;
+      border-radius: 10px;
+      background: rgba(0, 255, 0, 0.2);
+    }
+
+    .live-event {
+      padding: 10px;
+      background: rgba(0, 255, 0, 0.6);
+      border-radius: 5px;
+      margin-bottom: 5px;
     }
 
     footer {
@@ -170,39 +190,14 @@
     <div class="calendar">
       <div class="day">1</div>
       <div class="day">2</div>
-      <div class="day">3</div>
-      <div class="day">4</div>
-      <div class="day">5</div>
-      <div class="day">6</div>
-      <div class="day">7</div>
-      <div class="day">8</div>
-      <div class="day">9</div>
-      <div class="day">10</div>
-      <div class="day">11</div>
-      <div class="day">12</div>
-      <div class="day">13</div>
-      <div class="day event-day ongoing-event" data-event="Spring Scavenger Hunt (Ongoing)">14</div>
-      <div class="day event-day" data-event="Mafia Night">15</div>
-      <div class="day">16</div>
-      <div class="day">17</div>
-      <div class="day">18</div>
-      <div class="day">19</div>
-      <div class="day">20</div>
-      <div class="day">21</div>
-      <div class="day">22</div>
-      <div class="day">23</div>
-      <div class="day">24</div>
-      <div class="day">25</div>
-      <div class="day">26</div>
-      <div class="day">27</div>
-      <div class="day">28</div>
-      <div class="day">29</div>
-      <div class="day">30</div>
-      <div class="day">31</div>
+      <div class="day event-day ongoing-event" data-event="Spring Scavenger Hunt (Ongoing)" id="scavenger-hunt">14</div>
+      <div class="day event-day finished-event" data-event="Mafia Night (Completed)">15</div>
     </div>
+  </div>
 
-    <div class="event-details">
-      <h3 id="event-title"></h3>
+  <div class="live-events-container">
+    <h2>🔴 Live Events</h2>
+    <div id="live-events-list">
     </div>
   </div>
 
@@ -216,20 +211,25 @@
     const days = document.querySelectorAll(".day");
     const eventDetails = document.querySelector(".event-details");
     const eventTitle = document.getElementById("event-title");
+    const liveEventsList = document.getElementById("live-events-list");
 
     days.forEach(day => {
       day.addEventListener("click", () => {
         if (day.classList.contains("event-day")) {
           let eventText = day.getAttribute("data-event");
-          if (day.classList.contains("ongoing-event")) {
-            eventText = `🔴 LIVE NOW: ${eventText}`;
-          }
           eventTitle.innerHTML = eventText;
           eventDetails.style.display = "block";
         } else {
           eventDetails.style.display = "none";
         }
       });
+
+      if (day.classList.contains("ongoing-event")) {
+        let liveEvent = document.createElement("div");
+        liveEvent.classList.add("live-event");
+        liveEvent.textContent = day.getAttribute("data-event");
+        liveEventsList.appendChild(liveEvent);
+      }
     });
   </script>
 
