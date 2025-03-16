@@ -35,80 +35,52 @@
       color: #fff;
     }
 
-    .dropdown {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 1000;
-    }
-    .dropbtn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-    }
-    .hamburger {
-      width: 30px;
-      height: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .hamburger span {
-      display: block;
-      height: 4px;
-      background-color: #fff;
-      border-radius: 2px;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 30px;
-      left: 0;
-      background-color: #151313;
-      min-width: 180px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      border-radius: 5px;
-      overflow: hidden;
-    }
-    .dropdown-content a {
-      color: rgba(255,255,255,0.95);
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      transition: background 0.3s;
-    }
-    .dropdown-content a:hover {
-      background-color: #3a3a3a;
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
     .calendar-container {
       background: rgba(0, 0, 0, 0.7);
       padding: 20px;
       border-radius: 10px;
       margin-top: 20px;
-      width: 80%;
-      max-width: 600px;
+      width: 90%;
+      max-width: 700px;
       text-align: center;
+    }
+
+    .month-navigation {
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .month-navigation button {
+      background: #444;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .month-navigation button:hover {
+      background: #666;
     }
 
     .calendar {
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
+      grid-template-columns: repeat(7, 1fr); 
       gap: 5px;
       margin-top: 10px;
+      text-align: center;
     }
-    
+
     .day {
       background: rgba(255, 255, 255, 0.1);
-      padding: 10px;
+      padding: 15px;
       text-align: center;
-      cursor: pointer;
       border-radius: 5px;
       transition: 0.3s;
+      font-size: 1.2em;
     }
 
     .day:hover {
@@ -116,11 +88,11 @@
     }
 
     .event-day {
-      background: rgba(255, 165, 0, 0.8);
+      background: rgba(255, 165, 0, 0.8); 
     }
 
     .ongoing-event {
-      background: rgba(0, 255, 0, 0.6);
+      background: rgba(0, 255, 0, 0.6); 
     }
 
     .event-details {
@@ -131,34 +103,14 @@
       display: none;
     }
 
-    .month-navigation {
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-      width: 80%;
-      max-width: 600px;
-    }
-
-    .month-navigation button {
-      background: #444;
-      color: white;
-      padding: 10px;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    .month-navigation button:hover {
-      background: #666;
-    }
-
     .live-events-container {
       margin-top: 20px;
-      width: 80%;
-      max-width: 600px;
+      width: 90%;
+      max-width: 700px;
       padding: 15px;
       border-radius: 10px;
       background: rgba(255, 0, 0, 0.2);
+      text-align: center;
     }
 
     .live-event {
@@ -166,6 +118,7 @@
       background: rgba(255, 0, 0, 0.6);
       border-radius: 5px;
       margin-bottom: 5px;
+      font-size: 1.2em;
     }
 
     footer {
@@ -225,11 +178,25 @@
     const calendarDays = document.getElementById("calendarDays");
     const liveEventsList = document.getElementById("live-events-list");
 
+    function getStartDay(monthYear) {
+      const [month, year] = monthYear.split(" ");
+      return new Date(year, months.indexOf(monthYear), 1).getDay();
+    }
+
     function renderCalendar() {
       const monthName = months[currentMonthIndex];
       monthTitle.textContent = monthName;
       calendarDays.innerHTML = "";
       liveEventsList.innerHTML = "";
+
+      let startDay = getStartDay(monthName);
+
+      for (let i = 0; i < startDay; i++) {
+        let emptyDiv = document.createElement("div");
+        emptyDiv.classList.add("day");
+        emptyDiv.style.visibility = "hidden";
+        calendarDays.appendChild(emptyDiv);
+      }
 
       for (let i = 1; i <= 31; i++) {
         let dayDiv = document.createElement("div");
@@ -258,8 +225,15 @@
       }
     }
 
-    document.getElementById("prevMonth").addEventListener("click", () => { if (currentMonthIndex > 0) currentMonthIndex--; renderCalendar(); });
-    document.getElementById("nextMonth").addEventListener("click", () => { if (currentMonthIndex < months.length - 1) currentMonthIndex++; renderCalendar(); });
+    document.getElementById("prevMonth").addEventListener("click", () => { 
+      if (currentMonthIndex > 0) currentMonthIndex--; 
+      renderCalendar(); 
+    });
+
+    document.getElementById("nextMonth").addEventListener("click", () => { 
+      if (currentMonthIndex < months.length - 1) currentMonthIndex++; 
+      renderCalendar(); 
+    });
 
     renderCalendar();
   </script>
