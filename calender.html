@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Calendar</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    body {
+      background: #000 url("images/background.png") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 100px;
+    }
+
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      position: relative;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      color: #fff;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+    .dropbtn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .hamburger {
+      width: 30px;
+      height: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger span {
+      display: block;
+      height: 4px;
+      background-color: #fff;
+      border-radius: 2px;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background-color: #151313;
+      min-width: 180px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .dropdown-content a {
+      color: rgba(255,255,255,0.95);
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s;
+    }
+    .dropdown-content a:hover {
+      background-color: #3a3a3a;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .calendar-container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      width: 80%;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      margin-top: 10px;
+    }
+    
+    .day {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .day:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .event-day {
+      background: rgba(0, 255, 0, 0.6);
+    }
+
+    .event-details {
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px;
+      border-radius: 5px;
+      display: none;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Event Calendar</h1>
+  </header>
+
+  <div class="dropdown">
+    <button class="dropbtn">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+    <div class="dropdown-content">
+      <a href="https://moddedamong.us/">Home</a>
+      <a href="https://moddedamong.us/art.html">User Art</a>
+      <a href="https://moddedamong.us/ourstaff.html">Meet Our Staff</a>
+      <a href="https://moddedamong.us/events.html">Event Slideshow</a>
+    </div>
+  </div>
+
+  <div class="calendar-container">
+    <h2>March 2025</h2>
+    <div class="calendar">
+      <div class="day">1</div>
+      <div class="day">2</div>
+      <div class="day">3</div>
+      <div class="day">4</div>
+      <div class="day">5</div>
+      <div class="day">6</div>
+      <div class="day"></div>
+      <div class="day">8</div>
+      <div class="day">9</div>
+      <div class="day">10</div>
+      <div class="day">11</div>
+      <div class="day">12</div>
+      <div class="day">13</div>
+      <div class="day">14</div>
+      <div class="day">15</div>
+      <div class="day">16</div>
+      <div class="day">17</div>
+      <div class="day">18</div>
+      <div class="day">19</div>
+      <div class="day">20</div>
+      <div class="day">21</div>
+      <div class="day">22</div>
+      <div class="day">23</div>
+      <div class="day">24</div>
+      <div class="day">25</div>
+      <div class="day">26</div>
+      <div class="day">27</div>
+      <div class="day">28</div>
+      <div class="day">29</div>
+      <div class="day">30</div>
+      <div class="day">31</div>
+    </div>
+
+    <div class="event-details">
+      <h3 id="event-title"></h3>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      Want to suggest an event? <a href="https://discord.com/channels/995954559044304896/1114516322995421194" style="color: blue; text-decoration: none;"></a>.
+    </p>
+  </footer>
+
+  <script>
+    const days = document.querySelectorAll(".day");
+    const eventDetails = document.querySelector(".event-details");
+    const eventTitle = document.getElementById("event-title");
+
+    days.forEach(day => {
+      day.addEventListener("click", () => {
+        if (day.classList.contains("event-day")) {
+          eventTitle.textContent = day.getAttribute("data-event");
+          eventDetails.style.display = "block";
+        } else {
+          eventDetails.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
