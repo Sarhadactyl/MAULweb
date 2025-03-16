@@ -116,7 +116,7 @@
     }
 
     .event-day {
-      background: rgba(0, 255, 0, 0.6); 
+      background: rgba(0, 255, 0, 0.6); /* Default Green */
     }
 
     .ongoing-event {
@@ -190,22 +190,42 @@
     <div class="calendar">
       <div class="day">1</div>
       <div class="day">2</div>
+      <div class="day">3</div>
+      <div class="day">4</div>
+      <div class="day">5</div>
+      <div class="day">6</div>
+      <div class="day">7</div>
+      <div class="day">8</div>
+      <div class="day">9</div>
+      <div class="day">10</div>
+      <div class="day">11</div>
+      <div class="day">12</div>
+      <div class="day">13</div>
       <div class="day event-day ongoing-event" data-event="Spring Scavenger Hunt (Ongoing)" id="scavenger-hunt">14</div>
       <div class="day event-day finished-event" data-event="Mafia Night (Completed)">15</div>
+      <div class="day">16</div>
+      <div class="day">17</div>
+      <div class="day">18</div>
+      <div class="day">19</div>
+      <div class="day">20</div>
+      <div class="day">21</div>
+      <div class="day">22</div>
+      <div class="day">23</div>
+      <div class="day">24</div>
+      <div class="day">25</div>
+      <div class="day">26</div>
+      <div class="day">27</div>
+      <div class="day">28</div>
+      <div class="day">29</div>
+      <div class="day">30</div>
+      <div class="day">31</div>
     </div>
   </div>
 
   <div class="live-events-container">
     <h2>🔴 Live Events</h2>
-    <div id="live-events-list">
-    </div>
+    <div id="live-events-list"></div>
   </div>
-
-  <footer>
-    <p>
-      Want to suggest an event? <a href="https://discord.com/channels/995954559044304896/1114516322995421194" style="color: blue; text-decoration: none;">Open a ticket</a>.
-    </p>
-  </footer>
 
   <script>
     const days = document.querySelectorAll(".day");
@@ -215,13 +235,8 @@
 
     days.forEach(day => {
       day.addEventListener("click", () => {
-        if (day.classList.contains("event-day")) {
-          let eventText = day.getAttribute("data-event");
-          eventTitle.innerHTML = eventText;
-          eventDetails.style.display = "block";
-        } else {
-          eventDetails.style.display = "none";
-        }
+        eventTitle.innerHTML = day.getAttribute("data-event") || "No event";
+        eventDetails.style.display = "block";
       });
 
       if (day.classList.contains("ongoing-event")) {
