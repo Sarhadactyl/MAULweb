@@ -1,7 +1,3 @@
-
-
-User
-You said:
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,6 +68,7 @@ You said:
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
       border-radius: 5px;
       overflow: hidden;
+      transition: all 0.3s ease-in-out;
     }
     .dropdown-content a {
       color: rgba(255,255,255,0.95);
@@ -83,7 +80,8 @@ You said:
     .dropdown-content a:hover {
       background-color: #3a3a3a;
     }
-    .dropdown:hover .dropdown-content {
+    .dropdown:hover .dropdown-content,
+    .dropdown-content:hover {
       display: block;
     }
     .slideshow-container {
@@ -181,12 +179,10 @@ You said:
       </div>
     </button>
     <div class="dropdown-content">
-
       <a href="https://moddedamong.us/">Home</a>
       <a href="https://moddedamong.us/ourstaff.html">Our Staff</a>
       <a href="https://moddedamong.us/eventpics.html">Past Events</a>
       <a href="https://moddedamong.us/Calendar.html">Event Calendar</a>
-    </div>
     </div>
   </div>
 
@@ -283,6 +279,21 @@ You said:
       clearInterval(slideInterval);
       prevSlide();
       slideInterval = setInterval(nextSlide, 5000);
+    });
+
+    // Fix for hamburger menu: close menu when clicking outside
+    document.addEventListener("click", function(event) {
+      const dropdownMenu = document.querySelector(".dropdown-content");
+      const dropdownButton = document.querySelector(".dropbtn");
+      if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+        dropdownMenu.style.display = "none";
+      }
+    });
+
+    document.querySelector(".dropbtn").addEventListener("click", function(event) {
+      const dropdownMenu = document.querySelector(".dropdown-content");
+      dropdownMenu.style.display = (dropdownMenu.style.display === "block") ? "none" : "block";
+      event.stopPropagation();
     });
   </script>
 </body>
