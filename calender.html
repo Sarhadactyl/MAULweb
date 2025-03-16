@@ -119,6 +119,10 @@
       background: rgba(0, 255, 0, 0.6);
     }
 
+    .ongoing-event {
+      background: rgba(255, 165, 0, 0.8);
+    }
+
     .event-details {
       margin-top: 20px;
       background: rgba(255, 255, 255, 0.2);
@@ -177,7 +181,7 @@
       <div class="day">11</div>
       <div class="day">12</div>
       <div class="day">13</div>
-      <div class="day">14</div>
+      <div class="day event-day ongoing-event" data-event="Spring Scavenger Hunt (Ongoing)">14</div>
       <div class="day event-day" data-event="Mafia Night">15</div>
       <div class="day">16</div>
       <div class="day">17</div>
@@ -204,7 +208,7 @@
 
   <footer>
     <p>
-      Want to suggest an event? <a href="https://discord.com/channels/995954559044304896/1114516322995421194" style="color: blue; text-decoration: none;"></a>.
+      Want to suggest an event? <a href="https://discord.com/channels/995954559044304896/1114516322995421194" style="color: blue; text-decoration: none;">Open a ticket</a>.
     </p>
   </footer>
 
@@ -216,7 +220,11 @@
     days.forEach(day => {
       day.addEventListener("click", () => {
         if (day.classList.contains("event-day")) {
-          eventTitle.textContent = day.getAttribute("data-event");
+          let eventText = day.getAttribute("data-event");
+          if (day.classList.contains("ongoing-event")) {
+            eventText = `🔴 LIVE NOW: ${eventText}`;
+          }
+          eventTitle.innerHTML = eventText;
           eventDetails.style.display = "block";
         } else {
           eventDetails.style.display = "none";
