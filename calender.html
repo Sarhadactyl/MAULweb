@@ -35,6 +35,56 @@
       color: #fff;
     }
 
+    .dropdown {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+    .dropbtn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .hamburger {
+      width: 30px;
+      height: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger span {
+      display: block;
+      height: 4px;
+      background-color: #fff;
+      border-radius: 2px;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background-color: #151313;
+      min-width: 180px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .dropdown-content a {
+      color: rgba(255,255,255,0.95);
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s;
+    }
+    .dropdown-content a:hover {
+      background-color: #3a3a3a;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
     .calendar-container {
       background: rgba(0, 0, 0, 0.7);
       padding: 20px;
@@ -139,6 +189,23 @@
     <h1>Event Calendar</h1>
   </header>
 
+  <div class="dropdown">
+    <button class="dropbtn">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+    <div class="dropdown-content">
+        <a href="https://moddedamong.us/">Home</a>
+        <a href="https://moddedamong.us/art.html">User Art</a>
+        <a href="https://moddedamong.us/ourstaff.html">Our Staff</a>
+        <a href="https://moddedamong.us/eventpics.html">Past Events</a>
+      </div>
+    </div>
+  </div>
+
   <div class="calendar-container">
     <div class="month-navigation">
       <button id="prevMonth">◀ Previous</button>
@@ -167,35 +234,16 @@
   <script>
     const events = {
       "March 2025": { 14: "Spring Scavenger Hunt (Ongoing)", 15: "Mafia Night" }, 
-      
     };
 
-    const months = ["March 2025", "April 2025", "May 2025"];
+    const months = ["March 2025", "April 2025", "May 2025"]; 
     let currentMonthIndex = 0;
-
-    const monthTitle = document.getElementById("monthTitle");
-    const calendarDays = document.getElementById("calendarDays");
-    const liveEventsList = document.getElementById("live-events-list");
-
-    function getStartDay(monthYear) {
-      const [month, year] = monthYear.split(" ");
-      return new Date(year, months.indexOf(monthYear), 1).getDay();
-    }
 
     function renderCalendar() {
       const monthName = months[currentMonthIndex];
-      monthTitle.textContent = monthName;
-      calendarDays.innerHTML = "";
-      liveEventsList.innerHTML = "";
-
-      let startDay = getStartDay(monthName);
-
-      for (let i = 0; i < startDay; i++) {
-        let emptyDiv = document.createElement("div");
-        emptyDiv.classList.add("day");
-        emptyDiv.style.visibility = "hidden";
-        calendarDays.appendChild(emptyDiv);
-      }
+      document.getElementById("monthTitle").textContent = monthName;
+      document.getElementById("calendarDays").innerHTML = "";
+      document.getElementById("live-events-list").innerHTML = "";
 
       for (let i = 1; i <= 31; i++) {
         let dayDiv = document.createElement("div");
@@ -211,7 +259,7 @@
             let liveEvent = document.createElement("div");
             liveEvent.classList.add("live-event");
             liveEvent.textContent = `🔴 ${events[monthName][i]}`;
-            liveEventsList.appendChild(liveEvent);
+            document.getElementById("live-events-list").appendChild(liveEvent);
           }
         }
 
@@ -220,19 +268,12 @@
           document.querySelector(".event-details").style.display = "block";
         });
 
-        calendarDays.appendChild(dayDiv);
+        document.getElementById("calendarDays").appendChild(dayDiv);
       }
     }
 
-    document.getElementById("prevMonth").addEventListener("click", () => { 
-      if (currentMonthIndex > 0) currentMonthIndex--; 
-      renderCalendar(); 
-    });
-
-    document.getElementById("nextMonth").addEventListener("click", () => { 
-      if (currentMonthIndex < months.length - 1) currentMonthIndex++; 
-      renderCalendar(); 
-    });
+    document.getElementById("prevMonth").addEventListener("click", () => { if (currentMonthIndex > 0) currentMonthIndex--; renderCalendar(); });
+    document.getElementById("nextMonth").addEventListener("click", () => { if (currentMonthIndex < months.length - 1) currentMonthIndex++; renderCalendar(); });
 
     renderCalendar();
   </script>
