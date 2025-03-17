@@ -16,7 +16,7 @@
       background: #000 url("images/background.png") no-repeat center center fixed;
       background-size: cover;
     }
-    /* Hamburger Menu */
+    /* Uniform Hamburger Menu */
     .dropdown {
       position: absolute;
       top: 20px;
@@ -24,11 +24,23 @@
       z-index: 100;
     }
     .dropbtn {
-      background-color: transparent;
+      background: none;
       border: none;
-      color: white;
-      font-size: 30px;
       cursor: pointer;
+      padding: 0;
+    }
+    .hamburger {
+      width: 30px;
+      height: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger span {
+      display: block;
+      height: 4px;
+      background-color: #fff;
+      border-radius: 2px;
     }
     .dropdown-content {
       display: none;
@@ -37,12 +49,14 @@
       min-width: 160px;
       box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
       border-radius: 5px;
+      overflow: hidden;
     }
     .dropdown-content a {
-      color: rgba(255, 255, 255, 0.377);
+      color: rgba(255,255,255,0.95);
       padding: 12px 16px;
       text-decoration: none;
       display: block;
+      transition: background 0.3s;
     }
     .dropdown-content a:hover {
       background-color: #3a3a3a;
@@ -50,7 +64,6 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
-    /* Apply for Staff Section */
     .apply-section {
       max-width: 1200px;
       margin: 20px auto;
@@ -77,7 +90,7 @@
       cursor: pointer;
       transition: color 0.3s ease;
     }
-    /* hover effects ripple and highlight */
+    /* Hover effects ripple and highlight */
     .apply-links span:hover,
     .apply-links a:hover {
       animation: ripple 0.8s ease-out;
@@ -228,9 +241,15 @@
   </style>
 </head>
 <body>
-  <!-- Hamburger Menu -->
+  <!-- Uniform Hamburger Menu -->
   <div class="dropdown">
-    <button class="dropbtn">&#9776;</button>
+    <button class="dropbtn">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
     <div class="dropdown-content">
       <a href="index.html">Home</a>      
       <a href="https://moddedamong.us/art.html">User Art</a>
@@ -286,15 +305,15 @@
             <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/sarhabp.webp" alt="Works a lot" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/sarhabp.webp" alt="Works a lot" style="max-width:20px; border:none; margin:0;">
                 Works a lot
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/sarhabp.webp" alt="Chronically online" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/sarhabp.webp" alt="Chronically online" style="max-width:20px; border:none; margin:0;">
                 Chronically online
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/sarhabp.webp" alt="Server member since June 2023" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/sarhabp.webp" alt="Server member since June 2023" style="max-width:20px; border:none; margin:0;">
                 Server member since June 2023
               </li>
             </ul>
@@ -353,15 +372,15 @@
             <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/northiebp.webp" alt="Love Music & Gaming" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/northiebp.webp" alt="Love Music & Gaming" style="max-width:20px; border:none; margin:0;">
                 Love Music &amp; Gaming
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/northiebp.webp" alt="Studying to be a Paramedic" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/northiebp.webp" alt="Studying to be a Paramedic" style="max-width:20px; border:none; margin:0;">
                 Studying to be a Paramedic
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/northiebp.webp" alt="I write stories &amp; draw art" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/northiebp.webp" alt="I write stories & draw art" style="max-width:20px; border:none; margin:0;">
                 I write stories &amp; draw art
               </li>
             </ul>
@@ -377,15 +396,15 @@
             <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/hanbp.webp" alt="Cat enthusiast" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/hanbp.webp" alt="Cat enthusiast" style="max-width:20px; border:none; margin:0;">
                 Cat enthusiast
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/hanbp.webp" alt="Scented candles improve quality of life" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/hanbp.webp" alt="Scented candles improve quality of life" style="max-width:20px; border:none; margin:0;">
                 Firmly believes scented candles improve quality of life
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/hanbp.webp" alt="Ferrari fan" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/hanbp.webp" alt="Ferrari fan" style="max-width:20px; border:none; margin:0;">
                 Ferrari fan
               </li>
             </ul>
@@ -415,19 +434,19 @@
             <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/poetbp.webp" alt="Mom of Two Boys ❤️" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/poetbp.webp" alt="Mom of Two Boys ❤️" style="max-width:20px; border:none; margin:0;">
                 Mom of Two Boys ❤️
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/poetbp.webp" alt="Priest Wifey" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/poetbp.webp" alt="Priest Wifey" style="max-width:20px; border:none; margin:0;">
                 Priest Wifey
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/poetbp.webp" alt="HR Consultant/Data Analyst" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/poetbp.webp" alt="HR Consultant/Data Analyst" style="max-width:20px; border:none; margin:0;">
                 HR Consultant/Data Analyst
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/poetbp.webp" alt="Lover of the Arts" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/poetbp.webp" alt="Lover of the Arts" style="max-width:20px; border:none; margin:0;">
                 Lover of the Arts
               </li>
             </ul>
@@ -443,15 +462,15 @@
             <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/summerbp.webp" alt="Puns and bad dad jokes for life" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/summerbp.webp" alt="Puns and bad dad jokes for life" style="max-width:20px; border:none; margin:0;">
                 Puns and bad dad jokes for life
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/summerbp.webp" alt="Music/violin enthusiast" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/summerbp.webp" alt="Music/violin enthusiast" style="max-width:20px; border:none; margin:0;">
                 Music/violin enthusiast
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/summerbp.webp" alt="Just a girl and her silly little games &amp; pretty things against the world" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/summerbp.webp" alt="Just a girl and her silly little games &amp; pretty things against the world" style="max-width:20px; border:none; margin:0;">
                 Just a girl and her silly little games &amp; pretty things against the world
               </li>
             </ul>
@@ -467,15 +486,15 @@
             <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/margbp1.webp" alt="Senior Contributor for TOHE" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/margbp1.webp" alt="Senior Contributor for TOHE" style="max-width:20px; border:none; margin:0;">
                 Senior Contributor for TOHE (coded Coven and Neutral Apocalypse)
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/margbp2.webp" alt="Violin &amp; Guitar Player" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/margbp2.webp" alt="Violin &amp; Guitar Player" style="max-width:20px; border:none; margin:0;">
                 Violin &amp; Guitar Player, Bowler, and occasional Artist
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/margbp3.webp" alt="Full-time furry" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/margbp3.webp" alt="Full-time furry" style="max-width:20px; border:none; margin:0;">
                 Full-time furry
               </li>
             </ul>
@@ -501,19 +520,19 @@
             <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/fish.webp" alt="Dad" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/fish.webp" alt="Dad" style="max-width:20px; border:none; margin:0;">
                 Dad
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/fish.webp" alt="Husband" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/fish.webp" alt="Husband" style="max-width:20px; border:none; margin:0;">
                 Husband
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/fish.webp" alt="Chemistry" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/fish.webp" alt="Chemistry" style="max-width:20px; border:none; margin:0;">
                 Chemistry
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/fish.webp" alt="Sports &amp; Gaming" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/fish.webp" alt="Sports &amp; Gaming" style="max-width:20px; border:none; margin:0;">
                 Sports &amp; Gaming
               </li>
             </ul>
@@ -529,15 +548,15 @@
             <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/sunnybp.webp" alt="Ttwo-spirited and feeling the urge to explore these lands" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/sunnybp.webp" alt="Two-spirited and feeling the urge to explore these lands" style="max-width:20px; border:none; margin:0;">
                 two-spirited and feeling the urge to explore these lands
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/sunnybp.webp" alt="HOME-Resonance, Enya-Caribbean Blue" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/sunnybp.webp" alt="HOME-Resonance, Enya-Caribbean Blue" style="max-width:20px; border:none; margin:0;">
                 HOME-Resonance, Enya-Caribbean Blue
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/sunnybp.webp" alt="soccer by day, soccer by night" style="max-width:20px; border:none; border-radius:0; margin:0;">
+                <img src="images/sunnybp.webp" alt="soccer by day, soccer by night" style="max-width:20px; border:none; margin:0;">
                 soccer by day, soccer by night
               </li>
             </ul>
