@@ -43,7 +43,11 @@
       background: none;
       border: none;
       cursor: pointer;
+      transition: transform 0.3s ease;
       padding: 0;
+    }
+    .dropbtn:hover {
+      transform: scale(1.1);
     }
     .hamburger {
       width: 30px;
@@ -282,7 +286,6 @@
       slideInterval = setInterval(nextSlide, 5000);
     });
 
-    // Fix for hamburger menu: close menu when clicking outside
     document.addEventListener("click", function(event) {
       const dropdownMenu = document.querySelector(".dropdown-content");
       const dropdownButton = document.querySelector(".dropbtn");

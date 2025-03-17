@@ -20,7 +20,27 @@
       align-items: center;
       padding-bottom: 100px;
     }
-
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      filter: brightness(0.6);
+      z-index: -2;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(29,29,29,0.9), rgba(29,29,29,0.9));
+      z-index: -1;
+    }
     header {
       width: 100%;
       text-align: center;
@@ -34,7 +54,6 @@
       font-size: 3em;
       color: #fff;
     }
-
     .dropdown {
       position: absolute;
       top: 20px;
@@ -45,7 +64,11 @@
       background: none;
       border: none;
       cursor: pointer;
+      transition: transform 0.3s ease;
       padding: 0;
+    }
+    .dropbtn:hover {
+      transform: scale(1.1);
     }
     .hamburger {
       width: 30px;
@@ -63,16 +86,13 @@
     .dropdown-content {
       display: none;
       position: absolute;
-      top: 30px;
-      left: 0;
-      background-color: #151313;
-      min-width: 180px;
+      background-color: #2a2a2a;
+      min-width: 160px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
       border-radius: 5px;
-      overflow: hidden;
     }
     .dropdown-content a {
-      color: rgba(255,255,255,0.95);
+      color: #fff;
       padding: 12px 16px;
       text-decoration: none;
       display: block;
@@ -84,7 +104,6 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
-
     .slideshow-container {
       position: relative;
       width: 90%;
@@ -118,7 +137,6 @@
       height: auto;
       object-fit: contain;
     }
-
     .prev, .next {
       position: absolute;
       top: 50%;
@@ -181,7 +199,7 @@
       </div>
     </button>
     <div class="dropdown-content">
-      <a href="https://moddedamong.us/">Home</a>
+      <a href="index.html">Home</a>
       <a href="https://moddedamong.us/art.html">User Art</a>
       <a href="https://moddedamong.us/ourstaff.html">Our Staff</a>
       <a href="https://moddedamong.us/calendar.html">Event Calendar</a>
@@ -267,5 +285,6 @@
       slideInterval = setInterval(nextSlide, 5000);
     });
   </script>
+
 </body>
 </html>
