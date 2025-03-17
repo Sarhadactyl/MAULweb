@@ -3,16 +3,88 @@
 <head>
   <title>Featured Mods</title>
   <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
     body {
       background: url('images/background.png') no-repeat center center fixed;
       background-size: cover;
-      background-color: black;
-      font-family: Arial, sans-serif;
-      color: #fff;
-      text-align: center;
-      margin: 0;
-      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 100px;
     }
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      position: relative;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      color: #fff;
+    }
+    .dropdown {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+    .dropbtn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .hamburger {
+      width: 30px;
+      height: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger span {
+      display: block;
+      height: 4px;
+      background-color: #fff;
+      border-radius: 2px;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background-color: #151313;
+      min-width: 180px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      border-radius: 5px;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+    .dropdown-content a {
+      color: rgba(255,255,255,0.95);
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s;
+    }
+    .dropdown-content a:hover {
+      background-color: #3a3a3a;
+    }
+    .dropdown:hover .dropdown-content,
+    .dropdown-content:hover {
+      display: block;
+    }
+    
     .featured-mods {
       max-width: 1200px;
       margin: 40px auto;
@@ -77,85 +149,101 @@
   </style>
 </head>
 <body>
-  <h1>Featured Mods</h1>
+  <header>
+    <h1>Featured Mods</h1>
+    <div class="dropdown">
+      <button class="dropbtn">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+      <div class="dropdown-content">
+        <a href="https://moddedamong.us/">Home</a>
+        <a href="https://moddedamong.us/art.html">User Art</a>
+        <a href="https://moddedamong.us/ourstaff.html">Our Staff</a>
+        <a href="https://moddedamong.us/eventpics.html">Past Events</a>
+        <a href="https://moddedamong.us/calendar.html">Event Calendar</a>
+      </div>
+    </div>
+  </header>
   
   <div class="featured-mods">
-    <div class="mod-category">
+    <div class="mod-category" id="host-only">
       <h2><u>Host-Only Mods</u></h2>
       <div class="mod-container">
         <div class="mod">
           <img src="images/endlesshost.png" alt="Endless Host Roles">
           <h3>Endless Host Roles</h3>
           <p>Endless Host Roles is a host-only fork of TOHE by Gurge, with different gamemodes (FFA) and features.</p>
-          <a href="https://github.com/Gurge44/EndlessHostRoles?dhc-id=80403589163388934">GitHub</a>
+          <a href="https://github.com/Gurge44/EndlessHostRoles?dhc-id=80403589163388934" target="_blank">GitHub</a>
         </div>
         <div class="mod">
           <img src="images/townofhost.png" alt="Town of Host Mod">
           <h3>Town of Host</h3>
           <p>Only the host needs to install this mod. Many mods are based on it.</p>
-          <a href="https://github.com/tukasa0001/TownOfHost?dhc-id=80397386291089414">GitHub</a>
+          <a href="https://github.com/tukasa0001/TownOfHost?dhc-id=80397386291089414" target="_blank">GitHub</a>
         </div>
         <div class="mod">
           <img src="images/tohey.png" alt="Town of Host: Y Mod">
           <h3>Town of Host: Y</h3>
           <p>Expands Town of Host with additional roles and settings.</p>
-          <a href="https://github.com/Yumenopai/TownOfHost_Y?dhc-id=80399802046615554">GitHub</a>
+          <a href="https://github.com/Yumenopai/TownOfHost_Y?dhc-id=80399802046615554" target="_blank">GitHub</a>
         </div>
         <div class="mod">
           <img src="images/moregamemodes.png" alt="More GameModes Mod">
           <h3>More GameModes</h3>
           <p>Includes new game modes like Bomb Tag and Battle Royale.</p>
-          <a href="https://github.com/Rabek009/MoreGamemodes?dhc-id=80407194301894658">GitHub</a>
+          <a href="https://github.com/Rabek009/MoreGamemodes?dhc-id=80407194301894658" target="_blank">GitHub</a>
         </div>
         <div class="mod">
           <img src="images/tohe.png" alt="Town of Host: Enhanced">
           <h3>Town of Host: Enhanced</h3>
-          <p>This mod was deprecated, it's being continued by The Enhanced Network.<br></p>
-          <a href="https://github.com/0xDrMoe/TownofHost-Enhanced?dhc-id=80389830512480262">GitHub</a>
+          <p>This mod was deprecated, it's being continued by The Enhanced Network.</p>
+          <a href="https://github.com/0xDrMoe/TownofHost-Enhanced?dhc-id=80389830512480262" target="_blank">GitHub</a>
         </div>
         <div class="mod">
-          <img src="images/PL.png" alt="Town of Host: Enhanced">
+          <img src="images/PL.png" alt="Project Lotus">
           <h3>Project Lotus</h3>
-          <p>This is a continuation of the original Project Lotus mod due to the original creator passing the project.<br></p>
-          <a href="https://github.com/Lotus-AU/LotusContinued?dhc-id=80400832587108366">GitHub</a>
+          <p>This is a continuation of the original Project Lotus mod due to the original creator passing the project.</p>
+          <a href="https://github.com/Lotus-AU/LotusContinued?dhc-id=80400832587108366" target="_blank">GitHub</a>
         </div>
         <div class="mod">
-          <img src="images/BAU.png" alt="Town of Host: Enhanced">
+          <img src="images/BAU.png" alt="Better Among Us">
           <h3>Better Among Us</h3>
-          <p>BetterAmongUs is a client-side mod by D1GQ that helps to enhance the experience of Vanilla lobbies<br></p>
-          <a href="https://github.com/D1GQ/BetterAmongUs-Public?dhc-id=80416967801966594">GitHub</a>
+          <p>BetterAmongUs is a client-side mod by D1GQ that helps to enhance the experience of Vanilla lobbies.</p>
+          <a href="https://github.com/D1GQ/BetterAmongUs-Public?dhc-id=80416967801966594" target="_blank">GitHub</a>
         </div>
       </div>
     </div>
-
-
   
-    <div class="mod-category">
+    <div class="mod-category" id="client-required">
       <h2><u>Client-Required Mods</u></h2>
       <div class="mod-container">
         <div class="mod">
           <img src="images/tor.png" alt="The Other Roles Mod">
           <h3>The Other Roles</h3>
           <p>Adds many new roles and settings to the game.</p>
-          <a href="https://github.com/TheOtherRolesAU/TheOtherRoles?dhc-id=80391619253112834">GitHub</a>
+          <a href="https://github.com/TheOtherRolesAU/TheOtherRoles?dhc-id=80391619253112834" target="_blank">GitHub</a>
         </div>
         <div class="mod">
           <img src="images/tou.png" alt="Town of Us: Reactivated">
           <h3>Town of Us: Reactivated</h3>
           <p>Continuation of Town of Us with new roles and modifiers.</p>
-          <a href="https://github.com/eDonnes124/Town-Of-Us-R?dhc-id=86152801742229510">GitHub</a>
+          <a href="https://github.com/eDonnes124/Town-Of-Us-R?dhc-id=86152801742229510" target="_blank">GitHub</a>
         </div>
         <div class="mod">
           <img src="images/submerged.png" alt="Submerged Mod">
           <h3>Submerged</h3>
           <p>A custom map mod with new tasks and mechanics.</p>
-          <a href="https://github.com/SubmergedAmongUs/Submerged?dhc-id=80414609793617924">GitHub</a>
+          <a href="https://github.com/SubmergedAmongUs/Submerged?dhc-id=80414609793617924" target="_blank">GitHub</a>
         </div>
         <div class="mod">
           <img src="images/bcl.png" alt="BetterCrewLink">
           <h3>BetterCrewLink</h3>
           <p>Implements Proximity Voice Chat for Among Us.</p>
-          <a href="https://github.com/OhMyGuus/BetterCrewLink?dhc-id=80412110655328258">GitHub</a>
+          <a href="https://github.com/OhMyGuus/BetterCrewLink?dhc-id=80412110655328258" target="_blank">GitHub</a>
         </div>
       </div>
     </div>
