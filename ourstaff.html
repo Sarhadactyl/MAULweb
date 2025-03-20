@@ -662,40 +662,39 @@
   </div>
 
   <script>
-    // Only one <details> can be open at once
-    document.addEventListener('DOMContentLoaded', () => {
-      const allDetails = document.querySelectorAll('details');
-      allDetails.forEach((detail) => {
-        detail.addEventListener('toggle', () => {
-          if (detail.open) {
-            allDetails.forEach((other) => {
-              if (other !== detail) {
-                other.removeAttribute('open');
-              }
-            });
+document.addEventListener('DOMContentLoaded', () => {
+  const topLevelDetails = document.querySelectorAll('details:not(details details)');
+  topLevelDetails.forEach((detail) => {
+    detail.addEventListener('toggle', () => {
+      if (detail.open) {
+        topLevelDetails.forEach((other) => {
+          if (other !== detail) {
+            other.removeAttribute('open');
           }
         });
-      });
-
-      // Modal functionality for Moderation (closed)
-      const moderation = document.getElementById('moderation');
-      const modal = document.getElementById('modal');
-      const closeModal = document.getElementById('close-modal');
-
-      moderation.addEventListener('click', () => {
-        modal.style.display = "block";
-      });
-
-      closeModal.addEventListener('click', () => {
-        modal.style.display = "none";
-      });
-
-      window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-          modal.style.display = "none";
-        }
-      });
+      }
     });
+  });
+
+  const moderation = document.getElementById('moderation');
+  const modal = document.getElementById('modal');
+  const closeModal = document.getElementById('close-modal');
+
+  moderation.addEventListener('click', () => {
+    modal.style.display = "block";
+  });
+
+  closeModal.addEventListener('click', () => {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+
   </script>
 </body>
 </html>
