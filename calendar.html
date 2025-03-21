@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Event Calendar</title>
-  <title>Our Staff</title>
   <meta property="og:title" content="Welcome to MAUL" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://moddedamong.us/" />
@@ -98,7 +97,7 @@
       position: absolute;
       top: 30px;
       left: 0;
-      background-color: #2a2a2a; 
+      background-color: #2a2a2a;
       min-width: 160px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
       border-radius: 5px;
@@ -145,7 +144,7 @@
     }
     .calendar {
       display: grid;
-      grid-template-columns: repeat(7, 1fr); 
+      grid-template-columns: repeat(7, 1fr);
       gap: 5px;
       margin-top: 10px;
       text-align: center;
@@ -153,7 +152,6 @@
     .day {
       background: rgba(255, 255, 255, 0.1);
       padding: 15px;
-      text-align: center;
       border-radius: 5px;
       transition: 0.3s;
       font-size: 1.2em;
@@ -161,11 +159,14 @@
     .day:hover {
       background: rgba(255, 255, 255, 0.2);
     }
-    .event-day {
-      background: rgba(255, 165, 0, 0.8); 
-    }
-    .ongoing-event {
+    .active-event {
       background: rgba(0, 255, 0, 0.6); 
+    }
+    .ended-event {
+      background: rgba(255, 0, 0, 0.6); 
+    }
+    .upcoming-event {
+      background: rgba(0, 111, 0, 0.6); 
     }
     .event-details {
       margin-top: 20px;
@@ -180,15 +181,15 @@
       max-width: 700px;
       padding: 15px;
       border-radius: 10px;
-      background: rgba(255, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.2);
       text-align: center;
     }
-    .live-event {
+    .active-event-display {
       padding: 10px;
-      background: rgba(255, 0, 0, 0.6);
       border-radius: 5px;
       margin-bottom: 5px;
       font-size: 1.2em;
+      background: rgba(0, 255, 0, 0.6);
     }
     footer {
       position: fixed;
@@ -203,13 +204,6 @@
     @media (max-width: 600px) {
       header h1 {
         font-size: 2em;
-      }
-      .slide h2 {
-        font-size: 1.4em;
-        padding: 5px 10px;
-      }
-      .slideshow-container {
-        min-height: 300px;
       }
     }
   </style>
@@ -252,8 +246,8 @@
   </div>
 
   <div class="live-events-container">
-    <h2>🔴 LIVE Events</h2>
-    <div id="live-events-list"></div>
+    <h2>Active Events</h2>
+    <div id="active-events-list"></div>
   </div>
 
   <footer>
@@ -263,18 +257,23 @@
   </footer>
 
   <script>
-    const events = {
-      "March 2025": { 14: "Spring Scavenger Hunt (Ongoing)", 15: "Mafia Night", 21: "Movie Event: Ponyo", 22: "Movie Event: Peter Pan" }, 
+        const events = {
+      "March 2025": {
+        14: { name: "Spring Scavenger Hunt", status: "active" },
+        15: { name: "Mafia Night", status: "ended" },
+        21: { name: "Movie Event: Ponyo", status: "upcoming" },
+        22: { name: "Movie Event: Peter Pan", status: "upcoming" }
+      }
     };
 
-    const months = ["March 2025", "April 2025", "May 2025"]; 
+    const months = ["March 2025", "April 2025", "May 2025"];
     let currentMonthIndex = 0;
 
     function renderCalendar() {
       const monthName = months[currentMonthIndex];
       document.getElementById("monthTitle").textContent = monthName;
       document.getElementById("calendarDays").innerHTML = "";
-      document.getElementById("live-events-list").innerHTML = "";
+      document.getElementById("active-events-list").innerHTML = "";
 
       for (let i = 1; i <= 31; i++) {
         let dayDiv = document.createElement("div");
@@ -282,15 +281,19 @@
         dayDiv.textContent = i;
 
         if (events[monthName] && events[monthName][i]) {
-          dayDiv.classList.add("event-day");
-          dayDiv.setAttribute("data-event", events[monthName][i]);
-
-          if (events[monthName][i].includes("(Ongoing)")) {
-            dayDiv.classList.add("ongoing-event");
-            let liveEvent = document.createElement("div");
-            liveEvent.classList.add("live-event");
-            liveEvent.textContent = `🔴 ${events[monthName][i]}`;
-            document.getElementById("live-events-list").appendChild(liveEvent);
+          const eventData = events[monthName][i];
+          dayDiv.setAttribute("data-event", `${eventData.name} (${eventData.status})`);
+          
+          if (eventData.status === "active") {
+            dayDiv.classList.add("active-event");
+            let activeDisplay = document.createElement("div");
+            activeDisplay.classList.add("active-event-display");
+            activeDisplay.textContent = `🟢 ${eventData.name}`;
+            document.getElementById("active-events-list").appendChild(activeDisplay);
+          } else if (eventData.status === "ended") {
+            dayDiv.classList.add("ended-event");
+          } else if (eventData.status === "upcoming") {
+            dayDiv.classList.add("upcoming-event");
           }
         }
 
@@ -303,8 +306,14 @@
       }
     }
 
-    document.getElementById("prevMonth").addEventListener("click", () => { if (currentMonthIndex > 0) currentMonthIndex--; renderCalendar(); });
-    document.getElementById("nextMonth").addEventListener("click", () => { if (currentMonthIndex < months.length - 1) currentMonthIndex++; renderCalendar(); });
+    document.getElementById("prevMonth").addEventListener("click", () => {
+      if (currentMonthIndex > 0) currentMonthIndex--;
+      renderCalendar();
+    });
+    document.getElementById("nextMonth").addEventListener("click", () => {
+      if (currentMonthIndex < months.length - 1) currentMonthIndex++;
+      renderCalendar();
+    });
 
     renderCalendar();
   </script>
