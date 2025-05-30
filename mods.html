@@ -95,7 +95,6 @@
       display: block;
     }
 
-    
     .featured-mods {
       max-width: 1200px;
       margin: 40px auto;
@@ -104,6 +103,11 @@
       border: 1px solid #1d0909;
       border-radius: 5px;
     }
+
+    #mod-of-month-box {
+      box-shadow: 0 0 20px 10px rgba(255,255,255,0.8);
+    }
+
     .mod-category {
       margin-top: 30px;
     }
@@ -190,20 +194,22 @@
     </div>
   </header>
   
-  <div class="featured-mods">
+  <!-- Mod of the Month (grey-shaded & glowing) -->
+  <div class="featured-mods" id="mod-of-month-box">
     <div class="mod-category" id="mod-of-the-month">
       <h2><u>Mod of the Month</u></h2>
       <div class="mod-container">
         <div class="mod">
           <img src="images/better crewlink.png" alt="bcl">
-          <h3>Endless Host Roles</h3>
-          <p>This month’s spotlight is on <strong>Better Crewlink</strong>, a host-only fork of TOHE by Gurge that adds FFA and fresh game modes.</p>
+          <h3>Better CrewLink</h3>
+          <p>This month’s spotlight is on <strong>Better CrewLink</strong>, implementing proximity voice chat to supercharge your lobby!</p>
           <a href="https://github.com/OhMyGuus/BetterCrewLink?dhc-id=80412110655328258" target="_blank">GitHub</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Existing Featured Mods -->
   <div class="featured-mods">
     <div class="mod-category" id="host-only">
       <h2><u>Host-Only Mods</u></h2>
