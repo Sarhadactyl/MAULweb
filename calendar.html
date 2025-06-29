@@ -233,7 +233,7 @@
     <div class="calendar-container">
       <div class="month-navigation">
         <button id="prevMonth">◀ Previous</button>
-        <h2 id="monthTitle">March 2025</h2>
+        <h2 id="monthTitle">Loading...</h2>
         <button id="nextMonth">Next ▶</button>
       </div>
 
@@ -278,16 +278,22 @@
           2:  { name: "Flash XP Event By: Sarha", status: "ended" },
           4:  { name: "Flash XP Event By: Sarha", status: "ended" },
           10: { name: "Guess The Number By: Sarha", status: "ended" },
-          16: { name: "XP Boost Event By: Sarha", status: "active" },
+          16: { name: "Text XP Boost Event By: Sarha", status: "active" },
           17: { name: "Mafia Night By: Spyder", status: "ended" },
           18: { name: "Clash of Creations By: Sarha", status: "ended" },
           23: { name: "Town of Us: Reactivated By: Northie", status: "ended" },
           25: { name: "TOHE Mega Lobby By: GoldenWolf", status: "ended" },
           30: { name: "Summer Banner Event By: Sarha", status: "ended" }
+        },
+        "June 2025": {
+          29: { name: "Scribble.io By: Spyder", status: "active" },
+          1.1: { name: "500% VC XP Boost By: Sarha", status: "ended" },
+          10: { name: "GGD By: Ghoul", status: "ended" },
+          29: { name: "Scribble.io By: Spyder", status: "active" }
         }
       };
 
-      const months = ["March 2025", "April 2025", "May 2025"];
+      const months = Object.keys(events);
       let currentMonthIndex = 0;
 
       function renderCalendar() {
@@ -296,7 +302,28 @@
         document.getElementById("calendarDays").innerHTML = "";
         document.getElementById("active-events-list").innerHTML = "";
 
-        for (let day = 1; day <= 31; day++) {
+        const [monthText, yearText] = monthName.split(" ");
+        const monthIndex = new Date(`${monthText} 1, ${yearText}`).getMonth();
+        const year = parseInt(yearText);
+        const firstDay = new Date(year, monthIndex, 1).getDay();
+        const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+
+        const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        weekdays.forEach(day => {
+          const header = document.createElement("div");
+          header.textContent = day;
+          header.style.fontWeight = "bold";
+          document.getElementById("calendarDays").appendChild(header);
+        });
+
+        for (let i = 0; i < firstDay; i++) {
+          const spacer = document.createElement("div");
+          spacer.classList.add("day");
+          spacer.style.visibility = "hidden";
+          document.getElementById("calendarDays").appendChild(spacer);
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
           const dayDiv = document.createElement("div");
           dayDiv.classList.add("day");
           dayDiv.textContent = day;
@@ -310,8 +337,7 @@
               const activeDisplay = document.createElement("div");
               activeDisplay.classList.add("active-event-display");
               activeDisplay.textContent = `🔴 ${name}`;
-              document.getElementById("active-events-list")
-                      .appendChild(activeDisplay);
+              document.getElementById("active-events-list").appendChild(activeDisplay);
             } else if (status === "ended") {
               dayDiv.classList.add("ended-event");
             } else if (status === "upcoming") {
@@ -329,25 +355,26 @@
         }
       }
 
-      document.getElementById("prevMonth")
-              .addEventListener("click", () => {
+      document.getElementById("prevMonth").addEventListener("click", () => {
         if (currentMonthIndex > 0) {
           currentMonthIndex--;
           renderCalendar();
         }
       });
 
-      document.getElementById("nextMonth")
-              .addEventListener("click", () => {
+      document.getElementById("nextMonth").addEventListener("click", () => {
         if (currentMonthIndex < months.length - 1) {
           currentMonthIndex++;
           renderCalendar();
         }
       });
 
-      // Initial render
+      const today = new Date();
+      const currentMonthStr = today.toLocaleString("default", { month: "long" }) + " " + today.getFullYear();
+      const autoIndex = months.findIndex(m => m === currentMonthStr);
+      if (autoIndex !== -1) currentMonthIndex = autoIndex;
+
       renderCalendar();
     </script>
-
   </body>
 </html>
