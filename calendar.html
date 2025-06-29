@@ -283,6 +283,7 @@
           18: { name: "Clash of Creations By: Sarha", status: "ended" },
           23: { name: "Town of Us: Reactivated By: Northie", status: "ended" },
           25: { name: "TOHE Mega Lobby By: GoldenWolf", status: "ended" },
+<<<<<<< HEAD
           30: { name: "Summer Banner Event By: Sarha", status: "ended" }
         },
         "June 2025": {
@@ -290,6 +291,9 @@
           1.1: { name: "500% VC XP Boost By: Sarha", status: "ended" },
           10: { name: "GGD By: Ghoul", status: "ended" },
           29: { name: "Scribble.io By: Spyder", status: "active" }
+=======
+          30: { name: "Summer Banner Event By: Sarha", status: "active" }
+>>>>>>> 15d3390f4490475b2db0b6035bf8b4ed544612be
         }
       };
 
@@ -369,12 +373,17 @@
         }
       });
 
+<<<<<<< HEAD
       const today = new Date();
       const currentMonthStr = today.toLocaleString("default", { month: "long" }) + " " + today.getFullYear();
       const autoIndex = months.findIndex(m => m === currentMonthStr);
       if (autoIndex !== -1) currentMonthIndex = autoIndex;
 
+=======
+      // Initial render
+>>>>>>> 15d3390f4490475b2db0b6035bf8b4ed544612be
       renderCalendar();
     </script>
+
   </body>
 </html>
