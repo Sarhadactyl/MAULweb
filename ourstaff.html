@@ -20,12 +20,10 @@
       font-family: Arial, sans-serif;
       color: #fff;
     }
-    /* Background image covering the screen */
     body {
       background: #000 url("images/background.png") no-repeat center center fixed;
       background-size: cover;
     }
-    /* Uniform Hamburger Menu */
     .dropdown {
       position: absolute;
       top: 20px;
@@ -99,7 +97,6 @@
       cursor: pointer;
       transition: color 0.3s ease;
     }
-    /* Hover effects ripple and highlight */
     .apply-links span:hover,
     .apply-links a:hover {
       animation: ripple 0.8s ease-out;
@@ -116,7 +113,6 @@
         text-shadow: 0 0 0 rgba(255,255,255,0.5);
       }
     }
-    /* Styling for closed Moderation text */
     .closed s {
       text-decoration: line-through;
     }
@@ -135,12 +131,10 @@
       font-size: 0.8em;
       color: #ccc;
     }
-    /* Page Heading */
     h1 {
       text-align: center;
       margin: 20px 0 30px;
     }
-    /* Staff Container (3 columns) */
     .staff-container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -163,7 +157,6 @@
       text-align: center;
       color: #fff;
     }
-    /* Collapsible details (each staff member) */
     details {
       background-color: rgba(100, 100, 100, 0.3);
       border: 1px solid #1d0909;
@@ -185,7 +178,6 @@
     summary::-webkit-details-marker {
       display: none;
     }
-    /* Smooth roll-down effect */
     .details-content {
       overflow: hidden;
       max-height: 0;
@@ -198,7 +190,6 @@
       max-height: none;
       transition: none;
     }
-    /* Staff Member Content */
     .staff-member {
       text-align: center;
       padding: 10px;
@@ -254,7 +245,6 @@
   </style>
 </head>
 <body>
-  <!-- Uniform Hamburger Menu -->
   <div class="dropdown">
     <button class="dropbtn">
       <div class="hamburger">
@@ -272,21 +262,22 @@
     </div>
   </div>
 
-  <!-- Apply for Staff Section -->
   <div class="apply-section">
     <h2>Apply for Staff</h2>
     <div class="apply-links">
-      <!-- Moderation (closed) -->
       <span id="moderation" class="closed">
         <span class="red-dot"></span>
         <s>Moderation</s>
       </span>
-      <!-- Event Manager and Giveaway Manager -->
+      <span id="verification-mod" class="closed">
+        <span class="red-dot"></span>
+        <s>Verification Moderator</s>
+      </span>
       <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344252646743085096">
         <span class="green-dot"></span>Event Manager
       </a>
       <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344252646743085096">
-        <span class="green-dot"></span>Giveaway Manager
+        <span class="green-dot"></span>This Dude
       </a>
     </div>
     <p class="apply-disclaimer">* Giveaway and Event Managers must open a ticket to apply.</p>
@@ -294,9 +285,9 @@
 
   <h1>Our Staff</h1>
 
-  <!-- Single Staff Container (3 columns) -->
+  <!-- Staff Container -->
   <div class="staff-container">
-    <!-- Row 1: Owners (col 1), Head Admin (col 2), Admin (col 3) -->
+    <!-- Row 1: Owners, Head Admin, Admin -->
     <div class="staff-role" style="grid-column: 1;">
       <h2>Owners</h2>
       <details>
@@ -315,7 +306,6 @@
           <div class="staff-member">
             <img src="images/sarhaicon.png" alt="Sarha Profile">
             <h4>About Me</h4>
-            <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
                 <img src="images/sarhabp.webp" alt="Works a lot" style="max-width:20px; border:none; margin:0;">
@@ -360,14 +350,13 @@
             <p>I’m just happy to be here.</p>
           </div>
         </div>
-      <</details>
+      </details>
       <details>
-      <summary>Hannah✰⋆｡</summary>
+        <summary>Hannah✰⋆｡</summary>
         <div class="details-content">
           <div class="staff-member">
             <img src="images/hanicon.jpg" alt="Han Profile">
             <h4>About Me</h4>
-            <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
                 <img src="images/hanbp.webp" alt="Cat enthusiast" style="max-width:20px; border:none; margin:0;">
@@ -387,16 +376,14 @@
       </details>
     </div>
 
-    <!-- Row 2: Senior Moderator (col 1), Moderator (col 2), Trial Mod (col 3) -->
     <div class="staff-role" style="grid-column: 1;">
       <h2>Senior Moderator</h2>
-      <details>
+      <details>  
         <summary>Northie</summary>
         <div class="details-content">
           <div class="staff-member">
             <img src="images/northieicon.jpg" alt="Northie Profile">
             <h4>About Me</h4>
-            <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
                 <img src="images/northiebp.webp" alt="Love Music & Gaming" style="max-width:20px; border:none; margin:0;">
@@ -420,7 +407,6 @@
           <div class="staff-member">
             <img src="images/summericon.jpg" alt="Summer Profile">
             <h4>About Me</h4>
-            <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
                 <img src="images/summerbp.webp" alt="Puns and bad dad jokes for life" style="max-width:20px; border:none; margin:0;">
@@ -431,7 +417,7 @@
                 Music/violin enthusiast
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/summerbp.webp" alt="Just a girl and her silly little games &amp; pretty things against the world" style="max-width:20px; border:none; margin:0;">
+                <img src="images/summerbp.webp" alt="Just a girl and her silly little games & pretty things against the world" style="max-width:20px; border:none; margin:0;">
                 Just a girl and her silly little games &amp; pretty things against the world
               </li>
             </ul>
@@ -446,9 +432,8 @@
         <summary>LilPea</summary>
         <div class="details-content">
           <div class="staff-member">
-            <img src="images/peaicon.png" alt="Moderator @!𝐋𝐢𝐋𝐏𝐄𝐀!">
+            <img src="images/peaicon.png" alt="Moderator LilPea">
             <h4>About Me</h4>
-            <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
                 <img src="images/peabp.webp" alt="sore loser" style="max-width:20px; border:none; margin:0;">
@@ -466,9 +451,8 @@
         <summary>Poet</summary>
         <div class="details-content">
           <div class="staff-member">
-            <img src="images/poeticon.webp" alt="Moderator @🎀 𝒫🍀𝑒𝓉 🎀">
+            <img src="images/poeticon.webp" alt="Moderator Poet">
             <h4>About Me</h4>
-            <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
                 <img src="images/poetbp.webp" alt="Mom of Two Boys ❤️" style="max-width:20px; border:none; margin:0;">
@@ -482,7 +466,7 @@
                 <img src="images/poetbp.webp" alt="HR Consultant/Data Analyst" style="max-width:20px; border:none; margin:0;">
                 HR Consultant/Data Analyst
               </li>
-              <li style="display: flex; align-items: center; gap: 5px;">
+              <li style="display: flex; align-items: center; gap: 5px;"> 
                 <img src="images/poetbp.webp" alt="Lover of the Arts" style="max-width:20px; border:none; margin:0;">
                 Lover of the Arts
               </li>
@@ -494,17 +478,16 @@
         <summary>Marg</summary>
         <div class="details-content">
           <div class="staff-member">
-            <img src="images/margicon.png" alt="Marg Profile">
+            <img src="images/margicon.png" alt="Moderator Marg">
             <h4>About Me</h4>
-            <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
                 <img src="images/margbp1.webp" alt="Senior Contributor for TOHE" style="max-width:20px; border:none; margin:0;">
                 Senior Contributor for TOHE (coded Coven and Neutral Apocalypse)
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/margbp2.webp" alt="Violin &amp; Guitar Player" style="max-width:20px; border:none; margin:0;">
-                Violin &amp; Guitar Player, Bowler, and occasional Artist
+                <img src="images/margbp2.webp" alt="Violin & Guitar Player" style="max-width:20px; border:none; margin:0;">
+                Violin &amp; Guitar Player, Bowler, occasional Artist
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
                 <img src="images/margbp3.webp" alt="Full-time furry" style="max-width:20px; border:none; margin:0;">
@@ -518,9 +501,8 @@
         <summary>Croissant</summary>
         <div class="details-content">
           <div class="staff-member">
-            <img src="images/crisicon.png" alt="Moderator @croissant">
+            <img src="images/crisicon.png" alt="Moderator Croissant">
             <h4>About Me</h4>
-            <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
                 <img src="images/crisbp.webp" alt="Pokemon Enjoyer" style="max-width:20px; border:none; margin:0;">
@@ -542,9 +524,8 @@
         <summary>Fish King</summary>
         <div class="details-content">
           <div class="staff-member">
-            <img src="images/fishimage.jpg" alt="Fish King Profile">
+            <img src="images/fishimage.jpg" alt="Moderator Fish King">
             <h4>About Me</h4>
-            <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
                 <img src="images/fish.webp" alt="Dad" style="max-width:20px; border:none; margin:0;">
@@ -570,20 +551,19 @@
         <summary>Sunny</summary>
         <div class="details-content">
           <div class="staff-member">
-            <img src="images/sunnyicon.png" alt="Sunny Profile">
+            <img src="images/sunnyicon.png" alt="Moderator Sunny">
             <h4>About Me</h4>
-            <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
                 <img src="images/sunnybp.webp" alt="Two-spirited" style="max-width:20px; border:none; margin:0;">
                 two-spirited and feeling the urge to explore these lands
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/sunnybp.webp" alt="HOME-Resonance" style="max-width:20px; border:none; margin:0;">
-                HOME-Resonance, Enya-Caribbean Blue
+                <img src="images/sunnybp.webp" alt="HOME-Resonance, Enya-Caribbean Blue" style="max-width:20px; border:none; margin:0;">
+                HOME-Resonance, Enya–Caribbean Blue
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/sunnybp.webp" alt="soccer" style="max-width:20px; border:none; margin:0;">
+                <img src="images/sunnybp.webp" alt="soccer by day, soccer by night" style="max-width:20px; border:none; margin:0;">
                 soccer by day, soccer by night
               </li>
             </ul>
@@ -594,20 +574,19 @@
         <summary>Tree</summary>
         <div class="details-content">
           <div class="staff-member">
-            <img src="images/treeicon.webp" alt="Tree Profile">
+            <img src="images/treeicon.webp" alt="Moderator Tree">
             <h4>About Me</h4>
-            <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/tree.png" alt="tree" style="max-width:20px; border:none; margin:0;">
+                <img src="images/tree.png" alt="Just a tree" style="max-width:20px; border:none; margin:0;">
                 Just a tree
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/tree.png" alt="games" style="max-width:20px; border:none; margin:0;">
+                <img src="images/tree.png" alt="Enjoys playing games" style="max-width:20px; border:none; margin:0;">
                 Enjoys playing games with cool people
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/tree.png" alt="funny" style="max-width:20px; border:none; margin:0;">
+                <img src="images/tree.png" alt="Sometimes funny" style="max-width:20px; border:none; margin:0;">
                 Sometimes funny
               </li>
             </ul>
@@ -615,8 +594,7 @@
         </div>
       </details>
     </div>
-
-    <div class="staff-role" style="grid-column: 3;">
+    <div class="staff-role" style="grid-column: 1;">
       <h2>Trial Mod</h2>
       <details>
         <summary>Trial Mods</summary>
@@ -631,66 +609,65 @@
       </details>
     </div>
 
-    <div class="staff-role" style="grid-column: 1;">
+    <div class="staff-role" style="grid-column: 2;">
       <h2>Giveaways</h2>
       <details>
-        <summary>Giveaway Manager</summary>
+        <summary>This Dude</summary>
         <div class="details-content">
           <div class="staff-member">
-            <img src="images/giveman.png" alt="Giveaways User">
+            <img src="images/giveman.png" alt="Giveaway Manager – This Dude">
             <h4>About Me</h4>
-            <p>Apply above to become part of the team.</p>
+            <p>I’m This Dude, the giveaway manager for the Discord server! I like to read and play video games, particularly Among Us and Minecraft. I also like to try digital drawing every now and then.</p>
           </div>
         </div>
       </details>
     </div>
 
-    <div class="staff-role" style="grid-column: 2;">
+    <div class="staff-role" style="grid-column: 3;">
       <h2>Events</h2>
-        <details>
-          <summary>Event Director - Croissant</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/crisicon.png" alt="Moderator @croissant">
-              <h4>About Me</h4>
-              <p><!-- About Me --></p>
-              <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/crisbp.webp" alt="Pokemon Enjoyer" style="max-width:20px; border:none; margin:0;">
-                  Pokemon Enjoyer
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/crisbp.webp" alt="Light blue is my fav colour" style="max-width:20px; border:none; margin:0;">
-                  Light blue is my fav colour
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/crisbp.webp" alt="Penguins are the best" style="max-width:20px; border:none; margin:0;">
-                  Penguins are the best
-                </li>
-              </ul>
-            </div>
+      <details>
+        <summary>Event Director – Croissant</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/crisicon.png" alt="Event Director Croissant">
+            <h4>About Me</h4>
+            <ul style="list-style: disc; padding-left: 20px; text-align: left;">
+              <li style="display: flex; align-items: center; gap: 5px;">
+                <img src="images/crisbp.webp" alt="Pokemon Enjoyer" style="max-width:20px; border:none; margin:0;">
+                Pokemon Enjoyer
+              </li>
+              <li style="display: flex; align-items: center; gap: 5px;">
+                <img src="images/crisbp.webp" alt="Light blue is my fav colour" style="max-width:20px; border:none; margin:0;">
+                Light blue is my fav colour
+              </li>
+              <li style="display: flex; align-items: center; gap: 5px;">
+                <img src="images/crisbp.webp" alt="Penguins are the best" style="max-width:20px; border:none; margin:0;">
+                Penguins are the best
+              </li>
+            </ul>
           </div>
-        </details>
+        </div>
+      </details>
       <details>
         <summary>Event Director – Ghoul</summary>
         <div class="details-content">
           <div class="staff-member">
-            <img src="images/ghoulicon.png" alt="Trial Event Manager – Ghoul">
+            <img src="images/ghoulicon.png" alt="Event Director Ghoul">
             <h4>About Me</h4>
-            <p>What`s up. I`m ghoul. I`m a student living in the  Netherlands. I am a fan of reading, movies, and sports.</p>
+            <p>What&#96;s up. I&#96;m Ghoul. I&#96;m a student living in the Netherlands. I am a fan of reading, movies, and sports.</p>
           </div>
         </div>
       </details>
-        <details>
-          <summary>Event Manager</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/event.png" alt="Event Manager">
-              <h4>About Me</h4>
-              <p><!-- About Me for Event Manager --></p>
-            </div>
+      <details>
+        <summary>Event Manager</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/event.png" alt="Event Manager">
+            <h4>About Me</h4>
+            <p><!-- about Me for Event Manager --></p>
           </div>
-        </details>
+        </div>
+      </details>
       <details>
         <summary>Trial Event Manager – Night</summary>
         <div class="details-content">
@@ -698,9 +675,9 @@
             <img src="images/imnighticon.png" alt="Trial Event Manager – Night">
             <h4>About Me</h4>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-              <li>Silly brazilian guy.</li>
+              <li>Silly Brazilian guy.</li>
               <li>Loves to play games (mostly PC games).</li>
-              <li>I’m shy or I have ADHD, I dont know I think it’s both.</li>
+              <li>I’m shy or I have ADHD, I don’t know I think it's both.</li>
               <li>Don’t ask me, I have the memory of a fish.</li>
             </ul>
           </div>
@@ -712,19 +689,79 @@
           <div class="staff-member">
             <img src="images/spydericon.png" alt="Trial Event Manager – Spyder">
             <h4>About Me</h4>
-            <p><!-- About Me --></p>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
                 <img src="images/spyderbp.webp" alt="spyderinfo" style="max-width:20px; border:none; margin:0;">
                 A student who hosts stuff and watches way too much anime.
               </li>
+            </ul>
           </div>
         </div>
       </details>
     </div>
-  </div><!-- End .staff-container -->
 
-  <!-- Modal Popup (for closed Moderation) -->
+    <div class="staff-role" style="grid-column: 1;">
+      <h2>Verification Moderators</h2>
+      <details>
+        <summary>Goldenwolf</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/goldenwolficon.png" alt="Verification Moderator – Goldenwolf">
+            <h4>About Me</h4>
+            <p><!-- Golden bio here --></p>
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary>Spyder</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/spydericon.png" alt="Verification Moderator – Spyder">
+            <h4>About Me</h4>
+            <ul style="list-style: disc; padding-left: 20px; text-align: left;">
+              <li style="display: flex; align-items: center; gap: 5px;">
+                <img src="images/spyderbp.webp" alt="spyderinfo" style="max-width:20px; border:none; margin:0;">
+                A student who hosts stuff and watches way too much anime.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <div class="staff-role" style="grid-column: 2;">
+      <h2>Minecraft Management</h2>
+      <details>
+        <summary>Pyro</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/pyroicon1.webp" alt="Pyro Profile">
+            <h4>About Me</h4>
+            <ul style="list-style: disc; padding-left: 20px; text-align: left;">
+              <li style="display: flex; align-items: center; gap: 5px;">
+                <img src="images/pyroicon1.webp" alt="Gamer & Creator" style="max-width:20px; border:none; margin:0;">
+                Gamer & Creator
+              </li>
+              <li style="display: flex; align-items: center; gap: 5px;">
+                <img src="images/pyroicon2.webp" alt="The Funniest Guy You've Never Met!" style="max-width:20px; border:none; margin:0;">
+                The Funniest Guy You’ve Never Met!
+              </li>
+              <li style="display: flex; align-items: center; gap: 5px;">
+                <img src="images/pyroicon3.svg" alt="Top 3 Favorite Games" style="max-width:20px; border:none; margin:0;">
+                Top 3 Favorite Games: Minecraft, Smash Bros, Xenoblade.
+              </li>
+              <li style="display: flex; align-items: center; gap: 5px;">
+                <img src="images/pyroicon4.webp" alt="Spent way too much money on Fortnite..." style="max-width:20px; border:none; margin:0;">
+                Spent way too much money on Fortnite...
+              </li>
+            </ul>
+          </div>
+        </div>
+      </details>
+    </div>
+
+  </div>
+
   <div id="modal" class="modal">
     <div class="modal-content">
       <span id="close-modal" class="close">&times;</span>
@@ -734,7 +771,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Only allow one top-level <details> open at a time
       const topLevelDetails = document.querySelectorAll('details:not(details details)');
       topLevelDetails.forEach((detail) => {
         detail.addEventListener('toggle', () => {
@@ -748,19 +784,20 @@
         });
       });
 
-      // Moderation "closed" modal
       const moderation = document.getElementById('moderation');
+      const verification = document.getElementById('verification-mod');
       const modal = document.getElementById('modal');
       const closeModal = document.getElementById('close-modal');
 
       moderation.addEventListener('click', () => {
         modal.style.display = "block";
       });
-
+      verification.addEventListener('click', () => {
+        modal.style.display = "block";
+      });
       closeModal.addEventListener('click', () => {
         modal.style.display = "none";
       });
-
       window.addEventListener('click', (event) => {
         if (event.target === modal) {
           modal.style.display = "none";
