@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Among Us Mods</title>
+  <title>Among Us Mod Presets</title>
   <meta property="og:title" content="Welcome to MAUL" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://moddedamong.us/" />
@@ -85,10 +85,14 @@
       text-align:center; font-size:clamp(20px,2.2vw,32px);
       margin:8px 0 20px;
     }
-    .grid{
-      display:grid; gap:var(--gap);
-      grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
-      align-items:stretch;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      max-width: 900px; 
+      margin: 0 auto; 
+      gap: var(--gap);
+      justify-content: center;
+      align-items: stretch;
     }
     .card{
       display:flex; flex-direction:column; align-items:stretch;
@@ -178,7 +182,7 @@
   </section>
 
   <section class="wrap">
-    <h2><u>Mods & Presets</u></h2>
+    <h2><u>Mods Presets</u></h2>
     <div class="grid" id="mods-grid">
     </div>
   </section>
