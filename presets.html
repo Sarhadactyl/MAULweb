@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8" />
   <title>Among Us Mod Presets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta property="og:title" content="Welcome to MAUL" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://moddedamong.us/" />
@@ -12,6 +14,7 @@
   <link rel="canonical" href="https://moddedamong.us/" />
   <link rel="shortcut icon" type="image/png" href="images/favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --bg:#000;
@@ -20,7 +23,7 @@
       --card:rgba(39,38,38,.65);
       --border:#1d0909;
       --glass:rgba(0,0,0,.5);
-      --accent:#ffffff; /* used for glows */
+      --accent:#ffffff;
       --maxw:1200px;
       --radius:10px;
       --gap:18px;
@@ -35,7 +38,6 @@
       overflow-x:hidden;
     }
     body{
-      /* Use your image path */
       background: url('images/background.png') no-repeat center center fixed;
       background-size: cover;
       display:flex;
@@ -61,8 +63,10 @@
     .dropbtn:hover{ transform:scale(1.08); }
     .hamburger{ width:30px; height:22px; display:flex; flex-direction:column; justify-content:space-between; }
     .hamburger span{ display:block; height:4px; background:#fff; border-radius:2px; }
+
+    .dropdown{ position:relative; }
     .dropdown-content{
-      display:none; position:absolute; margin-top:10px;
+      display:none; position:absolute; top:100%; left:0;
       background:#2a2a2a; min-width:180px; border-radius:8px;
       box-shadow:0 8px 16px rgba(0,0,0,.35); overflow:hidden;
     }
@@ -71,7 +75,9 @@
       transition:background .2s ease;
     }
     .dropdown-content a:hover{ background:#3a3a3a; }
-    .dropdown:hover .dropdown-content{ display:block; }
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content,
+    .dropdown.open .dropdown-content{ display:block; }
 
     .wrap{
       width:100%; max-width:var(--maxw);
@@ -80,54 +86,39 @@
       border:1px solid var(--border);
       border-radius:var(--radius);
     }
-    .wrap.featured{ box-shadow:0 0 20px 10px rgba(255,255,255,.08); }
     .wrap h2{
       text-align:center; font-size:clamp(20px,2.2vw,32px);
       margin:8px 0 20px;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      max-width: 900px; 
-      margin: 0 auto; 
-      gap: var(--gap);
-      justify-content: center;
-      align-items: stretch;
+
+    .wrap.featured{
+      max-width:520px;
+      margin:20px auto;
+      padding:12px 16px;
+      background:var(--glass);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:0 0 15px rgb(255, 255, 255);
     }
-    /*Featured section: small*/
+    .wrap.featured h2{ margin:8px 0 12px; }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      max-width:900px;
+      margin:0 auto;
+      gap:var(--gap);
+      justify-content:center;
+      align-items:stretch;
+    }
+
     #featured-grid{
-    display:flex;                 
-    justify-content:center;
-    max-width: 300px; 
-    margin: 0 auto;
+      display:flex;
+      justify-content:center;
+      max-width:460px;
+      margin:0 auto;
     }
-
-    #featured-grid .card{
-    width:100%;
-    max-width: 350px;             
-    }
-
-    #featured-grid .thumb{
-    height: 100px;  
-    aspect-ratio: auto; 
-    object-fit: cover;            
-    }
-    .wrap.featured {
-      max-width: 300px;  
-      margin: 20px auto;    
-      padding: 12px 16px;
-      background: var(--glass);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: 0 0 20px 10px rgba(255,255,255,0.8);
-    }
-
-    .wrap.featured h2 {
-      margin: 6px 0 10px;
-    }
-    
-    .wrap.featured{ padding:12px 16px; }
-    .wrap.featured h2{ margin: 8px 0 12px; }
+    #featured-grid .card{ width:100%; max-width:420px; }
 
     .card{
       display:flex; flex-direction:column; align-items:stretch;
@@ -135,35 +126,30 @@
       border-radius:var(--radius); overflow:hidden;
     }
     .thumb{
-      aspect-ratio:16/9; width:100%; object-fit:cover;
+      width:100%;
+      height:180px;
+      object-fit:contain;
       background:#111;
+      display:block;
     }
+    #featured-grid .thumb{ height:160px; }
+
     .card-body{ padding:14px; display:flex; flex-direction:column; gap:10px; }
-    .title{
-      margin:0; font-size:1.15rem; line-height:1.2; letter-spacing:.2px;
-    }
+    .title{ margin:0; font-size:1.15rem; line-height:1.2; letter-spacing:.2px; }
     .sub{ color:var(--sub); font-size:.92rem; line-height:1.4; }
 
-    .presets{
-      border-top:1px solid #000; padding-top:10px; margin-top:6px;
-    }
+    .presets{ border-top:1px solid #000; padding-top:10px; margin-top:6px; }
     details{
       background:rgba(0,0,0,.25);
       border:1px solid rgba(255,255,255,.06);
       border-radius:8px; padding:10px 12px; margin-bottom:10px;
     }
     details:hover{ box-shadow:0 0 10px rgba(255,255,255,.06) inset; }
-    summary{
-      cursor:pointer; font-weight:700;
-      list-style:none; outline:none;
-    }
+    summary{ cursor:pointer; font-weight:700; list-style:none; outline:none; }
     summary::marker{ display:none; }
-    .preset-meta{
-      margin-top:8px; color:var(--sub); font-size:.95rem;
-    }
-    .preset-actions{
-      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
-    }
+    .preset-meta{ margin-top:8px; color:var(--sub); font-size:.95rem; }
+    .preset-actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+
     .btn{
       display:inline-block; padding:9px 14px;
       background:black; color:white; text-decoration:none; font-weight:700;
@@ -212,14 +198,12 @@
 
   <section class="wrap featured">
     <h2><u>Featured Presets</u></h2>
-    <div class="grid" id="featured-grid">
-    </div>
+    <div id="featured-grid"></div>
   </section>
 
   <section class="wrap">
     <h2><u>Mods Presets</u></h2>
-    <div class="grid" id="mods-grid">
-    </div>
+    <div id="mods-grid" class="grid"></div>
   </section>
 
   <footer>
@@ -230,19 +214,6 @@
   </footer>
 
   <script>
-    /**
-     * 1) Put images in /images/
-     * 2) Put preset files anywhere (e.g., /presets/.../file.zip)
-     * 3) Edit the DATA object below.
-     *
-     * Each preset entry:
-     * - host: "HostName"
-     * - name: "Preset Name"
-     * - description: "One-liner or multi-line"
-     * - file: "path/to/file.zip" (or null to omit button)
-     * - notes (optional): small extra text like a version badge
-     */
-
     const DATA = {
       featured: [
         {
@@ -257,7 +228,7 @@
               name: "Balanced Lotus v3",
               description: "Roles tuned for 10–12 players. Reduced kill cooldown, careful neutral balance.",
               file: "presets",
-              notes: "expierenced, chill",
+              notes: "expierenced, chill"
             },
             {
               host: "Polus",
@@ -342,7 +313,7 @@
       d.appendChild(meta);
 
       const actions = el('div', 'preset-actions');
-      if (p.file) {
+      if (p.file && /\.\w{2,5}$/.test(p.file)) {
         const dl = el('a', 'btn');
         dl.href = p.file;
         dl.setAttribute('download', '');
@@ -363,6 +334,7 @@
       const img = el('img', 'thumb');
       img.src = mod.image;
       img.alt = mod.title;
+      img.loading = 'lazy';
       card.appendChild(img);
 
       const body = el('div', 'card-body');
@@ -377,6 +349,7 @@
         const repoBtn = el('a', 'btn', 'GitHub');
         repoBtn.href = mod.repo;
         repoBtn.target = '_blank';
+        repoBtn.rel = 'noopener noreferrer';
         actions.appendChild(repoBtn);
         body.appendChild(actions);
       }
@@ -401,6 +374,37 @@
 
     renderSection('featured-grid', DATA.featured);
     renderSection('mods-grid', DATA.mods);
+
+    (function(){
+      const dd = document.querySelector('.dropdown');
+      const btn = dd.querySelector('.dropbtn');
+      const menu = dd.querySelector('.dropdown-content');
+      let hideTimer;
+      function open() {
+        clearTimeout(hideTimer);
+        dd.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+      function scheduleClose() {
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => {
+          dd.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }, 200);
+      }
+      btn.addEventListener('mouseenter', open);
+      menu.addEventListener('mouseenter', open);
+      btn.addEventListener('mouseleave', scheduleClose);
+      menu.addEventListener('mouseleave', scheduleClose);
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (dd.classList.contains('open')) scheduleClose();
+        else open();
+      });
+      document.addEventListener('click', (e) => {
+        if (!dd.contains(e.target)) scheduleClose();
+      });
+    })();
   </script>
 </body>
 </html>
