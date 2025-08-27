@@ -267,87 +267,95 @@
     </p>
   </footer>
 
-  <script>
-    const DATA = {
-      featured: [
-        {
-          id: "project-lotus",
-          title: "Project Lotus",
-          image: "images/Project lotus.jpg",
-          blurb: "Continuation of TOH:TOR with unique roles and functions.",
-          repo: "https://github.com/Lotus-AU/LotusContinued",
-          presets: [
-            {
-              host: "Placeholder",
-              name: "Balanced Lotus v3",
-              description: "Roles tuned for 10–12 players. Reduced kill cooldown, careful neutral balance.",
-              file: "presets",
-              notes: "experienced, chill"
-            },
-            {
-              host: "Polus",
-              name: "Chaos Mode",
-              description: "High modifiers. Expect mayhem.",
-              file: "presets"
-            }
-          ]
-        }
-      ],
-      mods: [
-        {
-          id: "toh",
-          title: "Town of Host",
-          image: "images/TownOfHost-Title.png",
-          blurb: "Host-only base many other mods build on.",
-          repo: "https://github.com/tukasa0001/TownOfHost",
-          presets: [
-            {
-              host: "Skeld",
-              name: "Classic TOH",
-              description: "Vanilla adjacent with a few supportive roles enabled.",
-              file: "presets/toh/classic-toh.zip"
-            },
-            {
-              host: "MIRA",
-              name: "Favorites",
-              description: "A handful of commonly used settings.",
-              file: "presets/toh/fast-meetings.zip"
-            }
-          ]
-        },
-        {
-          id: "tour",
-          title: "The Other Roles",
-          image: "images/TOR_logo.png",
-          blurb: "Adds many new roles and settings to the game.",
-          repo: "https://github.com/TheOtherRolesAU/TheOtherRoles",
-          presets: [
-            {
-              host: "Airship",
-              name: "Role Sampler",
-              description: "Intro set with fewer neutrals and clear win conditions.",
-              file: "presets/tor/role-sampler.zip",
-              notes: "Beginner friendly"
-            }
-          ]
-        },
-        {
-          id: "TOHE",
-          title: "Town of Host: Enhanced",
-          image: "images/TOHE-BG.jpg",
-          blurb: "Continued by The Enhanced Network.",
-          repo: "https://github.com/0xDrMoe/TownofHost-Enhanced",
-          presets: [
-            {
-              host: "Sarha",
-              name: "0kcd-like settings",
-              description: "Many killing roles with low cooldowns; fast games, low tasks.",
-              file: "presets/TOHE2.3.0b6_Sarhas_Options.json"
-            }
-          ]
-        }
-      ]
-    };
+<script>
+  const DATA = {
+    featured: [
+      {
+        id: "project-lotus",
+        title: "Project Lotus",
+        image: "images/Project lotus.jpg",
+        blurb: "Continuation of TOH:TOR with unique roles and functions.",
+        repo: "https://github.com/Lotus-AU/LotusContinued",
+        presets: [
+          {
+            host: "Citrion",
+            name: "Lotus (+Bloom): Cult Takeover",
+            description: "This focuses on the Cult faction that the Bloom add-on adds",
+            file: "presets/preset5.zip",
+            notes: "To use: Unzip this file and put the folder into the Bepinez/config. May also rename to Preset#, where # is what Slot the preset is in"
+          },
+          {
+            host: "Citrion",
+            name: "Low Players",
+            description: "This is the preset I use if I have 9 players or less.",
+            file: "presets/preset4.zip",
+            notes: "To use: Unzip this file and put the folder into the Bepinez/config. May also rename to Preset#, where # is what Slot the preset is in"
+          },
+          {
+            host: "Citrion",
+            name: "Guess Galore",
+            description: "In this preset everyone is a guesser.",
+            file: "presets/preset6.zip",
+            notes: "To use: Unzip this file and put the folder into the Bepinez/config. May also rename to Preset#, where # is what Slot the preset is in"
+          }
+        ]
+      }
+    ],
+    mods: [
+      {
+        id: "toh",
+        title: "Town of Host",
+        image: "images/TownOfHost-Title.png",
+        blurb: "Host-only base many other mods build on.",
+        repo: "https://github.com/tukasa0001/TownOfHost",
+        presets: [
+          {
+            host: "Skeld",
+            name: "Classic TOH",
+            description: "Vanilla adjacent with a few supportive roles enabled.",
+            file: "presets/toh/classic-toh.zip"
+          },
+          {
+            host: "MIRA",
+            name: "Favorites",
+            description: "A handful of commonly used settings.",
+            file: "presets/toh/fast-meetings.zip"
+          }
+        ]
+      },
+      {
+        id: "tor",
+        title: "The Other Roles",
+        image: "images/TOR_logo.png",
+        blurb: "Adds many new roles and settings to the game.",
+        repo: "https://github.com/TheOtherRolesAU/TheOtherRoles",
+        presets: [
+          {
+            host: "Airship",
+            name: "Role Sampler",
+            description: "Intro set with fewer neutrals and clear win conditions.",
+            file: "presets/tor/role-sampler.zip",
+            notes: "Beginner friendly"
+          }
+        ]
+      },
+      {
+        id: "TOHE",
+        title: "Town of Host: Enhanced",
+        image: "images/TOHE-BG.jpg",
+        blurb: "Continued by The Enhanced Network.",
+        repo: "https://github.com/0xDrMoe/TownofHost-Enhanced",
+        presets: [
+          {
+            host: "Sarha",
+            name: "0kcd-like settings",
+            description: "Many killing roles with low cooldowns; fast games, low tasks.",
+            file: "presets/TOHE2.3.0b6_Sarhas_Options.json"
+          }
+        ]
+      }
+    ]
+  };
 
     const $ = sel => document.querySelector(sel);
     const el = (tag, cls, html) => {
