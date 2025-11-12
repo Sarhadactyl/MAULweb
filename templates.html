@@ -542,6 +542,7 @@
     };
   }
 
+  // Selection helpers
   const hasSelection = ()=> {
     const {s,e} = getSel();
     return e > s;
@@ -699,13 +700,19 @@
   }
 
   function ensureFontWrap(){
-    const f=fontSel.value;
-    if(!markup) markup = `<font="${f}"></font>`;
-    if(!markup.startsWith(`<font="${f}">`)){
-      markup = markup.replace(/^<font="[^"]+">/,'');
-      markup = `<font="${f}">` + markup;
+    const f = fontSel.value;
+    if(!markup){
+      markup = `<font="${f}"></font>`;
+      return;
     }
-    if(!markup.endsWith('</font>')) markup += '</font>';
+    const m = markup.match(/^<font="([^"]+)">([\s\S]*)<\/font>$/);
+    if(m){
+      if(m[1] !== f){
+        markup = `<font="${f}">${m[2]}</font>`;
+      }
+    } else {
+      markup = `<font="${f}">${markup}</font>`;
+    }
   }
 
   function renderAll(){
@@ -820,7 +827,6 @@
     markup = `<font="${f}"><color=${solid}>${text}</color></font>`;
     renderAll();
   }
-
   btnSolid.addEventListener('click', ()=>{
     requireSelection(btnSolid, ()=>{
       const {s,e}=getSel();
@@ -930,7 +936,6 @@
     flash(btnShuffle);
   });
 
-  // Other wiring
   fontSel.addEventListener('change', renderAll);
   solidPicker.addEventListener('input', syncSolid);
   ed.addEventListener('input', syncSolid);
