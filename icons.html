@@ -604,78 +604,116 @@
           </div>
 
         </div>
-    <section class="panel" id="name-tag-generator">
-      <h2 class="section-title"><u>Custom Tag Generator</u></h2>
-      <p class="section-subtitle">Build EHR or TONE/TOHE tags. Solid color or per-letter gradient (max 12 chars).</p>
+      <section class="panel" id="name-tag-generator">
+        <h2 class="section-title"><u>Custom Tag Generator</u></h2>
+        <p class="section-subtitle">Build EHR or TONE/TOHE tags with permissions and colors.</p>
 
-      <div class="gen-wrap taggen2-wrap">
-        <div class="gen-controls">
-          <div class="field">
-            <strong>Mod</strong>
-            <label><input type="radio" name="ntg-mod" value="ehr" checked> EHR</label>
-            <label><input type="radio" name="ntg-mod" value="tone"> TONE/TOHE</label>
-          </div>
-          <div class="field">
-            <label for="ntg-fc">Friend Code</label>
-            <input id="ntg-fc" type="text" placeholder="e.g., ABCDEF" />
-          </div>
-        </div>
-        <div class="gen-controls">
-          <div class="field" style="flex:1">
-            <label for="ntg-name">Name / Icons (max 12)</label>
-            <input id="ntg-name" type="text" value="♡Besties♡" maxlength="12" />
-          </div>
-
-          <div class="field">
-            <strong>Color Mode</strong>
-            <label><input type="radio" name="ntg-mode" value="solid" checked> Solid</label>
-            <label><input type="radio" name="ntg-mode" value="grad"> Gradient</label>
-          </div>
-        </div>
-        <div class="gen-stops" id="ntg-solid-wrap">
-          <div class="gen-stop" style="grid-template-columns: 220px auto; align-items:center">
-            <div class="color">
-              <label>Solid color (#)</label>
-              <input id="ntg-solid-hex" type="text" value="#FFB6C1" />
-            </div>
-            <div class="color">
-              <input id="ntg-solid-color" type="color" value="#FFB6C1" />
-            </div>
-          </div>
-        </div>
-        <div class="gen-stops" id="ntg-grad-wrap" hidden>
+        <div class="gen-wrap taggen2-wrap">
           <div class="gen-controls">
             <div class="field">
-              <label for="ntg-stopcount">Stops</label>
-              <input id="ntg-stopcount" type="number" min="2" max="5" step="1" value="3" />
+              <strong>Mod</strong>
+              <label><input type="radio" name="ntg-mod" value="ehr" checked> EHR</label>
+              <label><input type="radio" name="ntg-mod" value="tone"> TONE/TOHE</label>
             </div>
-            <div class="gen-actions">
-              <button class="copy-btn" id="ntg-add">Add stop</button>
-              <button class="copy-btn" id="ntg-rem">Remove stop</button>
-              <button class="copy-btn" id="ntg-rand">Randomize</button>
+            <div class="field">
+              <label for="ntg-fc">Friend Code</label>
+              <input id="ntg-fc" type="text" placeholder="e.g., ABCDEF" />
             </div>
           </div>
-          <div class="gen-stops" id="ntg-stops"></div>
-          <div class="gen-preview" id="ntg-preview"></div>
-        </div>
-        <div class="gen-output">
-          <div class="copy-row">
-            <button class="copy-btn" id="ntg-copy">Copy text</button>
-            <button class="copy-btn" id="ntg-download">Download .txt</button>
+          <div class="gen-controls">
+            <div class="field" style="flex:1">
+              <label for="ntg-name">Name / Icons (max 12)</label>
+              <input id="ntg-name" type="text" value="♡Besties♡" maxlength="12" />
+            </div>
+            <div class="field">
+              <strong>Color Mode</strong>
+              <label><input type="radio" name="ntg-mode" value="solid" checked> Solid</label>
+              <label><input type="radio" name="ntg-mode" value="grad"> Gradient</label>
+            </div>
           </div>
-          <h4 style="margin:8px 0 0">Output (tags):</h4>
-          <code id="ntg-out"></code>
+          <div class="gen-stops" id="ntg-solid-wrap">
+            <div class="gen-stop" style="grid-template-columns: 220px auto; align-items:center">
+              <div class="color">
+                <label>Solid color (#)</label>
+                <input id="ntg-solid-hex" type="text" value="#FFB6C1" />
+              </div>
+              <div class="color">
+                <input id="ntg-solid-color" type="color" value="#FFB6C1" />
+              </div>
+            </div>
+          </div>
+          <div class="gen-stops" id="ntg-grad-wrap" hidden>
+            <div class="gen-controls">
+              <div class="field">
+                <label for="ntg-stopcount">Stops</label>
+                <input id="ntg-stopcount" type="number" min="2" max="5" step="1" value="3" />
+              </div>
+              <div class="gen-actions">
+                <button class="copy-btn" id="ntg-add">Add stop</button>
+                <button class="copy-btn" id="ntg-rem">Remove stop</button>
+                <button class="copy-btn" id="ntg-rand">Randomize</button>
+              </div>
+            </div>
+            <div class="gen-stops" id="ntg-stops"></div>
+            <div class="gen-preview" id="ntg-preview"></div>
+          </div>
+          <div id="ntg-ehr-perms">
+            <h4 style="margin-top:20px">EHR Permissions</h4>
+            <div class="gen-controls">
+              <label><input type="radio" name="ntg-vip" value="true" checked> VIP</label>
+              <label><input type="radio" name="ntg-vip" value="false"> No VIP</label>
+            </div>
+            <div class="gen-controls">
+              <label><input type="radio" name="ntg-mod" value="true"> Moderator</label>
+              <label><input type="radio" name="ntg-mod" value="false" checked> No Moderator</label>
+            </div>
+            <div class="gen-controls">
+              <label><input type="radio" name="ntg-admin" value="true"> Admin</label>
+              <label><input type="radio" name="ntg-admin" value="false" checked> No Admin</label>
+            </div>
+          </div>
+          <div id="ntg-tone-perms" hidden>
+            <h4 style="margin-top:20px">TONE/TOHE Permissions</h4>
+            <div class="gen-controls">
+              <label>Permission Level (0–5)</label>
+              <input id="ntg-tone-level" type="number" min="0" max="5" step="1" value="0" style="width:60px">
+            </div>
+            <div class="gen-controls">
+              <label>SayCommandAccess:</label>
+              <label><input type="radio" name="ntg-say" value="true"> Yes</label>
+              <label><input type="radio" name="ntg-say" value="false" checked> No</label>
+            </div>
+            <div class="gen-controls">
+              <label>EndCommandAccess:</label>
+              <label><input type="radio" name="ntg-end" value="true"> Yes</label>
+              <label><input type="radio" name="ntg-end" value="false" checked> No</label>
+            </div>
+            <div class="gen-controls">
+              <label>ExecuteCommandAccess:</label>
+              <label><input type="radio" name="ntg-exec" value="true"> Yes</label>
+              <label><input type="radio" name="ntg-exec" value="false" checked> No</label>
+            </div>
+            <div class="gen-controls">
+              <label>AssignGameMaster:</label>
+              <label><input type="radio" name="ntg-gm" value="true"> Yes</label>
+              <label><input type="radio" name="ntg-gm" value="false" checked> No</label>
+            </div>
+          </div>
 
-          <h4 style="margin:12px 0 0">Visual preview:</h4>
-          <div id="ntg-visual" style="font-size:1.4em; line-height:1.2"></div>
-
-          <details style="margin-top:10px">
-            <summary>Full payload (EHR or TONE/TOHE)</summary>
-            <code id="ntg-payload"></code>
-          </details>
+          <div class="gen-output">
+            <div class="copy-row">
+              <button class="copy-btn" id="ntg-copy">Copy text</button>
+              <button class="copy-btn" id="ntg-download">Download .txt</button>
+            </div>
+            <h4>Output:</h4>
+            <code id="ntg-out"></code>
+            <h4 style="margin-top:10px">Visual preview:</h4>
+            <div id="ntg-visual" style="font-size:1.3em; line-height:1.2"></div>
+            <details style="margin-top:10px"><summary>Full payload</summary><code id="ntg-payload"></code></details>
+          </div>
         </div>
-      </div>
       </section>
+
       <section class="panel">
         <h2 class="section-title"><u>Helpful Gradients</u></h2>
         <p class="section-subtitle">Click “Copy hex” to copy: #hex, #hex, #hex</p>
@@ -1907,7 +1945,21 @@
         const modRadios  = document.querySelectorAll('input[name="ntg-mod"]');
         const modeRadios = document.querySelectorAll('input[name="ntg-mode"]');
         const friendCode = document.getElementById("ntg-fc");
+        const ehrPerms  = document.getElementById("ntg-ehr-perms");
+        const tonePerms = document.getElementById("ntg-tone-perms");
 
+        function syncPermVisibility() {
+          const mod = ([...modRadios].find(r=>r.checked)?.value || "ehr");
+          ehrPerms.hidden  = (mod !== "ehr");
+          tonePerms.hidden = (mod !== "tone");
+        }
+
+        modRadios.forEach(r => r.addEventListener("change", () => {
+          syncPermVisibility();
+          render(); 
+        }));
+
+        syncPermVisibility();
         const solidWrap  = document.getElementById("ntg-solid-wrap");
         const solidHexIn = document.getElementById("ntg-solid-hex");
         const solidColIn = document.getElementById("ntg-solid-color");
@@ -2091,37 +2143,50 @@
           let tagText = "";
           if(mode==="solid"){
             tagText = `<color=${normHex(solidHexIn.value,true)}>${text}</color>`;
-          }else{
+          } else {
             tagText = buildPerCharTags(text, gradStops.slice());
           }
 
           let payload = "";
+
           if(mod==="ehr"){
+            const vip  = document.querySelector('input[name="ntg-vip"]:checked')?.value === "true";
+            const moderator = document.querySelector('input[name="ntg-mod"]:checked')?.value === "true";
+            const admin = document.querySelector('input[name="ntg-admin"]:checked')?.value === "true";
+
             payload = JSON.stringify({
-              Vip: true,
-              Moderator: false,
-              Admin: false,
+              Vip: vip,
+              Moderator: moderator,
+              Admin: admin,
               Tag: tagText
             }, null, 2);
-          }else{ // TONE/TOHE
+          } else {
+            const level = document.getElementById("ntg-tone-level").value;
+            const say   = document.querySelector('input[name="ntg-say"]:checked')?.value === "true" ? "y" : "n";
+            const end   = document.querySelector('input[name="ntg-end"]:checked')?.value === "true" ? "y" : "n";
+            const exec  = document.querySelector('input[name="ntg-exec"]:checked')?.value === "true" ? "y" : "n";
+            const gm    = document.querySelector('input[name="ntg-gm"]:checked')?.value === "true" ? "y" : "n";
+
             const base = [
               `TagName: ${text}`,
               `TagColor: ${mode==="solid" ? normHex(solidHexIn.value,false) : ""}`,
-              `PermissionLevel: 0`,
-              `SayCommandAccess:`,
-              `EndCommandAccess:`,
-              `ExecuteCommandAccess:`,
-              `AssignGameMaster:`
+              `PermissionLevel: ${level}`,
+              `SayCommandAccess: ${say}`,
+              `EndCommandAccess: ${end}`,
+              `ExecuteCommandAccess: ${exec}`,
+              `AssignGameMaster: ${gm}`
             ].join("\n");
 
             if(mode==="solid"){
               payload = base;
-            }else{
-              payload = base + `\n\n# GradientTag (for systems that accept <color> tags):\n${tagText}`;
+            } else {
+              payload = base + `\n\n# GradientTag:\n${tagText}`;
             }
           }
+
           return { tagText, payload };
         }
+
 
         function render(){
           const { tagText, payload } = buildOutputs();
