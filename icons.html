@@ -344,6 +344,20 @@
       }
       .taggen2-wrap label{display:inline-flex;align-items:center;gap:6px}
       .taggen2-wrap #ntg-visual span{display:inline-block}
+      .taggen2-wrap #ntg-stops{
+        max-height:220px;
+        overflow:auto;
+      }
+      .taggen2-wrap #ntg-preview{
+        height:44px;
+        border-radius:8px;
+        border:1px solid #000;
+        margin:8px 0;
+      }
+      .taggen2-wrap .gen-output code{
+        white-space:normal;
+        word-break:break-word;
+      }
     </style>
   </head>
   <body>
@@ -664,8 +678,8 @@
               <label><input type="radio" name="ntg-vip" value="false"> No VIP</label>
             </div>
             <div class="gen-controls">
-              <label><input type="radio" name="ntg-mod" value="true"> Moderator</label>
-              <label><input type="radio" name="ntg-mod" value="false" checked> No Moderator</label>
+              <label><input type="radio" name="ntg-moderator" value="true"> Moderator</label>
+              <label><input type="radio" name="ntg-moderator" value="false" checked> No Moderator</label>
             </div>
             <div class="gen-controls">
               <label><input type="radio" name="ntg-admin" value="true"> Admin</label>
@@ -2149,10 +2163,10 @@
 
           let payload = "";
 
-          if(mod==="ehr"){
-            const vip  = document.querySelector('input[name="ntg-vip"]:checked')?.value === "true";
-            const moderator = document.querySelector('input[name="ntg-mod"]:checked')?.value === "true";
-            const admin = document.querySelector('input[name="ntg-admin"]:checked')?.value === "true";
+          if (mod === "ehr") {
+            const vip       = document.querySelector('input[name="ntg-vip"]:checked')?.value === "true";
+            const moderator = document.querySelector('input[name="ntg-moderator"]:checked')?.value === "true";
+            const admin     = document.querySelector('input[name="ntg-admin"]:checked')?.value === "true";
 
             payload = JSON.stringify({
               Vip: vip,
@@ -2160,28 +2174,30 @@
               Admin: admin,
               Tag: tagText
             }, null, 2);
-          } else {
+          } else { // TONE/TOHE
             const level = document.getElementById("ntg-tone-level").value;
             const say   = document.querySelector('input[name="ntg-say"]:checked')?.value === "true" ? "y" : "n";
             const end   = document.querySelector('input[name="ntg-end"]:checked')?.value === "true" ? "y" : "n";
             const exec  = document.querySelector('input[name="ntg-exec"]:checked')?.value === "true" ? "y" : "n";
             const gm    = document.querySelector('input[name="ntg-gm"]:checked')?.value === "true" ? "y" : "n";
 
-            const base = [
-              `TagName: ${text}`,
-              `TagColor: ${mode==="solid" ? normHex(solidHexIn.value,false) : ""}`,
+            const tagNameLine  = (mode === "solid")
+              ? `TagName: ${text}`
+              : `TagName: ${tagText}`;
+
+            const tagColorLine = (mode === "solid")
+              ? `TagColor: ${normHex(solidHexIn.value,false)}`
+              : `TagColor:`; // blank for gradient
+
+            payload = [
+              tagNameLine,
+              tagColorLine,
               `PermissionLevel: ${level}`,
               `SayCommandAccess: ${say}`,
               `EndCommandAccess: ${end}`,
               `ExecuteCommandAccess: ${exec}`,
               `AssignGameMaster: ${gm}`
             ].join("\n");
-
-            if(mode==="solid"){
-              payload = base;
-            } else {
-              payload = base + `\n\n# GradientTag:\n${tagText}`;
-            }
           }
 
           return { tagText, payload };
