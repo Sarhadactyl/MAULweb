@@ -501,7 +501,7 @@
             </section>
       <section class="panel" id="gradient-generator">
         <h2 class="section-title"><u>Gradient Generator</u></h2>
-        <p class="section-subtitle">Build a gradient with 1–10 colors. Live preview and copy tools below.</p>
+        <p class="section-subtitle">Build a gradient with 1–10 colors.</p>
 
         <div class="gen-wrap">
 
@@ -523,6 +523,11 @@
               <button class="copy-btn" id="gen-reverse">Reverse</button>
               <button class="copy-btn" id="gen-random">Randomize</button>
             </div>
+            <div class="field" style="margin-left:auto;">
+              <span>Output:</span>
+              <label><input type="radio" name="gen-mode" value="hex" checked> #hex</label>
+              <label><input type="radio" name="gen-mode" value="tags"> &lt;color=#hex&gt;&lt;/color&gt;</label>
+            </div>
           </div>
 
           <div class="gen-stops" id="gen-stops"></div>
@@ -531,16 +536,13 @@
 
           <div class="gen-output">
             <div class="copy-row">
-              <button class="copy-btn" id="gen-copy-css">Copy CSS</button>
-              <button class="copy-btn" id="gen-copy-hex">Copy hex</button>
+              <button class="copy-btn" id="gen-copy">Copy</button>
             </div>
-            <code id="gen-css"></code>
-            <code id="gen-hex"></code>
+            <code id="gen-out"></code>
           </div>
 
         </div>
       </section>
-
       <section class="panel">
         <h2 class="section-title"><u>Helpful Gradients</u></h2>
         <p class="section-subtitle">Click “Copy hex” to copy: #hex, #hex, #hex</p>
