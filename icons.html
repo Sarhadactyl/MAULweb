@@ -1565,7 +1565,6 @@
         try { document.execCommand('copy'); } finally { document.body.removeChild(ta); }
         return Promise.resolve();
       }
-
       document.addEventListener('click', function (e) {
         const hexBtn = e.target.closest('.copy-btn[data-role="copy-hex"]');
         if (hexBtn) {
@@ -1592,24 +1591,22 @@
           });
         }
       });
+
       (function () {
         const MAX = 10;
-        const stopsEl = document.getElementById('gen-stops');
-        const angleEl = document.getElementById('gen-angle');
-        const countEl = document.getElementById('gen-count');
+
+        const stopsEl   = document.getElementById('gen-stops');
+        const angleEl   = document.getElementById('gen-angle');
+        const countEl   = document.getElementById('gen-count');
         const previewEl = document.getElementById('gen-preview');
-        const cssEl = document.getElementById('gen-css');
-        const hexEl = document.getElementById('gen-hex');
-
-        const btnAdd = document.getElementById('gen-add');
-        const btnEqual = document.getElementById('gen-equal');
+        const btnAdd     = document.getElementById('gen-add');
+        const btnEqual   = document.getElementById('gen-equal');
         const btnReverse = document.getElementById('gen-reverse');
-        const btnRandom = document.getElementById('gen-random');
-        const btnCopyCss = document.getElementById('gen-copy-css');
-        const btnCopyHex = document.getElementById('gen-copy-hex');
-
+        const btnRandom  = document.getElementById('gen-random');
+        const outEl      = document.getElementById('gen-out');        
+        const copyOutBtn = document.getElementById('gen-copy');  
+        const modeRadios = document.querySelectorAll('input[name="gen-mode"]'); 
         let stops = [];
-
         const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
         const toHex = (c) => {
           const ctx = document.createElement('canvas').getContext('2d');
@@ -1653,28 +1650,27 @@
             const row = rowTemplate(i, s.color, s.pos);
             stopsEl.appendChild(row);
           });
-          updatePreview();
+          updatePreviewAndOutput();
         }
 
         function equalizePositions() {
           const n = stops.length;
-          if (n === 1) {
-            stops[0].pos = 50;
-          } else {
-            stops.forEach((s, i) => (s.pos = Math.round((i * 100) / (n - 1))));
+          if (n === 1) stops[0].pos = 50;
+          else stops.forEach((s, i) => (s.pos = Math.round((i * 100) / (n - 1))));
+        }
+        function reverseStops() { stops.forEach((s) => (s.pos = 100 - s.pos)); stops.reverse(); }
+        function randomizeColors() { stops.forEach((s) => (s.color = randomHex())); }
+
+        const currentMode = () => ([...modeRadios].find(r => r.checked)?.value || 'hex');
+
+        function buildOutputString(sortedStops) {
+          if (currentMode() === 'tags') {
+            return sortedStops.map(s => `<color=${s.color}></color>`).join(' ');
           }
+          return sortedStops.map(s => s.color).join(', ');
         }
 
-        function reverseStops() {
-          stops.forEach((s) => (s.pos = 100 - s.pos));
-          stops.reverse();
-        }
-
-        function randomizeColors() {
-          stops.forEach((s) => (s.color = randomHex()));
-        }
-
-        function updatePreview() {
+        function updatePreviewAndOutput() {
           const rows = [...stopsEl.querySelectorAll('.gen-stop')];
           rows.forEach((row, i) => {
             const [colorPicker, colorText] = row.querySelectorAll('.color input');
@@ -1690,13 +1686,10 @@
           });
 
           const angle = clamp(parseInt(angleEl.value || '90', 10), 0, 360);
-          const parts = stops.slice().sort((a, b) => a.pos - b.pos).map((s) => `${s.color} ${s.pos}%`);
-          const css = `linear-gradient(${angle}deg, ${parts.join(', ')})`;
-          previewEl.style.background = css;
-          cssEl.textContent = `background:${css};`;
-
-          const hexList = stops.slice().sort((a, b) => a.pos - b.pos).map((s) => s.color).join(', ');
-          hexEl.textContent = hexList;
+          const sorted = stops.slice().sort((a, b) => a.pos - b.pos);
+          const parts = sorted.map((s) => `${s.color} ${s.pos}%`);
+          previewEl.style.background = `linear-gradient(${angle}deg, ${parts.join(', ')})`;
+          outEl.textContent = buildOutputString(sorted);
         }
 
         function setCount(n) {
@@ -1710,15 +1703,14 @@
           renderStops();
           countEl.value = String(n);
         }
-
         stops = [
           { color: '#ff5f6d', pos: 0 },
           { color: '#ffc371', pos: 100 }
         ];
         setCount(parseInt(countEl.value, 10) || 3);
-
-        angleEl.addEventListener('input', updatePreview);
+        angleEl.addEventListener('input', updatePreviewAndOutput);
         countEl.addEventListener('change', (e) => setCount(parseInt(e.target.value, 10)));
+        modeRadios.forEach(r => r.addEventListener('change', updatePreviewAndOutput));
 
         btnAdd.addEventListener('click', () => {
           if (stops.length >= MAX) return;
@@ -1740,7 +1732,7 @@
             const num = row.querySelector('.pos input[type="number"]');
             num.value = e.target.value;
           }
-          updatePreview();
+          updatePreviewAndOutput();
         });
 
         stopsEl.addEventListener('click', (e) => {
@@ -1757,16 +1749,10 @@
           }
         });
 
-        btnCopyCss.addEventListener('click', () =>
-          copyToClipboard(cssEl.textContent).then(() => {
-            btnCopyCss.textContent = 'Copied!';
-            setTimeout(() => (btnCopyCss.textContent = 'Copy CSS'), 1200);
-          })
-        );
-        btnCopyHex.addEventListener('click', () =>
-          copyToClipboard(hexEl.textContent).then(() => {
-            btnCopyHex.textContent = 'Copied!';
-            setTimeout(() => (btnCopyHex.textContent = 'Copy hex'), 1200);
+        copyOutBtn.addEventListener('click', () =>
+          copyToClipboard(outEl.textContent).then(() => {
+            copyOutBtn.textContent = 'Copied!';
+            setTimeout(() => (copyOutBtn.textContent = 'Copy'), 1200);
           })
         );
       })();
