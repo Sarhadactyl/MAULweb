@@ -190,6 +190,72 @@ rules:
 
       </div>
     </section>
+    <section class="panel" id="live-template-editor">
+      <h2 class="section-title"><u>Live Template Editor</u></h2>
+      <p class="section-subtitle">Pick any number of colors. Type with live per-char gradient. Preview updates in real time.</p>
+
+      <div class="grid">
+        <div class="row">
+          <div class="field">
+            <label>Font</label>
+            <select id="lte-font">
+              <option>BROOK SDF</option><option>VCR SDF</option><option>Barlow-Black SDF</option>
+              <option>Barlow-BoldItalic SDF</option><option>Barlow-Light SDF</option><option>CONSOLA SDF</option>
+              <option>DIGITAL-7 SDF</option><option>DIN_Pro_Bold_700 SDF</option><option>LiberationSans SDF</option>
+              <option>NotoSansJP-Regular SDF</option><option>OCRAEXT SDF</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Solid</label>
+            <input id="lte-solid" type="color" value="#FF4D6D">
+            <button class="btn" id="lte-apply-solid">Apply to selection</button>
+          </div>
+
+          <div class="field">
+            <label>Gradient mode</label>
+            <select id="lte-mode">
+              <option value="cycle" selected>Cycle (c1→c2→c3…)</option>
+              <option value="smooth">Smooth (interpolated)</option>
+            </select>
+          </div>
+
+          <label class="pill"><input type="checkbox" id="lte-live" checked> Live while typing</label>
+          <button class="btn" id="lte-start">Start</button>
+          <button class="btn" id="lte-stop" disabled>Stop</button>
+        </div>
+
+        <div class="row">
+          <div class="field"><strong>Gradient Stops</strong></div>
+          <button class="btn" id="lte-add-stop">Add</button>
+          <button class="btn" id="lte-shuffle-stops">Randomize</button>
+          <button class="btn" id="lte-apply-range">Apply to selection</button>
+        </div>
+        <div id="lte-stops" class="gg-row"></div>
+        <div id="lte-grad-preview" class="preview-bar" aria-label="Gradient preview"></div>
+
+        <div class="twocol">
+          <div class="grid">
+            <div class="field grow">
+              <label><strong>Editor (markup auto-generated)</strong></label>
+              <textarea id="lte-editor" placeholder="Type here…"></textarea>
+            </div>
+            <div class="row">
+              <button class="btn" id="lte-copy">Copy markup</button>
+              <button class="btn" id="lte-download">Download .txt</button>
+              <span id="lte-status" aria-live="polite"></span>
+            </div>
+            <div class="codebox" id="lte-output"></div>
+          </div>
+
+          <div class="grid">
+            <div class="field"><strong>Live Preview (renders fonts + colors)</strong></div>
+            <div id="lte-preview" class="codebox" style="min-height:220px"></div>
+            <div class="field"><small>Note: SDF fonts are mapped to close web fonts for browser preview only.</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="panel">
       <h2 class="section-title"><u>Icons</u></h2>
@@ -616,6 +682,223 @@ rules:
       copyToClipboard(ggOutput.textContent);
     });
 
+    (()=>{
+
+      const ed = document.getElementById('lte-editor');
+      const out = document.getElementById('lte-output');
+      const prev = document.getElementById('lte-preview');
+      const fontSel = document.getElementById('lte-font');
+      const solidPicker = document.getElementById('lte-solid');
+      const modeSel = document.getElementById('lte-mode');
+      const liveChk = document.getElementById('lte-live');
+      const btnStart = document.getElementById('lte-start');
+      const btnStop  = document.getElementById('lte-stop');
+      const btnCopy  = document.getElementById('lte-copy');
+      const btnDL    = document.getElementById('lte-download');
+      const btnApplySolid = document.getElementById('lte-apply-solid');
+      const btnApplyRange = document.getElementById('lte-apply-range');
+      const btnAddStop    = document.getElementById('lte-add-stop');
+      const btnShuffle    = document.getElementById('lte-shuffle-stops');
+      const stopsWrap     = document.getElementById('lte-stops');
+      const gradPrev      = document.getElementById('lte-grad-preview');
+      const statusEl      = document.getElementById('lte-status');
+
+      const FONT_MAP = {
+        'BROOK SDF': `'Barlow','Rajdhani',sans-serif`,
+        'VCR SDF': `'VT323',monospace`,
+        'Barlow-Black SDF': `'Barlow',sans-serif`,
+        'Barlow-BoldItalic SDF': `'Barlow',sans-serif`,
+        'Barlow-Light SDF': `'Barlow',sans-serif`,
+        'CONSOLA SDF': `'Share Tech Mono','Roboto Mono',monospace`,
+        'DIGITAL-7 SDF': `'Orbitron',monospace`,
+        'DIN_Pro_Bold_700 SDF': `'Rajdhani',sans-serif`,
+        'LiberationSans SDF': `'Barlow',sans-serif`,
+        'NotoSansJP-Regular SDF': `'Noto Sans JP',sans-serif`,
+        'OCRAEXT SDF': `'Press Start 2P','VT323',monospace`
+      };
+
+      let STOPS = ['#B625F1','#2970F8','#00CFFF','#31D0AA'];
+      let markup = '';
+      let gradActive = false;
+      let gradStartPlain = 0;
+      let cycleIndex = 0;
+
+      const toHTML = (s)=>{
+        let html = s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        html = html.replace(/&lt;font="([^"]+)"&gt;/g, (_,name)=>`<span style="font-family:${FONT_MAP[name]||'inherit'}">`)
+                   .replace(/&lt;\/font&gt;/g, '</span>');
+        html = html.replace(/&lt;color=#[0-9A-Fa-f]{6}&gt;/g, m=>{
+                  const hex = (m.match(/#[0-9A-Fa-f]{6}/)||['#FFFFFF'])[0];
+                  return `<span style="color:${hex}">`;
+                }).replace(/&lt;\/color&gt;/g, '</span>');
+        return html;
+      };
+      const buildIndexMap=(mark)=>{
+        const map=[]; let iPlain=0, i=0;
+        while(i<mark.length){
+          if(mark.startsWith('<color=', i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
+          if(mark.startsWith('</color>', i)){ i+=8; continue; }
+          if(mark.startsWith('<font="', i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
+          if(mark.startsWith('</font>', i)){ i+=7; continue; }
+          map[iPlain++] = i; i++;
+        }
+        map[iPlain] = i; return map;
+      };
+      const replacePlainRangeWith=(mark,i0,i1,repl)=>{
+        const map = buildIndexMap(mark);
+        const a = map[i0] ?? mark.length;
+        const b = map[i1] ?? mark.length;
+        return mark.slice(0,a) + repl + mark.slice(b);
+      };
+
+      function makeCycle(text){
+        if(!text) return '';
+        const chars=[...text], out=[];
+        for(const ch of chars){
+          const hex = STOPS[cycleIndex % STOPS.length];
+          out.push(`<color=${normHex(hex,true)}>${ch}</color>`);
+          cycleIndex++;
+        }
+        return out.join('');
+      }
+      function makeSmooth(text){
+        const chars=[...text]; if(chars.length===0) return '';
+        const out=[];
+        for(let i=0;i<chars.length;i++){
+          const t = chars.length===1 ? 0 : i/(chars.length-1);
+          const seg = (STOPS.length-1)*t;
+          const i0 = Math.floor(seg), i1 = Math.min(STOPS.length-1, i0+1);
+          const localT = seg - i0;
+          const hex = lerpColor(STOPS[i0], STOPS[i1], localT);
+          out.push(`<color=${normHex(hex,true)}>${chars[i]}</color>`);
+        }
+        return out.join('');
+      }
+      const buildSpan = (txt)=> (modeSel.value==='cycle' ? makeCycle(txt) : makeSmooth(txt));
+
+      function renderStops(){
+        stopsWrap.innerHTML='';
+        STOPS.forEach((hex,idx)=>{
+          const row=document.createElement('div'); row.className='row';
+          const t=document.createElement('input'); t.type='text'; t.value=normHex(hex,true); t.style.width='100px';
+          const c=document.createElement('input'); c.type='color'; c.className='color-chip'; c.value=normHex(hex,true);
+          const up=document.createElement('button'); up.className='btn'; up.textContent='▲';
+          const dn=document.createElement('button'); dn.className='btn'; dn.textContent='▼';
+          const rm=document.createElement('button'); rm.className='btn'; rm.textContent='✕';
+          t.addEventListener('input',()=>{ const h=normHex(t.value,true); t.value=h; c.value=h; STOPS[idx]=h; renderGradPreview(); liveRender(); });
+          c.addEventListener('input',()=>{ const h=normHex(c.value,true); t.value=h; STOPS[idx]=h; renderGradPreview(); liveRender(); });
+          up.addEventListener('click',()=>{ if(idx>0){ [STOPS[idx-1],STOPS[idx]]=[STOPS[idx],STOPS[idx-1]]; renderStops(); renderGradPreview(); liveRender(); }});
+          dn.addEventListener('click',()=>{ if(idx<STOPS.length-1){ [STOPS[idx+1],STOPS[idx]]=[STOPS[idx],STOPS[idx+1]]; renderStops(); renderGradPreview(); liveRender(); }});
+          rm.addEventListener('click',()=>{ if(STOPS.length>1){ STOPS.splice(idx,1); cycleIndex%=Math.max(STOPS.length,1); renderStops(); renderGradPreview(); liveRender(); }});
+          row.append(t,c,up,dn,rm); stopsWrap.appendChild(row);
+        });
+      }
+      function renderGradPreview(){
+        gradPrev.style.background = `linear-gradient(90deg, ${STOPS.map((c,i)=>`${normHex(c,true)} ${(i*100/(Math.max(STOPS.length-1,1)))}%`).join(', ')})`;
+      }
+
+      function ensureFontWrap(){
+        const f=fontSel.value;
+        if(!markup) markup = `<font="${f}"></font>`;
+        if(!markup.startsWith(`<font="${f}">`)){
+          markup = markup.replace(/^<font="[^"]+">/,'');
+          markup = `<font="${f}">` + markup;
+        }
+        if(!markup.endsWith(`</font>`)) markup += `</font>`;
+      }
+      function renderAll(){
+        ensureFontWrap();
+        out.textContent = markup;
+        prev.innerHTML = toHTML(markup);
+      }
+      function liveRender(){
+        if(!liveChk.checked){ renderAll(); return; }
+        ensureFontWrap();
+        const plain = ed.value;
+        const solid = normHex(solidPicker.value,true);
+        const escaped = plain.replace(/\r?\n/g, '\\n');
+        let temp = `<font="${fontSel.value}"><color=${solid}>${escaped}</color></font>`;
+        if(gradActive){
+          const pos = ed.selectionStart|0;
+          const i0 = Math.min(gradStartPlain, pos), i1 = Math.max(gradStartPlain, pos);
+          const head = plain.slice(0,i0), mid = plain.slice(i0,i1), tail = plain.slice(i1);
+          temp = `<font="${fontSel.value}"><color=${solid}>${head}</color>` + buildSpan(mid) + `<color=${solid}>${tail}</color></font>`;
+        }
+        prev.innerHTML = toHTML(temp);
+        out.textContent = markup;
+      }
+
+      function applySolidToSelection(){
+        const s=ed.selectionStart|0, e=ed.selectionEnd|0; if(e<=s) return;
+        const hex = normHex(solidPicker.value,true);
+        const slice = ed.value.slice(s,e);
+        markup = replacePlainRangeWith(markup, s, e, `<color=${hex}>${slice}</color>`);
+        renderAll();
+      }
+      function applyGradientToSelection(){
+        const s=ed.selectionStart|0, e=ed.selectionEnd|0; if(e<=s) return;
+        const slice = ed.value.slice(s,e);
+        const colored = buildSpan(slice);
+        markup = replacePlainRangeWith(markup, s, e, colored);
+        renderAll();
+      }
+      function startLive(){
+        if(gradActive) return;
+        gradActive = true; gradStartPlain = ed.selectionStart|0;
+        document.getElementById('lte-start').disabled=true;
+        document.getElementById('lte-stop').disabled=false;
+        statusEl.textContent = 'Live gradient ON — type and watch it color each character.';
+        liveRender();
+      }
+      function stopLive(){
+        if(!gradActive) return;
+        const endPlain = ed.selectionStart|0;
+        const i0 = Math.min(gradStartPlain, endPlain), i1 = Math.max(gradStartPlain, endPlain);
+        const slice = ed.value.slice(i0,i1);
+        const colored = buildSpan(slice);
+        markup = replacePlainRangeWith(markup, i0, i1, colored);
+        gradActive = false;
+        document.getElementById('lte-start').disabled=false;
+        document.getElementById('lte-stop').disabled=true;
+        statusEl.textContent = 'Gradient applied.';
+        renderAll();
+      }
+      function syncOnInput(){
+        if(liveChk.checked && gradActive){ liveRender(); return; }
+        const solid = normHex(solidPicker.value,true);
+        const f = fontSel.value;
+        const withEscapes = ed.value.replace(/\r?\n/g, '\\n');
+        markup = `<font="${f}"><color=${solid}>${withEscapes}</color></font>`;
+        renderAll();
+      }
+
+      document.getElementById('lte-apply-solid').addEventListener('click', applySolidToSelection);
+      document.getElementById('lte-apply-range').addEventListener('click', applyGradientToSelection);
+      document.getElementById('lte-start').addEventListener('click', startLive);
+      document.getElementById('lte-stop').addEventListener('click', stopLive);
+      document.getElementById('lte-copy').addEventListener('click', ()=>copyToClipboard(markup));
+      document.getElementById('lte-download').addEventListener('click', ()=>{
+        const blob = new Blob([markup], {type:'text/plain;charset=utf-8'});
+        const url = URL.createObjectURL(blob);
+        const a=document.createElement('a'); a.href=url; a.download='template.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+      });
+
+      fontSel.addEventListener('change', renderAll);
+      solidPicker.addEventListener('input', ()=>{ if(!gradActive) syncOnInput(); liveRender(); });
+      modeSel.addEventListener('change', ()=> liveRender());
+      ed.addEventListener('input', syncOnInput);
+      ed.addEventListener('keyup', ()=> liveRender());
+      ed.addEventListener('click', ()=> liveRender());
+
+      document.getElementById('lte-add-stop').addEventListener('click', ()=>{ STOPS.push('#'+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0')); renderStops(); renderGradPreview(); liveRender(); });
+      document.getElementById('lte-shuffle-stops').addEventListener('click', ()=>{ STOPS = STOPS.map(()=> '#'+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0')); renderStops(); renderGradPreview(); liveRender(); });
+
+      renderStops(); renderGradPreview();
+      ed.value = '♡Besties♡';
+      markup = `<font="${fontSel.value}"><color=${normHex(solidPicker.value,true)}>${ed.value}</color></font>`;
+      renderAll();
+    })();
+
     const DEMO_TEMPLATES = `
 welcome:
 <size=180%><align=center><b><font="BROOK SDF"><color=#ff4d6d>♡</color> <color=#ff758f>Endless Host Roles</color><color=#ff4d6d> ♡</color></font></b></align></size>
@@ -661,7 +944,6 @@ OnMeeting:
 </size>
 `.trim();
 
-    /* seed */
     parseBulkTemplates(DEMO_TEMPLATES);
     buildIcons();
     buildFonts();
