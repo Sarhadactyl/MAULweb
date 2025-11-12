@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Game Template Generator | MAUL</title>
+  <title>MAUL | Live Tag Editor</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta property="og:title" content="Game Template Generator - MAUL" />
+  <meta property="og:title" content="Live Tag Editor - MAUL" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://moddedamong.us/templates.html" />
   <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-  <meta property="og:description" content="Fill and export game templates with your variables." />
+  <meta property="og:description" content="Type, color, and export Among Us tags with smooth gradients in real time." />
   <meta property="og:site_name" content="Modded Among Us Lobbies" />
   <meta property="og:locale" content="en_US" />
   <link rel="canonical" href="https://moddedamong.us/templates.html" />
@@ -19,84 +19,90 @@
     html, body { height:100%; margin:0; padding:0; background:#000; font-family:'Roboto',sans-serif; color:#fff; overflow-x:hidden; }
     body {
       background:
-        linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)),
+        linear-gradient(rgba(0,0,0,.80), rgba(0,0,0,.80)),
         url('images/background.png') no-repeat center center fixed;
       background-size:cover;
       display:flex; flex-direction:column; align-items:center; padding-bottom:100px;
-      position:relative;
     }
-
-    header { width:100%; text-align:center; padding:20px; background:rgba(0,0,0,0.85); position:relative; z-index:2; }
-    header h1 { margin:0; font-size:3em; color:#fff; }
-    .dropdown { position:absolute; top:20px; left:30px; z-index:3; }
-    .dropbtn { background:none; border:none; cursor:pointer; transition:transform .3s ease; padding:0; }
-    .dropbtn:hover { transform:scale(1.1); }
+    header { width:100%; text-align:center; padding:20px; background:rgba(0,0,0,0.9); position:relative; z-index:1000; }
+    header h1 { margin:0; font-size:2rem; color:#fff; letter-spacing:.5px; }
+    .dropdown { position:absolute; top:16px; left:20px; z-index:1001; }
+    .dropbtn { background:none; border:none; cursor:pointer; transition:transform .2s ease; padding:0; }
+    .dropbtn:hover { transform:scale(1.06); }
     .hamburger { width:30px; height:22px; display:flex; flex-direction:column; justify-content:space-between; }
     .hamburger span { display:block; height:4px; background:#fff; border-radius:2px; }
-    .dropdown-content { display:none; position:absolute; background:#1b1b1b; min-width:200px; box-shadow:0 8px 16px rgba(0,0,0,0.4); border-radius:6px; }
-    .dropdown-content a { color:#fff; padding:12px 16px; text-decoration:none; display:block; transition:background .2s; }
+    .dropdown-content {
+      display:none; position:absolute; top:30px; left:0;
+      background:#1e1e1e; min-width:220px; box-shadow:0 8px 16px rgba(0,0,0,0.45);
+      border:1px solid #343434; border-radius:8px; overflow:hidden;
+    }
+    .dropdown-content a {
+      color:#fff; padding:12px 16px; text-decoration:none; display:block; transition:background .2s;
+      border-bottom:1px solid #2a2a2a;
+    }
+    .dropdown-content a:last-child { border-bottom:0; }
     .dropdown-content a:hover { background:#2a2a2a; }
     .dropdown:hover .dropdown-content { display:block; }
 
-    footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:15px; background:rgba(0,0,0,0.85); z-index:2; }
+    footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:12px; background:rgba(0,0,0,0.9); z-index:2; font-size:.9rem; }
 
-    main.container { position:relative; z-index:1; }
-    .container { max-width:1200px; width:92%; margin:40px auto; display:grid; gap:24px; }
-    .panel { background:rgba(0,0,0,0.65); border:1px solid rgba(255,255,255,.08); border-radius:8px; padding:20px; }
-    .section-title { font-size:2em; text-align:center; margin:0 0 10px; }
-    .section-subtitle { text-align:center; color:#e3e3e3; margin:0 0 20px; font-size:0.95em; }
+    .container { max-width:1100px; width:92%; margin:36px auto; display:grid; gap:20px; }
+    .panel { background:rgba(0,0,0,0.65); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:18px; }
+    .section-title { font-size:1.8rem; text-align:center; margin:0 0 6px; }
+    .section-subtitle { text-align:center; color:#e6e6e6; margin:0 0 16px; font-size:.98rem; }
 
     .grid { display:grid; gap:14px; }
     .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
-    .field { display:flex; align-items:center; gap:6px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.15); padding:6px 8px; border-radius:8px; }
+    .field { display:flex; align-items:center; gap:8px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); padding:6px 10px; border-radius:8px; }
     .field input[type="text"], .field input[type="number"], .field textarea, .field select {
-      background:rgba(0,0,0,.5); border:1px solid rgba(255,255,255,.2); border-radius:6px; color:#def; padding:8px;
+      background:rgba(0,0,0,.5); border:1px solid rgba(255,255,255,.24); border-radius:6px; color:#def; padding:8px;
     }
-    .field textarea { width:100%; min-height:120px; resize:vertical; }
-    .grow { flex:1 1 280px; }
-    .btn, .copy-btn, .copy-btn-sm {
-      background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25); color:#e7f0ff; font-size:.9em; padding:8px 12px; border-radius:6px; cursor:pointer; transition:background .15s, border-color .15s, transform .02s;
-    }
-    .btn:hover, .copy-btn:hover, .copy-btn-sm:hover { background:rgba(255,255,255,.18); border-color:rgba(255,255,255,.35); }
-    .btn:active, .copy-btn:active, .copy-btn-sm:active { transform:scale(.98); }
+    .field textarea { width:100%; min-height:130px; resize:vertical; }
 
-    .twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-    @media (max-width:900px){ .twocol { grid-template-columns:1fr; } }
+    .btn {
+      background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.28);
+      color:#e7f0ff; font-size:.92rem; padding:8px 12px; border-radius:6px; cursor:pointer;
+      transition:background .15s, border-color .15s, transform .02s;
+    }
+    .btn:hover { background:rgba(255,255,255,.18); border-color:rgba(255,255,255,.38); }
+    .btn:active { transform:scale(.98); }
 
     .codebox {
       background:rgba(255,255,255,.10);
       border:1px solid rgba(255,255,255,.25);
-      border-radius:8px; padding:12px;
+      border-radius:10px; padding:14px;
       font-family:'Roboto Mono', monospace; white-space:pre-wrap; word-break:break-word;
     }
 
-    .icon-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px; }
-    .icon-card { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.15); border-radius:8px; padding:10px; }
-    .icon-card h3 { margin:0 0 8px; font-size:1.05em; }
-    .icon-line { display:flex; flex-wrap:wrap; gap:8px; line-height:1.8; }
-    .icon-line span { padding:2px 6px; border-radius:6px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); cursor:pointer; }
-    .icon-line span:active { transform:scale(.97); }
+    .twocol { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media (max-width:900px){ .twocol { grid-template-columns:1fr; } }
 
-    .fonts-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; }
-    .font-card { display:flex; justify-content:space-between; align-items:center; gap:10px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.15); border-radius:8px; padding:10px 12px; }
-    .font-name { font-family:'Share Tech Mono', monospace; }
-    .copy-small { display:flex; gap:8px; }
-    .copy-btn-sm { font-size:.8em; padding:6px 8px; }
-
-    .note-box { background:rgba(255,255,255,.06); border:1px dashed rgba(255,255,255,.3); border-radius:8px; padding:10px; margin-top:10px; }
-    .code-inline { font-family:'Roboto Mono', monospace; background:rgba(255,255,255,.10); padding:2px 6px; border-radius:6px; }
-
-    .gg-row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
-    .color-chip { width:38px; height:30px; border:1px solid rgba(255,255,255,.2); background:transparent; }
-    .preview-bar { height:44px; border-radius:8px; border:1px solid #000; margin:8px 0; }
-    .pill { display:inline-flex; align-items:center; gap:6px; padding:4px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.08); font-size:.85em; cursor:pointer; }
     #lte-preview { min-height:320px; font-size:1.35rem; line-height:1.6; padding:16px 18px; }
-    #lte-output  { min-height:160px; font-size:1rem; }
+    #lte-output  { min-height:170px; font-size:1rem; }
+    .gg-row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+    .color-chip { width:40px; height:32px; border:1px solid rgba(255,255,255,.22); background:transparent; }
+    .preview-bar { height:44px; border-radius:8px; border:1px solid #000; margin:6px 0; }
+
+    .icon-launch { margin-left:auto; }
+    .icon-palette {
+      position:fixed; right:20px; bottom:80px; width:300px; max-height:360px; overflow:auto;
+      background:#1b1b1b; border:1px solid #444; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,.5);
+      display:none; z-index:30;
+    }
+    .icon-palette header { background:#111; border-bottom:1px solid #333; padding:8px 10px; font-weight:700; font-size:.95rem; }
+    .icon-grid { display:grid; grid-template-columns:repeat(6, 1fr); gap:6px; padding:10px; }
+    .icon-cell {
+      padding:8px; text-align:center; border:1px solid #333; background:#222; border-radius:6px; cursor:pointer;
+      user-select:none; transition:transform .02s, background .15s, border-color .15s;
+      font-size:1.1rem;
+    }
+    .icon-cell:hover { background:#2c2c2c; border-color:#555; }
+    .icon-cell:active { transform:scale(.96); }
   </style>
 </head>
 <body>
   <header>
-    <h1>Game Template Generator</h1>
+    <h1>MAUL Live Tag Editor</h1>
     <div class="dropdown">
       <button class="dropbtn" aria-label="Open navigation menu">
         <div class="hamburger"><span></span><span></span><span></span></div>
@@ -115,97 +121,9 @@
   </header>
 
   <main class="container">
-    <section class="panel" id="tmpl-gen">
-      <h2 class="section-title"><u>Game Template Generator</u></h2>
-      <p class="section-subtitle">Paste or upload templates, fill the {{placeholders}}, then copy/download.</p>
-
-      <div class="grid">
-        <div class="row">
-          <div class="field grow">
-            <label for="tmpl-search">Search</label>
-            <input id="tmpl-search" type="text" placeholder="Filter templates by name..." />
-          </div>
-          <div class="field">
-            <label for="tmpl-select">Template</label>
-            <select id="tmpl-select"></select>
-          </div>
-          <button class="btn" id="btn-del-tmpl" title="Remove current template">Remove</button>
-        </div>
-
-        <div class="twocol">
-          <div class="grid">
-            <div class="field"><strong>Add Templates</strong></div>
-            <div class="row">
-              <div class="field grow">
-                <textarea id="tmpl-bulk" placeholder="Paste templates in this format:
-
-welcome:
-<size=180%>...</size>
-
-rules:
-<u><font=...>Rules</font></u>
-..."></textarea>
-              </div>
-            </div>
-            <div class="row">
-              <input id="tmpl-files" type="file" accept=".txt" multiple />
-              <button class="btn" id="btn-parse">Add from text</button>
-              <button class="btn" id="btn-download-all" title="Export all templates as JSON">Download .json</button>
-              <input id="btn-upload-json" type="file" accept="application/json" style="display:none" />
-              <button class="btn" id="btn-upload-json-trigger">Import .json</button>
-            </div>
-          </div>
-
-          <div class="grid">
-            <div class="field"><strong>Detected Fields</strong></div>
-            <div id="fields-wrap" class="grid"></div>
-          </div>
-        </div>
-
-        <div class="grid">
-          <div class="field grow">
-            <label for="tmpl-content"><strong>Template Content</strong></label>
-            <textarea id="tmpl-content" placeholder="Template content will appear here..."></textarea>
-          </div>
-          <div class="row">
-            <label class="pill"><input type="checkbox" id="chk-escape"> Escape HTML (&lt; &gt;)</label>
-            <label class="pill"><input type="checkbox" id="chk-show-placeholders" checked> Keep unknown {{placeholders}}</label>
-            <label class="pill"><input type="checkbox" id="chk-trim" checked> Trim leading/trailing blank lines</label>
-          </div>
-        </div>
-
-        <div class="twocol">
-          <div class="grid">
-            <div class="row">
-              <button class="btn" id="btn-apply">Apply fields → Output</button>
-              <button class="btn" id="btn-copy-output">Copy output</button>
-              <button class="btn" id="btn-download-output">Download .txt</button>
-            </div>
-            <div class="codebox" id="tmpl-output"></div>
-          </div>
-
-          <div class="grid">
-            <div class="row"><strong>Quick helpers</strong></div>
-            <div class="row">
-              <div class="field grow">
-                <input id="helper-text" type="text" placeholder="Type text for gradient or font…" />
-              </div>
-              <button class="btn" id="btn-apply-gradient">Make gradient → copy</button>
-              <button class="btn" id="btn-wrap-font">Wrap with &lt;font&gt;</button>
-            </div>
-            <div class="row">
-              <div class="field"><label>Font name</label><input id="helper-font" type="text" value="BROOK SDF" /></div>
-              <div class="field"><label>Color (hex #)</label><input id="helper-color" type="text" value="#FF4D6D" /></div>
-            </div>
-            <div class="codebox" id="helper-preview"></div>
-          </div>
-        </div>
-
-      </div>
-    </section>
     <section class="panel" id="live-template-editor">
       <h2 class="section-title"><u>Live Template Editor</u></h2>
-      <p class="section-subtitle">Pick any number of colors. Type with live per-char gradient. Preview updates in real time.</p>
+      <p class="section-subtitle">Type your text, select a range, then apply a <b>smooth gradient</b> or a <b>solid color</b>. Insert icons from the palette. Preview updates in real time.</p>
 
       <div class="grid">
         <div class="row">
@@ -226,33 +144,25 @@ rules:
           </div>
 
           <div class="field">
-            <label>Gradient mode</label>
-            <select id="lte-mode">
-              <option value="cycle" selected>Cycle (c1→c2→c3…)</option>
-              <option value="smooth">Smooth (interpolated)</option>
-            </select>
+            <label>Stops</label>
+            <div class="gg-row" id="lte-stops"></div>
+            <button class="btn" id="lte-add-stop" title="Add stop">Add</button>
+            <button class="btn" id="lte-shuffle-stops" title="Randomize stops">Randomize</button>
           </div>
 
-          <label class="pill"><input type="checkbox" id="lte-live" checked> Live while typing</label>
-          <button class="btn" id="lte-start">Start</button>
-          <button class="btn" id="lte-stop" disabled>Stop</button>
+          <button class="btn" id="lte-apply-gradient">Apply gradient to selection</button>
+          <button class="btn icon-launch" id="btn-icons">Icons…</button>
         </div>
 
-        <div class="row">
-          <div class="field"><strong>Gradient Stops</strong></div>
-          <button class="btn" id="lte-add-stop">Add</button>
-          <button class="btn" id="lte-shuffle-stops">Randomize</button>
-          <button class="btn" id="lte-apply-range">Apply to selection</button>
-        </div>
-        <div id="lte-stops" class="gg-row"></div>
         <div id="lte-grad-preview" class="preview-bar" aria-label="Gradient preview"></div>
 
         <div class="twocol">
           <div class="grid">
-            <div class="field grow">
+            <div class="field">
               <label><strong>Editor (markup auto-generated)</strong></label>
-              <textarea id="lte-editor" placeholder="Type here…"></textarea>
             </div>
+            <textarea id="lte-editor" placeholder="Type here…"></textarea>
+
             <div class="row">
               <button class="btn" id="lte-copy">Copy markup</button>
               <button class="btn" id="lte-download">Download .txt</button>
@@ -264,52 +174,21 @@ rules:
           <div class="grid">
             <div class="field"><strong>Live Preview (renders fonts + colors)</strong></div>
             <div id="lte-preview" class="codebox"></div>
-            <div class="field"><small>Note: SDF fonts are mapped to close web fonts for browser preview only.</small></div>
+            <div class="field"><small>Note: SDF fonts are mapped to similar web fonts for browser preview only.</small></div>
           </div>
         </div>
       </div>
     </section>
-    <section class="panel" id="gradient-generator">
-      <h2 class="section-title"><u>Gradient Generator</u></h2>
-      <p class="section-subtitle">Build a per-character gradient string with 1–10 colors for your tags.</p>
-
-      <div class="grid">
-        <div class="row">
-          <div class="field grow"><label>Text</label><input id="gg-text" type="text" value="♡Besties♡" maxlength="64"></div>
-          <div class="field"><label>Stops</label><input id="gg-stops" type="number" min="1" max="10" value="3" style="width:70px"></div>
-          <button class="btn" id="gg-add">Add</button>
-          <button class="btn" id="gg-rem">Remove</button>
-          <button class="btn" id="gg-rand">Randomize</button>
-          <button class="btn" id="gg-copy">Copy result</button>
-        </div>
-        <div id="gg-colors" class="gg-row"></div>
-        <div id="gg-preview" class="preview-bar" aria-label="Gradient preview"></div>
-        <div class="codebox" id="gg-output"></div>
-      </div>
-    </section>
-
-    <section class="panel">
-      <h2 class="section-title"><u>Icons</u></h2>
-      <p class="section-subtitle">All symbols below are known-working compatible icons. Click any to copy.</p>
-      <div class="icon-grid" id="icon-grid"></div>
-    </section>
-
-    <section class="panel">
-      <h2 class="section-title"><u>Working Fonts</u></h2>
-      <p class="section-subtitle">Click to copy a ready-to-paste format.</p>
-      <div class="fonts-grid" id="fonts-grid"></div>
-      <div class="note-box">
-        <strong>Font usage note</strong><br/>
-        Custom format:
-        <span class="code-inline">&lt;font="VCR SDF"&gt;Your text&lt;/font&gt;</span>
-      </div>
-    </section>
-
   </main>
 
   <footer>
     Made with ♥ by MAUL — template tools for hosts & creators
   </footer>
+
+  <div class="icon-palette" id="icon-palette" role="dialog" aria-modal="true">
+    <header>Icon Picker</header>
+    <div class="icon-grid" id="icon-grid"></div>
+  </div>
 
   <script>
     function copyToClipboard(text){
@@ -329,419 +208,206 @@ rules:
     const rgbToHex=({r,g,b})=>'#'+[r,g,b].map(x=>clamp(x|0,0,255).toString(16).padStart(2,'0')).join('').toUpperCase();
     const lerp=(a,b,t)=>a+(b-a)*t;
     const lerpColor=(h1,h2,t)=>{ const c1=hexToRgb(h1), c2=hexToRgb(h2); return rgbToHex({ r: lerp(c1.r,c2.r,t), g: lerp(c1.g,c2.g,t), b: lerp(c1.b,c2.b,t) }); };
+    const ed = document.getElementById('lte-editor');
+    const out = document.getElementById('lte-output');
+    const prev = document.getElementById('lte-preview');
+    const fontSel = document.getElementById('lte-font');
+    const solidPicker = document.getElementById('lte-solid');
+    const statusEl = document.getElementById('lte-status');
+    const btnCopy  = document.getElementById('lte-copy');
+    const btnDL    = document.getElementById('lte-download');
+    const btnSolid = document.getElementById('lte-apply-solid');
+    const btnGrad  = document.getElementById('lte-apply-gradient');
 
-    const templates = new Map();
-    const sel = document.getElementById('tmpl-select');
-    const txtContent = document.getElementById('tmpl-content');
-    const fieldsWrap = document.getElementById('fields-wrap');
-    const outBox = document.getElementById('tmpl-output');
+    const stopsWrap = document.getElementById('lte-stops');
+    const btnAddStop = document.getElementById('lte-add-stop');
+    const btnShuffle = document.getElementById('lte-shuffle-stops');
+    const gradPrev   = document.getElementById('lte-grad-preview');
 
-    function refreshSelect(filter=''){
-      const current = sel.value;
-      sel.innerHTML='';
-      const names=[...templates.keys()].filter(n=>n.toLowerCase().includes(filter.toLowerCase())).sort((a,b)=>a.localeCompare(b));
-      for(const n of names){
-        const opt=document.createElement('option');
-        opt.value=opt.textContent=n;
-        sel.appendChild(opt);
-      }
-      if(names.length){
-        sel.value = names.includes(current) ? current : names[0];
-        loadTemplate(sel.value);
-      } else {
-        txtContent.value='';
-        fieldsWrap.innerHTML='<div class="field">No {{placeholders}} found.</div>';
-        outBox.textContent='';
-      }
-    }
-    function loadTemplate(name){
-      if(!templates.has(name)) return;
-      const content = templates.get(name);
-      txtContent.value = content;
-      buildFieldsFromContent(content);
-      renderOutput();
-    }
-    function parseBulkTemplates(text){
-      const lines = (text||'').split(/\r?\n/);
-      let currentName=null, currentLines=[];
-      const flush=()=>{ if(currentName){ const content=currentLines.join('\n').replace(/^\n+|\n+$/g,''); templates.set(currentName, content); } currentName=null; currentLines=[]; };
-      for(const raw of lines){
-        const line = raw;
-        const m = line.match(/^([A-Za-z0-9 _.-]{1,64}):\s*$/);
-        if(m){ flush(); currentName = m[1].trim(); }
-        else { currentLines.push(line); }
-      }
-      flush();
-    }
-    function detectPlaceholders(text){
-      const set = new Set(); const re = /{{\s*([\w.-]+)\s*}}/g;
-      let m; while((m=re.exec(text))){ set.add(m[1]); }
-      return [...set];
-    }
-    function buildFieldsFromContent(text){
-      const keys = detectPlaceholders(text);
-      fieldsWrap.innerHTML = keys.length ? '' : '<div class="field">No {{placeholders}} found.</div>';
-      for(const k of keys){
-        const row=document.createElement('div');
-        row.className='row';
-        row.innerHTML = `<div class="field"><label>${k}</label><input type="text" data-key="${k}" placeholder="${k} value"></div>`;
-        fieldsWrap.appendChild(row);
-      }
-    }
-    function getFieldValues(){
-      const vals={}; fieldsWrap.querySelectorAll('input[data-key]').forEach(inp=>{ vals[inp.dataset.key]=inp.value; }); return vals;
-    }
-    function applyTemplate(text, values, opts){
-      const keepUnknown = !!opts.keepUnknown;
-      const escape = !!opts.escape;
-      let out = text;
-      out = out.replace(/{{\s*([\w.-]+)\s*}}/g, (m, key)=> (Object.prototype.hasOwnProperty.call(values, key) && values[key] !== '') ? values[key] : (keepUnknown ? m : ''));
-      if(opts.trim){ out = out.replace(/^\s+|\s+$/g,''); }
-      if(escape){ out = out.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
-      return out;
-    }
-    function renderOutput(){
-      const vals = getFieldValues();
-      const opts = { keepUnknown: document.getElementById('chk-show-placeholders').checked, escape: document.getElementById('chk-escape').checked, trim: document.getElementById('chk-trim').checked };
-      outBox.textContent = applyTemplate(txtContent.value, vals, opts);
-    }
-    document.getElementById('btn-apply').addEventListener('click', renderOutput);
-    fieldsWrap.addEventListener('input', renderOutput);
-    txtContent.addEventListener('input', ()=>{ buildFieldsFromContent(txtContent.value); renderOutput(); });
+    const FONT_MAP = {
+      'BROOK SDF': `'Barlow','Rajdhani',sans-serif`,
+      'VCR SDF': `'VT323',monospace`,
+      'Barlow-Black SDF': `'Barlow',sans-serif`,
+      'Barlow-BoldItalic SDF': `'Barlow',sans-serif`,
+      'Barlow-Light SDF': `'Barlow',sans-serif`,
+      'CONSOLA SDF': `'Share Tech Mono','Roboto Mono',monospace`,
+      'DIGITAL-7 SDF': `'Orbitron',monospace`,
+      'DIN_Pro_Bold_700 SDF': `'Rajdhani',sans-serif`,
+      'LiberationSans SDF': `'Barlow',sans-serif`,
+      'NotoSansJP-Regular SDF': `'Noto Sans JP',sans-serif`,
+      'OCRAEXT SDF': `'Press Start 2P','VT323',monospace`
+    };
 
-    document.getElementById('btn-copy-output').addEventListener('click', ()=>{ copyToClipboard(outBox.textContent).then(()=>{ const b = document.getElementById('btn-copy-output'); b.textContent='Copied!'; setTimeout(()=>b.textContent='Copy output', 1200); }); });
-    document.getElementById('btn-download-output').addEventListener('click', ()=>{ const name = (sel.value || 'template').replace(/[^a-zA-Z0-9_\-]/g,'').slice(0,48) || 'template';
-      const blob = new Blob([outBox.textContent], {type:'text/plain;charset=utf-8'});
-      const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = name + '.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-    });
-    document.getElementById('btn-parse').addEventListener('click', ()=>{ parseBulkTemplates(document.getElementById('tmpl-bulk').value); document.getElementById('tmpl-bulk').value=''; refreshSelect(document.getElementById('tmpl-search').value); });
-    document.getElementById('tmpl-files').addEventListener('change', (e)=>{ const files = [...e.target.files]; if(!files.length) return; let pending = files.length;
-      files.forEach(f=>{ const reader = new FileReader(); reader.onload = () => { const base = (f.name||'').replace(/\.[^.]+$/,''); const text = String(reader.result||'');
-        if(/^[A-Za-z0-9 _.-]{1,64}:\s*$/m.test(text)){ parseBulkTemplates(text); } else { templates.set(base, text); }
-        if(--pending===0){ refreshSelect(document.getElementById('tmpl-search').value); } }; reader.readAsText(f); }); e.target.value=''; });
-    document.getElementById('btn-download-all').addEventListener('click', ()=>{ const data = Object.fromEntries(templates);
-      const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'}); const url = URL.createObjectURL(blob);
-      const a = document.createElement('a'); a.href = url; a.download = 'templates.json'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-    });
-    document.getElementById('btn-upload-json-trigger').addEventListener('click', ()=>document.getElementById('btn-upload-json').click());
-    document.getElementById('btn-upload-json').addEventListener('change', (e)=>{ const f=e.target.files[0]; if(!f) return;
-      const r=new FileReader(); r.onload=()=>{ try{ const obj=JSON.parse(String(r.result||'')); for(const [k,v] of Object.entries(obj)){ templates.set(String(k), String(v)); } refreshSelect(document.getElementById('tmpl-search').value); }catch(err){ alert('Invalid JSON'); } }; r.readAsText(f); e.target.value=''; });
-    document.getElementById('btn-del-tmpl').addEventListener('click', ()=>{ const name = sel.value; if(!name) return; if(confirm(`Delete template "${name}"?`)){ templates.delete(name); refreshSelect(document.getElementById('tmpl-search').value); } });
-    document.getElementById('tmpl-search').addEventListener('input', (e)=>{ refreshSelect(e.target.value); });
-    sel.addEventListener('change', ()=> loadTemplate(sel.value));
-    const helperText = document.getElementById('helper-text');
-    const helperFont = document.getElementById('helper-font');
-    const helperColor = document.getElementById('helper-color');
-    const helperPreview = document.getElementById('helper-preview');
+    let STOPS = ['#B625F1','#2970F8','#00CFFF','#31D0AA']; 
+    let markup = '';
 
-    document.getElementById('btn-wrap-font').addEventListener('click', ()=>{ const t = helperText.value || 'Sample'; const f = helperFont.value || 'BROOK SDF'; const c = normHex(helperColor.value,true);
-      const wrapped = `<font="${f}"><color=${c}>${t}</color></font>`; helperPreview.textContent = wrapped; copyToClipboard(wrapped); });
+    const toHTML = (s)=>{
+      let html = s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      html = html.replace(/&lt;font="([^"]+)"&gt;/g, (_,name)=>`<span style="font-family:${FONT_MAP[name]||'inherit'}">`)
+                 .replace(/&lt;\/font&gt;/g, '</span>');
+      html = html.replace(/&lt;color=#[0-9A-Fa-f]{6}&gt;/g, m=>{
+                const hex = (m.match(/#[0-9A-Fa-f]{6}/)||['#FFFFFF'])[0];
+                return `<span style="color:${hex}">`;
+              }).replace(/&lt;\/color&gt;/g, '</span>');
+      return html;
+    };
 
-    const ICON_GROUPS = [
-      ['FLOWERS','✿ ❀ ❖'], ['SPORTS','⚽ ⚾'], ['CARD SUITS','♠ ♣ ♦ ♥ ♤ ♧ ♢ ♡'],
-      ['SYMBOLIC / STATUS','☯ ✚ ⚠ † ∞ ✓'], ['COMMUNICATION','☎ ☏'], ['WEATHER / ELEMENTS','☀ ☁ ☂ ☃ ☉'],
-      ['BOARD / MARKER','☖ ☗'], ['TECHNICAL / COMMAND','⌅ ⌆ ⌇ ⌒ ⌘ 〶'], ['STARS / DECOR','★ ☆ ⁂ ⁑ ✽'],
-      ['ARROWS','☝ ☞ ☟ ☜ ↑ ↓ → ← ↔ ↕ ⬆ ↗ ➡ ↘ ⬇ ↙ ⬅ ↖ ⤴ ⤵ ⇦ ⇧ ⇨ ⇩ ⇵ ⇄ ⇅ ⇆ ↹'],
-      ['SHAPES','• ○ ◦ ⦿ ▲ ▼ ♠ ♥ ♣ ♦ ♤ ♡ ♧ ♢ ■ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ● ◐ ◑ ◒ ◓ ◯ ◇ ◈ ▱ ▶ ◀'],
-      ['SYMBOLS / OBJECTS','⚙ ⚛ ⚜ ⚓ ⚡ ⚕ ⚒ ⚖'], ['MUSICAL','♩ ♪ ♫ ♬ ♭ ♮ ♯ ° ø ≠'],
-      ['ELEMENTS / OBJECTS','☕ ☘ ☙ ☄ ☇ ☈'], ['GENDER / FACES','♀ ♂ 〠 ヅ ツ ㋡ 웃 유 ü Ü シ ッ ㋛ ☃'],
-      ['CIRCLES','◉ ○ ◍ ◎ ● ◐ ◑ ◒ ◓ ⊗ ⊙ ◯ 〇 ◦ ∅ ⊕ ⊖ ⊘ ⦿ ° · ｡'],
-      ['SQUARES / BLOCKS','▀ ▁ ▂ ▃ ▄ ▅ ▆ ▇ ▉ ▊ ▋ █ ▌ ▐ ▍ ▎ ▏ ░ ▒ ▓ ▔ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▱ ■ ◈ ◇ ◆'],
-      ['TRIANGLES','▲ ▼ ◀ ◣ ◥ ◤ ◢ ▶ △ ▽ ▷ ∆ ∇ ⊿'], ['BOX / CORNER DRAWING','┐ └ ┘ ┌ ├ ┤ ┬ ┴ ┼ ╔ ╗ ╚ ╝ ╠ ╣ ╦ ╩ ╬ ╭ ╮ ╯ ╰ ╳ ╲ ╱'],
-      ['DANGER / STATUS','☠ ☢ ☣ ⚰ ⚱'], ['DECORATIVE / MISC','♨ ☮ ☥ ☦ ✞ ✟ ✠ ✡'], ['SYMBOLS / BADGES','™ 〰 🆗 🆕 🆙 🆒 🆓 🆖 🅿 Ⓜ 🆑 🆘 🆚 🅰 🅱 🆎 🅾 ♻ 🆔']
-    ];
-    const iconGrid = document.getElementById('icon-grid');
-    function buildIcons(){
-      iconGrid.innerHTML='';
-      for(const [title, line] of ICON_GROUPS){
-        const card=document.createElement('div'); card.className='icon-card';
-        const h3=document.createElement('h3'); h3.textContent=title; card.appendChild(h3);
-        const row=document.createElement('div'); row.className='icon-line';
-        for(const ch of line.split(/\s+/).filter(Boolean)){
-          const span=document.createElement('span'); span.textContent=ch; span.title='Click to copy'; span.addEventListener('click', ()=> copyToClipboard(ch)); row.appendChild(span);
-        }
-        card.appendChild(row); iconGrid.appendChild(card);
+    const buildIndexMap=(mark)=>{
+      const map=[]; let iPlain=0, i=0;
+      while(i<mark.length){
+        if(mark.startsWith('<color=', i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
+        if(mark.startsWith('</color>', i)){ i+=8; continue; }
+        if(mark.startsWith('<font="', i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
+        if(mark.startsWith('</font>', i)){ i+=7; continue; }
+        map[iPlain++] = i; i++;
       }
-    }
-    const FONT_NAMES = ['VCR SDF','Barlow-Black SDF','Barlow-BoldItalic SDF','Barlow-Light SDF','BROOK SDF','CONSOLA SDF','DIGITAL-7 SDF','DIN_Pro_Bold_700 SDF','LiberationSans SDF','NotoSansJP-Regular SDF','OCRAEXT SDF'];
-    const fontsGrid = document.getElementById('fonts-grid');
-    function buildFonts(){
-      fontsGrid.innerHTML='';
-      for(const f of FONT_NAMES){
-        const card=document.createElement('div'); card.className='font-card'; card.dataset.font=f;
-        const name=document.createElement('div'); name.className='font-name'; name.textContent=f;
-        const box=document.createElement('div'); box.className='copy-small';
-        const btn=document.createElement('button'); btn.className='copy-btn-sm'; btn.textContent='Copy format';
-        btn.addEventListener('click', ()=>{ const str = `<font="${f}">Your text</font>`; copyToClipboard(str); });
-        box.appendChild(btn); card.appendChild(name); card.appendChild(box); fontsGrid.appendChild(card);
+      map[iPlain] = i; return map;
+    };
+    const replacePlainRangeWith=(mark,i0,i1,repl)=>{
+      const map = buildIndexMap(mark);
+      const a = map[i0] ?? mark.length;
+      const b = map[i1] ?? mark.length;
+      return mark.slice(0,a) + repl + mark.slice(b);
+    };
+    function buildSmoothGradient(text){
+      const chars=[...String(text||'')]; if(chars.length===0) return '';
+      const out=[];
+      for(let i=0;i<chars.length;i++){
+        const t = chars.length===1 ? 0 : i/(chars.length-1);
+        const seg = (STOPS.length-1)*t;
+        const i0 = Math.floor(seg), i1 = Math.min(STOPS.length-1, i0+1);
+        const localT = seg - i0;
+        const hex = lerpColor(STOPS[i0], STOPS[i1], localT);
+        out.push(`<color=${normHex(hex,true)}>${chars[i]}</color>`);
       }
+      return out.join('');
     }
-    const ggText = document.getElementById('gg-text');
-    const ggStopsInput = document.getElementById('gg-stops');
-    const ggColors = document.getElementById('gg-colors');
-    const ggPreview = document.getElementById('gg-preview');
-    const ggOutput = document.getElementById('gg-output');
-    let ggStops = ['#B625F1','#2970F8','#00CFFF'];
 
-    function rebuildColorInputs(){
-      ggColors.innerHTML='';
-      ggStops.forEach((hex, idx)=>{
-        const wrap=document.createElement('div'); wrap.className='row';
+    function renderStops(){
+      stopsWrap.innerHTML='';
+      STOPS.forEach((hex,idx)=>{
+        const row=document.createElement('div'); row.className='row';
         const t=document.createElement('input'); t.type='text'; t.value=normHex(hex,true); t.style.width='100px';
         const c=document.createElement('input'); c.type='color'; c.className='color-chip'; c.value=normHex(hex,true);
         const up=document.createElement('button'); up.className='btn'; up.textContent='▲';
         const dn=document.createElement('button'); dn.className='btn'; dn.textContent='▼';
         const rm=document.createElement('button'); rm.className='btn'; rm.textContent='✕';
-        up.addEventListener('click',()=>{ if(idx>0){ [ggStops[idx-1],ggStops[idx]]=[ggStops[idx],ggStops[idx-1]]; rebuildColorInputs(); renderGG(); }});
-        dn.addEventListener('click',()=>{ if(idx<ggStops.length-1){ [ggStops[idx+1],ggStops[idx]]=[ggStops[idx],ggStops[idx+1]]; rebuildColorInputs(); renderGG(); }});
-        rm.addEventListener('click',()=>{ if(ggStops.length>1){ ggStops.splice(idx,1); ggStopsInput.value=ggStops.length; rebuildColorInputs(); renderGG(); }});
-        t.addEventListener('input',()=>{ const h=normHex(t.value,true); t.value=h; c.value=h; ggStops[idx]=h; renderGG(); });
-        c.addEventListener('input',()=>{ const h=normHex(c.value,true); t.value=h; ggStops[idx]=h; renderGG(); });
-        wrap.append(t,c,up,dn,rm); ggColors.appendChild(wrap);
+        t.addEventListener('input',()=>{ const h=normHex(t.value,true); t.value=h; c.value=h; STOPS[idx]=h; renderGradPreview(); renderAll(); });
+        c.addEventListener('input',()=>{ const h=normHex(c.value,true); t.value=h; STOPS[idx]=h; renderGradPreview(); renderAll(); });
+        up.addEventListener('click',()=>{ if(idx>0){ [STOPS[idx-1],STOPS[idx]]=[STOPS[idx],STOPS[idx-1]]; renderStops(); renderGradPreview(); renderAll(); }});
+        dn.addEventListener('click',()=>{ if(idx<STOPS.length-1){ [STOPS[idx+1],STOPS[idx]]=[STOPS[idx],STOPS[idx+1]]; renderStops(); renderGradPreview(); renderAll(); }});
+        rm.addEventListener('click',()=>{ if(STOPS.length>1){ STOPS.splice(idx,1); renderStops(); renderGradPreview(); renderAll(); }});
+        row.append(t,c,up,dn,rm); stopsWrap.appendChild(row);
       });
     }
-    function buildPerCharGradient(text, colors){
-      const chars=[...String(text||'')]; if(chars.length===0) return ''; if(colors.length===0) colors=['#FFFFFF'];
-      const out=[]; if(chars.length===1){ const hex=normHex(colors[0],true); out.push(`<color=${hex}>${chars[0]}</color>`); }
-      else { for(let i=0;i<chars.length;i++){ const t = i/(chars.length-1); const seg = (colors.length-1)*t; const i0 = Math.floor(seg), i1 = Math.min(colors.length-1,i0+1); const localT = seg - i0; const col = lerpColor(colors[i0], colors[i1], localT); out.push(`<color=${normHex(col,true)}>${chars[i]}</color>`); } }
-      return out.join('');
+    function renderGradPreview(){
+      gradPrev.style.background = `linear-gradient(90deg, ${STOPS.map((c,i)=>`${normHex(c,true)} ${(i*100/(Math.max(STOPS.length-1,1)))}%`).join(', ')})`;
     }
-    function renderGG(){
-      const css = `linear-gradient(90deg, ${ggStops.map((c,i)=>`${normHex(c,true)} ${(i*100/(Math.max(ggStops.length-1,1)))}%`).join(', ')})`;
-      ggPreview.style.background = css;
-      const s = buildPerCharGradient(ggText.value, ggStops);
-      ggOutput.textContent = s;
+
+    function ensureFontWrap(){
+      const f=fontSel.value;
+      if(!markup) markup = `<font="${f}"></font>`;
+      if(!markup.startsWith(`<font="${f}">`)){
+        markup = markup.replace(/^<font="[^"]+">/,'');
+        markup = `<font="${f}">` + markup;
+      }
+      if(!markup.endsWith(`</font>`)) markup += `</font>`;
     }
-    document.getElementById('gg-add').addEventListener('click',()=>{ const n = clamp(parseInt(ggStopsInput.value||'1',10),1,10);
-      if(ggStops.length < n){ ggStops.push('#'+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0')); ggStopsInput.value=ggStops.length; rebuildColorInputs(); renderGG(); }});
-    document.getElementById('gg-rem').addEventListener('click',()=>{ if(ggStops.length>1){ ggStops.pop(); ggStopsInput.value=ggStops.length; rebuildColorInputs(); renderGG(); }});
-    document.getElementById('gg-rand').addEventListener('click',()=>{ ggStops = ggStops.map(()=> '#'+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0')); rebuildColorInputs(); renderGG(); });
-    ggText.addEventListener('input', renderGG);
-    ggStopsInput.addEventListener('change', ()=>{ let n = clamp(parseInt(ggStopsInput.value||'1',10),1,10);
-      while(ggStops.length<n) ggStops.push('#'+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0'));
-      while(ggStops.length>n) ggStops.pop();
-      rebuildColorInputs(); renderGG();
-    });
-    document.getElementById('gg-copy').addEventListener('click', ()=>{ copyToClipboard(ggOutput.textContent); });
-    const helperApplyGradient = document.getElementById('btn-apply-gradient');
-    helperApplyGradient.addEventListener('click', ()=>{ const t = helperText.value || ''; const result = buildPerCharGradient(t, ggStops.slice()); helperPreview.textContent = result; copyToClipboard(result); });
+    function renderAll(){
+      ensureFontWrap();
+      out.textContent = markup;
+      prev.innerHTML = toHTML(markup);
+    }
 
-    (()=>{
-      const ed = document.getElementById('lte-editor');
-      const out = document.getElementById('lte-output');
-      const prev = document.getElementById('lte-preview');
-      const fontSel = document.getElementById('lte-font');
-      const solidPicker = document.getElementById('lte-solid');
-      const modeSel = document.getElementById('lte-mode');
-      const liveChk = document.getElementById('lte-live');
-      const btnStart = document.getElementById('lte-start');
-      const btnStop  = document.getElementById('lte-stop');
-      const btnCopy  = document.getElementById('lte-copy');
-      const btnDL    = document.getElementById('lte-download');
-      const btnApplySolid = document.getElementById('lte-apply-solid');
-      const btnApplyRange = document.getElementById('lte-apply-range');
-      const btnAddStop    = document.getElementById('lte-add-stop');
-      const btnShuffle    = document.getElementById('lte-shuffle-stops');
-      const stopsWrap     = document.getElementById('lte-stops');
-      const gradPrev      = document.getElementById('lte-grad-preview');
-      const statusEl      = document.getElementById('lte-status');
-
-      const FONT_MAP = {
-        'BROOK SDF': `'Barlow','Rajdhani',sans-serif`,
-        'VCR SDF': `'VT323',monospace`,
-        'Barlow-Black SDF': `'Barlow',sans-serif`,
-        'Barlow-BoldItalic SDF': `'Barlow',sans-serif`,
-        'Barlow-Light SDF': `'Barlow',sans-serif`,
-        'CONSOLA SDF': `'Share Tech Mono','Roboto Mono',monospace`,
-        'DIGITAL-7 SDF': `'Orbitron',monospace`,
-        'DIN_Pro_Bold_700 SDF': `'Rajdhani',sans-serif`,
-        'LiberationSans SDF': `'Barlow',sans-serif`,
-        'NotoSansJP-Regular SDF': `'Noto Sans JP',sans-serif`,
-        'OCRAEXT SDF': `'Press Start 2P','VT323',monospace`
-      };
-
-      let STOPS = ['#B625F1','#2970F8','#00CFFF','#31D0AA'];
-      let markup = '';
-      let gradActive = false;
-      let gradStartPlain = 0;
-      let cycleIndex = 0;
-
-      const toHTML = (s)=>{
-        let html = s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-        html = html.replace(/&lt;font="([^"]+)"&gt;/g, (_,name)=>`<span style="font-family:${FONT_MAP[name]||'inherit'}">`)
-                   .replace(/&lt;\/font&gt;/g, '</span>');
-        html = html.replace(/&lt;color=#[0-9A-Fa-f]{6}&gt;/g, m=>{
-                  const hex = (m.match(/#[0-9A-Fa-f]{6}/)||['#FFFFFF'])[0];
-                  return `<span style="color:${hex}">`;
-                }).replace(/&lt;\/color&gt;/g, '</span>');
-        return html;
-      };
-      const buildIndexMap=(mark)=>{
-        const map=[]; let iPlain=0, i=0;
-        while(i<mark.length){
-          if(mark.startsWith('<color=', i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
-          if(mark.startsWith('</color>', i)){ i+=8; continue; }
-          if(mark.startsWith('<font="', i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
-          if(mark.startsWith('</font>', i)){ i+=7; continue; }
-          map[iPlain++] = i; i++;
-        }
-        map[iPlain] = i; return map;
-      };
-      const replacePlainRangeWith=(mark,i0,i1,repl)=>{
-        const map = buildIndexMap(mark);
-        const a = map[i0] ?? mark.length;
-        const b = map[i1] ?? mark.length;
-        return mark.slice(0,a) + repl + mark.slice(b);
-      };
-
-      function makeCycle(text){
-        if(!text) return '';
-        const chars=[...text], out=[];
-        for(const ch of chars){
-          const hex = STOPS[cycleIndex % STOPS.length];
-          out.push(`<color=${normHex(hex,true)}>${ch}</color>`);
-          cycleIndex++;
-        }
-        return out.join('');
-      }
-      function makeSmooth(text){
-        const chars=[...text]; if(chars.length===0) return '';
-        const out=[];
-        for(let i=0;i<chars.length;i++){
-          const t = chars.length===1 ? 0 : i/(chars.length-1);
-          const seg = (STOPS.length-1)*t;
-          const i0 = Math.floor(seg), i1 = Math.min(STOPS.length-1, i0+1);
-          const localT = seg - i0;
-          const hex = lerpColor(STOPS[i0], STOPS[i1], localT);
-          out.push(`<color=${normHex(hex,true)}>${chars[i]}</color>`);
-        }
-        return out.join('');
-      }
-      const buildSpan = (txt)=> (modeSel.value==='cycle' ? makeCycle(txt) : makeSmooth(txt));
-
-      function renderStops(){
-        stopsWrap.innerHTML='';
-        STOPS.forEach((hex,idx)=>{
-          const row=document.createElement('div'); row.className='row';
-          const t=document.createElement('input'); t.type='text'; t.value=normHex(hex,true); t.style.width='100px';
-          const c=document.createElement('input'); c.type='color'; c.className='color-chip'; c.value=normHex(hex,true);
-          const up=document.createElement('button'); up.className='btn'; up.textContent='▲';
-          const dn=document.createElement('button'); dn.className='btn'; dn.textContent='▼';
-          const rm=document.createElement('button'); rm.className='btn'; rm.textContent='✕';
-          t.addEventListener('input',()=>{ const h=normHex(t.value,true); t.value=h; c.value=h; STOPS[idx]=h; renderGradPreview(); liveRender(); });
-          c.addEventListener('input',()=>{ const h=normHex(c.value,true); t.value=h; STOPS[idx]=h; renderGradPreview(); liveRender(); });
-          up.addEventListener('click',()=>{ if(idx>0){ [STOPS[idx-1],STOPS[idx]]=[STOPS[idx],STOPS[idx-1]]; renderStops(); renderGradPreview(); liveRender(); }});
-          dn.addEventListener('click',()=>{ if(idx<STOPS.length-1){ [STOPS[idx+1],STOPS[idx]]=[STOPS[idx],STOPS[idx+1]]; renderStops(); renderGradPreview(); liveRender(); }});
-          rm.addEventListener('click',()=>{ if(STOPS.length>1){ STOPS.splice(idx,1); cycleIndex%=Math.max(STOPS.length,1); renderStops(); renderGradPreview(); liveRender(); }});
-          row.append(t,c,up,dn,rm); stopsWrap.appendChild(row);
-        });
-      }
-      function renderGradPreview(){
-        gradPrev.style.background = `linear-gradient(90deg, ${STOPS.map((c,i)=>`${normHex(c,true)} ${(i*100/(Math.max(STOPS.length-1,1)))}%`).join(', ')})`;
-      }
-
-      function ensureFontWrap(){
-        const f=fontSel.value;
-        if(!markup) markup = `<font="${f}"></font>`;
-        if(!markup.startsWith(`<font="${f}">`)){
-          markup = markup.replace(/^<font="[^"]+">/,'');
-          markup = `<font="${f}">` + markup;
-        }
-        if(!markup.endsWith(`</font>`)) markup += `</font>`;
-      }
-      function renderAll(){
-        ensureFontWrap();
-        out.textContent = markup;
-        prev.innerHTML = toHTML(markup);
-      }
-      function liveRender(){
-        if(!liveChk.checked){ renderAll(); return; }
-        ensureFontWrap();
-        const plain = ed.value;
-        const solid = normHex(solidPicker.value,true);
-        const escaped = plain.replace(/\r?\n/g, '\\n'); 
-        let temp = `<font="${fontSel.value}"><color=${solid}>${escaped}</color></font>`;
-        if(gradActive){
-          const pos = ed.selectionStart|0;
-          const i0 = Math.min(gradStartPlain, pos), i1 = Math.max(gradStartPlain, pos);
-          const head = plain.slice(0,i0), mid = plain.slice(i0,i1), tail = plain.slice(i1);
-          temp = `<font="${fontSel.value}"><color=${solid}>${head.replace(/\r?\n/g,'\\n')}</color>` +
-                 buildSpan(mid) +
-                 `<color=${solid}>${tail.replace(/\r?\n/g,'\\n')}</color></font>`;
-        }
-        prev.innerHTML = toHTML(temp);
-        out.textContent = markup;
-      }
-
-      function applySolidToSelection(){
-        const s=ed.selectionStart|0, e=ed.selectionEnd|0; if(e<=s) return;
-        const hex = normHex(solidPicker.value,true);
-        const slice = ed.value.slice(s,e).replace(/\r?\n/g,'\\n');
-        markup = replacePlainRangeWith(markup, s, e, `<color=${hex}>${slice}</color>`);
-        renderAll();
-      }
-      function applyGradientToSelection(){
-        const s=ed.selectionStart|0, e=ed.selectionEnd|0; if(e<=s) return;
-        const slice = ed.value.slice(s,e).replace(/\r?\n/g,'\\n');
-        const colored = buildSpan(slice);
-        markup = replacePlainRangeWith(markup, s, e, colored);
-        renderAll();
-      }
-      function startLive(){
-        if(gradActive) return;
-        gradActive = true; gradStartPlain = ed.selectionStart|0;
-        btnStart.disabled=true; btnStop.disabled=false;
-        statusEl.textContent = 'Live gradient ON — type and watch it color each character.';
-        liveRender();
-      }
-      function stopLive(){
-        if(!gradActive) return;
-        const endPlain = ed.selectionStart|0;
-        const i0 = Math.min(gradStartPlain, endPlain), i1 = Math.max(gradStartPlain, endPlain);
-        const slice = ed.value.slice(i0,i1).replace(/\r?\n/g,'\\n');
-        const colored = buildSpan(slice);
-        markup = replacePlainRangeWith(markup, i0, i1, colored);
-        gradActive = false;
-        btnStart.disabled=false; btnStop.disabled=true;
-        statusEl.textContent = 'Gradient applied.';
-        renderAll();
-      }
-      function syncOnInput(){
-        if(liveChk.checked && gradActive){ liveRender(); return; }
-        const solid = normHex(solidPicker.value,true);
-        const f = fontSel.value;
-        const withEscapes = ed.value.replace(/\r?\n/g, '\\n'); 
-        markup = `<font="${f}"><color=${solid}>${withEscapes}</color></font>`;
-        renderAll();
-      }
-
-      document.getElementById('lte-apply-solid').addEventListener('click', applySolidToSelection);
-      document.getElementById('lte-apply-range').addEventListener('click', applyGradientToSelection);
-      btnStart.addEventListener('click', startLive);
-      btnStop.addEventListener('click', stopLive);
-      btnCopy.addEventListener('click', ()=>copyToClipboard(markup));
-      btnDL.addEventListener('click', ()=>{ const blob = new Blob([markup], {type:'text/plain;charset=utf-8'}); const url = URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='template.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url); });
-
-      fontSel.addEventListener('change', renderAll);
-      solidPicker.addEventListener('input', ()=>{ if(!gradActive) syncOnInput(); liveRender(); });
-      modeSel.addEventListener('change', ()=> liveRender());
-      ed.addEventListener('input', syncOnInput);
-      ed.addEventListener('keyup', ()=> liveRender());
-      ed.addEventListener('click', ()=> liveRender());
-
-      btnAddStop.addEventListener('click', ()=>{ STOPS.push('#'+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0')); renderStops(); renderGradPreview(); liveRender(); });
-      btnShuffle.addEventListener('click', ()=>{ STOPS = STOPS.map(()=> '#'+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0')); renderStops(); renderGradPreview(); liveRender(); });
-
-      renderStops(); renderGradPreview();
-      ed.value = '♡Besties♡';
-      markup = `<font="${fontSel.value}"><color=${normHex(solidPicker.value,true)}>${ed.value.replace(/\r?\n/g,'\\n')}</color></font>`;
+    function syncSolid(){
+      const solid = normHex(solidPicker.value,true);
+      const f = fontSel.value;
+      const text = ed.value.replace(/\r?\n/g, '\\n'); 
+      markup = `<font="${f}"><color=${solid}>${text}</color></font>`;
       renderAll();
-    })();
+    }
+
+    function applySolidToSelection(){
+      const s=ed.selectionStart|0, e=ed.selectionEnd|0; if(e<=s) return;
+      const hex = normHex(solidPicker.value,true);
+      const slice = ed.value.slice(s,e).replace(/\r?\n/g,'\\n');
+      markup = replacePlainRangeWith(markup, s, e, `<color=${hex}>${slice}</color>`);
+      renderAll();
+      statusEl.textContent = 'Solid color applied to selection.';
+    }
+    function applyGradientToSelection(){
+      const s=ed.selectionStart|0, e=ed.selectionEnd|0; if(e<=s) return;
+      const slice = ed.value.slice(s,e).replace(/\r?\n/g,'\\n');
+      const colored = buildSmoothGradient(slice);
+      markup = replacePlainRangeWith(markup, s, e, colored);
+      renderAll();
+      statusEl.textContent = 'Smooth gradient applied to selection.';
+    }
+
+    fontSel.addEventListener('change', renderAll);
+    solidPicker.addEventListener('input', syncSolid);
+    ed.addEventListener('input', syncSolid);
+    ed.addEventListener('keyup', syncSolid);
+    document.getElementById('lte-apply-solid').addEventListener('click', applySolidToSelection);
+    document.getElementById('lte-apply-gradient').addEventListener('click', applyGradientToSelection);
+
+    document.getElementById('lte-add-stop').addEventListener('click', ()=>{ STOPS.push('#'+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0')); renderStops(); renderGradPreview(); });
+    document.getElementById('lte-shuffle-stops').addEventListener('click', ()=>{ STOPS = STOPS.map(()=> '#'+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0')); renderStops(); renderGradPreview(); });
+
+    document.getElementById('lte-copy').addEventListener('click', ()=> copyToClipboard(markup));
+    document.getElementById('lte-download').addEventListener('click', ()=>{
+      const blob = new Blob([markup], {type:'text/plain;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const a=document.createElement('a'); a.href=url; a.download='template.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+    renderStops(); renderGradPreview();
+    ed.value = '♡Besties♡';
+    syncSolid();
+
+    const ICONS = [
+      '✿','❀','❖','⚽','⚾','♠','♣','♦','♥','♤','♧','♢','♡','☯','✚','⚠','†','∞','✓',
+      '☎','☏','☀','☁','☂','☃','☉','★','☆','⁂','✽','☝','☞','☟','☜','↑','↓','→','←','↔','↕',
+      '⌘','⌅','⌆','⌇','〶','⚙','⚛','⚜','⚓','⚡','⚕','⚒','⚖','♩','♪','♫','♬','♭','♮','♯',
+      '☕','☘','☄','☇','☈','〠','ヅ','ツ','㋡','웃','유','シ','ッ','㋛','◉','○','◎','●','⊗','⊙',
+      '◯','◇','◈','◍','◐','◑','◒','◓','◦','∅','⊕','⊖','⊘','⦿','▀','▁','▂','▃','▄','▅','▆','▇',
+      '▉','▋','█','░','▒','▓','▢','▣','▤','▥','▦','▧','▨','▩','▪','▫','◆','◣','◥','◤','◢',
+      '☠','☢','☣','⚰','⚱','♨','☮','✠','✡','™','〰','Ⓜ','♻','🆘','🅰','🅱','🅾','🆚'
+    ];
+
+    const btnIcons = document.getElementById('btn-icons');
+    const palette  = document.getElementById('icon-palette');
+    const iconGrid = document.getElementById('icon-grid');
+
+    function buildIcons(){
+      iconGrid.innerHTML='';
+      ICONS.forEach(ch=>{
+        const cell = document.createElement('div');
+        cell.className='icon-cell';
+        cell.textContent = ch;
+        cell.title = 'Insert "'+ch+'"';
+        cell.addEventListener('click', ()=>{
+          insertAtCaret(ed, ch);
+          palette.style.display='none';
+          ed.focus();
+          syncSolid();
+        });
+        iconGrid.appendChild(cell);
+      });
+    }
+    function insertAtCaret(textarea, txt){
+      const s = textarea.selectionStart|0, e = textarea.selectionEnd|0;
+      const val = textarea.value;
+      textarea.value = val.slice(0,s) + txt + val.slice(e);
+      const pos = s + txt.length;
+      textarea.selectionStart = textarea.selectionEnd = pos;
+    }
+    btnIcons.addEventListener('click', ()=>{
+      palette.style.display = (palette.style.display==='block' ? 'none' : 'block');
+    });
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape' && palette.style.display==='block'){ palette.style.display='none'; }
+    });
     buildIcons();
-    buildFonts();
-    refreshSelect('');
-    rebuildColorInputs();
-    renderGG();
   </script>
 </body>
 </html>
