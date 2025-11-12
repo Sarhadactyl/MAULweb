@@ -266,6 +266,21 @@
         padding: 2px 6px;
         white-space: nowrap;
       }
+      .gen-wrap{display:grid;gap:14px}
+      .gen-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+      .gen-controls .field{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);padding:6px 8px;border-radius:8px}
+      .gen-stops{display:grid;gap:8px}
+      .gen-stop{display:grid;grid-template-columns:110px 1fr auto;gap:8px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:8px}
+      .gen-stop .color{display:flex;align-items:center;gap:8px}
+      .gen-stop input[type="color"]{width:42px;height:32px;border:none;background:transparent;padding:0}
+      .gen-stop input[type="text"]{width:100%;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#def;padding:6px}
+      .gen-stop .pos{display:flex;align-items:center;gap:6px}
+      .gen-stop .pos input[type="number"]{width:72px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#def;padding:6px}
+      .gen-stop .row-btns button{margin-left:6px}
+      .gen-preview{height:60px;border-radius:10px;border:1px solid #000}
+      .gen-actions{display:flex;flex-wrap:wrap;gap:8px}
+      .gen-output{display:grid;gap:8px}
+      .gen-output code{display:block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:8px;white-space:nowrap;overflow:auto}
     </style>
   </head>
   <body>
@@ -482,6 +497,47 @@
           <strong>Font usage note</strong><br />
           Custom format:
           <span class="code-inline">&lt;font=”VCR SDF”&gt; &lt;/font&gt;</span>
+        </div>
+            </section>
+      <section class="panel" id="gradient-generator">
+        <h2 class="section-title"><u>Gradient Generator</u></h2>
+        <p class="section-subtitle">Build a gradient with 1–10 colors. Live preview and copy tools below.</p>
+
+        <div class="gen-wrap">
+
+          <div class="gen-controls">
+            <div class="field">
+              <label for="gen-angle">Angle</label>
+              <input id="gen-angle" type="number" min="0" max="360" step="1" value="90" />
+              <span>deg</span>
+            </div>
+
+            <div class="field">
+              <label for="gen-count">Stops</label>
+              <input id="gen-count" type="number" min="1" max="10" step="1" value="3" />
+            </div>
+
+            <div class="gen-actions">
+              <button class="copy-btn" id="gen-add">Add stop</button>
+              <button class="copy-btn" id="gen-equal">Equal spacing</button>
+              <button class="copy-btn" id="gen-reverse">Reverse</button>
+              <button class="copy-btn" id="gen-random">Randomize</button>
+            </div>
+          </div>
+
+          <div class="gen-stops" id="gen-stops"></div>
+
+          <div class="gen-preview" id="gen-preview"></div>
+
+          <div class="gen-output">
+            <div class="copy-row">
+              <button class="copy-btn" id="gen-copy-css">Copy CSS</button>
+              <button class="copy-btn" id="gen-copy-hex">Copy hex</button>
+            </div>
+            <code id="gen-css"></code>
+            <code id="gen-hex"></code>
+          </div>
+
         </div>
       </section>
 
@@ -1506,11 +1562,7 @@
         ta.style.left = '-9999px';
         document.body.appendChild(ta);
         ta.select();
-        try {
-          document.execCommand('copy');
-        } finally {
-          document.body.removeChild(ta);
-        }
+        try { document.execCommand('copy'); } finally { document.body.removeChild(ta); }
         return Promise.resolve();
       }
 
@@ -1523,9 +1575,7 @@
           const original = hexBtn.textContent;
           copyToClipboard(payload).then(() => {
             hexBtn.textContent = 'Copied!';
-            setTimeout(() => {
-              hexBtn.textContent = original;
-            }, 1200);
+            setTimeout(() => { hexBtn.textContent = original; }, 1200);
           });
           return;
         }
@@ -1538,12 +1588,188 @@
           const original = fontBtn.textContent;
           copyToClipboard(payload).then(() => {
             fontBtn.textContent = 'Copied!';
-            setTimeout(() => {
-              fontBtn.textContent = original;
-            }, 1200);
+            setTimeout(() => { fontBtn.textContent = original; }, 1200);
           });
         }
       });
+      (function () {
+        const MAX = 10;
+        const stopsEl = document.getElementById('gen-stops');
+        const angleEl = document.getElementById('gen-angle');
+        const countEl = document.getElementById('gen-count');
+        const previewEl = document.getElementById('gen-preview');
+        const cssEl = document.getElementById('gen-css');
+        const hexEl = document.getElementById('gen-hex');
+
+        const btnAdd = document.getElementById('gen-add');
+        const btnEqual = document.getElementById('gen-equal');
+        const btnReverse = document.getElementById('gen-reverse');
+        const btnRandom = document.getElementById('gen-random');
+        const btnCopyCss = document.getElementById('gen-copy-css');
+        const btnCopyHex = document.getElementById('gen-copy-hex');
+
+        let stops = [];
+
+        const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+        const toHex = (c) => {
+          const ctx = document.createElement('canvas').getContext('2d');
+          ctx.fillStyle = c;
+          let hex = ctx.fillStyle;
+          if (/^#([0-9a-f]{3})$/i.test(hex)) {
+            hex = '#' + hex[1] + hex[1] + hex[2] + hex[2] + hex[3] + hex[3];
+          }
+          return hex.toLowerCase();
+        };
+        const randomHex = () =>
+          '#' + Array.from({ length: 6 }, () => '89abcdef01234567'[Math.floor(Math.random() * 16)]).join('');
+
+        function rowTemplate(index, color, pos) {
+          const id = `stop-${index}-${Math.random().toString(36).slice(2, 7)}`;
+          const wrap = document.createElement('div');
+          wrap.className = 'gen-stop';
+          wrap.dataset.index = String(index);
+          wrap.innerHTML = `
+            <div class="color">
+              <input type="color" value="${toHex(color)}" aria-label="Color ${index + 1}">
+              <input type="text" value="${toHex(color)}" aria-label="Hex ${index + 1}">
+            </div>
+            <div class="pos">
+              <label>Pos%</label>
+              <input type="number" min="0" max="100" step="1" value="${clamp(Math.round(pos), 0, 100)}">
+              <input type="range" min="0" max="100" step="1" value="${clamp(Math.round(pos), 0, 100)}" id="${id}">
+            </div>
+            <div class="row-btns">
+              <button class="copy-btn gen-up" title="Move up">▲</button>
+              <button class="copy-btn gen-down" title="Move down">▼</button>
+              <button class="copy-btn gen-remove" title="Remove">✕</button>
+            </div>
+          `;
+          return wrap;
+        }
+
+        function renderStops() {
+          stopsEl.innerHTML = '';
+          stops.sort((a, b) => a.pos - b.pos).forEach((s, i) => {
+            const row = rowTemplate(i, s.color, s.pos);
+            stopsEl.appendChild(row);
+          });
+          updatePreview();
+        }
+
+        function equalizePositions() {
+          const n = stops.length;
+          if (n === 1) {
+            stops[0].pos = 50;
+          } else {
+            stops.forEach((s, i) => (s.pos = Math.round((i * 100) / (n - 1))));
+          }
+        }
+
+        function reverseStops() {
+          stops.forEach((s) => (s.pos = 100 - s.pos));
+          stops.reverse();
+        }
+
+        function randomizeColors() {
+          stops.forEach((s) => (s.color = randomHex()));
+        }
+
+        function updatePreview() {
+          const rows = [...stopsEl.querySelectorAll('.gen-stop')];
+          rows.forEach((row, i) => {
+            const [colorPicker, colorText] = row.querySelectorAll('.color input');
+            const [posNum, posRange] = row.querySelectorAll('.pos input');
+            const col = toHex(colorText.value || colorPicker.value);
+            colorPicker.value = col;
+            colorText.value = col;
+            const pos = clamp(parseInt(posNum.value || posRange.value || 0, 10), 0, 100);
+            posNum.value = String(pos);
+            posRange.value = String(pos);
+            stops[i].color = col;
+            stops[i].pos = pos;
+          });
+
+          const angle = clamp(parseInt(angleEl.value || '90', 10), 0, 360);
+          const parts = stops.slice().sort((a, b) => a.pos - b.pos).map((s) => `${s.color} ${s.pos}%`);
+          const css = `linear-gradient(${angle}deg, ${parts.join(', ')})`;
+          previewEl.style.background = css;
+          cssEl.textContent = `background:${css};`;
+
+          const hexList = stops.slice().sort((a, b) => a.pos - b.pos).map((s) => s.color).join(', ');
+          hexEl.textContent = hexList;
+        }
+
+        function setCount(n) {
+          n = clamp(n | 0, 1, MAX);
+          while (stops.length < n) {
+            const step = stops.length ? Math.round((stops.length * 100) / (n - 1 || 1)) : 0;
+            stops.push({ color: randomHex(), pos: step });
+          }
+          while (stops.length > n) stops.pop();
+          equalizePositions();
+          renderStops();
+          countEl.value = String(n);
+        }
+
+        stops = [
+          { color: '#ff5f6d', pos: 0 },
+          { color: '#ffc371', pos: 100 }
+        ];
+        setCount(parseInt(countEl.value, 10) || 3);
+
+        angleEl.addEventListener('input', updatePreview);
+        countEl.addEventListener('change', (e) => setCount(parseInt(e.target.value, 10)));
+
+        btnAdd.addEventListener('click', () => {
+          if (stops.length >= MAX) return;
+          stops.push({ color: randomHex(), pos: clamp(Math.round(Math.random() * 100), 0, 100) });
+          renderStops();
+        });
+        btnEqual.addEventListener('click', () => { equalizePositions(); renderStops(); });
+        btnReverse.addEventListener('click', () => { reverseStops(); renderStops(); });
+        btnRandom.addEventListener('click', () => { randomizeColors(); renderStops(); });
+
+        stopsEl.addEventListener('input', (e) => {
+          if (e.target.matches('.color input[type="color"]')) {
+            const row = e.target.closest('.gen-stop');
+            const [, colorText] = row.querySelectorAll('.color input');
+            colorText.value = toHex(e.target.value);
+          }
+          if (e.target.type === 'range') {
+            const row = e.target.closest('.gen-stop');
+            const num = row.querySelector('.pos input[type="number"]');
+            num.value = e.target.value;
+          }
+          updatePreview();
+        });
+
+        stopsEl.addEventListener('click', (e) => {
+          const row = e.target.closest('.gen-stop');
+          if (!row) return;
+          const idx = [...stopsEl.children].indexOf(row);
+
+          if (e.target.classList.contains('gen-remove')) {
+            if (stops.length > 1) { stops.splice(idx, 1); renderStops(); }
+          } else if (e.target.classList.contains('gen-up')) {
+            if (idx > 0) { [stops[idx - 1], stops[idx]] = [stops[idx], stops[idx - 1]]; renderStops(); }
+          } else if (e.target.classList.contains('gen-down')) {
+            if (idx < stops.length - 1) { [stops[idx + 1], stops[idx]] = [stops[idx], stops[idx + 1]]; renderStops(); }
+          }
+        });
+
+        btnCopyCss.addEventListener('click', () =>
+          copyToClipboard(cssEl.textContent).then(() => {
+            btnCopyCss.textContent = 'Copied!';
+            setTimeout(() => (btnCopyCss.textContent = 'Copy CSS'), 1200);
+          })
+        );
+        btnCopyHex.addEventListener('click', () =>
+          copyToClipboard(hexEl.textContent).then(() => {
+            btnCopyHex.textContent = 'Copied!';
+            setTimeout(() => (btnCopyHex.textContent = 'Copy hex'), 1200);
+          })
+        );
+      })();
     </script>
   </body>
 </html>
