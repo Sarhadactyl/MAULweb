@@ -19,11 +19,12 @@
     html, body { height:100%; margin:0; padding:0; background:#000; font-family:'Roboto',sans-serif; color:#fff; overflow-x:hidden; }
     body {
       background:
-        linear-gradient(rgba(0,0,0,.80), rgba(0,0,0,.80)),
+        linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.82)),
         url('images/background.png') no-repeat center center fixed;
       background-size:cover;
       display:flex; flex-direction:column; align-items:center; padding-bottom:100px;
     }
+
     header { width:100%; text-align:center; padding:20px; background:rgba(0,0,0,0.9); position:relative; z-index:1000; }
     header h1 { margin:0; font-size:2rem; color:#fff; letter-spacing:.5px; }
     .dropdown { position:absolute; top:16px; left:20px; z-index:1001; }
@@ -46,7 +47,7 @@
 
     footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:12px; background:rgba(0,0,0,0.9); z-index:2; font-size:.9rem; }
 
-    .container { max-width:1100px; width:92%; margin:36px auto; display:grid; gap:20px; }
+    .container { max-width:1180px; width:92%; margin:36px auto; display:grid; gap:20px; }
     .panel { background:rgba(0,0,0,0.65); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:18px; }
     .section-title { font-size:1.8rem; text-align:center; margin:0 0 6px; }
     .section-subtitle { text-align:center; color:#e6e6e6; margin:0 0 16px; font-size:.98rem; }
@@ -77,8 +78,9 @@
     .twocol { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
     @media (max-width:900px){ .twocol { grid-template-columns:1fr; } }
 
-    #lte-preview { min-height:320px; font-size:1.35rem; line-height:1.6; padding:16px 18px; }
-    #lte-output  { min-height:170px; font-size:1rem; }
+    #lte-preview { min-height:340px; font-size:1.35rem; line-height:1.6; padding:16px 18px; }
+    #lte-output  { min-height:180px; font-size:1rem; }
+
     .gg-row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
     .color-chip { width:40px; height:32px; border:1px solid rgba(255,255,255,.22); background:transparent; }
     .preview-bar { height:44px; border-radius:8px; border:1px solid #000; margin:6px 0; }
@@ -98,6 +100,9 @@
     }
     .icon-cell:hover { background:#2c2c2c; border-color:#555; }
     .icon-cell:active { transform:scale(.96); }
+
+    #snippet-buttons { display:flex; flex-wrap:wrap; gap:8px; }
+    .snippet-btn { font-size:.85rem; }
   </style>
 </head>
 <body>
@@ -123,7 +128,7 @@
   <main class="container">
     <section class="panel" id="live-template-editor">
       <h2 class="section-title"><u>Live Template Editor</u></h2>
-      <p class="section-subtitle">Type your text, select a range, then apply a <b>smooth gradient</b> or a <b>solid color</b>. Insert icons from the palette. Preview updates in real time.</p>
+      <p class="section-subtitle">Select a range and click a tool: <b>Align</b>, <b>Size</b>, <b>B/I/U</b>, <b>Solid</b>, or <b>Smooth Gradient</b>. Tab inserts <code>\n</code>; Shift+Enter inserts a real tab.</p>
 
       <div class="grid">
         <div class="row">
@@ -135,12 +140,33 @@
               <option>DIGITAL-7 SDF</option><option>DIN_Pro_Bold_700 SDF</option><option>LiberationSans SDF</option>
               <option>NotoSansJP-Regular SDF</option><option>OCRAEXT SDF</option>
             </select>
+            <button class="btn" id="btn-font-wrap" title='Wrap selection in <font="...">'>Font wrap</button>
+          </div>
+
+          <div class="field">
+            <label>Align</label>
+            <button class="btn" data-align="left">Left</button>
+            <button class="btn" data-align="center">Center</button>
+            <button class="btn" data-align="right">Right</button>
+          </div>
+
+          <div class="field">
+            <label>Size %</label>
+            <input id="size-pct" type="number" min="50" max="300" step="5" value="110" style="width:90px">
+            <button class="btn" id="btn-apply-size" title='<size=110%>...'>Apply</button>
+          </div>
+
+          <div class="field">
+            <label>Style</label>
+            <button class="btn" data-tag="b">B</button>
+            <button class="btn" data-tag="i">I</button>
+            <button class="btn" data-tag="u">U</button>
           </div>
 
           <div class="field">
             <label>Solid</label>
             <input id="lte-solid" type="color" value="#FF4D6D">
-            <button class="btn" id="lte-apply-solid">Apply to selection</button>
+            <button class="btn" id="lte-apply-solid">Apply</button>
           </div>
 
           <div class="field">
@@ -148,9 +174,9 @@
             <div class="gg-row" id="lte-stops"></div>
             <button class="btn" id="lte-add-stop" title="Add stop">Add</button>
             <button class="btn" id="lte-shuffle-stops" title="Randomize stops">Randomize</button>
+            <button class="btn" id="lte-apply-gradient" title="Smooth per-char gradient">Gradient</button>
           </div>
 
-          <button class="btn" id="lte-apply-gradient">Apply gradient to selection</button>
           <button class="btn icon-launch" id="btn-icons">Icons…</button>
         </div>
 
@@ -158,9 +184,7 @@
 
         <div class="twocol">
           <div class="grid">
-            <div class="field">
-              <label><strong>Editor (markup auto-generated)</strong></label>
-            </div>
+            <div class="field"><label><strong>Editor (markup auto-generated)</strong></label></div>
             <textarea id="lte-editor" placeholder="Type here…"></textarea>
 
             <div class="row">
@@ -176,6 +200,18 @@
             <div id="lte-preview" class="codebox"></div>
             <div class="field"><small>Note: SDF fonts are mapped to similar web fonts for browser preview only.</small></div>
           </div>
+        </div>
+
+        <div class="panel" style="background:rgba(255,255,255,.06);">
+          <div class="row">
+            <div class="field" style="flex:1 1 auto">
+              <label><strong>Bulk Snippet Buttons</strong></label>
+              <textarea id="snippet-bulk" placeholder='Paste lines like:
+easteregg1:<size=130%>...\\n<size=100%>...</size>'></textarea>
+            </div>
+            <button class="btn" id="snippet-build">Build buttons</button>
+          </div>
+          <div id="snippet-buttons"></div>
         </div>
       </div>
     </section>
@@ -205,24 +241,30 @@
       return (withHash?'#':'')+s.toUpperCase();
     };
     const hexToRgb=h=>{h=normHex(h,true).slice(1); return {r:parseInt(h.slice(0,2),16), g:parseInt(h.slice(2,4),16), b:parseInt(h.slice(4,6),16)};};
-    const rgbToHex=({r,g,b})=>'#'+[r,g,b].map(x=>clamp(x|0,0,255).toString(16).padStart(2,'0')).join('').toUpperCase();
+    const rgbToHex=({r,g,b})=>'#'+[r,g,b].map(x=>Math.max(0,Math.min(255,x|0)).toString(16).padStart(2,'0')).join('').toUpperCase();
     const lerp=(a,b,t)=>a+(b-a)*t;
     const lerpColor=(h1,h2,t)=>{ const c1=hexToRgb(h1), c2=hexToRgb(h2); return rgbToHex({ r: lerp(c1.r,c2.r,t), g: lerp(c1.g,c2.g,t), b: lerp(c1.b,c2.b,t) }); };
+
     const ed = document.getElementById('lte-editor');
     const out = document.getElementById('lte-output');
     const prev = document.getElementById('lte-preview');
     const fontSel = document.getElementById('lte-font');
-    const solidPicker = document.getElementById('lte-solid');
     const statusEl = document.getElementById('lte-status');
-    const btnCopy  = document.getElementById('lte-copy');
-    const btnDL    = document.getElementById('lte-download');
+
+    const solidPicker = document.getElementById('lte-solid');
     const btnSolid = document.getElementById('lte-apply-solid');
-    const btnGrad  = document.getElementById('lte-apply-gradient');
+    const btnGradient = document.getElementById('lte-apply-gradient');
+    const sizeInput = document.getElementById('size-pct');
+    const btnApplySize = document.getElementById('btn-apply-size');
+    const btnFontWrap = document.getElementById('btn-font-wrap');
 
     const stopsWrap = document.getElementById('lte-stops');
     const btnAddStop = document.getElementById('lte-add-stop');
     const btnShuffle = document.getElementById('lte-shuffle-stops');
     const gradPrev   = document.getElementById('lte-grad-preview');
+
+    const btnCopy  = document.getElementById('lte-copy');
+    const btnDL    = document.getElementById('lte-download');
 
     const FONT_MAP = {
       'BROOK SDF': `'Barlow','Rajdhani',sans-serif`,
@@ -249,26 +291,48 @@
                 const hex = (m.match(/#[0-9A-Fa-f]{6}/)||['#FFFFFF'])[0];
                 return `<span style="color:${hex}">`;
               }).replace(/&lt;\/color&gt;/g, '</span>');
+      html = html.replace(/\\n/g,'<br>'); 
       return html;
     };
 
-    const buildIndexMap=(mark)=>{
+    function getSel(){ return { s: ed.selectionStart|0, e: ed.selectionEnd|0 }; }
+    function insertAtCaret(txt){
+      const {s,e}=getSel(); const val=ed.value;
+      ed.value = val.slice(0,s) + txt + val.slice(e);
+      const pos = s + txt.length; ed.selectionStart = ed.selectionEnd = pos;
+    }
+    function wrapSelection(open, close){
+      const {s,e}=getSel(); if(e<=s) return;
+      const raw = ed.value.slice(s,e).replace(/\r?\n/g,'\\n');
+      const rep = open + raw + close;
+      markup = replacePlainRangeWith(markup, s, e, rep);
+      renderAll();
+    }
+
+    function buildIndexMap(mark){
       const map=[]; let iPlain=0, i=0;
       while(i<mark.length){
         if(mark.startsWith('<color=', i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
         if(mark.startsWith('</color>', i)){ i+=8; continue; }
         if(mark.startsWith('<font="', i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
         if(mark.startsWith('</font>', i)){ i+=7; continue; }
+        if(mark.startsWith('<size=', i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
+        if(mark.startsWith('</size>', i)){ i+=7; continue; }
+        if(mark.startsWith('<align=', i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
+        if(mark.startsWith('</align>', i)){ i+=8; continue; }
+        if(mark.startsWith('<b>', i) || mark.startsWith('<i>', i) || mark.startsWith('<u>', i)){ i+=3; continue; }
+        if(mark.startsWith('</b>', i) || mark.startsWith('</i>', i) || mark.startsWith('</u>', i)){ i+=4; continue; }
         map[iPlain++] = i; i++;
       }
       map[iPlain] = i; return map;
-    };
-    const replacePlainRangeWith=(mark,i0,i1,repl)=>{
+    }
+    function replacePlainRangeWith(mark,i0,i1,repl){
       const map = buildIndexMap(mark);
       const a = map[i0] ?? mark.length;
       const b = map[i1] ?? mark.length;
       return mark.slice(0,a) + repl + mark.slice(b);
-    };
+    }
+
     function buildSmoothGradient(text){
       const chars=[...String(text||'')]; if(chars.length===0) return '';
       const out=[];
@@ -327,32 +391,67 @@
       renderAll();
     }
 
-    function applySolidToSelection(){
-      const s=ed.selectionStart|0, e=ed.selectionEnd|0; if(e<=s) return;
+    btnSolid.addEventListener('click', ()=>{
+      const {s,e}=getSel(); if(e<=s) return;
       const hex = normHex(solidPicker.value,true);
       const slice = ed.value.slice(s,e).replace(/\r?\n/g,'\\n');
       markup = replacePlainRangeWith(markup, s, e, `<color=${hex}>${slice}</color>`);
-      renderAll();
-      statusEl.textContent = 'Solid color applied to selection.';
-    }
-    function applyGradientToSelection(){
-      const s=ed.selectionStart|0, e=ed.selectionEnd|0; if(e<=s) return;
+      renderAll(); statusEl.textContent='Solid color applied.';
+    });
+
+    btnGradient.addEventListener('click', ()=>{
+      const {s,e}=getSel(); if(e<=s) return;
       const slice = ed.value.slice(s,e).replace(/\r?\n/g,'\\n');
       const colored = buildSmoothGradient(slice);
       markup = replacePlainRangeWith(markup, s, e, colored);
-      renderAll();
-      statusEl.textContent = 'Smooth gradient applied to selection.';
-    }
+      renderAll(); statusEl.textContent='Smooth gradient applied.';
+    });
+
+    document.querySelectorAll('[data-align]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const mode = btn.getAttribute('data-align');
+        wrapSelection(`<align=${mode}>`,`</align>`);
+        statusEl.textContent = `Alignment ${mode} applied.`;
+      });
+    });
+
+    btnApplySize.addEventListener('click', ()=>{
+      let pct = clamp(parseInt(sizeInput.value||'110',10),50,300);
+      sizeInput.value = pct;
+      wrapSelection(`<size=${pct}%>`,`</size>`);
+      statusEl.textContent = `Size ${pct}% applied.`;
+    });
+
+    document.querySelectorAll('[data-tag]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const tag = btn.getAttribute('data-tag');
+        wrapSelection(`<${tag}>`, `</${tag}>`);
+        statusEl.textContent = `<${tag}> applied.`;
+      });
+    });
+
+    btnFontWrap.addEventListener('click', ()=>{
+      const f = fontSel.value;
+      wrapSelection(`<font="${f}">`,`</font>`);
+      statusEl.textContent = `Font "${f}" applied to selection.`;
+    });
 
     fontSel.addEventListener('change', renderAll);
     solidPicker.addEventListener('input', syncSolid);
     ed.addEventListener('input', syncSolid);
     ed.addEventListener('keyup', syncSolid);
-    document.getElementById('lte-apply-solid').addEventListener('click', applySolidToSelection);
-    document.getElementById('lte-apply-gradient').addEventListener('click', applyGradientToSelection);
 
-    document.getElementById('lte-add-stop').addEventListener('click', ()=>{ STOPS.push('#'+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0')); renderStops(); renderGradPreview(); });
-    document.getElementById('lte-shuffle-stops').addEventListener('click', ()=>{ STOPS = STOPS.map(()=> '#'+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0')); renderStops(); renderGradPreview(); });
+    ed.addEventListener('keydown', (e)=>{
+      if(e.key === 'Tab' && !e.shiftKey){
+        e.preventDefault();
+        insertAtCaret('\\n');
+        syncSolid();
+      } else if(e.key === 'Enter' && e.shiftKey){
+        e.preventDefault();
+        insertAtCaret('\t'); 
+        syncSolid();
+      }
+    });
 
     document.getElementById('lte-copy').addEventListener('click', ()=> copyToClipboard(markup));
     document.getElementById('lte-download').addEventListener('click', ()=>{
@@ -360,10 +459,13 @@
       const url = URL.createObjectURL(blob);
       const a=document.createElement('a'); a.href=url; a.download='template.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
     });
-    renderStops(); renderGradPreview();
-    ed.value = '♡Besties♡';
-    syncSolid();
 
+    function boot(){
+      renderStops(); renderGradPreview();
+      ed.value = '♡Besties♡';
+      syncSolid();
+    }
+    boot();
     const ICONS = [
       '✿','❀','❖','⚽','⚾','♠','♣','♦','♥','♤','♧','♢','♡','☯','✚','⚠','†','∞','✓',
       '☎','☏','☀','☁','☂','☃','☉','★','☆','⁂','✽','☝','☞','☟','☜','↑','↓','→','←','↔','↕',
@@ -373,11 +475,9 @@
       '▉','▋','█','░','▒','▓','▢','▣','▤','▥','▦','▧','▨','▩','▪','▫','◆','◣','◥','◤','◢',
       '☠','☢','☣','⚰','⚱','♨','☮','✠','✡','™','〰','Ⓜ','♻','🆘','🅰','🅱','🅾','🆚'
     ];
-
     const btnIcons = document.getElementById('btn-icons');
     const palette  = document.getElementById('icon-palette');
     const iconGrid = document.getElementById('icon-grid');
-
     function buildIcons(){
       iconGrid.innerHTML='';
       ICONS.forEach(ch=>{
@@ -386,20 +486,13 @@
         cell.textContent = ch;
         cell.title = 'Insert "'+ch+'"';
         cell.addEventListener('click', ()=>{
-          insertAtCaret(ed, ch);
+          insertAtCaret(ch);
           palette.style.display='none';
           ed.focus();
           syncSolid();
         });
         iconGrid.appendChild(cell);
       });
-    }
-    function insertAtCaret(textarea, txt){
-      const s = textarea.selectionStart|0, e = textarea.selectionEnd|0;
-      const val = textarea.value;
-      textarea.value = val.slice(0,s) + txt + val.slice(e);
-      const pos = s + txt.length;
-      textarea.selectionStart = textarea.selectionEnd = pos;
     }
     btnIcons.addEventListener('click', ()=>{
       palette.style.display = (palette.style.display==='block' ? 'none' : 'block');
@@ -408,6 +501,37 @@
       if(e.key === 'Escape' && palette.style.display==='block'){ palette.style.display='none'; }
     });
     buildIcons();
+
+    const snBulk = document.getElementById('snippet-bulk');
+    const snBuild = document.getElementById('snippet-build');
+    const snWrap  = document.getElementById('snippet-buttons');
+
+    snBuild.addEventListener('click', ()=>{
+      const text = snBulk.value || '';
+      const lines = text.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+      snWrap.innerHTML='';
+      for(const line of lines){
+        const idx = line.indexOf(':');
+        if(idx<=0) continue;
+        const name = line.slice(0, idx).trim();
+        const body = line.slice(idx+1).trim();
+        const btn = document.createElement('button');
+        btn.className = 'btn snippet-btn';
+        btn.textContent = name;
+        btn.title = 'Insert '+name;
+        btn.addEventListener('click', ()=>{
+          insertAtCaret(body);
+          syncSolid();
+        });
+        snWrap.appendChild(btn);
+      }
+      if(!snWrap.children.length){
+        const note = document.createElement('div');
+        note.style.opacity='.8';
+        note.textContent = 'No valid name:value pairs found.';
+        snWrap.appendChild(note);
+      }
+    });
   </script>
 </body>
 </html>
