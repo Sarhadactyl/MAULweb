@@ -382,7 +382,6 @@
             <option value="{{PlayerName}}">{{PlayerName}}</option>
             <option value="{{HostName}}">{{HostName}}</option>
             <option value="{{ModVersion}}">{{ModVersion}}</option>
-            
           </select>
           <button class="btn" id="auto-insert">Insert</button>
         </div>
@@ -919,7 +918,17 @@
   btnFontWrap.addEventListener('click', ()=>{
     const f = fontSel.value;
     requireSelection(btnFontWrap, ()=>{
-      wrapSelection(`<font="${f}">`,`</font>`);
+      const {s,e} = getSel();
+      const map = buildIndexMap(markup);
+      const a = map[s] ?? markup.length;
+      const b = map[e] ?? markup.length;
+      const inner = markup
+        .slice(a,b)
+        .replace(/<font="[^"]+">/g,'')
+        .replace(/<\/font>/g,'');
+      markup = markup.slice(0,a) + `<font="${f}">` + inner + '</font>' + markup.slice(b);
+      userStyled = true;
+      renderAll();
       statusEl.textContent = `Font "${f}" applied to selection.`;
       flash(btnFontWrap);
     }, 'Select text to apply font.');
@@ -964,7 +973,6 @@
   });
 
   
-
   fontSel.addEventListener('change', renderAll);
   solidPicker.addEventListener('input', syncSolid);
   ed.addEventListener('input', syncSolid);
@@ -1051,7 +1059,7 @@
 
   snBuild.addEventListener('click', ()=>{
     const text = snBulk.value || '';
-       const lines = text.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+    const lines = text.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
     snWrap.innerHTML='';
     for(const line of lines){
       const idx = line.indexOf(':');
