@@ -333,10 +333,18 @@
         <div class="field">
           <label>Font</label>
           <select id="lte-font">
-            <option>BROOK SDF</option><option>VCR SDF</option><option>Barlow-Black SDF</option>
-            <option>Barlow-BoldItalic SDF</option><option>Barlow-Light SDF</option><option>CONSOLA SDF</option>
-            <option>DIGITAL-7 SDF</option><option>DIN_Pro_Bold_700 SDF</option><option>LiberationSans SDF</option>
-            <option>NotoSansJP-Regular SDF</option><option>OCRAEXT SDF</option>
+            <option>BROOK SDF</option>
+            <option>VCR SDF</option>
+            <option>Barlow-Black SDF</option>
+            <option>Barlow-BoldItalic SDF</option>
+            <option>Barlow-Light SDF</option>
+            <option>CONSOLA SDF</option>
+            <option>DIGITAL-7 SDF</option>
+            <option>DIN_Pro_Bold_700 SDF</option>
+            <option>LiberationSans SDF</option>
+            <option>NotoSansJP-Regular SDF</option>
+            <option>OCRAEXT SDF</option>
+            <option>OCRAXT SDF</option>
           </select>
           <button class="btn" id="btn-font-wrap" title='Wrap selection in <font="...">'>Font wrap</button>
         </div>
@@ -367,12 +375,14 @@
           <button class="btn" id="lte-apply-solid">Apply</button>
         </div>
 
+        
         <div class="field">
           <label>Auto</label>
           <select id="auto-token" title="Insert common placeholders">
             <option value="{{PlayerName}}">{{PlayerName}}</option>
             <option value="{{HostName}}">{{HostName}}</option>
             <option value="{{ModVersion}}">{{ModVersion}}</option>
+            
           </select>
           <button class="btn" id="auto-insert">Insert</button>
         </div>
@@ -492,6 +502,7 @@
     });
   };
 
+  
   const ed = document.getElementById('lte-editor');
   const out = document.getElementById('lte-output');
   const prev = document.getElementById('lte-preview');
@@ -523,7 +534,8 @@
     'DIN_Pro_Bold_700 SDF': '"Rajdhani", sans-serif',
     'LiberationSans SDF': '"Barlow", sans-serif',
     'NotoSansJP-Regular SDF': '"Noto Sans JP", sans-serif',
-    'OCRAEXT SDF': '"Press Start 2P", "VT323", monospace'
+    'OCRAEXT SDF': '"Press Start 2P", "VT323", monospace',
+    'OCRAXT SDF': '"Press Start 2P", "VT323", monospace'
   };
 
   let STOPS = ['#B625F1','#2970F8','#00CFFF','#31D0AA'];
@@ -542,7 +554,7 @@
     };
   }
 
-  // Selection helpers
+  
   const hasSelection = ()=> {
     const {s,e} = getSel();
     return e > s;
@@ -564,8 +576,13 @@
       .replace(/</g,'&lt;')
       .replace(/>/g,'&gt;');
 
+      
     html = html.replace(/&lt;font="([^"]+)"&gt;/g,
-      (_,name)=>`<span style="font-family:${FONT_MAP[name]||'inherit'}">`
+      (_,name)=>{
+        const key = name.replace(/\s+/g,' ').trim();
+        const fam = FONT_MAP[key] || 'inherit';
+        return `<span style="font-family:${fam}">`;
+      }
     ).replace(/&lt;\/font&gt;/g, '</span>');
 
     html = html.replace(/&lt;color=(#[0-9A-Fa-f]{6})&gt;/g,
@@ -699,6 +716,7 @@
     ed.selectionStart = ed.selectionEnd = pos;
   }
 
+  
   function ensureFontWrap(){
     const f = fontSel.value;
     if(!markup){
@@ -827,6 +845,8 @@
     markup = `<font="${f}"><color=${solid}>${text}</color></font>`;
     renderAll();
   }
+
+  
   btnSolid.addEventListener('click', ()=>{
     requireSelection(btnSolid, ()=>{
       const {s,e}=getSel();
@@ -840,6 +860,7 @@
     }, 'Select text to color.');
   });
 
+  
   btnGradient.addEventListener('click', ()=>{
     requireSelection(btnGradient, ()=>{
       const {s,e}=getSel();
@@ -853,6 +874,7 @@
     }, 'Select text for gradient.');
   });
 
+  
   const alignBtns = [
     document.getElementById('al-left'),
     document.getElementById('al-center'),
@@ -871,6 +893,7 @@
     });
   });
 
+  
   btnApplySize.addEventListener('click', ()=>{
     let pct = clamp(parseInt(sizeInput.value||'110',10),50,300);
     sizeInput.value = pct;
@@ -881,6 +904,7 @@
     }, 'Select text to resize.');
   });
 
+  
   document.querySelectorAll('[data-tag]').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       const tag = btn.getAttribute('data-tag');
@@ -891,6 +915,7 @@
     });
   });
 
+  
   btnFontWrap.addEventListener('click', ()=>{
     const f = fontSel.value;
     requireSelection(btnFontWrap, ()=>{
@@ -900,6 +925,7 @@
     }, 'Select text to apply font.');
   });
 
+  
   autoBtn.addEventListener('click', ()=>{
     insertAtCaret(autoSel.value);
     syncSolid();
@@ -907,6 +933,7 @@
     flash(autoBtn);
   });
 
+  
   const randHex = () =>
     '#' + Math.floor(Math.random()*0xFFFFFF)
       .toString(16)
@@ -935,6 +962,8 @@
     statusEl.textContent = 'Stops randomized.';
     flash(btnShuffle);
   });
+
+  
 
   fontSel.addEventListener('change', renderAll);
   solidPicker.addEventListener('input', syncSolid);
@@ -1022,7 +1051,7 @@
 
   snBuild.addEventListener('click', ()=>{
     const text = snBulk.value || '';
-    const lines = text.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+       const lines = text.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
     snWrap.innerHTML='';
     for(const line of lines){
       const idx = line.indexOf(':');
