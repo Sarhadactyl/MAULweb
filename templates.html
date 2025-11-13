@@ -344,7 +344,24 @@ btnDL.addEventListener('click',()=>{const blob=new Blob([markup],{type:'text/pla
 function insertAtCaret(txt){const {s,e}=getSel();const val=ed.value;ed.value=val.slice(0,s)+txt+val.slice(e);ed.selectionStart=ed.selectionEnd=s+txt.length}
 autoBtn.addEventListener('click',()=>{const {s,e}=getSel();const val=ed.value;const token=autoSel.value;ed.value=val.slice(0,s)+token+val.slice(e);ed.selectionStart=ed.selectionEnd=s+token.length;syncSolid();status(`Inserted ${token}`)})
 
-ed.addEventListener('keydown',(e)=>{if(e.key==='Enter'||e.key==='Tab'){e.preventDefault();pushHistory();insertAtCaret('\\n');if(userStyled&&cleanSlateToggle.checked){const {s}=getSel();const map=buildIndexMap(markup);const pos=map[s]??markup.length;const bridge=`</color>\n<color=${baseColor}>`;markup=markup.slice(0,pos)+bridge+markup.slice(pos);renderAll()}else{syncSolid()}return}});
+ed.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === 'Tab') {
+    e.preventDefault();
+    pushHistory();
+    insertAtCaret('\\n');
+    if (userStyled && cleanSlateToggle.checked) {
+      const { s } = getSel(); 
+      const caretPlain = plainLenText(ed.value.slice(0, s)); 
+      const map = buildIndexMap(markup);
+      const pos = map[caretPlain] ?? markup.length;      
+      const bridge = `</color>\n<color=${baseColor}>`;
+      markup = markup.slice(0, pos) + bridge + markup.slice(pos);
+      renderAll();
+    } else {
+      syncSolid();
+    }
+  }
+});
 ed.addEventListener('input',syncSolid);
 solidPicker.addEventListener('input',syncSolid);
 fontSel.addEventListener('change',()=>{syncPreviewBaseFont();renderAll()});
