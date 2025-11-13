@@ -52,8 +52,11 @@
     @media(max-width:900px){.export-grid{grid-template-columns:1fr}}
     .preset-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
     @media(max-width:900px){.preset-grid{grid-template-columns:1fr}}
-    .preset-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:10px;display:grid;gap:8px}
-    .preset-swatch{height:40px;border-radius:6px;border:1px solid rgba(255,255,255,.2)}
+    .preset-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:12px;display:grid;gap:10px}
+    .preset-header{font-weight:700}
+    .preset-swatch{height:44px;border-radius:8px;border:1px solid rgba(255,255,255,.2)}
+    .preset-hex{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:10px;font-family:'Roboto Mono',monospace;font-size:.9rem;color:#e7f0ff;white-space:pre-wrap}
+    .preset-actions{display:flex;gap:8px;align-items:center}
   </style>
 </head>
 <body>
@@ -258,7 +261,7 @@ function redo(){if(!redoStack.length)return;undoStack.push({markup,userStyled});
 
 function getSel(){return{s:ed.selectionStart|0,e:ed.selectionEnd|0}}
 function hasSelection(){const {s,e}=getSel();return e>s}
-function getCurrentLineRange(){const t=ed.value,{s,e}=getSel();const b=t.lastIndexOf('\\n',s-1);const a2=b<0?0:b+2;const a=t.indexOf('\\n',e);return{a:a2,b:a<0?t.length:a}}
+function getCurrentLineRange(){const t=ed.value,{s,e}=getSel();const b=t.lastIndexOf('\n',s-1);const a2=b<0?0:b+1;const a=t.indexOf('\n',e);return{a:a2,b:a<0?t.length:a}}
 
 function buildIndexMap(mark){const map=[],len=mark.length;let iPlain=0,i=0;while(i<len){if(mark.startsWith('<color=',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}if(mark.startsWith('</color>',i)){i+=8;continue}if(mark.startsWith('<font="',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}if(mark.startsWith('</font>',i)){i+=7;continue}if(mark.startsWith('<size=',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}if(mark.startsWith('</size>',i)){i+=7;continue}if(mark.startsWith('<align=',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}if(mark.startsWith('</align>',i)){i+=8;continue}if(mark.startsWith('<b>',i)||mark.startsWith('<i>',i)||mark.startsWith('<u>',i)){i+=3;continue}if(mark.startsWith('</b>',i)||mark.startsWith('</i>',i)||mark.startsWith('</u>',i)){i+=4;continue}if(mark[i]==='\\'&&mark[i+1]==='n'){i+=2;continue}if(mark[i]==='{'&&mark[i+1]==='{'){const k=mark.indexOf('}}',i+2);if(k!==-1){i=k+2;continue}}map[iPlain++]=i;i++}map[iPlain]=i;return map}
 
@@ -273,7 +276,7 @@ function syncPreviewBaseFont(){prevContent.style.fontFamily=FONT_MAP[fontSel.val
 
 function wrapTextWithBaseColor(text,hex){const parts=String(text||'').split('\\n');if(parts.length===1)return `<color=${hex}>${parts[0]}</color>`;const chunks=[];parts.forEach((p,i)=>{chunks.push(`<color=${hex}>${p}</color>`);if(i<parts.length-1)chunks.push('\\n')});return chunks.join('')}
 
-function buildSmoothGradient(str){const stops=STOPS.length?STOPS:['#FFFFFF'];const text=String(str||'');let vis=0,i=0;while(i<text.length){if(text[i]==='<'){const k=text.indexOf('>',i);i=(k===-1?i+1:k+1);continue}if(text[i]==='\\'&&text[i+1]==='n'){i+=2;continue}if(text[i]==='{'&&text[i+1]==='{'){const k=text.indexOf('}}',i+2);if(k!==-1){i=k+2;continue}}vis++;i++}const colorAt=idx=>{if(vis<=1)return normHex(stops[0],true);const t=idx/(vis-1),seg=(stops.length-1)*t;const i0=Math.floor(seg),i1=Math.min(stops.length-1,i0+1),lt=seg-i0;return normHex(lerpColor(stops[i0],stops[i1],lt),true)};let v=0; i=0; const out=[];while(i<text.length){if(text[i]==='<'){const k=text.indexOf('>',i);if(k===-1){out.push(text[i++]);continue}out.push(text.slice(i,k+1));i=k+1;continue}if(text[i]==='\\'&&text[i+1]==='n'){out.push('\\n');i+=2;continue}if(text[i]==='{'&&text[i+1]==='{'){const k=text.indexOf('}}',i+2);if(k!==-1){out.push(text.slice(i,k+2));i=k+2;continue}}out.push(`<color=${colorAt(v++)}>${text[i]}</color>`);i++}return out.join('')}
+function buildSmoothGradient(str){const stops=STOPS.length?STOPS:['#FFFFFF'];const text=String(str||'');let vis=0,i=0;while(i<text.length){if(text[i]=='<'){const k=text.indexOf('>',i);i=(k===-1?i+1:k+1);continue}if(text[i]=='\\'&&text[i+1]=='n'){i+=2;continue}if(text[i]=='{'&&text[i+1]=='{'){const k=text.indexOf('}}',i+2);if(k!==-1){i=k+2;continue}}vis++;i++}const colorAt=idx=>{if(vis<=1)return normHex(stops[0],true);const t=idx/(vis-1),seg=(stops.length-1)*t;const i0=Math.floor(seg),i1=Math.min(stops.length-1,i0+1),lt=seg-i0;return normHex(lerpColor(stops[i0],stops[i1],lt),true)};let v=0; i=0; const out=[];while(i<text.length){if(text[i]=='<'){const k=text.indexOf('>',i);if(k===-1){out.push(text[i++]);continue}out.push(text.slice(i,k+1));i=k+1;continue}if(text[i]=='\\'&&text[i+1]=='n'){out.push('\\n');i+=2;continue}if(text[i]=='{'&&text[i+1]=='{'){const k=text.indexOf('}}',i+2);if(k!==-1){out.push(text.slice(i,k+2));i=k+2;continue}}out.push(`<color=${colorAt(v++)}>${text[i]}</color>`);i++}return out.join('')}
 
 function renderStops(){stopsWrap.innerHTML='';STOPS.forEach((hex,idx)=>{const row=document.createElement('div');row.className='row';const t=document.createElement('input');t.type='text';t.value=normHex(hex,true);t.style.width='100px';const c=document.createElement('input');c.type='color';c.className='color-chip';c.value=normHex(hex,true);const up=document.createElement('button');up.className='btn small';up.textContent='▲';const dn=document.createElement('button');dn.className='btn small';dn.textContent='▼';const rm=document.createElement('button');rm.className='btn small';rm.textContent='✕';t.addEventListener('input',()=>{const h=normHex(t.value,true);t.value=h;c.value=h;STOPS[idx]=h;renderGradPreview();renderAll()});c.addEventListener('input',()=>{const h=normHex(c.value,true);t.value=h;STOPS[idx]=h;renderGradPreview();renderAll()});up.addEventListener('click',()=>{if(idx>0){[STOPS[idx-1],STOPS[idx]]=[STOPS[idx],STOPS[idx-1]];renderStops();renderGradPreview();renderAll()}});dn.addEventListener('click',()=>{if(idx<STOPS.length-1){[STOPS[idx+1],STOPS[idx]]=[STOPS[idx],STOPS[idx+1]];renderStops();renderGradPreview();renderAll()}});rm.addEventListener('click',()=>{if(STOPS.length>1){STOPS.splice(idx,1);renderStops();renderGradPreview();renderAll()}});row.append(t,c,up,dn,rm);stopsWrap.appendChild(row)})}
 function renderGradPreview(){const parts=STOPS.map((c,i)=>`${normHex(c,true)} ${i*100/(Math.max(STOPS.length-1,1))}%`);gradPrev.style.background=`linear-gradient(90deg, ${parts.join(', ')})`}
@@ -284,14 +287,12 @@ let lastActionObj=null;function setLastAction(fn,args){lastActionObj={fn,args}}f
 
 function toggleTag(tag,silent){
   requireSelection(null,()=>{
-    const {s,e}=getSel();const map=buildIndexMap(markup);const a=map[s]??markup.length,b=map[e]??markup.length;
+    const {s,e}=getSel();const map=buildIndexMap(markup);let a=map[s]??markup.length,b=map[e]??markup.length;
     let seg=markup.slice(a,b);
     const open=`<${tag}>`,close=`</${tag}>`;
     seg=seg.replace(new RegExp(`(?:<${tag}>)+`,'g'),open).replace(new RegExp(`(?:</${tag}>)+`,'g'),close);
     const wrapped=seg.startsWith(open)&&seg.endsWith(close)&&seg.slice(open.length,-close.length).indexOf(open)===-1;
-    seg = wrapped
-      ? seg.replace(new RegExp(`^<${tag}>`),'').replace(new RegExp(`</${tag}>$`),'')
-      : open+seg+close;
+    seg = wrapped ? seg.replace(new RegExp(`^<${tag}>`),'').replace(new RegExp(`</${tag}>$`),'') : open+seg+close;
     markup=markup.slice(0,a)+seg+markup.slice(b);
     userStyled=true;renderAll();if(!silent)status(`<${tag}> ${wrapped?'removed':'applied'}.`);
   },`Select text to toggle <${tag}>.`)
@@ -301,8 +302,28 @@ const toolHandlers={
  'b':(_,s)=>{toggleTag('b',s);setLastAction('b')},
  'i':(_,s)=>{toggleTag('i',s);setLastAction('i')},
  'u':(_,s)=>{toggleTag('u',s);setLastAction('u')},
- 'solid':(_,s)=>{const hex=normHex(solidPicker.value,true);requireSelection(btnSolid,()=>{const {s,e}=getSel();const map=buildIndexMap(markup);const a=map[s]??markup.length,b=map[e]??markup.length;let seg=markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');markup=markup.slice(0,a)+`<color=${hex}>`+seg+`</color>`+markup.slice(b);userStyled=true;renderAll();if(!s)status('Solid color applied.')},'Select text to color.');setLastAction('solid')},
- 'gradient':(_,s)=>{requireSelection(btnGradient,()=>{const {s:eS,e:eE}=getSel();const map=buildIndexMap(markup);const a=map[eS]??markup.length,b=map[eE]??markup.length;let seg=markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');seg=buildSmoothGradient(seg);markup=markup.slice(0,a)+seg+markup.slice(b);userStyled=true;renderAll();if(!s)status('Smooth gradient applied.')},'Select text for gradient.');setLastAction('gradient')},
+ 'solid':(_,s)=>{
+   const hex=normHex(solidPicker.value,true);
+   requireSelection(btnSolid,()=>{
+     const {s,e}=getSel();const map=buildIndexMap(markup);let a=map[s]??markup.length,b=map[e]??markup.length;
+     // PATCH: include left-adjacent opener so first chars aren't left under it
+     const pre=markup.slice(0,a);const m=pre.match(/<color=#[0-9A-Fa-f]{6}>$/);if(m)a-=m[0].length;
+     let seg=markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');
+     markup=markup.slice(0,a)+`<color=${hex}>`+seg+`</color>`+markup.slice(b);
+     userStyled=true;renderAll();if(!s)status('Solid color applied.');
+   },'Select text to color.');setLastAction('solid')
+ },
+ 'gradient':(_,s)=>{
+   requireSelection(btnGradient,()=>{
+     const {s:eS,e:eE}=getSel();const map=buildIndexMap(markup);let a=map[eS]??markup.length,b=map[eE]??markup.length;
+     // PATCH: include left-adjacent opener
+     const pre=markup.slice(0,a);const m=pre.match(/<color=#[0-9A-Fa-f]{6}>$/);if(m)a-=m[0].length;
+     let seg=markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');
+     seg=buildSmoothGradient(seg);
+     markup=markup.slice(0,a)+seg+markup.slice(b);
+     userStyled=true;renderAll();if(!s)status('Smooth gradient applied.');
+   },'Select text for gradient.');setLastAction('gradient')
+ },
  'align':({mode},s)=>{requireSelection(document.querySelector(`[data-align="${mode}"]`),()=>{markup=markup.replace(/<align=(left|center|right)>|<\/align>/g,'');const {s:eS,e:eE}=getSel();const map=buildIndexMap(markup);const a=map[eS]??markup.length,b=map[eE]??markup.length;const seg=markup.slice(a,b);markup=markup.slice(0,a)+`<align=${mode}>`+seg+`</align>`+markup.slice(b);userStyled=true;renderAll();if(!s)status(`Alignment ${mode} applied.`)},'Select text to align.');setLastAction('align',{mode})},
  'size':({pct},s)=>{pct=clamp(parseInt(pct||sizeInput.value||'115',10),50,300);sizeInput.value=pct;requireSelection(btnApplySize,()=>{markup=markup.replace(/<size=\d{1,3}%>|<\/size>/g,'');const {s:eS,e:eE}=getSel();const map=buildIndexMap(markup);const a=map[eS]??markup.length,b=map[eE]??markup.length;const inner=markup.slice(a,b);markup=markup.slice(0,a)+`<size=${pct}%>`+inner+`</size>`+markup.slice(b);userStyled=true;renderAll();if(!s)status(`Size ${pct}% applied.`)},'Select text to resize.');setLastAction('size',{pct})},
  'font':({font},s)=>{font=font||fontSel.value;requireSelection(btnFontWrap,()=>{const {s:eS,e:eE}=getSel();const map=buildIndexMap(markup);const a=map[eS]??markup.length,b=map[eE]??markup.length;const inner=markup.slice(a,b).replace(/<font="[^"]+">/g,'').replace(/<\/font>/g,'');markup=markup.slice(0,a)+`<font="${font}">`+inner+`</font>`+markup.slice(b);userStyled=true;renderAll();if(!s)status(`Font "${font}" applied.`)},'Select text to apply font.');setLastAction('font',{font})}
@@ -318,15 +339,21 @@ btnRepeat.addEventListener('click',()=>{repeatLast()});
 btnUndo.addEventListener('click',undo);btnRedo.addEventListener('click',redo);
 btnEye.addEventListener('click',()=>solidPicker.showPicker?.());
 
+// (optional niceties for stops)
+btnAddStop.addEventListener('click',()=>{STOPS.push(randHex());renderStops();renderGradPreview();});
+btnShuffle.addEventListener('click',()=>{STOPS.sort(()=>Math.random()-.5);renderStops();renderGradPreview();});
+document.getElementById('stops-reverse').addEventListener('click',()=>{STOPS.reverse();renderStops();renderGradPreview();});
+document.getElementById('stops-distribute').addEventListener('click',()=>{renderGradPreview();}); // preview already distributes
+
 btnResetLine.addEventListener('click',()=>{const r=getCurrentLineRange();if(r.a===r.b)return;pushHistory();const map=buildIndexMap(markup);const a=map[r.a]??markup.length,b=map[r.b]??markup.length;let seg=markup.slice(a,b);seg=seg.replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'').replace(/<size=\d{1,3}%>/g,'').replace(/<\/size>/g,'').replace(/<font="[^"]+">/g,'').replace(/<\/font>/g,'').replace(/<align=(left|center|right)>/g,'').replace(/<\/align>/g,'').replace(/<b>|<\/b>|<i>|<\/i>|<u>|<\/u>/g,'');markup=markup.slice(0,a)+seg+markup.slice(b);userStyled=true;renderAll();status('Line reset.')});
 
 function syncSolid(){
   baseColor = normHex(solidPicker.value, true);
   saveLS('baseColor', baseColor);
-
   const textNorm = ed.value.replace(/\r?\n/g,'\\n');
 
-  if (!userStyled) { 
+  if (!userStyled) {
+    // keep output plain until styling is applied
     markup = textNorm;
   } else {
     const map = buildIndexMap(markup);
@@ -366,7 +393,7 @@ ed.addEventListener('keydown', (e) => {
       const { s } = getSel();
       const caretPlain = plainLenText(ed.value.slice(0, s));
       const map  = buildIndexMap(markup);
-      const pos  = map[caretPlain] ?? markup.length; 
+      const pos  = map[caretPlain] ?? markup.length;
       const before    = markup.slice(0, pos);
       const lastOpen  = before.lastIndexOf('<color=');
       const lastClose = before.lastIndexOf('</color>');
@@ -467,26 +494,42 @@ function buildPresetUI(){
   presetSelect.innerHTML='';
   Object.keys(PRESETS).forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;presetSelect.appendChild(o)});
   presetGrid.innerHTML='';
+
+  const toQuoted = arr => arr.map(h=>`"#${h.toLowerCase()}"`).join(', ');
+
   Object.entries(PRESETS).forEach(([name,arr])=>{
     const card=document.createElement('div');card.className='preset-card';
-    const h=document.createElement('h4');h.textContent=name;
+
+    const h=document.createElement('div');h.className='preset-header';h.textContent=name;
+
     const sw=document.createElement('div');sw.className='preset-swatch';
     sw.style.background=`linear-gradient(90deg, ${arr.map((c,i)=>'#'+c+' '+(i*100/(arr.length-1))+'%').join(',')})`;
-    const btn=document.createElement('button');btn.className='btn small';btn.textContent='Use';
-    btn.addEventListener('click',()=>{STOPS=arr.map(c=>'#'+c.toUpperCase());renderStops();renderGradPreview();status(`Preset "${name}" loaded.`)});
-    card.append(h,sw,btn);presetGrid.appendChild(card)
+
+    const hexBox=document.createElement('div');hexBox.className='preset-hex';
+    hexBox.textContent = toQuoted(arr);
+
+    const actions=document.createElement('div');actions.className='preset-actions';
+    const useBtn=document.createElement('button');useBtn.className='btn small';useBtn.textContent='Use';
+    useBtn.addEventListener('click',()=>{STOPS=arr.map(c=>'#'+c.toUpperCase());renderStops();renderGradPreview();status(`Preset "${name}" loaded.`)});
+    const copyBtn=document.createElement('button');copyBtn.className='btn small';copyBtn.textContent='Copy hex';
+    copyBtn.addEventListener('click',()=>{copyToClipboard(toQuoted(arr));status(`Copied ${name} hexes`)});
+    actions.append(useBtn,copyBtn);
+
+    card.append(h,sw,hexBox,actions);
+    presetGrid.appendChild(card);
   })
 }
 presetApply.addEventListener('click',()=>{const n=presetSelect.value;if(!n)return;STOPS=PRESETS[n].map(c=>'#'+c.toUpperCase());renderStops();renderGradPreview();status(`Preset "${n}" loaded.`)});
 
 function boot(){
   renderStops(); renderGradPreview(); buildPresetUI(); syncPreviewBaseFont();
-  prevContent.style.color = '#FFFFFF'; 
-  ed.value = '♡Welcome to my lobby♡\\n';
+  prevContent.style.color = '#FFFFFF';
+  ed.value = '♡Welcome to my lobby♡\n';
   baseColor = normHex(solidPicker.value, true);
   userStyled = false;
   syncSolid();
 }
+document.addEventListener('DOMContentLoaded',boot);
 </script>
 </body>
 </html>
