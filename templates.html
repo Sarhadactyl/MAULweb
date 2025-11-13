@@ -13,24 +13,30 @@
   <meta property="og:locale" content="en_US" />
   <link rel="canonical" href="https://moddedamong.us/templates.html" />
   <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
- 
+
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;700;900&family=VT323&family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&family=Press+Start+2P&family=Share+Tech+Mono&family=Rajdhani:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
 
   <style>
+    :root{
+      --panel-bg: rgba(0,0,0,.68);
+      --panel-br: rgba(255,255,255,.12);
+      --chip-br: rgba(255,255,255,.22);
+      --muted: #e6e6e6;
+    }
     html,body{height:100%;margin:0;padding:0;background:#000;font-family:'Roboto',sans-serif;color:#fff;overflow-x:hidden}
     body{
-      background:linear-gradient(rgba(0,0,0,.90),rgba(0,0,0,.90)),url('images/background.png') center/cover fixed no-repeat;
-      display:flex;flex-direction:column;align-items:center;padding-bottom:96px
+      background:linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.9)),url('images/background.png') no-repeat center/cover fixed;
+      display:flex;flex-direction:column;align-items:center;padding-bottom:100px
     }
     header{width:100%;text-align:center;padding:20px;background:rgba(0,0,0,.94)}
     header h1{margin:0;font-size:2rem;letter-spacing:.5px}
     footer{position:fixed;bottom:0;left:0;width:100%;text-align:center;padding:12px;background:rgba(0,0,0,.92);font-size:.9rem}
 
     .container{max-width:1180px;width:92%;margin:36px auto;display:grid;gap:20px}
-    .panel{background:rgba(0,0,0,.68);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:18px}
+    .panel{background:var(--panel-bg);border:1px solid var(--panel-br);border-radius:10px;padding:18px}
     .section-title{font-size:1.8rem;text-align:center;margin:0 0 6px}
-    .section-subtitle{text-align:center;color:#e6e6e6;margin:0 0 16px;font-size:.98rem}
+    .section-subtitle{text-align:center;color:var(--muted);margin:0 0 16px;font-size:.98rem}
     .muted{opacity:.8}
 
     .grid{display:grid;gap:14px}
@@ -45,19 +51,19 @@
     .btn:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.38)}
     .btn:active{transform:scale(.98)}
     .btn.active{outline:2px solid #fff;box-shadow:0 0 0 2px rgba(255,255,255,.25) inset}
+    .btn.small{padding:6px 8px;font-size:.85rem}
 
     .codebox{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:14px;font-family:'Roboto Mono',monospace;white-space:pre-wrap;word-break:break-word}
     .twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     @media(max-width:900px){.twocol{grid-template-columns:1fr}}
- 
-    #preview-shell{display:grid;gap:10px}
-    #lte-preview{min-height:360px;padding:16px 18px}
-    #lte-preview-content{font-size:1.35rem;line-height:1.6}
 
+    #lte-preview{min-height:360px;padding:0}
+    #lte-preview header{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.35);position:sticky;top:0}
+    #lte-preview-content{padding:16px 18px;font-size:1.35rem;line-height:1.6}
     #lte-output{min-height:200px;font-size:1rem}
 
     .gg-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-    .color-chip{width:40px;height:32px;border:1px solid rgba(255,255,255,.22);background:transparent}
+    .color-chip{width:40px;height:32px;border:1px solid var(--chip-br);background:transparent}
     .preview-bar{height:44px;border-radius:8px;border:1px solid #000;margin:6px 0}
 
     .icon-palette{position:fixed;right:20px;bottom:80px;width:300px;max-height:360px;overflow:auto;background:#1b1b1b;border:1px solid #444;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,.5);display:none;z-index:30}
@@ -67,20 +73,26 @@
     .icon-cell:hover{background:#2c2c2c;border-color:#555}
     .icon-cell:active{transform:scale(.96)}
 
-    #snippet-buttons{display:flex;flex-wrap:wrap;gap:8px}
-    .snippet-btn{font-size:.85rem}
-    .pill{display:inline-block;padding:4px 8px;border:1px solid #4e4e4e;border-radius:999px;background:#111;opacity:.9}
+    .pill{padding:4px 8px;border:1px solid rgba(255,255,255,.24);border-radius:999px;cursor:pointer}
+    .pill:hover{background:rgba(255,255,255,.12)}
+    .note{font-size:.85rem;color:#cbd5e1}
+
+    .export-card{display:grid;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:10px}
+    .export-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:900px){.export-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-<header><h1>MAUL Live Tag Editor</h1></header>
+<header>
+  <h1>MAUL Live Tag Editor</h1>
+</header>
 
 <main class="container">
   <section class="panel" id="live-template-editor">
     <h2 class="section-title"><u>Editor</u></h2>
     <p class="section-subtitle">
       ✨ Basics: Type on the left — it shows live on the right. Select text, then click a tool.<br/>
-      ⏎ Enter / ⇥ Tab insert a literal <code>\n</code>. Each line auto-wraps as <code>&lt;color=#xxxxxx&gt;line&lt;/color&gt;</code>.
+      ⏎ Enter and ⇥ Tab insert <code>\n</code>. <span class="muted">Preview fonts/colors are browser approximations.</span>
     </p>
 
     <div class="grid">
@@ -105,10 +117,15 @@
         </div>
 
         <div class="field" title="Alignment applies once; previous alignment is removed.">
-          <label>Align</label>
-          <button class="btn" data-align="left" id="al-left">Left</button>
-          <button class="btn" data-align="center" id="al-center">Center</button>
-          <button class="btn" data-align="right" id="al-right">Right</button>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div class="row" style="gap:8px">
+              <label>Align</label>
+              <button class="btn" data-align="left" id="al-left">Left</button>
+              <button class="btn" data-align="center" id="al-center">Center</button>
+              <button class="btn" data-align="right" id="al-right">Right</button>
+            </div>
+            <div class="note">Alignment replaces previous.</div>
+          </div>
         </div>
 
         <div class="field" title="Size applies once; previous size is removed.">
@@ -117,17 +134,21 @@
           <button class="btn" id="btn-apply-size" title='<size=115%>...'>Apply</button>
         </div>
 
-        <div class="field" title="Toggle on selection. Click again to remove.">
+        <div class="field" title="Click again to remove (toggle).">
           <label>Style</label>
           <button class="btn" data-tag="b">B</button>
           <button class="btn" data-tag="i">I</button>
           <button class="btn" data-tag="u">U</button>
+          <button class="btn small" id="btn-repeat" title="Repeat last action (R)">Repeat</button>
+          <button class="btn small" id="btn-undo" title="Undo (Ctrl/Cmd+Z)">Undo</button>
+          <button class="btn small" id="btn-redo" title="Redo (Ctrl/Cmd+Shift+Z)">Redo</button>
         </div>
 
         <div class="field" title="Apply a solid color to selection.">
           <label>Solid</label>
           <input id="lte-solid" type="color" value="#FF4D6D">
           <button class="btn" id="lte-apply-solid">Apply</button>
+          <button class="btn small" id="btn-eyedrop">Pick</button>
         </div>
 
         <div class="field" title="Insert placeholders at the caret.">
@@ -141,11 +162,44 @@
         </div>
 
         <div class="field" title="Build a per-character gradient across the selection.">
-          <label>Stops</label>
-          <div class="gg-row" id="lte-stops"></div>
-          <button class="btn" id="lte-add-stop" title="Add stop">Add</button>
-          <button class="btn" id="lte-shuffle-stops" title="Randomize stops">Randomize</button>
-          <button class="btn" id="lte-apply-gradient" title="Smooth per-char gradient">Apply gradient</button>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div class="row" style="gap:8px">
+              <label>Stops</label>
+              <div class="gg-row" id="lte-stops"></div>
+            </div>
+            <div class="row" style="gap:8px">
+              <button class="btn" id="lte-add-stop" title="Add stop">Add</button>
+              <button class="btn" id="lte-shuffle-stops" title="Randomize stops">Randomize</button>
+              <button class="btn" id="lte-apply-gradient" title="Smooth per-char gradient">Apply gradient</button>
+              <span class="pill" id="preset-sunset">Sunset</span>
+              <span class="pill" id="preset-ocean">Ocean</span>
+              <span class="pill" id="preset-candy">Candy</span>
+              <span class="pill" id="stops-reverse">Reverse</span>
+              <span class="pill" id="stops-distribute">Distribute</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field" title="Line tools">
+          <label>Line</label>
+          <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" id="apply-line"> Apply to whole line</label>
+          <button class="btn small" id="btn-reset-line">Reset line</button>
+        </div>
+
+        <div class="field" title="New line behavior">
+          <label>New line</label>
+          <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" id="clean-slate" checked> Clean slate</label>
+          <small class="muted">When on: markup emits <code>&lt;/color&gt;\n&lt;color=#...&gt;</code> between lines.</small>
+        </div>
+
+        <div class="field" title="Session styles">
+          <label>Styles</label>
+          <button class="btn small" id="style-save-1">Save 1</button>
+          <button class="btn small" id="style-save-2">Save 2</button>
+          <button class="btn small" id="style-save-3">Save 3</button>
+          <button class="btn small" id="style-apply-1">Apply 1</button>
+          <button class="btn small" id="style-apply-2">Apply 2</button>
+          <button class="btn small" id="style-apply-3">Apply 3</button>
         </div>
 
         <button class="btn" id="btn-icons">Icons…</button>
@@ -165,9 +219,9 @@
           <div class="codebox" id="lte-output"></div>
         </div>
 
-        <div id="preview-shell" class="grid">
-          <div class="field"><strong>Live Preview (renders fonts + colors)</strong></div>
+        <div class="grid">
           <div id="lte-preview" class="codebox">
+            <header>Live Preview (renders fonts + colors)</header>
             <div id="lte-preview-content"></div>
           </div>
           <div class="field">
@@ -175,31 +229,42 @@
           </div>
         </div>
       </div>
- 
+
       <div class="panel" style="background:rgba(255,255,255,.06);">
-        <div class="row">
-          <div class="field"><strong>Named Exports</strong> <span class="muted">(click to capture current markup)</span></div>
+        <div class="row" style="align-items:flex-start">
+          <div class="field" style="flex:1 1 auto;display:block">
+            <label><strong>Named Exports</strong></label>
+            <p class="muted" style="margin:6px 0 10px">Click “Use current” to capture the current markup into a slot. Download emits <code>name:&lt;markup&gt;</code> lines.</p>
+            <div class="export-grid">
+              <div class="export-card">
+                <div class="row" style="justify-content:space-between"><strong>welcome</strong><button class="btn small" data-export-set="welcome">Use current</button></div>
+                <textarea id="export-welcome" placeholder="welcome markup..."></textarea>
+              </div>
+              <div class="export-card">
+                <div class="row" style="justify-content:space-between"><strong>onmeeting</strong><button class="btn small" data-export-set="onmeeting">Use current</button></div>
+                <textarea id="export-onmeeting" placeholder="onmeeting markup..."></textarea>
+              </div>
+              <div class="export-card">
+                <div class="row" style="justify-content:space-between"><strong>rules</strong><button class="btn small" data-export-set="rules">Use current</button></div>
+                <textarea id="export-rules" placeholder="rules markup..."></textarea>
+              </div>
+              <div class="export-card">
+                <div class="row" style="justify-content:space-between"><strong>vip</strong><button class="btn small" data-export-set="vip">Use current</button></div>
+                <textarea id="export-vip" placeholder="vip markup..."></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="gap:10px;align-self:flex-end">
+            <button class="btn" id="btn-export-download">Download named .txt</button>
+          </div>
         </div>
-        <div class="row">
-          <button class="btn snippet-btn" data-save="welcome">Save to “welcome”</button>
-          <button class="btn snippet-btn" data-save="onmeeting">Save to “onmeeting”</button>
-          <button class="btn snippet-btn" data-save="rules">Save to “rules”</button>
-          <button class="btn snippet-btn" data-save="vip">Save to “vip”</button>
-          <span class="muted" id="save-state"></span>
-        </div>
-        <div class="row">
-          <button class="btn" id="btn-copy-named">Copy named .txt</button>
-          <button class="btn" id="btn-download-named">Download named .txt</button>
-          <span class="muted">Format: <code>welcome:&lt;...&gt;</code> (blank entries are skipped)</span>
-        </div>
-        <div class="row" id="named-pills"></div>
       </div>
     </div>
   </section>
 </main>
 
 <footer>Made with ♥ by MAUL — template tools for hosts &amp; creators</footer>
- 
+
 <div class="icon-palette" id="icon-palette" role="dialog" aria-modal="true">
   <header>Icon Picker</header>
   <div class="icon-grid" id="icon-grid"></div>
@@ -207,12 +272,41 @@
 
 <script> 
 const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
-const normHex=(s,hash=true)=>{s=(s||'').trim();if(!s)return hash?'#FFFFFF':'FFFFFF';s=s.replace(/^#/,'').replace(/[^0-9a-fA-F]/g,'').slice(0,6);if(s.length===3)s=s.split('').map(c=>c+c).join('');if(s.length<6)s=(s+'FFFFFF').slice(0,6);return (hash?'#':'')+s.toUpperCase();};
+const normHex=(s,withHash=true)=>{
+  s=(s||'').trim(); if(!s) return withHash?'#FFFFFF':'FFFFFF';
+  s=s.replace(/^#/,'').replace(/[^0-9a-fA-F]/g,'').slice(0,6);
+  if(s.length===3) s=s.split('').map(c=>c+c).join('');
+  if(s.length<6) s=(s+'FFFFFF').slice(0,6);
+  return (withHash?'#':'')+s.toUpperCase();
+};
 const hexToRgb=h=>{h=normHex(h,true).slice(1);return{r:parseInt(h.slice(0,2),16),g:parseInt(h.slice(2,4),16),b:parseInt(h.slice(4,6),16)}};
 const rgbToHex=({r,g,b})=>'#'+[r,g,b].map(x=>Math.max(0,Math.min(255,x|0)).toString(16).padStart(2,'0')).join('').toUpperCase();
 const lerp=(a,b,t)=>a+(b-a)*t;
 const lerpColor=(h1,h2,t)=>{const c1=hexToRgb(h1),c2=hexToRgb(h2);return rgbToHex({r:lerp(c1.r,c2.r,t),g:lerp(c1.g,c2.g,t),b:lerp(c1.b,c2.b,t)})};
-function copyToClipboard(text){if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(text);const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}finally{document.body.removeChild(ta);}return Promise.resolve();}
+const saveLS=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+const loadLS=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch{ return d; }};
+
+const FONT_MAP={
+  'BROOK SDF':'"Barlow","Rajdhani",sans-serif',
+  'VCR SDF':'"VT323",monospace',
+  'Barlow-Black SDF':'"Barlow",sans-serif',
+  'Barlow-BoldItalic SDF':'"Barlow",sans-serif',
+  'Barlow-Light SDF':'"Barlow",sans-serif',
+  'CONSOLA SDF':'"Share Tech Mono","Roboto Mono",monospace',
+  'DIGITAL-7 SDF':'"Orbitron",monospace',
+  'DIN_Pro_Bold_700 SDF':'"Rajdhani",sans-serif',
+  'LiberationSans SDF':'"Barlow",sans-serif',
+  'NotoSansJP-Regular SDF':'"Noto Sans JP",sans-serif',
+  'OCRAEXT SDF':'"Press Start 2P","VT323",monospace',
+  'OCRAXT SDF':'"Press Start 2P","VT323",monospace'
+};
+
+function copyToClipboard(text){
+  if(navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+  const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.left='-9999px';
+  document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}finally{document.body.removeChild(ta);}
+  return Promise.resolve();
+}
  
 const ed = document.getElementById('lte-editor');
 const out = document.getElementById('lte-output');
@@ -233,88 +327,159 @@ const btnCopy = document.getElementById('lte-copy');
 const btnDL = document.getElementById('lte-download');
 const autoSel = document.getElementById('auto-token');
 const autoBtn = document.getElementById('auto-insert');
-
-const saveState = document.getElementById('save-state');
-const namedPills = document.getElementById('named-pills');
-const btnCopyNamed = document.getElementById('btn-copy-named');
-const btnDownloadNamed = document.getElementById('btn-download-named');
-
-const FONT_MAP = {
-  'BROOK SDF':'"Barlow","Rajdhani",sans-serif',
-  'VCR SDF':'"VT323",monospace',
-  'Barlow-Black SDF':'"Barlow",sans-serif',
-  'Barlow-BoldItalic SDF':'"Barlow",sans-serif',
-  'Barlow-Light SDF':'"Barlow",sans-serif',
-  'CONSOLA SDF':'"Share Tech Mono","Roboto Mono",monospace',
-  'DIGITAL-7 SDF':'"Orbitron",monospace',
-  'DIN_Pro_Bold_700 SDF':'"Rajdhani",sans-serif',
-  'LiberationSans SDF':'"Barlow",sans-serif',
-  'NotoSansJP-Regular SDF':'"Noto Sans JP",sans-serif',
-  'OCRAEXT SDF':'"Press Start 2P","VT323",monospace',
-  'OCRAXT SDF':'"Press Start 2P","VT323",monospace'
+const applyWholeLine = document.getElementById('apply-line');
+const btnResetLine = document.getElementById('btn-reset-line');
+const cleanSlateToggle = document.getElementById('clean-slate');
+const btnUndo = document.getElementById('btn-undo');
+const btnRedo = document.getElementById('btn-redo');
+const btnRepeat = document.getElementById('btn-repeat');
+const btnEye = document.getElementById('btn-eyedrop'); 
+const presetSunset = document.getElementById('preset-sunset');
+const presetOcean  = document.getElementById('preset-ocean');
+const presetCandy  = document.getElementById('preset-candy');
+const stopsReverse = document.getElementById('stops-reverse');
+const stopsDistribute = document.getElementById('stops-distribute'); 
+const styleButtons = {
+  save:[document.getElementById('style-save-1'),document.getElementById('style-save-2'),document.getElementById('style-save-3')],
+  apply:[document.getElementById('style-apply-1'),document.getElementById('style-apply-2'),document.getElementById('style-apply-3')]
+}; 
+const exportAreas = {
+  welcome: document.getElementById('export-welcome'),
+  onmeeting: document.getElementById('export-onmeeting'),
+  rules: document.getElementById('export-rules'),
+  vip: document.getElementById('export-vip')
 };
+document.querySelectorAll('[data-export-set]').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const k=b.getAttribute('data-export-set');
+    exportAreas[k].value = markup;
+    status(`Captured into "${k}".`);
+  });
+});
+document.getElementById('btn-export-download').addEventListener('click',()=>{
+  const parts=[];
+  for(const [name,ta] of Object.entries(exportAreas)){
+    const body=(ta.value||'').trim();
+    if(body) parts.push(`${name}:${body}`);
+  }
+  if(!parts.length){ status('Nothing to export.'); return; }
+  const blob=new Blob([parts.join('\n')],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;a.download='named.txt';
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+  status('Downloaded named.txt');
+});
  
-let STOPS=['#B625F1','#2970F8','#00CFFF','#31D0AA'];
-let markup='';
-let userStyled=false;
-let baseColor='#FF4D6D';
-const named = { welcome:'', onmeeting:'', rules:'', vip:'' };
+let STOPS = loadLS('stops',['#B625F1','#2970F8','#00CFFF','#31D0AA']);
+let markup = '';
+let userStyled = false;
+let baseColor = normHex(loadLS('baseColor','#FF4D6D'),true);
+let lastAction = null;  
+let undoStack = [];
+let redoStack = [];
+const MAX_HIST = 50;
+
+function status(msg){ statusEl.textContent = msg; }
  
-function flash(el){el.classList.add('active');setTimeout(()=>el.classList.remove('active'),600);}
-function getSel(){return {s:ed.selectionStart|0,e:ed.selectionEnd|0}}
-function hasSelection(){const {s,e}=getSel();return e>s}
-function needSelection(btn,fn,msg){if(!hasSelection()){statusEl.textContent=msg||'Select some text first.';flash(btn);return;}fn();}
+function pushHistory(){
+  undoStack.push({markup, userStyled});
+  if(undoStack.length>MAX_HIST) undoStack.shift();
+  redoStack.length=0;
+}
+function undo(){
+  if(!undoStack.length) return;
+  const cur={markup,userStyled};
+  redoStack.push(cur);
+  const prev=undoStack.pop();
+  markup=prev.markup; userStyled=prev.userStyled;
+  renderAll();
+}
+function redo(){
+  if(!redoStack.length) return;
+  undoStack.push({markup,userStyled});
+  const nxt=redoStack.pop();
+  markup=nxt.markup; userStyled=nxt.userStyled;
+  renderAll();
+}
+ 
+function getSel(){ return { s: ed.selectionStart|0, e: ed.selectionEnd|0 }; }
+function hasSelection(){ const {s,e}=getSel(); return e>s; }
+function getCurrentLineRange(){
+  const t=ed.value, {s,e}=getSel();
+  const before=t.lastIndexOf('\\n', s-1);
+  const after=t.indexOf('\\n', e);
+  const a = before<0?0:before+2;  
+  const b = after<0?t.length:after;
+  return {a,b};
+}
  
 function buildIndexMap(mark){
-  const map=[],len=mark.length;let iPlain=0,i=0;
+  const map=[], len=mark.length;
+  let iPlain=0, i=0;
   while(i<len){
-    if(mark.startsWith('<color=',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}
-    if(mark.startsWith('</color>',i)){i+=8;continue}
-    if(mark.startsWith('<font="',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}
-    if(mark.startsWith('</font>',i)){i+=7;continue}
-    if(mark.startsWith('<size=',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}
-    if(mark.startsWith('</size>',i)){i+=7;continue}
-    if(mark.startsWith('<align=',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}
-    if(mark.startsWith('</align>',i)){i+=8;continue}
-    if(mark.startsWith('<b>',i)||mark.startsWith('<i>',i)||mark.startsWith('<u>',i)){i+=3;continue}
-    if(mark.startsWith('</b>',i)||mark.startsWith('</i>',i)||mark.startsWith('</u>',i)){i+=4;continue}
-    map[iPlain++]=i;i++;
+    if(mark.startsWith('<color=',i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
+    if(mark.startsWith('</color>',i)){ i+=8; continue; }
+    if(mark.startsWith('<font="',i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
+    if(mark.startsWith('</font>',i)){ i+=7; continue; }
+    if(mark.startsWith('<size=',i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
+    if(mark.startsWith('</size>',i)){ i+=7; continue; }
+    if(mark.startsWith('<align=',i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
+    if(mark.startsWith('</align>',i)){ i+=8; continue; }
+    if(mark.startsWith('<b>',i)||mark.startsWith('<i>',i)||mark.startsWith('<u>',i)){ i+=3; continue; }
+    if(mark.startsWith('</b>',i)||mark.startsWith('</i>',i)||mark.startsWith('</u>',i)){ i+=4; continue; }
+    map[iPlain++] = i;
+    i++;
   }
-  map[iPlain]=i;return map;
-} 
+  map[iPlain]=i;
+  return map;
+}
+function replacePlainRangeWith(mark,i0,i1,repl){
+  const map=buildIndexMap(mark);
+  const a=map[i0] ?? mark.length;
+  const b=map[i1] ?? mark.length;
+  return mark.slice(0,a)+repl+mark.slice(b);
+}
+ 
+function toHTML(s){
+  let html=s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  html=html.replace(/&lt;font="([^"]+)"&gt;/g,(_,name)=>`<span style="font-family:${FONT_MAP[name.trim()]||'inherit'}">`).replace(/&lt;\/font&gt;/g,'</span>');
+  html=html.replace(/&lt;color=(#[0-9A-Fa-f]{6})&gt;/g,(_,hex)=>`<span style="color:${hex}">`).replace(/&lt;\/color&gt;/g,'</span>');
+  html=html.replace(/&lt;size=(\d{1,3})%&gt;/g,(_,pct)=>`<span style="font-size:${pct}%">`).replace(/&lt;\/size&gt;/g,'</span>');
+  html=html.replace(/&lt;align=(left|center|right)&gt;/g,(_,pos)=>`<div style="text-align:${pos}">`).replace(/&lt;\/align&gt;/g,'</div>');
+  html=html.replace(/&lt;b&gt;/g,'<b>').replace(/&lt;\/b&gt;/g,'</b>').replace(/&lt;i&gt;/g,'<i>').replace(/&lt;\/i&gt;/g,'</i>').replace(/&lt;u&gt;/g,'<u>').replace(/&lt;\/u&gt;/g,'</u>');
+  html=html.replace(/\\n/g,'<br/>');
+  return html;
+}
+function cleanupSpam(m){
+  return m
+   .replace(/(?:<color=(#[0-9A-Fa-f]{6})>)+/g,'<color=$1>').replace(/(?:<\/color>)+/g,'</color>')
+   .replace(/(?:<size=\d{1,3}%>)+/g,(x)=>x.match(/<size=\d{1,3}%>/)[0]).replace(/(?:<\/size>)+/g,'</size>')
+   .replace(/(?:<font="([^"]+)">)+/g,'<font="$1">').replace(/(?:<\/font>)+/g,'</font>')
+   .replace(/(?:<align=(left|center|right)>)+/g,'<align=$1>').replace(/(?:<\/align>)+/g,'</align>')
+   .replace(/(?:<b>)+/g,'<b>').replace(/(?:<\/b>)+/g,'</b>')
+   .replace(/(?:<i>)+/g,'<i>').replace(/(?:<\/i>)+/g,'</i>')
+   .replace(/(?:<u>)+/g,'<u>').replace(/(?:<\/u>)+/g,'</u>');
+}
 function renderAll(){
-  markup = markup
-    .replace(/(?:<color=(#[0-9A-Fa-f]{6})>)+/g,'<color=$1>')
-    .replace(/(?:<\/color>)+/g,'</color>')
-    .replace(/(?:<size=\d{1,3}%>)+/g,(m)=>m.match(/<size=\d{1,3}%>/)[0])
-    .replace(/(?:<\/size>)+/g,'</size>')
-    .replace(/(?:<font="([^"]+)">)+/g,'<font="$1">')
-    .replace(/(?:<\/font>)+/g,'</font>')
-    .replace(/(?:<align=(left|center|right)>)+/g,'<align=$1>')
-    .replace(/(?:<\/align>)+/g,'</align>')
-    .replace(/(?:<b>)+/g,'<b>').replace(/(?:<\/b>)+/g,'</b>')
-    .replace(/(?:<i>)+/g,'<i>').replace(/(?:<\/i>)+/g,'</i>')
-    .replace(/(?:<u>)+/g,'<u>').replace(/(?:<\/u>)+/g,'</u>');
-
+  markup = cleanupSpam(markup);
   out.textContent = markup;
-
-  let html = markup
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-    .replace(/&lt;font="([^"]+)"&gt;/g,(_,name)=>`<span style="font-family:${FONT_MAP[name.trim()]||'inherit'}">`).replace(/&lt;\/font&gt;/g,'</span>')
-    .replace(/&lt;color=(#[0-9A-Fa-f]{6})&gt;/g,(_,hex)=>`<span style="color:${hex}">`).replace(/&lt;\/color&gt;/g,'</span>')
-    .replace(/&lt;size=(\d{1,3})%&gt;/g,(_,pct)=>`<span style="font-size:${pct}%">`).replace(/&lt;\/size&gt;/g,'</span>')
-    .replace(/&lt;align=(left|center|right)&gt;/g,(_,pos)=>`<div style="text-align:${pos}">`).replace(/&lt;\/align&gt;/g,'</div>')
-    .replace(/&lt;b&gt;/g,'<b>').replace(/&lt;\/b&gt;/g,'</b>')
-    .replace(/&lt;i&gt;/g,'<i>').replace(/&lt;\/i&gt;/g,'</i>')
-    .replace(/&lt;u&gt;/g,'<u>').replace(/&lt;\/u&gt;/g,'</u>')
-    .replace(/\\n/g,'<br/>');
-
-  prevContent.style.fontFamily = FONT_MAP[fontSel.value] || 'inherit';
-  prevContent.innerHTML = html;
-} 
-function wrapLinesWithBaseColor(text){
-  const parts = text.split('\\n');
-  return parts.map(p => `<color=${baseColor}>${p}</color>`).join('\\n');
+  prevContent.innerHTML = toHTML(markup);
+  saveLS('baseColor',baseColor);
+  saveLS('stops',STOPS);
+}
+function syncPreviewBaseFont(){ prevContent.style.fontFamily = FONT_MAP[fontSel.value] || 'inherit'; }
+ 
+function wrapTextWithBaseColor(text, hex){
+  const parts = String(text||'').split('\\n');
+  if(parts.length===1) return `<color=${hex}>${parts[0]}</color>`;
+  const chunks=[];
+  parts.forEach((p,i)=>{
+    chunks.push(`<color=${hex}>${p}</color>`);
+    if(i<parts.length-1){ 
+      chunks.push('\n');
+    }
+  });
+  return chunks.join('');
 }
  
 function buildSmoothGradient(str){
@@ -322,211 +487,311 @@ function buildSmoothGradient(str){
   const text=String(str||'');
   let visible=0,i=0;
   while(i<text.length){
-    if(text[i]==='<'){const k=text.indexOf('>',i);i=(k===-1?i+1:k+1);continue}
-    if(text[i]==='\\' && text[i+1]==='n'){i+=2;continue}
-    visible++;i++;
+    if(text[i]==='<'){ const k=text.indexOf('>',i); i=(k===-1?i+1:k+1); continue; }
+    if(text[i]==='\\' && text[i+1]==='n'){ i+=2; continue; }
+    visible++; i++;
   }
   const colorAt = idx=>{
     if(visible<=1) return normHex(stops[0],true);
-    const t=idx/(visible-1);const seg=(stops.length-1)*t;
-    const i0=Math.floor(seg),i1=Math.min(stops.length-1,i0+1),lt=seg-i0;
+    const t=idx/(visible-1), seg=(stops.length-1)*t;
+    const i0=Math.floor(seg), i1=Math.min(stops.length-1,i0+1), lt=seg-i0;
     return normHex(lerpColor(stops[i0],stops[i1],lt),true);
   };
-  let vis=0; i=0; const out=[];
+  let visIdx=0; i=0; const out=[];
   while(i<text.length){
-    if(text[i]==='<'){const k=text.indexOf('>',i);if(k===-1){out.push(text[i++]);continue}out.push(text.slice(i,k+1));i=k+1;continue}
-    if(text[i]==='\\'&&text[i+1]==='n'){out.push('\\n');i+=2;continue}
-    out.push(`<color=${colorAt(vis++)}>${text[i]}</color>`);i++;
+    if(text[i]==='<'){ const k=text.indexOf('>',i); if(k===-1){ out.push(text[i++]); continue; } out.push(text.slice(i,k+1)); i=k+1; continue; }
+    if(text[i]==='\\' && text[i+1]==='n'){ out.push('\\n'); i+=2; continue; }
+    out.push(`<color=${colorAt(visIdx++)}>${text[i]}</color>`); i++;
   }
   return out.join('');
 } 
-function syncSolid(){
-  baseColor = normHex(solidPicker.value,true);
-  const text = ed.value.replace(/\r?\n/g,'\\n');
-
-  if(!userStyled){ 
-    markup = wrapLinesWithBaseColor(text);
-  }else{ 
-    const map = buildIndexMap(markup);
-    const plainLen = map.length?map.length-1:0;
-    const tgtLen = text.length;
-    if(tgtLen>plainLen){ markup += text.slice(plainLen); }
-    else if(tgtLen<plainLen){ const cut = map[tgtLen] ?? markup.length; markup = markup.slice(0,cut); }
-  }
-  renderAll();
-} 
-btnSolid.addEventListener('click', ()=>{
-  needSelection(btnSolid, ()=>{
-    const {s,e}=getSel();const map=buildIndexMap(markup);
-    const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
-    const hex=normHex(solidPicker.value,true);
-    let seg=markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');
-    markup = markup.slice(0,a)+`<color=${hex}>`+seg+`</color>`+markup.slice(b);
-    userStyled=true; renderAll(); statusEl.textContent='Solid color applied.'; flash(btnSolid);
-  }, 'Select text to color.');
-});
-
-btnGradient.addEventListener('click', ()=>{
-  needSelection(btnGradient, ()=>{
-    const {s,e}=getSel();const map=buildIndexMap(markup);
-    const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
-    let seg = markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');
-    seg = buildSmoothGradient(seg);
-    markup = markup.slice(0,a)+seg+markup.slice(b);
-    userStyled=true; renderAll(); statusEl.textContent='Smooth gradient applied.'; flash(btnGradient);
-  }, 'Select text for gradient.');
-});
-
-document.querySelectorAll('[data-align]').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const mode=btn.getAttribute('data-align');
-    needSelection(btn, ()=>{ 
-      const {s,e}=getSel();const map=buildIndexMap(markup);
-      const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
-      let seg=markup.slice(a,b).replace(/<align=(left|center|right)>/g,'').replace(/<\/align>/g,'');
-      markup = markup.slice(0,a)+`<align=${mode}>`+seg+`</align>`+markup.slice(b);
-      userStyled=true; renderAll();
-      document.querySelectorAll('[data-align]').forEach(x=>x.classList.remove('active')); btn.classList.add('active');
-      statusEl.textContent=`Alignment ${mode} applied.`;
-    }, 'Select text to align.');
-  });
-});
-
-btnApplySize.addEventListener('click', ()=>{
-  const pct=clamp(parseInt(sizeInput.value||'115',10),50,300); sizeInput.value=pct;
-  needSelection(btnApplySize, ()=>{
-    const {s,e}=getSel();const map=buildIndexMap(markup);
-    const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
-    let seg=markup.slice(a,b).replace(/<size=\d{1,3}%>/g,'').replace(/<\/size>/g,'');
-    markup = markup.slice(0,a)+`<size=${pct}%>`+seg+`</size>`+markup.slice(b);
-    userStyled=true; renderAll(); statusEl.textContent=`Size ${pct}% applied.`; flash(btnApplySize);
-  }, 'Select text to resize.');
-});
-
-document.querySelectorAll('[data-tag]').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const tag=btn.getAttribute('data-tag');
-    needSelection(btn, ()=>{
-      const {s,e}=getSel();const map=buildIndexMap(markup);
-      const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
-      let seg=markup.slice(a,b);
-      const open=`<${tag}>`, close=`</${tag}>`; 
-      seg=seg.replace(new RegExp(`(?:<${tag}>)+`,'g'),open).replace(new RegExp(`(?:</${tag}>)+`,'g'),close); 
-      const wrapped = seg.startsWith(open)&&seg.endsWith(close) && seg.slice(open.length,-close.length).indexOf(open)===-1;
-      seg = wrapped ? seg.slice(open.length,-close.length) : open+seg+close;
-      markup = markup.slice(0,a)+seg+markup.slice(b);
-      userStyled=true; renderAll();
-      statusEl.textContent = `<${tag}> ${wrapped?'removed':'applied'}.`;
-    }, `Select text to toggle <${tag}>.`);
-  });
-});
-
-btnFontWrap.addEventListener('click', ()=>{
-  const f=fontSel.value;
-  needSelection(btnFontWrap, ()=>{
-    const {s,e}=getSel();const map=buildIndexMap(markup);
-    const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
-    let seg=markup.slice(a,b).replace(/<font="[^"]+">/g,'').replace(/<\/font>/g,'');
-    markup = markup.slice(0,a)+`<font="${f}">`+seg+`</font>`+markup.slice(b);
-    userStyled=true; renderAll(); statusEl.textContent=`Font "${f}" applied.`; flash(btnFontWrap);
-  }, 'Select text to apply font.');
-}); 
 function renderStops(){
   stopsWrap.innerHTML='';
   STOPS.forEach((hex,idx)=>{
     const row=document.createElement('div');row.className='row';
-    const t=document.createElement('input');t.type='text';t.value=normHex(hex,true);t.style.width='96px';
+    const t=document.createElement('input');t.type='text';t.value=normHex(hex,true);t.style.width='100px';
     const c=document.createElement('input');c.type='color';c.className='color-chip';c.value=normHex(hex,true);
-    const up=document.createElement('button');up.className='btn';up.textContent='▲';
-    const dn=document.createElement('button');dn.className='btn';dn.textContent='▼';
-    const rm=document.createElement('button');rm.className='btn';rm.textContent='✕';
+    const up=document.createElement('button');up.className='btn small';up.textContent='▲';
+    const dn=document.createElement('button');dn.className='btn small';dn.textContent='▼';
+    const rm=document.createElement('button');rm.className='btn small';rm.textContent='✕';
+
     t.addEventListener('input',()=>{const h=normHex(t.value,true);t.value=h;c.value=h;STOPS[idx]=h;renderGradPreview();renderAll();});
     c.addEventListener('input',()=>{const h=normHex(c.value,true);t.value=h;STOPS[idx]=h;renderGradPreview();renderAll();});
-    up.addEventListener('click',()=>{if(idx>0){[STOPS[idx-1],STOPS[idx]]=[STOPS[idx],STOPS[idx-1]];renderStops();renderGradPreview();}});
-    dn.addEventListener('click',()=>{if(idx<STOPS.length-1){[STOPS[idx+1],STOPS[idx]]=[STOPS[idx],STOPS[idx+1]];renderStops();renderGradPreview();}});
-    rm.addEventListener('click',()=>{if(STOPS.length>1){STOPS.splice(idx,1);renderStops();renderGradPreview();}});
+    up.addEventListener('click',()=>{if(idx>0){[STOPS[idx-1],STOPS[idx]]=[STOPS[idx],STOPS[idx-1]];renderStops();renderGradPreview();renderAll();}});
+    dn.addEventListener('click',()=>{if(idx<STOPS.length-1){[STOPS[idx+1],STOPS[idx]]=[STOPS[idx],STOPS[idx+1]];renderStops();renderGradPreview();renderAll();}});
+    rm.addEventListener('click',()=>{if(STOPS.length>1){STOPS.splice(idx,1);renderStops();renderGradPreview();renderAll();}});
+
     row.append(t,c,up,dn,rm);stopsWrap.appendChild(row);
   });
 }
 function renderGradPreview(){
   const parts=STOPS.map((c,i)=>`${normHex(c,true)} ${i*100/(Math.max(STOPS.length-1,1))}%`);
   gradPrev.style.background=`linear-gradient(90deg, ${parts.join(', ')})`;
-} 
-function insertAtCaret(txt){
-  const {s,e}=getSel(); const v=ed.value;
-  ed.value = v.slice(0,s)+txt+v.slice(e);
-  ed.selectionStart = ed.selectionEnd = s+txt.length;
 }
-autoBtn.addEventListener('click',()=>{ insertAtCaret(autoSel.value); syncSolid(); flash(autoBtn); });
-
-solidPicker.addEventListener('input', syncSolid);
-ed.addEventListener('input', syncSolid);
-ed.addEventListener('keyup', syncSolid);
-ed.addEventListener('keydown', (e)=>{
-  if(e.key==='Enter' || e.key==='Tab'){
-    e.preventDefault();
-    insertAtCaret('\\n');  
-    syncSolid();
+function applyStopsPreset(kind){
+  if(kind==='sunset') STOPS=['#590d22','#800f2f','#a4133c','#c9184a','#ff4d6d','#ff758f','#ff8fa3','#ffb3c1','#ffccd5'];
+  if(kind==='ocean')  STOPS=['#031A6B','#033860','#087CA7','#05B2DC','#00D9F6'];
+  if(kind==='candy')  STOPS=['#B625F1','#2970F8','#00CFFF','#31D0AA'];
+  renderStops(); renderGradPreview(); renderAll();
+}
+function reverseStops(){ STOPS.reverse(); renderStops(); renderGradPreview(); renderAll(); }
+function distributeStops(){ renderGradPreview(); }
+ 
+function requireSelection(btn,onOK,msg){
+  const {s,e}=getSel();
+  if(applyWholeLine.checked){
+    const r=getCurrentLineRange();
+    ed.selectionStart=r.a; ed.selectionEnd=r.b;
   }
+  if(!hasSelection()){ status(msg||'Select some text first.'); if(btn) btn.classList.add('active'), setTimeout(()=>btn.classList.remove('active'),300); return false; }
+  pushHistory();
+  onOK();
+  return true;
+}
+function setLastAction(fn,args){ lastAction={fn,args}; }
+function repeatLast(){ if(!lastAction) return; const {fn,args}=lastAction; toolHandlers[fn]?.(args,true); }
+
+const toolHandlers={
+  'b':(_,silent)=>{
+    const tag='b'; const {s,e}=getSel();
+    if(!requireSelection(null,()=>{},'')) return;
+    let seg = ed.value.slice(s,e).replace(/\r?\n/g,'\\n'); 
+    const map=buildIndexMap(markup);
+    const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+    let mseg=markup.slice(a,b);
+    const open=`<${tag}>`, close=`</${tag}>`;
+    mseg=mseg.replace(new RegExp(`(?:<${tag}>)+`,'g'),open).replace(new RegExp(`(?:</${tag}>)+`,'g'),close);
+    const isWrapped=mseg.startsWith(open)&&mseg.endsWith(close)&&mseg.replace(new RegExp(`^<${tag}>|</${tag}>$`,'g'),'').indexOf(open)===-1;
+    mseg = isWrapped ? mseg.replace(new RegExp(`^<${tag}>`), '').replace(new RegExp(`</${tag}>$`),'')
+                     : open+mseg+close;
+    markup=markup.slice(0,a)+mseg+markup.slice(b);
+    userStyled=true; renderAll(); if(!silent) status(`<${tag}> ${isWrapped?'removed':'applied'}.`);
+    setLastAction('b');
+  },
+  'i':(_,silent)=>{ toolHandlers['b'](_,silent); },  
+  'u':(_,silent)=>{ toolHandlers['b'](_,silent); },
+  'solid':(_,silent)=>{
+    const hex=normHex(solidPicker.value,true);
+    requireSelection(btnSolid, ()=>{
+      const {s,e}=getSel(); const map=buildIndexMap(markup);
+      const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+      let seg=markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');
+      markup=markup.slice(0,a)+`<color=${hex}>`+seg+`</color>`+markup.slice(b);
+      userStyled=true; renderAll(); if(!silent) status('Solid color applied.');
+    }, 'Select text to color.');
+    setLastAction('solid');
+  },
+  'gradient':(_,silent)=>{
+    requireSelection(btnGradient, ()=>{
+      const {s,e}=getSel(); const map=buildIndexMap(markup);
+      const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+      let seg=markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');
+      seg=buildSmoothGradient(seg);
+      markup=markup.slice(0,a)+seg+markup.slice(b);
+      userStyled=true; renderAll(); if(!silent) status('Smooth gradient applied.');
+    }, 'Select text for gradient.');
+    setLastAction('gradient');
+  },
+  'align':({mode},silent)=>{
+    requireSelection(document.querySelector(`[data-align="${mode}"]`), ()=>{
+      markup=markup.replace(/<align=(left|center|right)>|<\/align>/g,'');  
+      const {s,e}=getSel(); const map=buildIndexMap(markup);
+      const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+      const seg=markup.slice(a,b);
+      markup=markup.slice(0,a)+`<align=${mode}>`+seg+`</align>`+markup.slice(b);
+      userStyled=true; renderAll(); if(!silent) status(`Alignment ${mode} applied.`);
+    }, 'Select text to align.');
+    setLastAction('align',{mode});
+  },
+  'size':({pct},silent)=>{
+    pct = clamp(parseInt(pct||sizeInput.value||'115',10),50,300); sizeInput.value=pct;
+    requireSelection(btnApplySize, ()=>{
+      markup=markup.replace(/<size=\d{1,3}%>|<\/size>/g,'');
+      const {s,e}=getSel(); const map=buildIndexMap(markup);
+      const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+      const inner=markup.slice(a,b);
+      markup=markup.slice(0,a)+`<size=${pct}%>`+inner+`</size>`+markup.slice(b);
+      userStyled=true; renderAll(); if(!silent) status(`Size ${pct}% applied.`);
+    }, 'Select text to resize.');
+    setLastAction('size',{pct});
+  },
+  'font':({font},silent)=>{
+    font = font || fontSel.value;
+    requireSelection(btnFontWrap, ()=>{
+      const {s,e}=getSel(); const map=buildIndexMap(markup);
+      const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+      const inner=markup.slice(a,b).replace(/<font="[^"]+">/g,'').replace(/<\/font>/g,'');
+      markup=markup.slice(0,a)+`<font="${font}">`+inner+`</font>`+markup.slice(b);
+      userStyled=true; renderAll(); if(!silent) status(`Font "${font}" applied.`);
+    }, 'Select text to apply font.');
+    setLastAction('font',{font});
+  }
+};
+ 
+document.querySelectorAll('[data-tag]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const tag=btn.getAttribute('data-tag');
+    if(tag==='b') toolHandlers['b']();
+    if(tag==='i') toolHandlers['b']();
+    if(tag==='u') toolHandlers['b']();
+  });
 });
  
-btnCopy.addEventListener('click', ()=>{ copyToClipboard(markup); statusEl.textContent='Markup copied to clipboard.'; flash(btnCopy); });
-btnDL.addEventListener('click', ()=>{
+document.querySelectorAll('[data-align]').forEach(btn=>{
+  btn.addEventListener('click',()=>toolHandlers['align']({mode:btn.getAttribute('data-align')}))
+}); 
+btnApplySize.addEventListener('click',()=>toolHandlers['size']({pct:sizeInput.value}));
+btnFontWrap.addEventListener('click',()=>toolHandlers['font']({font:fontSel.value}));
+btnSolid.addEventListener('click',()=>toolHandlers['solid']());
+btnGradient.addEventListener('click',()=>toolHandlers['gradient']());
+btnRepeat.addEventListener('click',repeatLast);
+ 
+btnEye.addEventListener('click',()=>solidPicker.showPicker?.());
+ 
+btnResetLine.addEventListener('click',()=>{
+  const r=getCurrentLineRange(); if(r.a===r.b) return;
+  pushHistory(); 
+  const raw=ed.value.slice(r.a,r.b).replace(/\r?\n/g,'\\n');
+  const map=buildIndexMap(markup);
+  const a=map[r.a] ?? markup.length, b=map[r.b] ?? markup.length;
+  let seg=markup.slice(a,b);
+  seg = seg
+    .replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'')
+    .replace(/<size=\d{1,3}%>/g,'').replace(/<\/size>/g,'')
+    .replace(/<font="[^"]+">/g,'').replace(/<\/font>/g,'')
+    .replace(/<align=(left|center|right)>/g,'').replace(/<\/align>/g,'')
+    .replace(/<b>|<\/b>|<i>|<\/i>|<u>|<\/u>/g,'');
+  markup=markup.slice(0,a)+seg+markup.slice(b);
+  userStyled=true; renderAll(); status('Line reset.');
+});
+ 
+function syncSolid(){
+  baseColor=normHex(solidPicker.value,true);
+  saveLS('baseColor',baseColor);
+
+  const textNorm=ed.value.replace(/\r?\n/g,'\\n');
+  if(!userStyled){ 
+    if(cleanSlateToggle.checked){
+      markup = wrapTextWithBaseColor(textNorm, baseColor);
+    }else{
+      markup = `<color=${baseColor}>${textNorm}</color>`;
+    }
+  }else{  
+  }
+  renderAll();
+}
+ 
+btnCopy.addEventListener('click',()=>{ copyToClipboard(markup); status('Markup copied to clipboard.'); });
+btnDL.addEventListener('click',()=>{
   const blob=new Blob([markup],{type:'text/plain;charset=utf-8'});
   const url=URL.createObjectURL(blob);
-  const a=document.createElement('a'); a.href=url; a.download='template.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-  statusEl.textContent='Downloaded template.txt'; flash(btnDL);
-});
- 
-function updatePills(){
-  namedPills.innerHTML='';
-  Object.entries(named).forEach(([k,v])=>{
-    if(v && v.trim()){
-      const pill=document.createElement('span'); pill.className='pill'; pill.textContent=k;
-      namedPills.appendChild(pill);
-    }
-  });
-}
-document.querySelectorAll('[data-save]').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const key=btn.getAttribute('data-save');
-    named[key]=markup.trim();
-    saveState.textContent = `Saved to “${key}”.`;
-    flash(btn); updatePills();
-  });
-});
-function buildNamedText(){
-  const lines=[];
-  if(named.welcome)   lines.push(`welcome:${named.welcome}`);
-  if(named.onmeeting) lines.push(`onmeeting:${named.onmeeting}`);
-  if(named.rules)     lines.push(`rules:${named.rules}`);
-  if(named.vip)       lines.push(`vip:${named.vip}`);
-  return lines.join('\n\n');
-}
-btnCopyNamed.addEventListener('click', ()=>{ const txt=buildNamedText(); copyToClipboard(txt); saveState.textContent='Named set copied.'; flash(btnCopyNamed); });
-btnDownloadNamed.addEventListener('click', ()=>{
-  const txt=buildNamedText();
-  const blob=new Blob([txt],{type:'text/plain;charset=utf-8'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a'); a.href=url; a.download='named-templates.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-  saveState.textContent='Named set downloaded.'; flash(btnDownloadNamed);
+  const a=document.createElement('a');a.href=url;a.download='template.txt';
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+  status('Downloaded template.txt');
 });
  
 const ICONS=['✿','❀','❖','⚽','⚾','♠','♣','♦','♥','♤','♧','♢','♡','☯','✚','⚠','†','∞','✓','☎','☏','☀','☁','☂','☃','☉','★','☆','⁂','✽','☝','☞','☟','☜','↑','↓','→','←','↔','↕','⌘','⌅','⌆','⌇','〶','⚙','⚛','⚜','⚓','⚡','⚕','⚒','⚖','♩','♪','♫','♬','♭','♮','♯','☕','☘','☄','☇','☈','〠','ヅ','ツ','㋡','웃','유','シ','ッ','㋛','◉','○','◎','●','⊗','⊙','◯','◇','◈','◍','◐','◑','◒','◓','◦','∅','⊕','⊖','⊘','⦿','▀','▁','▂','▃','▄','▅','▆','▇','▉','▋','█','░','▒','▓','▢','▣','▤','▥','▦','▧','▨','▩','▪','▫','◆','◣','◥','◤','◢','☠','☢','☣','⚰','⚱','♨','☮','✠','✡','™','〰','Ⓜ','♻','🆘','🅰','🅱','🅾','🆚'];
 const btnIcons=document.getElementById('btn-icons'),palette=document.getElementById('icon-palette'),iconGrid=document.getElementById('icon-grid');
-function buildIcons(){iconGrid.innerHTML=''; ICONS.forEach(ch=>{const cell=document.createElement('div');cell.className='icon-cell';cell.textContent=ch;cell.title='Insert "'+ch+'"';cell.addEventListener('click',()=>{insertAtCaret(ch);palette.style.display='none';ed.focus();syncSolid();});iconGrid.appendChild(cell);});}
+function buildIcons(){iconGrid.innerHTML='';ICONS.forEach(ch=>{const cell=document.createElement('div');cell.className='icon-cell';cell.textContent=ch;cell.title='Insert "'+ch+'"';cell.addEventListener('click',()=>{insertAtCaret(ch);syncSolid();palette.style.display='none';ed.focus();});iconGrid.appendChild(cell);});}
 btnIcons.addEventListener('click',()=>{palette.style.display=(palette.style.display==='block'?'none':'block');});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&palette.style.display==='block')palette.style.display='none';});
+document.addEventListener('keydown',(e)=>{if(e.key==='Escape'&&palette.style.display==='block'){palette.style.display='none';}});
+ 
+function insertAtCaret(txt){
+  const {s,e}=getSel(); const val=ed.value;
+  ed.value = val.slice(0,s)+txt+val.slice(e);
+  ed.selectionStart=ed.selectionEnd=s+txt.length;
+}
+ 
+autoBtn.addEventListener('click',()=>{ insertAtCaret(autoSel.value); syncSolid(); status(`Inserted ${autoSel.value}`); });
+ 
+presetSunset.addEventListener('click',()=>applyStopsPreset('sunset'));
+presetOcean.addEventListener('click', ()=>applyStopsPreset('ocean'));
+presetCandy.addEventListener('click', ()=>applyStopsPreset('candy'));
+stopsReverse.addEventListener('click', reverseStops);
+stopsDistribute.addEventListener('click', distributeStops);
+ 
+function captureStyle(){
+  return {
+    font: fontSel.value,
+    size: clamp(parseInt(sizeInput.value||'115',10),50,300),
+    color: baseColor,
+    stops: [...STOPS]
+  };
+}
+function applyStyle(s){
+  if(!s) return;
+  fontSel.value = s.font;
+  sizeInput.value = s.size;
+  solidPicker.value = s.color;
+  baseColor = s.color;
+  STOPS = [...s.stops];
+  renderStops(); renderGradPreview(); syncPreviewBaseFont(); syncSolid();
+}
+styleButtons.save.forEach((b,i)=>b.addEventListener('click',()=>{
+  const s=captureStyle(); saveLS('style'+(i+1),s); status(`Saved style ${i+1}.`);
+}));
+styleButtons.apply.forEach((b,i)=>b.addEventListener('click',()=>{
+  applyStyle(loadLS('style'+(i+1),null)); status(`Applied style ${i+1}.`);
+}));
+ 
+function isMeta(e){ return e.ctrlKey || e.metaKey; }
+document.addEventListener('keydown',(e)=>{ 
+  if(isMeta(e) && e.key.toLowerCase()==='z'){
+    e.preventDefault();
+    if(e.shiftKey) redo(); else undo();
+    return;
+  } 
+  if(isMeta(e) && ['b','i','u'].includes(e.key.toLowerCase())){
+    e.preventDefault();
+    if(e.key.toLowerCase()==='b') toolHandlers['b']();
+    if(e.key.toLowerCase()==='i') toolHandlers['b']();
+    if(e.key.toLowerCase()==='u') toolHandlers['b']();
+    return;
+  } 
+  if(isMeta(e) && (e.key==='=' || e.key==='+' || e.key==='-')){
+    e.preventDefault();
+    const cur=parseInt(sizeInput.value||'115',10);
+    const pct = e.key==='-' ? cur-5 : cur+5;
+    toolHandlers['size']({pct});
+    return;
+  } 
+  if(isMeta(e) && ['l','c','r'].includes(e.key.toLowerCase())){
+    e.preventDefault();
+    const m = e.key.toLowerCase()==='l'?'left':e.key.toLowerCase()==='c'?'center':'right';
+    toolHandlers['align']({mode:m});
+    return;
+  }
+});
+ 
+ed.addEventListener('keydown',(e)=>{
+  if(e.key==='Enter' || e.key==='Tab'){
+    e.preventDefault();
+    insertAtCaret('\\n');
+    syncSolid();
+  }
+});
+ 
+solidPicker.addEventListener('input', syncSolid);
+ed.addEventListener('input', syncSolid);
+ed.addEventListener('keyup', syncSolid);
+fontSel.addEventListener('change',()=>{ syncPreviewBaseFont(); renderAll(); });
+ 
+const randHex=()=>'#'+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0').toUpperCase();
+btnAddStop.addEventListener('click',()=>{ if(STOPS.length>=10){status('Max 10 stops.');return;} STOPS.push(randHex()); renderStops(); renderGradPreview(); renderAll(); });
+btnShuffle.addEventListener('click',()=>{ STOPS=STOPS.map(()=>randHex()); renderStops(); renderGradPreview(); renderAll(); });
  
 function boot(){
-  renderStops(); renderGradPreview(); buildIcons();
+  renderStops(); renderGradPreview(); buildIcons(); syncPreviewBaseFont(); 
+  cleanSlateToggle.checked = loadLS('cleanSlate', true);
+  applyWholeLine.checked = loadLS('applyWholeLine', false); 
   ed.value='♡Welcome to my lobby♡';
-  baseColor=normHex(solidPicker.value,true);
+  baseColor = normHex(solidPicker.value,true);
   userStyled=false;
-  prevContent.style.fontFamily = FONT_MAP[fontSel.value] || 'inherit';
   syncSolid();
-  updatePills();
 }
+cleanSlateToggle.addEventListener('change',()=>saveLS('cleanSlate',cleanSlateToggle.checked));
+applyWholeLine.addEventListener('change',()=>saveLS('applyWholeLine',applyWholeLine.checked));
+
 document.addEventListener('DOMContentLoaded', boot);
 </script>
 </body>
