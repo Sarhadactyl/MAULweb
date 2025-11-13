@@ -326,17 +326,17 @@ function syncSolid(){
 
   const textNorm = ed.value.replace(/\r?\n/g,'\\n');
 
-  if (!userStyled) {
-    markup = wrapTextWithBaseColor(textNorm, baseColor);
+  if (!userStyled) { 
+    markup = textNorm;
   } else {
     const map = buildIndexMap(markup);
     const plainLenMarkup = map.length ? map.length - 1 : 0;
     const plainLenEditor = plainLenText(textNorm);
 
-    if (plainLenEditor > plainLenMarkup) { 
+    if (plainLenEditor > plainLenMarkup) {
       const startIdx = indexOfPlainInText(textNorm, plainLenMarkup);
       const toAdd    = textNorm.slice(startIdx);
-      const insertAt = map[plainLenMarkup] ?? markup.length;  
+      const insertAt = map[plainLenMarkup] ?? markup.length;
       markup = markup.slice(0, insertAt) + toAdd + markup.slice(insertAt);
     } else if (plainLenEditor < plainLenMarkup) {
       const cut = map[plainLenEditor] ?? markup.length;
@@ -471,8 +471,14 @@ function buildPresetUI(){
 }
 presetApply.addEventListener('click',()=>{const n=presetSelect.value;if(!n)return;STOPS=PRESETS[n].map(c=>'#'+c.toUpperCase());renderStops();renderGradPreview();status(`Preset "${n}" loaded.`)});
 
-function boot(){renderStops();renderGradPreview();buildPresetUI();syncPreviewBaseFont();ed.value='♡Welcome to my lobby♡\\n';baseColor=normHex(solidPicker.value,true);userStyled=false;syncSolid()}
-document.addEventListener('DOMContentLoaded',boot);
+function boot(){
+  renderStops(); renderGradPreview(); buildPresetUI(); syncPreviewBaseFont();
+  prevContent.style.color = '#FFFFFF'; 
+  ed.value = '♡Welcome to my lobby♡\\n';
+  baseColor = normHex(solidPicker.value, true);
+  userStyled = false;
+  syncSolid();
+}
 </script>
 </body>
 </html>
