@@ -361,13 +361,21 @@ ed.addEventListener('keydown', (e) => {
     e.preventDefault();
     pushHistory();
     insertAtCaret('\\n');
+
     if (userStyled && cleanSlateToggle.checked) {
-      const { s } = getSel(); 
-      const caretPlain = plainLenText(ed.value.slice(0, s)); 
-      const map = buildIndexMap(markup);
-      const pos = map[caretPlain] ?? markup.length;      
-      const bridge = `</color>\n<color=${baseColor}>`;
-      markup = markup.slice(0, pos) + bridge + markup.slice(pos);
+      const { s } = getSel();
+      const caretPlain = plainLenText(ed.value.slice(0, s));
+      const map  = buildIndexMap(markup);
+      const pos  = map[caretPlain] ?? markup.length; 
+      const before    = markup.slice(0, pos);
+      const lastOpen  = before.lastIndexOf('<color=');
+      const lastClose = before.lastIndexOf('</color>');
+      const needsBridge = lastOpen > lastClose;
+
+      if (needsBridge) {
+        const bridge = `</color>\n<color=${baseColor}>`;
+        markup = markup.slice(0, pos) + bridge + markup.slice(pos);
+      }
       renderAll();
     } else {
       syncSolid();
