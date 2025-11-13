@@ -594,11 +594,23 @@
     const a=map[i0] ?? mark.length;
     const b=map[i1] ?? mark.length;
     return mark.slice(0,a)+repl+mark.slice(b);
-  } 
+  }
+
+  // Strip a single outer solid color wrapper that covers the whole markup
   function stripOuterSolidColor(){
     markup = markup
       .replace(/^<color=#[0-9A-Fa-f]{6}>/, '')
       .replace(/<\/color>$/, '');
+  }
+
+  // Collapse spammed size tags like <size=150%><size=150%>... and </size></size>...
+  function cleanupSizeSpam(){
+    markup = markup
+      .replace(/(?:<size=\d{1,3}%>)+/g, (m)=>{
+        const first = m.match(/<size=\d{1,3}%>/);
+        return first ? first[0] : m;
+      })
+      .replace(/(?:<\/size>)+/g, '</size>');
   }
 
   function buildSmoothGradient(str){
@@ -717,7 +729,7 @@
     });
     gradPrev.style.background=`linear-gradient(90deg, ${parts.join(', ')})`;
   }
- 
+
   function syncSolid(){
     const solid=normHex(solidPicker.value,true);
     const text=ed.value.replace(/\r?\n/g,'\\n');
@@ -727,7 +739,7 @@
     }
     renderAll();
   }
- 
+
   btnSolid.addEventListener('click', ()=>{
     requireSelection(btnSolid, ()=>{
       stripOuterSolidColor();
@@ -747,7 +759,7 @@
       statusEl.textContent='Solid color applied.'; flash(btnSolid);
     },'Select text to color.');
   });
- 
+
   btnGradient.addEventListener('click', ()=>{
     requireSelection(btnGradient, ()=>{
       stripOuterSolidColor();
@@ -778,11 +790,11 @@
         wrapSelection(`<align=${mode}>`,`</align>`);
         alignBtns.forEach(b=>b.classList.remove('active'));
         btn.classList.add('active');
+        userStyled = true;
         statusEl.textContent=`Alignment ${mode} applied.`;
       },'Select text to align.');
     });
   });
-
   btnApplySize.addEventListener('click', ()=>{
     let pct = clamp(parseInt(sizeInput.value||'110',10),50,300);
     sizeInput.value = pct;
@@ -797,6 +809,7 @@
         .replace(/<\/size>/g,'');
 
       markup = markup.slice(0,a) + `<size=${pct}%>` + inner + `</size>` + markup.slice(b);
+      cleanupSizeSpam();   
       userStyled = true;
       renderAll();
       statusEl.textContent = `Size ${pct}% applied.`; flash(btnApplySize);
