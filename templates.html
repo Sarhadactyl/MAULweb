@@ -762,14 +762,23 @@
     gradPrev.style.background=`linear-gradient(90deg, ${parts.join(', ')})`;
   }
 
-  function syncSolid(){
-    const solid=normHex(solidPicker.value,true);
-    const text=ed.value.replace(/\r?\n/g,'\\n');
-    if (!userStyled) {
-      markup = `<color=${solid}>${text}</color>`;
+    function syncSolid(){
+    const solid = normHex(solidPicker.value,true);
+    const text  = ed.value.replace(/\r?\n/g,'\\n');
+
+    if (!userStyled) { 
+        markup = `<color=${solid}>${text}</color>`;
+    } else { 
+        const plainFromMarkup = markup.replace(/<[^>]+>/g,'');  
+        if (text.length > plainFromMarkup.length &&
+            text.startsWith(plainFromMarkup)) { 
+        const extra = text.slice(plainFromMarkup.length);
+        markup += extra;
+        } 
     }
+
     renderAll();
-  }
+    }
 
   btnSolid.addEventListener('click', ()=>{
     requireSelection(btnSolid, ()=>{
