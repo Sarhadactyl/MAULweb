@@ -629,21 +629,24 @@
       .replace(/(?:<\/align>)+/g, '</align>');
   }
 
+  function cleanupBiuSpam(){
+    markup = markup
+      .replace(/(?:<b>)+/g,'<b>')
+      .replace(/(?:<\/b>)+/g,'</b>')
+      .replace(/(?:<i>)+/g,'<i>')
+      .replace(/(?:<\/i>)+/g,'</i>')
+      .replace(/(?:<u>)+/g,'<u>')
+      .replace(/(?:<\/u>)+/g,'</u>');
+  }
+
   function cleanupMarkup(){
     cleanupColorSpam();
     cleanupSizeSpam();
     cleanupFontSpam();
     cleanupAlignSpam();
+    cleanupBiuSpam();
   }
-    function cleanupBiuSpam(){
-    markup = markup
-        .replace(/(?:<b>)+/g, '<b>')
-        .replace(/(?:<\/b>)+/g, '</b>')
-        .replace(/(?:<i>)+/g, '<i>')
-        .replace(/(?:<\/i>)+/g, '</i>')
-        .replace(/(?:<u>)+/g, '<u>')
-        .replace(/(?:<\/u>)+/g, '</u>');
-    }
+
   function buildSmoothGradient(str){
     const stops=STOPS.length?STOPS:['#FFFFFF'];
     const text=String(str||'');
@@ -694,7 +697,7 @@
     out.textContent = markup;
     prev.innerHTML = toHTML(markup);
   }
- 
+
   function wrapSelection(open, close, stripRegexes){
     const {s,e}=getSel();
     if(e<=s) return;
@@ -769,30 +772,29 @@
     });
     gradPrev.style.background=`linear-gradient(90deg, ${parts.join(', ')})`;
   }
-
-    function syncSolid(){
+ 
+  function syncSolid(){
     const textNorm = ed.value.replace(/\r?\n/g,'\\n');
     const solid = normHex(solidPicker.value,true);
 
     if (!userStyled) { 
-        markup = `<color=${solid}>${textNorm}</color>`;
+      markup = `<color=${solid}>${textNorm}</color>`;
     } else { 
-        const map = buildIndexMap(markup);  
-        const plainLen = map.length ? map.length - 1 : 0;  
-        const targetLen = textNorm.length;
+      const map = buildIndexMap(markup);
+      const plainLen = map.length ? map.length - 1 : 0;
+      const targetLen = textNorm.length;
 
-        if (targetLen > plainLen) { 
+      if (targetLen > plainLen) {
         const extra = textNorm.slice(plainLen);
         markup += extra;
-        } else if (targetLen < plainLen) { 
-        const newMarkupEnd = map[targetLen] ?? markup.length;
-        markup = markup.slice(0, newMarkupEnd);
-        } 
+      } else if (targetLen < plainLen) {
+        const newEnd = map[targetLen] ?? markup.length;
+        markup = markup.slice(0,newEnd);
+      }
     }
 
-  renderAll();
-}
-
+    renderAll();
+  }
 
   btnSolid.addEventListener('click', ()=>{
     requireSelection(btnSolid, ()=>{
