@@ -378,6 +378,7 @@ let lastAction = null;
 let undoStack = [];
 let redoStack = [];
 const MAX_HIST = 50;
+let suppressNextSync = false;  
 
 function status(msg){ statusEl.textContent = msg; }
  
@@ -416,7 +417,7 @@ function getCurrentLineRange(){
 function buildIndexMap(mark){
   const map=[], len=mark.length;
   let iPlain=0, i=0;
-  while(i<len){
+  while(i<len){ 
     if(mark.startsWith('<color=',i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
     if(mark.startsWith('</color>',i)){ i+=8; continue; }
     if(mark.startsWith('<font="',i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
@@ -425,8 +426,9 @@ function buildIndexMap(mark){
     if(mark.startsWith('</size>',i)){ i+=7; continue; }
     if(mark.startsWith('<align=',i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
     if(mark.startsWith('</align>',i)){ i+=8; continue; }
-    if(mark.startsWith('<b>',i)||mark.startsWith('<i>',i)||mark.startsWith('<u>',i)){ i+=3; continue; }
-    if(mark.startsWith('</b>',i)||mark.startsWith('</i>',i)||mark.startsWith('</u>',i)){ i+=4; continue; }
+    if(mark.startsWith('<b>',i) || mark.startsWith('<i>',i) || mark.startsWith('<u>',i)){ i+=3; continue; }
+    if(mark.startsWith('</b>',i)|| mark.startsWith('</i>',i)|| mark.startsWith('</u>',i)){ i+=4; continue; } 
+    if (mark[i] === '\\' && mark[i+1] === 'n') { i += 2; continue; } 
     map[iPlain++] = i;
     i++;
   }
@@ -476,7 +478,7 @@ function wrapTextWithBaseColor(text, hex){
   parts.forEach((p,i)=>{
     chunks.push(`<color=${hex}>${p}</color>`);
     if(i<parts.length-1){ 
-      chunks.push('\n');
+      chunks.push('\\n');
     }
   });
   return chunks.join('');
@@ -550,26 +552,26 @@ function requireSelection(btn,onOK,msg){
 }
 function setLastAction(fn,args){ lastAction={fn,args}; }
 function repeatLast(){ if(!lastAction) return; const {fn,args}=lastAction; toolHandlers[fn]?.(args,true); }
+ 
+function toggleTag(tag, silent){
+  const {s,e}=getSel();
+  if(!requireSelection(null,()=>{},'')) return;
+  const map=buildIndexMap(markup);
+  const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+  let mseg=markup.slice(a,b);
+  const open=`<${tag}>`, close=`</${tag}>`;
+  mseg=mseg.replace(new RegExp(`(?:<${tag}>)+`,'g'),open).replace(new RegExp(`(?:</${tag}>)+`,'g'),close);
+  const isWrapped=mseg.startsWith(open)&&mseg.endsWith(close)&&mseg.replace(new RegExp(`^<${tag}>|</${tag}>$`,'g'),'').indexOf(open)===-1;
+  mseg = isWrapped ? mseg.replace(new RegExp(`^<${tag}>`), '').replace(new RegExp(`</${tag}>$`),'')
+                   : open+mseg+close;
+  markup=markup.slice(0,a)+mseg+markup.slice(b);
+  userStyled=true; renderAll(); if(!silent) status(`<${tag}> ${isWrapped?'removed':'applied'}.`);
+}
 
 const toolHandlers={
-  'b':(_,silent)=>{
-    const tag='b'; const {s,e}=getSel();
-    if(!requireSelection(null,()=>{},'')) return;
-    let seg = ed.value.slice(s,e).replace(/\r?\n/g,'\\n'); 
-    const map=buildIndexMap(markup);
-    const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
-    let mseg=markup.slice(a,b);
-    const open=`<${tag}>`, close=`</${tag}>`;
-    mseg=mseg.replace(new RegExp(`(?:<${tag}>)+`,'g'),open).replace(new RegExp(`(?:</${tag}>)+`,'g'),close);
-    const isWrapped=mseg.startsWith(open)&&mseg.endsWith(close)&&mseg.replace(new RegExp(`^<${tag}>|</${tag}>$`,'g'),'').indexOf(open)===-1;
-    mseg = isWrapped ? mseg.replace(new RegExp(`^<${tag}>`), '').replace(new RegExp(`</${tag}>$`),'')
-                     : open+mseg+close;
-    markup=markup.slice(0,a)+mseg+markup.slice(b);
-    userStyled=true; renderAll(); if(!silent) status(`<${tag}> ${isWrapped?'removed':'applied'}.`);
-    setLastAction('b');
-  },
-  'i':(_,silent)=>{ toolHandlers['b'](_,silent); },  
-  'u':(_,silent)=>{ toolHandlers['b'](_,silent); },
+  'b':(_,silent)=>{ toggleTag('b', silent); setLastAction('b'); },
+  'i':(_,silent)=>{ toggleTag('i', silent); setLastAction('i'); },
+  'u':(_,silent)=>{ toggleTag('u', silent); setLastAction('u'); },
   'solid':(_,silent)=>{
     const hex=normHex(solidPicker.value,true);
     requireSelection(btnSolid, ()=>{
@@ -631,9 +633,7 @@ const toolHandlers={
 document.querySelectorAll('[data-tag]').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const tag=btn.getAttribute('data-tag');
-    if(tag==='b') toolHandlers['b']();
-    if(tag==='i') toolHandlers['b']();
-    if(tag==='u') toolHandlers['b']();
+    toolHandlers[tag]?.();
   });
 });
  
@@ -651,7 +651,6 @@ btnEye.addEventListener('click',()=>solidPicker.showPicker?.());
 btnResetLine.addEventListener('click',()=>{
   const r=getCurrentLineRange(); if(r.a===r.b) return;
   pushHistory(); 
-  const raw=ed.value.slice(r.a,r.b).replace(/\r?\n/g,'\\n');
   const map=buildIndexMap(markup);
   const a=map[r.a] ?? markup.length, b=map[r.b] ?? markup.length;
   let seg=markup.slice(a,b);
@@ -755,9 +754,7 @@ document.addEventListener('keydown',(e)=>{
   } 
   if(isMeta(e) && ['b','i','u'].includes(e.key.toLowerCase())){
     e.preventDefault();
-    if(e.key.toLowerCase()==='b') toolHandlers['b']();
-    if(e.key.toLowerCase()==='i') toolHandlers['b']();
-    if(e.key.toLowerCase()==='u') toolHandlers['b']();
+    toolHandlers[e.key.toLowerCase()]?.();
     return;
   } 
   if(isMeta(e) && (e.key==='=' || e.key==='+' || e.key==='-')){
@@ -778,16 +775,17 @@ document.addEventListener('keydown',(e)=>{
 ed.addEventListener('keydown', (e)=>{
   if (e.key === 'Enter' || e.key === 'Tab') {
     e.preventDefault(); 
-    const { s, e:ee } = getSel();
     insertAtCaret('\\n');
 
     if (userStyled && cleanSlateToggle.checked) { 
-      pushHistory();
+      pushHistory?.();  
+      const { s } = getSel();
       const map = buildIndexMap(markup);
       const pos = map[s] ?? markup.length;
       const bridge = `</color>\n<color=${baseColor}>`;
       markup = markup.slice(0, pos) + bridge + markup.slice(pos);
-      renderAll();
+      renderAll(); 
+      suppressNextSync = true;  
     } else { 
       syncSolid();
     }
@@ -796,7 +794,10 @@ ed.addEventListener('keydown', (e)=>{
  
 solidPicker.addEventListener('input', syncSolid);
 ed.addEventListener('input', syncSolid);
-ed.addEventListener('keyup', syncSolid);
+ed.addEventListener('keyup', (e)=>{   
+  if (suppressNextSync){ suppressNextSync=false; return; }
+  syncSolid();
+});
 fontSel.addEventListener('change',()=>{ syncPreviewBaseFont(); renderAll(); });
  
 const randHex=()=>'#'+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0').toUpperCase();
