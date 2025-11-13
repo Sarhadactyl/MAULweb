@@ -286,8 +286,13 @@ function redo(){if(!redoStack.length)return;undoStack.push({markup,userStyled});
 
 function getSel(){return{s:ed.selectionStart|0,e:ed.selectionEnd|0}}
 function hasSelection(){const {s,e}=getSel();return e>s}
-function getCurrentLineRange(){const t=ed.value,{s,e}=getSel();const b=t.lastIndexOf('\n',s-1);const a2=b<0?0:b+1;const a=t.indexOf('\n',e);return{a:a2,b:a<0?t.length:a}}
-
+function getCurrentLineRange(){
+  const t = ed.value, { s, e } = getSel();
+  const b  = t.lastIndexOf('\\n', s - 1); 
+  const a2 = b < 0 ? 0 : b + 2;    
+  const a  = t.indexOf('\\n', e);
+  return { a: a2, b: a < 0 ? t.length : a };
+}
 function buildIndexMap(mark){const map=[],len=mark.length;let iPlain=0,i=0;while(i<len){if(mark.startsWith('<color=',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}if(mark.startsWith('</color>',i)){i+=8;continue}if(mark.startsWith('<font="',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}if(mark.startsWith('</font>',i)){i+=7;continue}if(mark.startsWith('<size=',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}if(mark.startsWith('</size>',i)){i+=7;continue}if(mark.startsWith('<align=',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}if(mark.startsWith('</align>',i)){i+=8;continue}if(mark.startsWith('<b>',i)||mark.startsWith('<i>',i)||mark.startsWith('<u>',i)){i+=3;continue}if(mark.startsWith('</b>',i)||mark.startsWith('</i>',i)||mark.startsWith('</u>',i)){i+=4;continue}if(mark[i]==='\\'&&mark[i+1]==='n'){i+=2;continue}if(mark[i]==='{'&&mark[i+1]==='{'){const k=mark.indexOf('}}',i+2);if(k!==-1){i=k+2;continue}}map[iPlain++]=i;i++}map[iPlain]=i;return map}
 
 function plainLenText(text){let i=0,plain=0;while(i<text.length){if(text[i]==='\\'&&text[i+1]==='n'){i+=2;continue}if(text[i]==='{'&&text[i+1]==='{'){const k=text.indexOf('}}',i+2);if(k!==-1){i=k+2;continue}}plain++;i++}return plain}
@@ -331,7 +336,7 @@ const toolHandlers={
    const hex=normHex(solidPicker.value,true);
    requireSelection(btnSolid,()=>{
      const {s,e}=getSel();const map=buildIndexMap(markup);let a=map[s]??markup.length,b=map[e]??markup.length;
-     // PATCH: include left-adjacent opener so first chars aren't left under it
+
      const pre=markup.slice(0,a);const m=pre.match(/<color=#[0-9A-Fa-f]{6}>$/);if(m)a-=m[0].length;
      let seg=markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');
      markup=markup.slice(0,a)+`<color=${hex}>`+seg+`</color>`+markup.slice(b);
@@ -367,7 +372,7 @@ btnEye.addEventListener('click',()=>solidPicker.showPicker?.());
 btnAddStop.addEventListener('click',()=>{STOPS.push(randHex());renderStops();renderGradPreview();});
 btnShuffle.addEventListener('click',()=>{STOPS.sort(()=>Math.random()-.5);renderStops();renderGradPreview();});
 document.getElementById('stops-reverse').addEventListener('click',()=>{STOPS.reverse();renderStops();renderGradPreview();});
-document.getElementById('stops-distribute').addEventListener('click',()=>{renderGradPreview();}); // preview already distributes
+document.getElementById('stops-distribute').addEventListener('click',()=>{renderGradPreview();});  
 
 btnResetLine.addEventListener('click',()=>{const r=getCurrentLineRange();if(r.a===r.b)return;pushHistory();const map=buildIndexMap(markup);const a=map[r.a]??markup.length,b=map[r.b]??markup.length;let seg=markup.slice(a,b);seg=seg.replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'').replace(/<size=\d{1,3}%>/g,'').replace(/<\/size>/g,'').replace(/<font="[^"]+">/g,'').replace(/<\/font>/g,'').replace(/<align=(left|center|right)>/g,'').replace(/<\/align>/g,'').replace(/<b>|<\/b>|<i>|<\/i>|<u>|<\/u>/g,'');markup=markup.slice(0,a)+seg+markup.slice(b);userStyled=true;renderAll();status('Line reset.')});
 
@@ -547,7 +552,7 @@ presetApply.addEventListener('click',()=>{const n=presetSelect.value;if(!n)retur
 function boot(){
   renderStops(); renderGradPreview(); buildPresetUI(); syncPreviewBaseFont();
   prevContent.style.color = '#FFFFFF';
-  ed.value = '♡Welcome to my lobby♡\n';
+  ed.value = '♡Welcome to my lobby♡\\n';
   baseColor = normHex(solidPicker.value, true);
   userStyled = false;
   syncSolid();
