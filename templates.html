@@ -375,7 +375,6 @@
           <button class="btn" id="lte-apply-solid">Apply</button>
         </div>
 
-        
         <div class="field">
           <label>Auto</label>
           <select id="auto-token" title="Insert common placeholders">
@@ -501,7 +500,6 @@
     });
   };
 
-  
   const ed = document.getElementById('lte-editor');
   const out = document.getElementById('lte-output');
   const prev = document.getElementById('lte-preview');
@@ -547,13 +545,9 @@
   };
 
   function getSel(){
-    return {
-      s: ed.selectionStart|0,
-      e: ed.selectionEnd|0
-    };
+    return { s: ed.selectionStart|0, e: ed.selectionEnd|0 };
   }
 
-  
   const hasSelection = ()=> {
     const {s,e} = getSel();
     return e > s;
@@ -575,7 +569,6 @@
       .replace(/</g,'&lt;')
       .replace(/>/g,'&gt;');
 
-      
     html = html.replace(/&lt;font="([^"]+)"&gt;/g,
       (_,name)=>{
         const key = name.replace(/\s+/g,' ').trim();
@@ -610,27 +603,19 @@
     let iPlain=0, i=0;
     while(i<mark.length){
       if(mark.startsWith('<color=', i)){
-        const k=mark.indexOf('>',i);
-        if(k===-1) break;
-        i=k+1; continue;
+        const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue;
       }
       if(mark.startsWith('</color>', i)){ i+=8; continue; }
       if(mark.startsWith('<font="', i)){
-        const k=mark.indexOf('>',i);
-        if(k===-1) break;
-        i=k+1; continue;
+        const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue;
       }
       if(mark.startsWith('</font>', i)){ i+=7; continue; }
       if(mark.startsWith('<size=', i)){
-        const k=mark.indexOf('>',i);
-        if(k===-1) break;
-        i=k+1; continue;
+        const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue;
       }
       if(mark.startsWith('</size>', i)){ i+=7; continue; }
       if(mark.startsWith('<align=', i)){
-        const k=mark.indexOf('>',i);
-        if(k===-1) break;
-        i=k+1; continue;
+        const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue;
       }
       if(mark.startsWith('</align>', i)){ i+=8; continue; }
       if(mark.startsWith('<b>', i) || mark.startsWith('<i>', i) || mark.startsWith('<u>', i)){
@@ -688,10 +673,7 @@
     while (i < text.length) {
       if (text[i] === '<') {
         const k = text.indexOf('>', i);
-        if (k === -1) {
-          out.push(text[i++]);
-          continue;
-        }
+        if (k === -1) { out.push(text[i++]); continue; }
         out.push(text.slice(i, k+1));
         i = k+1;
         continue;
@@ -715,7 +697,6 @@
     ed.selectionStart = ed.selectionEnd = pos;
   }
 
-  
   function ensureFontWrap(){
     const f = fontSel.value;
     if(!markup){
@@ -730,10 +711,41 @@
     } else {
       markup = `<font="${f}">${markup}</font>`;
     }
+  } 
+  function dedupeFonts(src){
+    let i = 0, outStr = '';
+    const stack = [];
+    while (i < src.length){
+      if (src.startsWith('<font="', i)){
+        const end = src.indexOf('">', i);
+        if (end === -1){
+          outStr += src[i++];
+          continue;
+        }
+        const name = src.slice(i+7, end);  
+        const top = stack[stack.length-1];
+        const skip = top && top.name === name;
+        stack.push({name, skip});
+        if (!skip){
+          outStr += src.slice(i, end+2);
+        }
+        i = end+2;
+      } else if (src.startsWith('</font>', i)){
+        const frame = stack.pop() || {skip:false};
+        if (!frame.skip){
+          outStr += '</font>';
+        }
+        i += 7;
+      } else {
+        outStr += src[i++];
+      }
+    }
+    return outStr;
   }
 
   function renderAll(){
     ensureFontWrap();
+    markup = dedupeFonts(markup);   
     out.textContent = markup;
     prev.innerHTML = toHTML(markup);
   }
@@ -845,7 +857,6 @@
     renderAll();
   }
 
-  
   btnSolid.addEventListener('click', ()=>{
     requireSelection(btnSolid, ()=>{
       const {s,e}=getSel();
@@ -859,7 +870,6 @@
     }, 'Select text to color.');
   });
 
-  
   btnGradient.addEventListener('click', ()=>{
     requireSelection(btnGradient, ()=>{
       const {s,e}=getSel();
@@ -873,7 +883,6 @@
     }, 'Select text for gradient.');
   });
 
-  
   const alignBtns = [
     document.getElementById('al-left'),
     document.getElementById('al-center'),
@@ -892,7 +901,6 @@
     });
   });
 
-  
   btnApplySize.addEventListener('click', ()=>{
     let pct = clamp(parseInt(sizeInput.value||'110',10),50,300);
     sizeInput.value = pct;
@@ -903,7 +911,6 @@
     }, 'Select text to resize.');
   });
 
-  
   document.querySelectorAll('[data-tag]').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       const tag = btn.getAttribute('data-tag');
@@ -914,7 +921,6 @@
     });
   });
 
-  
   btnFontWrap.addEventListener('click', ()=>{
     const f = fontSel.value;
     requireSelection(btnFontWrap, ()=>{
@@ -934,7 +940,6 @@
     }, 'Select text to apply font.');
   });
 
-  
   autoBtn.addEventListener('click', ()=>{
     insertAtCaret(autoSel.value);
     syncSolid();
@@ -942,7 +947,6 @@
     flash(autoBtn);
   });
 
-  
   const randHex = () =>
     '#' + Math.floor(Math.random()*0xFFFFFF)
       .toString(16)
@@ -972,7 +976,6 @@
     flash(btnShuffle);
   });
 
-  
   fontSel.addEventListener('change', renderAll);
   solidPicker.addEventListener('input', syncSolid);
   ed.addEventListener('input', syncSolid);
