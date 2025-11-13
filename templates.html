@@ -513,7 +513,7 @@
 
   let STOPS = ['#B625F1','#2970F8','#00CFFF','#31D0AA'];
   let markup = '';
-  let userStyled = false;
+  let userStyled = false;  
 
   const flash = (el)=>{
     el.classList.add('active');
@@ -711,10 +711,8 @@
       return `${hex} ${pct}%`;
     });
     gradPrev.style.background=`linear-gradient(90deg, ${parts.join(', ')})`;
-  }
-
+  } 
   function syncSolid(){
-    if(userStyled){ renderAll(); return; }
     const solid=normHex(solidPicker.value,true);
     const text=ed.value.replace(/\r?\n/g,'\\n');
     markup = `<color=${solid}>${text}</color>`;
@@ -730,7 +728,8 @@
       userStyled=true; renderAll();
       statusEl.textContent='Solid color applied.'; flash(btnSolid);
     },'Select text to color.');
-  }); 
+  });
+ 
   btnGradient.addEventListener('click', ()=>{
     requireSelection(btnGradient, ()=>{
       const {s,e}=getSel();
@@ -754,8 +753,7 @@
         statusEl.textContent=`Alignment ${mode} applied.`;
       },'Select text to align.');
     });
-  });
- 
+  }); 
   btnApplySize.addEventListener('click', ()=>{
     let pct = clamp(parseInt(sizeInput.value||'110',10),50,300);
     sizeInput.value = pct;
@@ -783,8 +781,7 @@
         statusEl.textContent=`<${tag}> applied.`;
       },`Select text to apply <${tag}>.`);
     });
-  });
- 
+  }); 
   btnFontWrap.addEventListener('click', ()=>{
     const f=fontSel.value;
     requireSelection(btnFontWrap, ()=>{
@@ -799,8 +796,7 @@
       userStyled=true; renderAll();
       statusEl.textContent=`Font "${f}" applied to selection.`; flash(btnFontWrap);
     },'Select text to apply font.');
-  });
- 
+  }); 
   autoBtn.addEventListener('click', ()=>{
     insertAtCaret(autoSel.value);
     syncSolid();
@@ -822,7 +818,7 @@
     renderStops(); renderGradPreview(); renderAll();
     statusEl.textContent='Stops randomized.'; flash(btnShuffle);
   });
- 
+
   function syncPreviewBaseFont(){
     const key=fontSel.value;
     prev.style.fontFamily = FONT_MAP[key] || 'inherit';
