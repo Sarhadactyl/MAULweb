@@ -321,15 +321,27 @@ btnEye.addEventListener('click',()=>solidPicker.showPicker?.());
 btnResetLine.addEventListener('click',()=>{const r=getCurrentLineRange();if(r.a===r.b)return;pushHistory();const map=buildIndexMap(markup);const a=map[r.a]??markup.length,b=map[r.b]??markup.length;let seg=markup.slice(a,b);seg=seg.replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'').replace(/<size=\d{1,3}%>/g,'').replace(/<\/size>/g,'').replace(/<font="[^"]+">/g,'').replace(/<\/font>/g,'').replace(/<align=(left|center|right)>/g,'').replace(/<\/align>/g,'').replace(/<b>|<\/b>|<i>|<\/i>|<u>|<\/u>/g,'');markup=markup.slice(0,a)+seg+markup.slice(b);userStyled=true;renderAll();status('Line reset.')});
 
 function syncSolid(){
-  baseColor=normHex(solidPicker.value,true);saveLS('baseColor',baseColor);
-  const textNorm=ed.value.replace(/\r?\n/g,'\\n');
-  if(!userStyled){markup=wrapTextWithBaseColor(textNorm,baseColor)}
-  else{
-    const map=buildIndexMap(markup);
-    const plainLenMarkup=map.length?map.length-1:0;
-    const plainLenEditor=plainLenText(textNorm);
-    if(plainLenEditor>plainLenMarkup){const startIdx=indexOfPlainInText(textNorm,plainLenMarkup);const toAdd=textNorm.slice(startIdx);markup+=toAdd}
-    else if(plainLenEditor<plainLenMarkup){const cut=map[plainLenEditor]??markup.length;markup=markup.slice(0,cut)}
+  baseColor = normHex(solidPicker.value, true);
+  saveLS('baseColor', baseColor);
+
+  const textNorm = ed.value.replace(/\r?\n/g,'\\n');
+
+  if (!userStyled) {
+    markup = wrapTextWithBaseColor(textNorm, baseColor);
+  } else {
+    const map = buildIndexMap(markup);
+    const plainLenMarkup = map.length ? map.length - 1 : 0;
+    const plainLenEditor = plainLenText(textNorm);
+
+    if (plainLenEditor > plainLenMarkup) { 
+      const startIdx = indexOfPlainInText(textNorm, plainLenMarkup);
+      const toAdd    = textNorm.slice(startIdx);
+      const insertAt = map[plainLenMarkup] ?? markup.length;  
+      markup = markup.slice(0, insertAt) + toAdd + markup.slice(insertAt);
+    } else if (plainLenEditor < plainLenMarkup) {
+      const cut = map[plainLenEditor] ?? markup.length;
+      markup = markup.slice(0, cut);
+    }
   }
   renderAll();
 }
