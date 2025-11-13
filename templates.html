@@ -666,18 +666,30 @@ btnResetLine.addEventListener('click',()=>{
 });
  
 function syncSolid(){
-  baseColor=normHex(solidPicker.value,true);
-  saveLS('baseColor',baseColor);
+  baseColor = normHex(solidPicker.value,true);
+  saveLS('baseColor', baseColor);
 
-  const textNorm=ed.value.replace(/\r?\n/g,'\\n');
-  if(!userStyled){ 
-    if(cleanSlateToggle.checked){
+  const textNorm = ed.value.replace(/\r?\n/g,'\\n');
+
+  if (!userStyled) { 
+    if (cleanSlateToggle.checked) {
       markup = wrapTextWithBaseColor(textNorm, baseColor);
-    }else{
+    } else {
       markup = `<color=${baseColor}>${textNorm}</color>`;
     }
-  }else{  
+  } else { 
+    const map = buildIndexMap(markup);
+    const plainLen = map.length ? map.length - 1 : 0;
+    const targetLen = textNorm.length;
+
+    if (targetLen > plainLen) { 
+      markup += textNorm.slice(plainLen);
+    } else if (targetLen < plainLen) { 
+      const cut = map[targetLen] ?? markup.length;
+      markup = markup.slice(0, cut);
+    }
   }
+
   renderAll();
 }
  
@@ -763,11 +775,22 @@ document.addEventListener('keydown',(e)=>{
   }
 });
  
-ed.addEventListener('keydown',(e)=>{
-  if(e.key==='Enter' || e.key==='Tab'){
-    e.preventDefault();
+ed.addEventListener('keydown', (e)=>{
+  if (e.key === 'Enter' || e.key === 'Tab') {
+    e.preventDefault(); 
+    const { s, e:ee } = getSel();
     insertAtCaret('\\n');
-    syncSolid();
+
+    if (userStyled && cleanSlateToggle.checked) { 
+      pushHistory();
+      const map = buildIndexMap(markup);
+      const pos = map[s] ?? markup.length;
+      const bridge = `</color>\n<color=${baseColor}>`;
+      markup = markup.slice(0, pos) + bridge + markup.slice(pos);
+      renderAll();
+    } else { 
+      syncSolid();
+    }
   }
 });
  
