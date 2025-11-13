@@ -272,19 +272,13 @@
 
 <script> 
 const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
-const normHex=(s,withHash=true)=>{
-  s=(s||'').trim(); if(!s) return withHash?'#FFFFFF':'FFFFFF';
-  s=s.replace(/^#/,'').replace(/[^0-9a-fA-F]/g,'').slice(0,6);
-  if(s.length===3) s=s.split('').map(c=>c+c).join('');
-  if(s.length<6) s=(s+'FFFFFF').slice(0,6);
-  return (withHash?'#':'')+s.toUpperCase();
-};
+const normHex=(s,withHash=true)=>{s=(s||'').trim();if(!s)return withHash?'#FFFFFF':'FFFFFF';s=s.replace(/^#/,'').replace(/[^0-9a-fA-F]/g,'').slice(0,6);if(s.length===3)s=s.split('').map(c=>c+c).join('');if(s.length<6)s=(s+'FFFFFF').slice(0,6);return (withHash?'#':'')+s.toUpperCase()};
 const hexToRgb=h=>{h=normHex(h,true).slice(1);return{r:parseInt(h.slice(0,2),16),g:parseInt(h.slice(2,4),16),b:parseInt(h.slice(4,6),16)}};
 const rgbToHex=({r,g,b})=>'#'+[r,g,b].map(x=>Math.max(0,Math.min(255,x|0)).toString(16).padStart(2,'0')).join('').toUpperCase();
 const lerp=(a,b,t)=>a+(b-a)*t;
 const lerpColor=(h1,h2,t)=>{const c1=hexToRgb(h1),c2=hexToRgb(h2);return rgbToHex({r:lerp(c1.r,c2.r,t),g:lerp(c1.g,c2.g,t),b:lerp(c1.b,c2.b,t)})};
 const saveLS=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
-const loadLS=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch{ return d; }};
+const loadLS=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch{return d;}};
 
 const FONT_MAP={
   'BROOK SDF':'"Barlow","Rajdhani",sans-serif',
@@ -302,57 +296,53 @@ const FONT_MAP={
 };
 
 function copyToClipboard(text){
-  if(navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+  if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(text);
   const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.left='-9999px';
   document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}finally{document.body.removeChild(ta);}
   return Promise.resolve();
-}
- 
-const ed = document.getElementById('lte-editor');
-const out = document.getElementById('lte-output');
-const prevContent = document.getElementById('lte-preview-content');
-const fontSel = document.getElementById('lte-font');
-const statusEl = document.getElementById('lte-status');
-const solidPicker = document.getElementById('lte-solid');
-const btnSolid = document.getElementById('lte-apply-solid');
-const btnGradient = document.getElementById('lte-apply-gradient');
-const sizeInput = document.getElementById('size-pct');
-const btnApplySize = document.getElementById('btn-apply-size');
-const btnFontWrap = document.getElementById('btn-font-wrap');
-const stopsWrap = document.getElementById('lte-stops');
-const btnAddStop = document.getElementById('lte-add-stop');
-const btnShuffle = document.getElementById('lte-shuffle-stops');
-const gradPrev = document.getElementById('lte-grad-preview');
-const btnCopy = document.getElementById('lte-copy');
-const btnDL = document.getElementById('lte-download');
-const autoSel = document.getElementById('auto-token');
-const autoBtn = document.getElementById('auto-insert');
-const applyWholeLine = document.getElementById('apply-line');
-const btnResetLine = document.getElementById('btn-reset-line');
-const cleanSlateToggle = document.getElementById('clean-slate');
-const btnUndo = document.getElementById('btn-undo');
-const btnRedo = document.getElementById('btn-redo');
-const btnRepeat = document.getElementById('btn-repeat');
-const btnEye = document.getElementById('btn-eyedrop'); 
-const presetSunset = document.getElementById('preset-sunset');
-const presetOcean  = document.getElementById('preset-ocean');
-const presetCandy  = document.getElementById('preset-candy');
-const stopsReverse = document.getElementById('stops-reverse');
-const stopsDistribute = document.getElementById('stops-distribute'); 
-const styleButtons = {
-  save:[document.getElementById('style-save-1'),document.getElementById('style-save-2'),document.getElementById('style-save-3')],
-  apply:[document.getElementById('style-apply-1'),document.getElementById('style-apply-2'),document.getElementById('style-apply-3')]
-}; 
-const exportAreas = {
-  welcome: document.getElementById('export-welcome'),
-  onmeeting: document.getElementById('export-onmeeting'),
-  rules: document.getElementById('export-rules'),
-  vip: document.getElementById('export-vip')
+} 
+const ed=document.getElementById('lte-editor');
+const out=document.getElementById('lte-output');
+const prevContent=document.getElementById('lte-preview-content');
+const fontSel=document.getElementById('lte-font');
+const statusEl=document.getElementById('lte-status');
+const solidPicker=document.getElementById('lte-solid');
+const btnSolid=document.getElementById('lte-apply-solid');
+const btnGradient=document.getElementById('lte-apply-gradient');
+const sizeInput=document.getElementById('size-pct');
+const btnApplySize=document.getElementById('btn-apply-size');
+const btnFontWrap=document.getElementById('btn-font-wrap');
+const stopsWrap=document.getElementById('lte-stops');
+const btnAddStop=document.getElementById('lte-add-stop');
+const btnShuffle=document.getElementById('lte-shuffle-stops');
+const gradPrev=document.getElementById('lte-grad-preview');
+const btnCopy=document.getElementById('lte-copy');
+const btnDL=document.getElementById('lte-download');
+const autoSel=document.getElementById('auto-token');
+const autoBtn=document.getElementById('auto-insert');
+const applyWholeLine=document.getElementById('apply-line');
+const btnResetLine=document.getElementById('btn-reset-line');
+const cleanSlateToggle=document.getElementById('clean-slate');
+const btnUndo=document.getElementById('btn-undo');
+const btnRedo=document.getElementById('btn-redo');
+const btnRepeat=document.getElementById('btn-repeat');
+const btnEye=document.getElementById('btn-eyedrop');
+const presetSunset=document.getElementById('preset-sunset');
+const presetOcean=document.getElementById('preset-ocean');
+const presetCandy=document.getElementById('preset-candy');
+const stopsReverse=document.getElementById('stops-reverse');
+const stopsDistribute=document.getElementById('stops-distribute');
+const exportAreas={
+  welcome:document.getElementById('export-welcome'),
+  onmeeting:document.getElementById('export-onmeeting'),
+  rules:document.getElementById('export-rules'),
+  vip:document.getElementById('export-vip')
 };
+
 document.querySelectorAll('[data-export-set]').forEach(b=>{
   b.addEventListener('click',()=>{
     const k=b.getAttribute('data-export-set');
-    exportAreas[k].value = markup;
+    exportAreas[k].value=markup;
     status(`Captured into "${k}".`);
   });
 });
@@ -362,89 +352,54 @@ document.getElementById('btn-export-download').addEventListener('click',()=>{
     const body=(ta.value||'').trim();
     if(body) parts.push(`${name}:${body}`);
   }
-  if(!parts.length){ status('Nothing to export.'); return; }
+  if(!parts.length){status('Nothing to export.');return;}
   const blob=new Blob([parts.join('\n')],{type:'text/plain;charset=utf-8'});
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a');a.href=url;a.download='named.txt';
   document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
   status('Downloaded named.txt');
-});
- 
-let STOPS = loadLS('stops',['#B625F1','#2970F8','#00CFFF','#31D0AA']);
-let markup = '';
-let userStyled = false;
-let baseColor = normHex(loadLS('baseColor','#FF4D6D'),true);
-let lastAction = null;  
-let undoStack = [];
-let redoStack = [];
-const MAX_HIST = 50;
-let suppressNextSync = false;  
+}); 
+let STOPS=loadLS('stops',['#B625F1','#2970F8','#00CFFF','#31D0AA']);
+let markup='';
+let userStyled=false;
+let baseColor=normHex(loadLS('baseColor','#FF4D6D'),true);
+let lastAction=null;
+let undoStack=[],redoStack=[];
+const MAX_HIST=50;
+let suppressNextSync=false; 
 
-function status(msg){ statusEl.textContent = msg; }
- 
-function pushHistory(){
-  undoStack.push({markup, userStyled});
-  if(undoStack.length>MAX_HIST) undoStack.shift();
-  redoStack.length=0;
-}
-function undo(){
-  if(!undoStack.length) return;
-  const cur={markup,userStyled};
-  redoStack.push(cur);
-  const prev=undoStack.pop();
-  markup=prev.markup; userStyled=prev.userStyled;
-  renderAll();
-}
-function redo(){
-  if(!redoStack.length) return;
-  undoStack.push({markup,userStyled});
-  const nxt=redoStack.pop();
-  markup=nxt.markup; userStyled=nxt.userStyled;
-  renderAll();
-}
- 
-function getSel(){ return { s: ed.selectionStart|0, e: ed.selectionEnd|0 }; }
-function hasSelection(){ const {s,e}=getSel(); return e>s; }
+function status(msg){statusEl.textContent=msg;} 
+function getSel(){return{s:ed.selectionStart|0,e:ed.selectionEnd|0}}
+function hasSelection(){const {s,e}=getSel();return e>s}
 function getCurrentLineRange(){
-  const t=ed.value, {s,e}=getSel();
-  const before=t.lastIndexOf('\\n', s-1);
-  const after=t.indexOf('\\n', e);
-  const a = before<0?0:before+2;  
-  const b = after<0?t.length:after;
-  return {a,b};
+  const t=ed.value,{s,e}=getSel();
+  const before=t.lastIndexOf('\\n',s-1);
+  const after=t.indexOf('\\n',e);
+  const a=before<0?0:before+2;  
+  const b=after<0?t.length:after;
+  return{a,b};
 }
- 
 function buildIndexMap(mark){
-  const map=[], len=mark.length;
-  let iPlain=0, i=0;
-  while(i<len){ 
-    if(mark.startsWith('<color=',i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
-    if(mark.startsWith('</color>',i)){ i+=8; continue; }
-    if(mark.startsWith('<font="',i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
-    if(mark.startsWith('</font>',i)){ i+=7; continue; }
-    if(mark.startsWith('<size=',i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
-    if(mark.startsWith('</size>',i)){ i+=7; continue; }
-    if(mark.startsWith('<align=',i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
-    if(mark.startsWith('</align>',i)){ i+=8; continue; }
-    if(mark.startsWith('<b>',i) || mark.startsWith('<i>',i) || mark.startsWith('<u>',i)){ i+=3; continue; }
-    if(mark.startsWith('</b>',i)|| mark.startsWith('</i>',i)|| mark.startsWith('</u>',i)){ i+=4; continue; } 
-    if (mark[i] === '\\' && mark[i+1] === 'n') { i += 2; continue; } 
-    map[iPlain++] = i;
-    i++;
+  const map=[],len=mark.length;let iPlain=0,i=0;
+  while(i<len){
+    if(mark.startsWith('<color=',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue;}
+    if(mark.startsWith('</color>',i)){i+=8;continue;}
+    if(mark.startsWith('<font="',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue;}
+    if(mark.startsWith('</font>',i)){i+=7;continue;}
+    if(mark.startsWith('<size=',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue;}
+    if(mark.startsWith('</size>',i)){i+=7;continue;}
+    if(mark.startsWith('<align=',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue;}
+    if(mark.startsWith('</align>',i)){i+=8;continue;}
+    if(mark.startsWith('<b>',i)||mark.startsWith('<i>',i)||mark.startsWith('<u>',i)){i+=3;continue;}
+    if(mark.startsWith('</b>',i)||mark.startsWith('</i>',i)||mark.startsWith('</u>',i)){i+=4;continue;}
+    if(mark[i]==='\\'&&mark[i+1]==='n'){i+=2;continue;}
+    map[iPlain++]=i;i++;
   }
-  map[iPlain]=i;
-  return map;
-}
-function replacePlainRangeWith(mark,i0,i1,repl){
-  const map=buildIndexMap(mark);
-  const a=map[i0] ?? mark.length;
-  const b=map[i1] ?? mark.length;
-  return mark.slice(0,a)+repl+mark.slice(b);
-}
- 
+  map[iPlain]=i;return map;
+} 
 function toHTML(s){
   let html=s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  html=html.replace(/&lt;font="([^"]+)"&gt;/g,(_,name)=>`<span style="font-family:${FONT_MAP[name.trim()]||'inherit'}">`).replace(/&lt;\/font&gt;/g,'</span>');
+  html=html.replace(/&lt;font="([^"]+)"&gt;/g,(_,name)=>`<span style="font-family:${(FONT_MAP[name.trim()]||'inherit')}">`).replace(/&lt;\/font&gt;/g,'</span>');
   html=html.replace(/&lt;color=(#[0-9A-Fa-f]{6})&gt;/g,(_,hex)=>`<span style="color:${hex}">`).replace(/&lt;\/color&gt;/g,'</span>');
   html=html.replace(/&lt;size=(\d{1,3})%&gt;/g,(_,pct)=>`<span style="font-size:${pct}%">`).replace(/&lt;\/size&gt;/g,'</span>');
   html=html.replace(/&lt;align=(left|center|right)&gt;/g,(_,pos)=>`<div style="text-align:${pos}">`).replace(/&lt;\/align&gt;/g,'</div>');
@@ -463,47 +418,42 @@ function cleanupSpam(m){
    .replace(/(?:<u>)+/g,'<u>').replace(/(?:<\/u>)+/g,'</u>');
 }
 function renderAll(){
-  markup = cleanupSpam(markup);
-  out.textContent = markup;
-  prevContent.innerHTML = toHTML(markup);
+  markup=cleanupSpam(markup);
+  out.textContent=markup;
+  prevContent.innerHTML=toHTML(markup);
   saveLS('baseColor',baseColor);
   saveLS('stops',STOPS);
 }
-function syncPreviewBaseFont(){ prevContent.style.fontFamily = FONT_MAP[fontSel.value] || 'inherit'; }
- 
-function wrapTextWithBaseColor(text, hex){
-  const parts = String(text||'').split('\\n');
-  if(parts.length===1) return `<color=${hex}>${parts[0]}</color>`;
+function syncPreviewBaseFont(){prevContent.style.fontFamily=FONT_MAP[fontSel.value]||'inherit';} 
+function wrapTextWithBaseColor(text,hex){
+  const parts=String(text||'').split('\\n');
+  if(parts.length===1)return `<color=${hex}>${parts[0]}</color>`;
   const chunks=[];
   parts.forEach((p,i)=>{
     chunks.push(`<color=${hex}>${p}</color>`);
-    if(i<parts.length-1){ 
-      chunks.push('\\n');
-    }
+    if(i<parts.length-1)chunks.push('\\n');
   });
   return chunks.join('');
 }
- 
 function buildSmoothGradient(str){
-  const stops=STOPS.length?STOPS:['#FFFFFF'];
-  const text=String(str||'');
+  const stops=STOPS.length?STOPS:['#FFFFFF'];const text=String(str||'');
   let visible=0,i=0;
   while(i<text.length){
-    if(text[i]==='<'){ const k=text.indexOf('>',i); i=(k===-1?i+1:k+1); continue; }
-    if(text[i]==='\\' && text[i+1]==='n'){ i+=2; continue; }
-    visible++; i++;
+    if(text[i]==='<'){const k=text.indexOf('>',i);i=(k===-1?i+1:k+1);continue;}
+    if(text[i]==='\\'&&text[i+1]==='n'){i+=2;continue;}
+    visible++;i++;
   }
-  const colorAt = idx=>{
-    if(visible<=1) return normHex(stops[0],true);
-    const t=idx/(visible-1), seg=(stops.length-1)*t;
-    const i0=Math.floor(seg), i1=Math.min(stops.length-1,i0+1), lt=seg-i0;
+  const colorAt=idx=>{
+    if(visible<=1)return normHex(stops[0],true);
+    const t=idx/(visible-1),seg=(stops.length-1)*t;
+    const i0=Math.floor(seg),i1=Math.min(stops.length-1,i0+1),lt=seg-i0;
     return normHex(lerpColor(stops[i0],stops[i1],lt),true);
   };
   let visIdx=0; i=0; const out=[];
   while(i<text.length){
-    if(text[i]==='<'){ const k=text.indexOf('>',i); if(k===-1){ out.push(text[i++]); continue; } out.push(text.slice(i,k+1)); i=k+1; continue; }
-    if(text[i]==='\\' && text[i+1]==='n'){ out.push('\\n'); i+=2; continue; }
-    out.push(`<color=${colorAt(visIdx++)}>${text[i]}</color>`); i++;
+    if(text[i]==='<'){const k=text.indexOf('>',i);if(k===-1){out.push(text[i++]);continue;}out.push(text.slice(i,k+1));i=k+1;continue;}
+    if(text[i]==='\\'&&text[i+1]==='n'){out.push('\\n');i+=2;continue;}
+    out.push(`<color=${colorAt(visIdx++)}>${text[i]}</color>`);i++;
   }
   return out.join('');
 } 
@@ -516,13 +466,11 @@ function renderStops(){
     const up=document.createElement('button');up.className='btn small';up.textContent='▲';
     const dn=document.createElement('button');dn.className='btn small';dn.textContent='▼';
     const rm=document.createElement('button');rm.className='btn small';rm.textContent='✕';
-
     t.addEventListener('input',()=>{const h=normHex(t.value,true);t.value=h;c.value=h;STOPS[idx]=h;renderGradPreview();renderAll();});
     c.addEventListener('input',()=>{const h=normHex(c.value,true);t.value=h;STOPS[idx]=h;renderGradPreview();renderAll();});
     up.addEventListener('click',()=>{if(idx>0){[STOPS[idx-1],STOPS[idx]]=[STOPS[idx],STOPS[idx-1]];renderStops();renderGradPreview();renderAll();}});
     dn.addEventListener('click',()=>{if(idx<STOPS.length-1){[STOPS[idx+1],STOPS[idx]]=[STOPS[idx],STOPS[idx+1]];renderStops();renderGradPreview();renderAll();}});
     rm.addEventListener('click',()=>{if(STOPS.length>1){STOPS.splice(idx,1);renderStops();renderGradPreview();renderAll();}});
-
     row.append(t,c,up,dn,rm);stopsWrap.appendChild(row);
   });
 }
@@ -531,292 +479,230 @@ function renderGradPreview(){
   gradPrev.style.background=`linear-gradient(90deg, ${parts.join(', ')})`;
 }
 function applyStopsPreset(kind){
-  if(kind==='sunset') STOPS=['#590d22','#800f2f','#a4133c','#c9184a','#ff4d6d','#ff758f','#ff8fa3','#ffb3c1','#ffccd5'];
-  if(kind==='ocean')  STOPS=['#031A6B','#033860','#087CA7','#05B2DC','#00D9F6'];
-  if(kind==='candy')  STOPS=['#B625F1','#2970F8','#00CFFF','#31D0AA'];
-  renderStops(); renderGradPreview(); renderAll();
+  if(kind==='sunset')STOPS=['#590d22','#800f2f','#a4133c','#c9184a','#ff4d6d','#ff758f','#ff8fa3','#ffb3c1','#ffccd5'];
+  if(kind==='ocean')STOPS=['#031A6B','#033860','#087CA7','#05B2DC','#00D9F6'];
+  if(kind==='candy')STOPS=['#B625F1','#2970F8','#00CFFF','#31D0AA'];
+  renderStops();renderGradPreview();renderAll();
 }
-function reverseStops(){ STOPS.reverse(); renderStops(); renderGradPreview(); renderAll(); }
-function distributeStops(){ renderGradPreview(); }
+function reverseStops(){STOPS.reverse();renderStops();renderGradPreview();renderAll();}
+function distributeStops(){renderGradPreview();}
  
+function pushHistory(){undoStack.push({markup,userStyled});if(undoStack.length>MAX_HIST)undoStack.shift();redoStack.length=0;}
+function undo(){if(!undoStack.length)return;const cur={markup,userStyled};redoStack.push(cur);const prev=undoStack.pop();markup=prev.markup;userStyled=prev.userStyled;renderAll();}
+function redo(){if(!redoStack.length)return;undoStack.push({markup,userStyled});const nxt=redoStack.pop();markup=nxt.markup;userStyled=nxt.userStyled;renderAll();}
+
 function requireSelection(btn,onOK,msg){
   const {s,e}=getSel();
-  if(applyWholeLine.checked){
-    const r=getCurrentLineRange();
-    ed.selectionStart=r.a; ed.selectionEnd=r.b;
-  }
-  if(!hasSelection()){ status(msg||'Select some text first.'); if(btn) btn.classList.add('active'), setTimeout(()=>btn.classList.remove('active'),300); return false; }
-  pushHistory();
-  onOK();
-  return true;
+  if(applyWholeLine.checked){const r=getCurrentLineRange();ed.selectionStart=r.a;ed.selectionEnd=r.b;}
+  if(!hasSelection()){status(msg||'Select some text first.');if(btn)btn.classList.add('active'),setTimeout(()=>btn.classList.remove('active'),300);return false;}
+  pushHistory();onOK();return true;
 }
-function setLastAction(fn,args){ lastAction={fn,args}; }
-function repeatLast(){ if(!lastAction) return; const {fn,args}=lastAction; toolHandlers[fn]?.(args,true); }
- 
-function toggleTag(tag, silent){
+function setLastAction(fn,args){lastAction={fn,args};}
+function repeatLast(){if(!lastAction)return;const{fn,args}=lastAction;toolHandlers[fn]?.(args,true);}
+
+function toggleTag(tag,silent){
   const {s,e}=getSel();
-  if(!requireSelection(null,()=>{},'')) return;
+  if(!requireSelection(null,()=>{},''))return;
   const map=buildIndexMap(markup);
-  const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
-  let mseg=markup.slice(a,b);
-  const open=`<${tag}>`, close=`</${tag}>`;
-  mseg=mseg.replace(new RegExp(`(?:<${tag}>)+`,'g'),open).replace(new RegExp(`(?:</${tag}>)+`,'g'),close);
-  const isWrapped=mseg.startsWith(open)&&mseg.endsWith(close)&&mseg.replace(new RegExp(`^<${tag}>|</${tag}>$`,'g'),'').indexOf(open)===-1;
-  mseg = isWrapped ? mseg.replace(new RegExp(`^<${tag}>`), '').replace(new RegExp(`</${tag}>$`),'')
-                   : open+mseg+close;
-  markup=markup.slice(0,a)+mseg+markup.slice(b);
-  userStyled=true; renderAll(); if(!silent) status(`<${tag}> ${isWrapped?'removed':'applied'}.`);
+  const a=map[s]??markup.length,b=map[e]??markup.length;
+  let seg=markup.slice(a,b);
+  const open=`<${tag}>`,close=`</${tag}>`;
+  seg=seg.replace(new RegExp(`(?:<${tag}>)+`,'g'),open).replace(new RegExp(`(?:</${tag}>)+`,'g'),close);
+  const isWrapped=seg.startsWith(open)&&seg.endsWith(close)&&seg.replace(new RegExp(`^<${tag}>|</${tag}>$`,'g'),'').indexOf(open)===-1;
+  seg=isWrapped?seg.replace(new RegExp(`^<${tag}>`),'').replace(new RegExp(`</${tag}>$`),''):open+seg+close;
+  markup=markup.slice(0,a)+seg+markup.slice(b);
+  userStyled=true;renderAll();if(!silent)status(`<${tag}> ${isWrapped?'removed':'applied'}.`);
 }
 
 const toolHandlers={
-  'b':(_,silent)=>{ toggleTag('b', silent); setLastAction('b'); },
-  'i':(_,silent)=>{ toggleTag('i', silent); setLastAction('i'); },
-  'u':(_,silent)=>{ toggleTag('u', silent); setLastAction('u'); },
-  'solid':(_,silent)=>{
+  b:(_,silent)=>{toggleTag('b',silent);setLastAction('b');},
+  i:(_,silent)=>{toggleTag('i',silent);setLastAction('i');},
+  u:(_,silent)=>{toggleTag('u',silent);setLastAction('u');},
+  solid:(_,silent)=>{
     const hex=normHex(solidPicker.value,true);
-    requireSelection(btnSolid, ()=>{
-      const {s,e}=getSel(); const map=buildIndexMap(markup);
-      const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+    requireSelection(btnSolid,()=>{
+      const {s,e}=getSel();const map=buildIndexMap(markup);
+      const a=map[s]??markup.length,b=map[e]??markup.length;
       let seg=markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');
       markup=markup.slice(0,a)+`<color=${hex}>`+seg+`</color>`+markup.slice(b);
-      userStyled=true; renderAll(); if(!silent) status('Solid color applied.');
-    }, 'Select text to color.');
+      userStyled=true;renderAll();if(!silent)status('Solid color applied.');
+    },'Select text to color.');
     setLastAction('solid');
   },
-  'gradient':(_,silent)=>{
-    requireSelection(btnGradient, ()=>{
-      const {s,e}=getSel(); const map=buildIndexMap(markup);
-      const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+  gradient:(_,silent)=>{
+    requireSelection(btnGradient,()=>{
+      const {s,e}=getSel();const map=buildIndexMap(markup);
+      const a=map[s]??markup.length,b=map[e]??markup.length;
       let seg=markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');
       seg=buildSmoothGradient(seg);
       markup=markup.slice(0,a)+seg+markup.slice(b);
-      userStyled=true; renderAll(); if(!silent) status('Smooth gradient applied.');
-    }, 'Select text for gradient.');
+      userStyled=true;renderAll();if(!silent)status('Smooth gradient applied.');
+    },'Select text for gradient.');
     setLastAction('gradient');
   },
-  'align':({mode},silent)=>{
-    requireSelection(document.querySelector(`[data-align="${mode}"]`), ()=>{
-      markup=markup.replace(/<align=(left|center|right)>|<\/align>/g,'');  
-      const {s,e}=getSel(); const map=buildIndexMap(markup);
-      const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+  align:({mode},silent)=>{
+    requireSelection(document.querySelector(`[data-align="${mode}"]`),()=>{
+      markup=markup.replace(/<align=(left|center|right)>|<\/align>/g,'');
+      const {s,e}=getSel();const map=buildIndexMap(markup);
+      const a=map[s]??markup.length,b=map[e]??markup.length;
       const seg=markup.slice(a,b);
       markup=markup.slice(0,a)+`<align=${mode}>`+seg+`</align>`+markup.slice(b);
-      userStyled=true; renderAll(); if(!silent) status(`Alignment ${mode} applied.`);
-    }, 'Select text to align.');
+      userStyled=true;renderAll();if(!silent)status(`Alignment ${mode} applied.`);
+    },'Select text to align.');
     setLastAction('align',{mode});
   },
-  'size':({pct},silent)=>{
-    pct = clamp(parseInt(pct||sizeInput.value||'115',10),50,300); sizeInput.value=pct;
-    requireSelection(btnApplySize, ()=>{
+  size:({pct},silent)=>{
+    pct=clamp(parseInt(pct||sizeInput.value||'115',10),50,300);sizeInput.value=pct;
+    requireSelection(btnApplySize,()=>{
       markup=markup.replace(/<size=\d{1,3}%>|<\/size>/g,'');
-      const {s,e}=getSel(); const map=buildIndexMap(markup);
-      const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+      const {s,e}=getSel();const map=buildIndexMap(markup);
+      const a=map[s]??markup.length,b=map[e]??markup.length;
       const inner=markup.slice(a,b);
       markup=markup.slice(0,a)+`<size=${pct}%>`+inner+`</size>`+markup.slice(b);
-      userStyled=true; renderAll(); if(!silent) status(`Size ${pct}% applied.`);
-    }, 'Select text to resize.');
+      userStyled=true;renderAll();if(!silent)status(`Size ${pct}% applied.`);
+    },'Select text to resize.');
     setLastAction('size',{pct});
   },
-  'font':({font},silent)=>{
-    font = font || fontSel.value;
-    requireSelection(btnFontWrap, ()=>{
-      const {s,e}=getSel(); const map=buildIndexMap(markup);
-      const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+  font:({font},silent)=>{
+    font=font||fontSel.value;
+    requireSelection(btnFontWrap,()=>{
+      const {s,e}=getSel();const map=buildIndexMap(markup);
+      const a=map[s]??markup.length,b=map[e]??markup.length;
       const inner=markup.slice(a,b).replace(/<font="[^"]+">/g,'').replace(/<\/font>/g,'');
       markup=markup.slice(0,a)+`<font="${font}">`+inner+`</font>`+markup.slice(b);
-      userStyled=true; renderAll(); if(!silent) status(`Font "${font}" applied.`);
-    }, 'Select text to apply font.');
+      userStyled=true;renderAll();if(!silent)status(`Font "${font}" applied.`);
+    },'Select text to apply font.');
     setLastAction('font',{font});
   }
 };
  
 document.querySelectorAll('[data-tag]').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const tag=btn.getAttribute('data-tag');
-    toolHandlers[tag]?.();
-  });
+  btn.addEventListener('click',()=>{toolHandlers[btn.getAttribute('data-tag')]?.();});
 });
- 
 document.querySelectorAll('[data-align]').forEach(btn=>{
-  btn.addEventListener('click',()=>toolHandlers['align']({mode:btn.getAttribute('data-align')}))
-}); 
-btnApplySize.addEventListener('click',()=>toolHandlers['size']({pct:sizeInput.value}));
-btnFontWrap.addEventListener('click',()=>toolHandlers['font']({font:fontSel.value}));
-btnSolid.addEventListener('click',()=>toolHandlers['solid']());
-btnGradient.addEventListener('click',()=>toolHandlers['gradient']());
+  btn.addEventListener('click',()=>toolHandlers.align({mode:btn.getAttribute('data-align')}));
+});
+btnApplySize.addEventListener('click',()=>toolHandlers.size({pct:sizeInput.value}));
+btnFontWrap.addEventListener('click',()=>toolHandlers.font({font:fontSel.value}));
+btnSolid.addEventListener('click',()=>toolHandlers.solid());
+btnGradient.addEventListener('click',()=>toolHandlers.gradient());
 btnRepeat.addEventListener('click',repeatLast);
- 
 btnEye.addEventListener('click',()=>solidPicker.showPicker?.());
- 
+
 btnResetLine.addEventListener('click',()=>{
-  const r=getCurrentLineRange(); if(r.a===r.b) return;
-  pushHistory(); 
+  const r=getCurrentLineRange();if(r.a===r.b)return;
+  pushHistory();
   const map=buildIndexMap(markup);
-  const a=map[r.a] ?? markup.length, b=map[r.b] ?? markup.length;
+  const a=map[r.a]??markup.length,b=map[r.b]??markup.length;
   let seg=markup.slice(a,b);
-  seg = seg
+  seg=seg
     .replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'')
     .replace(/<size=\d{1,3}%>/g,'').replace(/<\/size>/g,'')
     .replace(/<font="[^"]+">/g,'').replace(/<\/font>/g,'')
     .replace(/<align=(left|center|right)>/g,'').replace(/<\/align>/g,'')
     .replace(/<b>|<\/b>|<i>|<\/i>|<u>|<\/u>/g,'');
   markup=markup.slice(0,a)+seg+markup.slice(b);
-  userStyled=true; renderAll(); status('Line reset.');
-});
- 
+  userStyled=true;renderAll();status('Line reset.');
+}); 
 function syncSolid(){
-  baseColor = normHex(solidPicker.value,true);
-  saveLS('baseColor', baseColor);
+  baseColor=normHex(solidPicker.value,true);saveLS('baseColor',baseColor);
+  const textNorm=ed.value.replace(/\r?\n/g,'\\n');
 
-  const textNorm = ed.value.replace(/\r?\n/g,'\\n');
+  if(!userStyled){
+    markup=cleanSlateToggle.checked?wrapTextWithBaseColor(textNorm,baseColor):`<color=${baseColor}>${textNorm}</color>`;
+  }else{ 
+    const map=buildIndexMap(markup);
+    const plainLen=map.length?map.length-1:0;
+    const targetLen=textNorm.length;
 
-  if (!userStyled) { 
-    if (cleanSlateToggle.checked) {
-      markup = wrapTextWithBaseColor(textNorm, baseColor);
-    } else {
-      markup = `<color=${baseColor}>${textNorm}</color>`;
-    }
-  } else { 
-    const map = buildIndexMap(markup);
-    const plainLen = map.length ? map.length - 1 : 0;
-    const targetLen = textNorm.length;
-
-    if (targetLen > plainLen) { 
-      markup += textNorm.slice(plainLen);
-    } else if (targetLen < plainLen) { 
-      const cut = map[targetLen] ?? markup.length;
-      markup = markup.slice(0, cut);
+    if(targetLen>plainLen){ 
+      const extra=textNorm.slice(plainLen);
+      markup+=extra;
+    }else if(targetLen<plainLen){ 
+      const cut=map[targetLen]??markup.length;
+      markup=markup.slice(0,cut);
     }
   }
-
   renderAll();
 }
- 
-btnCopy.addEventListener('click',()=>{ copyToClipboard(markup); status('Markup copied to clipboard.'); });
+
+btnCopy.addEventListener('click',()=>{copyToClipboard(markup);status('Markup copied to clipboard.');});
 btnDL.addEventListener('click',()=>{
   const blob=new Blob([markup],{type:'text/plain;charset=utf-8'});
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a');a.href=url;a.download='template.txt';
   document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
   status('Downloaded template.txt');
-});
- 
+}); 
 const ICONS=['✿','❀','❖','⚽','⚾','♠','♣','♦','♥','♤','♧','♢','♡','☯','✚','⚠','†','∞','✓','☎','☏','☀','☁','☂','☃','☉','★','☆','⁂','✽','☝','☞','☟','☜','↑','↓','→','←','↔','↕','⌘','⌅','⌆','⌇','〶','⚙','⚛','⚜','⚓','⚡','⚕','⚒','⚖','♩','♪','♫','♬','♭','♮','♯','☕','☘','☄','☇','☈','〠','ヅ','ツ','㋡','웃','유','シ','ッ','㋛','◉','○','◎','●','⊗','⊙','◯','◇','◈','◍','◐','◑','◒','◓','◦','∅','⊕','⊖','⊘','⦿','▀','▁','▂','▃','▄','▅','▆','▇','▉','▋','█','░','▒','▓','▢','▣','▤','▥','▦','▧','▨','▩','▪','▫','◆','◣','◥','◤','◢','☠','☢','☣','⚰','⚱','♨','☮','✠','✡','™','〰','Ⓜ','♻','🆘','🅰','🅱','🅾','🆚'];
 const btnIcons=document.getElementById('btn-icons'),palette=document.getElementById('icon-palette'),iconGrid=document.getElementById('icon-grid');
 function buildIcons(){iconGrid.innerHTML='';ICONS.forEach(ch=>{const cell=document.createElement('div');cell.className='icon-cell';cell.textContent=ch;cell.title='Insert "'+ch+'"';cell.addEventListener('click',()=>{insertAtCaret(ch);syncSolid();palette.style.display='none';ed.focus();});iconGrid.appendChild(cell);});}
 btnIcons.addEventListener('click',()=>{palette.style.display=(palette.style.display==='block'?'none':'block');});
 document.addEventListener('keydown',(e)=>{if(e.key==='Escape'&&palette.style.display==='block'){palette.style.display='none';}});
- 
-function insertAtCaret(txt){
-  const {s,e}=getSel(); const val=ed.value;
-  ed.value = val.slice(0,s)+txt+val.slice(e);
-  ed.selectionStart=ed.selectionEnd=s+txt.length;
-}
- 
-autoBtn.addEventListener('click',()=>{ insertAtCaret(autoSel.value); syncSolid(); status(`Inserted ${autoSel.value}`); });
+
+function insertAtCaret(txt){const {s,e}=getSel();const val=ed.value;ed.value=val.slice(0,s)+txt+val.slice(e);ed.selectionStart=ed.selectionEnd=s+txt.length;}
+autoBtn.addEventListener('click',()=>{insertAtCaret(autoSel.value);syncSolid();status(`Inserted ${autoSel.value}`);});
  
 presetSunset.addEventListener('click',()=>applyStopsPreset('sunset'));
-presetOcean.addEventListener('click', ()=>applyStopsPreset('ocean'));
-presetCandy.addEventListener('click', ()=>applyStopsPreset('candy'));
-stopsReverse.addEventListener('click', reverseStops);
-stopsDistribute.addEventListener('click', distributeStops);
+presetOcean.addEventListener('click',()=>applyStopsPreset('ocean'));
+presetCandy.addEventListener('click',()=>applyStopsPreset('candy'));
+stopsReverse.addEventListener('click',reverseStops);
+stopsDistribute.addEventListener('click',distributeStops); 
+const styleButtons={save:[document.getElementById('style-save-1'),document.getElementById('style-save-2'),document.getElementById('style-save-3')],
+                    apply:[document.getElementById('style-apply-1'),document.getElementById('style-apply-2'),document.getElementById('style-apply-3')]};
+function captureStyle(){return{font:fontSel.value,size:clamp(parseInt(sizeInput.value||'115',10),50,300),color:baseColor,stops:[...STOPS]};}
+function applyStyle(s){if(!s)return;fontSel.value=s.font;sizeInput.value=s.size;solidPicker.value=s.color;baseColor=s.color;STOPS=[...s.stops];renderStops();renderGradPreview();syncPreviewBaseFont();syncSolid();}
+styleButtons.save.forEach((b,i)=>b.addEventListener('click',()=>{const s=captureStyle();saveLS('style'+(i+1),s);status(`Saved style ${i+1}.`);})); 
+styleButtons.apply.forEach((b,i)=>b.addEventListener('click',()=>{applyStyle(loadLS('style'+(i+1),null));status(`Applied style ${i+1}.`);})); 
  
-function captureStyle(){
-  return {
-    font: fontSel.value,
-    size: clamp(parseInt(sizeInput.value||'115',10),50,300),
-    color: baseColor,
-    stops: [...STOPS]
-  };
-}
-function applyStyle(s){
-  if(!s) return;
-  fontSel.value = s.font;
-  sizeInput.value = s.size;
-  solidPicker.value = s.color;
-  baseColor = s.color;
-  STOPS = [...s.stops];
-  renderStops(); renderGradPreview(); syncPreviewBaseFont(); syncSolid();
-}
-styleButtons.save.forEach((b,i)=>b.addEventListener('click',()=>{
-  const s=captureStyle(); saveLS('style'+(i+1),s); status(`Saved style ${i+1}.`);
-}));
-styleButtons.apply.forEach((b,i)=>b.addEventListener('click',()=>{
-  applyStyle(loadLS('style'+(i+1),null)); status(`Applied style ${i+1}.`);
-}));
- 
-function isMeta(e){ return e.ctrlKey || e.metaKey; }
-document.addEventListener('keydown',(e)=>{ 
-  if(isMeta(e) && e.key.toLowerCase()==='z'){
+function isMeta(e){return e.ctrlKey||e.metaKey;}
+document.addEventListener('keydown',(e)=>{
+  if(isMeta(e)&&e.key.toLowerCase()==='z'){e.preventDefault();if(e.shiftKey)redo();else undo();return;}
+  if(isMeta(e)&&['b','i','u'].includes(e.key.toLowerCase())){e.preventDefault();toolHandlers[e.key.toLowerCase()]?.();return;}
+  if(isMeta(e)&&(e.key==='='||e.key==='+'||e.key==='-')){e.preventDefault();const cur=parseInt(sizeInput.value||'115',10);const pct=e.key==='-'?cur-5:cur+5;toolHandlers.size({pct});return;}
+  if(isMeta(e)&&['l','c','r'].includes(e.key.toLowerCase())){e.preventDefault();const m=e.key.toLowerCase()==='l'?'left':e.key.toLowerCase()==='c'?'center':'right';toolHandlers.align({mode:m});return;}
+}); 
+ed.addEventListener('keydown',(e)=>{
+  if(e.key==='Enter'||e.key==='Tab'){
     e.preventDefault();
-    if(e.shiftKey) redo(); else undo();
-    return;
-  } 
-  if(isMeta(e) && ['b','i','u'].includes(e.key.toLowerCase())){
-    e.preventDefault();
-    toolHandlers[e.key.toLowerCase()]?.();
-    return;
-  } 
-  if(isMeta(e) && (e.key==='=' || e.key==='+' || e.key==='-')){
-    e.preventDefault();
-    const cur=parseInt(sizeInput.value||'115',10);
-    const pct = e.key==='-' ? cur-5 : cur+5;
-    toolHandlers['size']({pct});
-    return;
-  } 
-  if(isMeta(e) && ['l','c','r'].includes(e.key.toLowerCase())){
-    e.preventDefault();
-    const m = e.key.toLowerCase()==='l'?'left':e.key.toLowerCase()==='c'?'center':'right';
-    toolHandlers['align']({mode:m});
-    return;
-  }
-});
- 
-ed.addEventListener('keydown', (e)=>{
-  if (e.key === 'Enter' || e.key === 'Tab') {
-    e.preventDefault(); 
     insertAtCaret('\\n');
-
-    if (userStyled && cleanSlateToggle.checked) { 
-      pushHistory?.();  
-      const { s } = getSel();
-      const map = buildIndexMap(markup);
-      const pos = map[s] ?? markup.length;
-      const bridge = `</color>\n<color=${baseColor}>`;
-      markup = markup.slice(0, pos) + bridge + markup.slice(pos);
-      renderAll(); 
-      suppressNextSync = true;  
-    } else { 
+    if(userStyled&&cleanSlateToggle.checked){
+      pushHistory?.();
+      const {s}=getSel();
+      const map=buildIndexMap(markup);
+      const pos=map[s]??markup.length;
+      const bridge=`</color>\n<color=${baseColor}>`;
+      markup=markup.slice(0,pos)+bridge+markup.slice(pos);
+      renderAll();
+      suppressNextSync=true; 
+    }else{ 
+      suppressNextSync=true;
       syncSolid();
     }
   }
-});
- 
-solidPicker.addEventListener('input', syncSolid);
-ed.addEventListener('input', syncSolid);
-ed.addEventListener('keyup', (e)=>{   
-  if (suppressNextSync){ suppressNextSync=false; return; }
+}); 
+ed.addEventListener('input',()=>{
+  if(suppressNextSync){suppressNextSync=false;return;}
   syncSolid();
-});
-fontSel.addEventListener('change',()=>{ syncPreviewBaseFont(); renderAll(); });
- 
+}); 
+solidPicker.addEventListener('input',syncSolid);
+fontSel.addEventListener('change',()=>{syncPreviewBaseFont();renderAll();});
 const randHex=()=>'#'+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0').toUpperCase();
-btnAddStop.addEventListener('click',()=>{ if(STOPS.length>=10){status('Max 10 stops.');return;} STOPS.push(randHex()); renderStops(); renderGradPreview(); renderAll(); });
-btnShuffle.addEventListener('click',()=>{ STOPS=STOPS.map(()=>randHex()); renderStops(); renderGradPreview(); renderAll(); });
+btnAddStop.addEventListener('click',()=>{if(STOPS.length>=10){status('Max 10 stops.');return;}STOPS.push(randHex());renderStops();renderGradPreview();renderAll();});
+btnShuffle.addEventListener('click',()=>{STOPS=STOPS.map(()=>randHex());renderStops();renderGradPreview();renderAll();});
  
 function boot(){
-  renderStops(); renderGradPreview(); buildIcons(); syncPreviewBaseFont(); 
-  cleanSlateToggle.checked = loadLS('cleanSlate', true);
-  applyWholeLine.checked = loadLS('applyWholeLine', false); 
+  renderStops();renderGradPreview();buildIcons();syncPreviewBaseFont();
+  cleanSlateToggle.checked=loadLS('cleanSlate',true);
+  applyWholeLine.checked=loadLS('applyWholeLine',false);
   ed.value='♡Welcome to my lobby♡';
-  baseColor = normHex(solidPicker.value,true);
+  baseColor=normHex(solidPicker.value,true);
   userStyled=false;
   syncSolid();
 }
 cleanSlateToggle.addEventListener('change',()=>saveLS('cleanSlate',cleanSlateToggle.checked));
 applyWholeLine.addEventListener('change',()=>saveLS('applyWholeLine',applyWholeLine.checked));
-
-document.addEventListener('DOMContentLoaded', boot);
+document.addEventListener('DOMContentLoaded',boot);
 </script>
 </body>
 </html>
