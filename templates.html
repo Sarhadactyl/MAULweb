@@ -4,110 +4,86 @@
   <title>MAUL | Live Tag Editor</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta property="og:title" content="Live Tag Editor - MAUL" />
+  <meta property="og:title" content="Live Template Editor" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://moddedamong.us/templates.html" />
   <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-  <meta property="og:description" content="Type, color, and export Among Us tags with smooth gradients in real time." />
+  <meta property="og:description" content="Type, color, and export Among Us templates with smooth gradients in real time." />
   <meta property="og:site_name" content="Modded Among Us Lobbies" />
   <meta property="og:locale" content="en_US" />
   <link rel="canonical" href="https://moddedamong.us/templates.html" />
   <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+ 
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;700;900&family=VT323&family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&family=Press+Start+2P&family=Share+Tech+Mono&family=Rajdhani:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+
   <style>
-    html, body { height:100%; margin:0; padding:0; background:#000; font-family:'Roboto',sans-serif; color:#fff; overflow-x:hidden; }
-    body {
-      background: linear-gradient(rgba(0,0,0,.9), rgba(0,0,0,.9)), url('images/background.png') no-repeat center center fixed;
-      background-size:cover; display:flex; flex-direction:column; align-items:center; padding-bottom:100px;
+    html,body{height:100%;margin:0;padding:0;background:#000;font-family:'Roboto',sans-serif;color:#fff;overflow-x:hidden}
+    body{
+      background:linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.9)),url('images/background.png') no-repeat center/cover fixed;
+      display:flex;flex-direction:column;align-items:center;padding-bottom:100px
     }
-    header { width:100%; text-align:center; padding:20px; background:rgba(0,0,0,0.94); position:relative; z-index:1000; }
-    header h1 { margin:0; font-size:2rem; color:#fff; letter-spacing:.5px; }
-    .dropdown { position:absolute; top:16px; left:20px; z-index:1001; }
-    .dropbtn { background:none; border:none; cursor:pointer; transition:transform .2s ease; padding:0; }
-    .dropbtn:hover { transform:scale(1.06); }
-    .hamburger { width:30px; height:22px; display:flex; flex-direction:column; justify-content:space-between; }
-    .hamburger span { display:block; height:4px; background:#fff; border-radius:2px; }
-    .dropdown-content { display:none; position:absolute; top:30px; left:0; background:#1e1e1e; min-width:220px; box-shadow:0 8px 16px rgba(0,0,0,0.45); border:1px solid #343434; border-radius:8px; overflow:hidden;}
-    .dropdown-content a { color:#fff; padding:12px 16px; text-decoration:none; display:block; transition:background .2s; border-bottom:1px solid #2a2a2a; }
-    .dropdown-content a:last-child { border-bottom:0; }
-    .dropdown-content a:hover { background:#2a2a2a; }
-    .dropdown:hover .dropdown-content { display:block; }
+    header{width:100%;text-align:center;padding:20px;background:rgba(0,0,0,.94)}
+    header h1{margin:0;font-size:2rem;letter-spacing:.5px}
+    footer{position:fixed;bottom:0;left:0;width:100%;text-align:center;padding:12px;background:rgba(0,0,0,.92);font-size:.9rem}
 
-    footer { position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:12px; background:rgba(0,0,0,0.92); z-index:2; font-size:.9rem; }
+    .container{max-width:1180px;width:92%;margin:36px auto;display:grid;gap:20px}
+    .panel{background:rgba(0,0,0,.68);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:18px}
+    .section-title{font-size:1.8rem;text-align:center;margin:0 0 6px}
+    .section-subtitle{text-align:center;color:#e6e6e6;margin:0 0 16px;font-size:.98rem}
+    .muted{opacity:.8}
 
-    .container { max-width:1180px; width:92%; margin:36px auto; display:grid; gap:20px; }
-    .panel { background:rgba(0,0,0,0.68); border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:18px; }
-    .section-title { font-size:1.8rem; text-align:center; margin:0 0 6px; }
-    .section-subtitle { text-align:center; color:#e6e6e6; margin:0 0 16px; font-size:.98rem; }
-
-    .grid { display:grid; gap:14px; }
-    .row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
-    .field { display:flex; align-items:center; gap:8px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); padding:6px 10px; border-radius:8px; }
-    .field input[type="text"], .field input[type="number"], .field textarea, .field select {
-      background:rgba(0,0,0,.5); border:1px solid rgba(255,255,255,.24); border-radius:6px; color:#def; padding:8px;
+    .grid{display:grid;gap:14px}
+    .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+    .field{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);padding:6px 10px;border-radius:8px}
+    .field input[type="text"],.field input[type="number"],.field textarea,.field select{
+      background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.24);border-radius:6px;color:#def;padding:8px
     }
-    .field textarea { width:100%; min-height:130px; resize:vertical; }
+    .field textarea{width:100%;min-height:130px;resize:vertical}
 
-    .btn { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.28); color:#e7f0ff; font-size:.92rem; padding:8px 12px; border-radius:6px; cursor:pointer; transition:background .15s, border-color .15s, transform .02s, box-shadow .15s, outline .15s; }
-    .btn:hover { background:rgba(255,255,255,.18); border-color:rgba(255,255,255,.38); }
-    .btn:active { transform:scale(.98); }
-    .btn.active { outline:2px solid #fff; box-shadow:0 0 0 2px rgba(255,255,255,.25) inset; }
+    .btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#e7f0ff;font-size:.92rem;padding:8px 12px;border-radius:6px;cursor:pointer;transition:background .15s,border-color .15s,transform .02s}
+    .btn:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.38)}
+    .btn:active{transform:scale(.98)}
+    .btn.active{outline:2px solid #fff;box-shadow:0 0 0 2px rgba(255,255,255,.25) inset}
 
-    .codebox { background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.25); border-radius:10px; padding:14px; font-family:'Roboto Mono', monospace; white-space:pre-wrap; word-break:break-word; }
-    .twocol { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-    @media (max-width:900px){ .twocol { grid-template-columns:1fr; } }
+    .codebox{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:14px;font-family:'Roboto Mono',monospace;white-space:pre-wrap;word-break:break-word}
+    .twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:900px){.twocol{grid-template-columns:1fr}}
 
-    #lte-preview { min-height:360px; font-size:1.35rem; line-height:1.6; padding:16px 18px; }
-    #lte-output  { min-height:200px; font-size:1rem; }
+    #lte-preview{min-height:360px;font-size:1.35rem;line-height:1.6;padding:16px 18px}
+    #lte-output{min-height:200px;font-size:1rem}
 
-    .gg-row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
-    .color-chip { width:40px; height:32px; border:1px solid rgba(255,255,255,.22); background:transparent; }
-    .preview-bar { height:44px; border-radius:8px; border:1px solid #000; margin:6px 0; }
-    .icon-launch { margin-left:auto; }
+    .gg-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+    .color-chip{width:40px;height:32px;border:1px solid rgba(255,255,255,.22);background:transparent}
+    .preview-bar{height:44px;border-radius:8px;border:1px solid #000;margin:6px 0}
 
-    .icon-palette { position:fixed; right:20px; bottom:80px; width:300px; max-height:360px; overflow:auto; background:#1b1b1b; border:1px solid #444; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,.5); display:none; z-index:30; }
-    .icon-palette header { background:#111; border-bottom:1px solid #333; padding:8px 10px; font-weight:700; font-size:.95rem; }
-    .icon-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:6px; padding:10px; }
-    .icon-cell { padding:8px; text-align:center; border:1px solid #333; background:#222; border-radius:6px; cursor:pointer; user-select:none; transition:transform .02s, background .15s, border-color .15s; font-size:1.1rem; }
-    .icon-cell:hover { background:#2c2c2c; border-color:#555; }
-    .icon-cell:active { transform:scale(.96); }
+    .icon-palette{position:fixed;right:20px;bottom:80px;width:300px;max-height:360px;overflow:auto;background:#1b1b1b;border:1px solid #444;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,.5);display:none;z-index:30}
+    .icon-palette header{background:#111;border-bottom:1px solid #333;padding:8px 10px;font-weight:700;font-size:.95rem}
+    .icon-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;padding:10px}
+    .icon-cell{padding:8px;text-align:center;border:1px solid #333;background:#222;border-radius:6px;cursor:pointer;user-select:none;transition:transform .02s,background .15s,border-color .15s;font-size:1.1rem}
+    .icon-cell:hover{background:#2c2c2c;border-color:#555}
+    .icon-cell:active{transform:scale(.96)}
 
-    #snippet-buttons { display:flex; flex-wrap:wrap; gap:8px; }
-    .snippet-btn { font-size:.85rem; }
+    #snippet-buttons{display:flex;flex-wrap:wrap;gap:8px}
+    .snippet-btn{font-size:.85rem}
   </style>
 </head>
 <body>
 <header>
   <h1>MAUL Live Tag Editor</h1>
-  <div class="dropdown">
-    <button class="dropbtn" aria-label="Open navigation menu">
-      <div class="hamburger"><span></span><span></span><span></span></div>
-    </button>
-    <div class="dropdown-content">
-      <a href="index.html">Home</a>
-      <a href="https://moddedamong.us/art.html">User Art</a>
-      <a href="https://moddedamong.us/eventpics.html">Past Events</a>
-      <a href="https://moddedamong.us/calendar.html">Event Calendar</a>
-      <a href="https://moddedamong.us/mods.html">Featured Mods</a>
-      <a href="https://moddedamong.us/ourstaff.html">Our Staff</a>
-      <a href="https://moddedamong.us/presets.html">Mod Presets</a>
-      <a href="https://moddedamong.us/icons.html">Icons and Fonts</a>
-    </div>
-  </div>
 </header>
 
 <main class="container">
   <section class="panel" id="live-template-editor">
-    <h2 class="section-title"><u>Live Template Editor</u></h2>
+    <h2 class="section-title"><u>Editor</u></h2>
     <p class="section-subtitle">
-      Select a range and click a tool: <b>Align</b>, <b>Size</b>, <b>B/I/U</b>, <b>Solid</b>, or <b>Smooth Gradient</b>.
-      <b>Enter</b> inserts <code>\n</code>; <b>Tab</b> inserts a real tab.
+      ✨ Basics: Type on the left — it shows live on the right. Select text, then click a tool.<br/>
+      ⏎ Enter inserts <code>\n</code>. ⇥ Tab inserts <code>\n</code>. <span class="muted">Fonts/colors shown on the right are just for preview.</span>
     </p>
 
     <div class="grid">
       <div class="row">
-        <div class="field">
+        <div class="field" title='Select a font, then "Font wrap" to apply to selection.'>
           <label>Font</label>
           <select id="lte-font">
             <option>OCRAXT SDF</option>
@@ -126,35 +102,35 @@
           <button class="btn" id="btn-font-wrap" title='Wrap selection in <font="...">'>Font wrap</button>
         </div>
 
-        <div class="field">
+        <div class="field" title="Alignment applies once; previous alignment is removed.">
           <label>Align</label>
-          <button class="btn" data-align="left"   id="al-left">Left</button>
+          <button class="btn" data-align="left" id="al-left">Left</button>
           <button class="btn" data-align="center" id="al-center">Center</button>
-          <button class="btn" data-align="right"  id="al-right">Right</button>
+          <button class="btn" data-align="right" id="al-right">Right</button>
         </div>
 
-        <div class="field">
+        <div class="field" title="Size applies once; previous size is removed.">
           <label>Size %</label>
           <input id="size-pct" type="number" min="50" max="300" step="5" value="115" style="width:90px">
           <button class="btn" id="btn-apply-size" title='<size=115%>...'>Apply</button>
         </div>
 
-        <div class="field">
+        <div class="field" title="Click again to remove.">
           <label>Style</label>
           <button class="btn" data-tag="b">B</button>
           <button class="btn" data-tag="i">I</button>
           <button class="btn" data-tag="u">U</button>
         </div>
 
-        <div class="field">
+        <div class="field" title="Apply a solid color to selection.">
           <label>Solid</label>
           <input id="lte-solid" type="color" value="#FF4D6D">
           <button class="btn" id="lte-apply-solid">Apply</button>
         </div>
 
-        <div class="field">
+        <div class="field" title="Insert placeholders at the caret.">
           <label>Auto</label>
-          <select id="auto-token" title="Insert common placeholders">
+          <select id="auto-token">
             <option value="{{PlayerName}}">{{PlayerName}}</option>
             <option value="{{HostName}}">{{HostName}}</option>
             <option value="{{ModVersion}}">{{ModVersion}}</option>
@@ -162,7 +138,7 @@
           <button class="btn" id="auto-insert">Insert</button>
         </div>
 
-        <div class="field">
+        <div class="field" title="Build a per-character gradient across the selection.">
           <label>Stops</label>
           <div class="gg-row" id="lte-stops"></div>
           <button class="btn" id="lte-add-stop" title="Add stop">Add</button>
@@ -170,7 +146,7 @@
           <button class="btn" id="lte-apply-gradient" title="Smooth per-char gradient">Apply gradient</button>
         </div>
 
-        <button class="btn icon-launch" id="btn-icons">Icons…</button>
+        <button class="btn" id="btn-icons">Icons…</button>
       </div>
 
       <div id="lte-grad-preview" class="preview-bar" aria-label="Gradient preview"></div>
@@ -190,7 +166,9 @@
         <div class="grid">
           <div class="field"><strong>Live Preview (renders fonts + colors)</strong></div>
           <div id="lte-preview" class="codebox"></div>
-          <div class="field"><small>Note: SDF fonts are mapped to similar web fonts for browser preview only.</small></div>
+          <div class="field">
+            <small class="muted">Note: SDF fonts are mapped to similar web fonts for browser preview only.</small>
+          </div>
         </div>
       </div>
 
@@ -198,7 +176,7 @@
         <div class="row">
           <div class="field" style="flex:1 1 auto">
             <label><strong>Bulk Snippet Buttons</strong></label>
-            <textarea id="snippet-bulk" placeholder='Paste lines like: easteregg1:<size=130%>...\\n<size=100%>...</size>'></textarea>
+            <textarea id="snippet-bulk" placeholder='One per line: name:<size=130%>Hello\\n<size=100%>world</size>'></textarea>
           </div>
           <button class="btn" id="snippet-build">Build buttons</button>
         </div>
@@ -216,31 +194,44 @@
 </div>
 
 <script> 
-  function copyToClipboard(text){
-    if(navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
-    const ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.left='-9999px';
-    document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); } finally { document.body.removeChild(ta); }
-    return Promise.resolve();
-  }
   const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
-
   const normHex=(s,withHash=true)=>{
-    s=(s||'').trim();
-    if(!s) return withHash?'#FFFFFF':'FFFFFF';
+    s=(s||'').trim(); if(!s) return withHash?'#FFFFFF':'FFFFFF';
     s=s.replace(/^#/,'').replace(/[^0-9a-fA-F]/g,'').slice(0,6);
     if(s.length===3) s=s.split('').map(c=>c+c).join('');
     if(s.length<6) s=(s+'FFFFFF').slice(0,6);
     return (withHash?'#':'')+s.toUpperCase();
   };
-
-  const hexToRgb=h=>{ h=normHex(h,true).slice(1); return { r:parseInt(h.slice(0,2),16), g:parseInt(h.slice(2,4),16), b:parseInt(h.slice(4,6),16) }; };
+  const hexToRgb=h=>{h=normHex(h,true).slice(1);return{r:parseInt(h.slice(0,2),16),g:parseInt(h.slice(2,4),16),b:parseInt(h.slice(4,6),16)}};
   const rgbToHex=({r,g,b})=>'#'+[r,g,b].map(x=>Math.max(0,Math.min(255,x|0)).toString(16).padStart(2,'0')).join('').toUpperCase();
   const lerp=(a,b,t)=>a+(b-a)*t;
-  const lerpColor=(h1,h2,t)=>{ const c1=hexToRgb(h1), c2=hexToRgb(h2); return rgbToHex({ r:lerp(c1.r,c2.r,t), g:lerp(c1.g,c2.g,t), b:lerp(c1.b,c2.b,t) }); };
+  const lerpColor=(h1,h2,t)=>{const c1=hexToRgb(h1),c2=hexToRgb(h2);return rgbToHex({r:lerp(c1.r,c2.r,t),g:lerp(c1.g,c2.g,t),b:lerp(c1.b,c2.b,t)})};
+
+  const FONT_MAP={
+    'BROOK SDF':'"Barlow","Rajdhani",sans-serif',
+    'VCR SDF':'"VT323",monospace',
+    'Barlow-Black SDF':'"Barlow",sans-serif',
+    'Barlow-BoldItalic SDF':'"Barlow",sans-serif',
+    'Barlow-Light SDF':'"Barlow",sans-serif',
+    'CONSOLA SDF':'"Share Tech Mono","Roboto Mono",monospace',
+    'DIGITAL-7 SDF':'"Orbitron",monospace',
+    'DIN_Pro_Bold_700 SDF':'"Rajdhani",sans-serif',
+    'LiberationSans SDF':'"Barlow",sans-serif',
+    'NotoSansJP-Regular SDF':'"Noto Sans JP",sans-serif',
+    'OCRAEXT SDF':'"Press Start 2P","VT323",monospace',
+    'OCRAXT SDF':'"Press Start 2P","VT323",monospace'
+  };
+
+  function copyToClipboard(text){
+    if(navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.left='-9999px';
+    document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}finally{document.body.removeChild(ta);}
+    return Promise.resolve();
+  }
  
-  const ed  = document.getElementById('lte-editor');
-  const out = document.getElementById('lte-output');
-  const prev= document.getElementById('lte-preview');
+  const ed=document.getElementById('lte-editor');
+  const out=document.getElementById('lte-output');
+  const prev=document.getElementById('lte-preview');
   const fontSel=document.getElementById('lte-font');
   const statusEl=document.getElementById('lte-status');
   const solidPicker=document.getElementById('lte-solid');
@@ -257,290 +248,260 @@
   const btnDL=document.getElementById('lte-download');
   const autoSel=document.getElementById('auto-token');
   const autoBtn=document.getElementById('auto-insert');
-
-  const FONT_MAP = {
-    'BROOK SDF': '"Barlow", "Rajdhani", sans-serif',
-    'VCR SDF': '"VT323", monospace',
-    'Barlow-Black SDF': '"Barlow", sans-serif',
-    'Barlow-BoldItalic SDF': '"Barlow", sans-serif',
-    'Barlow-Light SDF': '"Barlow", sans-serif',
-    'CONSOLA SDF': '"Share Tech Mono", "Roboto Mono", monospace',
-    'DIGITAL-7 SDF': '"Orbitron", monospace',
-    'DIN_Pro_Bold_700 SDF': '"Rajdhani", sans-serif',
-    'LiberationSans SDF': '"Barlow", sans-serif',
-    'NotoSansJP-Regular SDF': '"Noto Sans JP", sans-serif',
-    'OCRAEXT SDF': '"Press Start 2P", "VT323", monospace',
-    'OCRAXT SDF': '"Press Start 2P", "VT323", monospace'
-  };
  
-  let STOPS = ['#B625F1','#2970F8','#00CFFF','#31D0AA'];
-  let markup = '';
-  let userStyled = false;  
-  let baseColor = '#FF4D6D';  
-
-  const flash = (el)=>{ el.classList.add('active'); setTimeout(()=>el.classList.remove('active'),600); };
-  function getSel(){ return { s: ed.selectionStart|0, e: ed.selectionEnd|0 }; }
-  const hasSelection = ()=>{ const {s,e}=getSel(); return e>s; };
-  const requireSelection=(btn,onOK,msg)=>{ if(!hasSelection()){ statusEl.textContent=msg||'Select some text first.'; flash(btn); return false; } onOK(); return true; };
+  let STOPS=['#B625F1','#2970F8','#00CFFF','#31D0AA'];
+  let markup='';
+  let userStyled=false; 
+  let baseColor='#FF4D6D';  
  
-  const toHTML = (s) => {
-    let html = s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  function flash(el){el.classList.add('active');setTimeout(()=>el.classList.remove('active'),600);}
+  function getSel(){return{s:ed.selectionStart|0,e:ed.selectionEnd|0}}
+  function hasSelection(){const {s,e}=getSel();return e>s}
+  function needSelection(btn,fn,msg){if(!hasSelection()){statusEl.textContent=msg||'Select some text first.';flash(btn);return}fn();}
 
-    html = html.replace(/&lt;font="([^"]+)"&gt;/g,(_,name)=>{
-      const key=name.replace(/\s+/g,' ').trim(); const fam=FONT_MAP[key] || 'inherit';
-      return `<span style="font-family:${fam}">`;
-    }).replace(/&lt;\/font&gt;/g,'</span>');
-
-    html = html.replace(/&lt;color=(#[0-9A-Fa-f]{6})&gt;/g,(_,hex)=>`<span style="color:${hex}">`).replace(/&lt;\/color&gt;/g,'</span>');
-    html = html.replace(/&lt;size=(\d{1,3})%&gt;/g,(_,pct)=>`<span style="font-size:${pct}%">`).replace(/&lt;\/size&gt;/g,'</span>');
-    html = html.replace(/&lt;align=(left|center|right)&gt;/g,(_,pos)=>`<div style="text-align:${pos}">`).replace(/&lt;\/align&gt;/g,'</div>');
-
-    html = html.replace(/&lt;b&gt;/g,'<b>').replace(/&lt;\/b&gt;/g,'</b>')
-               .replace(/&lt;i&gt;/g,'<i>').replace(/&lt;\/i&gt;/g,'</i>')
-               .replace(/&lt;u&gt;/g,'<u>').replace(/&lt;\/u&gt;/g,'</u>');
-
-    html = html.replace(/\\n/g,'<br/>');
+  function toHTML(s){
+    let html=s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    html=html.replace(/&lt;font="([^"]+)"&gt;/g,(_,name)=>`<span style="font-family:${FONT_MAP[name.trim()]||'inherit'}">`).replace(/&lt;\/font&gt;/g,'</span>');
+    html=html.replace(/&lt;color=(#[0-9A-Fa-f]{6})&gt;/g,(_,hex)=>`<span style="color:${hex}">`).replace(/&lt;\/color&gt;/g,'</span>');
+    html=html.replace(/&lt;size=(\d{1,3})%&gt;/g,(_,pct)=>`<span style="font-size:${pct}%">`).replace(/&lt;\/size&gt;/g,'</span>');
+    html=html.replace(/&lt;align=(left|center|right)&gt;/g,(_,pos)=>`<div style="text-align:${pos}">`).replace(/&lt;\/align&gt;/g,'</div>');
+    html=html.replace(/&lt;b&gt;/g,'<b>').replace(/&lt;\/b&gt;/g,'</b>').replace(/&lt;i&gt;/g,'<i>').replace(/&lt;\/i&gt;/g,'</i>').replace(/&lt;u&gt;/g,'<u>').replace(/&lt;\/u&gt;/g,'</u>');
+    html=html.replace(/\\n/g,'<br/>');
     return html;
-  };
- 
+  }
+
   function buildIndexMap(mark){
-    const map=[], len=mark.length; let iPlain=0, i=0;
+    const map=[],len=mark.length;let iPlain=0,i=0;
     while(i<len){
-      if(mark.startsWith('<color=',i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
-      if(mark.startsWith('</color>',i)){ i+=8; continue; }
-      if(mark.startsWith('<font="',i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
-      if(mark.startsWith('</font>',i)){ i+=7; continue; }
-      if(mark.startsWith('<size=',i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
-      if(mark.startsWith('</size>',i)){ i+=7; continue; }
-      if(mark.startsWith('<align=',i)){ const k=mark.indexOf('>',i); if(k===-1) break; i=k+1; continue; }
-      if(mark.startsWith('</align>',i)){ i+=8; continue; }
-      if(mark.startsWith('<b>',i)||mark.startsWith('<i>',i)||mark.startsWith('<u>',i)){ i+=3; continue; }
-      if(mark.startsWith('</b>',i)||mark.startsWith('</i>',i)||mark.startsWith('</u>',i)){ i+=4; continue; }
-      map[iPlain++] = i; i++;
+      if(mark.startsWith('<color=',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}
+      if(mark.startsWith('</color>',i)){i+=8;continue}
+      if(mark.startsWith('<font="',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}
+      if(mark.startsWith('</font>',i)){i+=7;continue}
+      if(mark.startsWith('<size=',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}
+      if(mark.startsWith('</size>',i)){i+=7;continue}
+      if(mark.startsWith('<align=',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}
+      if(mark.startsWith('</align>',i)){i+=8;continue}
+      if(mark.startsWith('<b>',i)||mark.startsWith('<i>',i)||mark.startsWith('<u>',i)){i+=3;continue}
+      if(mark.startsWith('</b>',i)||mark.startsWith('</i>',i)||mark.startsWith('</u>',i)){i+=4;continue}
+      map[iPlain++]=i;i++;
     }
-    map[iPlain]=i; return map;
-  }
-  function replacePlainRangeWith(mark,i0,i1,repl){ const map=buildIndexMap(mark); const a=map[i0] ?? mark.length; const b=map[i1] ?? mark.length; return mark.slice(0,a)+repl+mark.slice(b); }
-
-  /* ---------- Cleanup & helpers ---------- */
-  function stripOuterSolidColor(){ markup = markup.replace(/^<color=#[0-9A-Fa-f]{6}>/, '').replace(/<\/color>$/, ''); }
-  function cleanupColorSpam(){ markup = markup.replace(/(?:<color=(#[0-9A-Fa-f]{6})>)+/g,'<color=$1>').replace(/(?:<\/color>)+/g,'</color>'); }
-  function cleanupSizeSpam(){ markup = markup.replace(/(?:<size=\d{1,3}%>)+/g,(m)=>{const f=m.match(/<size=\d{1,3}%>/);return f?f[0]:m;}).replace(/(?:<\/size>)+/g,'</size>'); }
-  function cleanupFontSpam(){ markup = markup.replace(/(?:<font="([^"]+)">)+/g,'<font="$1">').replace(/(?:<\/font>)+/g,'</font>'); }
-  function cleanupAlignSpam(){ markup = markup.replace(/(?:<align=(left|center|right)>)+/g,'<align=$1>').replace(/(?:<\/align>)+/g,'</align>'); }
-  function cleanupBiuSpam(){ markup = markup.replace(/(?:<b>)+/g,'<b>').replace(/(?:<\/b>)+/g,'</b>').replace(/(?:<i>)+/g,'<i>').replace(/(?:<\/i>)+/g,'</i>').replace(/(?:<u>)+/g,'<u>').replace(/(?:<\/u>)+/g,'</u>'); }
-  function cleanupMarkup(){ cleanupColorSpam(); cleanupSizeSpam(); cleanupFontSpam(); cleanupAlignSpam(); cleanupBiuSpam(); }
-
-  function ensureColor(segment){
-    return /<color=#[0-9A-Fa-f]{6}>/.test(segment) ? segment : `<color=${baseColor}>${segment}</color>`;
+    map[iPlain]=i;return map;
   }
 
+  function renderAll(){ 
+    markup=markup
+      .replace(/(?:<color=(#[0-9A-Fa-f]{6})>)+/g,'<color=$1>').replace(/(?:<\/color>)+/g,'</color>')
+      .replace(/(?:<size=\d{1,3}%>)+/g,(m)=>m.match(/<size=\d{1,3}%>/)[0]).replace(/(?:<\/size>)+/g,'</size>')
+      .replace(/(?:<font="([^"]+)">)+/g,'<font="$1">').replace(/(?:<\/font>)+/g,'</font>')
+      .replace(/(?:<align=(left|center|right)>)+/g,'<align=$1>').replace(/(?:<\/align>)+/g,'</align>')
+      .replace(/(?:<b>)+/g,'<b>').replace(/(?:<\/b>)+/g,'</b>')
+      .replace(/(?:<i>)+/g,'<i>').replace(/(?:<\/i>)+/g,'</i>')
+      .replace(/(?:<u>)+/g,'<u>').replace(/(?:<\/u>)+/g,'</u>');
+
+    out.textContent=markup;
+    prev.innerHTML=toHTML(markup);
+  } 
   function buildSmoothGradient(str){
-    const stops=STOPS.length?STOPS:['#FFFFFF']; const text=String(str||'');
+    const stops=STOPS.length?STOPS:['#FFFFFF'];const text=String(str||'');
     let visible=0,i=0;
-    while(i<text.length){ if(text[i]==='<'){ const k=text.indexOf('>',i); i=(k===-1?i+1:k+1); continue; } if(text[i]==='\\' && text[i+1]==='n'){ i+=2; continue; } visible++; i++; }
-    const colorAt=idx=>{ if(visible<=1) return normHex(stops[0],true); const t=idx/(visible-1); const seg=(stops.length-1)*t; const i0=Math.floor(seg); const i1=Math.min(stops.length-1,i0+1); const lt=seg-i0; return normHex(lerpColor(stops[i0],stops[i1],lt),true); };
+    while(i<text.length){
+      if(text[i]==='<'){const k=text.indexOf('>',i);i=(k===-1?i+1:k+1);continue}
+      if(text[i]==='\\' && text[i+1]==='n'){i+=2;continue}
+      visible++;i++;
+    }
+    const colorAt=idx=>{
+      if(visible<=1) return normHex(stops[0],true);
+      const t=idx/(visible-1),seg=(stops.length-1)*t;
+      const i0=Math.floor(seg),i1=Math.min(stops.length-1,i0+1),lt=seg-i0;
+      return normHex(lerpColor(stops[i0],stops[i1],lt),true);
+    };
     let visIdx=0; i=0; const out=[];
     while(i<text.length){
-      if(text[i]==='<'){ const k=text.indexOf('>',i); if(k===-1){ out.push(text[i++]); continue; } out.push(text.slice(i,k+1)); i=k+1; continue; }
-      if(text[i]==='\\' && text[i+1]==='n'){ out.push('\\n'); i+=2; continue; }
-      out.push(`<color=${colorAt(visIdx++)}>${text[i]}</color>`); i++;
+      if(text[i]==='<'){const k=text.indexOf('>',i);if(k===-1){out.push(text[i++]);continue}out.push(text.slice(i,k+1));i=k+1;continue}
+      if(text[i]==='\\' && text[i+1]==='n'){out.push('\\n');i+=2;continue}
+      out.push(`<color=${colorAt(visIdx++)}>${text[i]}</color>`);i++;
     }
     return out.join('');
   }
+ 
+  function syncSolid(){
+    baseColor=normHex(solidPicker.value,true);
+    const textNorm=ed.value.replace(/\r?\n/g,'\\n');
 
-  function insertAtCaret(txt){
-    const {s,e}=getSel(); const val=ed.value;
-    ed.value = val.slice(0,s)+txt+val.slice(e);
-    const pos=s+txt.length; ed.selectionStart=ed.selectionEnd=pos;
-  }
-
-  function renderAll(){ cleanupMarkup(); out.textContent=markup; prev.innerHTML=toHTML(markup); }
-
-  function wrapSelection(open, close, stripRegexes){
-    const {s,e}=getSel(); if(e<=s) return;
-    const map=buildIndexMap(markup); const a=map[s] ?? markup.length; const b=map[e] ?? markup.length;
-    let segment = markup.slice(a,b);
-    if(stripRegexes){ stripRegexes.forEach(re=> segment = segment.replace(re,'')); }
-    markup = markup.slice(0,a) + open + segment + close + markup.slice(b);
-    userStyled=true; renderAll();
+    if(!userStyled){ 
+      markup=`<color=${baseColor}>${textNorm}</color>`;
+    }else{ 
+      const map=buildIndexMap(markup);
+      const plainLen=map.length?map.length-1:0;
+      const targetLen=textNorm.length;
+      if(targetLen>plainLen){
+        markup+=textNorm.slice(plainLen);
+      }else if(targetLen<plainLen){
+        const cut=map[targetLen] ?? markup.length;
+        markup=markup.slice(0,cut);
+      }
+    }
+    renderAll();
   }
  
+  btnSolid.addEventListener('click',()=>{
+    needSelection(btnSolid,()=>{
+      const {s,e}=getSel();const map=buildIndexMap(markup);
+      const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+      const hex=normHex(solidPicker.value,true);
+      let seg=markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');
+      markup=markup.slice(0,a)+`<color=${hex}>`+seg+`</color>`+markup.slice(b);
+      userStyled=true;renderAll();statusEl.textContent='Solid color applied.';flash(btnSolid);
+    },'Select text to color.');
+  });
+
+  btnGradient.addEventListener('click',()=>{
+    needSelection(btnGradient,()=>{
+      const {s,e}=getSel();const map=buildIndexMap(markup);
+      const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+      let seg=markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');
+      seg=buildSmoothGradient(seg);
+      markup=markup.slice(0,a)+seg+markup.slice(b);
+      userStyled=true;renderAll();statusEl.textContent='Smooth gradient applied.';flash(btnGradient);
+    },'Select text for gradient.');
+  });
+ 
+  document.querySelectorAll('[data-align]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const mode=btn.getAttribute('data-align');
+      needSelection(btn,()=>{
+        markup=markup.replace(/<align=(left|center|right)>|<\/align>/g,'');  
+        const {s,e}=getSel();const map=buildIndexMap(markup);
+        const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+        const seg=markup.slice(a,b);
+        markup=markup.slice(0,a)+`<align=${mode}>`+seg+`</align>`+markup.slice(b);
+        userStyled=true;renderAll();
+        document.querySelectorAll('[data-align]').forEach(x=>x.classList.remove('active'));btn.classList.add('active');
+        statusEl.textContent=`Alignment ${mode} applied.`;
+      },'Select text to align.');
+    });
+  }); 
+  btnApplySize.addEventListener('click',()=>{
+    const pct=clamp(parseInt(sizeInput.value||'115',10),50,300); sizeInput.value=pct;
+    needSelection(btnApplySize,()=>{
+      markup=markup.replace(/<size=\d{1,3}%>|<\/size>/g,'');  
+      const {s,e}=getSel();const map=buildIndexMap(markup);
+      const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+      const inner=markup.slice(a,b);
+      markup=markup.slice(0,a)+`<size=${pct}%>`+inner+`</size>`+markup.slice(b);
+      userStyled=true;renderAll();statusEl.textContent=`Size ${pct}% applied.`;flash(btnApplySize);
+    },'Select text to resize.');
+  }); 
+  document.querySelectorAll('[data-tag]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const tag=btn.getAttribute('data-tag');
+      needSelection(btn,()=>{
+        const {s,e}=getSel();const map=buildIndexMap(markup);
+        const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+        let seg=markup.slice(a,b);
+
+        const open=`<${tag}>`, close=`</${tag}>`;
+        seg=seg.replace(new RegExp(`(?:<${tag}>)+`,'g'),open).replace(new RegExp(`(?:</${tag}>)+`,'g'),close);
+
+        const isWrapped=seg.startsWith(open)&&seg.endsWith(close)&&seg.replace(new RegExp(`^<${tag}>|</${tag}>$`,'g'),'').indexOf(open)===-1;
+        seg = isWrapped ? seg.replace(new RegExp(`^<${tag}>`), '').replace(new RegExp(`</${tag}>$`),'')
+                        : open+seg+close;
+
+        markup=markup.slice(0,a)+seg+markup.slice(b);
+        userStyled=true;renderAll();
+        statusEl.textContent=`<${tag}> ${isWrapped?'removed':'applied'}.`;
+      },`Select text to toggle <${tag}>.`);
+    });
+  });
+ 
+  btnFontWrap.addEventListener('click',()=>{
+    const f=fontSel.value;
+    needSelection(btnFontWrap,()=>{
+      const {s,e}=getSel();const map=buildIndexMap(markup);
+      const a=map[s] ?? markup.length, b=map[e] ?? markup.length;
+      let seg=markup.slice(a,b).replace(/<font="[^"]+">/g,'').replace(/<\/font>/g,'');
+      markup=markup.slice(0,a)+`<font="${f}">`+seg+`</font>`+markup.slice(b);
+      userStyled=true;renderAll();statusEl.textContent=`Font "${f}" applied.`;flash(btnFontWrap);
+    },'Select text to apply font.');
+  }); 
   function renderStops(){
     stopsWrap.innerHTML='';
     STOPS.forEach((hex,idx)=>{
-      const row=document.createElement('div'); row.className='row';
-      const t=document.createElement('input'); t.type='text'; t.value=normHex(hex,true); t.style.width='100px';
-      const c=document.createElement('input'); c.type='color'; c.className='color-chip'; c.value=normHex(hex,true);
-      const up=document.createElement('button'); up.className='btn'; up.textContent='▲';
-      const dn=document.createElement('button'); dn.className='btn'; dn.textContent='▼';
-      const rm=document.createElement('button'); rm.className='btn'; rm.textContent='✕';
+      const row=document.createElement('div');row.className='row';
+      const t=document.createElement('input');t.type='text';t.value=normHex(hex,true);t.style.width='100px';
+      const c=document.createElement('input');c.type='color';c.className='color-chip';c.value=normHex(hex,true);
+      const up=document.createElement('button');up.className='btn';up.textContent='▲';
+      const dn=document.createElement('button');dn.className='btn';dn.textContent='▼';
+      const rm=document.createElement('button');rm.className='btn';rm.textContent='✕';
 
-      t.addEventListener('input',()=>{ const h=normHex(t.value,true); t.value=h; c.value=h; STOPS[idx]=h; renderGradPreview(); renderAll(); });
-      c.addEventListener('input',()=>{ const h=normHex(c.value,true); t.value=h; STOPS[idx]=h; renderGradPreview(); renderAll(); });
-      up.addEventListener('click',()=>{ if(idx>0){ [STOPS[idx-1],STOPS[idx]]=[STOPS[idx],STOPS[idx-1]]; renderStops(); renderGradPreview(); renderAll(); }});
-      dn.addEventListener('click',()=>{ if(idx<STOPS.length-1){ [STOPS[idx+1],STOPS[idx]]=[STOPS[idx],STOPS[idx+1]]; renderStops(); renderGradPreview(); renderAll(); }});
-      rm.addEventListener('click',()=>{ if(STOPS.length>1){ STOPS.splice(idx,1); renderStops(); renderGradPreview(); renderAll(); }});
+      t.addEventListener('input',()=>{const h=normHex(t.value,true);t.value=h;c.value=h;STOPS[idx]=h;renderGradPreview();renderAll();});
+      c.addEventListener('input',()=>{const h=normHex(c.value,true);t.value=h;STOPS[idx]=h;renderGradPreview();renderAll();});
+      up.addEventListener('click',()=>{if(idx>0){[STOPS[idx-1],STOPS[idx]]=[STOPS[idx],STOPS[idx-1]];renderStops();renderGradPreview();renderAll();}});
+      dn.addEventListener('click',()=>{if(idx<STOPS.length-1){[STOPS[idx+1],STOPS[idx]]=[STOPS[idx],STOPS[idx+1]];renderStops();renderGradPreview();renderAll();}});
+      rm.addEventListener('click',()=>{if(STOPS.length>1){STOPS.splice(idx,1);renderStops();renderGradPreview();renderAll();}});
 
-      row.append(t,c,up,dn,rm); stopsWrap.appendChild(row);
+      row.append(t,c,up,dn,rm);stopsWrap.appendChild(row);
     });
   }
   function renderGradPreview(){
     const parts=STOPS.map((c,i)=>`${normHex(c,true)} ${i*100/(Math.max(STOPS.length-1,1))}%`);
     gradPrev.style.background=`linear-gradient(90deg, ${parts.join(', ')})`;
   }
-
-  /* ---------- Live typing sync ---------- */
-  function syncSolid(){
-    baseColor = normHex(solidPicker.value,true);
-    const textNorm = ed.value.replace(/\r?\n/g,'\\n');
-
-    if (!userStyled){
-      markup = `<color=${baseColor}>${textNorm}</color>`;
-    } else {
-      const map = buildIndexMap(markup);
-      const plainLen = map.length ? map.length - 1 : 0;
-      const targetLen = textNorm.length;
-
-      if (targetLen > plainLen){
-        markup += textNorm.slice(plainLen);
-      } else if (targetLen < plainLen){
-        const newEnd = map[targetLen] ?? markup.length;
-        markup = markup.slice(0,newEnd);
-      }
-    }
-    renderAll();
-  }
- 
-  btnSolid.addEventListener('click', ()=>{
-    requireSelection(btnSolid, ()=>{
-      stripOuterSolidColor();
-      const {s,e}=getSel(); const map=buildIndexMap(markup); const a=map[s] ?? markup.length; const b=map[e] ?? markup.length;
-      const hex=normHex(solidPicker.value,true);
-      let segment = markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');
-      markup = markup.slice(0,a) + `<color=${hex}>` + segment + `</color>` + markup.slice(b);
-      userStyled=true; renderAll(); statusEl.textContent='Solid color applied.'; flash(btnSolid);
-    },'Select text to color.');
-  });
-
-  btnGradient.addEventListener('click', ()=>{
-    requireSelection(btnGradient, ()=>{
-      stripOuterSolidColor();
-      const {s,e}=getSel(); const map=buildIndexMap(markup); const a=map[s] ?? markup.length; const b=map[e] ?? markup.length;
-      let segment = markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');
-      const colored=buildSmoothGradient(segment);
-      markup = markup.slice(0,a) + colored + markup.slice(b);
-      userStyled=true; renderAll(); statusEl.textContent='Smooth gradient applied.'; flash(btnGradient);
-    },'Select text for gradient.');
-  });
-
-  const alignBtns=[document.getElementById('al-left'),document.getElementById('al-center'),document.getElementById('al-right')];
-  document.querySelectorAll('[data-align]').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const mode=btn.getAttribute('data-align');
-      requireSelection(btn, ()=>{
-        stripOuterSolidColor();
-        const {s,e}=getSel(); const map=buildIndexMap(markup); const a=map[s] ?? markup.length; const b=map[e] ?? markup.length;
-        let segment = markup.slice(a,b).replace(/<align=(left|center|right)>/g,'').replace(/<\/align>/g,'');
-        segment = ensureColor(segment);
-        markup = markup.slice(0,a)+`<align=${mode}>`+segment+`</align>`+markup.slice(b);
-        alignBtns.forEach(b=>b.classList.remove('active')); btn.classList.add('active');
-        userStyled=true; renderAll(); statusEl.textContent=`Alignment ${mode} applied.`;
-      },'Select text to align.');
-    });
-  });
-
-  btnApplySize.addEventListener('click', ()=>{
-    let pct=clamp(parseInt(sizeInput.value||'115',10),50,300); sizeInput.value=pct;
-    requireSelection(btnApplySize, ()=>{
-      stripOuterSolidColor();
-      const {s,e}=getSel(); const map=buildIndexMap(markup); const a=map[s] ?? markup.length; const b=map[e] ?? markup.length;
-      let inner = markup.slice(a,b).replace(/<size=\d{1,3}%>/g,'').replace(/<\/size>/g,'');
-      inner = ensureColor(inner);
-      markup = markup.slice(0,a) + `<size=${pct}%>` + inner + `</size>` + markup.slice(b);
-      userStyled=true; renderAll(); statusEl.textContent=`Size ${pct}% applied.`; flash(btnApplySize);
-    },'Select text to resize.');
-  });
-
-  // Bold/Italic/Underline TOGGLE
-  document.querySelectorAll('[data-tag]').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const tag=btn.getAttribute('data-tag');
-      requireSelection(btn, ()=>{
-        stripOuterSolidColor();
-        const {s,e}=getSel(); const map=buildIndexMap(markup); const a=map[s] ?? markup.length; const b=map[e] ?? markup.length;
-        let segment = markup.slice(a,b);
-        const openRe=new RegExp(`<${tag}>`,'g'), closeRe=new RegExp(`</${tag}>`,'g');
-        segment = segment.replace(openRe,`<${tag}>`).replace(closeRe,`</${tag}>`);
-
-        const fullyWrapped = segment.startsWith(`<${tag}>`) && segment.endsWith(`</${tag}>`) &&
-          segment.replace(new RegExp(`^<${tag}>|</${tag}>$`,'g'),'').indexOf(`<${tag}>`)===-1;
-
-        if(fullyWrapped){
-          segment = segment.replace(new RegExp(`^<${tag}>`), '').replace(new RegExp(`</${tag}>$`), '');
-          statusEl.textContent = `<${tag}> removed.`;
-        } else {
-          segment = ensureColor(segment);
-          segment = `<${tag}>`+segment+`</${tag}>`;
-          statusEl.textContent = `<${tag}> applied.`;
-        }
-
-        markup = markup.slice(0,a)+segment+markup.slice(b);
-        userStyled=true; renderAll();
-      },`Select text to toggle <${tag}>.`);
-    });
-  });
-
-  btnFontWrap.addEventListener('click', ()=>{
-    const f=fontSel.value;
-    requireSelection(btnFontWrap, ()=>{
-      stripOuterSolidColor();
-      const {s,e}=getSel(); const map=buildIndexMap(markup); const a=map[s] ?? markup.length; const b=map[e] ?? markup.length;
-      let inner = markup.slice(a,b).replace(/<font="[^"]+">/g,'').replace(/<\/font>/g,'');
-      inner = ensureColor(inner);
-      markup = markup.slice(0,a)+`<font="${f}">`+inner+`</font>`+markup.slice(b);
-      userStyled=true; renderAll(); statusEl.textContent=`Font "${f}" applied to selection.`; flash(btnFontWrap);
-    },'Select text to apply font.');
-  });
- 
-  autoBtn.addEventListener('click', ()=>{ insertAtCaret(autoSel.value); syncSolid(); statusEl.textContent=`Inserted ${autoSel.value}`; flash(autoBtn); });
-  const randHex=()=>'#'+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0').toUpperCase();
-  btnAddStop.addEventListener('click', ()=>{ if(STOPS.length>=10){ statusEl.textContent='Max 10 stops.'; flash(btnAddStop); return; } STOPS.push(randHex()); renderStops(); renderGradPreview(); renderAll(); statusEl.textContent=`Added stop (#${STOPS.length}).`; flash(btnAddStop); });
-  btnShuffle.addEventListener('click', ()=>{ STOPS=STOPS.map(()=>randHex()); renderStops(); renderGradPreview(); renderAll(); statusEl.textContent='Stops randomized.'; flash(btnShuffle); });
-
-  function syncPreviewBaseFont(){ const key=fontSel.value; prev.style.fontFamily = FONT_MAP[key] || 'inherit'; }
-  fontSel.addEventListener('change', ()=>{ syncPreviewBaseFont(); renderAll(); });
-
-  solidPicker.addEventListener('input', ()=>{ baseColor = normHex(solidPicker.value,true); syncSolid(); });
-  ed.addEventListener('input', syncSolid);
-  ed.addEventListener('keyup', syncSolid);
- 
-  ed.addEventListener('keydown', (e)=>{
-    if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); insertAtCaret('\\n'); syncSolid(); return; }
-    if(e.key==='Tab'){ e.preventDefault(); insertAtCaret('\t');   syncSolid(); return; }
-  });
-
-  btnCopy.addEventListener('click', ()=>{ copyToClipboard(markup); statusEl.textContent='Markup copied to clipboard.'; flash(btnCopy); });
-  btnDL.addEventListener('click', ()=>{ const blob=new Blob([markup],{type:'text/plain;charset=utf-8'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='template.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url); statusEl.textContent='Downloaded template.txt'; flash(btnDL); });
  
   const ICONS=['✿','❀','❖','⚽','⚾','♠','♣','♦','♥','♤','♧','♢','♡','☯','✚','⚠','†','∞','✓','☎','☏','☀','☁','☂','☃','☉','★','☆','⁂','✽','☝','☞','☟','☜','↑','↓','→','←','↔','↕','⌘','⌅','⌆','⌇','〶','⚙','⚛','⚜','⚓','⚡','⚕','⚒','⚖','♩','♪','♫','♬','♭','♮','♯','☕','☘','☄','☇','☈','〠','ヅ','ツ','㋡','웃','유','シ','ッ','㋛','◉','○','◎','●','⊗','⊙','◯','◇','◈','◍','◐','◑','◒','◓','◦','∅','⊕','⊖','⊘','⦿','▀','▁','▂','▃','▄','▅','▆','▇','▉','▋','█','░','▒','▓','▢','▣','▤','▥','▦','▧','▨','▩','▪','▫','◆','◣','◥','◤','◢','☠','☢','☣','⚰','⚱','♨','☮','✠','✡','™','〰','Ⓜ','♻','🆘','🅰','🅱','🅾','🆚'];
-  const btnIcons=document.getElementById('btn-icons'), palette=document.getElementById('icon-palette'), iconGrid=document.getElementById('icon-grid');
-  function buildIcons(){ iconGrid.innerHTML=''; ICONS.forEach(ch=>{ const cell=document.createElement('div'); cell.className='icon-cell'; cell.textContent=ch; cell.title='Insert "'+ch+'"'; cell.addEventListener('click',()=>{ insertAtCaret(ch); palette.style.display='none'; ed.focus(); syncSolid(); }); iconGrid.appendChild(cell); }); }
-  btnIcons.addEventListener('click',()=>{ palette.style.display = (palette.style.display==='block'?'none':'block'); });
-  document.addEventListener('keydown',(e)=>{ if(e.key==='Escape' && palette.style.display==='block'){ palette.style.display='none'; }});
-  buildIcons();
+  const btnIcons=document.getElementById('btn-icons'),palette=document.getElementById('icon-palette'),iconGrid=document.getElementById('icon-grid');
+  function buildIcons(){iconGrid.innerHTML='';ICONS.forEach(ch=>{const cell=document.createElement('div');cell.className='icon-cell';cell.textContent=ch;cell.title='Insert "'+ch+'"';cell.addEventListener('click',()=>{insertAtCaret(ch);palette.style.display='none';ed.focus();syncSolid();});iconGrid.appendChild(cell);});}
+  btnIcons.addEventListener('click',()=>{palette.style.display=(palette.style.display==='block'?'none':'block');});
+  document.addEventListener('keydown',(e)=>{if(e.key==='Escape'&&palette.style.display==='block'){palette.style.display='none';}});
  
-  const snBulk=document.getElementById('snippet-bulk'), snBuild=document.getElementById('snippet-build'), snWrap=document.getElementById('snippet-buttons');
-  snBuild.addEventListener('click',()=>{ const lines=(snBulk.value||'').split(/\r?\n/).map(l=>l.trim()).filter(Boolean); snWrap.innerHTML=''; for(const line of lines){ const idx=line.indexOf(':'); if(idx<=0) continue; const name=line.slice(0,idx).trim(); const body=line.slice(idx+1).trim(); const btn=document.createElement('button'); btn.className='btn snippet-btn'; btn.textContent=name; btn.title='Insert '+name; btn.addEventListener('click',()=>{ insertAtCaret(body); syncSolid(); flash(btn); }); snWrap.appendChild(btn); } if(!snWrap.children.length){ const note=document.createElement('div'); note.style.opacity='.8'; note.textContent='No valid name:value pairs found.'; snWrap.appendChild(note); } });
+  const snBulk=document.getElementById('snippet-bulk'),snBuild=document.getElementById('snippet-build'),snWrap=document.getElementById('snippet-buttons');
+  snBuild.addEventListener('click',()=>{
+    const lines=(snBulk.value||'').split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+    snWrap.innerHTML='';
+    for(const line of lines){
+      const i=line.indexOf(':');if(i<=0)continue;
+      const name=line.slice(0,i).trim();const body=line.slice(i+1).trim();
+      const btn=document.createElement('button');btn.className='btn snippet-btn';btn.textContent=name;btn.title='Insert '+name;
+      btn.addEventListener('click',()=>{insertAtCaret(body);syncSolid();flash(btn);});
+      snWrap.appendChild(btn);
+    }
+    if(!snWrap.children.length){const note=document.createElement('div');note.className='muted';note.textContent='No valid name:value pairs found.';snWrap.appendChild(note);}
+  }); 
+  function insertAtCaret(txt){
+    const {s,e}=getSel();const val=ed.value;
+    ed.value=val.slice(0,s)+txt+val.slice(e);
+    ed.selectionStart=ed.selectionEnd=s+txt.length;
+  }
+  function syncPreviewBaseFont(){prev.style.fontFamily=FONT_MAP[fontSel.value]||'inherit';}
+  fontSel.addEventListener('change',()=>{syncPreviewBaseFont();renderAll();});
  
-  function syncPreviewBaseFont(){ const key=fontSel.value; prev.style.fontFamily = FONT_MAP[key] || 'inherit'; }
+  solidPicker.addEventListener('input',syncSolid);
+  ed.addEventListener('input',syncSolid);
+  ed.addEventListener('keyup',syncSolid);
+  ed.addEventListener('keydown',(e)=>{
+    if(e.key==='Enter' || e.key==='Tab'){
+      e.preventDefault();
+      insertAtCaret('\\n');
+      syncSolid();
+      return;
+    }
+  });
+ 
+  btnCopy.addEventListener('click',()=>{copyToClipboard(markup);statusEl.textContent='Markup copied to clipboard.';flash(btnCopy);});
+  btnDL.addEventListener('click',()=>{
+    const blob=new Blob([markup],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=url;a.download='template.txt';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+    statusEl.textContent='Downloaded template.txt';flash(btnDL);
+  });
+ 
   function boot(){
-    renderStops(); renderGradPreview(); syncPreviewBaseFont();
+    renderStops();renderGradPreview();buildIcons();syncPreviewBaseFont();
     ed.value='♡Welcome to my lobby♡';
-    userStyled=false; baseColor = normHex(solidPicker.value,true);
+    baseColor=normHex(solidPicker.value,true);
+    userStyled=false;
     syncSolid();
   }
-  document.addEventListener('DOMContentLoaded', boot);
+  document.addEventListener('DOMContentLoaded',boot);
 </script>
 </body>
 </html>
