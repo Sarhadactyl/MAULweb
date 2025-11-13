@@ -146,7 +146,7 @@
 
         <div class="field" title="Apply a solid color to selection.">
           <label>Solid</label>
-          <input id="lte-solid" type="color" value="#FF4D6D">
+          <input id="lte-solid" type="color" value="#FFFFFF">         
           <button class="btn" id="lte-apply-solid">Apply</button>
           <button class="btn small" id="btn-eyedrop">Pick</button>
         </div>
@@ -351,7 +351,7 @@ const exportAreas = {
 let STOPS = loadLS('stops',['#B625F1','#2970F8','#00CFFF','#31D0AA']);
 let markup = '';
 let userStyled = false;
-let baseColor = normHex(loadLS('baseColor','#FF4D6D'),true);
+let baseColor = normHex(loadLS('baseColor','#FFFFFF'),true);
 let lastAction = null;
 let undoStack = [];
 let redoStack = [];
