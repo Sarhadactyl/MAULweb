@@ -50,13 +50,38 @@
     .export-card{display:grid;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:10px}
     .export-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     @media(max-width:900px){.export-grid{grid-template-columns:1fr}}
-    .preset-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-    @media(max-width:900px){.preset-grid{grid-template-columns:1fr}}
-    .preset-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:12px;display:grid;gap:10px}
-    .preset-header{font-weight:700}
-    .preset-swatch{height:44px;border-radius:8px;border:1px solid rgba(255,255,255,.2)}
-    .preset-hex{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:10px;font-family:'Roboto Mono',monospace;font-size:.9rem;color:#e7f0ff;white-space:pre-wrap}
-    .preset-actions{display:flex;gap:8px;align-items:center}
+.preset-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+}
+@media(max-width:1200px){ .preset-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:700px){  .preset-grid{ grid-template-columns:1fr; } }
+ 
+.preset-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:8px;
+  padding:10px;
+  display:grid;
+  gap:8px;
+}
+
+.preset-swatch{
+  height:32px;         
+  border-radius:6px;
+  border:1px solid rgba(255,255,255,.2);
+} 
+.preset-hex{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:8px;
+  padding:8px;    
+  font-family:'Roboto Mono',monospace;
+  font-size:.85rem; 
+  color:#e7f0ff;
+  white-space:pre-wrap;
+}
   </style>
 </head>
 <body>
@@ -316,7 +341,7 @@ const toolHandlers={
  'gradient':(_,s)=>{
    requireSelection(btnGradient,()=>{
      const {s:eS,e:eE}=getSel();const map=buildIndexMap(markup);let a=map[eS]??markup.length,b=map[eE]??markup.length;
-     // PATCH: include left-adjacent opener
+
      const pre=markup.slice(0,a);const m=pre.match(/<color=#[0-9A-Fa-f]{6}>$/);if(m)a-=m[0].length;
      let seg=markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');
      seg=buildSmoothGradient(seg);
@@ -339,7 +364,6 @@ btnRepeat.addEventListener('click',()=>{repeatLast()});
 btnUndo.addEventListener('click',undo);btnRedo.addEventListener('click',redo);
 btnEye.addEventListener('click',()=>solidPicker.showPicker?.());
 
-// (optional niceties for stops)
 btnAddStop.addEventListener('click',()=>{STOPS.push(randHex());renderStops();renderGradPreview();});
 btnShuffle.addEventListener('click',()=>{STOPS.sort(()=>Math.random()-.5);renderStops();renderGradPreview();});
 document.getElementById('stops-reverse').addEventListener('click',()=>{STOPS.reverse();renderStops();renderGradPreview();});
@@ -353,7 +377,6 @@ function syncSolid(){
   const textNorm = ed.value.replace(/\r?\n/g,'\\n');
 
   if (!userStyled) {
-    // keep output plain until styling is applied
     markup = textNorm;
   } else {
     const map = buildIndexMap(markup);
