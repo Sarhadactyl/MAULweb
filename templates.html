@@ -594,16 +594,12 @@
     const a=map[i0] ?? mark.length;
     const b=map[i1] ?? mark.length;
     return mark.slice(0,a)+repl+mark.slice(b);
-  }
-
-  // Strip a single outer solid color wrapper that covers the whole markup
+  } 
   function stripOuterSolidColor(){
     markup = markup
       .replace(/^<color=#[0-9A-Fa-f]{6}>/, '')
       .replace(/<\/color>$/, '');
-  }
-
-  // Collapse spammed size tags like <size=150%><size=150%>... and </size></size>...
+  } 
   function cleanupSizeSpam(){
     markup = markup
       .replace(/(?:<size=\d{1,3}%>)+/g, (m)=>{
