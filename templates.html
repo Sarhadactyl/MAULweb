@@ -594,12 +594,20 @@
     const a=map[i0] ?? mark.length;
     const b=map[i1] ?? mark.length;
     return mark.slice(0,a)+repl+mark.slice(b);
-  } 
+  }
+
   function stripOuterSolidColor(){
     markup = markup
       .replace(/^<color=#[0-9A-Fa-f]{6}>/, '')
       .replace(/<\/color>$/, '');
-  } 
+  }
+
+  function cleanupColorSpam(){
+    markup = markup
+      .replace(/(?:<color=(#[0-9A-Fa-f]{6})>)+/g, '<color=$1>')
+      .replace(/(?:<\/color>)+/g, '</color>');
+  }
+
   function cleanupSizeSpam(){
     markup = markup
       .replace(/(?:<size=\d{1,3}%>)+/g, (m)=>{
@@ -607,6 +615,25 @@
         return first ? first[0] : m;
       })
       .replace(/(?:<\/size>)+/g, '</size>');
+  }
+
+  function cleanupFontSpam(){
+    markup = markup
+      .replace(/(?:<font="([^"]+)">)+/g, '<font="$1">')
+      .replace(/(?:<\/font>)+/g, '</font>');
+  }
+
+  function cleanupAlignSpam(){
+    markup = markup
+      .replace(/(?:<align=(left|center|right)>)+/g, '<align=$1>')
+      .replace(/(?:<\/align>)+/g, '</align>');
+  }
+
+  function cleanupMarkup(){
+    cleanupColorSpam();
+    cleanupSizeSpam();
+    cleanupFontSpam();
+    cleanupAlignSpam();
   }
 
   function buildSmoothGradient(str){
@@ -655,16 +682,25 @@
   }
 
   function renderAll(){
+    cleanupMarkup();
     out.textContent = markup;
     prev.innerHTML = toHTML(markup);
   }
-
-  function wrapSelection(open,close){
+ 
+  function wrapSelection(open, close, stripRegexes){
     const {s,e}=getSel();
     if(e<=s) return;
-    const raw = ed.value.slice(s,e).replace(/\r?\n/g,'\\n');
-    markup = replacePlainRangeWith(markup,s,e,open+raw+close);
-    userStyled=true;
+    const map = buildIndexMap(markup);
+    const a = map[s] ?? markup.length;
+    const b = map[e] ?? markup.length;
+    let segment = markup.slice(a,b);
+    if(stripRegexes){
+      stripRegexes.forEach(re=>{
+        segment = segment.replace(re,'');
+      });
+    }
+    markup = markup.slice(0,a) + open + segment + close + markup.slice(b);
+    userStyled = true;
     renderAll();
   }
 
@@ -729,7 +765,6 @@
   function syncSolid(){
     const solid=normHex(solidPicker.value,true);
     const text=ed.value.replace(/\r?\n/g,'\\n');
-
     if (!userStyled) {
       markup = `<color=${solid}>${text}</color>`;
     }
@@ -783,7 +818,11 @@
       const mode=btn.getAttribute('data-align');
       requireSelection(btn, ()=>{
         stripOuterSolidColor();
-        wrapSelection(`<align=${mode}>`,`</align>`);
+        wrapSelection(
+          `<align=${mode}>`,
+          `</align>`,
+          [/<align=(left|center|right)>/g, /<\/align>/g]
+        );
         alignBtns.forEach(b=>b.classList.remove('active'));
         btn.classList.add('active');
         userStyled = true;
@@ -791,6 +830,7 @@
       },'Select text to align.');
     });
   });
+
   btnApplySize.addEventListener('click', ()=>{
     let pct = clamp(parseInt(sizeInput.value||'110',10),50,300);
     sizeInput.value = pct;
@@ -805,7 +845,6 @@
         .replace(/<\/size>/g,'');
 
       markup = markup.slice(0,a) + `<size=${pct}%>` + inner + `</size>` + markup.slice(b);
-      cleanupSizeSpam();   
       userStyled = true;
       renderAll();
       statusEl.textContent = `Size ${pct}% applied.`; flash(btnApplySize);
@@ -817,8 +856,11 @@
       const tag=btn.getAttribute('data-tag');
       requireSelection(btn, ()=>{
         stripOuterSolidColor();
-        wrapSelection(`<${tag}>`,`</${tag}>`);
-        userStyled = true;
+        const strips = [];
+        if(tag === 'b'){ strips.push(/<b>/g,/<\/b>/g); }
+        if(tag === 'i'){ strips.push(/<i>/g,/<\/i>/g); }
+        if(tag === 'u'){ strips.push(/<u>/g,/<\/u>/g); }
+        wrapSelection(`<${tag}>`,`</${tag}>`,strips);
         statusEl.textContent=`<${tag}> applied.`;
       },`Select text to apply <${tag}>.`);
     });
@@ -983,7 +1025,7 @@
     renderStops();
     renderGradPreview();
     syncPreviewBaseFont();
-    ed.value='♡Besties♡';
+    ed.value='♡Welcome to my lobby♡';
     userStyled = false;
     syncSolid();
   }
