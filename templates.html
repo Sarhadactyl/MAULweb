@@ -635,7 +635,15 @@
     cleanupFontSpam();
     cleanupAlignSpam();
   }
-
+    function cleanupBiuSpam(){
+    markup = markup
+        .replace(/(?:<b>)+/g, '<b>')
+        .replace(/(?:<\/b>)+/g, '</b>')
+        .replace(/(?:<i>)+/g, '<i>')
+        .replace(/(?:<\/i>)+/g, '</i>')
+        .replace(/(?:<u>)+/g, '<u>')
+        .replace(/(?:<\/u>)+/g, '</u>');
+    }
   function buildSmoothGradient(str){
     const stops=STOPS.length?STOPS:['#FFFFFF'];
     const text=String(str||'');
