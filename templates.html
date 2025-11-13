@@ -763,22 +763,28 @@
   }
 
     function syncSolid(){
+    const textNorm = ed.value.replace(/\r?\n/g,'\\n');
     const solid = normHex(solidPicker.value,true);
-    const text  = ed.value.replace(/\r?\n/g,'\\n');
 
     if (!userStyled) { 
-        markup = `<color=${solid}>${text}</color>`;
+        markup = `<color=${solid}>${textNorm}</color>`;
     } else { 
-        const plainFromMarkup = markup.replace(/<[^>]+>/g,'');  
-        if (text.length > plainFromMarkup.length &&
-            text.startsWith(plainFromMarkup)) { 
-        const extra = text.slice(plainFromMarkup.length);
+        const map = buildIndexMap(markup);  
+        const plainLen = map.length ? map.length - 1 : 0;  
+        const targetLen = textNorm.length;
+
+        if (targetLen > plainLen) { 
+        const extra = textNorm.slice(plainLen);
         markup += extra;
+        } else if (targetLen < plainLen) { 
+        const newMarkupEnd = map[targetLen] ?? markup.length;
+        markup = markup.slice(0, newMarkupEnd);
         } 
     }
 
-    renderAll();
-    }
+  renderAll();
+}
+
 
   btnSolid.addEventListener('click', ()=>{
     requireSelection(btnSolid, ()=>{
