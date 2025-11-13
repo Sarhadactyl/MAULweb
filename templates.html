@@ -60,9 +60,7 @@
       transition:transform .2s ease;
       padding:0;
     }
-    .dropbtn:hover {
-      transform:scale(1.06);
-    }
+    .dropbtn:hover { transform:scale(1.06); }
     .hamburger {
       width:30px;
       height:22px;
@@ -96,15 +94,9 @@
       transition:background .2s;
       border-bottom:1px solid #2a2a2a;
     }
-    .dropdown-content a:last-child {
-      border-bottom:0;
-    }
-    .dropdown-content a:hover {
-      background:#2a2a2a;
-    }
-    .dropdown:hover .dropdown-content {
-      display:block;
-    }
+    .dropdown-content a:last-child { border-bottom:0; }
+    .dropdown-content a:hover { background:#2a2a2a; }
+    .dropdown:hover .dropdown-content { display:block; }
     footer {
       position:fixed;
       bottom:0;
@@ -140,10 +132,7 @@
       margin:0 0 16px;
       font-size:.98rem;
     }
-    .grid {
-      display:grid;
-      gap:14px;
-    }
+    .grid { display:grid; gap:14px; }
     .row {
       display:flex;
       flex-wrap:wrap;
@@ -188,9 +177,7 @@
       background:rgba(255,255,255,.18);
       border-color:rgba(255,255,255,.38);
     }
-    .btn:active {
-      transform:scale(.98);
-    }
+    .btn:active { transform:scale(.98); }
     .btn.active {
       outline: 2px solid #fff;
       box-shadow: 0 0 0 2px rgba(255,255,255,.25) inset;
@@ -283,9 +270,7 @@
       background:#2c2c2c;
       border-color:#555;
     }
-    .icon-cell:active {
-      transform:scale(.96);
-    }
+    .icon-cell:active { transform:scale(.96); }
     #snippet-buttons {
       display:flex;
       flex-wrap:wrap;
@@ -745,8 +730,7 @@
       userStyled=true; renderAll();
       statusEl.textContent='Solid color applied.'; flash(btnSolid);
     },'Select text to color.');
-  });
- 
+  }); 
   btnGradient.addEventListener('click', ()=>{
     requireSelection(btnGradient, ()=>{
       const {s,e}=getSel();
@@ -771,14 +755,24 @@
       },'Select text to align.');
     });
   });
-
+ 
   btnApplySize.addEventListener('click', ()=>{
-    let pct=clamp(parseInt(sizeInput.value||'110',10),50,300);
-    sizeInput.value=pct;
+    let pct = clamp(parseInt(sizeInput.value||'110',10),50,300);
+    sizeInput.value = pct;
     requireSelection(btnApplySize, ()=>{
-      wrapSelection(`<size=${pct}%>`,`</size>`);
-      statusEl.textContent=`Size ${pct}% applied.`; flash(btnApplySize);
-    },'Select text to resize.');
+      const {s,e} = getSel();
+      const map = buildIndexMap(markup);
+      const a = map[s] ?? markup.length;
+      const b = map[e] ?? markup.length;
+      const inner = markup.slice(a,b)
+        .replace(/<size=\d{1,3}%>/g,'')
+        .replace(/<\/size>/g,'');
+      markup = markup.slice(0,a) + `<size=${pct}%>` + inner + `</size>` + markup.slice(b);
+      userStyled = true;
+      renderAll();
+      statusEl.textContent = `Size ${pct}% applied.`;
+      flash(btnApplySize);
+    }, 'Select text to resize.');
   });
 
   document.querySelectorAll('[data-tag]').forEach(btn=>{
@@ -943,6 +937,11 @@
       snWrap.appendChild(note);
     }
   });
+
+  function syncPreviewBaseFont(){
+    const key=fontSel.value;
+    prev.style.fontFamily = FONT_MAP[key] || 'inherit';
+  }
 
   function boot(){
     renderStops();
