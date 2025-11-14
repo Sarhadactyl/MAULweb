@@ -29,7 +29,7 @@
     .section-title{font-size:1.6rem;text-align:center;margin:0 0 6px}
     .section-subtitle{text-align:center;color:var(--muted);margin:0 0 16px;font-size:.98rem}
     .grid{display:grid;gap:14px}
-    .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center} /* centered rows */
+    .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
     .field{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);padding:6px 10px;border-radius:8px}
     .field input,.field select,.field textarea{background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.24);border-radius:6px;color:#def;padding:8px}
     .field textarea{width:100%;min-height:130px;resize:vertical}
@@ -61,6 +61,31 @@
     .preset-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:10px;display:grid;gap:8px}
     .preset-swatch{height:32px;border-radius:6px;border:1px solid rgba(255,255,255,.2)}
     .preset-hex{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:8px;font-family:'Roboto Mono',monospace;font-size:.85rem;color:#e7f0ff;white-space:pre-wrap}
+ 
+    #icon-palette{
+      display:none;
+      max-height:220px;
+      overflow:auto;
+      margin:8px auto 0;
+      padding:8px;
+      border-radius:8px;
+      background:rgba(0,0,0,.88);
+      border:1px solid rgba(255,255,255,.18);
+      max-width:600px;
+    }
+    #icon-palette.open{display:block;}
+    #icon-grid{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      justify-content:center;
+    }
+    .icon-btn{
+      min-width:32px;
+      padding:4px 6px;
+      font-size:1rem;
+      line-height:1;
+    }
   </style>
 </head>
 <body>
@@ -160,7 +185,14 @@
           <label>New line</label>
           <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" id="clean-slate" checked> Clean slate</label>
           <small style="opacity:.75">When on: emits <code>&lt;/color&gt;\n&lt;color=#...&gt;</code> between lines.</small>
+        </div> 
+        <div class="field">
+          <label>Icons</label>
+          <button class="btn small" id="btn-icons">Pick icon</button>
         </div>
+      </div> 
+      <div id="icon-palette">
+        <div id="icon-grid"></div>
       </div>
 
       <div id="lte-grad-preview" class="preview-bar" aria-label="Gradient preview"></div>
@@ -251,6 +283,10 @@ const presetSelect=document.getElementById('preset-select');
 const presetApply=document.getElementById('preset-apply');
 const presetGrid=document.getElementById('preset-grid');
 const btnInsertNL=document.getElementById('btn-insert-nl');
+
+const btnIcons=document.getElementById('btn-icons');
+const iconPalette=document.getElementById('icon-palette');
+const iconGrid=document.getElementById('icon-grid');
 
 const exportAreas={welcome:document.getElementById('export-welcome'),onmeeting:document.getElementById('export-onmeeting'),rules:document.getElementById('export-rules'),vip:document.getElementById('export-vip')};
  
@@ -482,7 +518,40 @@ document.addEventListener('keydown',(e)=>{if(isMeta(e)&&e.key.toLowerCase()==='z
 if(isMeta(e)&&['b','i','u'].includes(e.key.toLowerCase())){e.preventDefault();toolHandlers[e.key.toLowerCase()]();return}
 if(isMeta(e)&&(e.key==='='||e.key==='+'||e.key==='-')){e.preventDefault();const cur=parseInt(sizeInput.value||'115',10);const pct=e.key==='-'?cur-5:cur+5;toolHandlers['size']({pct});return}
 if(isMeta(e)&&['l','c','r'].includes(e.key.toLowerCase())){e.preventDefault();const m=e.key.toLowerCase()==='l'?'left':e.key.toLowerCase()==='c'?'center':'right';toolHandlers['align']({mode:m});return}
-if(!isMeta(e)&&e.key.toLowerCase()==='r'){repeatLast()}});
+if(!isMeta(e)&&e.key.toLowerCase()==='r'){repeatLast()}}); 
+const ICONS = [
+  '✿','❀','❖','⚽','⚾','♠','♣','♦','♥','♤','♧','♢','♡','☯','✚','⚠','†','∞','✓',
+  '☎','☏','☀','☁','☂','☃','☉','★','☆','⁂','✽','☝','☞','☟','☜','↑','↓','→','←','↔','↕',
+  '⌘','⌅','⌆','⌇','〶','⚙','⚛','⚜','⚓','⚡','⚕','⚒','⚖','♩','♪','♫','♬','♭','♮','♯',
+  '☕','☘','☄','☇','☈','〠','ヅ','ツ','㋡','웃','유','シ','ッ','㋛','◉','○','◎','●','⊗','⊙',
+  '◯','◇','◈','◍','◐','◑','◒','◓','◦','∅','⊕','⊖','⊘','⦿','▀','▁','▂','▃','▄','▅','▆','▇',
+  '▉','▋','█','░','▒','▓','▢','▣','▤','▥','▦','▧','▨','▩','▪','▫','◆','◣','◥','◤','◢',
+  '☠','☢','☣','⚰','⚱','♨','☮','✠','✡','™','〰','Ⓜ','♻','🆘','🅰','🅱','🅾','🆚'
+];
+
+function buildIcons(){
+  iconGrid.innerHTML='';
+  ICONS.forEach(ch=>{
+    const btn=document.createElement('button');
+    btn.type='button';
+    btn.className='btn small icon-btn';
+    btn.textContent=ch;
+    btn.addEventListener('click',()=>{
+      insertAtCaret(ch);
+      syncSolid();
+      status(`Inserted icon ${ch}`);
+    });
+    iconGrid.appendChild(btn);
+  });
+}
+
+btnIcons.addEventListener('click',()=>{
+  const willOpen=!iconPalette.classList.contains('open');
+  iconPalette.classList.toggle('open');
+  if(willOpen && !iconGrid.childElementCount){
+    buildIcons();
+  }
+});
 
 const PRESETS = { "Rose Red":["590d22","800f2f","a4133c","c9184a","ff4d6d","ff758f","ff8fa3","ffb3c1","ffccd5","fff0f3"], "True Red":["7a0000","b00016","d61c1c","ff3b3b","ff9a9a"], "Crimson Fade":["430010","6e001b","9a0f2a","d43c4b","ff8a9a"], "Brick Ember":["521414","7a2320","9e362b","c95646","eaa19b"], "Candy Apple":["6f0000","a80000","e10019","ff3d38","ffb1ae"], "Golden Flame":["ff7b00","ff8800","ff9500","ffa200","ffaa00","ffb700","ffc300","ffd000","ffd933","ffe15c"], "Orange Crush":["7a2e00","b34a00","ff6d00","ffa042","ffd3a1"], "Tangelo":["552500","8a3a00","c25500","ff7e1a","ffbf80"], "Pumpkin Spice":["5c2d00","9a4e00","cc6b00","ff9722","ffd19e"], "Sunset Orange":["6b1b00","a33300","d74e00","ff7a30","ffc4a6"], "Lemon Zest":["6b5e00","9a8800","d4b400","ffe34d","fff3a3"], "Honey Glow":["4d3a00","7a5c00","b08900","e6b80a","ffe680"], "Gold Foil":["5b4a00","8f7400","caa100","f2cf33","fff0a6"], "Sand Light":["5f5527","8a7b39","b4a450","d9c978","f7edb8"], "Solar Flare":["6a4d00","a47300","d19a00","ffd54d","fff3cc"], "Forest Calm":["20331a","33512a","446c37","558745","66a253","7cb36b","94c186","abcea1","c3dcbc","dbead7"], "Mint Sky":["007f5f","2b9348","55a630","80b918","aacc00","bfd200","d4d700","dddf00","eeef20"], "Emerald Field":["064e3b","0f7a4b","1fa36b","4fd08a","a8f0c2"], "Lime Soda":["0b3d02","167a06","22b108","79d70f","d0ff72"], "Meadow Fresh":["1c3b1a","2f6b2a","3f8e37","61b357","a6e6a3"], "Teal Breeze":["0a2d27","13594e","1d8676","26b29d","30dfc4","59e5d0","83ecdc","acf2e7","d6f9f3"], "Aqua Tide":["005f5f","008c8c","00b3a6","32d1c0","a0efe6"], "Seafoam Drift":["0c3c35","13685d","1da28c","4fdcc7","b7f3e9"], "Glacier Shore":["07373a","0e6267","1a8d96","49bcc2","aee9ef"], "Tropical Surf":["004b4a","007a77","00a39f","27cfc7","90f7f1"], "Ocean Blue":["03045e","023e8a","0077b6","0096c7","00b4d8","48cae4","90e0ef","ade8f4","caf0f8"], "Azure Sky":["0b1e6b","143f9a","1f6ed4","4fa0ff","a8ceff"], "Deep Space":["0b132b","1c2541","3a506b","5bc0be","a6e3e9"], "Royal Night":["0a0f1f","111d4a","2a3c8b","4f6bd7","a3b5ff"], "Cyber Aqua":["001f3f","003f7f","0074d9","39cccc","7fdbff"], "Indigo Deep":["1a0b6b","2e169a","4931d4","7f73ff","c6c0ff"], "Midnight Indigo":["0b0f3a","152261","2645a1","4f7be0","a7c1ff"], "Twilight Indigo":["140a2b","2a1952","463188","7b6ed1","c4c0ff"], "Space Indigo":["0a0a2b","15154a","2d2d80","5555c4","bdbdf8"], "Royal Purple":["3a0ca3","5f0f40","9d0191","c200fb","e100ff","f72585","ff00a0","ff5ab3","ff85c1"], "Violet Bloom":["3b0a57","6a1b9a","8e3ecf","b07ae8","e1c7ff"], "Lavender Mist":["2b1e59","5a3ea6","8a6be8","b79cff","e6ddff"], "Amethyst Dream":["2a0b3a","4c1b6e","7a3eb0","b081e6","e6d6ff"], "Grape Soda":["3a0057","660099","8c33cc","b366ff","e0c2ff"], "Pink Candy":["6b0b3b","9a165a","d43a8b","ff73b4","ffd6e8"], "Berry Mix":["2d0a31","6a0572","ab26a9","ff70a6","ffd6e0"], "Rose Quartz":["4a0b26","7a1f47","b24778","e08db3","ffdcef"], "Blush Pop":["5e1232","9b2b5e","d84b8b","ff88be","ffd2e6"], "Flamingo":["6d1b3f","b1306d","e05c9a","ff9ccc","ffe3f2"], "Desert Dusk":["4a2c2a","8c5b3f","c0895e","e6b17e","ffe0b2"], "Cocoa Earth":["3e2723","5d4037","795548","a1887f","d7ccc8"], "Sandstone":["5a4634","8a6a4a","b8946d","d9b88f","f3e1c6"], "Clay Pot":["4b2a1f","7a4735","a96453","d78b74","f4c7b6"], "Rustic Wood":["3b2413","5e3a1f","7d512b","a37342","d6b189"], "Monochrome Fade":["0b0b0b","2e2e2e","6b6b6b","b0b0b0","e5e5e5"], "Steel to Sky":["202427","434a52","6f7a85","a8b5c3","dfe7ef"], "Foggy Morning":["111317","1c232b","2f3b46","556573","aab8c2"], "Charcoal":["000000","222222","555555","aaaaaa","ffffff"], "Graphite Glow":["1a1b1f","2b2e35","474c56","7b8390","c9d1db"], "Rainbow Pulse":["ff0000","ff8700","ffd300","deff0a","a1ff0a","0aff99","0aefff","147df5","580aff","be0aff"], "Sunset Glow":["c200fb","d704b2","e2068d","ec0868","f41c34","fc2f00","f45608","ec7d10","f69d0d","ffbc0a"], "Retro Neon":["ff00e5","8a2be2","4b6cff","00e1ff","00ffa3"], "Candy Corn":["2b0707","b30000","ff6b00","ffd000","fff3a3"], "Heat Map":["3b0a0a","7a1e1e","b23a1f","ff6f00","ffd180"], "Pastel Rainbow":["f8c8ff","fbc2ea","ffc9de","cde4ff","bfe7ff"], "Mint Cream":["dff7e1","eaf8f0","f8fff5","fff7ea","e8d0a6"], "Soft Sorbet":["ffd1d1","ffe9d1","fff3d6","d9f7f1","d9e3ff"], "Cloud Lilac":["ffe6f7","ead7ff","d7cbff","c6ddff","c6f2ff"], "Peach Milk":["ffd2d2","ffc9b8","ffdcbc","ffe9cf","ffeedd"], "Baby Rainbow":["ffe4ea","fff7b8","dbffd8","c7f4ff","e4d2ff"], "Hot Neon":["6900ff","8a00ff","b300ff","ff00c8","ff4da6"], "Heatwave":["f02a00","ff5a00","ff7a00","ff9a00","ffbf00"], "Lime Pop":["00d26a","9be000","ffd000","ff7a00","ff2c00"], "RGB Stripe":["ff0033","ffe500","00ff66","00eaff","0047ff","7f00ff"], "Tropic Pop":["ff3ab0","ff6a3a","ffd23f","00c2ff","6aff00"], "Signal Glow":["ff00a0","ff0066","ff3d00","ffc400","8cff00"] };
  
