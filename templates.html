@@ -29,7 +29,7 @@
     .section-title{font-size:1.6rem;text-align:center;margin:0 0 6px}
     .section-subtitle{text-align:center;color:var(--muted);margin:0 0 16px;font-size:.98rem}
     .grid{display:grid;gap:14px}
-    .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+    .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center} /* centered rows */
     .field{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);padding:6px 10px;border-radius:8px}
     .field input,.field select,.field textarea{background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.24);border-radius:6px;color:#def;padding:8px}
     .field textarea{width:100%;min-height:130px;resize:vertical}
@@ -43,7 +43,12 @@
     #lte-preview{min-height:360px;padding:0}
     #lte-preview header{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.35);position:sticky;top:0}
     #lte-preview-content{padding:16px 18px;font-size:1.35rem;line-height:1.6}
-    #lte-output{min-height:200px;font-size:1rem}
+    #lte-output{height:220px;overflow:auto}
+    #lte-editor{
+      min-height:180px;
+      resize:vertical;
+      overflow:auto;
+    }
     .gg-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
     .color-chip{width:40px;height:32px;border:1px solid var(--chip-br);background:transparent}
     .preview-bar{height:44px;border-radius:8px;border:1px solid #000;margin:6px 0}
@@ -254,6 +259,7 @@ let markup='';let userStyled=false;let baseColor=normHex(loadLS('baseColor','#FF
 let undoStack=[];let redoStack=[];const MAX_HIST=50;let lastActionObj=null;
  
 const status=m=>statusEl.textContent=m;
+
 function pushHistory(){undoStack.push({markup,userStyled});if(undoStack.length>MAX_HIST)undoStack.shift();redoStack.length=0}
 function undo(){if(!undoStack.length)return;const cur={markup,userStyled};redoStack.push(cur);const prev=undoStack.pop();markup=prev.markup;userStyled=prev.userStyled;renderAll()}
 function redo(){if(!redoStack.length)return;undoStack.push({markup,userStyled});const nxt=redoStack.pop();markup=nxt.markup;userStyled=nxt.userStyled;renderAll()}
@@ -277,14 +283,18 @@ function plainLenText(text){let i=0,plain=0;while(i<text.length){if(text[i]=='\\
 if(text[i]=='{'&&text[i+1]=='{'){const k=text.indexOf('}}',i+2);if(k!==-1){i=k+2;continue}}plain++;i++}return plain}
 function indexOfPlainInText(text,plainIdx){let i=0,seen=0;while(i<text.length&&seen<plainIdx){if(text[i]=='\\'&&text[i+1]=='n'){i+=2;continue}
 if(text[i]=='{'&&text[i+1]=='{'){const k=text.indexOf('}}',i+2);if(k!==-1){i=k+2;continue}}seen++;i++}return i}
-function toHTML(s){let html=s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-html=html.replace(/&lt;font="([^"]+)"&gt;/g,(_,n)=>`<span style="font-family:${FONT_MAP[n.trim()]||'inherit'}">`).replace(/&lt;\/font&gt;/g,'</span>');
-html=html.replace(/&lt;color=(#[0-9A-Fa-f]{6})&gt;/g,(_,h)=>`<span style="color:${h}">`).replace(/&lt;\/color&gt;/g,'</span>');
-html=html.replace(/&lt;size=(\d{1,3})%&gt;/g,(_,p)=>`<span style="font-size:${p}%">`).replace(/&lt;\/size&gt;/g,'</span>');
-html=html.replace(/&lt;align=(left|center|right)&gt;/g,(_,pos)=>`<div style="text-align:${pos}">`).replace(/&lt;\/align&gt;/g,'</div>');
-html=html.replace(/&lt;b&gt;/g,'<b>').replace(/&lt;\/b&gt;/g,'</b>').replace(/&lt;i&gt;/g,'<i>').replace(/&lt;\/i&gt;/g,'</i>').replace(/&lt;u&gt;/g,'<u>').replace(/&lt;\/u&gt;/g,'</u>');
-html=html.replace(/\\n/g,'<br/>').replace(/\n/g,'<br/>');return html}
-function cleanupSpam(m){return m
+
+function toHTML(s){
+  let html=s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  html=html.replace(/&lt;font="([^"]+)"&gt;/g,(_,n)=>`<span style="font-family:${FONT_MAP[n.trim()]||'inherit'}">`).replace(/&lt;\/font&gt;/g,'</span>');
+  html=html.replace(/&lt;color=(#[0-9A-Fa-f]{6})&gt;/g,(_,h)=>`<span style="color:${h}">`).replace(/&lt;\/color&gt;/g,'</span>');
+  html=html.replace(/&lt;size=(\d{1,3})%&gt;/g,(_,p)=>`<span style="font-size:${p}%">`).replace(/&lt;\/size&gt;/g,'</span>');
+  html=html.replace(/&lt;align=(left|center|right)&gt;/g,(_,pos)=>`<div style="text-align:${pos}">`).replace(/&lt;\/align&gt;/g,'</div>');
+  html = html.replace(/\\n/g,'<br/>').replace(/\n/g,'<br/>');
+  return html;
+}
+
+const cleanupSpam = m => m
   .replace(/(?:<color=(#[0-9A-Fa-f]{6})>)+/g,'<color=$1>')
   .replace(/(?:<\/color>)+/g,'</color>')
   .replace(/(?:<size=\d{1,3}%>)+/g,x=>x.match(/<size=\d{1,3}%>/)[0])
@@ -295,13 +305,22 @@ function cleanupSpam(m){return m
   .replace(/(?:<\/align>)+/g,'</align>')
   .replace(/(?:<b>)+/g,'<b>').replace(/(?:<\/b>)+/g,'</b>')
   .replace(/(?:<i>)+/g,'<i>').replace(/(?:<\/i>)+/g,'</i>')
-  .replace(/(?:<u>)+/g,'<u>').replace(/(?:<\/u>)+/g,'</u>')}
+  .replace(/(?:<u>)+/g,'<u>').replace(/(?:<\/u>)+/g,'</u>');
+
 function renderAll(){ 
   markup=cleanupSpam(String(markup));
   out.textContent=markup;
   prevContent.innerHTML=toHTML(markup);
   saveLS('baseColor',baseColor);saveLS('stops',STOPS);
 }
+
+function autosizeTA(){
+  ed.style.height = 'auto';
+  ed.style.height = Math.min(ed.scrollHeight, 600) + 'px';
+}
+ed.addEventListener('input',()=>{ syncSolid(); autosizeTA(); });
+document.addEventListener('DOMContentLoaded',()=>{ autosizeTA(); });
+
 function syncPreviewBaseFont(){prevContent.style.fontFamily=FONT_MAP[fontSel.value]||'inherit'}
  
 function buildSmoothGradient(str){const stops=STOPS.length?STOPS:['#FFFFFF'];const text=String(str||'');let vis=0,i=0;
@@ -309,10 +328,10 @@ while(i<text.length){if(text[i]=='<'){const k=text.indexOf('>',i);i=(k===-1?i+1:
 if(text[i]=='\\'&&text[i+1]=='n'){i+=2;continue}
 if(text[i]=='{'&&text[i+1]=='{'){const k=text.indexOf('}}',i+2);if(k!==-1){i=k+2;continue}}vis++;i++}
 const colorAt=idx=>{if(vis<=1)return normHex(stops[0],true);const t=idx/(vis-1),seg=(stops.length-1)*t;const i0=Math.floor(seg),i1=Math.min(stops.length-1,i0+1),lt=seg-i0;return normHex(lerpColor(stops[i0],stops[i1],lt),true)};
-let v=0; i=0; const out=[];while(i<text.length){if(text[i]=='<'){const k=text.indexOf('>',i);if(k===-1){out.push(text[i++]);continue}out.push(text.slice(i,k+1));i=k+1;continue}
-if(text[i]=='\\'&&text[i+1]=='n'){out.push('\\n');i+=2;continue}
-if(text[i]=='{'&&text[i+1]=='{'){const k=text.indexOf('}}',i+2);if(k!==-1){out.push(text.slice(i,k+2));i=k+2;continue}}
-out.push(`<color=${colorAt(v++)}>${text[i]}</color>`);i++}return out.join('')}
+let v=0; i=0; const outArr=[];while(i<text.length){if(text[i]=='<'){const k=text.indexOf('>',i);if(k===-1){outArr.push(text[i++]);continue}outArr.push(text.slice(i,k+1));i=k+1;continue}
+if(text[i]=='\\'&&text[i+1]=='n'){outArr.push('\\n');i+=2;continue}
+if(text[i]=='{'&&text[i+1]=='{'){const k=text.indexOf('}}',i+2);if(k!==-1){outArr.push(text.slice(i,k+2));i=k+2;continue}}
+outArr.push(`<color=${colorAt(v++)}>${text[i]}</color>`);i++}return outArr.join('')}
 function renderStops(){stopsWrap.innerHTML='';STOPS.forEach((hex,idx)=>{const row=document.createElement('div');row.className='row';
 const t=document.createElement('input');t.type='text';t.value=normHex(hex,true);t.style.width='100px';
 const c=document.createElement('input');c.type='color';c.className='color-chip';c.value=normHex(hex,true);
@@ -336,7 +355,7 @@ function toggleTag(tag,silent){
   requireSelection(null,()=>{
     const {s,e}=getSel();const map=buildIndexMap(markup);let a=map[s]??markup.length,b=map[e]??markup.length;
     let seg=markup.slice(a,b);const open=`<${tag}>`,close=`</${tag}>`;
-    seg=seg.replace(new RegExp(`(?:<${tag}>)+`,'g'),open).replace(new RegExp(`(?:</${tag}>)+`,'g'),close);
+    seg=seg.replace(new RegExp(`(?:<${tag}>)+`,'g'),open).replace(new RegExp(`(?:<\/${tag}>)+`,'g'),close);
     const wrapped=seg.startsWith(open)&&seg.endsWith(close)&&seg.slice(open.length,-close.length).indexOf(open)===-1;
     seg = wrapped ? seg.replace(new RegExp(`^<${tag}>`),'').replace(new RegExp(`</${tag}>$`),'') : open+seg+close;
     markup=markup.slice(0,a)+seg+markup.slice(b);
@@ -411,15 +430,16 @@ markup=markup.slice(0,a)+seg+markup.slice(b);userStyled=true;renderAll();status(
 function syncSolid(){
   baseColor = normHex(solidPicker.value, true);
   saveLS('baseColor', baseColor);
- 
-  const textNorm = ed.value.replace(/\r?\n/g,'\\n');
+  const textNorm = ed.value;
 
   if (!userStyled) {
     markup = textNorm;
   } else {
     const map = buildIndexMap(markup);
     const plainLenMarkup = map.length ? map.length - 1 : 0;
-    const plainLenEditor = plainLenText(textNorm);
+    const plainLenEditor = plainLenText( 
+      textNorm.replace(/\r/g,'')
+    );
 
     if (plainLenEditor > plainLenMarkup) {
       const startIdx = indexOfPlainInText(textNorm, plainLenMarkup);
@@ -433,7 +453,6 @@ function syncSolid(){
   }
   renderAll();
 }
-ed.addEventListener('input',syncSolid);
 solidPicker.addEventListener('input',syncSolid);
 fontSel.addEventListener('change',()=>{syncPreviewBaseFont();renderAll()});
  
@@ -441,9 +460,20 @@ function copyToClipboard(text){
   if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(text);
   const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}finally{document.body.removeChild(ta)}return Promise.resolve();
 }
-btnCopy.addEventListener('click',()=>{copyToClipboard(markup);status('Markup copied to clipboard.')});
-btnDL.addEventListener('click',()=>{const blob=new Blob([markup],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='template.txt';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);status('Downloaded template.txt')});
- 
+btnCopy.addEventListener('click',()=>{
+  const exportText = markup.replace(/\r?\n/g,'\\n'); 
+  copyToClipboard(exportText);
+  status('Markup copied to clipboard.');
+});
+
+btnDL.addEventListener('click',()=>{
+  const exportText = markup.replace(/\r?\n/g,'\\n'); 
+  const blob=new Blob([exportText],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;a.download='template.txt';
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+  status('Downloaded template.txt');
+});
 function insertAtCaret(txt){const {s,e}=getSel();const val=ed.value;ed.value=val.slice(0,s)+txt+val.slice(e);ed.selectionStart=ed.selectionEnd=s+txt.length}
 autoBtn.addEventListener('click',()=>{const {s,e}=getSel();const val=ed.value;const token=autoSel.value;ed.value=val.slice(0,s)+token+val.slice(e);ed.selectionStart=ed.selectionEnd=s+token.length;syncSolid();status(`Inserted ${token}`)});
  
