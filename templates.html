@@ -477,11 +477,11 @@ function syncSolid(){
       textNorm.replace(/\r/g,'')
     );
 
-    if (plainLenEditor > plainLenMarkup) {
+    if (plainLenEditor > plainLenMarkup) { 
       const startIdx = indexOfPlainInText(textNorm, plainLenMarkup);
       const toAdd    = textNorm.slice(startIdx);
       const insertAt = map[plainLenMarkup] ?? markup.length;
-      markup = markup.slice(0, insertAt) + toAdd + markup.slice(insertAt);
+      markup = markup.slice(0, insertAt) + toAdd;
     } else if (plainLenEditor < plainLenMarkup) {
       const cut = map[plainLenEditor] ?? markup.length;
       markup = markup.slice(0, cut);
@@ -518,7 +518,8 @@ document.addEventListener('keydown',(e)=>{if(isMeta(e)&&e.key.toLowerCase()==='z
 if(isMeta(e)&&['b','i','u'].includes(e.key.toLowerCase())){e.preventDefault();toolHandlers[e.key.toLowerCase()]();return}
 if(isMeta(e)&&(e.key==='='||e.key==='+'||e.key==='-')){e.preventDefault();const cur=parseInt(sizeInput.value||'115',10);const pct=e.key==='-'?cur-5:cur+5;toolHandlers['size']({pct});return}
 if(isMeta(e)&&['l','c','r'].includes(e.key.toLowerCase())){e.preventDefault();const m=e.key.toLowerCase()==='l'?'left':e.key.toLowerCase()==='c'?'center':'right';toolHandlers['align']({mode:m});return}
-if(!isMeta(e)&&e.key.toLowerCase()==='r'){repeatLast()}}); 
+if(!isMeta(e)&&e.key.toLowerCase()==='r'){repeatLast()}});
+ 
 const ICONS = [
   '✿','❀','❖','⚽','⚾','♠','♣','♦','♥','♤','♧','♢','♡','☯','✚','⚠','†','∞','✓',
   '☎','☏','☀','☁','☂','☃','☉','★','☆','⁂','✽','☝','☞','☟','☜','↑','↓','→','←','↔','↕',
