@@ -302,6 +302,15 @@ function redo(){if(!redoStack.length)return;undoStack.push({markup,userStyled});
 function getSel(){return{s:ed.selectionStart|0,e:ed.selectionEnd|0}}
 function hasSelection(){const {s,e}=getSel();return e>s}
 function getCurrentLineRange(){const t=ed.value,{s,e}=getSel();const b=t.lastIndexOf('\n',s-1);const a2=b<0?0:b+1;const a=t.indexOf('\n',e);return{a:a2,b:a<0?t.length:a}}
+
+function getPlainSelectionRange(){
+  const {s,e}=getSel();
+  const text = ed.value;
+  const plainStart = plainLenText(text.slice(0,s));
+  const plainEnd   = plainLenText(text.slice(0,e));
+  return {plainStart, plainEnd};
+}
+
 function buildIndexMap(mark){const map=[],len=mark.length;let iPlain=0,i=0;while(i<len){if(mark.startsWith('<color=',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}
 if(mark.startsWith('</color>',i)){i+=8;continue}
 if(mark.startsWith('<font="',i)){const k=mark.indexOf('>',i);if(k===-1)break;i=k+1;continue}
@@ -389,7 +398,9 @@ function setLastAction(fn,args){lastActionObj={fn,args}}
 function repeatLast(){if(!lastActionObj)return;const {fn,args}=lastActionObj;toolHandlers[fn]?.(args,true)}
 function toggleTag(tag,silent){
   requireSelection(null,()=>{
-    const {s,e}=getSel();const map=buildIndexMap(markup);let a=map[s]??markup.length,b=map[e]??markup.length;
+    const {plainStart,plainEnd}=getPlainSelectionRange();
+    const map=buildIndexMap(markup);
+    let a=map[plainStart]??markup.length,b=map[plainEnd]??markup.length;
     let seg=markup.slice(a,b);const open=`<${tag}>`,close=`</${tag}>`;
     seg=seg.replace(new RegExp(`(?:<${tag}>)+`,'g'),open).replace(new RegExp(`(?:<\/${tag}>)+`,'g'),close);
     const wrapped=seg.startsWith(open)&&seg.endsWith(close)&&seg.slice(open.length,-close.length).indexOf(open)===-1;
@@ -402,18 +413,18 @@ const toolHandlers={
  'b':(_,s)=>{toggleTag('b',s);setLastAction('b')},
  'i':(_,s)=>{toggleTag('i',s);setLastAction('i')},
  'u':(_,s)=>{toggleTag('u',s);setLastAction('u')},
- 'solid':(_,s)=>{const hex=normHex(solidPicker.value,true);requireSelection(btnSolid,()=>{const {s,e}=getSel();const map=buildIndexMap(markup);let a=map[s]??markup.length,b=map[e]??markup.length;
+ 'solid':(_,s)=>{const hex=normHex(solidPicker.value,true);requireSelection(btnSolid,()=>{const {plainStart,plainEnd}=getPlainSelectionRange();const map=buildIndexMap(markup);let a=map[plainStart]??markup.length,b=map[plainEnd]??markup.length;
    const pre=markup.slice(0,a);const m=pre.match(/<color=#[0-9A-Fa-f]{6}>$/);if(m)a-=m[0].length;
    let seg=markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');
    markup=markup.slice(0,a)+`<color=${hex}>`+seg+`</color>`+markup.slice(b);
    userStyled=true;renderAll();if(!s)status('Solid color applied.')},'Select text to color.');setLastAction('solid')},
- 'gradient':(_,s)=>{requireSelection(btnGradient,()=>{const {s:eS,e:eE}=getSel();const map=buildIndexMap(markup);let a=map[eS]??markup.length,b=map[eE]??markup.length;
+ 'gradient':(_,s)=>{requireSelection(btnGradient,()=>{const {plainStart,plainEnd}=getPlainSelectionRange();const map=buildIndexMap(markup);let a=map[plainStart]??markup.length,b=map[plainEnd]??markup.length;
    const pre=markup.slice(0,a);const m=pre.match(/<color=#[0-9A-Fa-f]{6}>$/);if(m)a-=m[0].length;
    let seg=markup.slice(a,b).replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'');seg=buildSmoothGradient(seg);
    markup=markup.slice(0,a)+seg+markup.slice(b);userStyled=true;renderAll();if(!s)status('Smooth gradient applied.')},'Select text for gradient.');setLastAction('gradient')},
- 'align':({mode},s)=>{requireSelection(document.querySelector(`[data-align="${mode}"]`),()=>{markup=markup.replace(/<align=(left|center|right)>|<\/align>/g,'');const {s:eS,e:eE}=getSel();const map=buildIndexMap(markup);const a=map[eS]??markup.length,b=map[eE]??markup.length;const seg=markup.slice(a,b);markup=markup.slice(0,a)+`<align=${mode}>`+seg+`</align>`+markup.slice(b);userStyled=true;renderAll();if(!s)status(`Alignment ${mode} applied.`)},'Select text to align.');setLastAction('align',{mode})},
- 'size':({pct},s)=>{pct=clamp(parseInt(pct||sizeInput.value||'115',10),50,300);sizeInput.value=pct;requireSelection(btnApplySize,()=>{markup=markup.replace(/<size=\d{1,3}%>|<\/size>/g,'');const {s:eS,e:eE}=getSel();const map=buildIndexMap(markup);const a=map[eS]??markup.length,b=map[eE]??markup.length;const inner=markup.slice(a,b);markup=markup.slice(0,a)+`<size=${pct}%>`+inner+`</size>`+markup.slice(b);userStyled=true;renderAll();if(!s)status(`Size ${pct}% applied.`)},'Select text to resize.');setLastAction('size',{pct})},
- 'font':({font},s)=>{font=font||fontSel.value;requireSelection(btnFontWrap,()=>{const {s:eS,e:eE}=getSel();const map=buildIndexMap(markup);const a=map[eS]??markup.length,b=map[eE]??markup.length;const inner=markup.slice(a,b).replace(/<font="[^"]+">/g,'').replace(/<\/font>/g,'');markup=markup.slice(0,a)+`<font="${font}">`+inner+`</font>`+markup.slice(b);userStyled=true;renderAll();if(!s)status(`Font "${font}" applied.`)},'Select text to apply font.');setLastAction('font',{font})}
+ 'align':({mode},s)=>{requireSelection(document.querySelector(`[data-align="${mode}"]`),()=>{markup=markup.replace(/<align=(left|center|right)>|<\/align>/g,'');const {plainStart,plainEnd}=getPlainSelectionRange();const map=buildIndexMap(markup);const a=map[plainStart]??markup.length,b=map[plainEnd]??markup.length;const seg=markup.slice(a,b);markup=markup.slice(0,a)+`<align=${mode}>`+seg+`</align>`+markup.slice(b);userStyled=true;renderAll();if(!s)status(`Alignment ${mode} applied.`)},'Select text to align.');setLastAction('align',{mode})},
+ 'size':({pct},s)=>{pct=clamp(parseInt(pct||sizeInput.value||'115',10),50,300);sizeInput.value=pct;requireSelection(btnApplySize,()=>{markup=markup.replace(/<size=\d{1,3}%>|<\/size>/g,'');const {plainStart,plainEnd}=getPlainSelectionRange();const map=buildIndexMap(markup);const a=map[plainStart]??markup.length,b=map[plainEnd]??markup.length;const inner=markup.slice(a,b);markup=markup.slice(0,a)+`<size=${pct}%>`+inner+`</size>`+markup.slice(b);userStyled=true;renderAll();if(!s)status(`Size ${pct}% applied.`)},'Select text to resize.');setLastAction('size',{pct})},
+ 'font':({font},s)=>{font=font||fontSel.value;requireSelection(btnFontWrap,()=>{const {plainStart,plainEnd}=getPlainSelectionRange();const map=buildIndexMap(markup);const a=map[plainStart]??markup.length,b=map[plainEnd]??markup.length;const inner=markup.slice(a,b).replace(/<font="[^"]+">/g,'').replace(/<\/font>/g,'');markup=markup.slice(0,a)+`<font="${font}">`+inner+`</font>`+markup.slice(b);userStyled=true;renderAll();if(!s)status(`Font "${font}" applied.`)},'Select text to apply font.');setLastAction('font',{font})}
 };
  
 document.querySelectorAll('[data-tag]').forEach(b=>b.addEventListener('click',()=>toolHandlers[b.getAttribute('data-tag')]()));
@@ -459,9 +470,15 @@ document.addEventListener('keydown',(e)=>{
   if((e.ctrlKey||e.metaKey) && e.key==='Enter'){e.preventDefault();insertLiteralNLAndBridge();}
 });
  
-btnResetLine.addEventListener('click',()=>{const r=getCurrentLineRange();if(r.a===r.b)return;pushHistory();const map=buildIndexMap(markup);const a=map[r.a]??markup.length,b=map[r.b]??markup.length;let seg=markup.slice(a,b);
-seg=seg.replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'').replace(/<size=\d{1,3}%>/g,'').replace(/<\/size>/g,'').replace(/<font="[^"]+">/g,'').replace(/<\/font>/g,'').replace(/<align=(left|center|right)>/g,'').replace(/<\/align>/g,'').replace(/<b>|<\/b>|<i>|<\/i>|<u>|<\/u>/g,'');
-markup=markup.slice(0,a)+seg+markup.slice(b);userStyled=true;renderAll();status('Line reset.')});
+btnResetLine.addEventListener('click',()=>{const r=getCurrentLineRange();if(r.a===r.b)return;pushHistory();
+  const text = ed.value;
+  const plainA = plainLenText(text.slice(0,r.a));
+  const plainB = plainLenText(text.slice(0,r.b));
+  const map=buildIndexMap(markup);
+  const a=map[plainA]??markup.length,b=map[plainB]??markup.length;
+  let seg=markup.slice(a,b);
+  seg=seg.replace(/<color=#[0-9A-Fa-f]{6}>/g,'').replace(/<\/color>/g,'').replace(/<size=\d{1,3}%>/g,'').replace(/<\/size>/g,'').replace(/<font="[^"]+">/g,'').replace(/<\/font>/g,'').replace(/<align=(left|center|right)>/g,'').replace(/<\/align>/g,'').replace(/<b>|<\/b>|<i>|<\/i>|<u>|<\/u>/g,'');
+  markup=markup.slice(0,a)+seg+markup.slice(b);userStyled=true;renderAll();status('Line reset.')});
  
 function syncSolid(){
   baseColor = normHex(solidPicker.value, true);
@@ -536,7 +553,8 @@ function insertIconChar(ch){
   const {s,e}=getSel();
   const val=ed.value;
   const before=val.slice(0,s);
-  const after=val.slice(e); 
+  const after=val.slice(e);
+
   ed.value = before + ch + after;
   ed.selectionStart = ed.selectionEnd = before.length + ch.length;
 
@@ -544,9 +562,9 @@ function insertIconChar(ch){
 
   const plainIdxBefore = plainLenText(before);
 
-  if(!userStyled){ 
+  if(!userStyled){
     markup = ed.value;
-  }else{ 
+  }else{
     const map = buildIndexMap(markup);
     const insertPos = map[plainIdxBefore] ?? markup.length;
     markup = markup.slice(0, insertPos) + ch + markup.slice(insertPos);
