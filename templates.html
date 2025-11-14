@@ -516,7 +516,7 @@ autoBtn.addEventListener('click',()=>{const {s,e}=getSel();const val=ed.value;co
 function isMeta(e){return e.ctrlKey||e.metaKey}
 document.addEventListener('keydown',(e)=>{
   if(isMeta(e)&&e.key.toLowerCase()==='z'){e.preventDefault();if(e.shiftKey)redo();else undo();return}
-  // Removed Ctrl/Cmd + B/I/U keybinds for style toggles
+  // Ctrl/Cmd + B/I/U removed
   if(isMeta(e)&&(e.key==='='||e.key==='+'||e.key==='-')){e.preventDefault();const cur=parseInt(sizeInput.value||'115',10);const pct=e.key==='-'?cur-5:cur+5;toolHandlers['size']({pct});return}
   if(isMeta(e)&&['l','c','r'].includes(e.key.toLowerCase())){e.preventDefault();const m=e.key.toLowerCase()==='l'?'left':e.key.toLowerCase()==='c'?'center':'right';toolHandlers['align']({mode:m});return}
   if(!isMeta(e)&&e.key.toLowerCase()==='r'){repeatLast()}
@@ -532,6 +532,29 @@ const ICONS = [
   '☠','☢','☣','⚰','⚱','♨','☮','✠','✡','™','〰','Ⓜ','♻','🆘','🅰','🅱','🅾','🆚'
 ];
 
+function insertIconChar(ch){
+  const {s,e}=getSel();
+  const val=ed.value;
+  const before=val.slice(0,s);
+  const after=val.slice(e); 
+  ed.value = before + ch + after;
+  ed.selectionStart = ed.selectionEnd = before.length + ch.length;
+
+  pushHistory();
+
+  const plainIdxBefore = plainLenText(before);
+
+  if(!userStyled){ 
+    markup = ed.value;
+  }else{ 
+    const map = buildIndexMap(markup);
+    const insertPos = map[plainIdxBefore] ?? markup.length;
+    markup = markup.slice(0, insertPos) + ch + markup.slice(insertPos);
+  }
+
+  renderAll();
+}
+
 function buildIcons(){
   iconGrid.innerHTML='';
   ICONS.forEach(ch=>{
@@ -540,8 +563,7 @@ function buildIcons(){
     btn.className='btn small icon-btn';
     btn.textContent=ch;
     btn.addEventListener('click',()=>{
-      insertAtCaret(ch);
-      syncSolid();
+      insertIconChar(ch);
       status(`Inserted icon ${ch}`);
     });
     iconGrid.appendChild(btn);
