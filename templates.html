@@ -514,11 +514,13 @@ function insertAtCaret(txt){const {s,e}=getSel();const val=ed.value;ed.value=val
 autoBtn.addEventListener('click',()=>{const {s,e}=getSel();const val=ed.value;const token=autoSel.value;ed.value=val.slice(0,s)+token+val.slice(e);ed.selectionStart=ed.selectionEnd=s+token.length;syncSolid();status(`Inserted ${token}`)});
  
 function isMeta(e){return e.ctrlKey||e.metaKey}
-document.addEventListener('keydown',(e)=>{if(isMeta(e)&&e.key.toLowerCase()==='z'){e.preventDefault();if(e.shiftKey)redo();else undo();return}
-if(isMeta(e)&&['b','i','u'].includes(e.key.toLowerCase())){e.preventDefault();toolHandlers[e.key.toLowerCase()]();return}
-if(isMeta(e)&&(e.key==='='||e.key==='+'||e.key==='-')){e.preventDefault();const cur=parseInt(sizeInput.value||'115',10);const pct=e.key==='-'?cur-5:cur+5;toolHandlers['size']({pct});return}
-if(isMeta(e)&&['l','c','r'].includes(e.key.toLowerCase())){e.preventDefault();const m=e.key.toLowerCase()==='l'?'left':e.key.toLowerCase()==='c'?'center':'right';toolHandlers['align']({mode:m});return}
-if(!isMeta(e)&&e.key.toLowerCase()==='r'){repeatLast()}});
+document.addEventListener('keydown',(e)=>{
+  if(isMeta(e)&&e.key.toLowerCase()==='z'){e.preventDefault();if(e.shiftKey)redo();else undo();return}
+  // Removed Ctrl/Cmd + B/I/U keybinds for style toggles
+  if(isMeta(e)&&(e.key==='='||e.key==='+'||e.key==='-')){e.preventDefault();const cur=parseInt(sizeInput.value||'115',10);const pct=e.key==='-'?cur-5:cur+5;toolHandlers['size']({pct});return}
+  if(isMeta(e)&&['l','c','r'].includes(e.key.toLowerCase())){e.preventDefault();const m=e.key.toLowerCase()==='l'?'left':e.key.toLowerCase()==='c'?'center':'right';toolHandlers['align']({mode:m});return}
+  if(!isMeta(e)&&e.key.toLowerCase()==='r'){repeatLast()}
+});
  
 const ICONS = [
   '✿','❀','❖','⚽','⚾','♠','♣','♦','♥','♤','♧','♢','♡','☯','✚','⚠','†','∞','✓',
