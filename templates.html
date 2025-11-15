@@ -522,7 +522,12 @@ document.addEventListener('DOMContentLoaded',()=>{autosizeTA();});
 function syncPreviewBaseFont(){
   prevContent.style.fontFamily=FONT_MAP[fontSel.value]||'inherit';
 }
- 
+ed.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    insertLiteralNLAndBridge();  
+  }
+});
 function buildSmoothGradient(str){
   const stops=STOPS.length?STOPS:['#FFFFFF'];
   const text=String(str||'');
