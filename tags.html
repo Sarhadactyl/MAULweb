@@ -97,6 +97,17 @@
       .gen-wrap{display:grid;gap:14px}
       .gen-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
       .gen-controls .field{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);padding:6px 8px;border-radius:8px}
+      .gen-controls .field label{font-size:.9em}
+      .gen-controls input[type="text"],
+      .gen-controls input[type="number"],
+      .gen-controls select{
+        background:rgba(0,0,0,.35);
+        border:1px solid rgba(255,255,255,.15);
+        border-radius:6px;
+        color:#def;
+        padding:4px 6px;
+      }
+      .gen-controls select{min-width:160px}
       .gen-stops{display:grid;gap:8px}
       .gen-stop{display:grid;grid-template-columns:110px 1fr auto;gap:8px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:8px}
       .gen-stop .color{display:flex;align-items:center;gap:8px}
@@ -108,25 +119,11 @@
       .copy-btn:active{transform:scale(.98)}
       .gen-output{display:grid;gap:8px}
       .gen-output code{display:block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:8px;white-space:normal;word-break:break-word}
-
-      .taggen2-wrap .gen-stop input[type="text"]{
-        background: rgba(0,0,0,.35);
-        border: 1px solid rgba(255,255,255,.15);
-        border-radius: 6px;
-        color: #def;
-        padding: 6px;
-        width: 100%;
-      }
-      .taggen2-wrap .gen-stop input[type="color"]{
-        width: 42px; height: 32px; border: none; background: transparent; padding: 0;
-      }
-      .taggen2-wrap label{display:inline-flex;align-items:center;gap:6px}
-      .taggen2-wrap #ntg-visual span{display:inline-block}
-      .taggen2-wrap #ntg-stops{max-height:220px;overflow:auto}
-      .taggen2-wrap #ntg-preview{
-        height:44px;border-radius:8px;border:1px solid #000;margin:8px 0;
-      }
-      .taggen2-wrap .gen-output code{white-space:normal;word-break:break-word}
+      #ntg-visual span{display:inline-block}
+      #ntg-stops{max-height:220px;overflow:auto}
+      #ntg-preview{height:44px;border-radius:8px;border:1px solid #000;margin:8px 0}
+      details summary{cursor:pointer}
+      h4{margin:6px 0}
     </style>
   </head>
   <body>
@@ -152,7 +149,9 @@
     <main class="container">
       <section class="panel" id="name-tag-generator">
         <h2 class="section-title"><u>Custom Tag Generator</u></h2>
-        <p class="section-subtitle">Build EHR or TONE/TOHE tags with permissions and solid/gradient colors.</p>
+        <p class="section-subtitle">
+          Build EHR or TONE/TOHE tags with permissions and solid/gradient colors, fonts, and optional trailing open color.
+        </p>
 
         <div class="gen-wrap taggen2-wrap">
           <div class="gen-controls">
@@ -179,6 +178,26 @@
             </div>
           </div>
 
+          <div class="gen-controls">
+            <div class="field" style="flex:1">
+              <label for="ntg-font">Font</label>
+              <select id="ntg-font">
+                <option value="">(No &lt;font&gt; tag)</option>
+                <option value="VCR SDF">VCR SDF</option>
+                <option value="Barlow-Black SDF">Barlow-Black SDF</option>
+                <option value="Barlow-BoldItalic SDF">Barlow-BoldItalic SDF</option>
+                <option value="Barlow-Light SDF">Barlow-Light SDF</option>
+                <option value="BROOK SDF">BROOK SDF</option>
+                <option value="CONSOLA SDF">CONSOLA SDF</option>
+                <option value="DIGITAL-7 SDF">DIGITAL-7 SDF</option>
+                <option value="DIN_Pro_Bold_700 SDF">DIN_Pro_Bold_700 SDF</option>
+                <option value="LiberationSans SDF">LiberationSans SDF</option>
+                <option value="NotoSansJP-Regular SDF">NotoSansJP-Regular SDF</option>
+                <option value="OCRAEXT SDF">OCRAEXT SDF</option>
+              </select>
+            </div>
+          </div>
+
           <div class="gen-stops" id="ntg-solid-wrap">
             <div class="gen-stop" style="grid-template-columns: 220px auto; align-items:center">
               <div class="color">
@@ -198,14 +217,15 @@
                 <input id="ntg-stopcount" type="number" min="2" max="5" step="1" value="3" />
               </div>
               <div class="gen-actions">
-                <button class="copy-btn" id="ntg-add">Add stop</button>
-                <button class="copy-btn" id="ntg-rem">Remove stop</button>
-                <button class="copy-btn" id="ntg-rand">Randomize</button>
+                <button class="copy-btn" id="ntg-add" type="button">Add stop</button>
+                <button class="copy-btn" id="ntg-rem" type="button">Remove stop</button>
+                <button class="copy-btn" id="ntg-rand" type="button">Randomize</button>
               </div>
             </div>
             <div class="gen-stops" id="ntg-stops"></div>
             <div class="gen-preview" id="ntg-preview" aria-label="Gradient preview"></div>
           </div> 
+
           <div id="ntg-ehr-perms">
             <h4 style="margin-top:20px">EHR Permissions</h4>
             <div class="gen-controls">
@@ -220,7 +240,24 @@
               <label><input type="radio" name="ntg-admin" value="true"> Admin</label>
               <label><input type="radio" name="ntg-admin" value="false" checked> No Admin</label>
             </div>
+
+            <h4 style="margin-top:12px">Trailing open color (EHR)</h4>
+            <div class="gen-controls">
+              <div class="field">
+                <label><input type="checkbox" id="ntg-trail-enabled"> Add trailing open &lt;color&gt; at end</label>
+              </div>
+              <div class="field">
+                <label for="ntg-trail-hex">Trailing color (#)</label>
+                <input id="ntg-trail-hex" type="text" value="#98FB98">
+                <input id="ntg-trail-color" type="color" value="#98FB98">
+              </div>
+            </div>
+            <p style="font-size:.8em;opacity:.8;margin:0 4px 4px">
+              Example EHR Tag:
+              <code>{"Tag": "&lt;color=#FB98CA&gt;&lt;font=&quot;BROOK SDF&quot;&gt;♥ Sus but cute ♥&lt;/font&gt;&lt;/color&gt;&lt;color=#98FB98&gt;"}</code>
+            </p>
           </div> 
+
           <div id="ntg-tone-perms" hidden>
             <h4 style="margin-top:20px">TONE/TOHE Permissions</h4>
             <div class="gen-controls">
@@ -248,16 +285,24 @@
               <label><input type="radio" name="ntg-gm" value="false" checked> No</label>
             </div>
           </div> 
+
           <div class="gen-output">
-            <div class="copy-row">
-              <button class="copy-btn" id="ntg-copy">Copy text</button>
-              <button class="copy-btn" id="ntg-download">Download .txt</button>
+            <div class="gen-controls" style="justify-content:space-between">
+              <div class="gen-actions">
+                <button class="copy-btn" id="ntg-copy" type="button">Copy text</button>
+                <button class="copy-btn" id="ntg-download" type="button">Download .txt</button>
+              </div>
             </div>
-            <h4>Output:</h4>
+            <h4>Tag text (what gets copied):</h4>
             <code id="ntg-out"></code>
+
             <h4 style="margin-top:10px">Visual preview:</h4>
             <div id="ntg-visual" style="font-size:1.3em; line-height:1.2"></div>
-            <details style="margin-top:10px"><summary>Full output</summary><code id="ntg-payload"></code></details>
+
+            <details style="margin-top:10px">
+              <summary>Full output (JSON / config)</summary>
+              <code id="ntg-payload"></code>
+            </details>
           </div>
         </div>
       </section>
@@ -277,6 +322,7 @@
         try { document.execCommand("copy"); } finally { document.body.removeChild(ta); }
         return Promise.resolve();
       }
+
       const clamp = (v,a,b)=>Math.min(b,Math.max(a,v));
       const normHex = (s,withHash=true)=>{
         s = (s||"").trim();
@@ -297,34 +343,40 @@
         return rgbToHex({ r: lerp(c1.r,c2.r,t), g: lerp(c1.g,c2.g,t), b: lerp(c1.b,c2.b,t) });
       };
 
-      const nameInput  = document.getElementById("ntg-name");
-      const modRadios  = document.querySelectorAll('input[name="ntg-mod"]');
-      const modeRadios = document.querySelectorAll('input[name="ntg-mode"]');
-      const friendCode = document.getElementById("ntg-fc");
+      const nameInput   = document.getElementById("ntg-name");
+      const modRadios   = document.querySelectorAll('input[name="ntg-mod"]');
+      const modeRadios  = document.querySelectorAll('input[name="ntg-mode"]');
+      const friendCode  = document.getElementById("ntg-fc");
+      const fontSelect  = document.getElementById("ntg-font");
 
-      const ehrPerms  = document.getElementById("ntg-ehr-perms");
-      const tonePerms = document.getElementById("ntg-tone-perms");
+      const ehrPerms    = document.getElementById("ntg-ehr-perms");
+      const tonePerms   = document.getElementById("ntg-tone-perms");
 
-      const solidWrap  = document.getElementById("ntg-solid-wrap");
-      const solidHexIn = document.getElementById("ntg-solid-hex");
-      const solidColIn = document.getElementById("ntg-solid-color");
+      const solidWrap   = document.getElementById("ntg-solid-wrap");
+      const solidHexIn  = document.getElementById("ntg-solid-hex");
+      const solidColIn  = document.getElementById("ntg-solid-color");
 
-      const gradWrap   = document.getElementById("ntg-grad-wrap");
-      const stopCount  = document.getElementById("ntg-stopcount");
-      const stopsEl    = document.getElementById("ntg-stops");
-      const prevEl     = document.getElementById("ntg-preview");
-      const btnAdd     = document.getElementById("ntg-add");
-      const btnRem     = document.getElementById("ntg-rem");
-      const btnRand    = document.getElementById("ntg-rand");
+      const gradWrap    = document.getElementById("ntg-grad-wrap");
+      const stopCount   = document.getElementById("ntg-stopcount");
+      const stopsEl     = document.getElementById("ntg-stops");
+      const prevEl      = document.getElementById("ntg-preview");
+      const btnAdd      = document.getElementById("ntg-add");
+      const btnRem      = document.getElementById("ntg-rem");
+      const btnRand     = document.getElementById("ntg-rand");
 
-      const outEl     = document.getElementById("ntg-out");
-      const visEl     = document.getElementById("ntg-visual");
-      const payloadEl = document.getElementById("ntg-payload");
-      const copyBtn   = document.getElementById("ntg-copy");
-      const dlBtn     = document.getElementById("ntg-download");
+      const outEl       = document.getElementById("ntg-out");
+      const visEl       = document.getElementById("ntg-visual");
+      const payloadEl   = document.getElementById("ntg-payload");
+      const copyBtn     = document.getElementById("ntg-copy");
+      const dlBtn       = document.getElementById("ntg-download");
+
+      const trailEnabled    = document.getElementById("ntg-trail-enabled");
+      const trailHexInput   = document.getElementById("ntg-trail-hex");
+      const trailColorInput = document.getElementById("ntg-trail-color");
 
       const currentMode = ()=> ([...modeRadios].find(r=>r.checked)?.value||"solid");
       const currentMod  = ()=> ([...modRadios].find(r=>r.checked)?.value||"ehr");
+
       function syncPermVisibility(){
         const m = currentMod();
         ehrPerms.hidden  = (m !== "ehr");
@@ -341,6 +393,21 @@
         const h = normHex(solidColIn.value,true);
         solidHexIn.value = h; render();
       });
+
+      if (trailHexInput && trailColorInput) {
+        trailHexInput.addEventListener("input", ()=>{
+          const h = normHex(trailHexInput.value,true);
+          trailHexInput.value = h;
+          trailColorInput.value = h;
+          render();
+        });
+        trailColorInput.addEventListener("input", ()=>{
+          const h = normHex(trailColorInput.value,true);
+          trailHexInput.value = h;
+          render();
+        });
+      }
+      trailEnabled?.addEventListener("change", render);
 
       let gradStops = ["#B625F1","#2970F8","#00CFFF"]; 
 
@@ -359,19 +426,21 @@
               <input type="color" value="${normHex(hex,true)}" aria-label="Pick stop ${idx+1}">
             </div>
             <div class="row-btns">
-              <button class="copy-btn ntg-up" data-idx="${idx}" title="Up">▲</button>
-              <button class="copy-btn ntg-down" data-idx="${idx}" title="Down">▼</button>
-              <button class="copy-btn ntg-del" data-idx="${idx}" title="Remove">✕</button>
+              <button class="copy-btn ntg-up" data-idx="${idx}" title="Up" type="button">▲</button>
+              <button class="copy-btn ntg-down" data-idx="${idx}" title="Down" type="button">▼</button>
+              <button class="copy-btn ntg-del" data-idx="${idx}" title="Remove" type="button">✕</button>
             </div>
           `;
           stopsEl.appendChild(row);
         });
         updateGradPreview();
       }
+
       function updateGradPreview(){
         const css = `linear-gradient(90deg, ${gradStops.map((c,i)=>`${normHex(c,true)} ${(i*100/(Math.max(gradStops.length-1,1)))}%`).join(", ")})`;
         prevEl.style.background = css;
       }
+
       stopsEl.addEventListener("input", (e)=>{
         const row = e.target.closest(".gen-stop"); if(!row) return;
         const idx = [...stopsEl.children].indexOf(row);
@@ -385,6 +454,7 @@
         }
         updateGradPreview(); render();
       });
+
       stopsEl.addEventListener("click", (e)=>{
         const btn = e.target.closest("button"); if(!btn) return;
         const i = parseInt(btn.dataset.idx,10);
@@ -398,6 +468,7 @@
         stopCount.value = String(gradStops.length);
         renderStopRows(); render();
       });
+
       btnAdd.addEventListener("click", ()=>{
         if(gradStops.length>=5) return;
         gradStops.push("#" + Array.from({length:6},()=> "89ABCDEF01234567"[Math.floor(Math.random()*16)]).join(""));
@@ -407,6 +478,7 @@
       btnRem.addEventListener("click", ()=>{
         if(gradStops.length<=2) return;
         gradStops.pop();
+        stopCount.value = String(gradStops.length);
         renderStopRows(); render();
       });
       btnRand.addEventListener("click", ()=>{
@@ -428,9 +500,8 @@
       }));
 
       friendCode.addEventListener("input", render);
-      nameInput.addEventListener("input", ()=>{ 
-        render();
-      });
+      nameInput.addEventListener("input", render);
+      fontSelect.addEventListener("change", render);
 
       function buildPerCharTags(text, colors){
         const chars = [...text];
@@ -438,8 +509,9 @@
         let perCharColors = [];
         if(Array.isArray(colors)){
           const L = chars.length;
-          if(L===1){ perCharColors=[normHex(colors[0],true)]; }
-          else{
+          if(L===1){
+            perCharColors=[normHex(colors[0],true)];
+          } else{
             for(let i=0;i<L;i++){
               const t = i/(L-1);
               const seg = (colors.length-1)*t;
@@ -456,16 +528,35 @@
         return chars.map((c,i)=>`<color=${perCharColors[i]}>${c}</color>`).join("");
       }
 
+      function applyFontTag(inner, fontName){
+        if(!fontName) return inner;
+        const safeFont = fontName.replace(/"/g, '\\"');
+        return `<font="${safeFont}">${inner}</font>`;
+      }
+
       function buildOutputs(){
         const text = nameInput.value || "";
         const mode = currentMode();
         const mod  = currentMod();
+        const fontName = fontSelect.value || "";
 
-        let tagText = "";
+        let baseTagText = "";
+
         if(mode==="solid"){
-          tagText = `<color=${normHex(solidHexIn.value,true)}>${text}</color>`;
+          let inner = text;
+          inner = applyFontTag(inner, fontName);
+          baseTagText = `<color=${normHex(solidHexIn.value,true)}>${inner}</color>`;
         } else {
-          tagText = buildPerCharTags(text, gradStops.slice());
+          let colored = buildPerCharTags(text, gradStops.slice());
+          colored = applyFontTag(colored, fontName);
+          baseTagText = colored;
+        }
+
+        let exportTagText = baseTagText;
+
+        if (mod === "ehr" && trailEnabled && trailEnabled.checked) {
+          const tHex = normHex(trailHexInput.value,true);
+          exportTagText += `<color=${tHex}>`;
         }
 
         let payload = "";
@@ -474,7 +565,11 @@
           const moderator = document.querySelector('input[name="ntg-moderator"]:checked')?.value === "true";
           const admin     = document.querySelector('input[name="ntg-admin"]:checked')?.value === "true";
 
-          payload = JSON.stringify({ Vip: vip, Moderator: moderator, Admin: admin, Tag: tagText }, null, 2);
+          payload = JSON.stringify(
+            { Vip: vip, Moderator: moderator, Admin: admin, Tag: exportTagText },
+            null,
+            2
+          );
         } else {
           const level = document.getElementById("ntg-tone-level").value;
           const say   = document.querySelector('input[name="ntg-say"]:checked')?.value === "true" ? "y" : "n";
@@ -482,8 +577,10 @@
           const exec  = document.querySelector('input[name="ntg-exec"]:checked')?.value === "true" ? "y" : "n";
           const gm    = document.querySelector('input[name="ntg-gm"]:checked')?.value === "true" ? "y" : "n";
 
-          const tagNameLine  = (mode === "solid") ? `TagName: ${text}` : `TagName: ${tagText}`;
-          const tagColorLine = (mode === "solid") ? `TagColor: ${normHex(solidHexIn.value,false)}` : `TagColor:`;
+          const tagNameLine  = `TagName: ${baseTagText}`;
+          const tagColorLine = (mode === "solid")
+            ? `TagColor: ${normHex(solidHexIn.value,false)}`
+            : `TagColor:`;
 
           payload = [
             tagNameLine,
@@ -496,20 +593,23 @@
           ].join("\n");
         }
 
-        return { tagText, payload };
+        return { baseTagText, exportTagText, payload };
       }
 
       function render(){
-        const { tagText, payload } = buildOutputs();
-        outEl.textContent = tagText;
+        const { baseTagText, exportTagText, payload } = buildOutputs();
 
-        const html = tagText
+        outEl.textContent = exportTagText;
+
+        const html = baseTagText
           .replace(/<color=#[0-9A-Fa-f]{6}>(.*?)<\/color>/g, (m,inner)=>{
             const hex = (m.match(/<color=(#[0-9A-Fa-f]{6})>/)||[])[1]||"#FFFFFF";
             return `<span style="color:${hex}">${inner}</span>`;
           })
           .replace(/<color=#[0-9A-Fa-f]{6}>/g,"")
-          .replace(/<\/color>/g,"");
+          .replace(/<\/color>/g,"")
+          .replace(/<font=\"(.*?)\">/g,"")
+          .replace(/<\/font>/g,"");
 
         visEl.innerHTML = html;
         payloadEl.textContent = payload;
@@ -526,7 +626,6 @@
 
       dlBtn.addEventListener("click", ()=>{
         const { payload } = buildOutputs();
- 
         let fcRaw = friendCode.value || "tag"; 
         let fcFile = fcRaw.replace(/[\/\\:*?"<>|]/g, "").slice(0, 32) || "tag";
 
@@ -543,9 +642,7 @@
 
       (function init(){
         solidHexIn.dispatchEvent(new Event("input"));
-        (function seed(){ 
-          renderStopRows(); 
-        })();
+        renderStopRows();
         render();
       })();
     </script>
