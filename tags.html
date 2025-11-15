@@ -162,8 +162,10 @@
               <label><input type="radio" name="ntg-mod" value="tone"> TONE/TOHE</label>
             </div>
             <div class="field">
-              <label for="ntg-fc">Friend Code</label>
-              <input id="ntg-fc" type="text" placeholder="e.g., ABCDEF" />
+              <label for="ntg-fc">
+                Friend Code <span style="font-size:0.8em; color:#aaa">(Recommended max: 10 characters)</span>
+              </label>
+              <input id="ntg-fc" type="text" maxlength="20" placeholder="e.g., ABCDEF" />
             </div>
           </div>
 
@@ -205,9 +207,7 @@
             </div>
             <div class="gen-stops" id="ntg-stops"></div>
             <div class="gen-preview" id="ntg-preview" aria-label="Gradient preview"></div>
-          </div>
-
-          <!-- EHR permissions -->
+          </div> 
           <div id="ntg-ehr-perms">
             <h4 style="margin-top:20px">EHR Permissions</h4>
             <div class="gen-controls">
@@ -223,8 +223,7 @@
               <label><input type="radio" name="ntg-admin" value="false" checked> No Admin</label>
             </div>
           </div>
-
-          <!-- TONE/TOHE permissions -->
+ 
           <div id="ntg-tone-perms" hidden>
             <h4 style="margin-top:20px">TONE/TOHE Permissions</h4>
             <div class="gen-controls">
@@ -251,9 +250,7 @@
               <label><input type="radio" name="ntg-gm" value="true"> Yes</label>
               <label><input type="radio" name="ntg-gm" value="false" checked> No</label>
             </div>
-          </div>
-
-          <!-- Output -->
+          </div> 
           <div class="gen-output">
             <div class="copy-row">
               <button class="copy-btn" id="ntg-copy">Copy text</button>
@@ -531,8 +528,11 @@
           setTimeout(()=>copyBtn.textContent="Copy text",1200);
         });
       });
+
       dlBtn.addEventListener("click", ()=>{
-        const fc = (friendCode.value||"tag").replace(/[^a-zA-Z0-9_\-]/g,"").slice(0,32) || "tag";
+        let fc = friendCode.value || "tag"; 
+        fc = fc.replace(/[^a-zA-Z0-9_\-#]/g, "").slice(0, 20) || "tag";
+
         const { payload } = buildOutputs();
         const blob = new Blob([payload], {type:"text/plain;charset=utf-8"});
         const url = URL.createObjectURL(blob);
