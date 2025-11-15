@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MAUL | Live Template Editor</title>
+  <title>MAUL | Live Tag Editor</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta property="og:title" content="Template Editor" />
@@ -234,7 +234,7 @@
             <header>Live Preview (renders fonts + colors)</header>
             <div id="lte-preview-content"></div>
           </div>
-          <div class="field"><small class="muted">SDF fonts are mapped to similar web fonts for preview only. Markup uses <code>font="Default"</code>.</small></div>
+          <div class="field"><small class="muted">SDF fonts are mapped to similar web fonts for preview only; markup uses the selected SDF font name.</small></div>
         </div>
       </div>
     </div>
@@ -305,8 +305,7 @@ const FONT_MAP={
   'NotoSansJP-Regular SDF':'"Noto Sans JP",sans-serif',
   'OCRAEXT SDF':'"Press Start 2P","VT323",monospace',
   'OCRAXT SDF':'"Press Start 2P","VT323",monospace'
-};
- 
+}; 
 const ed=document.getElementById('lte-editor');
 const out=document.getElementById('lte-output');
 const prevContent=document.getElementById('lte-preview-content');
@@ -386,7 +385,8 @@ function redo(){
   markup=nxt.markup;
   userStyled=nxt.userStyled;
   renderAll();
-} 
+}
+ 
 function getSel(){return{s:ed.selectionStart|0,e:ed.selectionEnd|0}}
 function hasSelection(){const {s,e}=getSel();return e>s}
 function getCurrentLineRange(){
@@ -465,11 +465,13 @@ function getPlainSelectionRange(){
   const plainStart = plainLenText(text.slice(0,s));
   const plainEnd   = plainLenText(text.slice(0,e));
   return {plainStart, plainEnd};
-} 
+}
+ 
 function toHTML(s){
-  let html=s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  html=html.replace(/&lt;font="([^"]+)"&gt;/g,(_,n)=>`<span style="font-family:${FONT_MAP[fontSel.value.trim()]||'inherit'}">`)
+  let html=s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); 
+  html=html.replace(/&lt;font="([^"]+)"&gt;/g,(_,n)=>`<span style="font-family:${FONT_MAP[n.trim()]||'inherit'}">`)
            .replace(/&lt;\/font&gt;/g,'</span>');
+
   html=html.replace(/&lt;color=(#[0-9A-Fa-f]{6})&gt;/g,(_,h)=>`<span style="color:${h}">`)
            .replace(/&lt;\/color&gt;/g,'</span>');
   html=html.replace(/&lt;size=(\d{1,3})%&gt;/g,(_,p)=>`<span style="font-size:${p}%">`)
@@ -510,7 +512,8 @@ document.addEventListener('DOMContentLoaded',()=>{autosizeTA();});
 
 function syncPreviewBaseFont(){
   prevContent.style.fontFamily=FONT_MAP[fontSel.value]||'inherit';
-} 
+}
+ 
 function buildSmoothGradient(str){
   const stops=STOPS.length?STOPS:['#FFFFFF'];
   const text=String(str||'');
@@ -654,7 +657,8 @@ stylePresetLoad.addEventListener('click',()=>{
   }
   applyStylePreset(preset);
   status(`Loaded style preset ${idx+1}.`);
-}); 
+});
+ 
 function requireSelection(btn,onOK,msg){
   const {s,e}=getSel();
   if(applyWholeLine.checked){
@@ -763,7 +767,8 @@ const toolHandlers={
       const {plainStart,plainEnd}=getPlainSelectionRange();
       const map=buildIndexMap(markup);
       const a=map[plainStart]??markup.length;
-      const b=map[plainEnd]??markup.length; 
+      const b=map[plainEnd]??markup.length;
+ 
       let seg=markup.slice(a,b)
         .replace(/<align=(left|center|right)>/g,'')
         .replace(/<\/align>/g,'');
@@ -798,8 +803,7 @@ const toolHandlers={
   },
 
   'font':({font},s)=>{
-    font=font||fontSel.value; 
-    const markupFont='Default'; 
+    font=font||fontSel.value;  
 
     requireSelection(btnFontWrap,()=>{
       const {plainStart,plainEnd}=getPlainSelectionRange();
@@ -810,11 +814,11 @@ const toolHandlers={
       const inner=markup.slice(a,b)
         .replace(/<font="[^"]+">/g,'')
         .replace(/<\/font>/g,'');
-
-      markup=markup.slice(0,a)+`<font="${markupFont}">`+inner+`</font>`+markup.slice(b);
+ 
+      markup=markup.slice(0,a)+`<font="${font}">`+inner+`</font>`+markup.slice(b);
       userStyled=true;
       renderAll();
-      if(!s)status(`Font "${font}" (markup: ${markupFont}) applied.`);
+      if(!s)status(`Font "${font}" applied.`);
     },'Select text to apply font.');
     setLastAction('font',{font});
   }
@@ -907,7 +911,8 @@ btnSizeClose.addEventListener('click',()=>{
   userStyled=true;
   renderAll();
   status('Inserted </size>.');
-}); 
+});
+ 
 btnResetLine.addEventListener('click',()=>{
   const r=getCurrentLineRange();
   if(r.a===r.b)return;
@@ -935,7 +940,8 @@ btnResetLine.addEventListener('click',()=>{
   userStyled=true;
   renderAll();
   status('Line reset.');
-}); 
+});
+ 
 function syncSolid(){
   baseColor=normHex(solidPicker.value,true);
   saveLS('baseColor',baseColor);
@@ -999,7 +1005,8 @@ autoBtn.addEventListener('click',()=>{
   ed.selectionStart=ed.selectionEnd=s+token.length;
   syncSolid();
   status(`Inserted ${token}`);
-}); 
+});
+ 
 function isMeta(e){return e.ctrlKey||e.metaKey}
 document.addEventListener('keydown',(e)=>{
   if(isMeta(e)&&e.key.toLowerCase()==='z'){
@@ -1079,7 +1086,7 @@ btnIcons.addEventListener('click',()=>{
   }
 });
  
-const PRESETS={ 
+const PRESETS={
  "Rose Red":["590d22","800f2f","a4133c","c9184a","ff4d6d","ff758f","ff8fa3","ffb3c1","ffccd5","fff0f3"],
  "True Red":["7a0000","b00016","d61c1c","ff3b3b","ff9a9a"],
  "Crimson Fade":["430010","6e001b","9a0f2a","d43c4b","ff8a9a"],
@@ -1210,9 +1217,7 @@ presetApply.addEventListener('click',()=>{
   STOPS=PRESETS[n].map(c=>'#'+c.toUpperCase());
   renderStops();renderGradPreview();
   status(`Preset "${n}" loaded.`);
-});
-
-/* ---------- named exports ---------- */
+}); 
 document.querySelectorAll('[data-export-set]').forEach(b=>
   b.addEventListener('click',()=>{
     const k=b.getAttribute('data-export-set');
