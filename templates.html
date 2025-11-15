@@ -895,12 +895,6 @@ function insertLiteralNLAndBridge(){
   status('Inserted literal \\n');
 }
 btnInsertNL.addEventListener('click',insertLiteralNLAndBridge);
-document.addEventListener('keydown',(e)=>{
-  if((e.ctrlKey||e.metaKey) && e.key==='Enter'){
-    e.preventDefault();
-    insertLiteralNLAndBridge();
-  }
-});
  
 btnSizeClose.addEventListener('click',()=>{
   pushHistory();
@@ -994,7 +988,7 @@ btnDL.addEventListener('click',()=>{
   a.href=url;a.download='template.txt';
   document.body.appendChild(a);a.click();a.remove();
   URL.revokeObjectURL(url);
-  status('Downloaded template.txt');
+  status('Downloaded template.txt.');
 });
  
 autoBtn.addEventListener('click',()=>{
@@ -1005,32 +999,6 @@ autoBtn.addEventListener('click',()=>{
   ed.selectionStart=ed.selectionEnd=s+token.length;
   syncSolid();
   status(`Inserted ${token}`);
-});
- 
-function isMeta(e){return e.ctrlKey||e.metaKey}
-document.addEventListener('keydown',(e)=>{
-  if(isMeta(e)&&e.key.toLowerCase()==='z'){
-    e.preventDefault();
-    if(e.shiftKey)redo();else undo();
-    return;
-  }
-  if(isMeta(e)&&(e.key==='='||e.key==='+'||e.key==='-')){
-    e.preventDefault();
-    const cur=parseInt(sizeInput.value||'100',10);
-    const pct=e.key==='-'?cur-5:cur+5;
-    toolHandlers['size']({pct});
-    return;
-  }
-  if(isMeta(e)&&['l','c','r'].includes(e.key.toLowerCase())){
-    e.preventDefault();
-    const k=e.key.toLowerCase();
-    const m=k==='l'?'left':k==='c'?'center':'right';
-    toolHandlers['align']({mode:m});
-    return;
-  }
-  if(!isMeta(e)&&e.key.toLowerCase()==='r'){
-    repeatLast();
-  }
 });
  
 const ICONS=[
