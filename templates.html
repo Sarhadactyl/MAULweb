@@ -88,7 +88,7 @@
   </style>
 </head>
 <body>
-<header><h1>MAUL Live Tag Editor</h1></header>
+<header><h1>MAUL Live Template Editor</h1></header>
 
 <main class="container">
   <section class="panel">
@@ -501,7 +501,8 @@ const cleanupSpam = m => m
   .replace(/(?:<\/align>)+/g,'</align>')
   .replace(/(?:<b>)+/g,'<b>').replace(/(?:<\/b>)+/g,'</b>')
   .replace(/(?:<i>)+/g,'<i>').replace(/(?:<\/i>)+/g,'</i>')
-  .replace(/(?:<u>)+/g,'<u>').replace(/(?:<\/u>)+/g,'</u>');
+  .replace(/(?:<u>)+/g,'<u>').replace(/(?:<\/u>)+/g,'</u>') 
+  .replace(/\\n((?:<\/(?:color|size|font|align|b|i|u)>)+)/g,(_,tags)=>`${tags}\\n`);
 
 function renderAll(){
   markup=cleanupSpam(String(markup));
@@ -1062,7 +1063,7 @@ btnIcons.addEventListener('click',()=>{
   }
 });
  
-const PRESETS={
+const PRESETS={ 
  "Rose Red":["590d22","800f2f","a4133c","c9184a","ff4d6d","ff758f","ff8fa3","ffb3c1","ffccd5","fff0f3"],
  "True Red":["7a0000","b00016","d61c1c","ff3b3b","ff9a9a"],
  "Crimson Fade":["430010","6e001b","9a0f2a","d43c4b","ff8a9a"],
