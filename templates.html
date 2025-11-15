@@ -302,7 +302,7 @@ function redo(){if(!redoStack.length)return;undoStack.push({markup,userStyled});
 function getSel(){return{s:ed.selectionStart|0,e:ed.selectionEnd|0}}
 function hasSelection(){const {s,e}=getSel();return e>s}
 function getCurrentLineRange(){const t=ed.value,{s,e}=getSel();const b=t.lastIndexOf('\n',s-1);const a2=b<0?0:b+1;const a=t.indexOf('\n',e);return{a:a2,b:a<0?t.length:a}}
-
+ 
 function getPlainSelectionRange(){
   const {s,e}=getSel();
   const text = ed.value;
@@ -533,7 +533,6 @@ autoBtn.addEventListener('click',()=>{const {s,e}=getSel();const val=ed.value;co
 function isMeta(e){return e.ctrlKey||e.metaKey}
 document.addEventListener('keydown',(e)=>{
   if(isMeta(e)&&e.key.toLowerCase()==='z'){e.preventDefault();if(e.shiftKey)redo();else undo();return}
-  // Ctrl/Cmd + B/I/U removed
   if(isMeta(e)&&(e.key==='='||e.key==='+'||e.key==='-')){e.preventDefault();const cur=parseInt(sizeInput.value||'115',10);const pct=e.key==='-'?cur-5:cur+5;toolHandlers['size']({pct});return}
   if(isMeta(e)&&['l','c','r'].includes(e.key.toLowerCase())){e.preventDefault();const m=e.key.toLowerCase()==='l'?'left':e.key.toLowerCase()==='c'?'center':'right';toolHandlers['align']({mode:m});return}
   if(!isMeta(e)&&e.key.toLowerCase()==='r'){repeatLast()}
