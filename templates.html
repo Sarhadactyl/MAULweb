@@ -4,7 +4,7 @@
   <title>MAUL | Live Template Editor</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta property="og:title" content="Template Editor" />
+  <meta property="og:title" content="MAUL | Live Template Editor" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://moddedamong.us/templates.html" />
   <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
@@ -85,15 +85,140 @@
       font-size:1rem;
       line-height:1;
     }
+ 
+    #about-modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+    }
+    #about-modal.open{display:flex;}
+    #about-backdrop{
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,.75);
+    }
+    #about-dialog{
+      position:relative;
+      max-width:760px;
+      width:90%;
+      max-height:80vh;
+      overflow:auto;
+      background:rgba(8,8,12,.98);
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.2);
+      padding:18px 20px 16px;
+      box-shadow:0 18px 40px rgba(0,0,0,.85);
+      font-size:.95rem;
+    }
+    #about-dialog h2{
+      margin:0 0 6px;
+      font-size:1.4rem;
+      text-align:left;
+    }
+    #about-dialog p{
+      margin:4px 0;
+      color:#f0f4ff;
+    }
+    #about-dialog ul{
+      margin:6px 0 8px 18px;
+      padding:0;
+      color:#e0e6ff;
+    }
+    #about-dialog li{
+      margin:2px 0;
+    }
+    #about-close{
+      position:absolute;
+      top:8px;
+      right:10px;
+      font-size:.85rem;
+      padding:4px 8px;
+    }
+    #about-dialog code{
+      background:rgba(255,255,255,.08);
+      padding:1px 4px;
+      border-radius:4px;
+      font-size:.86em;
+    }
+    #about-dialog strong{
+      color:#ffd35f;
+    }
+    .section-help-link{
+      display:block;
+      text-align:center;
+      font-size:.9rem;
+      margin-top:4px;
+      color:#ffda7f;
+    }
+    .section-help-link a{
+      color:#ffef9c;
+      text-decoration:underline;
+      cursor:pointer;
+    }
   </style>
 </head>
 <body>
-<header><h1>MAUL Live Template Editor</h1></header>
+ 
+<div id="about-modal">
+  <div id="about-backdrop"></div>
+  <div id="about-dialog">
+    <button class="btn small" id="about-close">Close</button>
+    <h2>About the Live Template Editor</h2>
+    <p>This tool helps you build styled Among Us templates with colors, gradients, fonts, and line breaks.</p>
+
+    <p><strong>Typing & Preview</strong></p>
+    <ul>
+      <li>Type your text in the editor on the left.</li>
+      <li>The live preview on the right shows colors, fonts, and alignment.</li>
+      <li>The “Output” box shows the exact markup that the game will use.</li>
+    </ul>
+
+    <p><strong>Line breaks</strong></p>
+    <ul>
+      <li>Use the <strong>↵ \n</strong> button to insert a <code>\n</code> (real line break in-game).</li>
+      <li>Avoid pressing Enter for line breaks or you’ll get extra <code>\n</code> when exporting.</li>
+    </ul>
+
+    <p><strong>Styling text</strong></p>
+    <ul>
+      <li>Select text, then use <strong>B / I / U</strong> for bold, italic, underline.</li>
+      <li>Use <strong>Solid</strong> + <em>Apply</em> to set a single color.</li>
+      <li>Use gradient stops + <em>Apply gradient</em> for smooth colored text.</li>
+      <li>Font, size, and align wrap your selection in the proper tags.</li>
+    </ul>
+
+    <p><strong>Clean slate & lines</strong></p>
+    <ul>
+      <li><strong>Clean slate</strong> (recommended ON) closes color/size/align on <code>\n</code> and bridges colors correctly.</li>
+      <li><strong>Apply to whole line</strong> lets you style the entire current line at once.</li>
+      <li><strong>Reset line</strong> removes all styling tags from the current line only.</li>
+    </ul>
+
+    <p><strong>Exporting</strong></p>
+    <ul>
+      <li><strong>Copy markup</strong> copies the entire template as text with literal <code>\n</code>.</li>
+      <li><strong>Download .txt</strong> saves the same into <code>template.txt</code>.</li>
+      <li>Use the <strong>Named Exports</strong> section for <code>welcome</code>, <code>rules</code>, etc., then download them as <code>named.txt</code>.</li>
+    </ul>
+
+    <p>You can reopen this help anytime by clicking <strong>“HERE”</strong> under the Editor title.</p>
+  </div>
+</div>
+
+<header><h1>MAUL Live Tag Editor</h1></header>
 
 <main class="container">
   <section class="panel">
-    <h2 class="section-title"><u>Editor</u></h2>
-    <p class="section-subtitle">Use the ↵ <b>\n</b> button to insert a <b>literal</b> <code>\n</code>. Preview shows a line break; export keeps the literal <code>\n</code>.\n To apply a setting to a section highlight the section and then click the corresponding button. </p>
+    <h2 class="section-title">
+      <u>Editor</u>
+    </h2>
+    <span class="section-help-link">
+      Learn how to use the generator
+      <a href="#" id="about-open-inline">(HERE)</a>
+    </span>
 
     <div class="grid">
       <div class="row">
@@ -352,7 +477,27 @@ const exportAreas={
 const stylePresetSlot=document.getElementById('style-preset-slot');
 const stylePresetSave=document.getElementById('style-preset-save');
 const stylePresetLoad=document.getElementById('style-preset-load');
- 
+
+const aboutModal=document.getElementById('about-modal');
+const aboutBackdrop=document.getElementById('about-backdrop');
+const aboutClose=document.getElementById('about-close');
+const aboutOpenInline=document.getElementById('about-open-inline');
+
+function openAbout(){
+  aboutModal.classList.add('open');
+}
+function closeAbout(){
+  aboutModal.classList.remove('open');
+}
+aboutClose.addEventListener('click',closeAbout);
+aboutBackdrop.addEventListener('click',closeAbout);
+if(aboutOpenInline){
+  aboutOpenInline.addEventListener('click',e=>{
+    e.preventDefault();
+    openAbout();
+  });
+}
+
 let STOPS=loadLS('stops',['#FF0033','#FF7219','#FFEB0C','#00EAF0','#0047FF','#7F00FF']);
 let markup='';
 let userStyled=false;
@@ -522,12 +667,7 @@ document.addEventListener('DOMContentLoaded',()=>{autosizeTA();});
 function syncPreviewBaseFont(){
   prevContent.style.fontFamily=FONT_MAP[fontSel.value]||'inherit';
 }
-ed.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    e.preventDefault();
-    insertLiteralNLAndBridge();  
-  }
-});
+ 
 function buildSmoothGradient(str){
   const stops=STOPS.length?STOPS:['#FFFFFF'];
   const text=String(str||'');
@@ -1238,6 +1378,7 @@ function boot(){
   sizeInput.value='100';
   userStyled=false;
   syncSolid();
+  openAbout();
 }
 document.addEventListener('DOMContentLoaded',boot);
 </script>
