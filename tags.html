@@ -11,6 +11,7 @@
     <meta property="og:locale" content="en_US" />
     <link rel="canonical" href="https://moddedamong.us/tags.html" />
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+ 
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;700;900&family=VT323&family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&family=Press+Start+2P&family=Share+Tech+Mono&family=Rajdhani:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
 
@@ -60,11 +61,17 @@
       }
       .dropbtn:hover { transform: scale(1.1); }
       .hamburger {
-        width: 30px; height: 22px;
-        display: flex; flex-direction: column; justify-content: space-between;
+        width: 30px;
+        height: 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
       .hamburger span {
-        display: block; height: 4px; background: #fff; border-radius: 2px;
+        display: block;
+        height: 4px;
+        background: #fff;
+        border-radius: 2px;
       }
       .dropdown-content {
         display: none;
@@ -75,55 +82,175 @@
         border-radius: 6px;
       }
       .dropdown-content a {
-        color: #fff; padding: 12px 16px; text-decoration: none; display: block; transition: background 0.3s;
+        color: #fff;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        transition: background 0.3s;
       }
       .dropdown-content a:hover { background: #3a3a3a; }
       .dropdown:hover .dropdown-content { display: block; }
 
       footer {
-        position: fixed; bottom: 0; left: 0; width: 100%;
-        text-align: center; padding: 15px; background: rgba(0, 0, 0, 0.7); z-index: 1000;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
       }
 
       .container {
-        max-width: 1200px; width: 92%; margin: 40px auto; display: grid; gap: 24px;
+        max-width: 1200px;
+        width: 92%;
+        margin: 40px auto;
+        display: grid;
+        gap: 24px;
       }
       .panel {
-        background: rgba(0,0,0,0.5); border: 1px solid #1d0909; border-radius: 8px; padding: 20px;
+        background: rgba(0,0,0,0.5);
+        border: 1px solid #1d0909;
+        border-radius: 8px;
+        padding: 20px;
       }
-      .section-title { font-size: 2em; text-align: center; margin: 0 0 10px; }
-      .section-subtitle { text-align: center; color: #cfcfcf; margin: 0 0 20px; font-size: 0.95em; }
+      .section-title {
+        font-size: 2em;
+        text-align: center;
+        margin: 0 0 10px;
+      }
+      .section-subtitle {
+        text-align: center;
+        color: #cfcfcf;
+        margin: 0 0 20px;
+        font-size: 0.95em;
+      }
 
-      .gen-wrap{display:grid;gap:14px}
-      .gen-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-      .gen-controls .field{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);padding:6px 8px;border-radius:8px}
-      .gen-controls .field label{font-size:.9em}
+      .gen-wrap {
+        display: grid;
+        gap: 14px;
+      }
+      .gen-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+      .gen-controls .field {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.15);
+        padding: 6px 8px;
+        border-radius: 8px;
+      }
+      .gen-controls .field label {
+        font-size: .9em;
+      }
       .gen-controls input[type="text"],
       .gen-controls input[type="number"],
-      .gen-controls select{
-        background:rgba(0,0,0,.35);
-        border:1px solid rgba(255,255,255,.15);
-        border-radius:6px;
-        color:#def;
-        padding:4px 6px;
+      .gen-controls select {
+        background: rgba(0,0,0,.35);
+        border: 1px solid rgba(255,255,255,.15);
+        border-radius: 6px;
+        color: #def;
+        padding: 4px 6px;
       }
-      .gen-controls select{min-width:160px}
-      .gen-stops{display:grid;gap:8px}
-      .gen-stop{display:grid;grid-template-columns:110px 1fr auto;gap:8px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:8px}
-      .gen-stop .color{display:flex;align-items:center;gap:8px}
-      .gen-stop input[type="color"]{width:42px;height:32px;border:none;background:transparent;padding:0}
-      .gen-stop input[type="text"]{width:100%;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#def;padding:6px}
-      .gen-actions{display:flex;flex-wrap:wrap;gap:8px}
-      .copy-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#e7f0ff;font-size:.9em;padding:6px 10px;border-radius:6px;cursor:pointer;transition:background .2s,border-color .2s,transform .02s}
-      .copy-btn:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28)}
-      .copy-btn:active{transform:scale(.98)}
-      .gen-output{display:grid;gap:8px}
-      .gen-output code{display:block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:8px;white-space:normal;word-break:break-word}
-      #ntg-visual span{display:inline-block}
-      #ntg-stops{max-height:220px;overflow:auto}
-      #ntg-preview{height:44px;border-radius:8px;border:1px solid #000;margin:8px 0}
-      details summary{cursor:pointer}
-      h4{margin:6px 0}
+      .gen-controls select { min-width: 160px; }
+
+      .gen-stops {
+        display: grid;
+        gap: 8px;
+      }
+      .gen-stop {
+        display: grid;
+        grid-template-columns: 110px 1fr auto;
+        gap: 8px;
+        align-items: center;
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.15);
+        border-radius: 8px;
+        padding: 8px;
+      }
+      .gen-stop .color {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .gen-stop input[type="color"] {
+        width: 42px;
+        height: 32px;
+        border: none;
+        background: transparent;
+        padding: 0;
+      }
+      .gen-stop input[type="text"] {
+        width: 100%;
+        background: rgba(0,0,0,.35);
+        border: 1px solid rgba(255,255,255,.15);
+        border-radius: 6px;
+        color: #def;
+        padding: 6px;
+      }
+
+      .gen-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .copy-btn {
+        background: rgba(255,255,255,.08);
+        border: 1px solid rgba(255,255,255,.18);
+        color: #e7f0ff;
+        font-size: .9em;
+        padding: 6px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background .2s, border-color .2s, transform .02s;
+      }
+      .copy-btn:hover {
+        background: rgba(255,255,255,.12);
+        border-color: rgba(255,255,255,.28);
+      }
+      .copy-btn:active {
+        transform: scale(.98);
+      }
+
+      .gen-output {
+        display: grid;
+        gap: 8px;
+      }
+      .gen-output code {
+        display: block;
+        background: rgba(255,255,255,.08);
+        border: 1px solid rgba(255,255,255,.18);
+        border-radius: 8px;
+        padding: 8px;
+        white-space: normal;
+        word-break: break-word;
+      }
+
+      #ntg-visual span {
+        display: inline-block;
+      }
+      #ntg-stops {
+        max-height: 220px;
+        overflow: auto;
+      }
+      #ntg-preview {
+        height: 44px;
+        border-radius: 8px;
+        border: 1px solid #000;
+        margin: 8px 0;
+      }
+      details summary {
+        cursor: pointer;
+      }
+      h4 {
+        margin: 6px 0;
+      }
     </style>
   </head>
   <body>
@@ -131,7 +258,9 @@
       <h1>Custom Tag Generator</h1>
       <div class="dropdown">
         <button class="dropbtn" aria-label="Open navigation menu">
-          <div class="hamburger"><span></span><span></span><span></span></div>
+          <div class="hamburger">
+            <span></span><span></span><span></span>
+          </div>
         </button>
         <div class="dropdown-content">
           <a href="index.html">Home</a>
@@ -153,7 +282,7 @@
           Build EHR or TONE/TOHE tags with permissions and solid/gradient colors, fonts.
         </p>
 
-        <div class="gen-wrap taggen2-wrap">
+        <div class="gen-wrap taggen2-wrap"> 
           <div class="gen-controls">
             <div class="field">
               <strong>Mod</strong>
@@ -164,8 +293,7 @@
               <label for="ntg-fc">Friend Code</label>
               <input id="ntg-fc" type="text" placeholder="e.g., ABCDEF" />
             </div>
-          </div>
-
+          </div> 
           <div class="gen-controls">
             <div class="field" style="flex:1">
               <label for="ntg-name">Name / Icons (max 20, recommended 10)</label>
@@ -177,12 +305,12 @@
               <label><input type="radio" name="ntg-mode" value="grad"> Gradient</label>
             </div>
           </div>
-
+ 
           <div class="gen-controls">
             <div class="field" style="flex:1">
               <label for="ntg-font">Font</label>
               <select id="ntg-font">
-                <option value="">Original font</option>
+                <option value="">(No &lt;font&gt; tag)</option>
                 <option value="VCR SDF">VCR SDF</option>
                 <option value="Barlow-Black SDF">Barlow-Black SDF</option>
                 <option value="Barlow-BoldItalic SDF">Barlow-BoldItalic SDF</option>
@@ -197,7 +325,7 @@
               </select>
             </div>
           </div>
-
+ 
           <div class="gen-stops" id="ntg-solid-wrap">
             <div class="gen-stop" style="grid-template-columns: 220px auto; align-items:center">
               <div class="color">
@@ -209,7 +337,7 @@
               </div>
             </div>
           </div>
-
+ 
           <div class="gen-stops" id="ntg-grad-wrap" hidden>
             <div class="gen-controls">
               <div class="field">
@@ -224,8 +352,8 @@
             </div>
             <div class="gen-stops" id="ntg-stops"></div>
             <div class="gen-preview" id="ntg-preview" aria-label="Gradient preview"></div>
-          </div> 
-
+          </div>
+ 
           <div id="ntg-ehr-perms">
             <h4 style="margin-top:20px">EHR Permissions</h4>
             <div class="gen-controls">
@@ -257,7 +385,6 @@
               <code>{"Tag": "&lt;color=#FB98CA&gt;&lt;font=&quot;BROOK SDF&quot;&gt;♥ Sus but cute ♥&lt;/font&gt;&lt;/color&gt;&lt;color=#98FB98&gt;"}</code>
             </p>
           </div> 
-
           <div id="ntg-tone-perms" hidden>
             <h4 style="margin-top:20px">TONE/TOHE Permissions</h4>
             <div class="gen-controls">
@@ -285,7 +412,6 @@
               <label><input type="radio" name="ntg-gm" value="false" checked> No</label>
             </div>
           </div> 
-
           <div class="gen-output">
             <div class="gen-controls" style="justify-content:space-between">
               <div class="gen-actions">
@@ -293,6 +419,7 @@
                 <button class="copy-btn" id="ntg-download" type="button">Download .txt</button>
               </div>
             </div>
+
             <h4>Tag text (what gets copied):</h4>
             <code id="ntg-out"></code>
 
@@ -319,7 +446,8 @@
         ta.style.left = "-9999px";
         document.body.appendChild(ta);
         ta.select();
-        try { document.execCommand("copy"); } finally { document.body.removeChild(ta); }
+        try { document.execCommand("copy"); }
+        finally { document.body.removeChild(ta); }
         return Promise.resolve();
       }
 
@@ -334,13 +462,37 @@
       };
       const hexToRgb = h=>{
         h = normHex(h,true).slice(1);
-        return {r:parseInt(h.slice(0,2),16), g:parseInt(h.slice(2,4),16), b:parseInt(h.slice(4,6),16)};
+        return {
+          r: parseInt(h.slice(0,2),16),
+          g: parseInt(h.slice(2,4),16),
+          b: parseInt(h.slice(4,6),16)
+        };
       };
-      const rgbToHex = ({r,g,b})=>"#"+[r,g,b].map(x=>clamp(x|0,0,255).toString(16).padStart(2,"0")).join("").toUpperCase();
+      const rgbToHex = ({r,g,b}) =>
+        "#"+[r,g,b].map(x=>clamp(x|0,0,255).toString(16).padStart(2,"0")).join("").toUpperCase();
       const lerp = (a,b,t)=>a+(b-a)*t;
       const lerpColor = (h1,h2,t)=>{
         const c1=hexToRgb(h1), c2=hexToRgb(h2);
-        return rgbToHex({ r: lerp(c1.r,c2.r,t), g: lerp(c1.g,c2.g,t), b: lerp(c1.b,c2.b,t) });
+        return rgbToHex({
+          r: lerp(c1.r,c2.r,t),
+          g: lerp(c1.g,c2.g,t),
+          b: lerp(c1.b,c2.b,t)
+        });
+      };
+ 
+      const previewFontMap = {
+        "": "", 
+        "VCR SDF": '"VT323", monospace',
+        "Barlow-Black SDF": '"Barlow", sans-serif',
+        "Barlow-BoldItalic SDF": '"Barlow", sans-serif',
+        "Barlow-Light SDF": '"Barlow", sans-serif',
+        "BROOK SDF": '"Rajdhani", sans-serif',
+        "CONSOLA SDF": '"Roboto Mono", monospace',
+        "DIGITAL-7 SDF": '"Orbitron", monospace',
+        "DIN_Pro_Bold_700 SDF": '"Rajdhani", sans-serif',
+        "LiberationSans SDF": '"Roboto", sans-serif',
+        "NotoSansJP-Regular SDF": '"Noto Sans JP", sans-serif',
+        "OCRAEXT SDF": '"Share Tech Mono", monospace'
       };
 
       const nameInput   = document.getElementById("ntg-name");
@@ -387,11 +539,14 @@
 
       solidHexIn.addEventListener("input", ()=>{
         const h = normHex(solidHexIn.value,true);
-        solidHexIn.value = h; solidColIn.value = h; render();
+        solidHexIn.value = h;
+        solidColIn.value = h;
+        render();
       });
       solidColIn.addEventListener("input", ()=>{
         const h = normHex(solidColIn.value,true);
-        solidHexIn.value = h; render();
+        solidHexIn.value = h;
+        render();
       });
 
       if (trailHexInput && trailColorInput) {
@@ -409,7 +564,7 @@
       }
       trailEnabled?.addEventListener("change", render);
 
-      let gradStops = ["#B625F1","#2970F8","#00CFFF"]; 
+      let gradStops = ["#B625F1","#2970F8","#00CFFF"];
 
       function renderStopRows(){
         stopsEl.innerHTML = "";
@@ -442,21 +597,27 @@
       }
 
       stopsEl.addEventListener("input", (e)=>{
-        const row = e.target.closest(".gen-stop"); if(!row) return;
+        const row = e.target.closest(".gen-stop");
+        if(!row) return;
         const idx = [...stopsEl.children].indexOf(row);
         const [hexInput, colorInput] = row.querySelectorAll('input');
         if(e.target === hexInput){
           const h = normHex(hexInput.value,true);
-          hexInput.value = h; colorInput.value = h; gradStops[idx]=h;
+          hexInput.value = h;
+          colorInput.value = h;
+          gradStops[idx]=h;
         }else if(e.target === colorInput){
           const h = normHex(colorInput.value,true);
-          hexInput.value = h; gradStops[idx]=h;
+          hexInput.value = h;
+          gradStops[idx]=h;
         }
-        updateGradPreview(); render();
+        updateGradPreview();
+        render();
       });
 
       stopsEl.addEventListener("click", (e)=>{
-        const btn = e.target.closest("button"); if(!btn) return;
+        const btn = e.target.closest("button");
+        if(!btn) return;
         const i = parseInt(btn.dataset.idx,10);
         if(btn.classList.contains("ntg-del") && gradStops.length>2){
           gradStops.splice(i,1);
@@ -466,30 +627,37 @@
           [gradStops[i+1],gradStops[i]]=[gradStops[i],gradStops[i+1]];
         }
         stopCount.value = String(gradStops.length);
-        renderStopRows(); render();
+        renderStopRows();
+        render();
       });
 
       btnAdd.addEventListener("click", ()=>{
         if(gradStops.length>=5) return;
         gradStops.push("#" + Array.from({length:6},()=> "89ABCDEF01234567"[Math.floor(Math.random()*16)]).join(""));
         stopCount.value = String(gradStops.length);
-        renderStopRows(); render();
+        renderStopRows();
+        render();
       });
       btnRem.addEventListener("click", ()=>{
         if(gradStops.length<=2) return;
         gradStops.pop();
         stopCount.value = String(gradStops.length);
-        renderStopRows(); render();
+        renderStopRows();
+        render();
       });
       btnRand.addEventListener("click", ()=>{
         gradStops = gradStops.map(()=> "#" + Array.from({length:6},()=> "89ABCDEF01234567"[Math.floor(Math.random()*16)]).join(""));
-        renderStopRows(); render();
+        renderStopRows();
+        render();
       });
       stopCount.addEventListener("change", ()=>{
         let n = clamp(parseInt(stopCount.value||"3",10),2,5);
-        while(gradStops.length<n) gradStops.push("#" + Array.from({length:6},()=> "89ABCDEF01234567"[Math.floor(Math.random()*16)]).join(""));
-        while(gradStops.length>n) gradStops.pop();
-        renderStopRows(); render();
+        while(gradStops.length<n)
+          gradStops.push("#" + Array.from({length:6},()=> "89ABCDEF01234567"[Math.floor(Math.random()*16)]).join(""));
+        while(gradStops.length>n)
+          gradStops.pop();
+        renderStopRows();
+        render();
       });
 
       modeRadios.forEach(r=>r.addEventListener("change", ()=>{
@@ -599,7 +767,7 @@
         const { baseTagText, exportTagText, payload } = buildOutputs();
 
         outEl.textContent = exportTagText;
-
+ 
         const html = baseTagText
           .replace(/<color=#[0-9A-Fa-f]{6}>(.*?)<\/color>/g, (m,inner)=>{
             const hex = (m.match(/<color=(#[0-9A-Fa-f]{6})>/)||[])[1]||"#FFFFFF";
@@ -610,7 +778,11 @@
           .replace(/<font=\"(.*?)\">/g,"")
           .replace(/<\/font>/g,"");
 
-        visEl.innerHTML = html;
+        visEl.innerHTML = html; 
+        const selectedFontName = fontSelect.value || "";
+        const previewFont = previewFontMap[selectedFontName] || "";
+        visEl.style.fontFamily = previewFont;
+
         payloadEl.textContent = payload;
 
         if(currentMode()==="grad"){ updateGradPreview(); }
@@ -625,7 +797,7 @@
 
       dlBtn.addEventListener("click", ()=>{
         const { payload } = buildOutputs();
-        let fcRaw = friendCode.value || "tag"; 
+        let fcRaw = friendCode.value || "tag";
         let fcFile = fcRaw.replace(/[\/\\:*?"<>|]/g, "").slice(0, 32) || "tag";
 
         const blob = new Blob([payload], {type:"text/plain;charset=utf-8"});
@@ -637,8 +809,7 @@
         a.click();
         a.remove();
         URL.revokeObjectURL(url);
-      });
-
+      }); 
       (function init(){
         solidHexIn.dispatchEvent(new Event("input"));
         renderStopRows();
