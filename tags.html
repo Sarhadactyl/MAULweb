@@ -1089,30 +1089,33 @@
       lotusSuffixSpaceRadios.forEach(r=>r.addEventListener("change", render));
 
       function buildLotusYaml() {
-        const upperText = lotusUpperText.value || "";
+        const upperText = lotusUpperText.value || "Discord.gg/maul";
         const nameText  = lotusNameText.value  || "";
-        const lowerText = lotusLowerText.value || "";
+        const lowerText = lotusLowerText.value || "I like cookies";
 
         const upperSize = lotusUpperSize.value || "2";
         const nameSize  = lotusNameSize.value  || "2";
         const lowerSize = lotusLowerSize.value || "2";
 
-        const upperCols = lotusGradStops.upper.map(c=>normHex(c,true));
-        const nameCols  = lotusGradStops.name.map(c=>normHex(c,true));
-        const lowerCols = lotusGradStops.lower.map(c=>normHex(c,true));
 
-        const prefixText   = lotusPrefixText?.value || "";
-        const prefixColor  = normHex(lotusPrefixColor?.value || "#FFFFFF", true);
-        const prefixSpaced = ([...lotusPrefixSpaceRadios].find(r => r.checked)?.value === "true") ? "true" : "false";
-        const prefixSize   = lotusPrefixSize?.value || "2";
+        const upperCols = lotusGradStops.upper.map(c => normHex(c, true));
+        const nameCols  = lotusGradStops.name.map(c => normHex(c, true));
+        const lowerCols = lotusGradStops.lower.map(c => normHex(c, true));
 
-        const suffixText   = lotusSuffixText?.value || "";
-        const suffixColor  = normHex(lotusSuffixColor?.value || "#FFFFFF", true);
-        const suffixSpaced = ([...lotusSuffixSpaceRadios].find(r => r.checked)?.value === "true") ? "true" : "false";
-        const suffixSize   = lotusSuffixSize?.value || "2";
+        const prefixText     = lotusPrefixText?.value || "";
+        const prefixColor    = normHex(lotusPrefixColor?.value || "#FFFFFF", true);
+        const prefixSpaced   = [...lotusPrefixSpaceRadios].find(r => r.checked)?.value === "true";
+        const prefixSizeRaw  = (lotusPrefixSize?.value || "").trim();
+        const prefixSize     = prefixSizeRaw ? prefixSizeRaw : "null";
 
+
+        const suffixText     = lotusSuffixText?.value || "";
+        const suffixColor    = normHex(lotusSuffixColor?.value || "#FFFFFF", true);
+        const suffixSpaced   = [...lotusSuffixSpaceRadios].find(r => r.checked)?.value === "true";
+        const suffixSizeRaw  = (lotusSuffixSize?.value || "").trim();
+        const suffixSize     = suffixSizeRaw ? suffixSizeRaw : "null";
         return `UpperText:
-  Text: "${escapeYamlString(upperText)}"
+  Text: ${upperText}
   Gradient: "${upperCols.join(", ")}"
   Size: ${upperSize}
 
@@ -1121,24 +1124,23 @@ Name:
   Size: ${nameSize}
 
 Prefix:
-  Spaced: ${prefixSpaced}
-  Text: "${escapeYamlString(prefixText)}"
+  Spaced: ${prefixSpaced ? "true" : "false"}
+  Text: ${prefixText}
   Color: "${prefixColor}"
   Size: ${prefixSize}
 
 Suffix:
-  Spaced: ${suffixSpaced}
-  Text: "${escapeYamlString(suffixText)}"
+  Spaced: ${suffixSpaced ? "true" : "false"}
+  Text: ${suffixText}
   Color: "${suffixColor}"
   Size: ${suffixSize}
 
 LowerText:
-  Text: "${escapeYamlString(lowerText)}"
+  Text: ${lowerText}
   Gradient: "${lowerCols.join(", ")}"
   Size: ${lowerSize}
 `;
       }
-
       function renderLotusPreview(){
         const upperText = lotusUpperText.value || "Discord.gg/maul";
         const nameText  = lotusNameText.value  || "Sarhadactyl";
@@ -1306,7 +1308,7 @@ LowerText:
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = fcFile + "-lotus.yaml";
+        a.download = fcFile + ".ylam";
         document.body.appendChild(a);
         a.click();
         a.remove();
