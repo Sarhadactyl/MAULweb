@@ -1049,8 +1049,7 @@
       }
       function applyFontTag(inner, fontName) {
         if (!fontName) return inner;
-        const escaped = fontName.replace(/"/g, '\\"');
-        return `<font="${escaped}">${inner}</font>`;
+        return `<font=\\"${fontName}\\">${inner}</font>`;
       }
 
       function escapeYamlString(str) {
