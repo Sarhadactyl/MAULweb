@@ -262,19 +262,19 @@
       #ntg-lotus-visual {
         text-align: center;
         line-height: 1.2;
-        padding: 6px 12px;
+        padding: 6px 10px;
         border-radius: 8px;
         background: rgba(0,0,0,.55);
         display: inline-block;
       }
      .lotus-line {
-        display: inline-block;
+        display: block;
         font-size: 1.2em;
         font-weight: 700;
         margin: 2px 0;
         padding: 0 .15em;
         -webkit-text-stroke: 0;
-        text-shadow: 0 0 4px rgba(0,0,0,.8);
+        text-shadow: 0 0 4px rgba(0,0,0,.85);
       }
 
       .lotus-name-line {
@@ -958,7 +958,35 @@
         }
         return chars.map((c,i)=>`<color=${perCharColors[i]}>${c}</color>`).join("");
       }
+      function gradientTextHtml(text, stops) {
+        const chars = [...(text || "")];
+        if (!chars.length) return "";
 
+        const cols = (stops || []).map(c => normHex(c, true));
+        if (!cols.length) cols.push("#FFFFFF");
+
+        const result = [];
+        const L = chars.length;
+        const S = cols.length;
+
+        if (L === 1) {
+          const mid = cols[Math.floor((S - 1) / 2)];
+          result.push(`<span style="color:${mid}">${chars[0]}</span>`);
+        } else {
+          for (let i = 0; i < L; i++) {
+            const t = i / (L - 1);
+            const seg = (S - 1) * t;
+            const i0 = Math.floor(seg);
+            const i1 = Math.min(S - 1, i0 + 1);
+            const localT = seg - i0;
+            const col = lerpColor(cols[i0], cols[i1], localT);
+            const hex = normHex(col, true);
+            const ch = chars[i] === " " ? "&nbsp;" : chars[i];
+            result.push(`<span style="color:${hex}">${ch}</span>`);
+          }
+        }
+        return result.join("");
+      }
       function applyFontTag(inner, fontName){
         if(!fontName) return inner;
         return `<font="${fontName}">${inner}</font>`;
@@ -1019,33 +1047,17 @@ LowerText:
       }
 
       function renderLotusPreview(){
-        const upperText = lotusUpperText.value || "Celestial Host";
-        const nameText  = lotusNameText.value  || "Starry Dreamer";
-        const lowerText = lotusLowerText.value || "cozy lobby vibes";
-
-        function gradientCss(cols){
-          const n = Math.max(cols.length-1,1);
-          return `linear-gradient(90deg, ${cols.map((c,i)=>`${normHex(c,true)} ${Math.round(i*100/n)}%`).join(", ")})`;
-        }
+        const upperText = lotusUpperText.value || "Discord.gg/maul";
+        const nameText  = lotusNameText.value  || "Sarhadactyl";
+        const lowerText = lotusLowerText.value || "I like cookies";
 
         const upperCols = lotusGradStops.upper;
         const nameCols  = lotusGradStops.name;
         const lowerCols = lotusGradStops.lower;
 
-        lotusUpperLine.textContent = upperText;
-        lotusUpperLine.style.background = gradientCss(upperCols);
-        lotusUpperLine.style.webkitBackgroundClip = "text";
-        lotusUpperLine.style.color = "transparent";
-
-        lotusNameLine.textContent = nameText;
-        lotusNameLine.style.background = gradientCss(nameCols);
-        lotusNameLine.style.webkitBackgroundClip = "text";
-        lotusNameLine.style.color = "transparent";
-
-        lotusLowerLine.textContent = lowerText;
-        lotusLowerLine.style.background = gradientCss(lowerCols);
-        lotusLowerLine.style.webkitBackgroundClip = "text";
-        lotusLowerLine.style.color = "transparent";
+        lotusUpperLine.innerHTML = gradientTextHtml(upperText, upperCols);
+        lotusNameLine.innerHTML  = gradientTextHtml(nameText,  nameCols);
+        lotusLowerLine.innerHTML = gradientTextHtml(lowerText, lowerCols);
       }
 
       function buildOutputs(){
