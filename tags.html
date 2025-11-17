@@ -6,12 +6,12 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moddedamong.us/tags.html" />
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-    <meta property="og:description" content="Build EHR, TONE/TOHE, or Project Lotus tags with permissions and colors." />
+    <meta property="og:description" content="Build EHR or TONE/TOHE tags with permissions and colors." />
     <meta property="og:site_name" content="Modded Among Us Lobbies" />
     <meta property="og:locale" content="en_US" />
     <link rel="canonical" href="https://moddedamong.us/tags.html" />
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
-
+ 
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;700;900&family=VT323&family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&family=Press+Start+2P&family=Share+Tech+Mono&family=Rajdhani:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
 
@@ -162,13 +162,43 @@
       .gen-controls select { min-width: 160px; }
       .gen-controls textarea {
         width: 100%;
-        min-height: 40px;
+        min-height: 36px;
         resize: vertical;
       }
 
       .gen-stops {
         display: grid;
         gap: 8px;
+      }
+      .gen-stop {
+        display: grid;
+        grid-template-columns: 110px 1fr auto;
+        gap: 8px;
+        align-items: center;
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.15);
+        border-radius: 8px;
+        padding: 8px;
+      }
+      .gen-stop .color {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .gen-stop input[type="color"] {
+        width: 42px;
+        height: 32px;
+        border: none;
+        background: transparent;
+        padding: 0;
+      }
+      .gen-stop input[type="text"] {
+        width: 100%;
+        background: rgba(0,0,0,.35);
+        border: 1px solid rgba(255,255,255,.15);
+        border-radius: 6px;
+        color: #def;
+        padding: 6px;
       }
 
       .gen-actions {
@@ -215,7 +245,8 @@
         max-height: 220px;
         overflow: auto;
       }
-      #ntg-preview {
+      #ntg-preview,
+      #ntg-lotus-grad-preview {
         height: 44px;
         border-radius: 8px;
         border: 1px solid #000;
@@ -228,14 +259,14 @@
         margin: 6px 0;
       }
  
-      #ntg-lotus-preview {
+      #ntg-lotus-visual {
         text-align: center;
         line-height: 1.2;
       }
       .lotus-line {
-        font-size: 1.3em;
-        margin: 2px 0;
+        font-size: 1.2em;
         font-weight: 700;
+        margin: 2px 0;
         -webkit-text-stroke: 0.5px #000;
       }
       .lotus-name-line {
@@ -269,12 +300,11 @@
       <section class="panel" id="name-tag-generator">
         <h2 class="section-title"><u>Custom Tag Generator</u></h2>
         <p class="section-subtitle">
-          Build EHR or TONE/TOHE tags with permissions and solid/gradient colors.<br>
-          Switch to <strong>Project Lotus</strong> for a dedicated Lotus title layout and YAML export.
+          Build EHR or TONE/TOHE tags with permissions and solid/gradient colors, fonts.<br>
+          Switch to <strong>Project Lotus</strong> for Lotus title YAML with per-line gradients.
         </p>
 
-        <div class="gen-wrap taggen2-wrap">
- 
+        <div class="gen-wrap taggen2-wrap"> 
           <div class="gen-controls">
             <div class="field">
               <strong>Mod</strong>
@@ -284,11 +314,10 @@
             </div>
             <div class="field">
               <label for="ntg-fc">Friend Code</label>
-              <input id="ntg-fc" type="text" placeholder="e.g., ABCDEF#0000" />
+              <input id="ntg-fc" type="text" placeholder="e.g., ABCDEF" />
             </div>
-          </div>
- 
-          <div id="ntg-main-layout">
+          </div>  
+          <div id="ntg-main-config">
             <div class="gen-controls">
               <div class="field" style="flex:1">
                 <label for="ntg-name">Name / Icons (max 20, recommended 10)</label>
@@ -300,7 +329,7 @@
                 <label><input type="radio" name="ntg-mode" value="grad"> Gradient</label>
               </div>
             </div>
-
+ 
             <div class="gen-controls">
               <div class="field" style="flex:1">
                 <label for="ntg-font">Font</label>
@@ -331,7 +360,8 @@
                   <input id="ntg-solid-color" type="color" value="#FFB6C1" />
                 </div>
               </div>
-            </div> 
+            </div>
+ 
             <div class="gen-stops" id="ntg-grad-wrap" hidden>
               <div class="gen-controls">
                 <div class="field">
@@ -346,7 +376,8 @@
               </div>
               <div class="gen-stops" id="ntg-stops"></div>
               <div class="gen-preview" id="ntg-preview" aria-label="Gradient preview"></div>
-            </div> 
+            </div>
+ 
             <div id="ntg-ehr-perms">
               <h4 style="margin-top:20px">EHR Permissions</h4>
               <div class="gen-controls">
@@ -378,6 +409,7 @@
                 <code>{"Tag": "&lt;color=#FB98CA&gt;&lt;font=&quot;BROOK SDF&quot;&gt;♥ Sus but cute ♥&lt;/font&gt;&lt;/color&gt;&lt;color=#98FB98&gt;"}</code>
               </p>
             </div> 
+
             <div id="ntg-tone-perms" hidden>
               <h4 style="margin-top:20px">TONE/TOHE Permissions</h4>
               <div class="gen-controls">
@@ -404,40 +436,41 @@
                 <label><input type="radio" name="ntg-gm" value="true"> Yes</label>
                 <label><input type="radio" name="ntg-gm" value="false" checked> No</label>
               </div>
-            </div>
+            </div> 
           </div> 
-          <div id="ntg-lotus-layout" hidden>
-            <h4 style="margin-top:10px">Project: Lotus Title Builder</h4>
+ 
+          <div id="ntg-lotus-config" hidden>
+            <h4 style="margin-top:20px">Project: Lotus Title</h4>
             <p style="font-size:.9em;opacity:.85;margin:0 4px 8px">
-              Lotus titles are stored as <code>.yaml</code> in <code>Among Us/LOTUS_DATA/Titles</code>.<br>
-              Configure <strong>Upper</strong> and <strong>Lower</strong> text and gradients here.
-            </p> 
+              Configure your Lotus title. Each line (Upper / Name / Lower) has its own gradient.
+            </p>
+
             <div class="gen-controls">
               <div class="field" style="flex:1">
                 <label for="ntg-lotus-upper-text">Upper Text</label>
-                <textarea id="ntg-lotus-upper-text" placeholder="e.g., Stardust Host"></textarea>
-              </div>
-            </div>
-            <div class="gen-controls">
-              <div class="field" style="flex:1">
-                <label for="ntg-lotus-upper-grad">Upper Gradient (hex, comma-separated)</label>
-                <input id="ntg-lotus-upper-grad" type="text" value="#4EF3FF, #FF9DF2, #FFD66B" />
+                <textarea id="ntg-lotus-upper-text" placeholder="e.g., Celestial Host"></textarea>
               </div>
               <div class="field">
                 <label for="ntg-lotus-upper-size">Upper Size</label>
                 <input id="ntg-lotus-upper-size" type="number" min="0.5" step="0.1" value="2" style="width:70px">
               </div>
-            </div> 
+            </div>
+
+            <div class="gen-controls">
+              <div class="field" style="flex:1">
+                <label for="ntg-lotus-name-text">Name Text (shown above your AU name)</label>
+                <textarea id="ntg-lotus-name-text" placeholder="e.g., Starry Dreamer"></textarea>
+              </div>
+              <div class="field">
+                <label for="ntg-lotus-name-size">Name Size</label>
+                <input id="ntg-lotus-name-size" type="number" min="0.5" step="0.1" value="2" style="width:70px">
+              </div>
+            </div>
+
             <div class="gen-controls">
               <div class="field" style="flex:1">
                 <label for="ntg-lotus-lower-text">Lower Text</label>
-                <textarea id="ntg-lotus-lower-text" placeholder="e.g., chill lobbies · no sweats"></textarea>
-              </div>
-            </div>
-            <div class="gen-controls">
-              <div class="field" style="flex:1">
-                <label for="ntg-lotus-lower-grad">Lower Gradient (hex, comma-separated)</label>
-                <input id="ntg-lotus-lower-grad" type="text" value="#9BFFD0, #6BD3FF" />
+                <textarea id="ntg-lotus-lower-text" placeholder="e.g., cozy lobby vibes"></textarea>
               </div>
               <div class="field">
                 <label for="ntg-lotus-lower-size">Lower Size</label>
@@ -445,17 +478,36 @@
               </div>
             </div>
 
-            <p style="font-size:.8em;opacity:.75;margin:4px">
-              Gradients accept 1–many hex values. Example:
-              <code>#4EF3FF, #FF9DF2, #FFD66B</code>
-            </p>
+            <div class="gen-controls">
+              <div class="field">
+                <strong>Editing gradient for</strong>
+                <label><input type="radio" name="ntg-lotus-target" value="upper" checked> Upper</label>
+                <label><input type="radio" name="ntg-lotus-target" value="name"> Name</label>
+                <label><input type="radio" name="ntg-lotus-target" value="lower"> Lower</label>
+              </div>
+            </div> 
+            <div class="gen-stops" id="ntg-lotus-grad-wrap">
+              <div class="gen-controls">
+                <div class="field">
+                  <label for="ntg-lotus-stopcount">Stops</label>
+                  <input id="ntg-lotus-stopcount" type="number" min="2" max="5" step="1" value="3" />
+                </div>
+                <div class="gen-actions">
+                  <button class="copy-btn" id="ntg-lotus-add" type="button">Add stop</button>
+                  <button class="copy-btn" id="ntg-lotus-rem" type="button">Remove stop</button>
+                  <button class="copy-btn" id="ntg-lotus-rand" type="button">Randomize</button>
+                </div>
+              </div>
+              <div class="gen-stops" id="ntg-lotus-stops"></div>
+              <div class="gen-preview" id="ntg-lotus-grad-preview" aria-label="Lotus gradient preview"></div>
+            </div>
           </div> 
           <div class="gen-output">
             <div class="gen-controls" style="justify-content:space-between">
               <div class="gen-actions">
                 <button class="copy-btn" id="ntg-copy" type="button">Copy text</button>
                 <button class="copy-btn" id="ntg-download" type="button">Download .txt</button>
-                <button class="copy-btn" id="ntg-lotus" type="button" style="display:none">Download Lotus YAML</button>
+                <button class="copy-btn" id="ntg-lotus-download" type="button" style="display:none">Download Lotus YAML</button>
               </div>
             </div>
 
@@ -464,9 +516,9 @@
 
             <h4 style="margin-top:10px">Visual preview:</h4>
             <div id="ntg-visual" style="font-size:1.3em; line-height:1.2"></div>
-            <div id="ntg-lotus-preview" style="display:none">
+            <div id="ntg-lotus-visual" style="display:none">
               <div id="ntg-lotus-upper-line" class="lotus-line"></div>
-              <div id="ntg-lotus-name-line" class="lotus-line lotus-name-line">Your Name</div>
+              <div id="ntg-lotus-name-line" class="lotus-line lotus-name-line"></div>
               <div id="ntg-lotus-lower-line" class="lotus-line"></div>
             </div>
 
@@ -523,9 +575,9 @@
           b: lerp(c1.b,c2.b,t)
         });
       };
-
+ 
       const previewFontMap = {
-        "": "",
+        "": "", 
         "VCR SDF": '"VT323", monospace',
         "Barlow-Black SDF": '"Barlow", sans-serif',
         "Barlow-BoldItalic SDF": '"Barlow", sans-serif',
@@ -545,11 +597,11 @@
       const friendCode  = document.getElementById("ntg-fc");
       const fontSelect  = document.getElementById("ntg-font");
 
-      const mainLayout  = document.getElementById("ntg-main-layout");
-      const lotusLayout = document.getElementById("ntg-lotus-layout");
-
       const ehrPerms    = document.getElementById("ntg-ehr-perms");
       const tonePerms   = document.getElementById("ntg-tone-perms");
+
+      const mainConfig  = document.getElementById("ntg-main-config");
+      const lotusConfig = document.getElementById("ntg-lotus-config");
 
       const solidWrap   = document.getElementById("ntg-solid-wrap");
       const solidHexIn  = document.getElementById("ntg-solid-hex");
@@ -565,49 +617,54 @@
 
       const outEl       = document.getElementById("ntg-out");
       const visEl       = document.getElementById("ntg-visual");
+      const lotusVis    = document.getElementById("ntg-lotus-visual");
+      const lotusUpperLine = document.getElementById("ntg-lotus-upper-line");
+      const lotusNameLine  = document.getElementById("ntg-lotus-name-line");
+      const lotusLowerLine = document.getElementById("ntg-lotus-lower-line");
+
       const payloadEl   = document.getElementById("ntg-payload");
       const copyBtn     = document.getElementById("ntg-copy");
       const dlBtn       = document.getElementById("ntg-download");
-      const lotusBtn    = document.getElementById("ntg-lotus");
+      const lotusDlBtn  = document.getElementById("ntg-lotus-download");
 
       const trailEnabled    = document.getElementById("ntg-trail-enabled");
       const trailHexInput   = document.getElementById("ntg-trail-hex");
       const trailColorInput = document.getElementById("ntg-trail-color");
  
       const lotusUpperText = document.getElementById("ntg-lotus-upper-text");
-      const lotusUpperGrad = document.getElementById("ntg-lotus-upper-grad");
       const lotusUpperSize = document.getElementById("ntg-lotus-upper-size");
+      const lotusNameText  = document.getElementById("ntg-lotus-name-text");
+      const lotusNameSize  = document.getElementById("ntg-lotus-name-size");
       const lotusLowerText = document.getElementById("ntg-lotus-lower-text");
-      const lotusLowerGrad = document.getElementById("ntg-lotus-lower-grad");
       const lotusLowerSize = document.getElementById("ntg-lotus-lower-size");
 
-      const lotusPreview   = document.getElementById("ntg-lotus-preview");
-      const lotusUpperLine = document.getElementById("ntg-lotus-upper-line");
-      const lotusNameLine  = document.getElementById("ntg-lotus-name-line");
-      const lotusLowerLine = document.getElementById("ntg-lotus-lower-line");
+      const lotusStopCount = document.getElementById("ntg-lotus-stopcount");
+      const lotusStopsEl   = document.getElementById("ntg-lotus-stops");
+      const lotusPrevEl    = document.getElementById("ntg-lotus-grad-preview");
+      const lotusAddBtn    = document.getElementById("ntg-lotus-add");
+      const lotusRemBtn    = document.getElementById("ntg-lotus-rem");
+      const lotusRandBtn   = document.getElementById("ntg-lotus-rand");
+      const lotusTargetRadios = document.querySelectorAll('input[name="ntg-lotus-target"]');
 
       const currentMode = ()=> ([...modeRadios].find(r=>r.checked)?.value||"solid");
       const currentMod  = ()=> ([...modRadios].find(r=>r.checked)?.value||"ehr");
+      const currentLotusTarget = ()=> ([...lotusTargetRadios].find(r=>r.checked)?.value||"upper");
 
-      function syncPermVisibility(){
+      function syncVisibility(){
         const m = currentMod();
-        mainLayout.hidden  = (m === "lotus");
-        lotusLayout.hidden = (m !== "lotus");
+        ehrPerms.hidden   = (m !== "ehr");
+        tonePerms.hidden  = (m !== "tone");
 
-        ehrPerms.hidden    = (m !== "ehr");
-        tonePerms.hidden   = (m !== "tone");
+        mainConfig.hidden = (m === "lotus");
+        lotusConfig.hidden = (m !== "lotus");
 
-        lotusBtn.style.display = (m === "lotus") ? "inline-block" : "none"; 
-        if (m === "lotus") {
-          visEl.style.display = "none";
-          lotusPreview.style.display = "block";
-        } else {
-          visEl.style.display = "block";
-          lotusPreview.style.display = "none";
-        }
+        visEl.style.display    = (m === "lotus") ? "none" : "block";
+        lotusVis.style.display = (m === "lotus") ? "block" : "none";
+
+        lotusDlBtn.style.display = (m === "lotus") ? "inline-block" : "none";
       }
-      modRadios.forEach(r => r.addEventListener("change", ()=>{ syncPermVisibility(); render(); }));
-      syncPermVisibility();
+      modRadios.forEach(r => r.addEventListener("change", ()=>{ syncVisibility(); render(); }));
+      syncVisibility();
 
       solidHexIn.addEventListener("input", ()=>{
         const h = normHex(solidHexIn.value,true);
@@ -672,10 +729,7 @@
         const row = e.target.closest(".gen-stop");
         if(!row) return;
         const idx = [...stopsEl.children].indexOf(row);
-        const inputs = row.querySelectorAll('input');
-        const hexInput = inputs[0];
-        const colorInput = inputs[1];
-
+        const [hexInput, colorInput] = row.querySelectorAll('input');
         if(e.target === hexInput){
           const h = normHex(hexInput.value,true);
           hexInput.value = h;
@@ -744,9 +798,131 @@
 
       friendCode.addEventListener("input", render);
       nameInput.addEventListener("input", render);
-      fontSelect.addEventListener("change", render);
-      [lotusUpperText, lotusUpperGrad, lotusUpperSize,
-       lotusLowerText, lotusLowerGrad, lotusLowerSize]
+      fontSelect.addEventListener("change", render); 
+      let lotusGradStops = {
+        upper: ["#4EF3FF","#FF9DF2","#FFD66B"],
+        name:  ["#FF9DF2","#FFD66B","#FF75A0"],
+        lower: ["#9BFFD0","#6BD3FF"]
+      };
+
+      function getLotusStops() {
+        return lotusGradStops[currentLotusTarget()];
+      }
+
+      function setLotusStops(arr) {
+        lotusGradStops[currentLotusTarget()] = arr;
+      }
+
+      function renderLotusStopRows(){
+        const arr = getLotusStops();
+        lotusStopsEl.innerHTML = "";
+        arr.forEach((hex,idx)=>{
+          const row = document.createElement("div");
+          row.className = "gen-stop";
+          row.style.gridTemplateColumns = "auto 1fr auto";
+          row.innerHTML = `
+            <div class="color" style="min-width:120px">
+              <label>Stop ${idx+1}</label>
+            </div>
+            <div class="color">
+              <input type="text" value="${normHex(hex,true)}" aria-label="Lotus hex stop ${idx+1}">
+              <input type="color" value="${normHex(hex,true)}" aria-label="Pick Lotus stop ${idx+1}">
+            </div>
+            <div class="row-btns">
+              <button class="copy-btn lotus-up" data-idx="${idx}" title="Up" type="button">▲</button>
+              <button class="copy-btn lotus-down" data-idx="${idx}" title="Down" type="button">▼</button>
+              <button class="copy-btn lotus-del" data-idx="${idx}" title="Remove" type="button">✕</button>
+            </div>
+          `;
+          lotusStopsEl.appendChild(row);
+        });
+        lotusStopCount.value = String(arr.length);
+        updateLotusGradPreview();
+      }
+
+      function updateLotusGradPreview(){
+        const arr = getLotusStops();
+        const css = `linear-gradient(90deg, ${arr.map((c,i)=>`${normHex(c,true)} ${(i*100/(Math.max(arr.length-1,1)))}%`).join(", ")})`;
+        lotusPrevEl.style.background = css;
+      }
+
+      lotusStopsEl.addEventListener("input", (e)=>{
+        const row = e.target.closest(".gen-stop");
+        if(!row) return;
+        const idx = [...lotusStopsEl.children].indexOf(row);
+        const [hexInput, colorInput] = row.querySelectorAll('input');
+        const arr = getLotusStops().slice();
+        if(e.target === hexInput){
+          const h = normHex(hexInput.value,true);
+          hexInput.value = h;
+          colorInput.value = h;
+          arr[idx]=h;
+        }else if(e.target === colorInput){
+          const h = normHex(colorInput.value,true);
+          hexInput.value = h;
+          arr[idx]=h;
+        }
+        setLotusStops(arr);
+        updateLotusGradPreview();
+        render();
+      });
+
+      lotusStopsEl.addEventListener("click", (e)=>{
+        const btn = e.target.closest("button");
+        if(!btn) return;
+        const i = parseInt(btn.dataset.idx,10);
+        let arr = getLotusStops().slice();
+        if(btn.classList.contains("lotus-del") && arr.length>2){
+          arr.splice(i,1);
+        } else if(btn.classList.contains("lotus-up") && i>0){
+          [arr[i-1],arr[i]]=[arr[i],arr[i-1]];
+        } else if(btn.classList.contains("lotus-down") && i<arr.length-1){
+          [arr[i+1],arr[i]]=[arr[i],arr[i+1]];
+        }
+        setLotusStops(arr);
+        renderLotusStopRows();
+        render();
+      });
+
+      lotusAddBtn.addEventListener("click", ()=>{
+        let arr = getLotusStops().slice();
+        if(arr.length>=5) return;
+        arr.push("#" + Array.from({length:6},()=> "89ABCDEF01234567"[Math.floor(Math.random()*16)]).join(""));
+        setLotusStops(arr);
+        renderLotusStopRows();
+        render();
+      });
+      lotusRemBtn.addEventListener("click", ()=>{
+        let arr = getLotusStops().slice();
+        if(arr.length<=2) return;
+        arr.pop();
+        setLotusStops(arr);
+        renderLotusStopRows();
+        render();
+      });
+      lotusRandBtn.addEventListener("click", ()=>{
+        let arr = getLotusStops().map(()=> "#" + Array.from({length:6},()=> "89ABCDEF01234567"[Math.floor(Math.random()*16)]).join(""));
+        setLotusStops(arr);
+        renderLotusStopRows();
+        render();
+      });
+      lotusStopCount.addEventListener("change", ()=>{
+        let n = clamp(parseInt(lotusStopCount.value||"3",10),2,5);
+        let arr = getLotusStops().slice();
+        while(arr.length<n)
+          arr.push("#" + Array.from({length:6},()=> "89ABCDEF01234567"[Math.floor(Math.random()*16)]).join(""));
+        while(arr.length>n)
+          arr.pop();
+        setLotusStops(arr);
+        renderLotusStopRows();
+        render();
+      });
+      lotusTargetRadios.forEach(r=>r.addEventListener("change", ()=>{
+        renderLotusStopRows();
+        render();
+      }));
+ 
+      [lotusUpperText, lotusUpperSize, lotusNameText, lotusNameSize, lotusLowerText, lotusLowerSize]
         .forEach(el => el && el.addEventListener("input", render));
 
       function buildPerCharTags(text, colors){
@@ -783,40 +959,35 @@
         return (str || "").replace(/"/g, '\\"');
       }
 
-      function parseLotusGradient(str) {
-        const parts = (str || "")
-          .split(",")
-          .map(s => s.trim())
-          .filter(Boolean);
-        if (!parts.length) return ["#FFFFFF"];
-        return parts.map(h => normHex(h, true));
-      } 
       function buildLotusYaml() {
-        const upperText = lotusUpperText.value || "";
-        const lowerText = lotusLowerText.value || "";
-
-        const upperCols = parseLotusGradient(lotusUpperGrad.value);
-        const lowerCols = parseLotusGradient(lotusLowerGrad.value);
+        const upperText = lotusUpperText.value || "Celestial Host";
+        const nameText  = lotusNameText.value  || "Starry Dreamer";
+        const lowerText = lotusLowerText.value || "cozy lobby vibes";
 
         const upperSize = lotusUpperSize.value || "2";
+        const nameSize  = lotusNameSize.value  || "2";
         const lowerSize = lotusLowerSize.value || "2";
 
+        const upperCols = lotusGradStops.upper.map(c=>normHex(c,true));
+        const nameCols  = lotusGradStops.name.map(c=>normHex(c,true));
+        const lowerCols = lotusGradStops.lower.map(c=>normHex(c,true));
+
         const upperStr = upperCols.join(", ");
+        const nameStr  = nameCols.join(", ");
         const lowerStr = lowerCols.join(", ");
 
-        const nameGradient = upperStr;
-        const prefixColor  = upperCols[0];
-        const suffixColor  = lowerCols[lowerCols.length - 1];
+        const prefixColor = nameCols[0] || "#FFFFFF";
+        const suffixColor = nameCols[nameCols.length-1] || "#FFFFFF";
 
         const yaml =
 `UpperText:
-  Text: "${escapeYamlString(upperText || "Stardust Host")}"
+  Text: "${escapeYamlString(upperText)}"
   Gradient: "${upperStr}"
   Size: ${upperSize}
 
 Name:
-  Gradient: "${nameGradient}"
-  Size: 2
+  Gradient: "${nameStr}"
+  Size: ${nameSize}
 
 Prefix:
   Spaced: true
@@ -831,55 +1002,57 @@ Suffix:
   Size: 2
 
 LowerText:
-  Text: "${escapeYamlString(lowerText || "cozy lobby vibes")}"
+  Text: "${escapeYamlString(lowerText)}"
   Gradient: "${lowerStr}"
   Size: ${lowerSize}
 `;
         return yaml;
       }
 
-      function renderLotusPreview() {
-        const upperText = lotusUpperText.value || "Stardust Host";
+      function renderLotusPreview(){
+        const upperText = lotusUpperText.value || "Celestial Host";
+        const nameText  = lotusNameText.value  || "Starry Dreamer";
         const lowerText = lotusLowerText.value || "cozy lobby vibes";
 
-        const upperCols = parseLotusGradient(lotusUpperGrad.value);
-        const lowerCols = parseLotusGradient(lotusLowerGrad.value);
-
-        function gradientCss(cols) {
-          const n = Math.max(cols.length - 1, 1);
-          return `linear-gradient(90deg, ${cols.map((c,i)=>`${c} ${Math.round(i*100/n)}%`).join(", ")})`;
+        function gradientCss(cols){
+          const n = Math.max(cols.length-1,1);
+          return `linear-gradient(90deg, ${cols.map((c,i)=>`${normHex(c,true)} ${Math.round(i*100/n)}%`).join(", ")})`;
         }
+
+        const upperCols = lotusGradStops.upper;
+        const nameCols  = lotusGradStops.name;
+        const lowerCols = lotusGradStops.lower;
 
         lotusUpperLine.textContent = upperText;
         lotusUpperLine.style.background = gradientCss(upperCols);
         lotusUpperLine.style.webkitBackgroundClip = "text";
         lotusUpperLine.style.color = "transparent";
 
+        lotusNameLine.textContent = nameText;
+        lotusNameLine.style.background = gradientCss(nameCols);
+        lotusNameLine.style.webkitBackgroundClip = "text";
+        lotusNameLine.style.color = "transparent";
+
         lotusLowerLine.textContent = lowerText;
         lotusLowerLine.style.background = gradientCss(lowerCols);
         lotusLowerLine.style.webkitBackgroundClip = "text";
         lotusLowerLine.style.color = "transparent";
- 
-        lotusNameLine.textContent = nameInput.value || "Your Name";
-        const midCols = [upperCols[upperCols.length-1], lowerCols[0]];
-        lotusNameLine.style.background = gradientCss(midCols);
-        lotusNameLine.style.webkitBackgroundClip = "text";
-        lotusNameLine.style.color = "transparent";
       }
 
       function buildOutputs(){
         const mod  = currentMod();
         const mode = currentMode();
-
-        if (mod === "lotus") {
-          const payload = buildLotusYaml();
-          return { baseTagText: "", exportTagText: "", payload };
-        }
-
-        const text = nameInput.value || "";
         const fontName = fontSelect.value || "";
+        const text = nameInput.value || "";
 
         let baseTagText = "";
+        let exportTagText = "";
+        let payload = "";
+
+        if (mod === "lotus") {
+          payload = buildLotusYaml();
+          return { baseTagText: "", exportTagText: "", payload };
+        }
 
         if(mode==="solid"){
           let inner = text;
@@ -891,14 +1064,13 @@ LowerText:
           baseTagText = colored;
         }
 
-        let exportTagText = baseTagText;
+        exportTagText = baseTagText;
 
         if (mod === "ehr" && trailEnabled && trailEnabled.checked) {
           const tHex = normHex(trailHexInput.value,true);
           exportTagText += `<color=${tHex}>`;
         }
 
-        let payload = "";
         if (mod === "ehr") {
           const vip       = document.querySelector('input[name="ntg-vip"]:checked')?.value === "true";
           const moderator = document.querySelector('input[name="ntg-moderator"]:checked')?.value === "true";
@@ -910,16 +1082,16 @@ LowerText:
             2
           );
         } else if (mod === "tone") {
-          const level = document.getElementById("ntg-tone-level").value || "0";
-          const say   = document.querySelector('input[name="ntg-say"]:checked')?.value  === "true" ? "y" : "n";
-          const end   = document.querySelector('input[name="ntg-end"]:checked')?.value  === "true" ? "y" : "n";
+          const level = document.getElementById("ntg-tone-level").value;
+          const say   = document.querySelector('input[name="ntg-say"]:checked')?.value === "true" ? "y" : "n";
+          const end   = document.querySelector('input[name="ntg-end"]:checked')?.value === "true" ? "y" : "n";
           const exec  = document.querySelector('input[name="ntg-exec"]:checked')?.value === "true" ? "y" : "n";
-          const gm    = document.querySelector('input[name="ntg-gm"]:checked')?.value   === "true" ? "y" : "n";
+          const gm    = document.querySelector('input[name="ntg-gm"]:checked')?.value === "true" ? "y" : "n";
 
           const tagNameLine  = `TagName: ${baseTagText}`;
           const tagColorLine = (mode === "solid")
             ? `TagColor: ${normHex(solidHexIn.value,false)}`
-            : "TagColor:";
+            : `TagColor:`;
 
           payload = [
             tagNameLine,
@@ -956,15 +1128,15 @@ LowerText:
             .replace(/<font=\"(.*?)\">/g,"")
             .replace(/<\/font>/g,"");
 
-          visEl.innerHTML = html;
+          visEl.innerHTML = html; 
           const selectedFontName = fontSelect.value || "";
           const previewFont = previewFontMap[selectedFontName] || "";
           visEl.style.fontFamily = previewFont;
+
+          updateGradPreview();
         }
 
         payloadEl.textContent = payload;
-
-        if(currentMode()==="grad" && currentMod()!=="lotus"){ updateGradPreview(); }
       }
 
       copyBtn.addEventListener("click", ()=>{
@@ -976,9 +1148,7 @@ LowerText:
 
       dlBtn.addEventListener("click", ()=>{
         const mod = currentMod();
-        if (mod === "lotus") { 
-          return;
-        }
+        if (mod === "lotus") return;  
         const { payload } = buildOutputs();
         let fcRaw = friendCode.value || "tag";
         let fcFile = fcRaw.replace(/[\/\\:*?"<>|]/g, "").slice(0, 32) || "tag";
@@ -994,13 +1164,12 @@ LowerText:
         URL.revokeObjectURL(url);
       });
 
-      lotusBtn.addEventListener("click", () => {
+      lotusDlBtn.addEventListener("click", ()=>{
         const yaml = buildLotusYaml();
-
         let fcRaw = friendCode.value || "title";
         let fcFile = fcRaw.replace(/[\/\\:*?"<>|]/g, "").slice(0, 32) || "title";
 
-        const blob = new Blob([yaml], { type: "text/plain;charset=utf-8" });
+        const blob = new Blob([yaml], {type:"text/plain;charset=utf-8"});
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
@@ -1014,6 +1183,7 @@ LowerText:
       (function init(){
         solidHexIn.dispatchEvent(new Event("input"));
         renderStopRows();
+        renderLotusStopRows();
         render();
       })();
     </script>
