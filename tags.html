@@ -10,8 +10,8 @@
     <meta property="og:site_name" content="Modded Among Us Lobbies" />
     <meta property="og:locale" content="en_US" />
     <link rel="canonical" href="https://moddedamong.us/tags.html" />
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
- 
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />    
+
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;700;900&family=VT323&family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&family=Press+Start+2P&family=Share+Tech+Mono&family=Rajdhani:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
 
@@ -19,74 +19,74 @@
       html, body {
         height: 100%;
         margin: 0;
-        padding: 0;
+        padding: 0;  
         background: #000;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto', sans-serif; 
         color: #fff;
-        overflow-x: hidden;
-      }
-      body {
-        background: url('images/background.png') no-repeat center center fixed;
+        overflow-x: hidden; 
+      } 
+      body { 
+        background: url('images/background.png') no-repeat center center fixed; 
         background-size: cover;
-        display: flex;
+        display: flex; 
         flex-direction: column;
-        align-items: center;
+        align-items: center; 
         padding-bottom: 100px;
-      }
+      } 
       header {
-        width: 100%;
+        width: 100%; 
         text-align: center;
-        padding: 20px;
+        padding: 20px; 
         background: rgba(0, 0, 0, 0.7);
-        position: relative;
+        position: relative; 
         z-index: 1000;
-      }
+      } 
       header h1 {
-        margin: 0;
+        margin: 0; 
         font-size: 3em;
-        color: #fff;
+        color: #fff; 
       }
-      .dropdown {
+      .dropdown { 
         position: absolute;
-        top: 20px;
+        top: 20px; 
         left: 30px;
-        z-index: 100;
+        z-index: 100; 
       }
-      .dropbtn {
+      .dropbtn { 
         background: none;
-        border: none;
+        border: none; 
         cursor: pointer;
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease; 
         padding: 0;
-      }
+      } 
       .dropbtn:hover { transform: scale(1.1); }
-      .hamburger {
+      .hamburger { 
         width: 30px;
-        height: 22px;
+        height: 22px; 
         display: flex;
-        flex-direction: column;
+        flex-direction: column; 
         justify-content: space-between;
-      }
+      } 
       .hamburger span {
-        display: block;
+        display: block; 
         height: 4px;
-        background: #fff;
+        background: #fff; 
         border-radius: 2px;
-      }
+      } 
       .dropdown-content {
-        display: none;
+        display: none; 
         position: absolute;
-        background: #2a2a2a;
+        background: #2a2a2a; 
         min-width: 200px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2); 
         border-radius: 6px;
-      }
+      } 
       .dropdown-content a {
-        color: #fff;
+        color: #fff; 
         padding: 12px 16px;
-        text-decoration: none;
+        text-decoration: none; 
         display: block;
-        transition: background 0.3s;
+        transition: background 0.3s; 
       }
       .dropdown-content a:hover { background: #3a3a3a; }
       .dropdown:hover .dropdown-content { display: block; }
@@ -96,99 +96,99 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        text-align: center;
+        text-align: center; 
         padding: 15px;
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.7); 
         z-index: 1000;
-      }
+      } 
 
-      .container {
+      .container {  
         max-width: 1200px;
-        width: 92%;
+        width: 92%; 
         margin: 40px auto;
-        display: grid;
+        display: grid; 
         gap: 24px;
-      }
+      } 
       .panel {
-        background: rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.5); 
         border: 1px solid #1d0909;
-        border-radius: 8px;
+        border-radius: 8px;  
         padding: 20px;
-      }
+      }  
       .section-title {
-        font-size: 2em;
+        font-size: 2em;  
         text-align: center;
-        margin: 0 0 10px;
+        margin: 0 0 10px;  
       }
-      .section-subtitle {
+      .section-subtitle {  
         text-align: center;
-        color: #cfcfcf;
+        color: #cfcfcf;  
         margin: 0 0 20px;
-        font-size: 0.95em;
+        font-size: 0.95em; 
       }
-
+ 
       .gen-wrap {
-        display: grid;
+        display: grid; 
         gap: 14px;
-      }
+      } 
       .gen-controls {
-        display: flex;
+        display: flex; 
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 10px; 
         align-items: center;
-      }
+      } 
       .gen-controls .field {
-        display: flex;
+        display: flex; 
         align-items: center;
-        gap: 6px;
+        gap: 6px;  
         background: rgba(255,255,255,.06);
-        border: 1px solid rgba(255,255,255,.15);
+        border: 1px solid rgba(255,255,255,.15); 
         padding: 6px 8px;
-        border-radius: 8px;
+        border-radius: 8px; 
       }
-      .gen-controls .field label {
+      .gen-controls .field label { 
         font-size: .9em;
-      }
+      } 
       .gen-controls input[type="text"],
-      .gen-controls input[type="number"],
+      .gen-controls input[type="number"], 
       .gen-controls select {
-        background: rgba(0,0,0,.35);
+        background: rgba(0,0,0,.35);  
         border: 1px solid rgba(255,255,255,.15);
-        border-radius: 6px;
+        border-radius: 6px; 
         color: #def;
-        padding: 4px 6px;
+        padding: 4px 6px; 
       }
-      .gen-controls select { min-width: 160px; }
+      .gen-controls select { min-width: 160px; } 
 
-      .gen-stops {
+      .gen-stops { 
         display: grid;
-        gap: 8px;
+        gap: 8px; 
       }
-      .gen-stop {
+      .gen-stop { 
         display: grid;
-        grid-template-columns: 110px 1fr auto;
+        grid-template-columns: 110px 1fr auto; 
         gap: 8px;
-        align-items: center;
+        align-items: center; 
         background: rgba(255,255,255,.06);
-        border: 1px solid rgba(255,255,255,.15);
+        border: 1px solid rgba(255,255,255,.15); 
         border-radius: 8px;
-        padding: 8px;
+        padding: 8px; 
       }
-      .gen-stop .color {
+      .gen-stop .color {  
         display: flex;
-        align-items: center;
+        align-items: center;  
         gap: 8px;
-      }
+      } 
       .gen-stop input[type="color"] {
-        width: 42px;
+        width: 42px; 
         height: 32px;
-        border: none;
+        border: none; 
         background: transparent;
-        padding: 0;
+        padding: 0;  
       }
-      .gen-stop input[type="text"] {
+      .gen-stop input[type="text"] { 
         width: 100%;
-        background: rgba(0,0,0,.35);
+        background: rgba(0,0,0,.35); 
         border: 1px solid rgba(255,255,255,.15);
         border-radius: 6px;
         color: #def;
@@ -203,60 +203,60 @@
       .copy-btn {
         background: rgba(255,255,255,.08);
         border: 1px solid rgba(255,255,255,.18);
-        color: #e7f0ff;
-        font-size: .9em;
-        padding: 6px 10px;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: background .2s, border-color .2s, transform .02s;
-      }
-      .copy-btn:hover {
-        background: rgba(255,255,255,.12);
-        border-color: rgba(255,255,255,.28);
-      }
-      .copy-btn:active {
-        transform: scale(.98);
-      }
-
-      .gen-output {
-        display: grid;
-        gap: 8px;
-      }
-      .gen-output code {
-        display: block;
-        background: rgba(255,255,255,.08);
-        border: 1px solid rgba(255,255,255,.18);
-        border-radius: 8px;
-        padding: 8px;
-        white-space: normal;
-        word-break: break-word;
-      }
-
-      #ntg-visual span {
-        display: inline-block;
-      }
-      #ntg-stops {
-        max-height: 220px;
-        overflow: auto;
-      }
-      #ntg-preview {
-        height: 44px;
-        border-radius: 8px;
-        border: 1px solid #000;
-        margin: 8px 0;
-      }
+        color: #e7f0ff; 
+        font-size: .9em; 
+        padding: 6px 10px; 
+        border-radius: 6px; 
+        cursor: pointer; 
+        transition: background .2s, border-color .2s, transform .02s; 
+      } 
+      .copy-btn:hover {  
+        background: rgba(255,255,255,.12); 
+        border-color: rgba(255,255,255,.28); 
+      } 
+      .copy-btn:active { 
+        transform: scale(.98); 
+      } 
+ 
+      .gen-output { 
+        display: grid; 
+        gap: 8px; 
+      } 
+      .gen-output code { 
+        display: block; 
+        background: rgba(255,255,255,.08); 
+        border: 1px solid rgba(255,255,255,.18); 
+        border-radius: 8px; 
+        padding: 8px; 
+        white-space: normal; 
+        word-break: break-word; 
+      } 
+ 
+      #ntg-visual span { 
+        display: inline-block; 
+      } 
+      #ntg-stops { 
+        max-height: 220px; 
+        overflow: auto; 
+      }  
+      #ntg-preview { 
+        height: 44px; 
+        border-radius: 8px; 
+        border: 1px solid #000; 
+        margin: 8px 0; 
+      }  
       details summary {
-        cursor: pointer;
+        cursor: pointer; 
       }
-      h4 {
+      h4 { 
         margin: 6px 0;
-      }
+      } 
     </style>
-  </head>
+  </head>  
   <body>
-    <header>
+    <header> 
       <h1>Custom Tag Generator</h1>
-      <div class="dropdown">
+      <div class="dropdown"> 
         <button class="dropbtn" aria-label="Open navigation menu">
           <div class="hamburger">
             <span></span><span></span><span></span>
@@ -279,10 +279,10 @@
       <section class="panel" id="name-tag-generator">
         <h2 class="section-title"><u>Custom Tag Generator</u></h2>
         <p class="section-subtitle">
-          Build EHR or TONE/TOHE tags with permissions and solid/gradient colors, fonts.
+          Build EHR or TONE/TOHE tags with permissions and solid/gradient colors, fonts. Also export Project: Lotus YAML titles.
         </p>
 
-        <div class="gen-wrap taggen2-wrap"> 
+        <div class="gen-wrap taggen2-wrap">
           <div class="gen-controls">
             <div class="field">
               <strong>Mod</strong>
@@ -291,9 +291,9 @@
             </div>
             <div class="field">
               <label for="ntg-fc">Friend Code</label>
-              <input id="ntg-fc" type="text" placeholder="e.g., ABCDEF" />
+              <input id="ntg-fc" type="text" placeholder="e.g., ABCDEF#0000" />
             </div>
-          </div> 
+          </div>
           <div class="gen-controls">
             <div class="field" style="flex:1">
               <label for="ntg-name">Name / Icons (max 20, recommended 10)</label>
@@ -305,7 +305,7 @@
               <label><input type="radio" name="ntg-mode" value="grad"> Gradient</label>
             </div>
           </div>
- 
+
           <div class="gen-controls">
             <div class="field" style="flex:1">
               <label for="ntg-font">Font</label>
@@ -325,7 +325,7 @@
               </select>
             </div>
           </div>
- 
+
           <div class="gen-stops" id="ntg-solid-wrap">
             <div class="gen-stop" style="grid-template-columns: 220px auto; align-items:center">
               <div class="color">
@@ -337,7 +337,7 @@
               </div>
             </div>
           </div>
- 
+          
           <div class="gen-stops" id="ntg-grad-wrap" hidden>
             <div class="gen-controls">
               <div class="field">
@@ -353,7 +353,7 @@
             <div class="gen-stops" id="ntg-stops"></div>
             <div class="gen-preview" id="ntg-preview" aria-label="Gradient preview"></div>
           </div>
- 
+
           <div id="ntg-ehr-perms">
             <h4 style="margin-top:20px">EHR Permissions</h4>
             <div class="gen-controls">
@@ -417,6 +417,7 @@
               <div class="gen-actions">
                 <button class="copy-btn" id="ntg-copy" type="button">Copy text</button>
                 <button class="copy-btn" id="ntg-download" type="button">Download .txt</button>
+                <button class="copy-btn" id="ntg-lotus" type="button">Download Lotus YAML</button>
               </div>
             </div>
 
@@ -479,9 +480,9 @@
           b: lerp(c1.b,c2.b,t)
         });
       };
- 
+
       const previewFontMap = {
-        "": "", 
+        "": "",
         "VCR SDF": '"VT323", monospace',
         "Barlow-Black SDF": '"Barlow", sans-serif',
         "Barlow-BoldItalic SDF": '"Barlow", sans-serif',
@@ -521,6 +522,7 @@
       const payloadEl   = document.getElementById("ntg-payload");
       const copyBtn     = document.getElementById("ntg-copy");
       const dlBtn       = document.getElementById("ntg-download");
+      const lotusBtn    = document.getElementById("ntg-lotus");
 
       const trailEnabled    = document.getElementById("ntg-trail-enabled");
       const trailHexInput   = document.getElementById("ntg-trail-hex");
@@ -600,7 +602,10 @@
         const row = e.target.closest(".gen-stop");
         if(!row) return;
         const idx = [...stopsEl.children].indexOf(row);
-        const [hexInput, colorInput] = row.querySelectorAll('input');
+        const inputs = row.querySelectorAll('input');
+        const hexInput = inputs[0];
+        const colorInput = inputs[1];
+
         if(e.target === hexInput){
           const h = normHex(hexInput.value,true);
           hexInput.value = h;
@@ -767,7 +772,7 @@
         const { baseTagText, exportTagText, payload } = buildOutputs();
 
         outEl.textContent = exportTagText;
- 
+
         const html = baseTagText
           .replace(/<color=#[0-9A-Fa-f]{6}>(.*?)<\/color>/g, (m,inner)=>{
             const hex = (m.match(/<color=(#[0-9A-Fa-f]{6})>/)||[])[1]||"#FFFFFF";
@@ -778,7 +783,7 @@
           .replace(/<font=\"(.*?)\">/g,"")
           .replace(/<\/font>/g,"");
 
-        visEl.innerHTML = html; 
+        visEl.innerHTML = html;
         const selectedFontName = fontSelect.value || "";
         const previewFont = previewFontMap[selectedFontName] || "";
         visEl.style.fontFamily = previewFont;
@@ -805,6 +810,75 @@
         const a = document.createElement("a");
         a.href = url;
         a.download = fcFile + ".txt";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      });
+      function escapeYamlString(str) {
+        return (str || "").replace(/"/g, '\\"');
+      }
+
+      function buildLotusYaml() {
+        const titleText = nameInput.value || "";
+ 
+        let gradientStr = "";
+        let prefixColor = "";
+
+        if (currentMode() === "solid") {
+          const c = normHex(solidHexIn.value, true);
+          gradientStr = c;
+          prefixColor = c;
+        } else {
+          const cols = gradStops.map(c => normHex(c, true));
+          gradientStr = cols.join(", ");
+          prefixColor = cols[0] || "#FFFFFF";
+        }
+
+        const escapedTitle = escapeYamlString(titleText);
+ 
+        const yaml =
+`UpperText:
+  Text: ""
+  Gradient: ""
+  Size: 2
+
+Name:
+  Gradient: "${gradientStr}"
+  Size: 2
+
+Prefix:
+  Spaced: true
+  Text: "${escapedTitle}"
+  Color: "${prefixColor}"
+  Size: 2
+
+Suffix:
+  Spaced: false
+  Text: ""
+  Color: ""
+  Size: 2
+
+LowerText:
+  Text: ""
+  Gradient: ""
+  Size: 2
+`;
+
+        return yaml;
+      }
+
+      lotusBtn.addEventListener("click", () => {
+        const yaml = buildLotusYaml();
+
+        let fcRaw = friendCode.value || "title";
+        let fcFile = fcRaw.replace(/[\/\\:*?"<>|]/g, "").slice(0, 32) || "title";
+
+        const blob = new Blob([yaml], { type: "text/plain;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = fcFile + "-lotus.yaml";
         document.body.appendChild(a);
         a.click();
         a.remove();
