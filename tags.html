@@ -1308,7 +1308,7 @@ LowerText:
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = fcFile + ".ylam";
+        a.download = fcFile + ".yaml";
         document.body.appendChild(a);
         a.click();
         a.remove();
