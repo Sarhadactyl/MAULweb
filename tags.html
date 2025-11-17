@@ -721,15 +721,15 @@
         const m = currentMod();
         ehrPerms.hidden   = (m !== "ehr");
         tonePerms.hidden  = (m !== "tone");
-
-        mainConfig.hidden = (m === "lotus");
+        mainConfig.hidden  = (m === "lotus");
         lotusConfig.hidden = (m !== "lotus");
-
         visEl.style.display    = (m === "lotus") ? "none" : "block";
         lotusVis.style.display = (m === "lotus") ? "block" : "none";
-
+        copyBtn.style.display = (m === "lotus") ? "none" : "inline-block";
+        dlBtn.style.display   = (m === "lotus") ? "none" : "inline-block";
         lotusDlBtn.style.display = (m === "lotus") ? "inline-block" : "none";
       }
+
       modRadios.forEach(r => r.addEventListener("change", ()=>{ syncVisibility(); render(); }));
       syncVisibility();
 
