@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Custom Tag Generator | Among Us Mods</title>
+    <title>Custom Tag Generator | Among Us Mods</title> 
     <meta property="og:title" content="Custom Tag Generator- MAUL" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://moddedamong.us/tags.html" />
+    <meta property="og:type" content="website" /> 
+    <meta property="og:url" content="https://moddedamong.us/tags.html" /> 
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-    <meta property="og:description" content="Build EHR or TONE/TOHE tags with permissions and colors." />
+    <meta property="og:description" content="Build EHR, TONE/TOHE, or Project Lotus tags with permissions and colors." />
     <meta property="og:site_name" content="Modded Among Us Lobbies" />
     <meta property="og:locale" content="en_US" />
     <link rel="canonical" href="https://moddedamong.us/tags.html" />
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />    
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
 
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;700;900&family=VT323&family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&family=Press+Start+2P&family=Share+Tech+Mono&family=Rajdhani:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
@@ -19,176 +19,175 @@
       html, body {
         height: 100%;
         margin: 0;
-        padding: 0;  
-        background: #000;
+        padding: 0;
+        background: #000; 
         font-family: 'Roboto', sans-serif; 
-        color: #fff;
-        overflow-x: hidden; 
-      } 
-      body { 
+        color: #fff; 
+        overflow-x: hidden;
+      }
+      body {
         background: url('images/background.png') no-repeat center center fixed; 
         background-size: cover;
-        display: flex; 
+        display: flex;
         flex-direction: column;
-        align-items: center; 
+        align-items: center;
         padding-bottom: 100px;
-      } 
+      }
       header {
-        width: 100%; 
+        width: 100%;
         text-align: center;
         padding: 20px; 
-        background: rgba(0, 0, 0, 0.7);
-        position: relative; 
-        z-index: 1000;
-      } 
-      header h1 {
-        margin: 0; 
-        font-size: 3em;
-        color: #fff; 
-      }
-      .dropdown { 
-        position: absolute;
-        top: 20px; 
-        left: 30px;
-        z-index: 100; 
-      }
-      .dropbtn { 
-        background: none;
-        border: none; 
-        cursor: pointer;
-        transition: transform 0.3s ease; 
-        padding: 0;
-      } 
-      .dropbtn:hover { transform: scale(1.1); }
-      .hamburger { 
-        width: 30px;
-        height: 22px; 
-        display: flex;
-        flex-direction: column; 
-        justify-content: space-between;
-      } 
-      .hamburger span {
-        display: block; 
-        height: 4px;
-        background: #fff; 
-        border-radius: 2px;
-      } 
-      .dropdown-content {
-        display: none; 
-        position: absolute;
-        background: #2a2a2a; 
-        min-width: 200px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2); 
-        border-radius: 6px;
-      } 
-      .dropdown-content a {
-        color: #fff; 
-        padding: 12px 16px;
-        text-decoration: none; 
-        display: block;
-        transition: background 0.3s; 
-      }
-      .dropdown-content a:hover { background: #3a3a3a; }
-      .dropdown:hover .dropdown-content { display: block; }
-
-      footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        text-align: center; 
-        padding: 15px;
         background: rgba(0, 0, 0, 0.7); 
-        z-index: 1000;
+        position: relative; 
+        z-index: 1000; 
       } 
-
-      .container {  
-        max-width: 1200px;
-        width: 92%; 
-        margin: 40px auto;
-        display: grid; 
-        gap: 24px;
+      header h1 { 
+        margin: 0; 
+        font-size: 3em; 
+        color: #fff;
       } 
-      .panel {
-        background: rgba(0,0,0,0.5); 
-        border: 1px solid #1d0909;
-        border-radius: 8px;  
-        padding: 20px;
-      }  
-      .section-title {
-        font-size: 2em;  
-        text-align: center;
-        margin: 0 0 10px;  
+      .dropdown {  
+        position: absolute; 
+        top: 20px;
+        left: 30px; 
+        z-index: 100;
+      } 
+      .dropbtn {
+        background: none; 
+        border: none;
+        cursor: pointer; 
+        transition: transform 0.3s ease;
+        padding: 0; 
       }
-      .section-subtitle {  
-        text-align: center;
-        color: #cfcfcf;  
-        margin: 0 0 20px;
-        font-size: 0.95em; 
+      .dropbtn:hover { transform: scale(1.1); } 
+      .hamburger {
+        width: 30px; 
+        height: 22px;
+        display: flex;  
+        flex-direction: column;
+        justify-content: space-between; 
       }
- 
-      .gen-wrap {
-        display: grid; 
-        gap: 14px;
+      .hamburger span { 
+        display: block;
+        height: 4px; 
+        background: #fff;  
+        border-radius: 2px; 
       } 
-      .gen-controls {
-        display: flex; 
-        flex-wrap: wrap;
-        gap: 10px; 
-        align-items: center;
-      } 
-      .gen-controls .field {
-        display: flex; 
-        align-items: center;
-        gap: 6px;  
-        background: rgba(255,255,255,.06);
-        border: 1px solid rgba(255,255,255,.15); 
-        padding: 6px 8px;
-        border-radius: 8px; 
-      }
-      .gen-controls .field label { 
-        font-size: .9em;
-      } 
-      .gen-controls input[type="text"],
-      .gen-controls input[type="number"], 
-      .gen-controls select {
-        background: rgba(0,0,0,.35);  
-        border: 1px solid rgba(255,255,255,.15);
+      .dropdown-content { 
+        display: none; 
+        position: absolute; 
+        background: #2a2a2a; 
+        min-width: 200px; 
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2); 
         border-radius: 6px; 
-        color: #def;
-        padding: 4px 6px; 
-      }
-      .gen-controls select { min-width: 160px; } 
-
-      .gen-stops { 
-        display: grid;
-        gap: 8px; 
-      }
-      .gen-stop { 
-        display: grid;
-        grid-template-columns: 110px 1fr auto; 
-        gap: 8px;
-        align-items: center; 
-        background: rgba(255,255,255,.06);
-        border: 1px solid rgba(255,255,255,.15); 
-        border-radius: 8px;
-        padding: 8px; 
-      }
-      .gen-stop .color {  
-        display: flex;
-        align-items: center;  
-        gap: 8px;
       } 
-      .gen-stop input[type="color"] {
-        width: 42px; 
-        height: 32px;
-        border: none; 
-        background: transparent;
-        padding: 0;  
+      .dropdown-content a { 
+        color: #fff; 
+        padding: 12px 16px; 
+        text-decoration: none; 
+        display: block; 
+        transition: background 0.3s; 
+      } 
+      .dropdown-content a:hover { background: #3a3a3a; } 
+      .dropdown:hover .dropdown-content { display: block; }  
+ 
+      footer { 
+        position: fixed; 
+        bottom: 0; 
+        left: 0; 
+        width: 100%; 
+        text-align: center; 
+        padding: 15px; 
+        background: rgba(0, 0, 0, 0.7); 
+        z-index: 1000; 
+      } 
+ 
+      .container { 
+        max-width: 1200px; 
+        width: 92%; 
+        margin: 40px auto; 
+        display: grid; 
+        gap: 24px; 
+      } 
+      .panel { 
+        background: rgba(0,0,0,0.5); 
+        border: 1px solid #1d0909; 
+        border-radius: 8px; 
+         }
+      .section-title { 
+        font-size: 2em; 
+        text-align: center; 
+        margin: 0 0 10px;  
+      }  
+      .section-subtitle {
+        text-align: center;
+        color: #cfcfcf;
+        margin: 0 0 20px;
+        font-size: 0.95em;
       }
-      .gen-stop input[type="text"] { 
+
+      .gen-wrap {
+        display: grid;
+        gap: 14px;
+      }
+      .gen-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+      .gen-controls .field {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.15);
+        padding: 6px 8px;
+        border-radius: 8px;
+      }
+      .gen-controls .field label {
+        font-size: .9em;
+      }
+      .gen-controls input[type="text"],
+      .gen-controls input[type="number"],
+      .gen-controls select {
+        background: rgba(0,0,0,.35);
+        border: 1px solid rgba(255,255,255,.15);
+        border-radius: 6px;
+        color: #def;
+        padding: 4px 6px;
+      }
+      .gen-controls select { min-width: 160px; }
+
+      .gen-stops {
+        display: grid;
+        gap: 8px;
+      }
+      .gen-stop {
+        display: grid;
+        grid-template-columns: 110px 1fr auto;
+        gap: 8px;
+        align-items: center;
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.15);
+        border-radius: 8px;
+        padding: 8px;
+      }
+      .gen-stop .color {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .gen-stop input[type="color"] {
+        width: 42px;
+        height: 32px;
+        border: none;
+        background: transparent;
+        padding: 0;
+      }
+      .gen-stop input[type="text"] {
         width: 100%;
-        background: rgba(0,0,0,.35); 
+        background: rgba(0,0,0,.35);
         border: 1px solid rgba(255,255,255,.15);
         border-radius: 6px;
         color: #def;
@@ -203,60 +202,60 @@
       .copy-btn {
         background: rgba(255,255,255,.08);
         border: 1px solid rgba(255,255,255,.18);
-        color: #e7f0ff; 
-        font-size: .9em; 
-        padding: 6px 10px; 
-        border-radius: 6px; 
-        cursor: pointer; 
-        transition: background .2s, border-color .2s, transform .02s; 
-      } 
-      .copy-btn:hover {  
-        background: rgba(255,255,255,.12); 
-        border-color: rgba(255,255,255,.28); 
-      } 
-      .copy-btn:active { 
-        transform: scale(.98); 
-      } 
- 
-      .gen-output { 
-        display: grid; 
-        gap: 8px; 
-      } 
-      .gen-output code { 
-        display: block; 
-        background: rgba(255,255,255,.08); 
-        border: 1px solid rgba(255,255,255,.18); 
-        border-radius: 8px; 
-        padding: 8px; 
-        white-space: normal; 
-        word-break: break-word; 
-      } 
- 
-      #ntg-visual span { 
-        display: inline-block; 
-      } 
-      #ntg-stops { 
-        max-height: 220px; 
-        overflow: auto; 
-      }  
-      #ntg-preview { 
-        height: 44px; 
-        border-radius: 8px; 
-        border: 1px solid #000; 
-        margin: 8px 0; 
-      }  
-      details summary {
-        cursor: pointer; 
+        color: #e7f0ff;
+        font-size: .9em;
+        padding: 6px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background .2s, border-color .2s, transform .02s;
       }
-      h4 { 
+      .copy-btn:hover {
+        background: rgba(255,255,255,.12);
+        border-color: rgba(255,255,255,.28);
+      }
+      .copy-btn:active {
+        transform: scale(.98);
+      }
+
+      .gen-output {
+        display: grid;
+        gap: 8px;
+      }
+      .gen-output code {
+        display: block;
+        background: rgba(255,255,255,.08);
+        border: 1px solid rgba(255,255,255,.18);
+        border-radius: 8px;
+        padding: 8px;
+        white-space: normal;
+        word-break: break-word;
+      }
+
+      #ntg-visual span {
+        display: inline-block;
+      }
+      #ntg-stops {
+        max-height: 220px;
+        overflow: auto;
+      }
+      #ntg-preview {
+        height: 44px;
+        border-radius: 8px;
+        border: 1px solid #000;
+        margin: 8px 0;
+      }
+      details summary {
+        cursor: pointer;
+      }
+      h4 {
         margin: 6px 0;
-      } 
+      }
     </style>
-  </head>  
+  </head>
   <body>
-    <header> 
+    <header>
       <h1>Custom Tag Generator</h1>
-      <div class="dropdown"> 
+      <div class="dropdown">
         <button class="dropbtn" aria-label="Open navigation menu">
           <div class="hamburger">
             <span></span><span></span><span></span>
@@ -279,7 +278,8 @@
       <section class="panel" id="name-tag-generator">
         <h2 class="section-title"><u>Custom Tag Generator</u></h2>
         <p class="section-subtitle">
-          Build EHR or TONE/TOHE tags with permissions and solid/gradient colors, fonts. Also export Project: Lotus YAML titles.
+          Build EHR or TONE/TOHE tags with permissions and solid/gradient colors, fonts.<br>
+          Choose <strong>Project Lotus</strong> to export a Lotus <code>.yaml</code> title.
         </p>
 
         <div class="gen-wrap taggen2-wrap">
@@ -288,6 +288,7 @@
               <strong>Mod</strong>
               <label><input type="radio" name="ntg-mod" value="ehr" checked> EHR</label>
               <label><input type="radio" name="ntg-mod" value="tone"> TONE/TOHE</label>
+              <label><input type="radio" name="ntg-mod" value="lotus"> Project Lotus</label>
             </div>
             <div class="field">
               <label for="ntg-fc">Friend Code</label>
@@ -325,7 +326,7 @@
               </select>
             </div>
           </div>
-
+ 
           <div class="gen-stops" id="ntg-solid-wrap">
             <div class="gen-stop" style="grid-template-columns: 220px auto; align-items:center">
               <div class="color">
@@ -336,8 +337,7 @@
                 <input id="ntg-solid-color" type="color" value="#FFB6C1" />
               </div>
             </div>
-          </div>
-          
+          </div> 
           <div class="gen-stops" id="ntg-grad-wrap" hidden>
             <div class="gen-controls">
               <div class="field">
@@ -352,8 +352,7 @@
             </div>
             <div class="gen-stops" id="ntg-stops"></div>
             <div class="gen-preview" id="ntg-preview" aria-label="Gradient preview"></div>
-          </div>
-
+          </div> 
           <div id="ntg-ehr-perms">
             <h4 style="margin-top:20px">EHR Permissions</h4>
             <div class="gen-controls">
@@ -384,7 +383,8 @@
               Example EHR Tag:
               <code>{"Tag": "&lt;color=#FB98CA&gt;&lt;font=&quot;BROOK SDF&quot;&gt;♥ Sus but cute ♥&lt;/font&gt;&lt;/color&gt;&lt;color=#98FB98&gt;"}</code>
             </p>
-          </div> 
+          </div>
+ 
           <div id="ntg-tone-perms" hidden>
             <h4 style="margin-top:20px">TONE/TOHE Permissions</h4>
             <div class="gen-controls">
@@ -411,13 +411,22 @@
               <label><input type="radio" name="ntg-gm" value="true"> Yes</label>
               <label><input type="radio" name="ntg-gm" value="false" checked> No</label>
             </div>
+          </div>
+          <div id="ntg-lotus-info" hidden>
+            <h4 style="margin-top:20px">Project: Lotus Title</h4>
+            <p style="font-size:.9em;opacity:.85;margin:0 4px 8px">
+              Project: Lotus uses a <code>.yaml</code> file in <code>Among Us/LOTUS_DATA/Titles</code>.<br/>
+              This generator uses your <strong>Name</strong> text and colors for the
+              <code>Name</code>, <code>UpperText</code>, and <code>Prefix/Suffix</code> sections,
+              then exports a ready-to-use title file.
+            </p>
           </div> 
           <div class="gen-output">
             <div class="gen-controls" style="justify-content:space-between">
               <div class="gen-actions">
                 <button class="copy-btn" id="ntg-copy" type="button">Copy text</button>
                 <button class="copy-btn" id="ntg-download" type="button">Download .txt</button>
-                <button class="copy-btn" id="ntg-lotus" type="button">Download Lotus YAML</button>
+                <button class="copy-btn" id="ntg-lotus" type="button" style="display:none">Download Lotus YAML</button>
               </div>
             </div>
 
@@ -428,7 +437,7 @@
             <div id="ntg-visual" style="font-size:1.3em; line-height:1.2"></div>
 
             <details style="margin-top:10px">
-              <summary>Full output (JSON / config)</summary>
+              <summary>Full output (JSON / config / YAML)</summary>
               <code id="ntg-payload"></code>
             </details>
           </div>
@@ -504,6 +513,7 @@
 
       const ehrPerms    = document.getElementById("ntg-ehr-perms");
       const tonePerms   = document.getElementById("ntg-tone-perms");
+      const lotusInfo   = document.getElementById("ntg-lotus-info");
 
       const solidWrap   = document.getElementById("ntg-solid-wrap");
       const solidHexIn  = document.getElementById("ntg-solid-hex");
@@ -533,8 +543,10 @@
 
       function syncPermVisibility(){
         const m = currentMod();
-        ehrPerms.hidden  = (m !== "ehr");
-        tonePerms.hidden = (m !== "tone");
+        ehrPerms.hidden   = (m !== "ehr");
+        tonePerms.hidden  = (m !== "tone");
+        lotusInfo.hidden  = (m !== "lotus");
+        lotusBtn.style.display = (m === "lotus") ? "inline-block" : "none";
       }
       modRadios.forEach(r => r.addEventListener("change", ()=>{ syncPermVisibility(); render(); }));
       syncPermVisibility();
@@ -706,6 +718,61 @@
         return `<font="${fontName}">${inner}</font>`;
       }
 
+      function escapeYamlString(str) {
+        return (str || "").replace(/"/g, '\\"');
+      } 
+      function buildLotusYaml() {
+        const titleText = nameInput.value || "";
+
+        let gradientStr = "";
+        let prefixColor = "";
+        let suffixColor = "";
+
+        if (currentMode() === "solid") {
+          const c = normHex(solidHexIn.value, true);
+          gradientStr = c;
+          prefixColor = c;
+          suffixColor = c;
+        } else {
+          const cols = gradStops.map(c => normHex(c, true));
+          gradientStr = cols.join(", ");
+          prefixColor = cols[0] || "#FFFFFF";
+          suffixColor = cols[cols.length - 1] || "#FFFFFF";
+        }
+
+        const safeTitle = escapeYamlString(titleText || "Lotus Host");
+
+        const yaml =
+`UpperText:
+  Text: "☆ ${safeTitle} ☆"
+  Gradient: "${gradientStr}"
+  Size: 2
+
+Name:
+  Gradient: "${gradientStr}"
+  Size: 2
+
+Prefix:
+  Spaced: true
+  Text: "♥"
+  Color: "${prefixColor}"
+  Size: 2
+
+Suffix:
+  Spaced: true
+  Text: "♥"
+  Color: "${suffixColor}"
+  Size: 2
+
+LowerText:
+  Text: "cozy lobby vibes"
+  Gradient: "${prefixColor}, ${suffixColor}"
+  Size: 2
+`;
+
+        return yaml;
+      }
+
       function buildOutputs(){
         const text = nameInput.value || "";
         const mode = currentMode();
@@ -742,17 +809,17 @@
             null,
             2
           );
-        } else {
-          const level = document.getElementById("ntg-tone-level").value;
-          const say   = document.querySelector('input[name="ntg-say"]:checked')?.value === "true" ? "y" : "n";
-          const end   = document.querySelector('input[name="ntg-end"]:checked')?.value === "true" ? "y" : "n";
+        } else if (mod === "tone") {
+          const level = document.getElementById("ntg-tone-level").value || "0";
+          const say   = document.querySelector('input[name="ntg-say"]:checked')?.value  === "true" ? "y" : "n";
+          const end   = document.querySelector('input[name="ntg-end"]:checked')?.value  === "true" ? "y" : "n";
           const exec  = document.querySelector('input[name="ntg-exec"]:checked')?.value === "true" ? "y" : "n";
-          const gm    = document.querySelector('input[name="ntg-gm"]:checked')?.value === "true" ? "y" : "n";
+          const gm    = document.querySelector('input[name="ntg-gm"]:checked')?.value   === "true" ? "y" : "n";
 
           const tagNameLine  = `TagName: ${baseTagText}`;
           const tagColorLine = (mode === "solid")
             ? `TagColor: ${normHex(solidHexIn.value,false)}`
-            : `TagColor:`;
+            : "TagColor:";
 
           payload = [
             tagNameLine,
@@ -763,6 +830,8 @@
             `ExecuteCommandAccess: ${exec}`,
             `AssignGameMaster: ${gm}`
           ].join("\n");
+        } else { 
+          payload = buildLotusYaml();
         }
 
         return { baseTagText, exportTagText, payload };
@@ -801,6 +870,10 @@
       });
 
       dlBtn.addEventListener("click", ()=>{
+        const mod = currentMod();
+        if (mod === "lotus") {
+          return;
+        }
         const { payload } = buildOutputs();
         let fcRaw = friendCode.value || "tag";
         let fcFile = fcRaw.replace(/[\/\\:*?"<>|]/g, "").slice(0, 32) || "tag";
@@ -815,58 +888,6 @@
         a.remove();
         URL.revokeObjectURL(url);
       });
-      function escapeYamlString(str) {
-        return (str || "").replace(/"/g, '\\"');
-      }
-
-      function buildLotusYaml() {
-        const titleText = nameInput.value || "";
- 
-        let gradientStr = "";
-        let prefixColor = "";
-
-        if (currentMode() === "solid") {
-          const c = normHex(solidHexIn.value, true);
-          gradientStr = c;
-          prefixColor = c;
-        } else {
-          const cols = gradStops.map(c => normHex(c, true));
-          gradientStr = cols.join(", ");
-          prefixColor = cols[0] || "#FFFFFF";
-        }
-
-        const escapedTitle = escapeYamlString(titleText);
- 
-        const yaml =
-`UpperText:
-  Text: ""
-  Gradient: ""
-  Size: 2
-
-Name:
-  Gradient: "${gradientStr}"
-  Size: 2
-
-Prefix:
-  Spaced: true
-  Text: "${escapedTitle}"
-  Color: "${prefixColor}"
-  Size: 2
-
-Suffix:
-  Spaced: false
-  Text: ""
-  Color: ""
-  Size: 2
-
-LowerText:
-  Text: ""
-  Gradient: ""
-  Size: 2
-`;
-
-        return yaml;
-      }
 
       lotusBtn.addEventListener("click", () => {
         const yaml = buildLotusYaml();
@@ -883,7 +904,8 @@ LowerText:
         a.click();
         a.remove();
         URL.revokeObjectURL(url);
-      }); 
+      });
+
       (function init(){
         solidHexIn.dispatchEvent(new Event("input"));
         renderStopRows();
