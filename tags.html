@@ -267,7 +267,7 @@
         background: rgba(0,0,0,.55);
         display: inline-block;
       }
-     .lotus-line {
+      .lotus-line {
         display: block;
         font-size: 1.2em;
         font-weight: 700;
@@ -326,6 +326,7 @@
               <input id="ntg-fc" type="text" placeholder="e.g., ABCDEF" />
             </div>
           </div>  
+ 
           <div id="ntg-main-config">
             <div class="gen-controls">
               <div class="field" style="flex:1">
@@ -447,7 +448,7 @@
               </div>
             </div> 
           </div> 
- 
+           
           <div id="ntg-lotus-config" hidden>
             <h4 style="margin-top:20px">Project: Lotus Title</h4>
             <p style="font-size:.9em;opacity:.85;margin:0 4px 8px">
@@ -467,7 +468,7 @@
 
             <div class="gen-controls">
               <div class="field" style="flex:1">
-                <label for="ntg-lotus-name-text">Name Text (shown above your AU name)</label>
+                <label for="ntg-lotus-name-text">Name Text (shown around your name)</label>
                 <textarea id="ntg-lotus-name-text" placeholder="e.g., Starry Dreamer"></textarea>
               </div>
               <div class="field">
@@ -479,11 +480,55 @@
             <div class="gen-controls">
               <div class="field" style="flex:1">
                 <label for="ntg-lotus-lower-text">Lower Text</label>
-                <textarea id="ntg-lotus-lower-text" placeholder="e.g., cozy lobby vibes"></textarea>
+                <textarea id="ntg-lotus-lower-text" placeholder="e.g., I like cookies"></textarea>
               </div>
               <div class="field">
                 <label for="ntg-lotus-lower-size">Lower Size</label>
                 <input id="ntg-lotus-lower-size" type="number" min="0.5" step="0.1" value="2" style="width:70px">
+              </div>
+            </div>
+ 
+            <h4 style="margin-top:15px">Prefix</h4>
+            <div class="gen-controls">
+              <div class="field" style="flex:1">
+                <label for="ntg-lotus-prefix-text">Prefix Text (icon)</label>
+                <input id="ntg-lotus-prefix-text" type="text" placeholder="e.g., ♥">
+              </div>
+              <div class="field">
+                <label for="ntg-lotus-prefix-color">Color</label>
+                <input id="ntg-lotus-prefix-color" type="text" value="#FF0000">
+                <input id="ntg-lotus-prefix-colorpick" type="color" value="#FF0000">
+              </div>
+              <div class="field">
+                <strong>Spacing</strong>
+                <label><input type="radio" name="ntg-lotus-prefix-space" value="true"> Space</label>
+                <label><input type="radio" name="ntg-lotus-prefix-space" value="false" checked>No space</label>
+              </div>
+              <div class="field">
+                <label for="ntg-lotus-prefix-size">Size</label>
+                <input id="ntg-lotus-prefix-size" type="number" min="0.5" step="0.1" value="2" style="width:70px">
+              </div>
+            </div>
+ 
+            <h4 style="margin-top:10px">Suffix</h4>
+            <div class="gen-controls">
+              <div class="field" style="flex:1">
+                <label for="ntg-lotus-suffix-text">Suffix Text (icon)</label>
+                <input id="ntg-lotus-suffix-text" type="text" placeholder="e.g., ♥">
+              </div>
+              <div class="field">
+                <label for="ntg-lotus-suffix-color">Color</label>
+                <input id="ntg-lotus-suffix-color" type="text" value="#FF00FF">
+                <input id="ntg-lotus-suffix-colorpick" type="color" value="#FF00FF">
+              </div>
+              <div class="field">
+                <strong>Spacing</strong>
+                <label><input type="radio" name="ntg-lotus-suffix-space" value="true"> Space</label>
+                <label><input type="radio" name="ntg-lotus-suffix-space" value="false" checked>No space</label>
+              </div>
+              <div class="field">
+                <label for="ntg-lotus-suffix-size">Size</label>
+                <input id="ntg-lotus-suffix-size" type="number" min="0.5" step="0.1" value="2" style="width:70px">
               </div>
             </div>
 
@@ -495,6 +540,7 @@
                 <label><input type="radio" name="ntg-lotus-target" value="lower"> Lower</label>
               </div>
             </div> 
+
             <div class="gen-stops" id="ntg-lotus-grad-wrap">
               <div class="gen-controls">
                 <div class="field">
@@ -511,6 +557,7 @@
               <div class="gen-preview" id="ntg-lotus-grad-preview" aria-label="Lotus gradient preview"></div>
             </div>
           </div> 
+ 
           <div class="gen-output">
             <div class="gen-controls" style="justify-content:space-between">
               <div class="gen-actions">
@@ -646,6 +693,18 @@
       const lotusNameSize  = document.getElementById("ntg-lotus-name-size");
       const lotusLowerText = document.getElementById("ntg-lotus-lower-text");
       const lotusLowerSize = document.getElementById("ntg-lotus-lower-size");
+
+      const lotusPrefixText = document.getElementById("ntg-lotus-prefix-text");
+      const lotusPrefixColor = document.getElementById("ntg-lotus-prefix-color");
+      const lotusPrefixColorPick = document.getElementById("ntg-lotus-prefix-colorpick");
+      const lotusPrefixSize = document.getElementById("ntg-lotus-prefix-size");
+      const lotusPrefixSpaceRadios = document.querySelectorAll('input[name="ntg-lotus-prefix-space"]');
+
+      const lotusSuffixText = document.getElementById("ntg-lotus-suffix-text");
+      const lotusSuffixColor = document.getElementById("ntg-lotus-suffix-color");
+      const lotusSuffixColorPick = document.getElementById("ntg-lotus-suffix-colorpick");
+      const lotusSuffixSize = document.getElementById("ntg-lotus-suffix-size");
+      const lotusSuffixSpaceRadios = document.querySelectorAll('input[name="ntg-lotus-suffix-space"]');
 
       const lotusStopCount = document.getElementById("ntg-lotus-stopcount");
       const lotusStopsEl   = document.getElementById("ntg-lotus-stops");
@@ -808,6 +867,7 @@
       friendCode.addEventListener("input", render);
       nameInput.addEventListener("input", render);
       fontSelect.addEventListener("change", render); 
+ 
       let lotusGradStops = {
         upper: ["#4EF3FF","#FF9DF2","#FFD66B"],
         name:  ["#FF9DF2","#FFD66B","#FF75A0"],
@@ -934,30 +994,6 @@
       [lotusUpperText, lotusUpperSize, lotusNameText, lotusNameSize, lotusLowerText, lotusLowerSize]
         .forEach(el => el && el.addEventListener("input", render));
 
-      function buildPerCharTags(text, colors){
-        const chars = [...text];
-        if(!chars.length) return "";
-        let perCharColors = [];
-        if(Array.isArray(colors)){
-          const L = chars.length;
-          if(L===1){
-            perCharColors=[normHex(colors[0],true)];
-          } else{
-            for(let i=0;i<L;i++){
-              const t = i/(L-1);
-              const seg = (colors.length-1)*t;
-              const i0 = Math.floor(seg), i1 = Math.min(colors.length-1,i0+1);
-              const localT = seg - i0;
-              const col = lerpColor(colors[i0], colors[i1], localT);
-              perCharColors.push(normHex(col,true));
-            }
-          }
-        } else {
-          const h = normHex(colors,true);
-          perCharColors = Array(chars.length).fill(h);
-        }
-        return chars.map((c,i)=>`<color=${perCharColors[i]}>${c}</color>`).join("");
-      }
       function gradientTextHtml(text, stops) {
         const chars = [...(text || "")];
         if (!chars.length) return "";
@@ -987,6 +1023,32 @@
         }
         return result.join("");
       }
+
+      function buildPerCharTags(text, colors){
+        const chars = [...text];
+        if(!chars.length) return "";
+        let perCharColors = [];
+        if(Array.isArray(colors)){
+          const L = chars.length;
+          if(L===1){
+            perCharColors=[normHex(colors[0],true)];
+          } else{
+            for(let i=0;i<L;i++){
+              const t = i/(L-1);
+              const seg = (colors.length-1)*t;
+              const i0 = Math.floor(seg), i1 = Math.min(colors.length-1,i0+1);
+              const localT = seg - i0;
+              const col = lerpColor(colors[i0], colors[i1], localT);
+              perCharColors.push(normHex(col,true));
+            }
+          }
+        } else {
+          const h = normHex(colors,true);
+          perCharColors = Array(chars.length).fill(h);
+        }
+        return chars.map((c,i)=>`<color=${perCharColors[i]}>${c}</color>`).join("");
+      }
+
       function applyFontTag(inner, fontName){
         if(!fontName) return inner;
         return `<font="${fontName}">${inner}</font>`;
@@ -996,10 +1058,39 @@
         return (str || "").replace(/"/g, '\\"');
       }
 
+      function escapeHtml(str) {
+        return (str || "")
+          .replace(/&/g,"&amp;")
+          .replace(/</g,"&lt;")
+          .replace(/>/g,"&gt;");
+      }
+
+      function syncLotusColor(hexInput, picker){
+        if(!hexInput || !picker) return;
+        hexInput.addEventListener("input", ()=>{
+          const h = normHex(hexInput.value,true);
+          hexInput.value = h;
+          picker.value = h;
+          render();
+        });
+        picker.addEventListener("input", ()=>{
+          const h = normHex(picker.value,true);
+          hexInput.value = h;
+          render();
+        });
+      }
+      syncLotusColor(lotusPrefixColor, lotusPrefixColorPick);
+      syncLotusColor(lotusSuffixColor, lotusSuffixColorPick);
+
+      [lotusPrefixText, lotusPrefixSize, lotusSuffixText, lotusSuffixSize]
+        .forEach(el => el && el.addEventListener("input", render));
+      lotusPrefixSpaceRadios.forEach(r=>r.addEventListener("change", render));
+      lotusSuffixSpaceRadios.forEach(r=>r.addEventListener("change", render));
+
       function buildLotusYaml() {
-        const upperText = lotusUpperText.value || "Celestial Host";
-        const nameText  = lotusNameText.value  || "Starry Dreamer";
-        const lowerText = lotusLowerText.value || "cozy lobby vibes";
+        const upperText = lotusUpperText.value || "Discord.gg/maul";
+        const nameText  = lotusNameText.value  || "Sarhadactyl";
+        const lowerText = lotusLowerText.value || "I like cookies";
 
         const upperSize = lotusUpperSize.value || "2";
         const nameSize  = lotusNameSize.value  || "2";
@@ -1013,8 +1104,15 @@
         const nameStr  = nameCols.join(", ");
         const lowerStr = lowerCols.join(", ");
 
-        const prefixColor = nameCols[0] || "#FFFFFF";
-        const suffixColor = nameCols[nameCols.length-1] || "#FFFFFF";
+        const prefixText = lotusPrefixText.value || "♥";
+        const prefixColor = normHex(lotusPrefixColor.value || "#FF0000", true);
+        const prefixSize = lotusPrefixSize.value || "2";
+        const prefixSpaced = [...lotusPrefixSpaceRadios].find(r=>r.checked)?.value === "true";
+
+        const suffixText = lotusSuffixText.value || "♥";
+        const suffixColor = normHex(lotusSuffixColor.value || "#FF00FF", true);
+        const suffixSize = lotusSuffixSize.value || "2";
+        const suffixSpaced = [...lotusSuffixSpaceRadios].find(r=>r.checked)?.value === "true";
 
         const yaml =
 `UpperText:
@@ -1027,16 +1125,16 @@ Name:
   Size: ${nameSize}
 
 Prefix:
-  Spaced: true
-  Text: "♥"
+  Spaced: ${prefixSpaced}
+  Text: "${escapeYamlString(prefixText)}"
   Color: "${prefixColor}"
-  Size: 2
+  Size: ${prefixSize}
 
 Suffix:
-  Spaced: true
-  Text: "♥"
+  Spaced: ${suffixSpaced}
+  Text: "${escapeYamlString(suffixText)}"
   Color: "${suffixColor}"
-  Size: 2
+  Size: ${suffixSize}
 
 LowerText:
   Text: "${escapeYamlString(lowerText)}"
@@ -1055,8 +1153,27 @@ LowerText:
         const nameCols  = lotusGradStops.name;
         const lowerCols = lotusGradStops.lower;
 
+        const prefixText = lotusPrefixText.value || "♥";
+        const prefixColor = normHex(lotusPrefixColor.value || "#FF0000", true);
+        const prefixSpaced = [...lotusPrefixSpaceRadios].find(r=>r.checked)?.value === "true";
+
+        const suffixText = lotusSuffixText.value || "♥";
+        const suffixColor = normHex(lotusSuffixColor.value || "#FF00FF", true);
+        const suffixSpaced = [...lotusSuffixSpaceRadios].find(r=>r.checked)?.value === "true";
+
+        const prefixHtml = prefixText
+          ? `<span style="color:${prefixColor}">${escapeHtml(prefixText)}</span>`
+          : "";
+        const suffixHtml = suffixText
+          ? `<span style="color:${suffixColor}">${escapeHtml(suffixText)}</span>`
+          : "";
+
+        const prefixSpace = prefixHtml && prefixSpaced ? "&nbsp;" : "";
+        const suffixSpace = suffixHtml && suffixSpaced ? "&nbsp;" : "";
+
         lotusUpperLine.innerHTML = gradientTextHtml(upperText, upperCols);
-        lotusNameLine.innerHTML  = gradientTextHtml(nameText,  nameCols);
+        lotusNameLine.innerHTML  =
+          `${prefixHtml}${prefixSpace}${gradientTextHtml(nameText, nameCols)}${suffixSpace}${suffixHtml}`;
         lotusLowerLine.innerHTML = gradientTextHtml(lowerText, lowerCols);
       }
 
