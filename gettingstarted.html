@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Lobby Template Presets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:title" content="Lobby Template Presets" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/templates.html" />
+  <meta property="og:image" content="images/banner.png" />
+  <meta property="og:description" content="Browse ready-made lobby templates in different colors." />
+  <meta property="og:site_name" content="Modded Among Us Lobbies" />
+  <meta property="og:locale" content="en_US" />
+  <link rel="canonical" href="https://example.com/templates.html" />
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#000;
+      --fg:#fff;
+      --sub:#ccc;
+      --card:rgba(39,38,38,.65);
+      --border:#1d0909;
+      --glass:rgba(0,0,0,.5);
+      --accent:#ffffff;
+      --maxw:1200px;
+      --radius:10px;
+      --gap:18px;
+      --warning:#ffb347;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      height:100%;
+      margin:0;
+      background-color:var(--bg);
+      color:var(--fg);
+      font-family:'Roboto',system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+      overflow-x:hidden;
+    }
+    body{
+      background: url('images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding-bottom:130px;
+    }
+
+    header{
+      width:100%;
+      text-align:center;
+      padding:20px 16px;
+      background:rgba(0,0,0,.7);
+      position:relative;
+      z-index:1000;
+      border-bottom:1px solid #000;
+    }
+    header h1{ margin:0; font-size:clamp(26px,3vw,48px); letter-spacing:.5px; }
+
+    .dropdown{
+      position:absolute;
+      top:20px;
+      left:30px;
+      z-index:100;
+    }
+    .dropbtn{
+      background:none;
+      border:none;
+      cursor:pointer;
+      padding:0;
+      transition:transform .3s ease;
+    }
+    .dropbtn:hover{ transform:scale(1.1); }
+    .hamburger{
+      width:30px; height:22px;
+      display:flex; flex-direction:column; justify-content:space-between;
+    }
+    .hamburger span{
+      display:block; height:4px; background:#fff; border-radius:2px;
+    }
+    .dropdown-content{
+      display:none; position:absolute; top:100%; left:0;
+      background:#2a2a2a; min-width:160px; border-radius:5px;
+      box-shadow:0 8px 16px rgba(0,0,0,.2);
+      overflow:hidden;
+    }
+    .dropdown-content a{
+      color:#fff; padding:12px 16px; text-decoration:none; display:block;
+      transition:background .3s;
+    }
+    .dropdown-content a:hover{ background:#3a3a3a; }
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content,
+    .dropdown.open .dropdown-content{ display:block; }
+
+    .wrap{
+      width:100%; max-width:var(--maxw);
+      margin:32px auto; padding:16px;
+      background:var(--glass);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+    }
+    .wrap h2{
+      text-align:center; font-size:clamp(20px,2.2vw,32px);
+      margin:8px 0 20px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      max-width:1000px;
+      margin:0 auto;
+      gap:var(--gap);
+      justify-content:center;
+      align-items:stretch;
+    }
+
+    .card{
+      display:flex; flex-direction:column; align-items:stretch;
+      background:var(--card); border:1px solid var(--border);
+      border-radius:var(--radius); overflow:hidden;
+    }
+    .thumb-collage{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:4px;
+      padding:8px;
+      background:#050505;
+    }
+    .thumb-collage img{
+      width:100%;
+      height:80px;
+      object-fit:cover;
+      display:block;
+      border-radius:4px;
+    }
+
+    .card-body{ padding:14px; display:flex; flex-direction:column; gap:10px; }
+    .title{ margin:0; font-size:1.15rem; line-height:1.2; letter-spacing:.2px; font-weight:700; text-align:center; }
+    .sub{ color:var(--sub); font-size:.95rem; line-height:1.3; text-align:center; }
+
+    .preset-actions{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; justify-content:center;
+    }
+    .btn{
+      display:inline-block; padding:9px 14px;
+      background:black; color:white; text-decoration:none; font-weight:700;
+      border-radius:8px; border:1px solid #222;
+      transition: box-shadow .25s ease, transform .04s ease;
+    }
+    .btn:hover{ box-shadow:0 0 10px #fff; }
+    .btn:active{ transform:translateY(1px); }
+    .btn.disabled{
+      opacity:.5;
+      cursor:not-allowed;
+      box-shadow:none;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:4px 8px;
+      border-radius:999px;
+      font-size:.75rem;
+      background:rgba(255,255,255,.08);
+      color:var(--sub);
+      text-align:center;
+    }
+
+    .warning{
+      margin:4px 0 0;
+      font-size:.8rem;
+      color:var(--warning);
+      text-align:center;
+    }
+
+    .mini-steps-wrap{
+      max-width:800px;
+      margin:12px auto 32px;
+      padding:12px 16px;
+      background:rgba(0,0,0,.5);
+      border:1px solid var(--border);
+      border-radius:8px;
+    }
+    .mini-steps-title{
+      margin:0 0 8px; text-align:center; font-size:1.15rem; text-decoration:underline; color:#fff;
+    }
+    .mini-steps{
+      font-size:.85rem; color:#fff; line-height:1.4; margin:8px 0 0; padding-left:18px;
+    }
+    .mini-steps code{
+      font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size:.85em; background:rgba(255,255,255,.08); padding:0 4px; border-radius:4px;
+    }
+    .mini-note{
+      list-style:none; padding-left:0; margin-top:8px; opacity:.9; font-size:.85rem; color:#fff; text-align:center;
+    }
+
+    footer{
+      position:fixed; bottom:0; left:0; width:100%;
+      text-align:center; padding:14px;
+      background:rgba(0,0,0,.7); z-index:1000;
+      border-top:1px solid #000;
+    }
+    footer a{ color:#58a6ff; text-decoration:none; }
+    footer a:hover{ text-decoration:underline; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Lobby Template Presets</h1>
+
+  <div class="dropdown" aria-label="Site">
+    <button class="dropbtn" aria-label="Open menu" aria-expanded="false">
+      <div class="hamburger" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    </button>
+    <div class="dropdown-content" role="menu">
+      <a href="index.html">Home</a>
+      <a href="https://moddedamong.us/art.html">User Art</a>
+      <a href="https://moddedamong.us/eventpics.html">Past Events</a>
+      <a href="https://moddedamong.us/calendar.html">Event Calendar</a>
+      <a href="https://moddedamong.us/ourstaff.html">Our Staff</a>
+      <a href="https://moddedamong.us/mods.html">Featured Mods</a>
+      <a href="https://moddedamong.us/icons.html">Icons and Fonts</a>
+      <a href="https://moddedamong.us/tags.html">Tag Generator</a>
+    </div>
+  </div>
+</header>
+
+<section class="wrap">
+  <h2><u>Lobby Templates</u></h2>
+  <div id="templates-grid" class="grid"></div>
+</section>
+
+<section class="mini-steps-wrap" aria-labelledby="using-templates">
+  <h3 id="using-templates" class="mini-steps-title"><u>Using Template Files</u></h3>
+  <ol class="mini-steps">
+    <li>Download the <code>.txt</code> template you like.</li>
+    <li>Rename it to template.txt and place it in your mod’s template/config folder.</li>
+  </ol>
+  <p class="mini-note">
+    Templates marked as “gradient” are more complex and may have a small warning:
+    <br><b>“Excessive template gradient may cause disconnects”</b>.
+  </p>
+</section>
+
+<footer>
+  <p>
+    Want your template featured?
+    <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904">Open a ticket </a>
+    or send in templates in
+    <a href="https://discord.com/channels/995954559044304896/1410013572637130812">the presets channel</a>.
+  </p>
+</footer>
+
+<script>
+  const $ = sel => document.querySelector(sel);
+  const el = (tag, cls, html) => {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (html !== undefined) n.innerHTML = html;
+    return n;
+  };
+
+  function templateCard(tpl){
+    const card = el('article', 'card');
+    if (Array.isArray(tpl.images) && tpl.images.length){
+      const collage = el('div','thumb-collage');
+      tpl.images.forEach(src => {
+        const img = el('img');
+        img.src = src;
+        img.alt = tpl.title + ' preview';
+        img.loading = 'lazy';
+        collage.appendChild(img);
+      });
+      card.appendChild(collage);
+    }
+
+    const body = el('div','card-body');
+
+    const title = el('h3','title', tpl.title);
+    body.appendChild(title);
+
+    if (tpl.description){
+      const desc = el('p','sub', tpl.description);
+      body.appendChild(desc);
+    }
+    const isGradient =
+      /gradient/i.test(tpl.title) ||
+      /gradient/i.test(tpl.id || '') ||
+      /gradient/i.test(tpl.tag || '');
+
+    if (isGradient){
+      const warn = el('p','warning','⚠ Excessive template gradient may cause disconnects.');
+      body.appendChild(warn);
+    }
+
+    const actions = el('div','preset-actions');
+
+    if (tpl.file){
+      const dl = el('a','btn','Download .txt');
+      dl.href = tpl.file;
+      dl.setAttribute('download','');
+      actions.appendChild(dl);
+    } else if (tpl.comingSoon){
+      const btn = el('span','btn disabled','Coming soon');
+      actions.appendChild(btn);
+    }
+
+    if (tpl.badge){
+      const badge = el('span','badge',tpl.badge);
+      actions.appendChild(badge);
+    }
+
+    body.appendChild(actions);
+    card.appendChild(body);
+    return card;
+  }
+
+  function renderTemplates(list){
+    const container = $('#templates-grid');
+    container.innerHTML = '';
+    list.forEach(t => container.appendChild(templateCard(t)));
+  }
+  const TEMPLATES = [
+    {
+      id:'pink',
+      title:'Pink Template',
+      description:'Soft and cozy look with bright pink highlights.',
+      file:'templates/pinktemplate.txt',
+      images:[
+        'images/templates/pink (1).png',
+        'images/templates/pink (2).png',
+        'images/templates/pink (3).png',
+        'images/templates/pink (4).png',
+        'images/templates/pink (5).png',
+        'images/templates/pink (6).png'
+      ]
+    },
+    {
+      id:'yellow',
+      title:'Yellow Template',
+      description:'Bold yellow header for high-energy lobbies.',
+      file:'templates/yellowtemplate.txt',
+      images:[
+        'images/templates/yellow (1).png',
+        'images/templates/yellow (2).png',
+        'images/templates/yellow (3).png',
+        'images/templates/yellow (4).png',
+        'images/templates/yellow (5).png',
+        'images/templates/yellow (6).png'
+      ]
+    },
+    {
+      id:'pink-gradient',
+      title:'Pink Gradient Template',
+      description:'Pink header with soft gradient accents.',
+      file:'templates/pink-gradient-template.txt',
+      images:[
+        'images/templates/pink-gradient (1).png',
+        'images/templates/pink-gradient (2).png',
+        'images/templates/pink-gradient (3).png',
+        'images/templates/pink-gradient (4).png',
+        'images/templates/pink-gradient (5).png',
+        'images/templates/pink-gradient (6).png'
+      ]
+    },
+    {
+      id:'yellow-flame-gradient',
+      title:'Yellow Flame Gradient Template',
+      description:'Hot yellow/orange gradient for intense games.',
+      file:'templates/yellow-flame-template.txt',
+      images:[
+        'images/templates/yellow-flame-gradient (1).png',
+        'images/templates/yellow-flame-gradient (2).png',
+        'images/templates/yellow-flame-gradient (3).png',
+        'images/templates/yellow-flame-gradient (4).png',
+        'images/templates/yellow-flame-gradient (5).png',
+        'images/templates/yellow-flame-gradient (6).png'
+      ]
+    },
+    {
+      id:'aquamarine',
+      title:'Aquamarine Template',
+      description:'Cool blue-green theme for chill community lobbies.',
+      file:'templates/aquamarine-template.txt',
+      images:[
+        'images/templates/aquamarine (1).png',
+        'images/templates/aquamarine (2).png',
+        'images/templates/aquamarine (3).png',
+        'images/templates/aquamarine (4).png',
+        'images/templates/aquamarine (5).png',
+        'images/templates/aquamarine (6).png'
+      ]
+    },
+    {
+      id:'black',
+      title:'Black Template',
+      description:'Minimal high-contrast dark template.',
+      file:'templates/blacktemplate.txt',
+      images:[
+        'images/templates/black (1).png',
+        'images/templates/black (2).png',
+        'images/templates/black (3).png',
+        'images/templates/black (4).png',
+        'images/templates/black (5).png',
+        'images/templates/black (6).png'
+      ]
+    },
+    {
+      id:'blue',
+      title:'Blue Template',
+      description:'Simple blue accent layout.',
+      file:'templates/bluetemplate.txt',
+      images:[
+        'images/templates/blue (2).png',
+        'images/templates/blue (3).png',
+        'images/templates/blue (4).png',
+        'images/templates/blue (5).png',
+        'images/templates/blue.png',
+        'images/templates/blue (6).png'
+      ]
+    },
+    {
+      id:'galaxy',
+      title:'Galaxy Template',
+      description:'Space-themed lobby text with chill dark purples.',
+      file:'templates/galaxytemplate.txt',
+      images:[
+        'images/templates/galaxy (1).png',
+        'images/templates/galaxy (2).png',
+        'images/templates/galaxy (3).png',
+        'images/templates/galaxy (4).png',
+        'images/templates/galaxy (5).png',
+        'images/templates/galaxy (6).png'
+      ]
+    },
+    {
+      id:'green',
+      title:'Green Template',
+      description:'Fresh green accent template.',
+      file:'templates/greentemplate.txt',
+      images:[
+        'images/templates/green (2).png',
+        'images/templates/green (3).png',
+        'images/templates/green (4).png',
+        'images/templates/green (5).png',
+        'images/templates/green (6).png',
+        'images/templates/green.png'
+      ]
+    },
+    {
+      id:'magenta-cyan',
+      title:'Magenta–Cyan Template',
+      description:'Loud, colorful neon style.',
+      file:'templates/magenta-cyan.txt',
+      images:[
+        'images/templates/magenta-cyan (1).png',
+        'images/templates/magenta-cyan (2).png',
+        'images/templates/magenta-cyan (3).png',
+        'images/templates/magenta-cyan (4).png',
+        'images/templates/magenta-cyan (5).png',
+        'images/templates/magenta-cyan (6).png'
+      ]
+    },
+    {
+      id:'mossygreen-gradient',
+      title:'Mossy Green Gradient Template',
+      description:'Earthy green gradient with soft lighting.',
+      file:'templates/mossy-green-template.txt',
+      images:[
+        'images/templates/mossygreengradient (1).png',
+        'images/templates/mossygreengradient (2).png',
+        'images/templates/mossygreengradient (3).png',
+        'images/templates/mossygreengradient (4).png',
+        'images/templates/mossygreengradient (5).png',
+        'images/templates/mossygreengradient (6).png'
+      ]
+    },
+    {
+      id:'orange',
+      title:'Orange Template',
+      description:'Warm orange accents for friendly vibes.',
+      file:'templates/orangetemplate.txt',
+      images:[
+        'images/templates/orange (3).png',
+        'images/templates/orange (4).png',
+        'images/templates/orange (5).png',
+        'images/templates/orange (6).png',
+        'images/templates/orange.png',
+        'images/templates/orange (2).png'
+      ]
+    },
+    {
+      id:'pastel',
+      title:'Pastel Template',
+      description:'Soft pastel rainbow look.',
+      file:'templates/pasteltemplate.txt',
+      images:[
+        'images/templates/pastel (1).png',
+        'images/templates/pastel (2).png',
+        'images/templates/pastel (3).png',
+        'images/templates/pastel (4).png',
+        'images/templates/pastel (5).png',
+        'images/templates/pastel (6).png'
+      ]
+    },
+    {
+      id:'purple',
+      title:'Purple Template',
+      description:'Dark purple highlights; good for chill lobbies.',
+      file:'templates/purpletemplate.txt',
+      images:[
+        'images/templates/purple (1).png',
+        'images/templates/purple (2).png',
+        'images/templates/purple (3).png',
+        'images/templates/purple (4).png',
+        'images/templates/purple (5).png',
+        'images/templates/purple (6).png'
+      ]
+    },
+    {
+      id:'red',
+      title:'Red Template',
+      description:'Sharp red highlights for intense games.',
+      file:'templates/redtemplate.txt',
+      images:[
+        'images/templates/red (1).png',
+        'images/templates/red (2).png',
+        'images/templates/red (3).png',
+        'images/templates/red (4).png',
+        'images/templates/red (5).png',
+        'images/templates/red (6).png'
+      ]
+    },
+    {
+      id:'sunset',
+      title:'Sunset Template',
+      description:'Orange and purple combo like a sunset sky.',
+      file:'templates/sunsettemplate.txt',
+      images:[
+        'images/templates/sunset (1).png',
+        'images/templates/sunset (2).png',
+        'images/templates/sunset (3).png',
+        'images/templates/sunset (4).png',
+        'images/templates/sunset (5).png',
+        'images/templates/sunset (6).png'
+      ]
+    },
+    {
+      id:'english-dat',
+      title:'english.dat',
+      description:'Template pack for english.dat formatting.',
+      comingSoon:true,
+      badge:'Coming soon',
+      images:[
+        'images/templates/pink (1).png',
+        'images/templates/yellow (1).png',
+        'images/templates/blue.png',
+        'images/templates/galaxy (1).png',
+        'images/templates/green (2).png',
+        'images/templates/red (1).png'
+      ]
+    }
+  ];
+
+  renderTemplates(TEMPLATES);
+  (function(){
+    const dd = document.querySelector('.dropdown');
+    const btn = dd.querySelector('.dropbtn');
+    const menu = dd.querySelector('.dropdown-content');
+    let hideTimer;
+    function open() {
+      clearTimeout(hideTimer);
+      dd.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+    function scheduleClose() {
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => {
+        dd.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }, 200);
+    }
+    btn.addEventListener('mouseenter', open);
+    menu.addEventListener('mouseenter', open);
+    btn.addEventListener('mouseleave', scheduleClose);
+    menu.addEventListener('mouseleave', scheduleClose);
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (dd.classList.contains('open')) scheduleClose();
+      else open();
+    });
+    document.addEventListener('click', (e) => {
+      if (!dd.contains(e.target)) scheduleClose();
+    });
+  })();
+</script>
+</body>
+</html>
+
