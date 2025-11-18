@@ -200,57 +200,33 @@
       font-size:.8rem;
       color:var(--warning);
     }
- 
-    .thumb-collage {
-    margin-top: 15px;
-    padding: 20px;
-    background: rgba(0,0,0,.65);
-    border-radius: 18px;
 
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 20px;
-    align-items: center;
 
-    height: 320px;
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    scroll-snap-type: x mandatory;
-    scrollbar-color: #666 #222;
-    scrollbar-width: thin;
-    }
-    .thumb-collage::-webkit-scrollbar {
-    height: 10px;
-    }
-    .thumb-collage::-webkit-scrollbar-track {
-    background: #222;
-    border-radius: 10px;
-    }
-    .thumb-collage::-webkit-scrollbar-thumb {
-    background: #666;
-    border-radius: 10px;
-    }
-    .thumb-collage::-webkit-scrollbar-thumb:hover {
-    background: #888;
+    .thumb-collage{
+      margin-top:12px;
+      padding:14px 16px;
+      background:rgba(0,0,0,.7);
+      border-radius:18px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+      gap:10px;
     }
 
-    .thumb-collage img {
-    height: 100%; 
-    width: auto;
-    object-fit: contain;
-    background: #000;
-
-    border-radius: 14px;
-    flex-shrink: 0;
-
-    box-shadow: 0 8px 22px rgba(0,0,0,.9);
-    transition: transform .22s ease, box-shadow .22s ease;
+    .thumb-collage img{
+      width:100%;
+      height:110px;
+      object-fit:cover;
+      border-radius:12px;
+      background:#000;
+      box-shadow:0 6px 18px rgba(0,0,0,.9);
+      cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
     }
 
-    .thumb-collage img:hover {
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 14px 30px rgba(0,0,0,1);
+    .thumb-collage img:hover{
+      transform:translateY(-3px) scale(1.03);
+      box-shadow:0 10px 24px rgba(0,0,0,1);
+      opacity:.98;
     }
 
     .preset-actions{
@@ -360,6 +336,56 @@
 
     footer a{ color:#58a6ff; text-decoration:none; }
     footer a:hover{ text-decoration:underline; }
+
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.88);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:2000;
+    }
+    .lightbox.open{
+      display:flex;
+    }
+    .lightbox-inner{
+      position:relative;
+      max-width:90vw;
+      max-height:90vh;
+      background:#000;
+      border-radius:14px;
+      padding:10px;
+      box-shadow:0 18px 40px rgba(0,0,0,1);
+    }
+    .lightbox-inner img{
+      display:block;
+      max-width:100%;
+      max-height:80vh;
+      border-radius:10px;
+    }
+    .lightbox-caption{
+      margin:6px 4px 2px;
+      font-size:.9rem;
+      color:#ddd;
+      text-align:center;
+    }
+    .lightbox-close{
+      position:absolute;
+      top:6px;
+      right:8px;
+      background:rgba(0,0,0,.7);
+      border:1px solid rgba(255,255,255,.3);
+      border-radius:999px;
+      width:28px;
+      height:28px;
+      color:#fff;
+      cursor:pointer;
+      font-size:18px;
+      line-height:24px;
+      text-align:center;
+      padding:0;
+    }
   </style>
 </head>
 <body>
@@ -402,6 +428,15 @@
   </p>
 </section>
 
+
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" aria-label="Close image">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+    <p id="lightbox-caption" class="lightbox-caption"></p>
+  </div>
+</div>
+
 <footer>
   <p>
     Want your template featured?
@@ -440,6 +475,25 @@
     'english-dat':'#666666'
   };
 
+  function openLightbox(src, caption){
+    const box = $('#lightbox');
+    const img = $('#lightbox-img');
+    const cap = $('#lightbox-caption');
+    img.src = src;
+    img.alt = caption;
+    cap.textContent = caption || '';
+    box.classList.add('open');
+    box.setAttribute('aria-hidden','false');
+  }
+
+  function closeLightbox(){
+    const box = $('#lightbox');
+    const img = $('#lightbox-img');
+    img.src = '';
+    box.classList.remove('open');
+    box.setAttribute('aria-hidden','true');
+  }
+
   function templateCard(tpl){
     const card = el('article','card');
 
@@ -474,6 +528,7 @@
         img.src = src;
         img.alt = tpl.title + ' preview';
         img.loading = 'lazy';
+        img.addEventListener('click', () => openLightbox(src, tpl.title));
         collage.appendChild(img);
       });
       body.appendChild(collage);
@@ -742,11 +797,13 @@
       title:'english.dat',
       description:'Template pack for english.dat formatting.',
       comingSoon:true,
-      badge:'Coming soon',
+      badge:'Coming soon'
     }
   ];
 
-  renderTemplates(TEMPLATES); 
+  renderTemplates(TEMPLATES);
+
+ 
   (function(){
     const dd = document.querySelector('.dropdown');
     const btn = dd.querySelector('.dropbtn');
@@ -780,6 +837,19 @@
 
     document.addEventListener('click', (e) => {
       if (!dd.contains(e.target)) scheduleClose();
+    });
+  })();
+ 
+  (function(){
+    const box = $('#lightbox');
+    const closeBtn = box.querySelector('.lightbox-close');
+
+    closeBtn.addEventListener('click', closeLightbox);
+    box.addEventListener('click', (e) => {
+      if (e.target === box) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
     });
   })();
 </script>
