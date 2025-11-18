@@ -104,52 +104,71 @@
     .wrap h2{
       text-align:center; font-size:clamp(20px,2.2vw,32px);
       margin:8px 0 20px;
-    }
-
+    } 
     .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-      max-width:1000px;
+      display:flex;
+      flex-direction:column;
+      gap:24px;
+      max-width:900px;
       margin:0 auto;
-      gap:var(--gap);
-      justify-content:center;
-      align-items:stretch;
     }
 
     .card{
-      display:flex; flex-direction:column; align-items:stretch;
-      background:var(--card); border:1px solid var(--border);
-      border-radius:var(--radius); overflow:hidden;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+    }
+
+    .template-header{
+      padding:10px 16px;
+      font-weight:700;
+      text-transform:uppercase;
+      font-size:.95rem;
+      letter-spacing:.5px;
+      background:#444; 
+    }
+
+    .card-body{
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .title{
+      margin:0;
+      font-size:1.15rem;
+      line-height:1.2;
+      text-align:left;
+    }
+    .sub{
+      color:var(--sub);
+      font-size:.95rem;
+      line-height:1.4;
+      text-align:left;
     }
 
     .thumb-collage{
-    display:flex;
-    flex-direction:row;
-    gap:6px;
-    padding:8px;
-    overflow-x:auto;
-    background:#050505;
-    scrollbar-width:none;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      padding:8px 0 0;
     }
-
-    .thumb-collage::-webkit-scrollbar{
-    display:none;
-    }
-
     .thumb-collage img{
-    width:120px;
-    height:80px;
-    object-fit:cover;
-    flex-shrink:0;
-    border-radius:4px;
+      width:150px;
+      height:90px;
+      object-fit:cover;
+      border-radius:4px;
+      background:#050505;
+      flex-shrink:0;
     }
-
-    .card-body{ padding:14px; display:flex; flex-direction:column; gap:10px; }
-    .title{ margin:0; font-size:1.15rem; line-height:1.2; letter-spacing:.2px; font-weight:700; text-align:center; }
-    .sub{ color:var(--sub); font-size:.95rem; line-height:1.3; text-align:center; }
 
     .preset-actions{
-      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; justify-content:center;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+      justify-content:flex-start;
     }
     .btn{
       display:inline-block; padding:9px 14px;
@@ -176,10 +195,9 @@
     }
 
     .warning{
-      margin:4px 0 0;
+      margin:0;
       font-size:.8rem;
       color:var(--warning);
-      text-align:center;
     }
 
     .mini-steps-wrap{
@@ -246,7 +264,7 @@
   <h3 id="using-templates" class="mini-steps-title"><u>Using Template Files</u></h3>
   <ol class="mini-steps">
     <li>Download the <code>.txt</code> template you like.</li>
-    <li>Rename it to <code>template.txt</code> and place it in your mod’s data folder.</li>
+    <li>Rename it to <code>template.txt</code> and place it in your mod’s template/config folder.</li>
   </ol>
   <p class="mini-note">
     Templates marked as “gradient” are more complex and may have a small warning:
@@ -270,25 +288,34 @@
     if (cls) n.className = cls;
     if (html !== undefined) n.innerHTML = html;
     return n;
+  }; 
+  const BANNER_COLORS = {
+    aquamarine:'#00c5b3',
+    black:'#444444',
+    blue:'#3a6dff',
+    galaxy:'#8226ff',
+    green:'#48a048',
+    'magenta-cyan':'#ff3fb6',
+    'mossygreen-gradient':'#4d7b3b',
+    orange:'#ff8c2a',
+    pastel:'#ff7fb3',
+    pink:'#ff4b9a',
+    'pink-gradient':'#ff4b9a',
+    purple:'#a046ff',
+    red:'#ff4040',
+    sunset:'#ff6b3d',
+    yellow:'#ffd338',
+    'yellow-flame-gradient':'#ffb400',
+    'english-dat':'#666666'
   };
 
   function templateCard(tpl){
-    const card = el('article', 'card');
+    const card = el('article', 'card'); 
+    const header = el('div','template-header', tpl.title.toUpperCase());
+    header.style.backgroundColor = BANNER_COLORS[tpl.id] || '#444';
+    card.appendChild(header);
 
-    if (Array.isArray(tpl.images) && tpl.images.length){
-      const collage = el('div','thumb-collage');
-      tpl.images.forEach(src => {
-        const img = el('img');
-        img.src = src;
-        img.alt = tpl.title + ' preview';
-        img.loading = 'lazy';
-        collage.appendChild(img);
-      });
-      card.appendChild(collage);
-    }
-
-    const body = el('div','card-body');
-
+    const body = el('div','card-body'); 
     const title = el('h3','title', tpl.title);
     body.appendChild(title);
 
@@ -304,8 +331,18 @@
     if (isGradient){
       const warn = el('p','warning','⚠ Excessive template gradient may cause disconnects.');
       body.appendChild(warn);
-    }
-
+    } 
+    if (Array.isArray(tpl.images) && tpl.images.length){
+      const collage = el('div','thumb-collage');
+      tpl.images.forEach(src => {
+        const img = el('img');
+        img.src = src;
+        img.alt = tpl.title + ' preview';
+        img.loading = 'lazy';
+        collage.appendChild(img);
+      });
+      body.appendChild(collage);
+    } 
     const actions = el('div','preset-actions');
 
     if (tpl.file){
