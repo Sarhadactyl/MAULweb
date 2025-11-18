@@ -121,6 +121,7 @@
       background:var(--card); border:1px solid var(--border);
       border-radius:var(--radius); overflow:hidden;
     }
+
     .thumb-collage{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
@@ -238,7 +239,7 @@
   <h3 id="using-templates" class="mini-steps-title"><u>Using Template Files</u></h3>
   <ol class="mini-steps">
     <li>Download the <code>.txt</code> template you like.</li>
-    <li>Rename it to template.txt and place it in your mod’s template/config folder.</li>
+    <li>Rename it to <code>template.txt</code> and place it in your mod’s data folder.</li>
   </ol>
   <p class="mini-note">
     Templates marked as “gradient” are more complex and may have a small warning:
@@ -266,6 +267,7 @@
 
   function templateCard(tpl){
     const card = el('article', 'card');
+
     if (Array.isArray(tpl.images) && tpl.images.length){
       const collage = el('div','thumb-collage');
       tpl.images.forEach(src => {
@@ -286,7 +288,7 @@
     if (tpl.description){
       const desc = el('p','sub', tpl.description);
       body.appendChild(desc);
-    }
+    } 
     const isGradient =
       /gradient/i.test(tpl.title) ||
       /gradient/i.test(tpl.id || '') ||
@@ -324,68 +326,13 @@
     container.innerHTML = '';
     list.forEach(t => container.appendChild(templateCard(t)));
   }
+
   const TEMPLATES = [
-    {
-      id:'pink',
-      title:'Pink Template',
-      description:'Soft and cozy look with bright pink highlights.',
-      file:'templates/pinktemplate.txt',
-      images:[
-        'images/template/pink (1).png',
-        'images/template/pink (2).png',
-        'images/template/pink (3).png',
-        'images/template/pink (4).png',
-        'images/template/pink (5).png',
-        'images/template/pink (6).png'
-      ]
-    },
-    {
-      id:'yellow',
-      title:'Yellow Template',
-      description:'Bold yellow header for high-energy lobbies.',
-      file:'template/yellowtemplate.txt',
-      images:[
-        'images/template/yellow (1).png',
-        'images/template/yellow (2).png',
-        'images/template/yellow (3).png',
-        'images/template/yellow (4).png',
-        'images/template/yellow (5).png',
-        'images/template/yellow (6).png'
-      ]
-    },
-    {
-      id:'pink-gradient',
-      title:'Pink Gradient Template',
-      description:'Pink header with soft gradient accents.',
-      file:'template/pink-gradient-template.txt',
-      images:[
-        'images/template/pink-gradient (1).png',
-        'images/template/pink-gradient (2).png',
-        'images/template/pink-gradient (3).png',
-        'images/template/pink-gradient (4).png',
-        'images/template/pink-gradient (5).png',
-        'images/template/pink-gradient (6).png'
-      ]
-    },
-    {
-      id:'yellow-flame-gradient',
-      title:'Yellow Flame Gradient Template',
-      description:'Hot yellow/orange gradient for intense games.',
-      file:'template/yellow-flame-template.txt',
-      images:[
-        'images/template/yellow-flame-gradient (1).png',
-        'images/template/yellow-flame-gradient (2).png',
-        'images/template/yellow-flame-gradient (3).png',
-        'images/template/yellow-flame-gradient (4).png',
-        'images/template/yellow-flame-gradient (5).png',
-        'images/template/yellow-flame-gradient (6).png'
-      ]
-    },
     {
       id:'aquamarine',
       title:'Aquamarine Template',
       description:'Cool blue-green theme for chill community lobbies.',
-      file:'template/aquamarine-template.txt',
+      file:'images/template/aquamarine-template.txt',
       images:[
         'images/template/aquamarine (1).png',
         'images/template/aquamarine (2).png',
@@ -399,35 +346,41 @@
       id:'black',
       title:'Black Template',
       description:'Minimal high-contrast dark template.',
-      file:'template/blacktemplate.txt',
+      file:'images/template/blacktemplate.txt',
       images:[
         'images/template/black (1).png',
         'images/template/black (2).png',
         'images/template/black (3).png',
         'images/template/black (4).png',
         'images/template/black (5).png',
-        'images/template/black (6).png'
+        'images/template/black (6).png',
+        'images/template/black (7).png',
+        'images/template/black (8).png',
+        'images/template/black (9).png',
+        'images/template/black (10).png',
+        'images/template/black (11).png',
+        'images/template/black (12).png'
       ]
     },
     {
       id:'blue',
       title:'Blue Template',
-      description:'Simple blue accent layout.',
-      file:'template/bluetemplate.txt',
+      description:'Simple blue accent template.',
+      file:'images/template/bluetemplate.txt',
       images:[
         'images/template/blue (2).png',
         'images/template/blue (3).png',
         'images/template/blue (4).png',
         'images/template/blue (5).png',
-        'images/template/blue.png',
-        'images/template/blue (6).png'
+        'images/template/blue (6).png',
+        'images/template/blue.png'
       ]
     },
     {
       id:'galaxy',
       title:'Galaxy Template',
-      description:'Space-themed lobby text with chill dark purples.',
-      file:'template/galaxytemplate.txt',
+      description:'Space-themed purple/teal neon mix.',
+      file:'images/template/galaxytemplate.txt',
       images:[
         'images/template/galaxy (1).png',
         'images/template/galaxy (2).png',
@@ -441,21 +394,20 @@
       id:'green',
       title:'Green Template',
       description:'Fresh green accent template.',
-      file:'template/greentemplate.txt',
+      file:'images/template/greentemplate.txt',
       images:[
         'images/template/green (2).png',
         'images/template/green (3).png',
         'images/template/green (4).png',
         'images/template/green (5).png',
-        'images/template/green (6).png',
         'images/template/green.png'
       ]
     },
     {
       id:'magenta-cyan',
       title:'Magenta–Cyan Template',
-      description:'Loud, colorful neon style.',
-      file:'template/magenta-cyan.txt',
+      description:'Bright neon magenta/cyan theme.',
+      file:'images/template/magenta-cyan.txt',
       images:[
         'images/template/magenta-cyan (1).png',
         'images/template/magenta-cyan (2).png',
@@ -468,8 +420,8 @@
     {
       id:'mossygreen-gradient',
       title:'Mossy Green Gradient Template',
-      description:'Earthy green gradient with soft lighting.',
-      file:'template/mossy-green-template.txt',
+      description:'Earthy green gradient layout.',
+      file:'images/template/mossy-green-template.txt',
       images:[
         'images/template/mossygreengradient (1).png',
         'images/template/mossygreengradient (2).png',
@@ -483,21 +435,21 @@
       id:'orange',
       title:'Orange Template',
       description:'Warm orange accents for friendly vibes.',
-      file:'template/orangetemplate.txt',
+      file:'images/template/orangetemplate.txt',
       images:[
+        'images/template/orange (2).png',
         'images/template/orange (3).png',
         'images/template/orange (4).png',
         'images/template/orange (5).png',
         'images/template/orange (6).png',
-        'images/template/orange.png',
-        'images/template/orange (2).png'
+        'images/template/orange.png'
       ]
     },
     {
       id:'pastel',
       title:'Pastel Template',
       description:'Soft pastel rainbow look.',
-      file:'template/pasteltemplate.txt',
+      file:'images/template/pasteltemplate.txt',
       images:[
         'images/template/pastel (1).png',
         'images/template/pastel (2).png',
@@ -508,10 +460,38 @@
       ]
     },
     {
+      id:'pink',
+      title:'Pink Template',
+      description:'Soft, friendly pink highlights.',
+      file:'images/template/pinktemplate.txt',
+      images:[
+        'images/template/pink (1).png',
+        'images/template/pink (2).png',
+        'images/template/pink (3).png',
+        'images/template/pink (4).png',
+        'images/template/pink (5).png',
+        'images/template/pink (6).png'
+      ]
+    },
+    {
+      id:'pink-gradient',
+      title:'Pink Gradient Template',
+      description:'Pink-to-purple gradient style.',
+      file:'images/template/pink-gradient-template.txt',
+      images:[
+        'images/template/pink-gradient (1).png',
+        'images/template/pink-gradient (2).png',
+        'images/template/pink-gradient (3).png',
+        'images/template/pink-gradient (4).png',
+        'images/template/pink-gradient (5).png',
+        'images/template/pink-gradient (6).png'
+      ]
+    },
+    {
       id:'purple',
       title:'Purple Template',
       description:'Dark purple highlights; good for chill lobbies.',
-      file:'template/purpletemplate.txt',
+      file:'images/template/purpletemplate.txt',
       images:[
         'images/template/purple (1).png',
         'images/template/purple (2).png',
@@ -525,7 +505,7 @@
       id:'red',
       title:'Red Template',
       description:'Sharp red highlights for intense games.',
-      file:'template/redtemplate.txt',
+      file:'images/template/redtemplate.txt',
       images:[
         'images/template/red (1).png',
         'images/template/red (2).png',
@@ -539,7 +519,7 @@
       id:'sunset',
       title:'Sunset Template',
       description:'Orange and purple combo like a sunset sky.',
-      file:'template/sunsettemplate.txt',
+      file:'images/template/sunsettemplate.txt',
       images:[
         'images/template/sunset (1).png',
         'images/template/sunset (2).png',
@@ -547,6 +527,34 @@
         'images/template/sunset (4).png',
         'images/template/sunset (5).png',
         'images/template/sunset (6).png'
+      ]
+    },
+    {
+      id:'yellow',
+      title:'Yellow Template',
+      description:'Bold yellow header for high-energy lobbies.',
+      file:'images/template/yellowtemplate.txt',
+      images:[
+        'images/template/yellow (1).png',
+        'images/template/yellow (2).png',
+        'images/template/yellow (3).png',
+        'images/template/yellow (4).png',
+        'images/template/yellow (5).png',
+        'images/template/yellow (6).png'
+      ]
+    },
+    {
+      id:'yellow-flame-gradient',
+      title:'Yellow Flame Gradient Template',
+      description:'Hot yellow/orange gradient for intense games.',
+      file:'images/template/yellow-flame-template.txt',
+      images:[
+        'images/template/yellow-flame-gradient (1).png',
+        'images/template/yellow-flame-gradient (2).png',
+        'images/template/yellow-flame-gradient (3).png',
+        'images/template/yellow-flame-gradient (4).png',
+        'images/template/yellow-flame-gradient (5).png',
+        'images/template/yellow-flame-gradient (6).png'
       ]
     },
     {
@@ -566,7 +574,7 @@
     }
   ];
 
-  renderTemplates(TEMPLATES);
+  renderTemplates(TEMPLATES); 
   (function(){
     const dd = document.querySelector('.dropdown');
     const btn = dd.querySelector('.dropbtn');
@@ -600,4 +608,3 @@
 </script>
 </body>
 </html>
-
