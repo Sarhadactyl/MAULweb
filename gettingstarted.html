@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <title>Lobby Template Presets</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
   <meta property="og:title" content="Lobby Template Presets" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://example.com/templates.html" />
@@ -11,12 +12,13 @@
   <meta property="og:description" content="Browse ready-made lobby templates in different colors." />
   <meta property="og:site_name" content="Modded Among Us Lobbies" />
   <meta property="og:locale" content="en_US" />
+
   <link rel="canonical" href="https://example.com/templates.html" />
-  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
-    :root{
+    :root {
       --bg:#000;
       --fg:#fff;
       --sub:#c9ccd5;
@@ -30,9 +32,12 @@
       --warning:#ffb347;
     }
 
-    *{box-sizing:border-box}
+    * {
+      box-sizing:border-box;
+    }
 
-    html,body{
+    html,
+    body {
       height:100%;
       margin:0;
       background-color:var(--bg);
@@ -41,7 +46,7 @@
       overflow-x:hidden;
     }
 
-    body{
+    body {
       background:url('images/background.png') no-repeat center center fixed;
       background-size:cover;
       display:flex;
@@ -50,7 +55,7 @@
       padding-bottom:130px;
     }
 
-    header{
+    header {
       width:100%;
       text-align:center;
       padding:20px 16px;
@@ -61,21 +66,21 @@
       backdrop-filter:blur(10px);
     }
 
-    header h1{
+    header h1 {
       margin:0;
       font-size:clamp(28px,3.2vw,50px);
       letter-spacing:.7px;
       text-shadow:0 4px 12px rgba(0,0,0,.7);
     }
-
-    .dropdown{
+ 
+    .dropdown {
       position:absolute;
       top:20px;
       left:30px;
       z-index:100;
     }
 
-    .dropbtn{
+    .dropbtn {
       background:none;
       border:none;
       cursor:pointer;
@@ -83,9 +88,11 @@
       transition:transform .3s ease;
     }
 
-    .dropbtn:hover{ transform:scale(1.1); }
+    .dropbtn:hover {
+      transform:scale(1.1);
+    }
 
-    .hamburger{
+    .hamburger {
       width:30px;
       height:22px;
       display:flex;
@@ -93,14 +100,14 @@
       justify-content:space-between;
     }
 
-    .hamburger span{
+    .hamburger span {
       display:block;
       height:4px;
       background:#fff;
       border-radius:2px;
     }
 
-    .dropdown-content{
+    .dropdown-content {
       display:none;
       position:absolute;
       top:100%;
@@ -112,7 +119,7 @@
       overflow:hidden;
     }
 
-    .dropdown-content a{
+    .dropdown-content a {
       color:#fff;
       padding:10px 16px;
       text-decoration:none;
@@ -121,15 +128,17 @@
       transition:background .18s;
     }
 
-    .dropdown-content a:hover{ background:#2c2c34; }
+    .dropdown-content a:hover {
+      background:#2c2c34;
+    }
 
     .dropdown:hover .dropdown-content,
     .dropdown:focus-within .dropdown-content,
-    .dropdown.open .dropdown-content{
+    .dropdown.open .dropdown-content {
       display:block;
     }
-
-    .wrap{
+ 
+    .wrap {
       width:100%;
       max-width:var(--maxw);
       margin:32px auto;
@@ -141,7 +150,7 @@
       box-shadow:0 20px 45px rgba(0,0,0,.75);
     }
 
-    .wrap h2{
+    .wrap h2 {
       text-align:center;
       font-size:clamp(22px,2.4vw,34px);
       margin:4px 0 22px;
@@ -149,15 +158,14 @@
       text-underline-offset:4px;
     }
 
-    .grid{
+    .grid {
       display:flex;
       flex-direction:column;
       gap:var(--gap);
       max-width:1100px;
       margin:0 auto;
-    }
-
-    .card{
+    } 
+    .card {
       background:var(--card);
       border:1px solid var(--border);
       border-radius:var(--radius);
@@ -165,7 +173,7 @@
       box-shadow:0 14px 30px rgba(0,0,0,.7);
     }
 
-    .template-header{
+    .template-header {
       padding:10px 20px;
       font-weight:700;
       text-transform:uppercase;
@@ -175,108 +183,110 @@
       color:#fff;
     }
 
-    .card-body{
+    .card-body {
       padding:18px 20px 20px;
       display:flex;
       flex-direction:column;
       gap:10px;
     }
 
-    .title{
+    .title {
       margin:4px 0 2px;
       font-size:1.25rem;
       line-height:1.25;
     }
 
-    .sub{
+    .sub {
       color:var(--sub);
       font-size:.95rem;
       line-height:1.5;
       max-width:720px;
     }
 
-    .warning{
+    .warning {
       margin:0 0 6px;
       font-size:.8rem;
       color:var(--warning);
     }
  
-    .thumb-collage{
-    margin-top:12px;
-    padding:12px;
-    background:rgba(0,0,0,.75);
-    border-radius:18px;
-    display:grid;
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-    grid-auto-rows:1fr;
-    gap:10px;
+    .thumb-collage {
+      margin-top:12px;
+      padding:12px;
+      background:rgba(0,0,0,.75);
+      border-radius:18px;
+      display:grid;
+      grid-template-columns:minmax(0, 2fr) minmax(0, 1fr);
+      grid-auto-rows:1fr;
+      gap:10px;
     }
 
-    /* Main large preview */
-    .thumb-main{
-    grid-row:1 / span 2;
-    border:none;
-    padding:0;
-    background:none;
-    cursor:pointer;
-    border-radius:14px;
-    overflow:hidden;
-    box-shadow:0 8px 24px rgba(0,0,0,.9);
-    aspect-ratio:16 / 9;
+    .thumb-main {
+      grid-row:1 / span 2;
+      border:none;
+      padding:0;
+      background:none;
+      cursor:pointer;
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 8px 24px rgba(0,0,0,.9);
+      aspect-ratio:16 / 9;
     }
 
-    .thumb-strip{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
+    .thumb-strip {
+      display:flex;
+      flex-direction:column;
+      gap:8px;
     }
 
-    .thumb-thumb{
-    border:none;
-    padding:0;
-    background:none;
-    cursor:pointer;
-    border-radius:10px;
-    overflow:hidden;
-    flex:1;
-    box-shadow:0 4px 14px rgba(0,0,0,.9);
-    aspect-ratio:4 / 3;
+    .thumb-thumb {
+      border:none;
+      padding:0;
+      background:none;
+      cursor:pointer;
+      border-radius:10px;
+      overflow:hidden;
+      flex:1;
+      box-shadow:0 4px 14px rgba(0,0,0,.9);
+      aspect-ratio:4 / 3;
     }
 
     .thumb-main img,
-    .thumb-thumb img{
-    width:100%;
-    height:100%;
-    display:block;
-    object-fit:cover;
-    transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+    .thumb-thumb img {
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
     }
 
     .thumb-main img:hover,
-    .thumb-thumb img:hover{
-    transform:translateY(-2px) scale(1.02);
-    box-shadow:0 10px 26px rgba(0,0,0,1);
-    opacity:.98;
+    .thumb-thumb img:hover {
+      transform:translateY(-2px) scale(1.02);
+      box-shadow:0 10px 26px rgba(0,0,0,1);
+      opacity:.98;
     }
 
-    @media (max-width: 720px){
-    .thumb-collage{
+    @media (max-width:720px) {
+      .thumb-collage {
         grid-template-columns:1fr;
-    }
-    .thumb-main{
+      }
+
+      .thumb-main {
         grid-row:auto;
         aspect-ratio:16 / 9;
-    }
-    .thumb-strip{
+      }
+
+      .thumb-strip {
         flex-direction:row;
         overflow-x:auto;
-    }
-    .thumb-thumb{
-        flex:0 0 120px;
-    }
-    }
+      }
 
-    .preset-actions{
+      .thumb-thumb {
+        flex:0 0 120px;
+      }
+    }
+ 
+    .preset-actions {
       display:flex;
       gap:10px;
       flex-wrap:wrap;
@@ -284,11 +294,11 @@
       justify-content:center;
     }
 
-    .btn{
+    .btn {
       display:inline-block;
       padding:9px 18px;
       background:#000;
-      color:white;
+      color:#fff;
       text-decoration:none;
       font-weight:700;
       border-radius:999px;
@@ -297,23 +307,23 @@
       font-size:.93rem;
     }
 
-    .btn:hover{
+    .btn:hover {
       box-shadow:0 0 16px rgba(255,255,255,.9);
       background:#050505;
     }
 
-    .btn:active{
+    .btn:active {
       transform:translateY(1px) scale(.99);
     }
 
-    .btn.disabled{
+    .btn.disabled {
       opacity:.55;
       cursor:not-allowed;
       box-shadow:none;
       background:#111;
     }
 
-    .badge{
+    .badge {
       display:inline-block;
       padding:4px 10px;
       border-radius:999px;
@@ -322,8 +332,8 @@
       color:var(--sub);
       text-align:center;
     }
-
-    .mini-steps-wrap{
+ 
+    .mini-steps-wrap {
       max-width:800px;
       margin:12px auto 32px;
       padding:12px 18px 16px;
@@ -333,7 +343,7 @@
       backdrop-filter:blur(14px);
     }
 
-    .mini-steps-title{
+    .mini-steps-title {
       margin:0 0 8px;
       text-align:center;
       font-size:1.15rem;
@@ -341,7 +351,7 @@
       color:#fff;
     }
 
-    .mini-steps{
+    .mini-steps {
       font-size:.85rem;
       color:#fff;
       line-height:1.5;
@@ -349,7 +359,7 @@
       padding-left:20px;
     }
 
-    .mini-steps code{
+    .mini-steps code {
       font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
       font-size:.85em;
       background:rgba(255,255,255,.08);
@@ -357,7 +367,7 @@
       border-radius:4px;
     }
 
-    .mini-note{
+    .mini-note {
       list-style:none;
       padding-left:0;
       margin-top:10px;
@@ -366,8 +376,8 @@
       color:#fff;
       text-align:center;
     }
-
-    footer{
+ 
+    footer {
       position:fixed;
       bottom:0;
       left:0;
@@ -381,11 +391,16 @@
       font-size:.85rem;
     }
 
-    footer a{ color:#58a6ff; text-decoration:none; }
-    footer a:hover{ text-decoration:underline; }
+    footer a {
+      color:#58a6ff;
+      text-decoration:none;
+    }
 
+    footer a:hover {
+      text-decoration:underline;
+    }
  
-    .lightbox{
+    .lightbox {
       position:fixed;
       inset:0;
       background:rgba(0,0,0,.88);
@@ -394,10 +409,12 @@
       justify-content:center;
       z-index:2000;
     }
-    .lightbox.open{
+
+    .lightbox.open {
       display:flex;
     }
-    .lightbox-inner{
+
+    .lightbox-inner {
       position:relative;
       max-width:90vw;
       max-height:90vh;
@@ -406,19 +423,22 @@
       padding:10px;
       box-shadow:0 18px 40px rgba(0,0,0,1);
     }
-    .lightbox-inner img{
+
+    .lightbox-inner img {
       display:block;
       max-width:100%;
       max-height:80vh;
       border-radius:10px;
     }
-    .lightbox-caption{
+
+    .lightbox-caption {
       margin:6px 4px 2px;
       font-size:.9rem;
       color:#ddd;
       text-align:center;
     }
-    .lightbox-close{
+
+    .lightbox-close {
       position:absolute;
       top:6px;
       right:8px;
@@ -437,119 +457,127 @@
   </style>
 </head>
 <body>
-<header>
-  <h1>Lobby Template Presets</h1>
+  <header>
+    <h1>Lobby Template Presets</h1>
 
-  <div class="dropdown" aria-label="Site">
-    <button class="dropbtn" aria-label="Open menu" aria-expanded="false">
-      <div class="hamburger" aria-hidden="true">
-        <span></span><span></span><span></span>
+    <div class="dropdown" aria-label="Site">
+      <button class="dropbtn" aria-label="Open menu" aria-expanded="false">
+        <div class="hamburger" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+      <div class="dropdown-content" role="menu">
+        <a href="index.html">Home</a>
+        <a href="https://moddedamong.us/art.html">User Art</a>
+        <a href="https://moddedamong.us/eventpics.html">Past Events</a>
+        <a href="https://moddedamong.us/calendar.html">Event Calendar</a>
+        <a href="https://moddedamong.us/ourstaff.html">Our Staff</a>
+        <a href="https://moddedamong.us/mods.html">Featured Mods</a>
+        <a href="https://moddedamong.us/icons.html">Icons and Fonts</a>
+        <a href="https://moddedamong.us/tags.html">Tag Generator</a>
       </div>
-    </button>
-    <div class="dropdown-content" role="menu">
-      <a href="index.html">Home</a>
-      <a href="https://moddedamong.us/art.html">User Art</a>
-      <a href="https://moddedamong.us/eventpics.html">Past Events</a>
-      <a href="https://moddedamong.us/calendar.html">Event Calendar</a>
-      <a href="https://moddedamong.us/ourstaff.html">Our Staff</a>
-      <a href="https://moddedamong.us/mods.html">Featured Mods</a>
-      <a href="https://moddedamong.us/icons.html">Icons and Fonts</a>
-      <a href="https://moddedamong.us/tags.html">Tag Generator</a>
+    </div>
+  </header>
+
+  <section class="wrap">
+    <h2><u>Lobby Templates</u></h2>
+    <div id="templates-grid" class="grid"></div>
+  </section>
+
+  <section class="mini-steps-wrap" aria-labelledby="using-templates">
+    <h3 id="using-templates" class="mini-steps-title"><u>Using Template Files</u></h3>
+    <ol class="mini-steps">
+      <li>Download the <code>.txt</code> template you like.</li>
+      <li>Rename it to <code>template.txt</code> and place it in your mod’s template/config folder.</li>
+    </ol>
+    <p class="mini-note">
+      Templates marked as “gradient” are more complex and may have a small warning:
+      <br />
+      <b>“Excessive template gradient may cause disconnects”</b>.
+    </p>
+  </section>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" aria-label="Close image">&times;</button>
+      <img id="lightbox-img" src="" alt="" />
+      <p id="lightbox-caption" class="lightbox-caption"></p>
     </div>
   </div>
-</header>
 
-<section class="wrap">
-  <h2><u>Lobby Templates</u></h2>
-  <div id="templates-grid" class="grid"></div>
-</section>
+  <footer>
+    <p>
+      Want your template featured?
+      <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904">Open a ticket</a>
+      or send in templates in
+      <a href="https://discord.com/channels/995954559044304896/1410013572637130812">the presets channel</a>.
+    </p>
+  </footer>
 
-<section class="mini-steps-wrap" aria-labelledby="using-templates">
-  <h3 id="using-templates" class="mini-steps-title"><u>Using Template Files</u></h3>
-  <ol class="mini-steps">
-    <li>Download the <code>.txt</code> template you like.</li>
-    <li>Rename it to <code>template.txt</code> and place it in your mod’s template/config folder.</li>
-  </ol>
-  <p class="mini-note">
-    Templates marked as “gradient” are more complex and may have a small warning:
-    <br><b>“Excessive template gradient may cause disconnects”</b>.
-  </p>
-</section>
- 
-<div id="lightbox" class="lightbox" aria-hidden="true">
-  <div class="lightbox-inner">
-    <button class="lightbox-close" aria-label="Close image">&times;</button>
-    <img id="lightbox-img" src="" alt="">
-    <p id="lightbox-caption" class="lightbox-caption"></p>
-  </div>
-</div>
+  <script>
+    const $ = sel => document.querySelector(sel);
+    const el = (tag, cls, html) => {
+      const n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (html !== undefined) n.innerHTML = html;
+      return n;
+    };
 
-<footer>
-  <p>
-    Want your template featured?
-    <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904">Open a ticket </a>
-    or send in templates in
-    <a href="https://discord.com/channels/995954559044304896/1410013572637130812">the presets channel</a>.
-  </p>
-</footer>
+    const BANNER_COLORS = {
+      aquamarine:'#00c5b3',
+      black:'#444444',
+      blue:'#3a6dff',
+      galaxy:'#8226ff',
+      green:'#48a048',
+      'magenta-cyan':'#ff3fb6',
+      'mossygreen-gradient':'#4d7b3b',
+      orange:'#ff8c2a',
+      pastel:'#ff7fb3',
+      pink:'#ff4b9a',
+      'pink-gradient':'#ff4b9a',
+      purple:'#a046ff',
+      red:'#ff4040',
+      sunset:'#ff6b3d',
+      yellow:'#ffd338',
+      'yellow-flame-gradient':'#ffb400',
+      'english-dat':'#666666'
+    };
 
-<script>
-  const $ = sel => document.querySelector(sel);
-  const el = (tag, cls, html) => {
-    const n = document.createElement(tag);
-    if (cls) n.className = cls;
-    if (html !== undefined) n.innerHTML = html;
-    return n;
-  };
+    function openLightbox(src, caption) {
+      const box = $('#lightbox');
+      const img = $('#lightbox-img');
+      const cap = $('#lightbox-caption');
 
-  const BANNER_COLORS = {
-    aquamarine:'#00c5b3',
-    black:'#444444',
-    blue:'#3a6dff',
-    galaxy:'#8226ff',
-    green:'#48a048',
-    'magenta-cyan':'#ff3fb6',
-    'mossygreen-gradient':'#4d7b3b',
-    orange:'#ff8c2a',
-    pastel:'#ff7fb3',
-    pink:'#ff4b9a',
-    'pink-gradient':'#ff4b9a',
-    purple:'#a046ff',
-    red:'#ff4040',
-    sunset:'#ff6b3d',
-    yellow:'#ffd338',
-    'yellow-flame-gradient':'#ffb400',
-    'english-dat':'#666666'
-  };
+      img.src = src;
+      img.alt = caption;
+      cap.textContent = caption || '';
 
-  function openLightbox(src, caption){
-    const box = $('#lightbox');
-    const img = $('#lightbox-img');
-    const cap = $('#lightbox-caption');
-    img.src = src;
-    img.alt = caption;
-    cap.textContent = caption || '';
-    box.classList.add('open');
-    box.setAttribute('aria-hidden','false');
-  }
+      box.classList.add('open');
+      box.setAttribute('aria-hidden', 'false');
+    }
 
-  function closeLightbox(){
-    const box = $('#lightbox');
-    const img = $('#lightbox-img');
-    img.src = '';
-    box.classList.remove('open');
-    box.setAttribute('aria-hidden','true');
-  }
- 
-    function buildCollage(container, tpl){
-    const urls = (tpl.images || []).slice(0, 5); 
+    function closeLightbox() {
+      const box = $('#lightbox');
+      const img = $('#lightbox-img');
 
-    const main = el('button', 'thumb-main');
-    const strip = el('div', 'thumb-strip');
-    container.appendChild(main);
-    container.appendChild(strip);
+      img.src = '';
+      box.classList.remove('open');
+      box.setAttribute('aria-hidden', 'true');
+    }
 
-    urls.forEach((src, idx) => {
+    function buildCollage(container, tpl) {
+      const urls = (tpl.images || []).slice(0, 5); 
+      if (!urls.length) return;
+
+      const main = el('button', 'thumb-main');
+      const strip = el('div', 'thumb-strip');
+
+      container.appendChild(main);
+      container.appendChild(strip);
+
+      urls.forEach((src, idx) => {
         const img = new Image();
         img.src = src;
         img.loading = 'lazy';
@@ -557,366 +585,368 @@
 
         const wrapper = idx === 0 ? main : el('button', 'thumb-thumb');
 
-        img.addEventListener('click', (e) => {
-        e.preventDefault();
-        openLightbox(src, tpl.title);
+        img.addEventListener('click', e => {
+          e.preventDefault();
+          openLightbox(src, tpl.title);
         });
 
         wrapper.appendChild(img);
         if (idx > 0) strip.appendChild(wrapper);
-    });
+      });
     }
 
-  function templateCard(tpl){
-    const card = el('article','card');
+    function templateCard(tpl) {
+      const card = el('article', 'card');
 
-    const header = el('div','template-header', tpl.title.toUpperCase());
-    header.style.backgroundColor = BANNER_COLORS[tpl.id] || '#444';
-    card.appendChild(header);
+      const header = el('div', 'template-header', tpl.title.toUpperCase());
+      header.style.backgroundColor = BANNER_COLORS[tpl.id] || '#444';
+      card.appendChild(header);
 
-    const body = el('div','card-body');
+      const body = el('div', 'card-body');
 
-    const title = el('h3','title', tpl.title);
-    body.appendChild(title);
+      const title = el('h3', 'title', tpl.title);
+      body.appendChild(title);
 
-    if (tpl.description){
-      const desc = el('p','sub', tpl.description);
-      body.appendChild(desc);
+      if (tpl.description) {
+        const desc = el('p', 'sub', tpl.description);
+        body.appendChild(desc);
+      }
+
+      const isGradient =
+        /gradient/i.test(tpl.title) ||
+        /gradient/i.test(tpl.id || '') ||
+        /gradient/i.test(tpl.tag || '');
+
+      if (isGradient) {
+        const warn = el('p', 'warning', '⚠ Excessive template gradient may cause disconnects.');
+        body.appendChild(warn);
+      }
+
+      if (Array.isArray(tpl.images) && tpl.images.length) {
+        const collage = el('div', 'thumb-collage');
+        buildCollage(collage, tpl);
+        body.appendChild(collage);
+      }
+
+      const actions = el('div', 'preset-actions');
+
+      if (tpl.file) {
+        const dl = el('a', 'btn', 'Download .txt');
+        dl.href = tpl.file;
+        dl.setAttribute('download', '');
+        actions.appendChild(dl);
+      } else if (tpl.comingSoon) {
+        const btn = el('span', 'btn disabled', 'Coming soon');
+        actions.appendChild(btn);
+      }
+
+      if (tpl.badge) {
+        const badge = el('span', 'badge', tpl.badge);
+        actions.appendChild(badge);
+      }
+
+      body.appendChild(actions);
+      card.appendChild(body);
+      return card;
     }
 
-    const isGradient =
-      /gradient/i.test(tpl.title) ||
-      /gradient/i.test(tpl.id || '') ||
-      /gradient/i.test(tpl.tag || '');
-
-    if (isGradient){
-      const warn = el('p','warning','⚠ Excessive template gradient may cause disconnects.');
-      body.appendChild(warn);
+    function renderTemplates(list) {
+      const container = $('#templates-grid');
+      container.innerHTML = '';
+      list.forEach(t => container.appendChild(templateCard(t)));
     }
 
-    if (Array.isArray(tpl.images) && tpl.images.length){
-      const collage = el('div','thumb-collage');
-      buildCollage(collage, tpl);
-      body.appendChild(collage);
-    }
+    const TEMPLATES = [
+      {
+        id:'aquamarine',
+        title:'Aquamarine Template',
+        description:'Cool blue-green theme for chill community lobbies.',
+        file:'images/template/aquamarine-template.txt',
+        images:[
+          'images/template/aquamarine (1).png',
+          'images/template/aquamarine (2).png',
+          'images/template/aquamarine (3).png',
+          'images/template/aquamarine (4).png',
+          'images/template/aquamarine (5).png',
+          'images/template/aquamarine (6).png'
+        ]
+      },
+      {
+        id:'black',
+        title:'Black Template',
+        description:'Minimal high-contrast dark template.',
+        file:'images/template/blacktemplate.txt',
+        images:[
+          'images/template/black (1).png',
+          'images/template/black (2).png',
+          'images/template/black (3).png',
+          'images/template/black (4).png',
+          'images/template/black (5).png',
+          'images/template/black (6).png',
+          'images/template/black (7).png',
+          'images/template/black (8).png',
+          'images/template/black (9).png',
+          'images/template/black (10).png',
+          'images/template/black (11).png',
+          'images/template/black (12).png'
+        ]
+      },
+      {
+        id:'blue',
+        title:'Blue Template',
+        description:'Simple blue accent template.',
+        file:'images/template/bluetemplate.txt',
+        images:[
+          'images/template/blue (2).png',
+          'images/template/blue (3).png',
+          'images/template/blue (4).png',
+          'images/template/blue (5).png',
+          'images/template/blue (6).png',
+          'images/template/blue.png'
+        ]
+      },
+      {
+        id:'galaxy',
+        title:'Galaxy Template',
+        description:'Deep purple gradient.',
+        file:'images/template/galaxytemplate.txt',
+        images:[
+          'images/template/galaxy (1).png',
+          'images/template/galaxy (2).png',
+          'images/template/galaxy (3).png',
+          'images/template/galaxy (4).png',
+          'images/template/galaxy (5).png',
+          'images/template/galaxy (6).png'
+        ]
+      },
+      {
+        id:'green',
+        title:'Green Template',
+        description:'Fresh green accent kinda reminds me of grass....',
+        file:'images/template/greentemplate.txt',
+        images:[
+          'images/template/green (2).png',
+          'images/template/green (3).png',
+          'images/template/green (4).png',
+          'images/template/green (5).png',
+          'images/template/green.png'
+        ]
+      },
+      {
+        id:'magenta-cyan',
+        title:'Magenta–Cyan Template',
+        description:'Bright neon magenta/cyan theme.',
+        file:'images/template/magenta-cyan.txt',
+        images:[
+          'images/template/magenta-cyan (1).png',
+          'images/template/magenta-cyan (2).png',
+          'images/template/magenta-cyan (3).png',
+          'images/template/magenta-cyan (4).png',
+          'images/template/magenta-cyan (5).png',
+          'images/template/magenta-cyan (6).png'
+        ]
+      },
+      {
+        id:'mossygreen-gradient',
+        title:'Mossy Green Gradient Template',
+        description:'Earthy green gradient layout.',
+        file:'images/template/mossy-green-template.txt',
+        images:[
+          'images/template/mossygreengradient (1).png',
+          'images/template/mossygreengradient (2).png',
+          'images/template/mossygreengradient (3).png',
+          'images/template/mossygreengradient (4).png',
+          'images/template/mossygreengradient (5).png',
+          'images/template/mossygreengradient (6).png'
+        ]
+      },
+      {
+        id:'orange',
+        title:'Orange Template',
+        description:'Warm orange accents for friendly vibes.',
+        file:'images/template/orangetemplate.txt',
+        images:[
+          'images/template/orange (2).png',
+          'images/template/orange (3).png',
+          'images/template/orange (4).png',
+          'images/template/orange (5).png',
+          'images/template/orange (6).png',
+          'images/template/orange.png'
+        ]
+      },
+      {
+        id:'pastel',
+        title:'Pastel Template',
+        description:'Soft pastel rainbow look.',
+        file:'images/template/pasteltemplate.txt',
+        images:[
+          'images/template/pastel (1).png',
+          'images/template/pastel (2).png',
+          'images/template/pastel (3).png',
+          'images/template/pastel (4).png',
+          'images/template/pastel (5).png',
+          'images/template/pastel (6).png'
+        ]
+      },
+      {
+        id:'pink',
+        title:'Pink Template',
+        description:'Soft, friendly pink highlights.',
+        file:'images/template/pinktemplate.txt',
+        images:[
+          'images/template/pink (1).png',
+          'images/template/pink (2).png',
+          'images/template/pink (3).png',
+          'images/template/pink (4).png',
+          'images/template/pink (5).png',
+          'images/template/pink (6).png'
+        ]
+      },
+      {
+        id:'pink-gradient',
+        title:'Pink Gradient Template',
+        description:'Pink-to-light pink gradient.',
+        file:'images/template/pink-gradient-template.txt',
+        images:[
+          'images/template/pink-gradient (1).png',
+          'images/template/pink-gradient (2).png',
+          'images/template/pink-gradient (3).png',
+          'images/template/pink-gradient (4).png',
+          'images/template/pink-gradient (5).png',
+          'images/template/pink-gradient (6).png'
+        ]
+      },
+      {
+        id:'purple',
+        title:'Purple Template',
+        description:'Classic rich purple vibe.',
+        file:'images/template/purpletemplate.txt',
+        images:[
+          'images/template/purple (1).png',
+          'images/template/purple (2).png',
+          'images/template/purple (3).png',
+          'images/template/purple (4).png',
+          'images/template/purple (5).png',
+          'images/template/purple (6).png'
+        ]
+      },
+      {
+        id:'red',
+        title:'Red Template',
+        description:'Bright red for a classic look.',
+        file:'images/template/redtemplate.txt',
+        images:[
+          'images/template/red (1).png',
+          'images/template/red (2).png',
+          'images/template/red (3).png',
+          'images/template/red (4).png',
+          'images/template/red (5).png',
+          'images/template/red (6).png'
+        ]
+      },
+      {
+        id:'sunset',
+        title:'Sunset Template',
+        description:'Orange pinks and purples like a sunset sky.',
+        file:'images/template/sunsettemplate.txt',
+        images:[
+          'images/template/sunset (1).png',
+          'images/template/sunset (2).png',
+          'images/template/sunset (3).png',
+          'images/template/sunset (4).png',
+          'images/template/sunset (5).png',
+          'images/template/sunset (6).png'
+        ]
+      },
+      {
+        id:'yellow',
+        title:'Yellow Template',
+        description:'Mustard yellow vibes.',
+        file:'images/template/yellowtemplate.txt',
+        images:[
+          'images/template/yellow-1.png',
+          'images/template/yellow-2.png',
+          'images/template/yellow-3.png',
+          'images/template/yellow-4.png',
+          'images/template/yellow-5.png',
+          'images/template/yellow-6.png'
+        ]
+      },
+      {
+        id:'yellow-flame-gradient',
+        title:'Yellow Flame Gradient Template',
+        description:'Hot yellow/orange gradient.',
+        file:'images/template/yellow-flame-template.txt',
+        images:[
+          'images/template/yellow-flame-gradient-1.png',
+          'images/template/yellow-flame-gradient-2.png',
+          'images/template/yellow-flame-gradient-3.png',
+          'images/template/yellow-flame-gradient-4.png',
+          'images/template/yellow-flame-gradient-5.png',
+          'images/template/yellow-flame-gradient-6.png'
+        ]
+      },
+      {
+        id:'english-dat',
+        title:'english.dat',
+        description:'Template pack for english.dat formatting.',
+        comingSoon:true,
+        badge:'Coming soon'
+      }
+    ];
 
-    const actions = el('div','preset-actions');
+    renderTemplates(TEMPLATES); 
+    (function () {
+      const dd = document.querySelector('.dropdown');
+      const btn = dd.querySelector('.dropbtn');
+      const menu = dd.querySelector('.dropdown-content');
+      let hideTimer;
 
-    if (tpl.file){
-      const dl = el('a','btn','Download .txt');
-      dl.href = tpl.file;
-      dl.setAttribute('download','');
-      actions.appendChild(dl);
-    } else if (tpl.comingSoon){
-      const btn = el('span','btn disabled','Coming soon');
-      actions.appendChild(btn);
-    }
+      function open() {
+        clearTimeout(hideTimer);
+        dd.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
 
-    if (tpl.badge){
-      const badge = el('span','badge',tpl.badge);
-      actions.appendChild(badge);
-    }
+      function scheduleClose() {
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => {
+          dd.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }, 200);
+      }
 
-    body.appendChild(actions);
-    card.appendChild(body);
-    return card;
-  }
+      btn.addEventListener('mouseenter', open);
+      menu.addEventListener('mouseenter', open);
+      btn.addEventListener('mouseleave', scheduleClose);
+      menu.addEventListener('mouseleave', scheduleClose);
 
-  function renderTemplates(list){
-    const container = $('#templates-grid');
-    container.innerHTML = '';
-    list.forEach(t => container.appendChild(templateCard(t)));
-  }
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        if (dd.classList.contains('open')) {
+          scheduleClose();
+        } else {
+          open();
+        }
+      });
 
-  const TEMPLATES = [
-    {
-      id:'aquamarine',
-      title:'Aquamarine Template',
-      description:'Cool blue-green theme for chill community lobbies.',
-      file:'images/template/aquamarine-template.txt',
-      images:[
-        'images/template/aquamarine (1).png',
-        'images/template/aquamarine (2).png',
-        'images/template/aquamarine (3).png',
-        'images/template/aquamarine (4).png',
-        'images/template/aquamarine (5).png',
-        'images/template/aquamarine (6).png'
-      ]
-    },
-    {
-      id:'black',
-      title:'Black Template',
-      description:'Minimal high-contrast dark template.',
-      file:'images/template/blacktemplate.txt',
-      images:[
-        'images/template/black (1).png',
-        'images/template/black (2).png',
-        'images/template/black (3).png',
-        'images/template/black (4).png',
-        'images/template/black (5).png',
-        'images/template/black (6).png',
-        'images/template/black (7).png',
-        'images/template/black (8).png',
-        'images/template/black (9).png',
-        'images/template/black (10).png',
-        'images/template/black (11).png',
-        'images/template/black (12).png'
-      ]
-    },
-    {
-      id:'blue',
-      title:'Blue Template',
-      description:'Simple blue accent template.',
-      file:'images/template/bluetemplate.txt',
-      images:[
-        'images/template/blue (2).png',
-        'images/template/blue (3).png',
-        'images/template/blue (4).png',
-        'images/template/blue (5).png',
-        'images/template/blue (6).png',
-        'images/template/blue.png'
-      ]
-    },
-    {
-      id:'galaxy',
-      title:'Galaxy Template',
-      description:'Deep purple gradient.',
-      file:'images/template/galaxytemplate.txt',
-      images:[
-        'images/template/galaxy (1).png',
-        'images/template/galaxy (2).png',
-        'images/template/galaxy (3).png',
-        'images/template/galaxy (4).png',
-        'images/template/galaxy (5).png',
-        'images/template/galaxy (6).png'
-      ]
-    },
-    {
-      id:'green',
-      title:'Green Template',
-      description:'Fresh green accent kinda reminds me of grass....',
-      file:'images/template/greentemplate.txt',
-      images:[
-        'images/template/green (2).png',
-        'images/template/green (3).png',
-        'images/template/green (4).png',
-        'images/template/green (5).png',
-        'images/template/green.png'
-      ]
-    },
-    {
-      id:'magenta-cyan',
-      title:'Magenta–Cyan Template',
-      description:'Bright neon magenta/cyan theme.',
-      file:'images/template/magenta-cyan.txt',
-      images:[
-        'images/template/magenta-cyan (1).png',
-        'images/template/magenta-cyan (2).png',
-        'images/template/magenta-cyan (3).png',
-        'images/template/magenta-cyan (4).png',
-        'images/template/magenta-cyan (5).png',
-        'images/template/magenta-cyan (6).png'
-      ]
-    },
-    {
-      id:'mossygreen-gradient',
-      title:'Mossy Green Gradient Template',
-      description:'Earthy green gradient layout.',
-      file:'images/template/mossy-green-template.txt',
-      images:[
-        'images/template/mossygreengradient (1).png',
-        'images/template/mossygreengradient (2).png',
-        'images/template/mossygreengradient (3).png',
-        'images/template/mossygreengradient (4).png',
-        'images/template/mossygreengradient (5).png',
-        'images/template/mossygreengradient (6).png'
-      ]
-    },
-    {
-      id:'orange',
-      title:'Orange Template',
-      description:'Warm orange accents for friendly vibes.',
-      file:'images/template/orangetemplate.txt',
-      images:[
-        'images/template/orange (2).png',
-        'images/template/orange (3).png',
-        'images/template/orange (4).png',
-        'images/template/orange (5).png',
-        'images/template/orange (6).png',
-        'images/template/orange.png'
-      ]
-    },
-    {
-      id:'pastel',
-      title:'Pastel Template',
-      description:'Soft pastel rainbow look.',
-      file:'images/template/pasteltemplate.txt',
-      images:[
-        'images/template/pastel (1).png',
-        'images/template/pastel (2).png',
-        'images/template/pastel (3).png',
-        'images/template/pastel (4).png',
-        'images/template/pastel (5).png',
-        'images/template/pastel (6).png'
-      ]
-    },
-    {
-      id:'pink',
-      title:'Pink Template',
-      description:'Soft, friendly pink highlights.',
-      file:'images/template/pinktemplate.txt',
-      images:[
-        'images/template/pink (1).png',
-        'images/template/pink (2).png',
-        'images/template/pink (3).png',
-        'images/template/pink (4).png',
-        'images/template/pink (5).png',
-        'images/template/pink (6).png'
-      ]
-    },
-    {
-      id:'pink-gradient',
-      title:'Pink Gradient Template',
-      description:'Pink-to-light pink gradient.',
-      file:'images/template/pink-gradient-template.txt',
-      images:[
-        'images/template/pink-gradient (1).png',
-        'images/template/pink-gradient (2).png',
-        'images/template/pink-gradient (3).png',
-        'images/template/pink-gradient (4).png',
-        'images/template/pink-gradient (5).png',
-        'images/template/pink-gradient (6).png'
-      ]
-    },
-    {
-      id:'purple',
-      title:'Purple Template',
-      description:'Classic rich purple vibe.',
-      file:'images/template/purpletemplate.txt',
-      images:[
-        'images/template/purple (1).png',
-        'images/template/purple (2).png',
-        'images/template/purple (3).png',
-        'images/template/purple (4).png',
-        'images/template/purple (5).png',
-        'images/template/purple (6).png'
-      ]
-    },
-    {
-      id:'red',
-      title:'Red Template',
-      description:'Bright red for a classic look.',
-      file:'images/template/redtemplate.txt',
-      images:[
-        'images/template/red (1).png',
-        'images/template/red (2).png',
-        'images/template/red (3).png',
-        'images/template/red (4).png',
-        'images/template/red (5).png',
-        'images/template/red (6).png'
-      ]
-    },
-    {
-      id:'sunset',
-      title:'Sunset Template',
-      description:'Orange pinks and purples like a sunset sky.',
-      file:'images/template/sunsettemplate.txt',
-      images:[
-        'images/template/sunset (1).png',
-        'images/template/sunset (2).png',
-        'images/template/sunset (3).png',
-        'images/template/sunset (4).png',
-        'images/template/sunset (5).png',
-        'images/template/sunset (6).png'
-      ]
-    },
-    {
-      id:'yellow',
-      title:'Yellow Template',
-      description:'Mustard yellow vibes.',
-      file:'images/template/yellowtemplate.txt',
-      images:[
-        'images/template/yellow-1.png',
-        'images/template/yellow-2.png',
-        'images/template/yellow-3.png',
-        'images/template/yellow-4.png',
-        'images/template/yellow-5.png',
-        'images/template/yellow-6.png'
-      ]
-    },
-    {
-      id:'yellow-flame-gradient',
-      title:'Yellow Flame Gradient Template',
-      description:'Hot yellow/orange gradient.',
-      file:'images/template/yellow-flame-template.txt',
-      images:[
-        'images/template/yellow-flame-gradient-1.png',
-        'images/template/yellow-flame-gradient-2.png',
-        'images/template/yellow-flame-gradient-3.png',
-        'images/template/yellow-flame-gradient-4.png',
-        'images/template/yellow-flame-gradient-5.png',
-        'images/template/yellow-flame-gradient-6.png'
-      ]
-    },
-    {
-      id:'english-dat',
-      title:'english.dat',
-      description:'Template pack for english.dat formatting.',
-      comingSoon:true,
-      badge:'Coming soon'
-    }
-  ];
-
-  renderTemplates(TEMPLATES);
+      document.addEventListener('click', e => {
+        if (!dd.contains(e.target)) scheduleClose();
+      });
+    })();
  
-  (function(){
-    const dd = document.querySelector('.dropdown');
-    const btn = dd.querySelector('.dropbtn');
-    const menu = dd.querySelector('.dropdown-content');
-    let hideTimer;
+    (function () {
+      const box = $('#lightbox');
+      const closeBtn = box.querySelector('.lightbox-close');
 
-    function open() {
-      clearTimeout(hideTimer);
-      dd.classList.add('open');
-      btn.setAttribute('aria-expanded','true');
-    }
-
-    function scheduleClose() {
-      clearTimeout(hideTimer);
-      hideTimer = setTimeout(() => {
-        dd.classList.remove('open');
-        btn.setAttribute('aria-expanded','false');
-      }, 200);
-    }
-
-    btn.addEventListener('mouseenter', open);
-    menu.addEventListener('mouseenter', open);
-    btn.addEventListener('mouseleave', scheduleClose);
-    menu.addEventListener('mouseleave', scheduleClose);
-
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (dd.classList.contains('open')) scheduleClose();
-      else open();
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!dd.contains(e.target)) scheduleClose();
-    });
-  })();
- 
-  (function(){
-    const box = $('#lightbox');
-    const closeBtn = box.querySelector('.lightbox-close');
-
-    closeBtn.addEventListener('click', closeLightbox);
-    box.addEventListener('click', (e) => {
-      if (e.target === box) closeLightbox();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLightbox();
-    });
-  })();
-</script>
+      closeBtn.addEventListener('click', closeLightbox);
+      box.addEventListener('click', e => {
+        if (e.target === box) closeLightbox();
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+    })();
+  </script>
 </body>
 </html>
