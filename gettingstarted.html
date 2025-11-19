@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <title>Lobby Template Presets</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
- 
+
   <meta property="og:title" content="Lobby Template Presets" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://example.com/templates.html" />
@@ -72,7 +72,7 @@
       letter-spacing:.7px;
       text-shadow:0 4px 12px rgba(0,0,0,.7);
     }
- 
+
     .dropdown {
       position:absolute;
       top:20px;
@@ -137,7 +137,7 @@
     .dropdown.open .dropdown-content {
       display:block;
     }
- 
+
     .wrap {
       width:100%;
       max-width:var(--maxw);
@@ -164,7 +164,8 @@
       gap:var(--gap);
       max-width:1100px;
       margin:0 auto;
-    } 
+    }
+
     .card {
       background:var(--card);
       border:1px solid var(--border);
@@ -185,9 +186,24 @@
 
     .card-body {
       padding:18px 20px 20px;
+      display:grid;
+      grid-template-columns:minmax(0, 2fr) minmax(0, 1.1fr);
+      gap:16px 20px;
+      align-items:flex-start;
+    }
+
+    .card-main {
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .card-side {
       display:flex;
       flex-direction:column;
       gap:10px;
+      align-items:flex-start;
+      justify-content:flex-start;
     }
 
     .title {
@@ -208,50 +224,45 @@
       font-size:.8rem;
       color:var(--warning);
     }
- 
-    .thumb-collage {
-      margin-top:12px;
-      padding:12px;
+
+    .thumb-row {
+      grid-column:1 / -1;
+      margin-top:8px;
+      padding:10px 8px;
+      border-radius:14px;
       background:rgba(0,0,0,.75);
-      border-radius:18px;
-      display:grid;
-      grid-template-columns:minmax(0, 2fr) minmax(0, 1fr);
-      grid-auto-rows:1fr;
-      gap:10px;
+      display:flex;
+      gap:8px;
+      overflow-x:auto;
+      scrollbar-width:thin;
     }
 
-    .thumb-main {
-      grid-row:1 / span 2;
+    .thumb-row::-webkit-scrollbar {
+      height:6px;
+    }
+
+    .thumb-row::-webkit-scrollbar-track {
+      background:rgba(255,255,255,.04);
+    }
+
+    .thumb-row::-webkit-scrollbar-thumb {
+      background:rgba(255,255,255,.25);
+      border-radius:999px;
+    }
+
+    .thumb-item {
       border:none;
       padding:0;
       background:none;
       cursor:pointer;
-      border-radius:14px;
+      flex:0 0 140px;
+      border-radius:10px;
       overflow:hidden;
-      box-shadow:0 8px 24px rgba(0,0,0,.9);
+      box-shadow:0 4px 14px rgba(0,0,0,.9);
       aspect-ratio:16 / 9;
     }
 
-    .thumb-strip {
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
-
-    .thumb-thumb {
-      border:none;
-      padding:0;
-      background:none;
-      cursor:pointer;
-      border-radius:10px;
-      overflow:hidden;
-      flex:1;
-      box-shadow:0 4px 14px rgba(0,0,0,.9);
-      aspect-ratio:4 / 3;
-    }
-
-    .thumb-main img,
-    .thumb-thumb img {
+    .thumb-item img {
       width:100%;
       height:100%;
       display:block;
@@ -259,39 +270,18 @@
       transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;
     }
 
-    .thumb-main img:hover,
-    .thumb-thumb img:hover {
+    .thumb-item img:hover {
       transform:translateY(-2px) scale(1.02);
       box-shadow:0 10px 26px rgba(0,0,0,1);
       opacity:.98;
     }
 
-    @media (max-width:720px) {
-      .thumb-collage {
-        grid-template-columns:1fr;
-      }
-
-      .thumb-main {
-        grid-row:auto;
-        aspect-ratio:16 / 9;
-      }
-
-      .thumb-strip {
-        flex-direction:row;
-        overflow-x:auto;
-      }
-
-      .thumb-thumb {
-        flex:0 0 120px;
-      }
-    }
- 
     .preset-actions {
       display:flex;
       gap:10px;
       flex-wrap:wrap;
-      margin-top:14px;
-      justify-content:center;
+      margin-top:4px;
+      justify-content:flex-start;
     }
 
     .btn {
@@ -332,7 +322,7 @@
       color:var(--sub);
       text-align:center;
     }
- 
+
     .mini-steps-wrap {
       max-width:800px;
       margin:12px auto 32px;
@@ -376,7 +366,7 @@
       color:#fff;
       text-align:center;
     }
- 
+
     footer {
       position:fixed;
       bottom:0;
@@ -399,7 +389,7 @@
     footer a:hover {
       text-decoration:underline;
     }
- 
+
     .lightbox {
       position:fixed;
       inset:0;
@@ -453,6 +443,20 @@
       line-height:24px;
       text-align:center;
       padding:0;
+    }
+
+    @media (max-width:720px) {
+      .card-body {
+        grid-template-columns:1fr;
+      }
+
+      .thumb-row {
+        grid-column:1 / -1;
+      }
+
+      .thumb-item {
+        flex:0 0 120px;
+      }
     }
   </style>
 </head>
@@ -568,30 +572,26 @@
     }
 
     function buildCollage(container, tpl) {
-      const urls = (tpl.images || []).slice(0, 5); 
+      const urls = tpl.images || [];
       if (!urls.length) return;
 
-      const main = el('button', 'thumb-main');
-      const strip = el('div', 'thumb-strip');
-
-      container.appendChild(main);
-      container.appendChild(strip);
+      const row = el('div', 'thumb-row');
+      container.appendChild(row);
 
       urls.forEach((src, idx) => {
+        const btn = el('button', 'thumb-item');
         const img = new Image();
         img.src = src;
         img.loading = 'lazy';
         img.alt = tpl.title + ' preview ' + (idx + 1);
-
-        const wrapper = idx === 0 ? main : el('button', 'thumb-thumb');
 
         img.addEventListener('click', e => {
           e.preventDefault();
           openLightbox(src, tpl.title);
         });
 
-        wrapper.appendChild(img);
-        if (idx > 0) strip.appendChild(wrapper);
+        btn.appendChild(img);
+        row.appendChild(btn);
       });
     }
 
@@ -604,12 +604,13 @@
 
       const body = el('div', 'card-body');
 
+      const mainCol = el('div', 'card-main');
       const title = el('h3', 'title', tpl.title);
-      body.appendChild(title);
+      mainCol.appendChild(title);
 
       if (tpl.description) {
         const desc = el('p', 'sub', tpl.description);
-        body.appendChild(desc);
+        mainCol.appendChild(desc);
       }
 
       const isGradient =
@@ -619,15 +620,10 @@
 
       if (isGradient) {
         const warn = el('p', 'warning', '⚠ Excessive template gradient may cause disconnects.');
-        body.appendChild(warn);
+        mainCol.appendChild(warn);
       }
 
-      if (Array.isArray(tpl.images) && tpl.images.length) {
-        const collage = el('div', 'thumb-collage');
-        buildCollage(collage, tpl);
-        body.appendChild(collage);
-      }
-
+      const sideCol = el('div', 'card-side');
       const actions = el('div', 'preset-actions');
 
       if (tpl.file) {
@@ -645,7 +641,15 @@
         actions.appendChild(badge);
       }
 
-      body.appendChild(actions);
+      sideCol.appendChild(actions);
+
+      body.appendChild(mainCol);
+      body.appendChild(sideCol);
+
+      if (Array.isArray(tpl.images) && tpl.images.length) {
+        buildCollage(body, tpl);
+      }
+
       card.appendChild(body);
       return card;
     }
@@ -895,7 +899,8 @@
       }
     ];
 
-    renderTemplates(TEMPLATES); 
+    renderTemplates(TEMPLATES);
+
     (function () {
       const dd = document.querySelector('.dropdown');
       const btn = dd.querySelector('.dropbtn');
@@ -934,7 +939,7 @@
         if (!dd.contains(e.target)) scheduleClose();
       });
     })();
- 
+
     (function () {
       const box = $('#lightbox');
       const closeBtn = box.querySelector('.lightbox-close');
