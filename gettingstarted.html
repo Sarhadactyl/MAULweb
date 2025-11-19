@@ -665,234 +665,408 @@
       list.forEach(t => container.appendChild(templateCard(t)));
     }
 
-    const TEMPLATES = [
-      {
-        id:'aquamarine',
-        title:'Aquamarine Template',
-        description:'Cool blue-green theme.',
-        file:'images/template/aquamarine-template.txt',
-        images:[
-          'images/template/aquamarine (1).png',
-          'images/template/aquamarine (2).png',
-          'images/template/aquamarine (3).png',
-          'images/template/aquamarine (4).png',
-          'images/template/aquamarine (5).png',
-          'images/template/aquamarine (6).png'
-        ]
-      },
-      {
+    const templates = [
+    {
         id:'black',
         title:'Black Template',
         description:'Minimal high-contrast dark template.',
         file:'images/template/blacktemplate.txt',
         images:[
-          'images/template/black (1).png',
-          'images/template/black (2).png',
-          'images/template/black (3).png',
-          'images/template/black (4).png',
-          'images/template/black (5).png',
-          'images/template/black (6).png',
-          'images/template/black (7).png',
-          'images/template/black (8).png',
-          'images/template/black (9).png',
-          'images/template/black (10).png',
-          'images/template/black (11).png',
-          'images/template/black (12).png'
+        'images/template/black (1).png',
+        'images/template/black (2).png',
+        'images/template/black (3).png',
+        'images/template/black (4).png',
+        'images/template/black (5).png',
+        'images/template/black (6).png',
+        'images/template/black (7).png',
+        'images/template/black (8).png',
+        'images/template/black (9).png',
+        'images/template/black (10).png',
+        'images/template/black (11).png',
+        'images/template/black (12).png'
         ]
-      },
-      {
+    },
+    {
         id:'blue',
         title:'Blue Template',
         description:'Simple blue accent template.',
         file:'images/template/bluetemplate.txt',
         images:[
-          'images/template/blue (2).png',
-          'images/template/blue (3).png',
-          'images/template/blue (4).png',
-          'images/template/blue (5).png',
-          'images/template/blue (6).png',
-          'images/template/blue.png'
+        'images/template/blue (2).png',
+        'images/template/blue (3).png',
+        'images/template/blue (4).png',
+        'images/template/blue (5).png',
+        'images/template/blue (6).png',
+        'images/template/blue.png'
         ]
-      },
-      {
-        id:'galaxy',
-        title:'Galaxy Template',
-        description:'Deep purple gradient.',
-        file:'images/template/galaxytemplate.txt',
-        images:[
-          'images/template/galaxy (1).png',
-          'images/template/galaxy (2).png',
-          'images/template/galaxy (3).png',
-          'images/template/galaxy (4).png',
-          'images/template/galaxy (5).png',
-          'images/template/galaxy (6).png'
-        ]
-      },
-      {
+    },
+    {
         id:'green',
         title:'Green Template',
         description:'Fresh green accent kinda reminds me of grass....',
         file:'images/template/greentemplate.txt',
         images:[
-          'images/template/green (2).png',
-          'images/template/green (3).png',
-          'images/template/green (4).png',
-          'images/template/green (5).png',
-          'images/template/green.png'
+        'images/template/green (2).png',
+        'images/template/green (3).png',
+        'images/template/green (4).png',
+        'images/template/green (5).png',
+        'images/template/green.png'
         ]
-      },
-      {
+    },
+    {
         id:'magenta-cyan',
         title:'Magenta–Cyan Template',
         description:'Bright neon magenta/cyan theme.',
         file:'images/template/magenta-cyan.txt',
         images:[
-          'images/template/magenta-cyan (1).png',
-          'images/template/magenta-cyan (2).png',
-          'images/template/magenta-cyan (3).png',
-          'images/template/magenta-cyan (4).png',
-          'images/template/magenta-cyan (5).png',
-          'images/template/magenta-cyan (6).png'
+        'images/template/magenta-cyan (1).png',
+        'images/template/magenta-cyan (2).png',
+        'images/template/magenta-cyan (3).png',
+        'images/template/magenta-cyan (4).png',
+        'images/template/magenta-cyan (5).png',
+        'images/template/magenta-cyan (6).png'
         ]
-      },
-      {
-        id:'mossygreen-gradient',
-        title:'Mossy Green Gradient Template',
-        description:'Earthy green gradient layout.',
-        file:'images/template/mossy-green-template.txt',
-        images:[
-          'images/template/mossygreengradient (1).png',
-          'images/template/mossygreengradient (2).png',
-          'images/template/mossygreengradient (3).png',
-          'images/template/mossygreengradient (4).png',
-          'images/template/mossygreengradient (5).png',
-          'images/template/mossygreengradient (6).png'
-        ]
-      },
-      {
+    },
+    {
         id:'orange',
         title:'Orange Template',
         description:'Warm orange accents for friendly vibes.',
         file:'images/template/orangetemplate.txt',
         images:[
-          'images/template/orange (2).png',
-          'images/template/orange (3).png',
-          'images/template/orange (4).png',
-          'images/template/orange (5).png',
-          'images/template/orange (6).png',
-          'images/template/orange.png'
+        'images/template/orange (2).png',
+        'images/template/orange (3).png',
+        'images/template/orange (4).png',
+        'images/template/orange (5).png',
+        'images/template/orange (6).png',
+        'images/template/orange.png'
         ]
-      },
-      {
+    },
+    {
         id:'pastel',
         title:'Pastel Template',
         description:'Soft pastel rainbow look.',
         file:'images/template/pasteltemplate.txt',
         images:[
-          'images/template/pastel (1).png',
-          'images/template/pastel (2).png',
-          'images/template/pastel (3).png',
-          'images/template/pastel (4).png',
-          'images/template/pastel (5).png',
-          'images/template/pastel (6).png'
+        'images/template/pastel (1).png',
+        'images/template/pastel (2).png',
+        'images/template/pastel (3).png',
+        'images/template/pastel (4).png',
+        'images/template/pastel (5).png',
+        'images/template/pastel (6).png'
         ]
-      },
-      {
+    },
+    {
         id:'pink',
         title:'Pink Template',
         description:'Soft, friendly pink highlights.',
         file:'images/template/pinktemplate.txt',
         images:[
-          'images/template/pink (1).png',
-          'images/template/pink (2).png',
-          'images/template/pink (3).png',
-          'images/template/pink (4).png',
-          'images/template/pink (5).png',
-          'images/template/pink (6).png'
+        'images/template/pink (1).png',
+        'images/template/pink (2).png',
+        'images/template/pink (3).png',
+        'images/template/pink (4).png',
+        'images/template/pink (5).png',
+        'images/template/pink (6).png'
         ]
-      },
-      {
-        id:'pink-gradient',
-        title:'Pink Gradient Template',
-        description:'Pink-to-light pink gradient.',
-        file:'images/template/pink-gradient-template.txt',
-        images:[
-          'images/template/pink-gradient (1).png',
-          'images/template/pink-gradient (2).png',
-          'images/template/pink-gradient (3).png',
-          'images/template/pink-gradient (4).png',
-          'images/template/pink-gradient (5).png',
-          'images/template/pink-gradient (6).png'
-        ]
-      },
-      {
+    },
+    {
         id:'purple',
         title:'Purple Template',
         description:'Classic rich purple vibe.',
         file:'images/template/purpletemplate.txt',
         images:[
-          'images/template/purple (1).png',
-          'images/template/purple (2).png',
-          'images/template/purple (3).png',
-          'images/template/purple (4).png',
-          'images/template/purple (5).png',
-          'images/template/purple (6).png'
+        'images/template/purple (1).png',
+        'images/template/purple (2).png',
+        'images/template/purple (3).png',
+        'images/template/purple (4).png',
+        'images/template/purple (5).png',
+        'images/template/purple (6).png'
         ]
-      },
-      {
+    },
+    {
         id:'red',
         title:'Red Template',
         description:'Bright red for a classic look.',
         file:'images/template/redtemplate.txt',
         images:[
-          'images/template/red (1).png',
-          'images/template/red (2).png',
-          'images/template/red (3).png',
-          'images/template/red (4).png',
-          'images/template/red (5).png',
-          'images/template/red (6).png'
+        'images/template/red (1).png',
+        'images/template/red (2).png',
+        'images/template/red (3).png',
+        'images/template/red (4).png',
+        'images/template/red (5).png',
+        'images/template/red (6).png'
         ]
-      },
-      {
+    },
+    {
         id:'sunset',
         title:'Sunset Template',
         description:'Orange pinks and purples like a sunset sky.',
         file:'images/template/sunsettemplate.txt',
         images:[
-          'images/template/sunset (1).png',
-          'images/template/sunset (2).png',
-          'images/template/sunset (3).png',
-          'images/template/sunset (4).png',
-          'images/template/sunset (5).png',
-          'images/template/sunset (6).png'
+        'images/template/sunset (1).png',
+        'images/template/sunset (2).png',
+        'images/template/sunset (3).png',
+        'images/template/sunset (4).png',
+        'images/template/sunset (5).png',
+        'images/template/sunset (6).png'
         ]
-      },
-      {
+    },
+    {
         id:'yellow',
         title:'Yellow Template',
         description:'Mustard yellow vibes.',
         file:'images/template/yellowtemplate.txt',
         images:[
-          'images/template/yellow-1.png',
-          'images/template/yellow-2.png',
-          'images/template/yellow-3.png',
-          'images/template/yellow-4.png',
-          'images/template/yellow-5.png',
-          'images/template/yellow-6.png'
+        'images/template/yellow-1.png',
+        'images/template/yellow-2.png',
+        'images/template/yellow-3.png',
+        'images/template/yellow-4.png',
+        'images/template/yellow-5.png',
+        'images/template/yellow-6.png'
         ]
-      },
-      {
+    },
+
+    {
         id:'yellow-flame-gradient',
         title:'Yellow Flame Gradient Template',
         description:'Hot yellow/orange gradient.',
         file:'images/template/yellow-flame-template.txt',
         images:[
-          'images/template/yellow-flame-gradient-1.png',
-          'images/template/yellow-flame-gradient-2.png',
-          'images/template/yellow-flame-gradient-3.png',
-          'images/template/yellow-flame-gradient-4.png',
-          'images/template/yellow-flame-gradient-5.png',
-          'images/template/yellow-flame-gradient-6.png'
+        'images/template/yellow-flame-gradient-1.png',
+        'images/template/yellow-flame-gradient-2.png',
+        'images/template/yellow-flame-gradient-3.png',
+        'images/template/yellow-flame-gradient-4.png',
+        'images/template/yellow-flame-gradient-5.png',
+        'images/template/yellow-flame-gradient-6.png'
+        ]
+    },
+    {
+        id:'mossygreen-gradient',
+        title:'Mossy Green Gradient Template',
+        description:'Earthy green gradient layout.',
+        file:'images/template/mossy-green-template.txt',
+        images:[
+        'images/template/mossygreengradient (1).png',
+        'images/template/mossygreengradient (2).png',
+        'images/template/mossygreengradient (3).png',
+        'images/template/mossygreengradient (4).png',
+        'images/template/mossygreengradient (5).png',
+        'images/template/mossygreengradient (6).png'
+        ]
+    },
+    {
+        id:'aquamarine',
+        title:'Aquamarine Template',
+        description:'Cool blue-green theme.',
+        file:'images/template/aquamarine-template.txt',
+        images:[
+        'images/template/aquamarine (1).png',
+        'images/template/aquamarine (2).png',
+        'images/template/aquamarine (3).png',
+        'images/template/aquamarine (4).png',
+        'images/template/aquamarine (5).png',
+        'images/template/aquamarine (6).png'
+        ]
+    },
+    {
+        id:'galaxy',
+        title:'Galaxy Template',
+        description:'Deep purple gradient.',
+        file:'images/template/galaxytemplate.txt',
+        images:[
+        'images/template/galaxy (1).png',
+        'images/template/galaxy (2).png',
+        'images/template/galaxy (3).png',
+        'images/template/galaxy (4).png',
+        'images/template/galaxy (5).png',
+        'images/template/galaxy (6).png'
+        ]
+    },
+    {
+        id:'pink-gradient',
+        title:'Pink Gradient Template',
+        description:'Pink-to-light pink gradient.',
+        file:'images/template/pink-gradient-template.txt',
+        images:[
+        'images/template/pink-gradient (1).png',
+        'images/template/pink-gradient (2).png',
+        'images/template/pink-gradient (3).png',
+        'images/template/pink-gradient (4).png',
+        'images/template/pink-gradient (5).png',
+        'images/template/pink-gradient (6).png'
+        ]
+    }
+    ];
+
+    const basicTemplates = [
+    {
+        id:'floral-pink',
+        title:'Floral Pink Template',
+        description:'Soft floral pink aesthetic.',
+        file:'images/template/floral-pink.txt',
+        images:[
+        'images/template/floral-pink (1).png',
+        'images/template/floral-pink (2).png'
+        ]
+    },
+    {
+        id:'blood-moon',
+        title:'Blood Moon Template',
+        description:'Deep red lunar-inspired theme.',
+        file:'images/template/blood-moon.txt',
+        images:[
+        'images/template/bloodmoon (1).png',
+        'images/template/bloodmoon (2).png'
+        ]
+    },
+    {
+        id:'yellow-stars',
+        title:'Yellow Stars Template',
+        description:'Bright starry yellow aesthetic.',
+        file:'images/template/yellowstars.txt',
+        images:[
+        'images/template/yellow-stars (1).png',
+        'images/template/yellow-stars (2).png'
+        ]
+    },
+    {
+        id:'forestgreen',
+        title:'Forest Green Template',
+        description:'Dark natural forest green tone.',
+        file:'images/template/forestgreen.txt',
+        images:[
+        'images/template/forestgreen (1).png',
+        'images/template/forestgreen (2).png'
+        ]
+    },
+    {
+        id:'bluestorm',
+        title:'Blue Storm Template',
+        description:'Electric stormy blue theme.',
+        file:'images/template/bluestorm.txt',
+        images:[
+        'images/template/bluestorm (1).png',
+        'images/template/bluestorm (2).png'
+        ]
+    },
+    {
+        id:'purplevoid',
+        title:'Purple Void Template',
+        description:'Deep void-like purple gradient.',
+        file:'images/template/purplevoid.txt',
+        images:[
+        'images/template/purplevoid (1).png',
+        'images/template/purplevoid (2).png'
+        ]
+    },
+    {
+        id:'crystal-blue',
+        title:'Crystal Blue Template',
+        description:'Cold, crystalline blue theme.',
+        file:'images/template/crystal-blue.txt',
+        images:[
+        'images/template/crystal-blue (1).png',
+        'images/template/crystal-blue (2).png'
+        ]
+    },
+    {
+        id:'toxic-waste-gradient',
+        title:'Toxic Waste Gradient Template',
+        description:'Neon green/yellow hazardous glow.',
+        file:'images/template/toxic-waste-gradient.txt',
+        images:[
+        'images/template/toxic-waste-gradient.png',
+        'images/template/toxic-waste-gradient (2).png'
+        ]
+    },
+    {
+        id:'lightning-gradient',
+        title:'Lightning Gradient Template',
+        description:'Sharp electric lightning tones.',
+        file:'images/template/lightning-gradient.txt',
+        images:[
+        'images/template/lightning-gradient (1).png',
+        'images/template/lightning-gradient (2).png'
+        ]
+    },
+    {
+        id:'ice-gradient',
+        title:'Ice Gradient Template',
+        description:'Frozen pale blue and white gradient.',
+        file:'images/template/ice-gradient.txt',
+        images:[
+        'images/template/ice-gradient (1).png',
+        'images/template/ice-gradient (2).png'
+        ]
+    },
+    {
+        id:'fire-gradient',
+        title:'Fire Gradient Template',
+        description:'Hot red-orange flame gradient.',
+        file:'images/template/fire-gradient.txt',
+        images:[
+        'images/template/fire-gradient (1).png',
+        'images/template/fire-gradient (2).png'
+        ]
+    },
+    {
+        id:'rose-gold-gradient',
+        title:'Rose Gold Gradient Template',
+        description:'Metallic rose-gold shine.',
+        file:'images/template/rose-gold-gradient.txt',
+        images:[
+        'images/template/rose-gold-gradient (1).png',
+        'images/template/rose-gold-gradient (2).png'
+        ]
+    },
+    {
+        id:'ivory-gradient',
+        title:'Ivory Gradient Template',
+        description:'Soft ivory-to-cream fade.',
+        file:'images/template/ivory-gradient.txt',
+        images:[
+        'images/template/ivory-gradient (1).png',
+        'images/template/ivory-gradient (2).png'
+        ]
+    },
+    {
+        id:'teal-gradient',
+        title:'Teal Gradient Template',
+        description:'Deep teal fading into aqua.',
+        file:'images/template/teal-gradient.txt',
+        images:[
+        'images/template/teal-gradient (1).png',
+        'images/template/teal-gradient (2).png'
+        ]
+    },
+    {
+        id:'indago-gradient',
+        title:'Indago Gradient Template',
+        description:'Cool indigo/dark blue gradient.',
+        file:'images/template/indago-gradient.txt',
+        images:[
+        'images/template/indago-gradient (1).png',
+        'images/template/indago-gradient (2).png'
+        ]
+    },
+    {
+        id:'gold-dark-gradient',
+        title:'Gold Dark Gradient Template',
+        description:'Black-to-gold dramatic gradient.',
+        file:'images/template/gold-dark-gradient.txt',
+        images:[
+        'images/template/gold-dark-gradient (1).png',
+        'images/template/gold-dark-gradient (2).png'
+        ]
+    },
+    {
+        id:'silver-gradient',
+        title:'Silver Gradient Template',
+        description:'Clean metallic silver gradient.',
+        file:'images/template/Silver-gradient-template.txt',
+        images:[
+        'images/template/silver-gradient (1).png',
+        'images/template/silver-gradient (2).png'
         ]
       },
       {
