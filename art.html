@@ -70,8 +70,7 @@
         inset: 0;
         background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
         z-index: -1;
-      }
-
+      } 
       .dropdown {
         position: fixed;
         top: 20px;
@@ -227,30 +226,24 @@
         padding: 20px 20px 32px;
         position: relative;
         backdrop-filter: blur(10px);
-        margin-bottom: 32px; 
+        margin-bottom: 32px;
       }
 
       .slideshow-container {
         position: relative;
         width: 100%;
-        min-height: 360px;
-      }
-
+      } 
       .slide {
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
+        display: none;
         opacity: 0;
-        transition: opacity 0.9s ease-in-out;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        transition: opacity 0.4s ease-in-out;
+        display: none;
       }
 
       .slide.active {
+        display: block;
         opacity: 1;
-        pointer-events: auto;
       }
 
       .slide h2 {
@@ -262,6 +255,7 @@
         background: rgba(60, 20, 20, 0.9);
         border: 1px solid rgba(255,255,255,0.12);
         box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+        text-align: center;
       }
 
       .slide img {
@@ -269,7 +263,7 @@
         margin: 0 auto;
         width: 100%;
         height: auto;
-        max-height: 480px; 
+        max-height: 520px;
         object-fit: contain;
         border-radius: 12px;
         border: 1px solid rgba(255,255,255,0.2);
@@ -345,9 +339,6 @@
       @media (max-width: 700px) {
         .slideshow-card {
           padding: 16px 14px 28px;
-        }
-        .slideshow-container {
-          min-height: 320px;
         }
         .prev,
         .next {
@@ -479,7 +470,7 @@
       </footer>
     </div>
 
-    <script> 
+    <script>
       const slides = document.querySelectorAll('.slide');
       const prevBtn = document.querySelector('.prev');
       const nextBtn = document.querySelector('.next');
@@ -523,8 +514,7 @@
         });
       }
 
-      showSlide(currentIndex);
-
+      showSlide(currentIndex); 
       document.addEventListener('DOMContentLoaded', () => {
         const dropdown = document.querySelector('.dropdown');
         const button = document.querySelector('.dropbtn');
