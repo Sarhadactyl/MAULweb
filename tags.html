@@ -1,7 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Custom Tag Generator | Among Us Mods</title>
+    <title>Custom Tag Generator · MAUL</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <meta property="og:title" content="Custom Tag Generator- MAUL" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moddedamong.us/tags.html" />
@@ -11,155 +16,411 @@
     <meta property="og:locale" content="en_US" />
     <link rel="canonical" href="https://moddedamong.us/tags.html" />
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
- 
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;700;900&family=VT323&family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&family=Press+Start+2P&family=Share+Tech+Mono&family=Rajdhani:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;700;900&family=VT323&family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&family=Press+Start+2P&family=Share+Tech+Mono&family=Rajdhani:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <style>
-      html, body {
+      :root {
+        --accent: #800000;
+        --accent-soft: rgba(128, 0, 0, 0.25);
+        --accent-strong: #b00000;
+        --bg-card: rgba(30, 12, 12, 0.9);
+        --bg-soft: rgba(45, 18, 18, 0.9);
+        --text-main: #ffffff;
+        --text-muted: #dedee8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
         height: 100%;
         margin: 0;
         padding: 0;
-        background: #000;
-        font-family: 'Roboto', sans-serif;
-        color: #fff;
+        font-family: "Roboto", sans-serif;
+        color: var(--text-main);
         overflow-x: hidden;
       }
+
       body {
-        background: url('images/background.png') no-repeat center center fixed;
-        background-size: cover;
+        background: #000 url("images/maulredbg.png") no-repeat top center fixed;
+        background-size: auto 100%;
+        position: relative;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        padding-bottom: 100px;
+        align-items: stretch;
       }
-      header {
-        width: 100%;
-        text-align: center;
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.7);
-        position: relative;
-        z-index: 1000;
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(circle at top, rgba(128, 0, 0, 0.45), transparent 55%),
+          radial-gradient(circle at bottom, rgba(180, 0, 60, 0.25), transparent 55%);
+        mix-blend-mode: screen;
+        opacity: 0.7;
+        pointer-events: none;
+        z-index: -2;
       }
-      header h1 {
-        margin: 0;
-        font-size: 3em;
-        color: #fff;
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
+        z-index: -1;
       }
+
       .dropdown {
-        position: absolute;
-        top: 20px;
-        left: 30px;
+        position: fixed;
+        top: 18px;
+        left: 18px;
         z-index: 100;
       }
+
       .dropbtn {
-        background: none;
-        border: none;
+        background: rgba(35, 10, 10, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.14);
         cursor: pointer;
-        transition: transform 0.3s ease;
-        padding: 0;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease,
+          background 0.25s ease;
+        padding: 10px 10px;
+        border-radius: 999px;
+        backdrop-filter: blur(10px);
       }
-      .dropbtn:hover { transform: scale(1.1); }
+
+      .dropbtn:hover {
+        transform: translateY(-1px) scale(1.03);
+        background: rgba(50, 16, 16, 0.98);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      }
+
       .hamburger {
-        width: 30px;
-        height: 22px;
+        width: 26px;
+        height: 18px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
       }
+
       .hamburger span {
         display: block;
-        height: 4px;
-        background: #fff;
-        border-radius: 2px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), #ff0040);
+        border-radius: 999px;
       }
+
       .dropdown-content {
         display: none;
         position: absolute;
-        background: #2a2a2a;
-        min-width: 200px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        border-radius: 6px;
+        margin-top: 8px;
+        background-color: rgba(35, 10, 10, 0.96);
+        min-width: 220px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+        border-radius: 12px;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
       }
-      .dropdown-content a {
-        color: #fff;
-        padding: 12px 16px;
-        text-decoration: none;
+
+      .dropdown.open .dropdown-content {
         display: block;
-        transition: background 0.3s;
-      }
-      .dropdown-content a:hover { background: #3a3a3a; }
-      .dropdown:hover .dropdown-content { display: block; }
-
-      footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        padding: 15px;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 1000;
       }
 
-      .container {
+      .dropdown-content a {
+        color: var(--text-main);
+        padding: 12px 18px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.95rem;
+        transition:
+          background 0.25s,
+          color 0.25s,
+          padding-left 0.25s;
+      }
+
+      .dropdown-content a:hover {
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--accent);
+        padding-left: 22px;
+      }
+
+      .beta-glow {
+        color: #ff4d4d !important;
+        font-weight: 700;
+        text-shadow:
+          0 0 8px rgba(255, 0, 0, 0.75),
+          0 0 12px rgba(255, 0, 0, 0.55);
+      }
+
+      .page-wrapper {
         max-width: 1200px;
-        width: 92%;
-        margin: 40px auto;
-        display: grid;
-        gap: 24px;
+        width: 100%;
+        margin: 0 auto 40px;
+        padding: 80px 20px 0;
       }
-      .panel {
-        background: rgba(0,0,0,0.5);
-        border: 1px solid #1d0909;
-        border-radius: 8px;
-        padding: 20px;
+
+      @media (max-width: 600px) {
+        .page-wrapper {
+          padding-top: 90px;
+        }
       }
-      .section-title {
-        font-size: 2em;
+
+      .header {
+        position: relative;
         text-align: center;
-        margin: 0 0 10px;
+        padding: 40px 20px 20px;
       }
+
+      .header-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: linear-gradient(
+          120deg,
+          rgba(128, 0, 0, 0.5),
+          rgba(200, 0, 80, 0.35)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: var(--text-muted);
+        margin-bottom: 16px;
+      }
+
+      .header-badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #00ff9c, #00b36b);
+        box-shadow: 0 0 12px rgba(0, 255, 156, 0.7);
+      }
+
+      .header h1 {
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(2.4rem, 4vw, 3.2rem);
+        margin: 0;
+        text-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+        letter-spacing: 0.04em;
+      }
+
+      .header h1 span {
+        background: linear-gradient(120deg, #ffffff, var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .header-subtitle {
+        max-width: 720px;
+        margin: 14px auto 0;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .header-highlight {
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .header-actions {
+        margin-top: 24px;
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .cta-primary,
+      .cta-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease,
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          filter 0.18s ease;
+      }
+
+      .cta-primary {
+        padding: 10px 18px;
+        background: linear-gradient(135deg, #800000, #b00000);
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 0.95rem;
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.9);
+      }
+
+      .cta-secondary {
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: rgba(40, 12, 12, 0.9);
+        color: var(--text-muted);
+      }
+
+      .cta-primary i,
+      .cta-secondary i {
+        font-size: 0.9em;
+      }
+
+      .cta-secondary:hover {
+        background: rgba(55, 18, 18, 0.98);
+        border-color: var(--accent-soft);
+        transform: translateY(-1px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
+      }
+
+      .cta-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.95);
+        filter: brightness(1.05);
+      }
+
+      .info-paragraph {
+        font-size: 0.98rem;
+        line-height: 1.7;
+        background: var(--bg-card);
+        padding: 22px 24px;
+        border-radius: 16px;
+        max-width: 900px;
+        margin: 28px auto 20px;
+        text-align: left;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .info-paragraph strong {
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .info-paragraph a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .info-paragraph a:hover {
+        text-decoration: underline;
+        color: var(--accent-strong);
+      }
+
+      .content-grid {
+        max-width: 1100px;
+        width: 100%;
+        margin: 0 auto 40px;
+        padding: 0 20px 10px;
+        display: grid;
+        gap: 22px;
+      }
+
+      .panel {
+        background: var(--bg-card);
+        border-radius: 20px;
+        padding: 22px 22px 24px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(14px);
+      }
+
+      .section-title {
+        font-size: 1.7rem;
+        margin: 0 0 6px;
+        text-align: center;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
       .section-subtitle {
         text-align: center;
-        color: #cfcfcf;
-        margin: 0 0 20px;
-        font-size: 0.95em;
+        color: var(--text-muted);
+        margin: 0 0 18px;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 700px) {
+        .content-grid {
+          padding: 0 14px 10px;
+        }
+
+        .page-wrapper {
+          padding-top: 80px;
+        }
       }
 
       .gen-wrap {
         display: grid;
         gap: 14px;
       }
+
       .gen-controls {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
         align-items: center;
       }
+
       .gen-controls .field {
         display: flex;
         align-items: center;
         gap: 6px;
-        background: rgba(255,255,255,.06);
-        border: 1px solid rgba(255,255,255,.15);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.16);
         padding: 6px 8px;
-        border-radius: 8px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        color: var(--text-muted);
       }
+
       .gen-controls .field label {
-        font-size: .9em;
+        font-size: 0.9em;
       }
+
       .gen-controls input[type="text"],
       .gen-controls input[type="number"],
       .gen-controls select,
       .gen-controls textarea {
-        background: rgba(0,0,0,.35);
-        border: 1px solid rgba(255,255,255,.15);
-        border-radius: 6px;
+        background: rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
         color: #def;
         padding: 4px 6px;
       }
-      .gen-controls select { min-width: 160px; }
+
+      .gen-controls select {
+        min-width: 160px;
+      }
+
       .gen-controls textarea {
         width: 100%;
         min-height: 36px;
@@ -170,33 +431,38 @@
         display: grid;
         gap: 8px;
       }
+
       .gen-stop {
         display: grid;
         grid-template-columns: 110px 1fr auto;
         gap: 8px;
         align-items: center;
-        background: rgba(255,255,255,.06);
-        border: 1px solid rgba(255,255,255,.15);
-        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 12px;
         padding: 8px;
       }
+
       .gen-stop .color {
         display: flex;
         align-items: center;
         gap: 8px;
       }
+
       .gen-stop input[type="color"] {
         width: 42px;
         height: 32px;
         border: none;
         background: transparent;
         padding: 0;
+        cursor: pointer;
       }
+
       .gen-stop input[type="text"] {
         width: 100%;
-        background: rgba(0,0,0,.35);
-        border: 1px solid rgba(255,255,255,.15);
-        border-radius: 6px;
+        background: rgba(0, 0, 0, 0.65);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
         color: #def;
         padding: 6px;
       }
@@ -206,45 +472,59 @@
         flex-wrap: wrap;
         gap: 8px;
       }
+
       .copy-btn {
-        background: rgba(255,255,255,.08);
-        border: 1px solid rgba(255,255,255,.18);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.22);
         color: #e7f0ff;
-        font-size: .9em;
+        font-size: 0.9em;
         padding: 6px 10px;
-        border-radius: 6px;
+        border-radius: 999px;
         cursor: pointer;
-        transition: background .2s, border-color .2s, transform .02s;
+        transition:
+          background 0.2s,
+          border-color 0.2s,
+          transform 0.02s,
+          box-shadow 0.2s;
       }
+
       .copy-btn:hover {
-        background: rgba(255,255,255,.12);
-        border-color: rgba(255,255,255,.28);
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.8);
       }
+
       .copy-btn:active {
-        transform: scale(.98);
+        transform: scale(0.98);
       }
 
       .gen-output {
         display: grid;
         gap: 8px;
       }
+
       .gen-output code {
         display: block;
-        background: rgba(255,255,255,.08);
-        border: 1px solid rgba(255,255,255,.18);
-        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 12px;
         padding: 8px;
         white-space: normal;
         word-break: break-word;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+          monospace;
+        font-size: 0.85rem;
       }
 
       #ntg-visual span {
         display: inline-block;
       }
+
       #ntg-stops {
         max-height: 220px;
         overflow: auto;
       }
+
       #ntg-preview,
       #ntg-lotus-grad-preview {
         height: 44px;
@@ -252,340 +532,661 @@
         border: 1px solid #000;
         margin: 8px 0;
       }
+
       details summary {
         cursor: pointer;
       }
+
       h4 {
         margin: 6px 0;
       }
- 
+
       #ntg-lotus-visual {
         text-align: center;
         line-height: 1.2;
         padding: 6px 10px;
         border-radius: 8px;
-        background: rgba(0,0,0,.55);
+        background: rgba(0, 0, 0, 0.55);
         display: inline-block;
       }
+
       .lotus-line {
         display: block;
         font-size: 1.2em;
         font-weight: 700;
         margin: 2px 0;
-        padding: 0 .15em;
+        padding: 0 0.15em;
         -webkit-text-stroke: 0;
-        text-shadow: 0 0 4px rgba(0,0,0,.85);
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.85);
       }
 
       .lotus-name-line {
         font-size: 1.4em;
       }
 
+      footer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 40px 0 30px;
+        padding: 0 16px;
+      }
+
+      .footer-inner {
+        max-width: 900px;
+        width: 100%;
+        text-align: center;
+        padding: 18px 24px;
+        border-radius: 18px;
+        background:
+          radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 55%),
+          linear-gradient(135deg, #240404, #0b0000);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .footer-inner a {
+        color: var(--accent-strong);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .footer-inner a:hover {
+        color: #ff0000;
+        text-decoration: underline;
+      }
     </style>
   </head>
+
   <body>
-    <header>
-      <h1>✨Tag Studio✨</h1>
-      <div class="dropdown">
-        <button class="dropbtn" aria-label="Open navigation menu">
-          <div class="hamburger">
-            <span></span><span></span><span></span>
-          </div>
-        </button>
-        <div class="dropdown-content">
-          <a href="index.html">Home</a>
-          <a href="https://moddedamong.us/art.html">User Art</a>
-          <a href="https://moddedamong.us/eventpics.html">Past Events</a>
-          <a href="https://moddedamong.us/calendar.html">Event Calendar</a>
-          <a href="https://moddedamong.us/mods.html">Featured Mods</a>
-          <a href="https://moddedamong.us/ourstaff.html">Our Staff</a>
-          <a href="https://moddedamong.us/presets.html">Mod Presets</a>
-          <a href="https://moddedamong.us/icons.html">Icons and Fonts</a>
+    <div class="dropdown">
+      <button class="dropbtn" type="button" aria-label="Open navigation menu">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+      <div class="dropdown-content">
+        <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
+        <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
+        <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
+        <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
+        <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
+        <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
+        <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
+        <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
+        <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
+        <a href="https://moddedamong.us/BETAtemplates" class="beta-glow">
+          <i class="fa-solid fa-flask"></i> BETA Templates
+        </a>
+      </div>
+    </div>
+
+    <div class="page-wrapper">
+      <div class="header">
+        <div class="header-badge">
+          <span class="header-badge-dot"></span>
+          Template tools for MAUL lobbies
+        </div>
+        <h1>
+          <span>Tag Studio</span>
+        </h1>
+        <p class="header-subtitle">
+          Build <span class="header-highlight">custom lobby tags</span> with permissions, colors, fonts, and
+          mod-specific exports. Supports <strong>EHR</strong>, <strong>TONE / TOHEN</strong>, and
+          <strong>Project Lotus</strong>.
+        </p>
+        <div class="header-actions">
+          <a href="https://moddedamong.us/" class="cta-secondary">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Home
+          </a>
+          <a href="https://moddedamong.us/icons.html" class="cta-primary">
+            <i class="fa-regular fa-face-smile"></i>
+            Icons & Fonts
+          </a>
         </div>
       </div>
-    </header>
 
-    <main class="container">
-      <section class="panel" id="name-tag-generator">
-        <h2 class="section-title"><u>Custom Tag Generator</u></h2>
-        <p class="section-subtitle">
-          Build Custom tags with permissions, colors, and fonts.<br>
-          The generator currently supports EHR, TONE, TOHEN, and Project Lotus.
-        </p>
+      <p class="info-paragraph">
+        Use this studio to generate <strong>ready-to-paste tags</strong> for your modded Among Us lobbies.
+        Configure name text, gradients, fonts, and permissions, then copy the output or download it as a file for your
+        configs. Project Lotus titles export as <strong>YAML</strong>, while EHR and TONE/TOHEN export as
+        <strong>JSON / text</strong>.
+      </p>
 
-        <div class="gen-wrap taggen2-wrap"> 
-          <div class="gen-controls">
-            <div class="field">
-              <strong>Mod</strong>
-              <label><input type="radio" name="ntg-mod" value="ehr" checked> EHR</label>
-              <label><input type="radio" name="ntg-mod" value="tone"> TONE/TOHE</label>
-              <label><input type="radio" name="ntg-mod" value="lotus"> Project Lotus</label>
-            </div>
-            <div class="field">
-              <label for="ntg-fc">Friend Code</label>
-              <input id="ntg-fc" type="text" placeholder="e.g., ABCDEF" />
-            </div>
-          </div>  
+      <main class="content-grid">
+        <section class="panel" id="name-tag-generator">
+          <h2 class="section-title"><u>Custom Tag Generator</u></h2>
+          <p class="section-subtitle">
+            Build Custom tags with permissions, colors, and fonts.<br />
+            The generator currently supports EHR, TONE, TOHEN, and Project Lotus.
+          </p>
 
-          <div id="ntg-main-config">
+          <div class="gen-wrap taggen2-wrap">
             <div class="gen-controls">
-              <div class="field" style="flex:1">
-                <label for="ntg-name">Name / Icons (max 20, recommended 10)</label>
-                <input id="ntg-name" type="text" value="♡Besties♡" maxlength="20" />
+              <div class="field">
+                <strong>Mod</strong>
+                <label><input type="radio" name="ntg-mod" value="ehr" checked /> EHR</label>
+                <label><input type="radio" name="ntg-mod" value="tone" /> TONE/TOHE</label>
+                <label><input type="radio" name="ntg-mod" value="lotus" /> Project Lotus</label>
               </div>
               <div class="field">
-                <strong>Color Mode</strong>
-                <label><input type="radio" name="ntg-mode" value="solid" checked> Solid</label>
-                <label><input type="radio" name="ntg-mode" value="grad"> Gradient</label>
+                <label for="ntg-fc">Friend Code</label>
+                <input id="ntg-fc" type="text" placeholder="e.g., ABCDEF" />
               </div>
             </div>
- 
-            <div class="gen-controls">
-              <div class="field" style="flex:1">
-                <label for="ntg-font">Font</label>
-                <select id="ntg-font">
-                  <option value="">Default Font</option>
-                  <option value="VCR SDF">VCR SDF</option>
-                  <option value="Barlow-Black SDF">Barlow-Black SDF</option>
-                  <option value="Barlow-BoldItalic SDF">Barlow-BoldItalic SDF</option>
-                  <option value="Barlow-Light SDF">Barlow-Light SDF</option>
-                  <option value="BROOK SDF">BROOK SDF</option>
-                  <option value="CONSOLA SDF">CONSOLA SDF</option>
-                  <option value="DIGITAL-7 SDF">DIGITAL-7 SDF</option>
-                  <option value="DIN_Pro_Bold_700 SDF">DIN_Pro_Bold_700 SDF</option>
-                  <option value="LiberationSans SDF">LiberationSans SDF</option>
-                  <option value="NotoSansJP-Regular SDF">NotoSansJP-Regular SDF</option>
-                  <option value="OCRAEXT SDF">OCRAEXT SDF</option>
-                </select>
-              </div>
-            </div>
- 
-            <div class="gen-stops" id="ntg-solid-wrap">
-              <div class="gen-stop" style="grid-template-columns: 220px auto; align-items:center">
-                <div class="color">
-                  <label>Solid color (#)</label>
-                  <input id="ntg-solid-hex" type="text" value="#FFB6C1" />
-                </div>
-                <div class="color">
-                  <input id="ntg-solid-color" type="color" value="#FFB6C1" />
-                </div>
-              </div>
-            </div>
- 
-            <div class="gen-stops" id="ntg-grad-wrap" hidden>
+
+            <div id="ntg-main-config">
               <div class="gen-controls">
+                <div class="field" style="flex: 1">
+                  <label for="ntg-name">Name / Icons (max 20, recommended 10)</label>
+                  <input id="ntg-name" type="text" value="♡Besties♡" maxlength="20" />
+                </div>
                 <div class="field">
-                  <label for="ntg-stopcount">Stops</label>
-                  <input id="ntg-stopcount" type="number" min="2" max="5" step="1" value="3" />
+                  <strong>Color Mode</strong>
+                  <label><input type="radio" name="ntg-mode" value="solid" checked /> Solid</label>
+                  <label><input type="radio" name="ntg-mode" value="grad" /> Gradient</label>
                 </div>
-                <div class="gen-actions">
-                  <button class="copy-btn" id="ntg-add" type="button">Add stop</button>
-                  <button class="copy-btn" id="ntg-rem" type="button">Remove stop</button>
-                  <button class="copy-btn" id="ntg-rand" type="button">Randomize</button>
-                </div>
-              </div>
-              <div class="gen-stops" id="ntg-stops"></div>
-              <div class="gen-preview" id="ntg-preview" aria-label="Gradient preview"></div>
-            </div>
- 
-            <div id="ntg-ehr-perms">
-              <h4 style="margin-top:20px">EHR Permissions</h4>
-              <div class="gen-controls">
-                <label><input type="radio" name="ntg-vip" value="true" checked> VIP</label>
-                <label><input type="radio" name="ntg-vip" value="false"> No VIP</label>
-              </div>
-              <div class="gen-controls">
-                <label><input type="radio" name="ntg-moderator" value="true"> Moderator</label>
-                <label><input type="radio" name="ntg-moderator" value="false" checked> No Moderator</label>
-              </div>
-              <div class="gen-controls">
-                <label><input type="radio" name="ntg-admin" value="true"> Admin</label>
-                <label><input type="radio" name="ntg-admin" value="false" checked> No Admin</label>
               </div>
 
-              <h4 style="margin-top:12px">Trailing open color (EHR)</h4>
               <div class="gen-controls">
-                <div class="field">
-                  <label><input type="checkbox" id="ntg-trail-enabled">Colored name?</label>
-                </div>
-                <div class="field">
-                  <label for="ntg-trail-hex">Name color</label>
-                  <input id="ntg-trail-hex" type="text" value="#98FB98">
-                  <input id="ntg-trail-color" type="color" value="#98FB98">
+                <div class="field" style="flex: 1">
+                  <label for="ntg-font">Font</label>
+                  <select id="ntg-font">
+                    <option value="">Default Font</option>
+                    <option value="VCR SDF">VCR SDF</option>
+                    <option value="Barlow-Black SDF">Barlow-Black SDF</option>
+                    <option value="Barlow-BoldItalic SDF">Barlow-BoldItalic SDF</option>
+                    <option value="Barlow-Light SDF">Barlow-Light SDF</option>
+                    <option value="BROOK SDF">BROOK SDF</option>
+                    <option value="CONSOLA SDF">CONSOLA SDF</option>
+                    <option value="DIGITAL-7 SDF">DIGITAL-7 SDF</option>
+                    <option value="DIN_Pro_Bold_700 SDF">DIN_Pro_Bold_700 SDF</option>
+                    <option value="LiberationSans SDF">LiberationSans SDF</option>
+                    <option value="NotoSansJP-Regular SDF">NotoSansJP-Regular SDF</option>
+                    <option value="OCRAEXT SDF">OCRAEXT SDF</option>
+                  </select>
                 </div>
               </div>
-              <p style="font-size:.8em;opacity:.8;margin:0 4px 4px">
-                Example EHR Tag:
-                <code>{"Tag": "&lt;color=#FB98CA&gt;&lt;font=&quot;BROOK SDF&quot;&gt;♥ Sus but cute ♥&lt;/font&gt;&lt;/color&gt;&lt;color=#98FB98&gt;"}</code>
+
+              <div class="gen-stops" id="ntg-solid-wrap">
+                <div
+                  class="gen-stop"
+                  style="grid-template-columns: 220px auto; align-items: center"
+                >
+                  <div class="color">
+                    <label>Solid color (#)</label>
+                    <input id="ntg-solid-hex" type="text" value="#FFB6C1" />
+                  </div>
+                  <div class="color">
+                    <input id="ntg-solid-color" type="color" value="#FFB6C1" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="gen-stops" id="ntg-grad-wrap" hidden>
+                <div class="gen-controls">
+                  <div class="field">
+                    <label for="ntg-stopcount">Stops</label>
+                    <input
+                      id="ntg-stopcount"
+                      type="number"
+                      min="2"
+                      max="5"
+                      step="1"
+                      value="3"
+                    />
+                  </div>
+                  <div class="gen-actions">
+                    <button class="copy-btn" id="ntg-add" type="button">Add stop</button>
+                    <button class="copy-btn" id="ntg-rem" type="button">Remove stop</button>
+                    <button class="copy-btn" id="ntg-rand" type="button">Randomize</button>
+                  </div>
+                </div>
+                <div class="gen-stops" id="ntg-stops"></div>
+                <div
+                  class="gen-preview"
+                  id="ntg-preview"
+                  aria-label="Gradient preview"
+                ></div>
+              </div>
+
+              <div id="ntg-ehr-perms">
+                <h4 style="margin-top: 20px">EHR Permissions</h4>
+                <div class="gen-controls">
+                  <label><input type="radio" name="ntg-vip" value="true" checked /> VIP</label>
+                  <label><input type="radio" name="ntg-vip" value="false" /> No VIP</label>
+                </div>
+                <div class="gen-controls">
+                  <label
+                    ><input type="radio" name="ntg-moderator" value="true" />
+                    Moderator</label
+                  >
+                  <label
+                    ><input
+                      type="radio"
+                      name="ntg-moderator"
+                      value="false"
+                      checked
+                    />
+                    No Moderator</label
+                  >
+                </div>
+                <div class="gen-controls">
+                  <label><input type="radio" name="ntg-admin" value="true" /> Admin</label>
+                  <label
+                    ><input type="radio" name="ntg-admin" value="false" checked />
+                    No Admin</label
+                  >
+                </div>
+
+                <h4 style="margin-top: 12px">Trailing open color (EHR)</h4>
+                <div class="gen-controls">
+                  <div class="field">
+                    <label
+                      ><input type="checkbox" id="ntg-trail-enabled" />Colored name?</label
+                    >
+                  </div>
+                  <div class="field">
+                    <label for="ntg-trail-hex">Name color</label>
+                    <input id="ntg-trail-hex" type="text" value="#98FB98" />
+                    <input id="ntg-trail-color" type="color" value="#98FB98" />
+                  </div>
+                </div>
+                <p
+                  style="
+                    font-size: 0.8em;
+                    opacity: 0.8;
+                    margin: 0 4px 4px;
+                  "
+                >
+                  Example EHR Tag:
+                  <code>
+                    {"Tag":
+                    "&lt;color=#FB98CA&gt;&lt;font=&quot;BROOK
+                    SDF&quot;&gt;♥ Sus but cute
+                    ♥&lt;/font&gt;&lt;/color&gt;&lt;color=#98FB98&gt;"}
+                  </code>
+                </p>
+              </div>
+
+              <div id="ntg-tone-perms" hidden>
+                <h4 style="margin-top: 20px">TONE/TOHE Permissions</h4>
+                <div class="gen-controls">
+                  <label>Permission Level (0–5)</label>
+                  <input
+                    id="ntg-tone-level"
+                    type="number"
+                    min="0"
+                    max="5"
+                    step="1"
+                    value="0"
+                    style="width: 60px"
+                  />
+                </div>
+                <div class="gen-controls">
+                  <label>SayCommandAccess:</label>
+                  <label><input type="radio" name="ntg-say" value="true" /> Yes</label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="ntg-say"
+                      value="false"
+                      checked
+                    />
+                    No</label
+                  >
+                </div>
+                <div class="gen-controls">
+                  <label>EndCommandAccess:</label>
+                  <label><input type="radio" name="ntg-end" value="true" /> Yes</label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="ntg-end"
+                      value="false"
+                      checked
+                    />
+                    No</label
+                  >
+                </div>
+                <div class="gen-controls">
+                  <label>ExecuteCommandAccess:</label>
+                  <label><input type="radio" name="ntg-exec" value="true" /> Yes</label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="ntg-exec"
+                      value="false"
+                      checked
+                    />
+                    No</label
+                  >
+                </div>
+                <div class="gen-controls">
+                  <label>AssignGameMaster:</label>
+                  <label><input type="radio" name="ntg-gm" value="true" /> Yes</label>
+                  <label
+                    ><input
+                      type="radio"
+                      name="ntg-gm"
+                      value="false"
+                      checked
+                    />
+                    No</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div id="ntg-lotus-config" hidden>
+              <h4 style="margin-top: 20px">Project: Lotus Title</h4>
+              <p
+                style="
+                  font-size: 0.9em;
+                  opacity: 0.85;
+                  margin: 0 4px 8px;
+                "
+              >
+                Configure your Lotus title. Each line (Upper / Name / Lower) has its own gradient.
               </p>
-            </div> 
 
-            <div id="ntg-tone-perms" hidden>
-              <h4 style="margin-top:20px">TONE/TOHE Permissions</h4>
               <div class="gen-controls">
-                <label>Permission Level (0–5)</label>
-                <input id="ntg-tone-level" type="number" min="0" max="5" step="1" value="0" style="width:60px">
+                <div class="field" style="flex: 1">
+                  <label for="ntg-lotus-upper-text">Upper Text</label>
+                  <textarea
+                    id="ntg-lotus-upper-text"
+                    placeholder="e.g., Discord.gg/maul"
+                  ></textarea>
+                </div>
+                <div class="field">
+                  <label for="ntg-lotus-upper-size">Upper Size</label>
+                  <input
+                    id="ntg-lotus-upper-size"
+                    type="number"
+                    min="0.5"
+                    step="0.1"
+                    value="2"
+                    style="width: 70px"
+                  />
+                </div>
               </div>
+
               <div class="gen-controls">
-                <label>SayCommandAccess:</label>
-                <label><input type="radio" name="ntg-say" value="true"> Yes</label>
-                <label><input type="radio" name="ntg-say" value="false" checked> No</label>
+                <div class="field" style="flex: 1">
+                  <label for="ntg-lotus-name-text">Write your <br />name here </label>
+                  <textarea
+                    id="ntg-lotus-name-text"
+                    placeholder="e.g., Sarhadactyl"
+                  ></textarea>
+                </div>
+                <div class="field">
+                  <label for="ntg-lotus-name-size">Name Size</label>
+                  <input
+                    id="ntg-lotus-name-size"
+                    type="number"
+                    min="0.5"
+                    step="0.1"
+                    value="2"
+                    style="width: 70px"
+                  />
+                </div>
               </div>
+
               <div class="gen-controls">
-                <label>EndCommandAccess:</label>
-                <label><input type="radio" name="ntg-end" value="true"> Yes</label>
-                <label><input type="radio" name="ntg-end" value="false" checked> No</label>
+                <div class="field" style="flex: 1">
+                  <label for="ntg-lotus-lower-text">Lower Text</label>
+                  <textarea
+                    id="ntg-lotus-lower-text"
+                    placeholder="e.g., I like cookies"
+                  ></textarea>
+                </div>
+                <div class="field">
+                  <label for="ntg-lotus-lower-size">Lower Size</label>
+                  <input
+                    id="ntg-lotus-lower-size"
+                    type="number"
+                    min="0.5"
+                    step="0.1"
+                    value="2"
+                    style="width: 70px"
+                  />
+                </div>
               </div>
+
+              <h4 style="margin-top: 15px">Prefix</h4>
               <div class="gen-controls">
-                <label>ExecuteCommandAccess:</label>
-                <label><input type="radio" name="ntg-exec" value="true"> Yes</label>
-                <label><input type="radio" name="ntg-exec" value="false" checked> No</label>
+                <div class="field" style="flex: 1">
+                  <label for="ntg-lotus-prefix-text">Prefix Text (icon)</label>
+                  <input
+                    id="ntg-lotus-prefix-text"
+                    type="text"
+                    placeholder="e.g., ♥"
+                  />
+                </div>
+                <div class="field">
+                  <label for="ntg-lotus-prefix-color">Color</label>
+                  <input id="ntg-lotus-prefix-color" type="text" value="#FF0000" />
+                  <input
+                    id="ntg-lotus-prefix-colorpick"
+                    type="color"
+                    value="#FF0000"
+                  />
+                </div>
+                <div class="field">
+                  <strong>Spacing</strong>
+                  <label
+                    ><input
+                      type="radio"
+                      name="ntg-lotus-prefix-space"
+                      value="true"
+                    />
+                    Space</label
+                  >
+                  <label
+                    ><input
+                      type="radio"
+                      name="ntg-lotus-prefix-space"
+                      value="false"
+                      checked
+                    />No space</label
+                  >
+                </div>
+                <div class="field">
+                  <label for="ntg-lotus-prefix-size">Size</label>
+                  <input
+                    id="ntg-lotus-prefix-size"
+                    type="number"
+                    min="0.5"
+                    step="0.1"
+                    value="2"
+                    style="width: 70px"
+                  />
+                </div>
               </div>
+
+              <h4 style="margin-top: 10px">Suffix</h4>
               <div class="gen-controls">
-                <label>AssignGameMaster:</label>
-                <label><input type="radio" name="ntg-gm" value="true"> Yes</label>
-                <label><input type="radio" name="ntg-gm" value="false" checked> No</label>
+                <div class="field" style="flex: 1">
+                  <label for="ntg-lotus-suffix-text">Suffix Text (icon)</label>
+                  <input
+                    id="ntg-lotus-suffix-text"
+                    type="text"
+                    placeholder="e.g., ♥"
+                  />
+                </div>
+                <div class="field">
+                  <label for="ntg-lotus-suffix-color">Color</label>
+                  <input id="ntg-lotus-suffix-color" type="text" value="#FF00FF" />
+                  <input
+                    id="ntg-lotus-suffix-colorpick"
+                    type="color"
+                    value="#FF00FF"
+                  />
+                </div>
+                <div class="field">
+                  <strong>Spacing</strong>
+                  <label
+                    ><input
+                      type="radio"
+                      name="ntg-lotus-suffix-space"
+                      value="true"
+                    />
+                    Space</label
+                  >
+                <label
+                    ><input
+                      type="radio"
+                      name="ntg-lotus-suffix-space"
+                      value="false"
+                      checked
+                    />No space</label
+                  >
+                </div>
+                <div class="field">
+                  <label for="ntg-lotus-suffix-size">Size</label>
+                  <input
+                    id="ntg-lotus-suffix-size"
+                    type="number"
+                    min="0.5"
+                    step="0.1"
+                    value="2"
+                    style="width: 70px"
+                  />
+                </div>
               </div>
-            </div> 
-          </div>  
-          <div id="ntg-lotus-config" hidden>
-            <h4 style="margin-top:20px">Project: Lotus Title</h4>
-            <p style="font-size:.9em;opacity:.85;margin:0 4px 8px">
-              Configure your Lotus title. Each line (Upper / Name / Lower) has its own gradient.
-            </p>
 
-            <div class="gen-controls">
-              <div class="field" style="flex:1">
-                <label for="ntg-lotus-upper-text">Upper Text</label>
-                <textarea id="ntg-lotus-upper-text" placeholder="e.g., Discord.gg/maul"></textarea>
-              </div>
-              <div class="field">
-                <label for="ntg-lotus-upper-size">Upper Size</label>
-                <input id="ntg-lotus-upper-size" type="number" min="0.5" step="0.1" value="2" style="width:70px">
-              </div>
-            </div>
-
-            <div class="gen-controls">
-              <div class="field" style="flex:1">
-                <label for="ntg-lotus-name-text">Write your <br>name here </label>
-                <textarea id="ntg-lotus-name-text" placeholder="e.g., Sarhadactyl"></textarea>
-              </div>
-              <div class="field">
-                <label for="ntg-lotus-name-size">Name Size</label>
-                <input id="ntg-lotus-name-size" type="number" min="0.5" step="0.1" value="2" style="width:70px">
-              </div>
-            </div>
-
-            <div class="gen-controls">
-              <div class="field" style="flex:1">
-                <label for="ntg-lotus-lower-text">Lower Text</label>
-                <textarea id="ntg-lotus-lower-text" placeholder="e.g., I like cookies"></textarea>
-              </div>
-              <div class="field">
-                <label for="ntg-lotus-lower-size">Lower Size</label>
-                <input id="ntg-lotus-lower-size" type="number" min="0.5" step="0.1" value="2" style="width:70px">
-              </div>
-            </div>
- 
-            <h4 style="margin-top:15px">Prefix</h4>
-            <div class="gen-controls">
-              <div class="field" style="flex:1">
-                <label for="ntg-lotus-prefix-text">Prefix Text (icon)</label>
-                <input id="ntg-lotus-prefix-text" type="text" placeholder="e.g., ♥">
-              </div>
-              <div class="field">
-                <label for="ntg-lotus-prefix-color">Color</label>
-                <input id="ntg-lotus-prefix-color" type="text" value="#FF0000">
-                <input id="ntg-lotus-prefix-colorpick" type="color" value="#FF0000">
-              </div>
-              <div class="field">
-                <strong>Spacing</strong>
-                <label><input type="radio" name="ntg-lotus-prefix-space" value="true"> Space</label>
-                <label><input type="radio" name="ntg-lotus-prefix-space" value="false" checked>No space</label>
-              </div>
-              <div class="field">
-                <label for="ntg-lotus-prefix-size">Size</label>
-                <input id="ntg-lotus-prefix-size" type="number" min="0.5" step="0.1" value="2" style="width:70px">
-              </div>
-            </div>
- 
-            <h4 style="margin-top:10px">Suffix</h4>
-            <div class="gen-controls">
-              <div class="field" style="flex:1">
-                <label for="ntg-lotus-suffix-text">Suffix Text (icon)</label>
-                <input id="ntg-lotus-suffix-text" type="text" placeholder="e.g., ♥">
-              </div>
-              <div class="field">
-                <label for="ntg-lotus-suffix-color">Color</label>
-                <input id="ntg-lotus-suffix-color" type="text" value="#FF00FF">
-                <input id="ntg-lotus-suffix-colorpick" type="color" value="#FF00FF">
-              </div>
-              <div class="field">
-                <strong>Spacing</strong>
-                <label><input type="radio" name="ntg-lotus-suffix-space" value="true"> Space</label>
-                <label><input type="radio" name="ntg-lotus-suffix-space" value="false" checked>No space</label>
-              </div>
-              <div class="field">
-                <label for="ntg-lotus-suffix-size">Size</label>
-                <input id="ntg-lotus-suffix-size" type="number" min="0.5" step="0.1" value="2" style="width:70px">
-              </div>
-            </div>
-
-            <div class="gen-controls">
-              <div class="field">
-                <strong>Editing gradient for</strong>
-                <label><input type="radio" name="ntg-lotus-target" value="upper" checked> Upper</label>
-                <label><input type="radio" name="ntg-lotus-target" value="name"> Name</label>
-                <label><input type="radio" name="ntg-lotus-target" value="lower"> Lower</label>
-              </div>
-            </div> 
-
-            <div class="gen-stops" id="ntg-lotus-grad-wrap">
               <div class="gen-controls">
                 <div class="field">
-                  <label for="ntg-lotus-stopcount">Stops</label>
-                  <input id="ntg-lotus-stopcount" type="number" min="2" max="5" step="1" value="3" />
+                  <strong>Editing gradient for</strong>
+                  <label
+                    ><input
+                      type="radio"
+                      name="ntg-lotus-target"
+                      value="upper"
+                      checked
+                    />
+                    Upper</label
+                  >
+                  <label
+                    ><input type="radio" name="ntg-lotus-target" value="name" />
+                    Name</label
+                  >
+                  <label
+                    ><input type="radio" name="ntg-lotus-target" value="lower" />
+                    Lower</label
+                  >
                 </div>
+              </div>
+
+              <div class="gen-stops" id="ntg-lotus-grad-wrap">
+                <div class="gen-controls">
+                  <div class="field">
+                    <label for="ntg-lotus-stopcount">Stops</label>
+                    <input
+                      id="ntg-lotus-stopcount"
+                      type="number"
+                      min="2"
+                      max="5"
+                      step="1"
+                      value="3"
+                    />
+                  </div>
+                  <div class="gen-actions">
+                    <button class="copy-btn" id="ntg-lotus-add" type="button">
+                      Add stop
+                    </button>
+                    <button class="copy-btn" id="ntg-lotus-rem" type="button">
+                      Remove stop
+                    </button>
+                    <button class="copy-btn" id="ntg-lotus-rand" type="button">
+                      Randomize
+                    </button>
+                  </div>
+                </div>
+                <div class="gen-stops" id="ntg-lotus-stops"></div>
+                <div
+                  class="gen-preview"
+                  id="ntg-lotus-grad-preview"
+                  aria-label="Lotus gradient preview"
+                ></div>
+              </div>
+            </div>
+
+            <div class="gen-output">
+              <div
+                class="gen-controls"
+                style="justify-content: space-between"
+              >
                 <div class="gen-actions">
-                  <button class="copy-btn" id="ntg-lotus-add" type="button">Add stop</button>
-                  <button class="copy-btn" id="ntg-lotus-rem" type="button">Remove stop</button>
-                  <button class="copy-btn" id="ntg-lotus-rand" type="button">Randomize</button>
+                  <button class="copy-btn" id="ntg-copy" type="button">Copy text</button>
+                  <button class="copy-btn" id="ntg-download" type="button">
+                    Download .txt
+                  </button>
+                  <button
+                    class="copy-btn"
+                    id="ntg-lotus-download"
+                    type="button"
+                    style="display: none"
+                  >
+                    Download Lotus YAML
+                  </button>
                 </div>
               </div>
-              <div class="gen-stops" id="ntg-lotus-stops"></div>
-              <div class="gen-preview" id="ntg-lotus-grad-preview" aria-label="Lotus gradient preview"></div>
-            </div>
-          </div> 
- 
-          <div class="gen-output">
-            <div class="gen-controls" style="justify-content:space-between">
-              <div class="gen-actions">
-                <button class="copy-btn" id="ntg-copy" type="button">Copy text</button>
-                <button class="copy-btn" id="ntg-download" type="button">Download .txt</button>
-                <button class="copy-btn" id="ntg-lotus-download" type="button" style="display:none">Download Lotus YAML</button>
+
+              <h4>Tag text (what gets copied):</h4>
+              <code id="ntg-out"></code>
+
+              <h4 style="margin-top: 10px">Visual preview:</h4>
+              <div
+                id="ntg-visual"
+                style="font-size: 1.3em; line-height: 1.2"
+              ></div>
+              <div id="ntg-lotus-visual" style="display: none">
+                <div id="ntg-lotus-upper-line" class="lotus-line"></div>
+                <div id="ntg-lotus-name-line" class="lotus-line lotus-name-line"></div>
+                <div id="ntg-lotus-lower-line" class="lotus-line"></div>
               </div>
+
+              <details style="margin-top: 10px">
+                <summary>Full output (JSON / config / YAML)</summary>
+                <code id="ntg-payload"></code>
+              </details>
             </div>
-
-            <h4>Tag text (what gets copied):</h4>
-            <code id="ntg-out"></code>
-
-            <h4 style="margin-top:10px">Visual preview:</h4>
-            <div id="ntg-visual" style="font-size:1.3em; line-height:1.2"></div>
-            <div id="ntg-lotus-visual" style="display:none">
-              <div id="ntg-lotus-upper-line" class="lotus-line"></div>
-              <div id="ntg-lotus-name-line" class="lotus-line lotus-name-line"></div>
-              <div id="ntg-lotus-lower-line" class="lotus-line"></div>
-            </div>
-
-            <details style="margin-top:10px">
-              <summary>Full output (JSON / config / YAML)</summary>
-              <code id="ntg-payload"></code>
-            </details>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
 
+      <footer>
+        <div class="footer-inner">
+          <p>Made with ♥ by MAUL</p>
+        </div>
+      </footer>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector(".dropdown");
+        const button = document.querySelector(".dropbtn");
+
+        if (!dropdown || !button) return;
+
+        button.addEventListener("click", (e) => {
+          e.stopPropagation();
+          dropdown.classList.toggle("open");
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove("open");
+          }
+        });
+      });
+    </script>
     <script>
       function copyToClipboard(text) {
         if (navigator.clipboard && window.isSecureContext) {
@@ -597,49 +1198,57 @@
         ta.style.left = "-9999px";
         document.body.appendChild(ta);
         ta.select();
-        try { document.execCommand("copy"); }
-        finally { document.body.removeChild(ta); }
+        try {
+          document.execCommand("copy");
+        } finally {
+          document.body.removeChild(ta);
+        }
         return Promise.resolve();
       }
 
-      const clamp = (v,a,b)=>Math.min(b,Math.max(a,v));
-      const normHex = (s,withHash=true)=>{
-        s = (s||"").trim();
-        if(!s) return withHash ? "#FFFFFF" : "FFFFFF";
-        s = s.replace(/^#/, "").replace(/[^0-9a-fA-F]/g,"").slice(0,6);
-        if(s.length===3) s = s.split("").map(c=>c+c).join("");
-        if(s.length<6) s = (s+"FFFFFF").slice(0,6);
-        return (withHash?"#":"") + s.toUpperCase();
+      const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+      const normHex = (s, withHash = true) => {
+        s = (s || "").trim();
+        if (!s) return withHash ? "#FFFFFF" : "FFFFFF";
+        s = s.replace(/^#/, "").replace(/[^0-9a-fA-F]/g, "").slice(0, 6);
+        if (s.length === 3) s = s.split("").map((c) => c + c).join("");
+        if (s.length < 6) s = (s + "FFFFFF").slice(0, 6);
+        return (withHash ? "#" : "") + s.toUpperCase();
       };
-      const hexToRgb = h=>{
-        h = normHex(h,true).slice(1);
+      const hexToRgb = (h) => {
+        h = normHex(h, true).slice(1);
         return {
-          r: parseInt(h.slice(0,2),16),
-          g: parseInt(h.slice(2,4),16),
-          b: parseInt(h.slice(4,6),16)
+          r: parseInt(h.slice(0, 2), 16),
+          g: parseInt(h.slice(2, 4), 16),
+          b: parseInt(h.slice(4, 6), 16)
         };
       };
-      const rgbToHex = ({r,g,b}) =>
-        "#"+[r,g,b].map(x=>clamp(x|0,0,255).toString(16).padStart(2,"0")).join("").toUpperCase();
-      const lerp = (a,b,t)=>a+(b-a)*t;
-      const lerpColor = (h1,h2,t)=>{
-        const c1=hexToRgb(h1), c2=hexToRgb(h2);
+      const rgbToHex = ({ r, g, b }) =>
+        "#" +
+        [r, g, b]
+          .map((x) => clamp(x | 0, 0, 255).toString(16).padStart(2, "0"))
+          .join("")
+          .toUpperCase();
+      const lerp = (a, b, t) => a + (b - a) * t;
+      const lerpColor = (h1, h2, t) => {
+        const c1 = hexToRgb(h1),
+          c2 = hexToRgb(h2);
         return rgbToHex({
-          r: lerp(c1.r,c2.r,t),
-          g: lerp(c1.g,c2.g,t),
-          b: lerp(c1.b,c2.b,t)
+          r: lerp(c1.r, c2.r, t),
+          g: lerp(c1.g, c2.g, t),
+          b: lerp(c1.b, c2.b, t)
         });
       };
- 
+
       function sanitizeTagText(str) {
         if (!str) return "";
         const out = [];
         for (const ch of str) {
-          const cp = ch.codePointAt(0); 
-          if (cp >= 0xFE00 && cp <= 0xFE0F) continue; 
-          if (cp === 0x200D || cp === 0x200B || cp === 0x200C) continue;
- 
-          if (cp === 0x00A0) {
+          const cp = ch.codePointAt(0);
+          if (cp >= 0xfe00 && cp <= 0xfe0f) continue;
+          if (cp === 0x200d || cp === 0x200b || cp === 0x200c) continue;
+
+          if (cp === 0x00a0) {
             out.push(" ");
             continue;
           }
@@ -650,11 +1259,12 @@
       }
 
       const previewFontMap = {
-        "": "", 
+        "": "",
         "VCR SDF": '"VT323", monospace',
         "Barlow-Black SDF": '"Barlow", sans-serif',
         "Barlow-BoldItalic SDF": '"Barlow", sans-serif',
         "Barlow-Light SDF": '"Barlow", sans-serif',
+        BROOK: '"Rajdhani", sans-serif',
         "BROOK SDF": '"Rajdhani", sans-serif',
         "CONSOLA SDF": '"Roboto Mono", monospace',
         "DIGITAL-7 SDF": '"Orbitron", monospace',
@@ -664,135 +1274,159 @@
         "OCRAEXT SDF": '"Share Tech Mono", monospace'
       };
 
-      const nameInput   = document.getElementById("ntg-name");
-      const modRadios   = document.querySelectorAll('input[name="ntg-mod"]');
-      const modeRadios  = document.querySelectorAll('input[name="ntg-mode"]');
-      const friendCode  = document.getElementById("ntg-fc");
-      const fontSelect  = document.getElementById("ntg-font");
+      const nameInput = document.getElementById("ntg-name");
+      const modRadios = document.querySelectorAll('input[name="ntg-mod"]');
+      const modeRadios = document.querySelectorAll('input[name="ntg-mode"]');
+      const friendCode = document.getElementById("ntg-fc");
+      const fontSelect = document.getElementById("ntg-font");
 
-      const ehrPerms    = document.getElementById("ntg-ehr-perms");
-      const tonePerms   = document.getElementById("ntg-tone-perms");
+      const ehrPerms = document.getElementById("ntg-ehr-perms");
+      const tonePerms = document.getElementById("ntg-tone-perms");
 
-      const mainConfig  = document.getElementById("ntg-main-config");
+      const mainConfig = document.getElementById("ntg-main-config");
       const lotusConfig = document.getElementById("ntg-lotus-config");
 
-      const solidWrap   = document.getElementById("ntg-solid-wrap");
-      const solidHexIn  = document.getElementById("ntg-solid-hex");
-      const solidColIn  = document.getElementById("ntg-solid-color");
+      const solidWrap = document.getElementById("ntg-solid-wrap");
+      const solidHexIn = document.getElementById("ntg-solid-hex");
+      const solidColIn = document.getElementById("ntg-solid-color");
 
-      const gradWrap    = document.getElementById("ntg-grad-wrap");
-      const stopCount   = document.getElementById("ntg-stopcount");
-      const stopsEl     = document.getElementById("ntg-stops");
-      const prevEl      = document.getElementById("ntg-preview");
-      const btnAdd      = document.getElementById("ntg-add");
-      const btnRem      = document.getElementById("ntg-rem");
-      const btnRand     = document.getElementById("ntg-rand");
+      const gradWrap = document.getElementById("ntg-grad-wrap");
+      const stopCount = document.getElementById("ntg-stopcount");
+      const stopsEl = document.getElementById("ntg-stops");
+      const prevEl = document.getElementById("ntg-preview");
+      const btnAdd = document.getElementById("ntg-add");
+      const btnRem = document.getElementById("ntg-rem");
+      const btnRand = document.getElementById("ntg-rand");
 
-      const outEl       = document.getElementById("ntg-out");
-      const visEl       = document.getElementById("ntg-visual");
-      const lotusVis    = document.getElementById("ntg-lotus-visual");
+      const outEl = document.getElementById("ntg-out");
+      const visEl = document.getElementById("ntg-visual");
+      const lotusVis = document.getElementById("ntg-lotus-visual");
       const lotusUpperLine = document.getElementById("ntg-lotus-upper-line");
-      const lotusNameLine  = document.getElementById("ntg-lotus-name-line");
+      const lotusNameLine = document.getElementById("ntg-lotus-name-line");
       const lotusLowerLine = document.getElementById("ntg-lotus-lower-line");
 
-      const payloadEl   = document.getElementById("ntg-payload");
-      const copyBtn     = document.getElementById("ntg-copy");
-      const dlBtn       = document.getElementById("ntg-download");
-      const lotusDlBtn  = document.getElementById("ntg-lotus-download");
+      const payloadEl = document.getElementById("ntg-payload");
+      const copyBtn = document.getElementById("ntg-copy");
+      const dlBtn = document.getElementById("ntg-download");
+      const lotusDlBtn = document.getElementById("ntg-lotus-download");
 
-      const trailEnabled    = document.getElementById("ntg-trail-enabled");
-      const trailHexInput   = document.getElementById("ntg-trail-hex");
+      const trailEnabled = document.getElementById("ntg-trail-enabled");
+      const trailHexInput = document.getElementById("ntg-trail-hex");
       const trailColorInput = document.getElementById("ntg-trail-color");
 
       const lotusUpperText = document.getElementById("ntg-lotus-upper-text");
       const lotusUpperSize = document.getElementById("ntg-lotus-upper-size");
-      const lotusNameText  = document.getElementById("ntg-lotus-name-text");
-      const lotusNameSize  = document.getElementById("ntg-lotus-name-size");
+      const lotusNameText = document.getElementById("ntg-lotus-name-text");
+      const lotusNameSize = document.getElementById("ntg-lotus-name-size");
       const lotusLowerText = document.getElementById("ntg-lotus-lower-text");
       const lotusLowerSize = document.getElementById("ntg-lotus-lower-size");
 
       const lotusPrefixText = document.getElementById("ntg-lotus-prefix-text");
       const lotusPrefixColor = document.getElementById("ntg-lotus-prefix-color");
-      const lotusPrefixColorPick = document.getElementById("ntg-lotus-prefix-colorpick");
+      const lotusPrefixColorPick = document.getElementById(
+        "ntg-lotus-prefix-colorpick"
+      );
       const lotusPrefixSize = document.getElementById("ntg-lotus-prefix-size");
-      const lotusPrefixSpaceRadios = document.querySelectorAll('input[name="ntg-lotus-prefix-space"]');
+      const lotusPrefixSpaceRadios = document.querySelectorAll(
+        'input[name="ntg-lotus-prefix-space"]'
+      );
 
       const lotusSuffixText = document.getElementById("ntg-lotus-suffix-text");
       const lotusSuffixColor = document.getElementById("ntg-lotus-suffix-color");
-      const lotusSuffixColorPick = document.getElementById("ntg-lotus-suffix-colorpick");
+      const lotusSuffixColorPick = document.getElementById(
+        "ntg-lotus-suffix-colorpick"
+      );
       const lotusSuffixSize = document.getElementById("ntg-lotus-suffix-size");
-      const lotusSuffixSpaceRadios = document.querySelectorAll('input[name="ntg-lotus-suffix-space"]');
+      const lotusSuffixSpaceRadios = document.querySelectorAll(
+        'input[name="ntg-lotus-suffix-space"]'
+      );
 
       const lotusStopCount = document.getElementById("ntg-lotus-stopcount");
-      const lotusStopsEl   = document.getElementById("ntg-lotus-stops");
-      const lotusPrevEl    = document.getElementById("ntg-lotus-grad-preview");
-      const lotusAddBtn    = document.getElementById("ntg-lotus-add");
-      const lotusRemBtn    = document.getElementById("ntg-lotus-rem");
-      const lotusRandBtn   = document.getElementById("ntg-lotus-rand");
-      const lotusTargetRadios = document.querySelectorAll('input[name="ntg-lotus-target"]');
+      const lotusStopsEl = document.getElementById("ntg-lotus-stops");
+      const lotusPrevEl = document.getElementById("ntg-lotus-grad-preview");
+      const lotusAddBtn = document.getElementById("ntg-lotus-add");
+      const lotusRemBtn = document.getElementById("ntg-lotus-rem");
+      const lotusRandBtn = document.getElementById("ntg-lotus-rand");
+      const lotusTargetRadios = document.querySelectorAll(
+        'input[name="ntg-lotus-target"]'
+      );
 
-      const currentMode = ()=> ([...modeRadios].find(r=>r.checked)?.value||"solid");
-      const currentMod  = ()=> ([...modRadios].find(r=>r.checked)?.value||"ehr");
-      const currentLotusTarget = ()=> ([...lotusTargetRadios].find(r=>r.checked)?.value||"upper");
+      const currentMode = () =>
+        [...modeRadios].find((r) => r.checked)?.value || "solid";
+      const currentMod = () =>
+        [...modRadios].find((r) => r.checked)?.value || "ehr";
+      const currentLotusTarget = () =>
+        [...lotusTargetRadios].find((r) => r.checked)?.value || "upper";
 
-      function syncVisibility(){
+      function syncVisibility() {
         const m = currentMod();
-        ehrPerms.hidden   = (m !== "ehr");
-        tonePerms.hidden  = (m !== "tone");
-        mainConfig.hidden  = (m === "lotus");
-        lotusConfig.hidden = (m !== "lotus");
-        visEl.style.display    = (m === "lotus") ? "none" : "block";
-        lotusVis.style.display = (m === "lotus") ? "block" : "none";
-        copyBtn.style.display = (m === "lotus") ? "none" : "inline-block";
-        dlBtn.style.display   = (m === "lotus") ? "none" : "inline-block";
-        lotusDlBtn.style.display = (m === "lotus") ? "inline-block" : "none";
+        ehrPerms.hidden = m !== "ehr";
+        tonePerms.hidden = m !== "tone";
+        mainConfig.hidden = m === "lotus";
+        lotusConfig.hidden = m !== "lotus";
+        visEl.style.display = m === "lotus" ? "none" : "block";
+        lotusVis.style.display = m === "lotus" ? "block" : "none";
+        copyBtn.style.display = m === "lotus" ? "none" : "inline-block";
+        dlBtn.style.display = m === "lotus" ? "none" : "inline-block";
+        lotusDlBtn.style.display = m === "lotus" ? "inline-block" : "none";
       }
 
-      modRadios.forEach(r => r.addEventListener("change", ()=>{ syncVisibility(); render(); }));
+      modRadios.forEach((r) =>
+        r.addEventListener("change", () => {
+          syncVisibility();
+          render();
+        })
+      );
       syncVisibility();
 
-      solidHexIn.addEventListener("input", ()=>{
-        const h = normHex(solidHexIn.value,true);
+      solidHexIn.addEventListener("input", () => {
+        const h = normHex(solidHexIn.value, true);
         solidHexIn.value = h;
         solidColIn.value = h;
         render();
       });
-      solidColIn.addEventListener("input", ()=>{
-        const h = normHex(solidColIn.value,true);
+      solidColIn.addEventListener("input", () => {
+        const h = normHex(solidColIn.value, true);
         solidHexIn.value = h;
         render();
       });
 
       if (trailHexInput && trailColorInput) {
-        trailHexInput.addEventListener("input", ()=>{
-          const h = normHex(trailHexInput.value,true);
+        trailHexInput.addEventListener("input", () => {
+          const h = normHex(trailHexInput.value, true);
           trailHexInput.value = h;
           trailColorInput.value = h;
           render();
         });
-        trailColorInput.addEventListener("input", ()=>{
-          const h = normHex(trailColorInput.value,true);
+        trailColorInput.addEventListener("input", () => {
+          const h = normHex(trailColorInput.value, true);
           trailHexInput.value = h;
           render();
         });
       }
       trailEnabled?.addEventListener("change", render);
 
-      let gradStops = ["#B625F1","#2970F8","#00CFFF"];
+      let gradStops = ["#B625F1", "#2970F8", "#00CFFF"];
 
-      function renderStopRows(){
+      function renderStopRows() {
         stopsEl.innerHTML = "";
-        gradStops.forEach((hex,idx)=>{
+        gradStops.forEach((hex, idx) => {
           const row = document.createElement("div");
           row.className = "gen-stop";
           row.style.gridTemplateColumns = "auto 1fr auto";
           row.innerHTML = `
             <div class="color" style="min-width:120px">
-              <label>Stop ${idx+1}</label>
+              <label>Stop ${idx + 1}</label>
             </div>
             <div class="color">
-              <input type="text" value="${normHex(hex,true)}" aria-label="Hex stop ${idx+1}">
-              <input type="color" value="${normHex(hex,true)}" aria-label="Pick stop ${idx+1}">
+              <input type="text" value="${normHex(
+                hex,
+                true
+              )}" aria-label="Hex stop ${idx + 1}">
+              <input type="color" value="${normHex(
+                hex,
+                true
+              )}" aria-label="Pick stop ${idx + 1}">
             </div>
             <div class="row-btns">
               <button class="copy-btn ntg-up" data-idx="${idx}" title="Up" type="button">▲</button>
@@ -805,90 +1439,117 @@
         updateGradPreview();
       }
 
-      function updateGradPreview(){
-        const css = `linear-gradient(90deg, ${gradStops.map((c,i)=>`${normHex(c,true)} ${(i*100/(Math.max(gradStops.length-1,1)))}%`).join(", ")})`;
+      function updateGradPreview() {
+        const css = `linear-gradient(90deg, ${gradStops
+          .map(
+            (c, i) =>
+              `${normHex(c, true)} ${
+                (i * 100) / Math.max(gradStops.length - 1, 1)
+              }%`
+          )
+          .join(", ")})`;
         prevEl.style.background = css;
       }
 
-      stopsEl.addEventListener("input", (e)=>{
+      stopsEl.addEventListener("input", (e) => {
         const row = e.target.closest(".gen-stop");
-        if(!row) return;
+        if (!row) return;
         const idx = [...stopsEl.children].indexOf(row);
-        const [hexInput, colorInput] = row.querySelectorAll('input');
-        if(e.target === hexInput){
-          const h = normHex(hexInput.value,true);
+        const [hexInput, colorInput] = row.querySelectorAll("input");
+        if (e.target === hexInput) {
+          const h = normHex(hexInput.value, true);
           hexInput.value = h;
           colorInput.value = h;
-          gradStops[idx]=h;
-        }else if(e.target === colorInput){
-          const h = normHex(colorInput.value,true);
+          gradStops[idx] = h;
+        } else if (e.target === colorInput) {
+          const h = normHex(colorInput.value, true);
           hexInput.value = h;
-          gradStops[idx]=h;
+          gradStops[idx] = h;
         }
         updateGradPreview();
         render();
       });
 
-      stopsEl.addEventListener("click", (e)=>{
+      stopsEl.addEventListener("click", (e) => {
         const btn = e.target.closest("button");
-        if(!btn) return;
-        const i = parseInt(btn.dataset.idx,10);
-        if(btn.classList.contains("ntg-del") && gradStops.length>2){
-          gradStops.splice(i,1);
-        } else if(btn.classList.contains("ntg-up") && i>0){
-          [gradStops[i-1],gradStops[i]]=[gradStops[i],gradStops[i-1]];
-        } else if(btn.classList.contains("ntg-down") && i<gradStops.length-1){
-          [gradStops[i+1],gradStops[i]]=[gradStops[i],gradStops[i+1]];
+        if (!btn) return;
+        const i = parseInt(btn.dataset.idx, 10);
+        if (btn.classList.contains("ntg-del") && gradStops.length > 2) {
+          gradStops.splice(i, 1);
+        } else if (btn.classList.contains("ntg-up") && i > 0) {
+          [gradStops[i - 1], gradStops[i]] = [gradStops[i], gradStops[i - 1]];
+        } else if (btn.classList.contains("ntg-down") && i < gradStops.length - 1) {
+          [gradStops[i + 1], gradStops[i]] = [gradStops[i], gradStops[i + 1]];
         }
         stopCount.value = String(gradStops.length);
         renderStopRows();
         render();
       });
 
-      btnAdd.addEventListener("click", ()=>{
-        if(gradStops.length>=5) return;
-        gradStops.push("#" + Array.from({length:6},()=> "89ABCDEF01234567"[Math.floor(Math.random()*16)]).join(""));
+      btnAdd.addEventListener("click", () => {
+        if (gradStops.length >= 5) return;
+        gradStops.push(
+          "#" +
+            Array.from(
+              { length: 6 },
+              () => "89ABCDEF01234567"[Math.floor(Math.random() * 16)]
+            ).join("")
+        );
         stopCount.value = String(gradStops.length);
         renderStopRows();
         render();
       });
-      btnRem.addEventListener("click", ()=>{
-        if(gradStops.length<=2) return;
+      btnRem.addEventListener("click", () => {
+        if (gradStops.length <= 2) return;
         gradStops.pop();
         stopCount.value = String(gradStops.length);
         renderStopRows();
         render();
       });
-      btnRand.addEventListener("click", ()=>{
-        gradStops = gradStops.map(()=> "#" + Array.from({length:6},()=> "89ABCDEF01234567"[Math.floor(Math.random()*16)]).join(""));
+      btnRand.addEventListener("click", () => {
+        gradStops = gradStops.map(
+          () =>
+            "#" +
+            Array.from(
+              { length: 6 },
+              () => "89ABCDEF01234567"[Math.floor(Math.random() * 16)]
+            ).join("")
+        );
         renderStopRows();
         render();
       });
-      stopCount.addEventListener("change", ()=>{
-        let n = clamp(parseInt(stopCount.value||"3",10),2,5);
-        while(gradStops.length<n)
-          gradStops.push("#" + Array.from({length:6},()=> "89ABCDEF01234567"[Math.floor(Math.random()*16)]).join(""));
-        while(gradStops.length>n)
-          gradStops.pop();
+      stopCount.addEventListener("change", () => {
+        let n = clamp(parseInt(stopCount.value || "3", 10), 2, 5);
+        while (gradStops.length < n)
+          gradStops.push(
+            "#" +
+              Array.from(
+                { length: 6 },
+                () => "89ABCDEF01234567"[Math.floor(Math.random() * 16)]
+              ).join("")
+          );
+        while (gradStops.length > n) gradStops.pop();
         renderStopRows();
         render();
       });
 
-      modeRadios.forEach(r=>r.addEventListener("change", ()=>{
-        const m = currentMode();
-        solidWrap.hidden = (m!=="solid");
-        gradWrap.hidden  = (m!=="grad");
-        render();
-      }));
+      modeRadios.forEach((r) =>
+        r.addEventListener("change", () => {
+          const m = currentMode();
+          solidWrap.hidden = m !== "solid";
+          gradWrap.hidden = m !== "grad";
+          render();
+        })
+      );
 
       friendCode.addEventListener("input", render);
       nameInput.addEventListener("input", render);
-      fontSelect.addEventListener("change", render); 
-        
+      fontSelect.addEventListener("change", render);
+
       let lotusGradStops = {
-        upper: ["#4EF3FF","#FF9DF2","#FFD66B"],
-        name:  ["#FF9DF2","#FFD66B","#FF75A0"],
-        lower: ["#9BFFD0","#6BD3FF"]
+        upper: ["#4EF3FF", "#FF9DF2", "#FFD66B"],
+        name: ["#FF9DF2", "#FFD66B", "#FF75A0"],
+        lower: ["#9BFFD0", "#6BD3FF"]
       };
 
       function getLotusStops() {
@@ -899,20 +1560,26 @@
         lotusGradStops[currentLotusTarget()] = arr;
       }
 
-      function renderLotusStopRows(){
+      function renderLotusStopRows() {
         const arr = getLotusStops();
         lotusStopsEl.innerHTML = "";
-        arr.forEach((hex,idx)=>{
+        arr.forEach((hex, idx) => {
           const row = document.createElement("div");
           row.className = "gen-stop";
           row.style.gridTemplateColumns = "auto 1fr auto";
           row.innerHTML = `
             <div class="color" style="min-width:120px">
-              <label>Stop ${idx+1}</label>
+              <label>Stop ${idx + 1}</label>
             </div>
             <div class="color">
-              <input type="text" value="${normHex(hex,true)}" aria-label="Lotus hex stop ${idx+1}">
-              <input type="color" value="${normHex(hex,true)}" aria-label="Pick Lotus stop ${idx+1}">
+              <input type="text" value="${normHex(
+                hex,
+                true
+              )}" aria-label="Lotus hex stop ${idx + 1}">
+              <input type="color" value="${normHex(
+                hex,
+                true
+              )}" aria-label="Pick Lotus stop ${idx + 1}">
             </div>
             <div class="row-btns">
               <button class="copy-btn lotus-up" data-idx="${idx}" title="Up" type="button">▲</button>
@@ -926,97 +1593,130 @@
         updateLotusGradPreview();
       }
 
-      function updateLotusGradPreview(){
+      function updateLotusGradPreview() {
         const arr = getLotusStops();
-        const css = `linear-gradient(90deg, ${arr.map((c,i)=>`${normHex(c,true)} ${(i*100/(Math.max(arr.length-1,1)))}%`).join(", ")})`;
+        const css = `linear-gradient(90deg, ${arr
+          .map(
+            (c, i) =>
+              `${normHex(c, true)} ${
+                (i * 100) / Math.max(arr.length - 1, 1)
+              }%`
+          )
+          .join(", ")})`;
         lotusPrevEl.style.background = css;
       }
 
-      lotusStopsEl.addEventListener("input", (e)=>{
+      lotusStopsEl.addEventListener("input", (e) => {
         const row = e.target.closest(".gen-stop");
-        if(!row) return;
+        if (!row) return;
         const idx = [...lotusStopsEl.children].indexOf(row);
-        const [hexInput, colorInput] = row.querySelectorAll('input');
+        const [hexInput, colorInput] = row.querySelectorAll("input");
         const arr = getLotusStops().slice();
-        if(e.target === hexInput){
-          const h = normHex(hexInput.value,true);
+        if (e.target === hexInput) {
+          const h = normHex(hexInput.value, true);
           hexInput.value = h;
           colorInput.value = h;
-          arr[idx]=h;
-        }else if(e.target === colorInput){
-          const h = normHex(colorInput.value,true);
+          arr[idx] = h;
+        } else if (e.target === colorInput) {
+          const h = normHex(colorInput.value, true);
           hexInput.value = h;
-          arr[idx]=h;
+          arr[idx] = h;
         }
         setLotusStops(arr);
         updateLotusGradPreview();
         render();
       });
 
-      lotusStopsEl.addEventListener("click", (e)=>{
+      lotusStopsEl.addEventListener("click", (e) => {
         const btn = e.target.closest("button");
-        if(!btn) return;
-        const i = parseInt(btn.dataset.idx,10);
+        if (!btn) return;
+        const i = parseInt(btn.dataset.idx, 10);
         let arr = getLotusStops().slice();
-        if(btn.classList.contains("lotus-del") && arr.length>2){
-          arr.splice(i,1);
-        } else if(btn.classList.contains("lotus-up") && i>0){
-          [arr[i-1],arr[i]]=[arr[i],arr[i-1]];
-        } else if(btn.classList.contains("lotus-down") && i<arr.length-1){
-          [arr[i+1],arr[i]]=[arr[i],arr[i+1]];
+        if (btn.classList.contains("lotus-del") && arr.length > 2) {
+          arr.splice(i, 1);
+        } else if (btn.classList.contains("lotus-up") && i > 0) {
+          [arr[i - 1], arr[i]] = [arr[i], arr[i - 1]];
+        } else if (btn.classList.contains("lotus-down") && i < arr.length - 1) {
+          [arr[i + 1], arr[i]] = [arr[i], arr[i + 1]];
         }
         setLotusStops(arr);
         renderLotusStopRows();
         render();
       });
 
-      lotusAddBtn.addEventListener("click", ()=>{
+      lotusAddBtn.addEventListener("click", () => {
         let arr = getLotusStops().slice();
-        if(arr.length>=5) return;
-        arr.push("#" + Array.from({length:6},()=> "89ABCDEF01234567"[Math.floor(Math.random()*16)]).join(""));
+        if (arr.length >= 5) return;
+        arr.push(
+          "#" +
+            Array.from(
+              { length: 6 },
+              () => "89ABCDEF01234567"[Math.floor(Math.random() * 16)]
+            ).join("")
+        );
         setLotusStops(arr);
         renderLotusStopRows();
         render();
       });
-      lotusRemBtn.addEventListener("click", ()=>{
+      lotusRemBtn.addEventListener("click", () => {
         let arr = getLotusStops().slice();
-        if(arr.length<=2) return;
+        if (arr.length <= 2) return;
         arr.pop();
         setLotusStops(arr);
         renderLotusStopRows();
         render();
       });
-      lotusRandBtn.addEventListener("click", ()=>{
-        let arr = getLotusStops().map(()=> "#" + Array.from({length:6},()=> "89ABCDEF01234567"[Math.floor(Math.random()*16)]).join(""));
+      lotusRandBtn.addEventListener("click", () => {
+        let arr = getLotusStops().map(
+          () =>
+            "#" +
+            Array.from(
+              { length: 6 },
+              () => "89ABCDEF01234567"[Math.floor(Math.random() * 16)]
+            ).join("")
+        );
         setLotusStops(arr);
         renderLotusStopRows();
         render();
       });
-      lotusStopCount.addEventListener("change", ()=>{
-        let n = clamp(parseInt(lotusStopCount.value||"3",10),2,5);
+      lotusStopCount.addEventListener("change", () => {
+        let n = clamp(parseInt(lotusStopCount.value || "3", 10), 2, 5);
         let arr = getLotusStops().slice();
-        while(arr.length<n)
-          arr.push("#" + Array.from({length:6},()=> "89ABCDEF01234567"[Math.floor(Math.random()*16)]).join(""));
-        while(arr.length>n)
-          arr.pop();
+        while (arr.length < n)
+          arr.push(
+            "#" +
+              Array.from(
+                { length: 6 },
+                () => "89ABCDEF01234567"[Math.floor(Math.random() * 16)]
+              ).join("")
+          );
+        while (arr.length > n) arr.pop();
         setLotusStops(arr);
         renderLotusStopRows();
         render();
       });
-      lotusTargetRadios.forEach(r=>r.addEventListener("change", ()=>{
-        renderLotusStopRows();
-        render();
-      }));
+      lotusTargetRadios.forEach((r) =>
+        r.addEventListener("change", () => {
+          renderLotusStopRows();
+          render();
+        })
+      );
 
-      [lotusUpperText, lotusUpperSize, lotusNameText, lotusNameSize, lotusLowerText, lotusLowerSize]
-        .forEach(el => el && el.addEventListener("input", render));
+      [
+        lotusUpperText,
+        lotusUpperSize,
+        lotusNameText,
+        lotusNameSize,
+        lotusLowerText,
+        lotusLowerSize
+      ].forEach((el) => el && el.addEventListener("input", render));
 
       function gradientTextHtml(text, stops) {
         text = sanitizeTagText(text || "");
         const chars = [...text];
         if (!chars.length) return "";
 
-        const cols = (stops || []).map(c => normHex(c, true));
+        const cols = (stops || []).map((c) => normHex(c, true));
         if (!cols.length) cols.push("#FFFFFF");
 
         const result = [];
@@ -1043,30 +1743,33 @@
         return result.join("");
       }
 
-      function buildPerCharTags(text, colors){
+      function buildPerCharTags(text, colors) {
         text = sanitizeTagText(text || "");
         const chars = [...text];
-        if(!chars.length) return "";
+        if (!chars.length) return "";
         let perCharColors = [];
-        if(Array.isArray(colors)){
+        if (Array.isArray(colors)) {
           const L = chars.length;
-          if(L===1){
-            perCharColors=[normHex(colors[0],true)];
-          } else{
-            for(let i=0;i<L;i++){
-              const t = i/(L-1);
-              const seg = (colors.length-1)*t;
-              const i0 = Math.floor(seg), i1 = Math.min(colors.length-1,i0+1);
+          if (L === 1) {
+            perCharColors = [normHex(colors[0], true)];
+          } else {
+            for (let i = 0; i < L; i++) {
+              const t = i / (L - 1);
+              const seg = (colors.length - 1) * t;
+              const i0 = Math.floor(seg),
+                i1 = Math.min(colors.length - 1, i0 + 1);
               const localT = seg - i0;
               const col = lerpColor(colors[i0], colors[i1], localT);
-              perCharColors.push(normHex(col,true));
+              perCharColors.push(normHex(col, true));
             }
           }
         } else {
-          const h = normHex(colors,true);
+          const h = normHex(colors, true);
           perCharColors = Array(chars.length).fill(h);
         }
-        return chars.map((c,i)=>`<color=${perCharColors[i]}>${c}</color>`).join("");
+        return chars
+          .map((c, i) => `<color=${perCharColors[i]}>${c}</color>`)
+          .join("");
       }
 
       function applyFontTag(inner, fontName) {
@@ -1078,25 +1781,27 @@
         return (str || "").replace(/"/g, '\\"');
       }
 
-      function escapeHtml(s){
-        return (s || "").replace(/[&<>"]/g, c => ({
-          "&":"&amp;",
-          "<":"&lt;",
-          ">":"&gt;",
-          "\"":"&quot;"
-        }[c]));
+      function escapeHtml(s) {
+        return (s || "").replace(/[&<>"]/g, (c) => {
+          return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;"
+          }[c];
+        });
       }
 
-      function syncLotusColor(hexInput, picker){
-        if(!hexInput || !picker) return;
-        hexInput.addEventListener("input", ()=>{
-          const h = normHex(hexInput.value,true);
+      function syncLotusColor(hexInput, picker) {
+        if (!hexInput || !picker) return;
+        hexInput.addEventListener("input", () => {
+          const h = normHex(hexInput.value, true);
           hexInput.value = h;
           picker.value = h;
           render();
         });
-        picker.addEventListener("input", ()=>{
-          const h = normHex(picker.value,true);
+        picker.addEventListener("input", () => {
+          const h = normHex(picker.value, true);
           hexInput.value = h;
           render();
         });
@@ -1104,82 +1809,97 @@
       syncLotusColor(lotusPrefixColor, lotusPrefixColorPick);
       syncLotusColor(lotusSuffixColor, lotusSuffixColorPick);
 
-      [lotusPrefixText, lotusPrefixSize, lotusSuffixText, lotusSuffixSize]
-        .forEach(el => el && el.addEventListener("input", render));
-      lotusPrefixSpaceRadios.forEach(r=>r.addEventListener("change", render));
-      lotusSuffixSpaceRadios.forEach(r=>r.addEventListener("change", render));
+      [lotusPrefixText, lotusPrefixSize, lotusSuffixText, lotusSuffixSize].forEach(
+        (el) => el && el.addEventListener("input", render)
+      );
+      lotusPrefixSpaceRadios.forEach((r) =>
+        r.addEventListener("change", render)
+      );
+      lotusSuffixSpaceRadios.forEach((r) =>
+        r.addEventListener("change", render)
+      );
 
       function buildLotusYaml() {
         const upperText = sanitizeTagText(lotusUpperText.value || "");
-        const nameText  = sanitizeTagText(lotusNameText.value  || "");
+        const nameText = sanitizeTagText(lotusNameText.value || "");
         const lowerText = sanitizeTagText(lotusLowerText.value || "");
 
         const upperSize = lotusUpperSize.value || "2";
-        const nameSize  = lotusNameSize.value  || "2";
+        const nameSize = lotusNameSize.value || "2";
         const lowerSize = lotusLowerSize.value || "2";
 
-        const upperCols = lotusGradStops.upper.map(c => normHex(c, true));
-        const nameCols  = lotusGradStops.name.map(c => normHex(c, true));
-        const lowerCols = lotusGradStops.lower.map(c => normHex(c, true));
+        const upperCols = lotusGradStops.upper.map((c) => normHex(c, true));
+        const nameCols = lotusGradStops.name.map((c) => normHex(c, true));
+        const lowerCols = lotusGradStops.lower.map((c) => normHex(c, true));
 
-        const prefixTextRaw    = lotusPrefixText?.value || "";
-        const prefixText       = sanitizeTagText(prefixTextRaw);
-        const prefixColor      = normHex(lotusPrefixColor?.value || "#FFFFFF", true);
-        const prefixSpaced     = [...lotusPrefixSpaceRadios].find(r => r.checked)?.value === "true";
-        const prefixSizeRaw    = (lotusPrefixSize?.value || "").trim();
-        const prefixSize       = prefixSizeRaw ? prefixSizeRaw : "null";
+        const prefixTextRaw = lotusPrefixText?.value || "";
+        const prefixText = sanitizeTagText(prefixTextRaw);
+        const prefixColor = normHex(lotusPrefixColor?.value || "#FFFFFF", true);
+        const prefixSpaced =
+          [...lotusPrefixSpaceRadios].find((r) => r.checked)?.value === "true";
+        const prefixSizeRaw = (lotusPrefixSize?.value || "").trim();
+        const prefixSize = prefixSizeRaw ? prefixSizeRaw : "null";
 
-        const suffixTextRaw    = lotusSuffixText?.value || "";
-        const suffixText       = sanitizeTagText(suffixTextRaw);
-        const suffixColor      = normHex(lotusSuffixColor?.value || "#FFFFFF", true);
-        const suffixSpaced     = [...lotusSuffixSpaceRadios].find(r => r.checked)?.value === "true";
-        const suffixSizeRaw    = (lotusSuffixSize?.value || "").trim();
-        const suffixSize       = suffixSizeRaw ? suffixSizeRaw : "null";
+        const suffixTextRaw = lotusSuffixText?.value || "";
+        const suffixText = sanitizeTagText(suffixTextRaw);
+        const suffixColor = normHex(lotusSuffixColor?.value || "#FFFFFF", true);
+        const suffixSpaced =
+          [...lotusSuffixSpaceRadios].find((r) => r.checked)?.value === "true";
+        const suffixSizeRaw = (lotusSuffixSize?.value || "").trim();
+        const suffixSize = suffixSizeRaw ? suffixSizeRaw : "null";
 
         return `UpperText:
-      Text: ${upperText}
-      Gradient: "${upperCols.join(", ")}"
-      Size: ${upperSize}
+  Text: ${upperText}
+  Gradient: "${upperCols.join(", ")}"
+  Size: ${upperSize}
 
-    Name:
-      Gradient: "${nameCols.join(", ")}"
-      Size: ${nameSize}
+Name:
+  Gradient: "${nameCols.join(", ")}"
+  Size: ${nameSize}
 
-    Prefix:
-      Spaced: ${prefixSpaced ? "true" : "false"}
-      Text: ${prefixText}
-      Color: "${prefixColor}"
-      Size: ${prefixSize}
+Prefix:
+  Spaced: ${prefixSpaced ? "true" : "false"}
+  Text: ${prefixText}
+  Color: "${prefixColor}"
+  Size: ${prefixSize}
 
-    Suffix:
-      Spaced: ${suffixSpaced ? "true" : "false"}
-      Text: ${suffixText}
-      Color: "${suffixColor}"
-      Size: ${suffixSize}
+Suffix:
+  Spaced: ${suffixSpaced ? "true" : "false"}
+  Text: ${suffixText}
+  Color: "${suffixColor}"
+  Size: ${suffixSize}
 
-    LowerText:
-      Text: ${lowerText}
-      Gradient: "${lowerCols.join(", ")}"
-      Size: ${lowerSize}
-    `;
+LowerText:
+  Text: ${lowerText}
+  Gradient: "${lowerCols.join(", ")}"
+  Size: ${lowerSize}
+`;
       }
 
-      function renderLotusPreview(){
-        const upperText = sanitizeTagText(lotusUpperText.value || "Discord.gg/maul");
-        const nameText  = sanitizeTagText(lotusNameText.value  || "Sarhadactyl");
-        const lowerText = sanitizeTagText(lotusLowerText.value || "I like cookies");
+      function renderLotusPreview() {
+        const upperText = sanitizeTagText(
+          lotusUpperText.value || "Discord.gg/maul"
+        );
+        const nameText = sanitizeTagText(
+          lotusNameText.value || "Sarhadactyl"
+        );
+        const lowerText = sanitizeTagText(
+          lotusLowerText.value || "I like cookies"
+        );
 
         const upperCols = lotusGradStops.upper;
-        const nameCols  = lotusGradStops.name;
+        const nameCols = lotusGradStops.name;
         const lowerCols = lotusGradStops.lower;
 
         const prefixText = sanitizeTagText(lotusPrefixText.value || "");
         const prefixColor = normHex(lotusPrefixColor.value || "#FF0000", true);
-        const prefixSpaced = [...lotusPrefixSpaceRadios].find(r=>r.checked)?.value === "true";
+        const prefixSpaced =
+          [...lotusPrefixSpaceRadios].find((r) => r.checked)?.value === "true";
 
         const suffixText = sanitizeTagText(lotusSuffixText.value || "");
         const suffixColor = normHex(lotusSuffixColor.value || "#FF00FF", true);
-        const suffixSpaced = [...lotusSuffixSpaceRadios].find(r=>r.checked)?.value === "true";
+        const suffixSpaced =
+          [...lotusSuffixSpaceRadios].find((r) => r.checked)?.value === "true";
 
         const prefixHtml = prefixText
           ? `<span style="color:${prefixColor}">${escapeHtml(prefixText)}</span>`
@@ -1192,13 +1912,15 @@
         const suffixSpace = suffixHtml && suffixSpaced ? "&nbsp;" : "";
 
         lotusUpperLine.innerHTML = gradientTextHtml(upperText, upperCols);
-        lotusNameLine.innerHTML  =
-          `${prefixHtml}${prefixSpace}${gradientTextHtml(nameText, nameCols)}${suffixSpace}${suffixHtml}`;
+        lotusNameLine.innerHTML = `${prefixHtml}${prefixSpace}${gradientTextHtml(
+          nameText,
+          nameCols
+        )}${suffixSpace}${suffixHtml}`;
         lotusLowerLine.innerHTML = gradientTextHtml(lowerText, lowerCols);
       }
 
-      function buildOutputs(){
-        const mod  = currentMod();
+      function buildOutputs() {
+        const mod = currentMod();
         const mode = currentMode();
         const fontName = fontSelect.value || "";
 
@@ -1214,10 +1936,10 @@
           return { baseTagText: "", exportTagText: "", payload };
         }
 
-        if(mode==="solid"){
+        if (mode === "solid") {
           let inner = text;
           inner = applyFontTag(inner, fontName);
-          baseTagText = `<color=${normHex(solidHexIn.value,true)}>${inner}</color>`;
+          baseTagText = `<color=${normHex(solidHexIn.value, true)}>${inner}</color>`;
         } else {
           let colored = buildPerCharTags(text, gradStops.slice());
           colored = applyFontTag(colored, fontName);
@@ -1227,14 +1949,21 @@
         exportTagText = baseTagText;
 
         if (mod === "ehr" && trailEnabled && trailEnabled.checked) {
-          const tHex = normHex(trailHexInput.value,true);
+          const tHex = normHex(trailHexInput.value, true);
           exportTagText += `<color=${tHex}>`;
         }
 
         if (mod === "ehr") {
-          const vip       = document.querySelector('input[name="ntg-vip"]:checked')?.value === "true";
-          const moderator = document.querySelector('input[name="ntg-moderator"]:checked')?.value === "true";
-          const admin     = document.querySelector('input[name="ntg-admin"]:checked')?.value === "true";
+          const vip =
+            document.querySelector('input[name="ntg-vip"]:checked')?.value ===
+            "true";
+          const moderator =
+            document.querySelector(
+              'input[name="ntg-moderator"]:checked'
+            )?.value === "true";
+          const admin =
+            document.querySelector('input[name="ntg-admin"]:checked')?.value ===
+            "true";
 
           payload = JSON.stringify(
             { Vip: vip, Moderator: moderator, Admin: admin, Tag: exportTagText },
@@ -1243,15 +1972,32 @@
           );
         } else if (mod === "tone") {
           const level = document.getElementById("ntg-tone-level").value;
-          const say   = document.querySelector('input[name="ntg-say"]:checked')?.value === "true" ? "y" : "n";
-          const end   = document.querySelector('input[name="ntg-end"]:checked')?.value === "true" ? "y" : "n";
-          const exec  = document.querySelector('input[name="ntg-exec"]:checked')?.value === "true" ? "y" : "n";
-          const gm    = document.querySelector('input[name="ntg-gm"]:checked')?.value === "true" ? "y" : "n";
+          const say =
+            document.querySelector('input[name="ntg-say"]:checked')?.value ===
+            "true"
+              ? "y"
+              : "n";
+          const end =
+            document.querySelector('input[name="ntg-end"]:checked')?.value ===
+            "true"
+              ? "y"
+              : "n";
+          const exec =
+            document.querySelector('input[name="ntg-exec"]:checked')?.value ===
+            "true"
+              ? "y"
+              : "n";
+          const gm =
+            document.querySelector('input[name="ntg-gm"]:checked')?.value ===
+            "true"
+              ? "y"
+              : "n";
 
-          const tagNameLine  = `TagName: ${baseTagText}`;
-          const tagColorLine = (mode === "solid")
-            ? `TagColor: ${normHex(solidHexIn.value,false)}`
-            : `TagColor:`;
+          const tagNameLine = `TagName: ${baseTagText}`;
+          const tagColorLine =
+            mode === "solid"
+              ? `TagColor: ${normHex(solidHexIn.value, false)}`
+              : `TagColor:`;
 
           payload = [
             tagNameLine,
@@ -1267,7 +2013,7 @@
         return { baseTagText, exportTagText, payload };
       }
 
-      function render(){
+      function render() {
         const { baseTagText, exportTagText, payload } = buildOutputs();
         const mod = currentMod();
 
@@ -1279,16 +2025,20 @@
           outEl.textContent = exportTagText;
 
           const html = baseTagText
-            .replace(/<color=#[0-9A-Fa-f]{6}>(.*?)<\/color>/g, (m,inner)=>{
-              const hex = (m.match(/<color=(#[0-9A-Fa-f]{6})>/)||[])[1]||"#FFFFFF";
-              return `<span style="color:${hex}">${inner}</span>`;
-            })
-            .replace(/<color=#[0-9A-Fa-f]{6}>/g,"")
-            .replace(/<\/color>/g,"")
-            .replace(/<font=".*?">/g,"")
-            .replace(/<\/font>/g,"");
+            .replace(
+              /<color=#[0-9A-Fa-f]{6}>(.*?)<\/color>/g,
+              (m, inner) => {
+                const hex =
+                  (m.match(/<color=(#[0-9A-Fa-f]{6})>/) || [])[1] || "#FFFFFF";
+                return `<span style="color:${hex}">${inner}</span>`;
+              }
+            )
+            .replace(/<color=#[0-9A-Fa-f]{6}>/g, "")
+            .replace(/<\/color>/g, "")
+            .replace(/<font=".*?">/g, "")
+            .replace(/<\/font>/g, "");
 
-          visEl.innerHTML = html; 
+          visEl.innerHTML = html;
           const selectedFontName = fontSelect.value || "";
           const previewFont = previewFontMap[selectedFontName] || "";
           visEl.style.fontFamily = previewFont;
@@ -1299,21 +2049,21 @@
         payloadEl.textContent = payload;
       }
 
-      copyBtn.addEventListener("click", ()=>{
-        copyToClipboard(outEl.textContent).then(()=>{
-          copyBtn.textContent="Copied!";
-          setTimeout(()=>copyBtn.textContent="Copy text",1200);
+      copyBtn.addEventListener("click", () => {
+        copyToClipboard(outEl.textContent).then(() => {
+          copyBtn.textContent = "Copied!";
+          setTimeout(() => (copyBtn.textContent = "Copy text"), 1200);
         });
       });
 
-      dlBtn.addEventListener("click", ()=>{
+      dlBtn.addEventListener("click", () => {
         const mod = currentMod();
-        if (mod === "lotus") return;  
+        if (mod === "lotus") return;
         const { payload } = buildOutputs();
         let fcRaw = friendCode.value || "tag";
         let fcFile = fcRaw.replace(/[\/\\:*?"<>|]/g, "").slice(0, 32) || "tag";
 
-        const blob = new Blob([payload], {type:"text/plain;charset=utf-8"});
+        const blob = new Blob([payload], { type: "text/plain;charset=utf-8" });
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
@@ -1324,12 +2074,12 @@
         URL.revokeObjectURL(url);
       });
 
-      lotusDlBtn.addEventListener("click", ()=>{
+      lotusDlBtn.addEventListener("click", () => {
         const yaml = buildLotusYaml();
         let fcRaw = friendCode.value || "title";
         let fcFile = fcRaw.replace(/[\/\\:*?"<>|]/g, "").slice(0, 32) || "title";
 
-        const blob = new Blob([yaml], {type:"text/plain;charset=utf-8"});
+        const blob = new Blob([yaml], { type: "text/plain;charset=utf-8" });
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
@@ -1340,7 +2090,7 @@
         URL.revokeObjectURL(url);
       });
 
-      (function init(){
+      (function init() {
         solidHexIn.dispatchEvent(new Event("input"));
         renderStopRows();
         renderLotusStopRows();
