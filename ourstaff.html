@@ -16,9 +16,10 @@
 
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+          crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <style>
       :root {
@@ -413,17 +414,20 @@
         justify-content: space-between;
       } 
       details summary::after {
-        content: "\f107"; 
+        content: "\f107";
         font-family: "Font Awesome 6 Free";
         font-weight: 900;
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
         font-size: 0.9rem;
         color: var(--text-muted);
-        margin-left: 10px;
         transition: transform 0.25s ease, color 0.25s ease;
       }
 
       details[open] summary::after {
-        transform: rotate(180deg);
+        transform: translateY(-50%) rotate(180deg);
         color: var(--accent);
       }
 
