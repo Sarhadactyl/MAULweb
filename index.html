@@ -138,9 +138,8 @@
         background: rgba(255, 255, 255, 0.04);
         color: var(--accent);
         padding-left: 22px;
-      }
-
-      .dropdown:hover .dropdown-content {
+      } 
+      .dropdown.open .dropdown-content {
         display: block;
       }
 
@@ -507,7 +506,7 @@
   </head>
   <body>
     <div class="dropdown">
-      <button class="dropbtn">
+      <button class="dropbtn" type="button">
         <div class="hamburger">
           <span></span>
           <span></span>
@@ -655,6 +654,24 @@
           console.error("Error fetching Discord widget data:", error);
           document.getElementById("memberCount").textContent = "Error";
         });
+ 
+      document.addEventListener('DOMContentLoaded', () => {
+        const dropdown = document.querySelector('.dropdown');
+        const button = document.querySelector('.dropbtn');
+
+        if (!dropdown || !button) return;
+
+        button.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+          }
+        });
+      });
     </script>
   </body>
 </html>
