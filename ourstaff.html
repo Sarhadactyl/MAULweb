@@ -2,11 +2,12 @@
 <html>
 <head>
   <title>Our Staff</title>
-  <meta property="og:title" content="Welcome to MAUL" />
+  <meta charset="UTF-8" />
+  <meta property="og:title" content="Our Staff" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://moddedamong.us/" />
   <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-  <meta property="og:description" content="Welcome to Modded Among Us Lobbies. Join our community to enhance your gaming experience!" />
+  <meta property="og:description" content="Meet our staff, moderators, our events team and verification mods!" />
   <meta property="og:site_name" content="Modded Among Us Lobbies" />
   <meta property="og:locale" content="en_US" />
   <link rel="canonical" href="https://moddedamong.us/" />
@@ -19,12 +20,10 @@
       font-family: Arial, sans-serif;
       color: #fff;
     }
-    /* Background image covering the screen */
     body {
       background: #000 url("images/background.png") no-repeat center top;
       background-size: cover;
     }
-    /* Uniform Hamburger Menu */
     .dropdown {
       position: absolute;
       top: 20px;
@@ -72,6 +71,7 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
+
     .apply-section {
       max-width: 1200px;
       margin: 20px auto;
@@ -98,11 +98,10 @@
       cursor: pointer;
       transition: color 0.3s ease;
     }
-    /* Hover effects ripple and highlight */
     .apply-links span:hover,
     .apply-links a:hover {
       animation: ripple 0.8s ease-out;
-      color: rgb(255, 255, 255);
+      color: #fff;
     }
     @keyframes ripple {
       0% {
@@ -115,7 +114,6 @@
         text-shadow: 0 0 0 rgba(255,255,255,0.5);
       }
     }
-    /* Styling for closed Moderation text */
     .closed s {
       text-decoration: line-through;
     }
@@ -134,12 +132,12 @@
       font-size: 0.8em;
       color: #ccc;
     }
-    /* Page Heading */
+
     h1 {
       text-align: center;
       margin: 20px 0 30px;
     }
-    /* Staff Container (3 columns) */
+
     .staff-container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -148,6 +146,19 @@
       margin: 0 auto 40px;
       padding: 0 20px;
     }
+
+    @media (max-width: 900px) {
+      .staff-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .staff-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .staff-role {
       background-color: rgba(100, 100, 100, 0.3);
       border: 1px solid #1d0909;
@@ -162,7 +173,7 @@
       text-align: center;
       color: #fff;
     }
-    /* Collapsible details (each staff member) */
+
     details {
       background-color: rgba(100, 100, 100, 0.3);
       border: 1px solid #1d0909;
@@ -184,7 +195,7 @@
     summary::-webkit-details-marker {
       display: none;
     }
-    /* Smooth roll-down effect */
+
     .details-content {
       overflow: hidden;
       max-height: 0;
@@ -197,7 +208,7 @@
       max-height: none;
       transition: none;
     }
-    /* Staff Member Content */
+
     .staff-member {
       text-align: center;
       padding: 10px;
@@ -222,6 +233,7 @@
       line-height: 1.4;
       color: #fff;
     }
+
     .modal {
       display: none;
       position: fixed;
@@ -253,7 +265,6 @@
   </style>
 </head>
 <body>
-  <!-- Uniform Hamburger Menu -->
   <div class="dropdown">
     <button class="dropbtn">
       <div class="hamburger">
@@ -274,21 +285,17 @@
     </div>
   </div>
 
-  <!-- Apply for Staff Section -->
   <div class="apply-section">
     <h2>Apply for Staff</h2>
     <div class="apply-links">
-      <!-- Moderation (closed) -->
       <span id="moderation" class="closed">
         <span class="red-dot"></span>
         <s>Moderation</s>
       </span>
-      <!-- Verification Moderator (closed) -->
       <span id="verification-mod" class="closed">
         <span class="red-dot"></span>
         <s>Verification Moderator</s>
       </span>
-      <!-- Event Manager -->
       <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344252646743085096">
         <span class="green-dot"></span>Event Manager
       </a>
@@ -297,10 +304,7 @@
   </div>
 
   <h1>Our Staff</h1>
-
-  <!-- Single Staff Container (3 columns) -->
   <div class="staff-container">
-    <!-- Row 1: Owners (col 1), Head Admin (col 2), Admin (col 3) -->
     <div class="staff-role" style="grid-column: 1;">
       <h2>Owners</h2>
       <details>
@@ -388,8 +392,6 @@
         </div>
       </details>
     </div>
-
-    <!-- Row 2: Senior Moderator (col 1), Moderator (col 2), Trial Mod (col 3) -->
     <div class="staff-role" style="grid-column: 1;">
       <h2>Senior Moderator</h2>
       <details>
@@ -431,7 +433,7 @@
                 Music/violin enthusiast
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/summerbp.webp" alt="Just a girl and her silly little games &amp; pretty things against the world" style="max-width:20px; border:none; margin:0;">
+                <img src="images/summerbp.webp" alt="Just a girl and her silly little games & pretty things against the world" style="max-width:20px; border:none; margin:0;">
                 Just a girl and her silly little games &amp; pretty things against the world
               </li>
             </ul>
@@ -500,35 +502,12 @@
                 Senior Contributor for TOHE (coded Coven and Neutral Apocalypse)
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/margbp2.webp" alt="Violin &amp; Guitar Player" style="max-width:20px; border:none; margin:0;">
+                <img src="images/margbp2.webp" alt="Violin & Guitar Player" style="max-width:20px; border:none; margin:0;">
                 Violin &amp; Guitar Player, Bowler, and occasional Artist
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
                 <img src="images/margbp3.webp" alt="Full-time furry" style="max-width:20px; border:none; margin:0;">
                 Full-time furry
-              </li>
-            </ul>
-          </div>
-        </div>
-      </details>
-      <details>
-        <summary>Croissant</summary>
-        <div class="details-content">
-          <div class="staff-member">
-            <img src="images/crisicon.png" alt="Moderator @croissant">
-            <h4>About Me</h4>
-            <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-              <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/crisbp.webp" alt="Pokemon Enjoyer" style="max-width:20px; border:none; margin:0;">
-                Pokemon Enjoyer
-              </li>
-              <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/crisbp.webp" alt="Light blue is my fav colour" style="max-width:20px; border:none; margin:0;">
-                Light blue is my fav colour
-              </li>
-              <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/crisbp.webp" alt="Penguins are the best" style="max-width:20px; border:none; margin:0;">
-                Penguins are the best
               </li>
             </ul>
           </div>
@@ -554,7 +533,7 @@
                 Chemistry
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/fish.webp" alt="Sports &amp; Gaming" style="max-width:20px; border:none; margin:0;">
+                <img src="images/fish.webp" alt="Sports & Gaming" style="max-width:20px; border:none; margin:0;">
                 Sports &amp; Gaming
               </li>
             </ul>
@@ -615,7 +594,7 @@
         <summary>Trial Mods</summary>
         <div class="details-content">
           <div class="staff-member">
-            <h3><!-- Add trial mod name(s) here --></h3>
+            <h3><!--trial mod--></h3>
             <img src="images/trialmod.png" alt="Trial Mod">
             <h4>About Me</h4>
             <p><!-- About Me --></p>
@@ -624,26 +603,49 @@
       </details>
     </div>
 
-    <!-- Verification Moderators panel -->
     <div class="staff-role" style="grid-column: 1;">
-      <h2>Verification Moderators</h2>
+      <h2>Head of Verification &amp; Verification Moderators</h2>
+
       <details>
-        <summary>Goldenwolf</summary>
+        <summary>Head of Verification – Goldenwolf</summary>
         <div class="details-content">
           <div class="staff-member">
-            <img src="images/goldenwolficon.png" alt="Verification Moderator – Goldenwolf">
+            <img src="images/goldenwolficon.png" alt="Head of Verification – Goldenwolf">
             <h4>About Me</h4>
             <p><!-- Goldenwolf’s bio --></p>
           </div>
         </div>
       </details>
+
       <details>
-        <summary>Spyder</summary>
+        <summary>Verification Moderator – Spyder</summary>
         <div class="details-content">
           <div class="staff-member">
             <img src="images/spydericon.png" alt="Verification Moderator – Spyder">
             <h4>About Me</h4>
             <p>A student who hosts stuff and watches way too much anime.</p>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Verification Moderator – Crowy</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/crowyicon.png" alt="Verification Moderator – Crowy">
+            <h4>About Me</h4>
+            <p><!-- Crowy’s bio --></p>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Verification Moderator – Ghoul</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/ghoulicon.png" alt="Verification Moderator – Ghoul">
+            <h4>About Me</h4>
+            <p>What`s up. I`m ghoul. I`m a student living in the Netherlands. I am a fan of reading, movies, and sports.</p>
           </div>
         </div>
       </details>
@@ -669,50 +671,33 @@
 
     <div class="staff-role" style="grid-column: 3;">
       <h2>Events</h2>
+
       <details>
-        <summary>Event Director - Croissant</summary>
+        <summary>Event Director – Ghoul</summary>
         <div class="details-content">
           <div class="staff-member">
-            <img src="images/crisicon.png" alt="Moderator @croissant">
+            <img src="images/ghoulicon.png" alt="Event Director – Ghoul">
             <h4>About Me</h4>
-            <p><!-- About Me --></p>
+            <p>What`s up. I`m ghoul. I`m a student living in the Netherlands. I am a fan of reading, movies, and sports.</p>
+          </div>
+        </div>
+      </details>
+      <details>
+        <summary>Event Manager – Spyder</summary>
+        <div class="details-content">
+          <div class="staff-member">
+            <img src="images/spydericon.png" alt="Event Manager – Spyder">
+            <h4>About Me</h4>
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/crisbp.webp" alt="Pokemon Enjoyer" style="max-width:20px; border:none; margin:0;">
-                Pokemon Enjoyer
-              </li>
-              <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/crisbp.webp" alt="Light blue is my fav colour" style="max-width:20px; border:none; margin:0;">
-                Light blue is my fav colour
-              </li>
-              <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/crisbp.webp" alt="Penguins are the best" style="max-width:20px; border:none; margin:0;">
-                Penguins are the best
+                <img src="images/spyderbp.webp" alt="spyderinfo" style="max-width:20px; border:none; margin:0;">
+                A student who hosts stuff and watches way too much anime.
               </li>
             </ul>
           </div>
         </div>
       </details>
-      <details>
-        <summary>Event Director – Ghoul</summary>
-        <div class="details-content">
-          <div class="staff-member">
-            <img src="images/ghoulicon.png" alt="Trial Event Manager – Ghoul">
-            <h4>About Me</h4>
-            <p>What`s up. I`m ghoul. I`m a student living in the  Netherlands. I am a fan of reading, movies, and sports.</p>
-          </div>
-        </div>
-      </details>
-      <details>
-        <summary>Event Manager</summary>
-        <div class="details-content">
-          <div class="staff-member">
-            <img src="images/event.png" alt="Event Manager">
-            <h4>About Me</h4>
-            <p><!-- About Me for Event Manager --></p>
-          </div>
-        </div>
-      </details>
+
       <details>
         <summary>Trial Event Manager – Night</summary>
         <div class="details-content">
@@ -728,22 +713,18 @@
           </div>
         </div>
       </details>
+
       <details>
-        <summary>Trial Event Manager – Spyder</summary>
+        <summary>Trial Event Manager – Mark</summary>
         <div class="details-content">
           <div class="staff-member">
-            <img src="images/spydericon.png" alt="Trial Event Manager – Spyder">
+            <img src="images/markicon.png" alt="Trial Event Manager – Mark">
             <h4>About Me</h4>
-            <p><!-- About Me --></p>
-            <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-              <li style="display: flex; align-items: center; gap: 5px;">
-                <img src="images/spyderbp.webp" alt="spyderinfo" style="max-width:20px; border:none; margin:0;">
-                A student who hosts stuff and watches way too much anime.
-              </li>
-            </ul>
+            <p><!-- Mark’s bio --></p>
           </div>
         </div>
       </details>
+
       <details>
         <summary>Minecraft - Pyro</summary>
         <div class="details-content">
@@ -753,7 +734,7 @@
             <ul style="list-style: disc; padding-left: 20px; text-align: left;">
               <li style="display: flex; align-items: center; gap: 5px;">
                 <img src="images/pyroicon.webp" alt="Gamer & Creator" style="max-width:20px; margin:0;">
-                Gamer & Creator
+                Gamer &amp; Creator
               </li>
               <li style="display: flex; align-items: center; gap: 5px;">
                 <img src="images/pyroicon2.webp" alt="The Funniest Guy You've Never Met!" style="max-width:20px; margin:0;">
@@ -795,11 +776,13 @@
         });
       });
 
-      // Moderation & Verification "closed" modal
       ['moderation','verification-mod'].forEach(id => {
-        document.getElementById(id).addEventListener('click', () => {
-          document.getElementById('modal').style.display = "block";
-        });
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('click', () => {
+            document.getElementById('modal').style.display = "block";
+          });
+        }
       });
 
       document.getElementById('close-modal').addEventListener('click', () => {
