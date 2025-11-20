@@ -631,6 +631,24 @@
         });
       };
  
+      function sanitizeTagText(str) {
+        if (!str) return "";
+        const out = [];
+        for (const ch of str) {
+          const cp = ch.codePointAt(0); 
+          if (cp >= 0xFE00 && cp <= 0xFE0F) continue; 
+          if (cp === 0x200D || cp === 0x200B || cp === 0x200C) continue;
+ 
+          if (cp === 0x00A0) {
+            out.push(" ");
+            continue;
+          }
+
+          out.push(ch);
+        }
+        return out.join("");
+      }
+
       const previewFontMap = {
         "": "", 
         "VCR SDF": '"VT323", monospace',
@@ -685,7 +703,7 @@
       const trailEnabled    = document.getElementById("ntg-trail-enabled");
       const trailHexInput   = document.getElementById("ntg-trail-hex");
       const trailColorInput = document.getElementById("ntg-trail-color");
- 
+
       const lotusUpperText = document.getElementById("ntg-lotus-upper-text");
       const lotusUpperSize = document.getElementById("ntg-lotus-upper-size");
       const lotusNameText  = document.getElementById("ntg-lotus-name-text");
@@ -866,7 +884,7 @@
       friendCode.addEventListener("input", render);
       nameInput.addEventListener("input", render);
       fontSelect.addEventListener("change", render); 
-       
+        
       let lotusGradStops = {
         upper: ["#4EF3FF","#FF9DF2","#FFD66B"],
         name:  ["#FF9DF2","#FFD66B","#FF75A0"],
@@ -989,12 +1007,13 @@
         renderLotusStopRows();
         render();
       }));
- 
+
       [lotusUpperText, lotusUpperSize, lotusNameText, lotusNameSize, lotusLowerText, lotusLowerSize]
         .forEach(el => el && el.addEventListener("input", render));
 
       function gradientTextHtml(text, stops) {
-        const chars = [...(text || "")];
+        text = sanitizeTagText(text || "");
+        const chars = [...text];
         if (!chars.length) return "";
 
         const cols = (stops || []).map(c => normHex(c, true));
@@ -1006,7 +1025,8 @@
 
         if (L === 1) {
           const mid = cols[Math.floor((S - 1) / 2)];
-          result.push(`<span style="color:${mid}">${chars[0]}</span>`);
+          const ch = chars[0] === " " ? "&nbsp;" : chars[0];
+          result.push(`<span style="color:${mid}">${ch}</span>`);
         } else {
           for (let i = 0; i < L; i++) {
             const t = i / (L - 1);
@@ -1024,6 +1044,7 @@
       }
 
       function buildPerCharTags(text, colors){
+        text = sanitizeTagText(text || "");
         const chars = [...text];
         if(!chars.length) return "";
         let perCharColors = [];
@@ -1047,6 +1068,7 @@
         }
         return chars.map((c,i)=>`<color=${perCharColors[i]}>${c}</color>`).join("");
       }
+
       function applyFontTag(inner, fontName) {
         if (!fontName) return inner;
         return `<font="${fontName}">${inner}</font>`;
@@ -1088,72 +1110,74 @@
       lotusSuffixSpaceRadios.forEach(r=>r.addEventListener("change", render));
 
       function buildLotusYaml() {
-        const upperText = lotusUpperText.value || "";
-        const nameText  = lotusNameText.value  || "";
-        const lowerText = lotusLowerText.value || "";
+        const upperText = sanitizeTagText(lotusUpperText.value || "");
+        const nameText  = sanitizeTagText(lotusNameText.value  || "");
+        const lowerText = sanitizeTagText(lotusLowerText.value || "");
 
         const upperSize = lotusUpperSize.value || "2";
         const nameSize  = lotusNameSize.value  || "2";
         const lowerSize = lotusLowerSize.value || "2";
 
-
         const upperCols = lotusGradStops.upper.map(c => normHex(c, true));
         const nameCols  = lotusGradStops.name.map(c => normHex(c, true));
         const lowerCols = lotusGradStops.lower.map(c => normHex(c, true));
 
-        const prefixText     = lotusPrefixText?.value || "";
-        const prefixColor    = normHex(lotusPrefixColor?.value || "#FFFFFF", true);
-        const prefixSpaced   = [...lotusPrefixSpaceRadios].find(r => r.checked)?.value === "true";
-        const prefixSizeRaw  = (lotusPrefixSize?.value || "").trim();
-        const prefixSize     = prefixSizeRaw ? prefixSizeRaw : "null";
+        const prefixTextRaw    = lotusPrefixText?.value || "";
+        const prefixText       = sanitizeTagText(prefixTextRaw);
+        const prefixColor      = normHex(lotusPrefixColor?.value || "#FFFFFF", true);
+        const prefixSpaced     = [...lotusPrefixSpaceRadios].find(r => r.checked)?.value === "true";
+        const prefixSizeRaw    = (lotusPrefixSize?.value || "").trim();
+        const prefixSize       = prefixSizeRaw ? prefixSizeRaw : "null";
 
+        const suffixTextRaw    = lotusSuffixText?.value || "";
+        const suffixText       = sanitizeTagText(suffixTextRaw);
+        const suffixColor      = normHex(lotusSuffixColor?.value || "#FFFFFF", true);
+        const suffixSpaced     = [...lotusSuffixSpaceRadios].find(r => r.checked)?.value === "true";
+        const suffixSizeRaw    = (lotusSuffixSize?.value || "").trim();
+        const suffixSize       = suffixSizeRaw ? suffixSizeRaw : "null";
 
-        const suffixText     = lotusSuffixText?.value || "";
-        const suffixColor    = normHex(lotusSuffixColor?.value || "#FFFFFF", true);
-        const suffixSpaced   = [...lotusSuffixSpaceRadios].find(r => r.checked)?.value === "true";
-        const suffixSizeRaw  = (lotusSuffixSize?.value || "").trim();
-        const suffixSize     = suffixSizeRaw ? suffixSizeRaw : "null";
         return `UpperText:
-  Text: ${upperText}
-  Gradient: "${upperCols.join(", ")}"
-  Size: ${upperSize}
+      Text: ${upperText}
+      Gradient: "${upperCols.join(", ")}"
+      Size: ${upperSize}
 
-Name:
-  Gradient: "${nameCols.join(", ")}"
-  Size: ${nameSize}
+    Name:
+      Gradient: "${nameCols.join(", ")}"
+      Size: ${nameSize}
 
-Prefix:
-  Spaced: ${prefixSpaced ? "true" : "false"}
-  Text: ${prefixText}
-  Color: "${prefixColor}"
-  Size: ${prefixSize}
+    Prefix:
+      Spaced: ${prefixSpaced ? "true" : "false"}
+      Text: ${prefixText}
+      Color: "${prefixColor}"
+      Size: ${prefixSize}
 
-Suffix:
-  Spaced: ${suffixSpaced ? "true" : "false"}
-  Text: ${suffixText}
-  Color: "${suffixColor}"
-  Size: ${suffixSize}
+    Suffix:
+      Spaced: ${suffixSpaced ? "true" : "false"}
+      Text: ${suffixText}
+      Color: "${suffixColor}"
+      Size: ${suffixSize}
 
-LowerText:
-  Text: ${lowerText}
-  Gradient: "${lowerCols.join(", ")}"
-  Size: ${lowerSize}
-`;
+    LowerText:
+      Text: ${lowerText}
+      Gradient: "${lowerCols.join(", ")}"
+      Size: ${lowerSize}
+    `;
       }
+
       function renderLotusPreview(){
-        const upperText = lotusUpperText.value || "Discord.gg/maul";
-        const nameText  = lotusNameText.value  || "Sarhadactyl";
-        const lowerText = lotusLowerText.value || "I like cookies";
+        const upperText = sanitizeTagText(lotusUpperText.value || "Discord.gg/maul");
+        const nameText  = sanitizeTagText(lotusNameText.value  || "Sarhadactyl");
+        const lowerText = sanitizeTagText(lotusLowerText.value || "I like cookies");
 
         const upperCols = lotusGradStops.upper;
         const nameCols  = lotusGradStops.name;
         const lowerCols = lotusGradStops.lower;
 
-        const prefixText = lotusPrefixText.value || "";
+        const prefixText = sanitizeTagText(lotusPrefixText.value || "");
         const prefixColor = normHex(lotusPrefixColor.value || "#FF0000", true);
         const prefixSpaced = [...lotusPrefixSpaceRadios].find(r=>r.checked)?.value === "true";
 
-        const suffixText = lotusSuffixText.value || "";
+        const suffixText = sanitizeTagText(lotusSuffixText.value || "");
         const suffixColor = normHex(lotusSuffixColor.value || "#FF00FF", true);
         const suffixSpaced = [...lotusSuffixSpaceRadios].find(r=>r.checked)?.value === "true";
 
@@ -1177,7 +1201,9 @@ LowerText:
         const mod  = currentMod();
         const mode = currentMode();
         const fontName = fontSelect.value || "";
-        const text = nameInput.value || "";
+
+        const rawText = nameInput.value || "";
+        const text = sanitizeTagText(rawText);
 
         let baseTagText = "";
         let exportTagText = "";
@@ -1259,7 +1285,7 @@ LowerText:
             })
             .replace(/<color=#[0-9A-Fa-f]{6}>/g,"")
             .replace(/<\/color>/g,"")
-            .replace(/<font=\"(.*?)\">/g,"")
+            .replace(/<font=".*?">/g,"")
             .replace(/<\/font>/g,"");
 
           visEl.innerHTML = html; 
