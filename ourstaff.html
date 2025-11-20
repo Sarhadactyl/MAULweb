@@ -142,7 +142,7 @@
         color: #ff4d4d !important;
         font-weight: 700;
         text-shadow: 0 0 8px rgba(255, 0, 0, 0.75),
-                     0 0 12px rgba(255, 0, 0, 0.55);
+                    0 0 12px rgba(255, 0, 0, 0.55);
         animation: betaPulse 1.6s ease-in-out infinite;
       }
 
@@ -151,7 +151,7 @@
         padding-left: 22px;
         color: #ff8080 !important;
         text-shadow: 0 0 10px rgba(255, 50, 50, 1),
-                     0 0 16px rgba(255, 0, 0, 0.9);
+                    0 0 16px rgba(255, 0, 0, 0.9);
       }
 
       .dropdown.open .dropdown-content {
@@ -161,17 +161,18 @@
       @keyframes betaPulse {
         0% {
           text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
-                       0 0 12px rgba(255, 0, 0, 0.4);
+                      0 0 12px rgba(255, 0, 0, 0.4);
         }
         50% {
           text-shadow: 0 0 12px rgba(255, 60, 60, 1),
-                       0 0 24px rgba(255, 0, 0, 0.9);
+                      0 0 24px rgba(255, 0, 0, 0.9);
         }
         100% {
           text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
-                       0 0 12px rgba(255, 0, 0, 0.4);
+                      0 0 12px rgba(255, 0, 0, 0.4);
         }
-      } 
+      }
+ 
       .page-wrapper {
         max-width: 1100px;
         margin: 0 auto;
@@ -372,65 +373,74 @@
         font-family: 'Poppins', sans-serif;
       } 
       details {
-        background-color: rgba(45, 18, 18, 0.96);
-        border-radius: 12px;
+        background: rgba(45, 18, 18, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
         margin-bottom: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.06);
         overflow: hidden;
-        transition: border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+        transition: box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+        backdrop-filter: blur(8px);
+      }
+
+      details:hover {
+        background: rgba(60, 22, 22, 0.9);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.85);
       }
 
       details[open] {
-        box-shadow: 0 10px 24px rgba(0,0,0,0.9);
+        background: rgba(70, 26, 26, 0.95);
+        box-shadow: 0 12px 36px rgba(0,0,0,0.9);
         border-color: var(--accent-soft);
-        background: rgba(60, 22, 22, 0.98);
       }
 
-      summary {
+      /* remove default marker everywhere */
+      summary::marker,
+      summary::-webkit-details-marker {
+        content: "";
+      }
+
+      details summary {
         cursor: pointer;
-        padding: 10px 12px;
+        padding: 12px 14px;
         font-weight: 600;
-        outline: none;
-        margin: 0;
+        color: var(--text-main);
+        font-size: 0.95rem;
+        position: relative;
         list-style: none;
+        user-select: none;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-size: 0.95rem;
-      }
-
-      summary::-webkit-details-marker {
-        display: none;
-      }
-
-      summary::after {
-        content: '\f078';
+      } 
+      details summary::after {
+        content: "\f107"; 
         font-family: "Font Awesome 6 Free";
         font-weight: 900;
-        font-size: 0.7rem;
-        opacity: 0.7;
-        transition: transform 0.20s ease, opacity 0.20s ease;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-left: 10px;
+        transition: transform 0.25s ease, color 0.25s ease;
       }
 
       details[open] summary::after {
         transform: rotate(180deg);
-        opacity: 1;
+        color: var(--accent);
       }
 
       .details-content {
-        overflow: hidden;
-        max-height: 0;
-        transition: max-height 0.5s ease;
+        padding: 0 14px 12px;
         border-top: 1px solid rgba(255, 255, 255, 0.06);
+        animation: fadeIn 0.25s ease-out;
       }
 
-      details[open] .details-content {
-        max-height: 600px;
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-4px); }
+        to   { opacity: 1; transform: translateY(0); }
       }
 
       .staff-member {
         text-align: center;
-        padding: 10px 14px 12px;
+        padding: 10px 0 4px;
         font-size: 0.9rem;
       }
 
@@ -480,7 +490,8 @@
         box-shadow: none;
         margin: 0;
       }
- 
+
+      /* MODAL */
       .modal {
         display: none;
         position: fixed;
@@ -536,10 +547,6 @@
           animation-iteration-count: 1 !important;
           transition-duration: 0.001ms !important;
           scroll-behavior: auto !important;
-        }
-        .details-content {
-          transition: none;
-          max-height: none !important;
         }
       }
     </style>
