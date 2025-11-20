@@ -2024,7 +2024,7 @@ LowerText:
         } else {
           outEl.textContent = exportTagText;
 
-          const html = baseTagText
+          let html = baseTagText
             .replace(
               /<color=#[0-9A-Fa-f]{6}>(.*?)<\/color>/g,
               (m, inner) => {
@@ -2037,8 +2037,10 @@ LowerText:
             .replace(/<\/color>/g, "")
             .replace(/<font=".*?">/g, "")
             .replace(/<\/font>/g, "");
+          html = html.replace(/ /g, "&nbsp;");
 
           visEl.innerHTML = html;
+
           const selectedFontName = fontSelect.value || "";
           const previewFont = previewFontMap[selectedFontName] || "";
           visEl.style.fontFamily = previewFont;
