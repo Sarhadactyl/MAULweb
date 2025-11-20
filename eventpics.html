@@ -1,354 +1,688 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Event Slideshow</title>
-  <title>Our Staff</title>
-  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-  <meta property="og:title" content="Welcome to MAUL" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://moddedamong.us/" />
-  <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-  <meta property="og:description" content="Welcome to Modded Among Us Lobbies. Join our community to enhance your gaming experience!" />
-  <meta property="og:site_name" content="Modded Among Us Lobbies" />
-  <meta property="og:locale" content="en_US" />
-  <link rel="canonical" href="https://moddedamong.us/" />
-  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      font-family: Arial, sans-serif;
-      color: #fff;
-      overflow-x: hidden;
-    }
-    body {
-      background: #000 url("images/background.png") no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-bottom: 100px;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: inherit;
-      filter: brightness(0.6);
-      z-index: -2;
-    }
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(29,29,29,0.9), rgba(29,29,29,0.9));
-      z-index: -1;
-    }
-    header {
-      width: 100%;
-      text-align: center;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.7);
-      position: relative;
-      z-index: 1000;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 3em;
-      color: #fff;
-    }
-    .dropdown {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 1000;
-    }
-    .dropbtn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      padding: 0;
-    }
-    .dropbtn:hover {
-      transform: scale(1.1);
-    }
-    .hamburger {
-      width: 30px;
-      height: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .hamburger span {
-      display: block;
-      height: 4px;
-      background-color: #fff;
-      border-radius: 2px;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #2a2a2a;
-      min-width: 160px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      border-radius: 5px;
-    }
-    .dropdown-content a {
-      color: #fff;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      transition: background 0.3s;
-    }
-    .dropdown-content a:hover {
-      background-color: #3a3a3a;
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-    .slideshow-container {
-      position: relative;
-      width: 90%;
-      max-width: 800px;
-      min-height: 400px;
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-    .slide {
-      display: none;
-      width: 100%;
-      text-align: center;
-      transition: opacity 1s ease-in-out;
-    }
-    .slide.active {
-      display: block;
-    }
-    .slide h2 {
-      margin: 10px 0;
-      text-align: center;
-      font-size: 2em;
-      background: rgba(128,128,128,0.5);
-      padding: 10px 20px;
-      border-radius: 5px;
-      display: inline-block;
-    }
-    .slide img {
-      display: block;
-      margin: 0 auto;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-    .prev, .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.5);
-      border: none;
-      color: #fff;
-      font-size: 2em;
-      padding: 10px;
-      cursor: pointer;
-      border-radius: 50%;
-      user-select: none;
-      z-index: 999;
-    }
-    .prev:hover, .next:hover {
-      background-color: rgba(0,0,0,0.8);
-    }
-    .prev {
-      left: 10px;
-    }
-    .next {
-      right: 10px;
-    }
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      padding: 15px;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 1000;
-    }
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2em;
+<html lang="en">
+  <head>
+    <title>Past Events · MAUL</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:title" content="MAUL Past Events" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/eventpics.html" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta property="og:description" content="Scroll through some of our past events, mega lobbies, Minecraft nights, and more." />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://moddedamong.us/eventpics.html" />
+
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+      :root {
+        --accent: #800000;
+        --accent-soft: rgba(128, 0, 0, 0.25);
+        --accent-strong: #b00000;
+        --bg-card: rgba(30, 12, 12, 0.9);
+        --bg-soft: rgba(45, 18, 18, 0.9);
+        --text-main: #ffffff;
+        --text-muted: #dedee8;
       }
-      .slide h2 {
-        font-size: 1.4em;
-        padding: 5px 10px;
+
+      * {
+        box-sizing: border-box;
       }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        color: var(--text-main);
+        overflow-x: hidden;
+      }
+
+      body {
+        background: #000 url("images/maulredbg.png") no-repeat top center fixed;
+        background-size: auto 100%;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(circle at top, rgba(128, 0, 0, 0.45), transparent 55%),
+          radial-gradient(circle at bottom, rgba(180, 0, 60, 0.25), transparent 55%);
+        mix-blend-mode: screen;
+        opacity: 0.7;
+        pointer-events: none;
+        z-index: -2;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
+        z-index: -1;
+      }
+
+      /* NAV / HAMBURGER (same style as other pages) */
+      .dropdown {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 100;
+      }
+
+      .dropbtn {
+        background: rgba(35, 10, 10, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        cursor: pointer;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        padding: 10px 10px;
+        border-radius: 999px;
+        backdrop-filter: blur(10px);
+      }
+
+      .dropbtn:hover {
+        transform: translateY(-1px) scale(1.03);
+        background: rgba(50, 16, 16, 0.98);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      }
+
+      .hamburger {
+        width: 26px;
+        height: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .hamburger span {
+        display: block;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), #ff0040);
+        border-radius: 999px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        margin-top: 8px;
+        background-color: rgba(35, 10, 10, 0.96);
+        min-width: 220px;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.85);
+        border-radius: 12px;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .dropdown-content a {
+        color: var(--text-main);
+        padding: 12px 18px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.95rem;
+        transition: background 0.25s, color 0.25s, padding-left 0.25s;
+      }
+
+      .dropdown-content a:hover {
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--accent);
+        padding-left: 22px;
+      }
+
+      .beta-glow {
+        color: #ff4d4d !important;
+        font-weight: 700;
+        text-shadow: 0 0 8px rgba(255, 0, 0, 0.75),
+                     0 0 12px rgba(255, 0, 0, 0.55);
+        animation: betaPulse 1.6s ease-in-out infinite;
+      }
+
+      .beta-glow:hover {
+        background: rgba(255, 0, 0, 0.12) !important;
+        padding-left: 22px;
+        color: #ff8080 !important;
+        text-shadow: 0 0 10px rgba(255, 50, 50, 1),
+                     0 0 16px rgba(255, 0, 0, 0.9);
+      }
+
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+
+      @keyframes betaPulse {
+        0% {
+          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
+                       0 0 12px rgba(255, 0, 0, 0.4);
+        }
+        50% {
+          text-shadow: 0 0 12px rgba(255, 60, 60, 1),
+                       0 0 24px rgba(255, 0, 0, 0.9);
+        }
+        100% {
+          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
+                       0 0 12px rgba(255, 0, 0, 0.4);
+        }
+      }
+
+      /* PAGE LAYOUT */
+      .page-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 80px 20px 70px;
+      }
+
+      @media (max-width: 600px) {
+        .page-wrapper {
+          padding-top: 90px;
+        }
+      }
+
+      .page-header {
+        text-align: center;
+        padding: 32px 16px 18px;
+      }
+
+      .header-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: linear-gradient(120deg, rgba(128, 0, 0, 0.5), rgba(200, 0, 80, 0.35));
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: var(--text-muted);
+        margin-bottom: 16px;
+      }
+
+      .header-badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #00ff9c, #00b36b);
+        box-shadow: 0 0 12px rgba(0, 255, 156, 0.7);
+      }
+
+      .page-header h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(2.1rem, 3.4vw, 2.8rem);
+        margin: 0;
+        letter-spacing: 0.04em;
+        text-shadow: 0 8px 30px rgba(0,0,0,0.9);
+      }
+
+      .page-header h1 span {
+        background: linear-gradient(120deg, #ffffff, var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .page-header-subtitle {
+        margin: 12px auto 0;
+        max-width: 650px;
+        font-size: 0.98rem;
+        line-height: 1.7;
+        color: var(--text-muted);
+      }
+
+      /* SLIDESHOW CARD */
+      .slideshow-shell {
+        margin: 26px auto 26px;
+        max-width: 900px;
+        background: var(--bg-card);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 22px 50px rgba(0,0,0,0.9);
+        padding: 18px 18px 20px;
+        backdrop-filter: blur(12px);
+      }
+
+      .slideshow-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 0.86rem;
+        color: var(--text-muted);
+      }
+
+      .slideshow-header-left {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .slideshow-dot-live {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #ffcc00, #ff6f00);
+        box-shadow: 0 0 10px rgba(255, 187, 0, 0.8);
+      }
+
+      .slideshow-counter {
+        font-variant-numeric: tabular-nums;
+        opacity: 0.9;
+      }
+
       .slideshow-container {
-        min-height: 300px;
+        position: relative;
+        width: 100%;
+        min-height: 320px;
+        border-radius: 14px;
+        overflow: hidden;
+        background: radial-gradient(circle at top, rgba(128, 0, 0, 0.28), rgba(12, 0, 0, 0.95));
       }
-    }
-  </style>
-</head>
-<body>
 
-  <header>
-    <h1>Our Events</h1>
-  </header>
+      .slide {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 14px 14px 16px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.7s ease-in-out;
+        text-align: center;
+      }
 
-  <div class="dropdown">
-    <button class="dropbtn">
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+      .slide.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .slide-title {
+        margin: 4px 0 10px;
+        font-size: 1.15rem;
+        font-family: 'Poppins', sans-serif;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .slide-title i {
+        font-size: 0.95rem;
+        opacity: 0.9;
+      }
+
+      .slide img {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        max-height: 430px;
+        object-fit: contain;
+        border-radius: 10px;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.9);
+      }
+
+      .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0,0,0,0.65);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: #fff;
+        font-size: 1.6rem;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 24px rgba(0,0,0,0.85);
+        transition: background 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
+      }
+
+      .prev:hover, .next:hover {
+        background-color: rgba(20, 0, 0, 0.95);
+        transform: translateY(-50%) translateY(-1px);
+        box-shadow: 0 14px 32px rgba(0,0,0,0.95);
+      }
+
+      .prev {
+        left: 10px;
+      }
+
+      .next {
+        right: 10px;
+      }
+
+      /* FOOTER / NOTE */
+      .event-footer-note {
+        max-width: 900px;
+        margin: 4px auto 0;
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .ticket-link {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .ticket-link:hover {
+        color: var(--accent-strong);
+        text-decoration: underline;
+      }
+
+      @media (max-width: 700px) {
+        .slideshow-container {
+          min-height: 260px;
+        }
+        .slide img {
+          max-height: 320px;
+        }
+        .slide-title {
+          font-size: 1rem;
+          padding: 5px 12px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .slideshow-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+        .slide {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <div class="dropdown">
+      <button class="dropbtn" type="button" aria-label="Open navigation menu">
+        <div class="hamburger" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+      <div class="dropdown-content">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
+        <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
+        <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
+        <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
+        <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
+        <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
+        <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
+        <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-hashtag"></i> Tag Generator</a>
+        <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
+        <a href="https://moddedamong.us/BETAtemplates" class="beta-glow">
+          <i class="fa-solid fa-flask"></i> BETA Templates
+        </a>
       </div>
-    </button>
-    <div class="dropdown-content">
-      <a href="index.html">Home</a>
-      <a href="https://moddedamong.us/art.html">User Art</a>
-      <a href="https://moddedamong.us/ourstaff.html">Our Staff</a>
-      <a href="https://moddedamong.us/calendar.html">Event Calendar</a>
-      <a href="https://moddedamong.us/mods.html">Featured Mods</a>
-      <a href="https://moddedamong.us/presets.html">Mod Presets</a>
-      <a href="https://moddedamong.us/icons.html">Icons and Fonts</a>
-      <a href="https://moddedamong.us/tags.html">Tag Generator</a>
-    </div>
-  </div>
-
-  <div class="slideshow-container">
-    <div class="slide active">
-      <h2>TOU-R</h2>
-      <img src="images/event1.png" alt="Event 1">
-    </div>
-    <div class="slide">
-      <h2>Gartic Phone</h2>
-      <img src="images/event2.png" alt="Event 2">
-    </div>
-    <div class="slide">
-      <h2>TOR</h2>
-      <img src="images/event3.png" alt="Event 3">
-    </div>
-    <div class="slide">
-      <h2>TOHE Mega Lobby</h2>
-      <img src="images/event4.png" alt="Event 4">
-    </div>
-    <div class="slide">
-      <h2>SKRIBBL.IO</h2>
-      <img src="images/event5.png" alt="Event 5">
-    </div>
-    <div class="slide">
-      <h2>TOHE Mega Lobby - Speedrun</h2>
-      <img src="images/event6.png" alt="Event 6">
-    </div>
-    <div class="slide">
-      <h2>Minecraft Event</h2>
-      <img src="images/event11.png" alt="Event 11">
-    </div>    
-    <div class="slide">
-      <h2>Minecraft Event</h2>
-      <img src="images/event12.png" alt="Event 11">
-    </div>  
-    <div class="slide">
-      <h2>Minecraft Event</h2>
-      <img src="images/event13.png" alt="Event 11">
-    </div>  
-    <div class="slide">
-      <h2>Minecraft Event</h2>
-      <img src="images/event14.png" alt="Event 11">
-    </div>  
-    <div class="slide">
-      <h2>TOHE Mega Lobby</h2>
-      <img src="images/event16.png" alt="Event 11">
-    </div>
-    <div class="slide">
-      <h2>TOHE Mega Lobby</h2>
-      <img src="images/event17.png" alt="Event 11">
-    </div>
-    <div class="slide">
-      <h2>TOHE Mega Lobby In Game View</h2>
-      <img src="images/event18.png" alt="Event 11">
-    </div>
-    <div class="slide">
-      <h2>Minecraft Event</h2>
-      <img src="images/event19.png" alt="Event 11">
-    </div>    <div class="slide">
-      <h2>TOHE Mega Lobby</h2>
-      <img src="images/event20.png" alt="Event 11">
-    </div>    <div class="slide">
-      <h2>Minecraft Event</h2>
-      <img src="images/event21.png" alt="Event 11">
-    </div>
-    <div class="slide">
-      <h2>Minecraft Event</h2>
-      <img src="images/event22.png" alt="Event 11">
-    </div>
-    <div class="slide">
-      <h2>Clan Wars</h2>
-      <img src="images/event24.jpg" alt="Event 11">
-    </div>
-    <div class="slide">
-      <h2>Clan Wars</h2>
-      <img src="images/event25.jpg" alt="Event 11">
-    </div>
-    <div class="slide">
-      <h2>Clan Wars</h2>
-      <img src="images/event26.jpg" alt="Event 11">
     </div>
 
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-  </div> 
+    <div class="page-wrapper">
+      <!-- HEADER -->
+      <header class="page-header">
+        <div class="header-badge">
+          <span class="header-badge-dot"></span>
+          Snapshot of our community events
+        </div>
+        <h1>
+          Past <span>Events</span>
+        </h1>
+        <p class="page-header-subtitle">
+          TOHE mega lobbies, Minecraft events, clan wars, party games and more – a highlight reel of the chaos we’ve hosted so far.
+        </p>
+      </header>
 
-  <footer>
-    <p>
-      To get your event images featured here please <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904" style="color: blue; text-decoration: none;">Open a ticket</a>.
-    </p>
-  </footer>
+      <!-- SLIDESHOW CARD -->
+      <section class="slideshow-shell">
+        <div class="slideshow-header">
+          <div class="slideshow-header-left">
+            <span class="slideshow-dot-live"></span>
+            <span>Scroll through event posters &amp; screenshots</span>
+          </div>
+          <div class="slideshow-counter" id="slideCounter">
+            1 / 20
+          </div>
+        </div>
 
-  <script>
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    let currentIndex = 0;
-    let slideInterval = setInterval(nextSlide, 5000);
+        <div class="slideshow-container">
+          <div class="slide active">
+            <div class="slide-title">
+              <i class="fa-solid fa-bolt"></i> TOU-R
+            </div>
+            <img src="images/event1.png" alt="TOU-R Event">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-solid fa-phone-volume"></i> Gartic Phone
+            </div>
+            <img src="images/event2.png" alt="Gartic Phone Event">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-solid fa-user-ninja"></i> TOR
+            </div>
+            <img src="images/event3.png" alt="TOR Event">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-solid fa-rocket"></i> TOHE Mega Lobby
+            </div>
+            <img src="images/event4.png" alt="TOHE Mega Lobby Event 1">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-regular fa-pen-to-square"></i> SKRIBBL.IO
+            </div>
+            <img src="images/event5.png" alt="SKRIBBL.IO Event">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-solid fa-stopwatch"></i> TOHE Mega Lobby – Speedrun
+            </div>
+            <img src="images/event6.png" alt="TOHE Mega Lobby Speedrun Event">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-brands fa-minecraft"></i> Minecraft Event
+            </div>
+            <img src="images/event11.png" alt="Minecraft Event 11">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-brands fa-minecraft"></i> Minecraft Event
+            </div>
+            <img src="images/event12.png" alt="Minecraft Event 12">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-brands fa-minecraft"></i> Minecraft Event
+            </div>
+            <img src="images/event13.png" alt="Minecraft Event 13">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-brands fa-minecraft"></i> Minecraft Event
+            </div>
+            <img src="images/event14.png" alt="Minecraft Event 14">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-solid fa-rocket"></i> TOHE Mega Lobby
+            </div>
+            <img src="images/event16.png" alt="TOHE Mega Lobby Event 16">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-solid fa-rocket"></i> TOHE Mega Lobby
+            </div>
+            <img src="images/event17.png" alt="TOHE Mega Lobby Event 17">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-solid fa-gamepad"></i> TOHE Mega Lobby – In Game View
+            </div>
+            <img src="images/event18.png" alt="TOHE Mega Lobby In Game View">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-brands fa-minecraft"></i> Minecraft Event
+            </div>
+            <img src="images/event19.png" alt="Minecraft Event 19">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-solid fa-rocket"></i> TOHE Mega Lobby
+            </div>
+            <img src="images/event20.png" alt="TOHE Mega Lobby Event 20">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-brands fa-minecraft"></i> Minecraft Event
+            </div>
+            <img src="images/event21.png" alt="Minecraft Event 21">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-brands fa-minecraft"></i> Minecraft Event
+            </div>
+            <img src="images/event22.png" alt="Minecraft Event 22">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-solid fa-trophy"></i> Clan Wars
+            </div>
+            <img src="images/event24.jpg" alt="Clan Wars Event 24">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-solid fa-trophy"></i> Clan Wars
+            </div>
+            <img src="images/event25.jpg" alt="Clan Wars Event 25">
+          </div>
+          <div class="slide">
+            <div class="slide-title">
+              <i class="fa-solid fa-trophy"></i> Clan Wars
+            </div>
+            <img src="images/event26.jpg" alt="Clan Wars Event 26">
+          </div>
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === index) {
-          slide.classList.add('active');
+          <button class="prev" type="button" aria-label="Previous event">&#10094;</button>
+          <button class="next" type="button" aria-label="Next event">&#10095;</button>
+        </div>
+      </section>
+
+      <p class="event-footer-note">
+        Want your screenshots or posters featured here?
+        <a class="ticket-link"
+           href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904"
+           target="_blank" rel="noopener">
+          Open a ticket in our Discord.
+        </a>
+      </p>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        /* NAV: click-to-toggle dropdown */
+        const dropdown = document.querySelector('.dropdown');
+        const button = document.querySelector('.dropbtn');
+
+        if (dropdown && button) {
+          button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('open');
+          });
+
+          document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+              dropdown.classList.remove('open');
+            }
+          });
+        }
+
+        /* SLIDESHOW */
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        const counter = document.getElementById('slideCounter');
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        if (counter) {
+          counter.textContent = `${currentIndex + 1} / ${totalSlides}`;
+        }
+
+        function showSlide(index) {
+          slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+          });
+          if (counter) {
+            counter.textContent = `${index + 1} / ${totalSlides}`;
+          }
+        }
+
+        function nextSlide() {
+          currentIndex = (currentIndex + 1) % totalSlides;
+          showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+          currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+          showSlide(currentIndex);
+        }
+
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', () => {
+            clearInterval(slideInterval);
+            nextSlide();
+            slideInterval = setInterval(nextSlide, 5000);
+          });
+        }
+
+        if (prevBtn) {
+          prevBtn.addEventListener('click', () => {
+            clearInterval(slideInterval);
+            prevSlide();
+            slideInterval = setInterval(nextSlide, 5000);
+          });
         }
       });
-    }
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      showSlide(currentIndex);
-    }
-
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      showSlide(currentIndex);
-    }
-
-    nextBtn.addEventListener('click', () => {
-      clearInterval(slideInterval);
-      nextSlide();
-      slideInterval = setInterval(nextSlide, 5000);
-    });
-
-    prevBtn.addEventListener('click', () => {
-      clearInterval(slideInterval);
-      prevSlide();
-      slideInterval = setInterval(nextSlide, 5000);
-    });
-  </script>
-
-</body>
+    </script>
+  </body>
 </html>
