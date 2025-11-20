@@ -138,7 +138,8 @@
         background: rgba(255, 255, 255, 0.04);
         color: var(--accent);
         padding-left: 22px;
-      } 
+      }
+
       .dropdown.open .dropdown-content {
         display: block;
       }
@@ -502,11 +503,13 @@
         margin: 0 0.25em;
         opacity: 0.9;
       }
+
       .beta-glow {
         color: #ff4d4d !important;
         font-weight: 700;
-        text-shadow: 0 0 8px rgba(255, 0, 0, 0.75), 
-                    0 0 12px rgba(255, 0, 0, 0.55);
+        text-shadow: 0 0 8px rgba(255, 0, 0, 0.75),
+                     0 0 12px rgba(255, 0, 0, 0.55);
+        animation: betaPulse 1.6s ease-in-out infinite;
       }
 
       .beta-glow:hover {
@@ -514,7 +517,22 @@
         padding-left: 22px;
         color: #ff8080 !important;
         text-shadow: 0 0 10px rgba(255, 50, 50, 1),
-                    0 0 16px rgba(255, 0, 0, 0.9);
+                     0 0 16px rgba(255, 0, 0, 0.9);
+      }
+
+      @keyframes betaPulse {
+        0% {
+          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
+                       0 0 12px rgba(255, 0, 0, 0.4);
+        }
+        50% {
+          text-shadow: 0 0 12px rgba(255, 60, 60, 1),
+                       0 0 24px rgba(255, 0, 0, 0.9);
+        }
+        100% {
+          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
+                       0 0 12px rgba(255, 0, 0, 0.4);
+        }
       }
     </style>
   </head>
@@ -536,11 +554,9 @@
         <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
         <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
         <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-hashtag"></i> Tag Generator</a>
-
-        <!-- ⭐ NEW ITEMS BELOW ⭐ -->
         <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
         <a href="https://moddedamong.us/BETATemplates" class="beta-glow">
-        <i class="fa-solid fa-flask"></i> BETA Templates
+          <i class="fa-solid fa-flask"></i> BETA Templates
         </a>
       </div>
     </div>
@@ -674,7 +690,7 @@
           console.error("Error fetching Discord widget data:", error);
           document.getElementById("memberCount").textContent = "Error";
         });
- 
+
       document.addEventListener('DOMContentLoaded', () => {
         const dropdown = document.querySelector('.dropdown');
         const button = document.querySelector('.dropbtn');
