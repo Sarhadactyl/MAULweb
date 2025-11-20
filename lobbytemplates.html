@@ -48,33 +48,33 @@
       }
 
       body {
-        background:#000 url("images/maulredbg.png") no-repeat top center fixed;
-        background-size:auto 100%;
-        position:relative;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        padding-bottom:130px;
+        background: #000 url("images/maulredbg.png") no-repeat top center fixed;
+        background-size: auto 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 130px;
       }
       body::before {
-        content:"";
-        position:fixed;
-        inset:0;
+        content: "";
+        position: fixed;
+        inset: 0;
         background:
-          radial-gradient(circle at top, rgba(128,0,0,0.45), transparent 55%),
-          radial-gradient(circle at bottom, rgba(180,0,60,0.24), transparent 55%);
-        mix-blend-mode:screen;
-        opacity:0.7;
-        pointer-events:none;
-        z-index:-2;
+          radial-gradient(circle at top, rgba(128, 0, 0, 0.55), transparent 55%),
+          radial-gradient(circle at bottom, rgba(180, 0, 60, 0.35), transparent 55%);
+        mix-blend-mode: screen;
+        opacity: 0.85;
+        pointer-events: none;
+        z-index: -2;
       }
 
       body::after {
-        content:"";
-        position:fixed;
-        inset:0;
-        background:radial-gradient(circle at center, rgba(20,0,0,0.9), rgba(5,0,0,0.98));
-        z-index:-1;
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.98));
+        z-index: -1;
       }
 
       header {
