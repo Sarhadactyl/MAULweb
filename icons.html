@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Compatible Icons and Fonts | Among Us Mods</title>
+    <title>Compatible Icons and Fonts · MAUL </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:title" content="Compatible Icons and Fonts- MAUL" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moddedamong.us/icons.html" />
@@ -11,13 +13,16 @@
     <meta property="og:locale" content="en_US" />
     <link rel="canonical" href="https://moddedamong.us/icons.html" />
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;700;900&family=VT323&family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&family=Press+Start+2P&family=Share+Tech+Mono&family=Rajdhani:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;700;900&family=VT323&family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&family=Press+Start+2P&family=Share+Tech+Mono&family=Rajdhani:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 
     <style>
+      :root {
+        --accent: #800000;
+        --accent-soft: rgba(128, 0, 0, 0.25);
+        --accent-strong: #b00000;
+      }
+
       html,
       body {
         height: 100%;
@@ -28,6 +33,7 @@
         color: #fff;
         overflow-x: hidden;
       }
+
       body {
         background: url('images/background.png') no-repeat center center fixed;
         background-size: cover;
@@ -36,69 +42,131 @@
         align-items: center;
         padding-bottom: 100px;
       }
+
       header {
         width: 100%;
         text-align: center;
-        padding: 20px;
+        padding: 20px 16px;
         background: rgba(0, 0, 0, 0.7);
         position: relative;
         z-index: 1000;
       }
+
       header h1 {
         margin: 0;
-        font-size: 3em;
+        font-size: clamp(26px, 3vw, 48px);
+        letter-spacing: 0.5px;
         color: #fff;
       }
+
       .dropdown {
         position: absolute;
         top: 20px;
-        left: 30px;
+        left: 20px;
         z-index: 100;
       }
+
       .dropbtn {
-        background: none;
-        border: none;
+        background: rgba(20, 20, 20, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.14);
         cursor: pointer;
-        transition: transform 0.3s ease;
-        padding: 0;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        padding: 10px 10px;
+        border-radius: 999px;
+        backdrop-filter: blur(10px);
       }
+
       .dropbtn:hover {
-        transform: scale(1.1);
+        transform: translateY(-1px) scale(1.03);
+        background: rgba(35, 35, 35, 0.96);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
       }
+
       .hamburger {
-        width: 30px;
-        height: 22px;
+        width: 26px;
+        height: 18px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
       }
+
       .hamburger span {
         display: block;
-        height: 4px;
-        background: #fff;
-        border-radius: 2px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), #ff0040);
+        border-radius: 999px;
       }
+
       .dropdown-content {
         display: none;
         position: absolute;
-        background: #2a2a2a;
-        min-width: 200px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        border-radius: 6px;
+        margin-top: 8px;
+        background-color: rgba(20, 20, 20, 0.96);
+        min-width: 220px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+        border-radius: 12px;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
       }
+
       .dropdown-content a {
-        color: #fff;
-        padding: 12px 16px;
+        color: #ffffff;
+        padding: 12px 18px;
         text-decoration: none;
-        display: block;
-        transition: background 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.95rem;
+        transition: background 0.25s, color 0.25s, padding-left 0.25s;
       }
+
       .dropdown-content a:hover {
-        background: #3a3a3a;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--accent);
+        padding-left: 22px;
       }
-      .dropdown:hover .dropdown-content {
+
+      .beta-glow {
+        color: #ff4d4d !important;
+        font-weight: 700;
+        text-shadow:
+          0 0 8px rgba(255, 0, 0, 0.75),
+          0 0 12px rgba(255, 0, 0, 0.55);
+        animation: betaPulse 1.6s ease-in-out infinite;
+      }
+
+      .beta-glow:hover {
+        background: rgba(255, 0, 0, 0.12) !important;
+        padding-left: 22px;
+        color: #ff8080 !important;
+        text-shadow:
+          0 0 10px rgba(255, 50, 50, 1),
+          0 0 16px rgba(255, 0, 0, 0.9);
+      }
+
+      .dropdown.open .dropdown-content {
         display: block;
       }
+
+      @keyframes betaPulse {
+        0% {
+          text-shadow:
+            0 0 6px rgba(255, 0, 0, 0.7),
+            0 0 12px rgba(255, 0, 0, 0.4);
+        }
+        50% {
+          text-shadow:
+            0 0 12px rgba(255, 60, 60, 1),
+            0 0 24px rgba(255, 0, 0, 0.9);
+        }
+        100% {
+          text-shadow:
+            0 0 6px rgba(255, 0, 0, 0.7),
+            0 0 12px rgba(255, 0, 0, 0.4);
+        }
+      }
+
       footer {
         position: fixed;
         bottom: 0;
@@ -117,17 +185,20 @@
         display: grid;
         gap: 24px;
       }
+
       .panel {
         background: rgba(0, 0, 0, 0.5);
         border: 1px solid #1d0909;
         border-radius: 8px;
         padding: 20px;
       }
+
       .section-title {
         font-size: 2em;
         text-align: center;
         margin: 0 0 10px;
       }
+
       .section-subtitle {
         text-align: center;
         color: #cfcfcf;
@@ -140,17 +211,20 @@
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 16px;
       }
+
       .icon-card {
         background: rgba(20, 20, 20, 0.9);
         border: 1px solid #0e0e0e;
         border-radius: 8px;
         padding: 14px 16px;
       }
+
       .icon-card h3 {
         margin: 0 0 8px;
         font-size: 1.05em;
         color: #fff;
       }
+
       .icon-card .icon-line {
         color: #f0f0f0;
         line-height: 1.7;
@@ -162,18 +236,22 @@
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 12px;
       }
+
       .font-card {
         background: rgba(39, 38, 38, 0.65);
         border: 1px solid #1d0909;
         border-radius: 8px;
         padding: 12px 14px;
       }
+
       .font-name {
         font-weight: 700;
       }
+
       .copy-small {
         margin-top: 8px;
       }
+
       .copy-btn-sm {
         background: rgba(255, 255, 255, 0.08);
         border: 1px solid rgba(255, 255, 255, 0.18);
@@ -184,10 +262,12 @@
         cursor: pointer;
         transition: background 0.2s, border-color 0.2s, transform 0.02s;
       }
+
       .copy-btn-sm:hover {
         background: rgba(255, 255, 255, 0.12);
         border-color: rgba(255, 255, 255, 0.28);
       }
+
       .copy-btn-sm:active {
         transform: scale(0.98);
       }
@@ -197,21 +277,25 @@
         font-size: 1.1em;
         opacity: 0.95;
       }
+
       .gradient-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 16px;
       }
+
       .gradient-card {
         background: rgba(39, 38, 38, 0.65);
         border: 1px solid #1d0909;
         border-radius: 10px;
         padding: 14px 16px;
       }
+
       .gradient-card h4 {
         margin: 0 0 8px;
         font-size: 1em;
       }
+
       .gradient-preview {
         width: 100%;
         height: 44px;
@@ -219,9 +303,9 @@
         border: 1px solid #000;
         margin: 10px 0 8px;
       }
+
       .hex-row {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono',
-          monospace;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
         font-size: 0.9em;
         color: #cfe6ff;
         line-height: 1.45;
@@ -233,6 +317,7 @@
         gap: 8px;
         margin-top: 8px;
       }
+
       .copy-btn {
         background: rgba(255, 255, 255, 0.08);
         border: 1px solid rgba(255, 255, 255, 0.18);
@@ -243,10 +328,12 @@
         cursor: pointer;
         transition: background 0.2s, border-color 0.2s, transform 0.02s;
       }
+
       .copy-btn:hover {
         background: rgba(255, 255, 255, 0.12);
         border-color: rgba(255, 255, 255, 0.28);
       }
+
       .copy-btn:active {
         transform: scale(0.98);
       }
@@ -258,76 +345,167 @@
         padding: 12px 14px;
         margin-top: 10px;
       }
+
       .code-inline {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono',
-          monospace;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
         background: rgba(255, 255, 255, 0.08);
         border: 1px solid rgba(255, 255, 255, 0.18);
         border-radius: 6px;
         padding: 2px 6px;
         white-space: nowrap;
       }
-      .gen-wrap{display:grid;gap:14px}
-      .gen-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-      .gen-controls .field{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);padding:6px 8px;border-radius:8px}
-      .gen-stops{display:grid;gap:8px}
-      .gen-stop{display:grid;grid-template-columns:110px 1fr auto;gap:8px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:8px}
-      .gen-stop .color{display:flex;align-items:center;gap:8px}
-      .gen-stop input[type="color"]{width:42px;height:32px;border:none;background:transparent;padding:0}
-      .gen-stop input[type="text"]{width:100%;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#def;padding:6px}
-      .gen-stop .pos{display:flex;align-items:center;gap:6px}
-      .gen-stop .pos input[type="number"]{width:72px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#def;padding:6px}
-      .gen-stop .row-btns button{margin-left:6px}
-      .gen-preview{height:60px;border-radius:10px;border:1px solid #000}
-      .gen-actions{display:flex;flex-wrap:wrap;gap:8px}
-      .gen-output{display:grid;gap:8px}
-      .gen-output code{display:block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:8px;white-space:nowrap;overflow:auto}
-      
+
+      .gen-wrap { display: grid; gap: 14px; }
+
+      .gen-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .gen-controls .field {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 6px 8px;
+        border-radius: 8px;
+      }
+
+      .gen-stops { display: grid; gap: 8px; }
+
+      .gen-stop {
+        display: grid;
+        grid-template-columns: 110px 1fr auto;
+        gap: 8px;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        padding: 8px;
+      }
+
+      .gen-stop .color {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .gen-stop input[type="color"] {
+        width: 42px;
+        height: 32px;
+        border: none;
+        background: transparent;
+        padding: 0;
+      }
+
+      .gen-stop input[type="text"] {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 6px;
+        color: #def;
+        padding: 6px;
+      }
+
+      .gen-stop .pos {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .gen-stop .pos input[type="number"] {
+        width: 72px;
+        background: rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 6px;
+        color: #def;
+        padding: 6px;
+      }
+
+      .gen-stop .row-btns button { margin-left: 6px; }
+
+      .gen-preview {
+        height: 60px;
+        border-radius: 10px;
+        border: 1px solid #000;
+      }
+
+      .gen-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .gen-output { display: grid; gap: 8px; }
+
+      .gen-output code {
+        display: block;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        padding: 8px;
+        white-space: nowrap;
+        overflow: auto;
+      }
+
       .font-card[data-font="VCR SDF"] .font-name {
         font-family: "Press Start 2P", monospace;
         font-size: 0.85em;
       }
+
       .font-card[data-font="Barlow-Black SDF"] .font-name {
         font-family: "Barlow", sans-serif;
         font-weight: 900;
       }
+
       .font-card[data-font="Barlow-BoldItalic SDF"] .font-name {
         font-family: "Barlow", sans-serif;
         font-weight: 700;
         font-style: italic;
       }
+
       .font-card[data-font="Barlow-Light SDF"] .font-name {
         font-family: "Barlow", sans-serif;
         font-weight: 300;
       }
+
       .font-card[data-font="BROOK SDF"] .font-name {
         font-family: "Rajdhani", sans-serif;
         font-weight: 700;
       }
+
       .font-card[data-font="CONSOLA SDF"] .font-name {
         font-family: "Roboto Mono", monospace;
       }
+
       .font-card[data-font="DIGITAL-7 SDF"] .font-name {
         font-family: "VT323", monospace;
         letter-spacing: 0.03em;
       }
+
       .font-card[data-font="DIN_Pro_Bold_700 SDF"] .font-name {
         font-family: "Orbitron", sans-serif;
         font-weight: 700;
       }
+
       .font-card[data-font="LiberationSans SDF"] .font-name {
         font-family: "Roboto", sans-serif;
       }
+
       .font-card[data-font="NotoSansJP-Regular SDF"] .font-name {
         font-family: "Noto Sans JP", sans-serif;
       }
+
       .font-card[data-font="OCRAEXT SDF"] .font-name {
         font-family: "Share Tech Mono", monospace;
         letter-spacing: 0.05em;
       }
 
       .icon-line {
-        font-variant-emoji: text; 
+        font-variant-emoji: text;
         font-family: "Segoe UI Symbol", "Noto Sans Symbols", "Noto Sans", "DejaVu Sans", sans-serif;
         color: #fff;
       }
@@ -336,21 +514,27 @@
   <body>
     <header>
       <h1>Compatible Icons and Fonts</h1>
-      <div class="dropdown">
-        <button class="dropbtn" aria-label="Open navigation menu">
-          <div class="hamburger">
-            <span></span><span></span><span></span>
+
+      <div class="dropdown" aria-label="Site navigation">
+        <button class="dropbtn" type="button" aria-label="Open navigation menu">
+          <div class="hamburger" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </button>
         <div class="dropdown-content">
-          <a href="https://moddedamong.us/">Home</a>
+          <a href="index.html">Home</a>
           <a href="https://moddedamong.us/art.html">User Art</a>
           <a href="https://moddedamong.us/ourstaff.html">Our Staff</a>
           <a href="https://moddedamong.us/eventpics.html">Past Events</a>
           <a href="https://moddedamong.us/calendar.html">Event Calendar</a>
           <a href="https://moddedamong.us/mods.html">Featured Mods</a>
           <a href="https://moddedamong.us/presets.html">Mod Presets</a>
+          <a href="https://moddedamong.us/icons.html">Icons and Fonts</a>
           <a href="https://moddedamong.us/tags.html">Tag Generator</a>
+          <a href="https://moddedamong.us/lobbytemplates">Lobby Templates</a>
+          <a href="https://moddedamong.us/BETAtemplates" class="beta-glow">BETA Templates</a>
         </div>
       </div>
     </header>
@@ -437,7 +621,7 @@
             <div class="icon-line">
               ▀ ▁ ▂ ▃ ▄ ▅ ▆ ▇ ▉ ▊ ▋ █ ▌ ▐ ▍ ▎ ▏ ░ ▒ ▓ ▔ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▱ ■ ◈ ◇ ◆
             </div>
-          </div>  
+          </div>
           <div class="icon-card">
             <h3>Lines</h3>
             <div class="icon-line">
@@ -454,7 +638,7 @@
           </div>
           <div class="icon-card">
             <h3>PUNCTUATION</h3>
-            <div class="icon-line">· ‑ ‒ – — ― ‘ ’ ‚ “ ” „  •  ‥ … ‧ ′ ″ ‵ ʻ ˇ ˉ ˊ ˋ ˙ ～ ¿ ﹐ ﹒ ﹔ ﹕ ！ ＃ ＄ ％ ＆ ＊ ， ． ： ； ？ ＠ 、 。 〃 〝 〞 ︰</div>
+            <div class="icon-line">· - ‒ – — ― ‘ ’ ‚ “ ” „  •  ‥ … ‧ ′ ″ ‵ ʻ ˇ ˉ ˊ ˋ ˙ ～ ¿ ﹐ ﹒ ﹔ ﹕ ！ ＃ ＄ ％ ＆ ＊ ， ． ： ； ？ ＠ 、 。 〃 〝 〞 ︰</div>
           </div>
           <div class="icon-card">
             <h3>Letters</h3>
@@ -570,7 +754,6 @@
         <p class="section-subtitle">Build a gradient with 1–10 colors.</p>
 
         <div class="gen-wrap">
-
           <div class="gen-controls">
             <div class="field">
               <label for="gen-angle">Angle</label>
@@ -589,6 +772,7 @@
               <button class="copy-btn" id="gen-reverse">Reverse</button>
               <button class="copy-btn" id="gen-random">Randomize</button>
             </div>
+
             <div class="field" style="margin-left:auto;">
               <span>Output:</span>
               <label><input type="radio" name="gen-mode" value="hex" checked> #hex</label>
@@ -597,7 +781,6 @@
           </div>
 
           <div class="gen-stops" id="gen-stops"></div>
-
           <div class="gen-preview" id="gen-preview"></div>
 
           <div class="gen-output">
@@ -607,7 +790,7 @@
             <code id="gen-out"></code>
           </div>
         </div>
-       </section>
+      </section>
 
       <section class="panel">
         <h2 class="section-title"><u>Helpful Gradients</u></h2>
@@ -617,10 +800,7 @@
         <div class="gradient-grid">
           <div class="gradient-card">
             <h4>Rose Red</h4>
-            <div
-              class="gradient-preview"
-              style="background:linear-gradient(90deg,#590d22,#800f2f,#a4133c,#c9184a,#ff4d6d,#ff758f,#ff8fa3,#ffb3c1,#ffccd5,#fff0f3)"
-            ></div>
+            <div class="gradient-preview" style="background:linear-gradient(90deg,#590d22,#800f2f,#a4133c,#c9184a,#ff4d6d,#ff758f,#ff8fa3,#ffb3c1,#ffccd5,#fff0f3)"></div>
             <div class="hex-row">
               "590d22","800f2f","a4133c","c9184a","ff4d6d","ff758f","ff8fa3","ffb3c1","ffccd5","fff0f3"
             </div>
@@ -631,10 +811,7 @@
 
           <div class="gradient-card">
             <h4>True Red</h4>
-            <div
-              class="gradient-preview"
-              style="background:linear-gradient(90deg,#7a0000,#b00016,#d61c1c,#ff3b3b,#ff9a9a)"
-            ></div>
+            <div class="gradient-preview" style="background:linear-gradient(90deg,#7a0000,#b00016,#d61c1c,#ff3b3b,#ff9a9a)"></div>
             <div class="hex-row">"7a0000","b00016","d61c1c","ff3b3b","ff9a9a"</div>
             <div class="copy-row">
               <button class="copy-btn" data-role="copy-hex">Copy hex</button>
@@ -643,10 +820,7 @@
 
           <div class="gradient-card">
             <h4>Crimson Fade</h4>
-            <div
-              class="gradient-preview"
-              style="background:linear-gradient(90deg,#430010,#6e001b,#9a0f2a,#d43c4b,#ff8a9a)"
-            ></div>
+            <div class="gradient-preview" style="background:linear-gradient(90deg,#430010,#6e001b,#9a0f2a,#d43c4b,#ff8a9a)"></div>
             <div class="hex-row">"430010","6e001b","9a0f2a","d43c4b","ff8a9a"</div>
             <div class="copy-row">
               <button class="copy-btn" data-role="copy-hex">Copy hex</button>
@@ -655,10 +829,7 @@
 
           <div class="gradient-card">
             <h4>Brick Ember</h4>
-            <div
-              class="gradient-preview"
-              style="background:linear-gradient(90deg,#521414,#7a2320,#9e362b,#c95646,#eaa19b)"
-            ></div>
+            <div class="gradient-preview" style="background:linear-gradient(90deg,#521414,#7a2320,#9e362b,#c95646,#eaa19b)"></div>
             <div class="hex-row">"521414","7a2320","9e362b","c95646","eaa19b"</div>
             <div class="copy-row">
               <button class="copy-btn" data-role="copy-hex">Copy hex</button>
@@ -667,25 +838,18 @@
 
           <div class="gradient-card">
             <h4>Candy Apple</h4>
-            <div
-              class="gradient-preview"
-              style="background:linear-gradient(90deg,#6f0000,#a80000,#e10019,#ff3d38,#ffb1ae)"
-            ></div>
+            <div class="gradient-preview" style="background:linear-gradient(90deg,#6f0000,#a80000,#e10019,#ff3d38,#ffb1ae)"></div>
             <div class="hex-row">"6f0000","a80000","e10019","ff3d38","ffb1ae"</div>
             <div class="copy-row">
               <button class="copy-btn" data-role="copy-hex">Copy hex</button>
             </div>
           </div>
         </div>
-
         <h3 class="family-title">Oranges</h3>
         <div class="gradient-grid">
           <div class="gradient-card">
             <h4>Golden Flame</h4>
-            <div
-              class="gradient-preview"
-              style="background:linear-gradient(90deg,#ff7b00,#ff8800,#ff9500,#ffa200,#ffaa00,#ffb700,#ffc300,#ffd000,#ffd933,#ffe15c)"
-            ></div>
+            <div class="gradient-preview" style="background:linear-gradient(90deg,#ff7b00,#ff8800,#ff9500,#ffa200,#ffaa00,#ffb700,#ffc300,#ffd000,#ffd933,#ffe15c)"></div>
             <div class="hex-row">
               "ff7b00","ff8800","ff9500","ffa200","ffaa00","ffb700","ffc300","ffd000","ffd933","ffe15c"
             </div>
@@ -696,10 +860,7 @@
 
           <div class="gradient-card">
             <h4>Orange Crush</h4>
-            <div
-              class="gradient-preview"
-              style="background:linear-gradient(90deg,#7a2e00,#b34a00,#ff6d00,#ffa042,#ffd3a1)"
-            ></div>
+            <div class="gradient-preview" style="background:linear-gradient(90deg,#7a2e00,#b34a00,#ff6d00,#ffa042,#ffd3a1)"></div>
             <div class="hex-row">"7a2e00","b34a00","ff6d00","ffa042","ffd3a1"</div>
             <div class="copy-row">
               <button class="copy-btn" data-role="copy-hex">Copy hex</button>
@@ -708,10 +869,7 @@
 
           <div class="gradient-card">
             <h4>Tangelo</h4>
-            <div
-              class="gradient-preview"
-              style="background:linear-gradient(90deg,#552500,#8a3a00,#c25500,#ff7e1a,#ffbf80)"
-            ></div>
+            <div class="gradient-preview" style="background:linear-gradient(90deg,#552500,#8a3a00,#c25500,#ff7e1a,#ffbf80)"></div>
             <div class="hex-row">"552500","8a3a00","c25500","ff7e1a","ffbf80"</div>
             <div class="copy-row">
               <button class="copy-btn" data-role="copy-hex">Copy hex</button>
@@ -720,10 +878,7 @@
 
           <div class="gradient-card">
             <h4>Pumpkin Spice</h4>
-            <div
-              class="gradient-preview"
-              style="background:linear-gradient(90deg,#5c2d00,#9a4e00,#cc6b00,#ff9722,#ffd19e)"
-            ></div>
+            <div class="gradient-preview" style="background:linear-gradient(90deg,#5c2d00,#9a4e00,#cc6b00,#ff9722,#ffd19e)"></div>
             <div class="hex-row">"5c2d00","9a4e00","cc6b00","ff9722","ffd19e"</div>
             <div class="copy-row">
               <button class="copy-btn" data-role="copy-hex">Copy hex</button>
@@ -1667,6 +1822,24 @@
       });
 
       (function () {
+        const dropdown = document.querySelector('.dropdown');
+        const button = document.querySelector('.dropbtn');
+
+        if (dropdown && button) {
+          button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('open');
+          });
+
+          document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+              dropdown.classList.remove('open');
+            }
+          });
+        }
+      })();
+
+      (function () {
         const MAX = 10;
 
         const stopsEl   = document.getElementById("gen-stops");
@@ -1735,6 +1908,7 @@
           if (n === 1) stops[0].pos = 50;
           else stops.forEach((s, i) => (s.pos = Math.round((i * 100) / (n - 1))));
         }
+
         function reverseStops() { stops.forEach((s) => (s.pos = 100 - s.pos)); stops.reverse(); }
         function randomizeColors() { stops.forEach((s) => (s.color = randomHex())); }
 
@@ -1796,6 +1970,7 @@
           stops.push({ color: randomHex(), pos: clamp(Math.round(Math.random() * 100), 0, 100) });
           renderStops();
         });
+
         btnEqual.addEventListener("click", () => { equalizePositions(); renderStops(); });
         btnReverse.addEventListener("click", () => { reverseStops(); renderStops(); });
         btnRandom.addEventListener("click", () => { randomizeColors(); renderStops(); });
