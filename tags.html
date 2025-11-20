@@ -2024,7 +2024,7 @@ LowerText:
         } else {
           outEl.textContent = exportTagText;
 
-          let html = baseTagText
+          const html = baseTagText
             .replace(
               /<color=#[0-9A-Fa-f]{6}>(.*?)<\/color>/g,
               (m, inner) => {
@@ -2037,18 +2037,8 @@ LowerText:
             .replace(/<\/color>/g, "")
             .replace(/<font=".*?">/g, "")
             .replace(/<\/font>/g, "");
-          const parts = html.split(/(<[^>]+>)/); 
-          html = parts
-            .map(part => {
-              if (part.startsWith("<") && part.endsWith(">")) {
-                return part;
-              }
-              return part.replace(/ /g, "&nbsp;");
-            })
-            .join("");
 
           visEl.innerHTML = html;
-
           const selectedFontName = fontSelect.value || "";
           const previewFont = previewFontMap[selectedFontName] || "";
           visEl.style.fontFamily = previewFont;
@@ -2058,6 +2048,7 @@ LowerText:
 
         payloadEl.textContent = payload;
       }
+
       copyBtn.addEventListener("click", () => {
         copyToClipboard(outEl.textContent).then(() => {
           copyBtn.textContent = "Copied!";
