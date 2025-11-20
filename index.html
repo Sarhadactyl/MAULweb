@@ -23,9 +23,9 @@
 
     <style>
       :root {
-        --accent: #00d8ff;
-        --accent-soft: rgba(0, 216, 255, 0.15);
-        --accent-strong: #00b8ff;
+        --accent: #800000;
+        --accent-soft: rgba(128, 0, 0, 0.2);
+        --accent-strong: #b00000;
         --bg-card: rgba(10, 10, 20, 0.9);
         --bg-soft: rgba(20, 20, 35, 0.9);
         --text-main: #ffffff;
@@ -55,7 +55,7 @@
         content: "";
         position: fixed;
         inset: 0;
-        background: radial-gradient(circle at top, rgba(0, 216, 255, 0.28), transparent 55%),
+        background: radial-gradient(circle at top, rgba(128, 0, 0, 0.4), transparent 55%),
                     radial-gradient(circle at bottom, rgba(255, 0, 128, 0.25), transparent 55%);
         mix-blend-mode: screen;
         opacity: 0.75;
@@ -170,7 +170,7 @@
         font-size: 0.8rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        background: linear-gradient(120deg, rgba(0, 216, 255, 0.18), rgba(255, 0, 171, 0.2));
+        background: linear-gradient(120deg, rgba(128, 0, 0, 0.35), rgba(255, 0, 171, 0.2));
         border: 1px solid rgba(255, 255, 255, 0.15);
         color: var(--text-muted);
         margin-bottom: 16px;
@@ -339,7 +339,7 @@
 
       .total-dot {
         background: linear-gradient(135deg, var(--accent), #ff00b3);
-        box-shadow: 0 0 12px rgba(0, 216, 255, 0.8);
+        box-shadow: 0 0 12px rgba(128, 0, 0, 0.8);
       }
 
       .member-label {
@@ -444,7 +444,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at top left, rgba(0, 216, 255, 0.16), transparent 55%);
+        background: radial-gradient(circle at top left, rgba(128, 0, 0, 0.16), transparent 55%);
         opacity: 0;
         transition: opacity 0.25s ease;
         pointer-events: none;
