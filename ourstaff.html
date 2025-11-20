@@ -1,830 +1,1140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Our Staff</title>
-  <meta charset="UTF-8" />
-  <meta property="og:title" content="Our Staff" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://moddedamong.us/" />
-  <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-  <meta property="og:description" content="Meet our staff, moderators, our events team and verification mods!" />
-  <meta property="og:site_name" content="Modded Among Us Lobbies" />
-  <meta property="og:locale" content="en_US" />
-  <link rel="canonical" href="https://moddedamong.us/" />
+  <head>
+    <title>Our Staff · MAUL</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      font-family: Arial, sans-serif;
-      color: #fff;
-    }
-    body {
-      background: #000 url("images/background.png") no-repeat center top;
-      background-size: cover;
-    }
-    .dropdown {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 100;
-    }
-    .dropbtn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-    }
-    .hamburger {
-      width: 30px;
-      height: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .hamburger span {
-      display: block;
-      height: 4px;
-      background-color: #fff;
-      border-radius: 2px;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #151313;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-      border-radius: 5px;
-      overflow: hidden;
-    }
-    .dropdown-content a {
-      color: rgba(255,255,255,0.95);
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      transition: background 0.3s;
-    }
-    .dropdown-content a:hover {
-      background-color: #3a3a3a;
-    }
-    .dropdown-content.show {
-      display: block;
-    }
+    <meta property="og:title" content="Our Staff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/ourstaff.html" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta property="og:description" content="Meet our owners, admins, moderators, events team, and verification staff!" />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://moddedamong.us/ourstaff.html" />
 
-    .apply-section {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: rgba(0,0,0,0.5);
-      border: 1px solid #1d0909;
-      border-radius: 5px;
-      text-align: center;
-    }
-    .apply-section h2 {
-      margin: 0;
-      font-size: 1.8em;
-      color: #fff;
-    }
-    .apply-links {
-      margin-top: 10px;
-      font-size: 1.2em;
-    }
-    .apply-links span,
-    .apply-links a {
-      margin: 0 15px;
-      color: #fff;
-      text-decoration: none;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-    .apply-links span:hover,
-    .apply-links a:hover {
-      animation: ripple 0.8s ease-out;
-      color: #fff;
-    }
-    @keyframes ripple {
-      0% {
-        text-shadow: 0 0 0 rgba(255,255,255,0.5);
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+      :root {
+        --accent: #800000;
+        --accent-soft: rgba(128, 0, 0, 0.25);
+        --accent-strong: #b00000;
+        --bg-card: rgba(30, 12, 12, 0.9);
+        --bg-soft: rgba(45, 18, 18, 0.9);
+        --text-main: #ffffff;
+        --text-muted: #dedee8;
       }
-      50% {
-        text-shadow: 0 0 10px rgba(255,255,255,1);
-      }
-      100% {
-        text-shadow: 0 0 0 rgba(255,255,255,0.5);
-      }
-    }
-    .closed s {
-      text-decoration: line-through;
-    }
-    .red-dot, .green-dot {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin-right: 5px;
-      vertical-align: middle;
-    }
-    .red-dot { background-color: red; }
-    .green-dot { background-color: rgb(0, 255, 0); }
-    .apply-disclaimer {
-      margin-top: 10px;
-      font-size: 0.8em;
-      color: #ccc;
-    }
 
-    h1 {
-      text-align: center;
-      margin: 20px 0 30px;
-    }
-
-    .staff-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto 40px;
-      padding: 0 20px;
-    }
-
-    @media (max-width: 900px) {
-      .staff-container {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .staff-container {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .staff-role {
-      background-color: rgba(100, 100, 100, 0.3);
-      border: 1px solid #1d0909;
-      border-radius: 5px;
-      padding: 15px;
-    }
-    .staff-role h2 {
-      margin: 0 0 15px;
-      font-size: 1.6em;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      text-align: center;
-      color: #fff;
-    }
-
-    details {
-      background-color: rgba(100, 100, 100, 0.3);
-      border: 1px solid #1d0909;
-      border-radius: 4px;
-      margin-bottom: 10px;
-      transition: box-shadow 0.3s ease;
-      color: #fff;
-    }
-    details[open] {
-      box-shadow: 0 0 8px rgba(0,0,0,0.5);
-    }
-    summary {
-      cursor: pointer;
-      padding: 10px;
-      font-weight: bold;
-      outline: none;
-      margin: 0;
-    }
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .details-content {
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height 0.7s ease;
-    }
-    details[open] .details-content {
-      max-height: 500px;
-    }
-    details details .details-content {
-      max-height: none;
-      transition: none;
-    }
-
-    .staff-member {
-      text-align: center;
-      padding: 10px;
-    }
-    .staff-member h4 {
-      margin: 10px 0 5px;
-      font-size: 1.1em;
-      text-decoration: underline;
-      color: #fff;
-    }
-    .staff-member img {
-      max-width: 100px;
-      border: 2px solid #555;
-      border-radius: 50%;
-      margin-bottom: 10px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .staff-member p {
-      margin: 0 0 10px;
-      line-height: 1.4;
-      color: #fff;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 200;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.5);
-    }
-    .modal-content {
-      background-color: #fff;
-      color: #000;
-      margin: 15% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      max-width: 400px;
-      text-align: center;
-      border-radius: 5px;
-    }
-    .close {
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
       * {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-        scroll-behavior: auto !important;
+        box-sizing: border-box;
       }
-      .details-content {
-        transition: none;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="dropdown">
-    <button class="dropbtn" aria-label="Open navigation menu">
-      <div class="hamburger" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </button>
-    <div class="dropdown-content">
-      <a href="index.html">Home</a>
-      <a href="https://moddedamong.us/art.html">User Art</a>
-      <a href="https://moddedamong.us/eventpics.html">Past Events</a>
-      <a href="https://moddedamong.us/calendar.html">Event Calendar</a>
-      <a href="https://moddedamong.us/mods.html">Featured Mods</a>
-      <a href="https://moddedamong.us/presets.html">Mod Presets</a>
-      <a href="https://moddedamong.us/icons.html">Icons and Fonts</a>
-      <a href="https://moddedamong.us/tags.html">Tag Generator</a>
-    </div>
-  </div>
 
-  <main>
-    <div class="apply-section">
-      <h2>Apply for Staff</h2>
-      <div class="apply-links">
-        <span id="moderation" class="closed">
-          <span class="red-dot"></span>
-          <s>Moderation</s>
-        </span>
-        <span id="verification-mod" class="closed">
-          <span class="red-dot"></span>
-          <s>Verification Moderator</s>
-        </span>
-        <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344252646743085096">
-          <span class="green-dot"></span>Event Manager
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        color: var(--text-main);
+        overflow-x: hidden;
+      }
+
+      body {
+        background: #000 url("images/maulredbg.png") no-repeat top center fixed;
+        background-size: auto 100%;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(circle at top, rgba(128, 0, 0, 0.45), transparent 55%),
+          radial-gradient(circle at bottom, rgba(180, 0, 60, 0.25), transparent 55%);
+        mix-blend-mode: screen;
+        opacity: 0.7;
+        pointer-events: none;
+        z-index: -2;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
+        z-index: -1;
+      } 
+      .dropdown {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 100;
+      }
+
+      .dropbtn {
+        background: rgba(35, 10, 10, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        cursor: pointer;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        padding: 10px 10px;
+        border-radius: 999px;
+        backdrop-filter: blur(10px);
+      }
+
+      .dropbtn:hover {
+        transform: translateY(-1px) scale(1.03);
+        background: rgba(50, 16, 16, 0.98);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      }
+
+      .hamburger {
+        width: 26px;
+        height: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .hamburger span {
+        display: block;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), #ff0040);
+        border-radius: 999px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        margin-top: 8px;
+        background-color: rgba(35, 10, 10, 0.96);
+        min-width: 220px;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.85);
+        border-radius: 12px;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .dropdown-content a {
+        color: var(--text-main);
+        padding: 12px 18px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.95rem;
+        transition: background 0.25s, color 0.25s, padding-left 0.25s;
+      }
+
+      .dropdown-content a:hover {
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--accent);
+        padding-left: 22px;
+      }
+
+      .beta-glow {
+        color: #ff4d4d !important;
+        font-weight: 700;
+        text-shadow: 0 0 8px rgba(255, 0, 0, 0.75),
+                     0 0 12px rgba(255, 0, 0, 0.55);
+        animation: betaPulse 1.6s ease-in-out infinite;
+      }
+
+      .beta-glow:hover {
+        background: rgba(255, 0, 0, 0.12) !important;
+        padding-left: 22px;
+        color: #ff8080 !important;
+        text-shadow: 0 0 10px rgba(255, 50, 50, 1),
+                     0 0 16px rgba(255, 0, 0, 0.9);
+      }
+
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+
+      @keyframes betaPulse {
+        0% {
+          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
+                       0 0 12px rgba(255, 0, 0, 0.4);
+        }
+        50% {
+          text-shadow: 0 0 12px rgba(255, 60, 60, 1),
+                       0 0 24px rgba(255, 0, 0, 0.9);
+        }
+        100% {
+          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
+                       0 0 12px rgba(255, 0, 0, 0.4);
+        }
+      } 
+      .page-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 80px 20px 60px;
+      }
+
+      @media (max-width: 600px) {
+        .page-wrapper {
+          padding-top: 90px;
+        }
+      }
+
+      .page-header {
+        text-align: center;
+        padding: 32px 16px 10px;
+      }
+
+      .header-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: linear-gradient(120deg, rgba(128, 0, 0, 0.5), rgba(200, 0, 80, 0.35));
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: var(--text-muted);
+        margin-bottom: 16px;
+      }
+
+      .header-badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #00ff9c, #00b36b);
+        box-shadow: 0 0 12px rgba(0, 255, 156, 0.7);
+      }
+
+      .page-header h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(2.1rem, 3.4vw, 2.8rem);
+        margin: 0;
+        letter-spacing: 0.04em;
+        text-shadow: 0 8px 30px rgba(0,0,0,0.9);
+      }
+
+      .page-header h1 span {
+        background: linear-gradient(120deg, #ffffff, var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .page-header-subtitle {
+        margin: 12px auto 0;
+        max-width: 650px;
+        font-size: 0.98rem;
+        line-height: 1.7;
+        color: var(--text-muted);
+      } 
+      .apply-section {
+        max-width: 900px;
+        margin: 26px auto 32px;
+        padding: 20px 22px 18px;
+        background-color: var(--bg-card);
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 18px 40px rgba(0,0,0,0.85);
+        text-align: center;
+        backdrop-filter: blur(12px);
+      }
+
+      .apply-section h2 {
+        margin: 0 0 8px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .apply-section p.lead {
+        margin: 4px 0 12px;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .apply-links {
+        margin-top: 6px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .apply-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(45, 18, 18, 0.95);
+        color: var(--text-main);
+        text-decoration: none;
+        transition: background 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      }
+
+      .apply-pill:hover {
+        background: rgba(60, 22, 22, 0.98);
+        transform: translateY(-1px);
+        box-shadow: 0 10px 26px rgba(0,0,0,0.9);
+        border-color: var(--accent-soft);
+      }
+
+      .apply-pill.closed {
+        opacity: 0.75;
+        border-style: dashed;
+      }
+
+      .apply-pill.closed s {
+        text-decoration-thickness: 1px;
+      }
+
+      .red-dot,
+      .green-dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 2px;
+      }
+
+      .red-dot {
+        background: radial-gradient(circle, #ff4d4d, #b00000);
+        box-shadow: 0 0 10px rgba(255, 77, 77, 0.7);
+      }
+
+      .green-dot {
+        background: radial-gradient(circle, #00ff9c, #00b36b);
+        box-shadow: 0 0 10px rgba(0, 255, 156, 0.7);
+      }
+
+      .apply-disclaimer {
+        margin-top: 10px;
+        font-size: 0.78rem;
+        color: var(--text-muted);
+      }
+ 
+      .staff-section-title {
+        text-align: center;
+        margin: 10px 0 22px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.2rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .staff-container {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        max-width: 1100px;
+        margin: 0 auto 40px;
+      }
+
+      @media (max-width: 900px) {
+        .staff-container {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 650px) {
+        .staff-container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .staff-role {
+        background-color: var(--bg-card);
+        border-radius: 16px;
+        padding: 14px 14px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 18px 40px rgba(0,0,0,0.85);
+        backdrop-filter: blur(10px);
+      }
+
+      .staff-role h2 {
+        margin: 2px 0 12px;
+        font-size: 1.05rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+      } 
+      details {
+        background-color: rgba(45, 18, 18, 0.96);
+        border-radius: 12px;
+        margin-bottom: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        overflow: hidden;
+        transition: border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      }
+
+      details[open] {
+        box-shadow: 0 10px 24px rgba(0,0,0,0.9);
+        border-color: var(--accent-soft);
+        background: rgba(60, 22, 22, 0.98);
+      }
+
+      summary {
+        cursor: pointer;
+        padding: 10px 12px;
+        font-weight: 600;
+        outline: none;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.95rem;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      summary::after {
+        content: '\f078';
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        font-size: 0.7rem;
+        opacity: 0.7;
+        transition: transform 0.20s ease, opacity 0.20s ease;
+      }
+
+      details[open] summary::after {
+        transform: rotate(180deg);
+        opacity: 1;
+      }
+
+      .details-content {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.5s ease;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      details[open] .details-content {
+        max-height: 600px;
+      }
+
+      .staff-member {
+        text-align: center;
+        padding: 10px 14px 12px;
+        font-size: 0.9rem;
+      }
+
+      .staff-member h4 {
+        margin: 10px 0 6px;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .staff-member img {
+        max-width: 90px;
+        border: 2px solid rgba(255, 255, 255, 0.16);
+        border-radius: 50%;
+        margin-bottom: 8px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.9);
+      }
+
+      .staff-member p {
+        margin: 0 0 6px;
+        line-height: 1.5;
+        color: var(--text-muted);
+      }
+
+      .staff-member ul {
+        margin: 4px 0 0;
+        padding-left: 20px;
+        text-align: left;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      .staff-member li {
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .staff-member li img {
+        max-width: 20px;
+        border: none;
+        border-radius: 4px;
+        box-shadow: none;
+        margin: 0;
+      }
+ 
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 200;
+        inset: 0;
+        background-color: rgba(0,0,0,0.7);
+        backdrop-filter: blur(4px);
+      }
+
+      .modal-content {
+        background-color: var(--bg-card);
+        color: var(--text-main);
+        margin: 15% auto;
+        padding: 18px 20px 16px;
+        border-radius: 14px;
+        width: 90%;
+        max-width: 420px;
+        box-shadow: 0 20px 45px rgba(0,0,0,0.95);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        text-align: center;
+      }
+
+      .modal-content p {
+        margin: 0 0 6px;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .modal-title {
+        margin-top: 4px;
+        margin-bottom: 8px;
+        font-family: 'Poppins', sans-serif;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 0.14em;
+      }
+
+      .close {
+        float: right;
+        font-size: 22px;
+        font-weight: bold;
+        cursor: pointer;
+        line-height: 1;
+      }
+
+      .close:hover {
+        color: var(--accent-strong);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+        .details-content {
+          transition: none;
+          max-height: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body> 
+    <div class="dropdown">
+      <button class="dropbtn" type="button" aria-label="Open navigation menu">
+        <div class="hamburger" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+      <div class="dropdown-content">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
+        <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
+        <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
+        <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
+        <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
+        <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
+        <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
+        <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-hashtag"></i> Tag Generator</a>
+        <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
+        <a href="https://moddedamong.us/BETAtemplates" class="beta-glow">
+          <i class="fa-solid fa-flask"></i> BETA Templates
         </a>
       </div>
-      <p class="apply-disclaimer">* Giveaway and Event Managers must open a ticket to apply.</p>
     </div>
 
-    <h1>Our Staff</h1>
-    <div class="staff-container">
-      <div class="staff-role" style="grid-column: 1;">
-        <h2>Owners</h2>
-        <details>
-          <summary>Server Owner: Laikrai</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/laik.png" alt="Owner @𝓛𝔸Ɨ𝓀">
-              <h4>About Me</h4>
-              <p>Self Skuller</p>
-            </div>
-          </div>
-        </details>
-        <details>
-          <summary>Co-Owner: Sarha🌺</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/sarhaicon.png" alt="Sarha Profile">
-              <h4>About Me</h4>
-              <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/sarhabp.webp" alt="Works a lot" style="max-width:20px; border:none; margin:0;">
-                  Works a lot
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/sarhabp.webp" alt="Chronically online" style="max-width:20px; border:none; margin:0;">
-                  Chronically online
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/sarhabp.webp" alt="Server member since June 2023" style="max-width:20px; border:none; margin:0;">
-                  Server member since June 2023
-                </li>
-              </ul>
-            </div>
-          </div>
-        </details>
-      </div>
+    <div class="page-wrapper"> 
+      <header class="page-header">
+        <div class="header-badge">
+          <span class="header-badge-dot"></span>
+          Meet the Team Behind MAUL
+        </div>
+        <h1>
+          Our <span>Staff</span>
+        </h1>
+        <p class="page-header-subtitle">
+          Owners, admins, moderators, verification, events, and more – the people who keep
+          <strong>Modded Among Us Lobbies</strong> running smoothly every day.
+        </p>
+      </header> 
+      <section class="apply-section">
+        <h2>Apply for Staff</h2>
+        <p class="lead">
+          Interested in helping run lobbies, events, or verification? Check which roles are open:
+        </p>
+        <div class="apply-links">
+          <span id="moderation" class="apply-pill closed">
+            <span class="red-dot"></span>
+            <s>Moderation</s>
+          </span>
 
-      <div class="staff-role" style="grid-column: 2;">
-        <h2>Head Admin</h2>
-        <details>
-          <summary>Tasha</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/tashaicon.jpg" alt="Tasha's Profile">
-              <h4>About Me</h4>
-              <p>What do I have to say?<br>I’m not good at things like this.</p>
-            </div>
-          </div>
-        </details>
-      </div>
+          <span id="verification-mod" class="apply-pill closed">
+            <span class="red-dot"></span>
+            <s>Verification Moderator</s>
+          </span>
 
-      <div class="staff-role" style="grid-column: 3;">
-        <h2>Admin</h2>
-        <details>
-          <summary>V</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/v.png" alt="Admin @𝐕">
-              <h4>About Me</h4>
-              <p>I’m just happy to be here.</p>
-            </div>
-          </div>
-        </details>
-        <details>
-          <summary>Hannah✰⋆｡</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/hanicon.jpg" alt="Han Profile">
-              <h4>About Me</h4>
-              <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/hanbp.webp" alt="Cat enthusiast" style="max-width:20px; border:none; margin:0;">
-                  Cat enthusiast
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/hanbp.webp" alt="Scented candles improve quality of life" style="max-width:20px; border:none; margin:0;">
-                  Firmly believes scented candles improve quality of life
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/hanbp.webp" alt="Ferrari fan" style="max-width:20px; border:none; margin:0;">
-                  Ferrari fan
-                </li>
-              </ul>
-            </div>
-          </div>
-        </details>
-      </div>
+          <a class="apply-pill" href="https://discord.com/channels/995954559044304896/1089882204458455090/1344252646743085096" target="_blank" rel="noopener">
+            <span class="green-dot"></span>
+            Event Manager
+          </a>
+        </div>
+        <p class="apply-disclaimer">
+          * Giveaway and Event Managers must open a ticket in the Discord to apply.
+        </p>
+      </section>
 
-      <div class="staff-role" style="grid-column: 1;">
-        <h2>Senior Moderator</h2>
-        <details>
-          <summary>Northie</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/northieicon.jpg" alt="Northie Profile">
-              <h4>About Me</h4>
-              <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/northiebp.webp" alt="Love Music & Gaming" style="max-width:20px; border:none; margin:0;">
-                  Love Music &amp; Gaming
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/northiebp.webp" alt="Studying to be a Paramedic" style="max-width:20px; border:none; margin:0;">
-                  Studying to be a Paramedic
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/northiebp.webp" alt="I write stories & draw art" style="max-width:20px; border:none; margin:0;">
-                  I write stories &amp; draw art
-                </li>
-              </ul>
+      <h2 class="staff-section-title">Staff Directory</h2>
+ 
+      <div class="staff-container"> 
+        <div class="staff-role" style="grid-column: 1;">
+          <h2>Owners</h2>
+          <details>
+            <summary>Server Owner: Laikrai</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/laik.png" alt="Owner @𝓛𝔸Ɨ𝓀">
+                <h4>About Me</h4>
+                <p>Self Skuller</p>
+              </div>
             </div>
-          </div>
-        </details>
-        <details>
-          <summary>Summer ❀⭒˙</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/summericon.jpg" alt="Summer Profile">
-              <h4>About Me</h4>
-              <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/summerbp.webp" alt="Puns and bad dad jokes for life" style="max-width:20px; border:none; margin:0;">
-                  Puns and bad dad jokes for life
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/summerbp.webp" alt="Music/violin enthusiast" style="max-width:20px; border:none; margin:0;">
-                  Music/violin enthusiast
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/summerbp.webp" alt="Just a girl and her silly little games & pretty things against the world" style="max-width:20px; border:none; margin:0;">
-                  Just a girl and her silly little games &amp; pretty things against the world
-                </li>
-              </ul>
-            </div>
-          </div>
-        </details>
-      </div>
+          </details>
 
-      <div class="staff-role" style="grid-column: 2;">
-        <h2>Moderator</h2>
-        <details>
-          <summary>LilPea</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/peaicon.png" alt="Moderator @!𝐋𝐢𝐋𝐏𝐄𝐀!">
-              <h4>About Me</h4>
-              <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/peabp.webp" alt="sore loser" style="max-width:20px; border:none; margin:0;">
-                  sore loser
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/peabp.webp" alt="lover of honey and women" style="max-width:20px; border:none; margin:0;">
-                  lover of honey and women
-                </li>
-              </ul>
+          <details>
+            <summary>Co-Owner: Sarha🌺</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/sarhaicon.png" alt="Sarha Profile">
+                <h4>About Me</h4>
+                <ul>
+                  <li>
+                    <img src="images/sarhabp.webp" alt="Works a lot">
+                    Works a lot
+                  </li>
+                  <li>
+                    <img src="images/sarhabp.webp" alt="Chronically online">
+                    Chronically online
+                  </li>
+                  <li>
+                    <img src="images/sarhabp.webp" alt="Server member since June 2023">
+                    Server member since June 2023
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </details>
-        <details>
-          <summary>Poet</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/poeticon.webp" alt="Moderator @🎀 𝒫🍀𝑒𝓉 🎀">
-              <h4>About Me</h4>
-              <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/poetbp.webp" alt="Mom of Two Boys ❤️" style="max-width:20px; border:none; margin:0;">
-                  Mom of Two Boys ❤️
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/poetbp.webp" alt="Priest Wifey" style="max-width:20px; border:none; margin:0;">
-                  Priest Wifey
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/poetbp.webp" alt="HR Consultant/Data Analyst" style="max-width:20px; border:none; margin:0;">
-                  HR Consultant/Data Analyst
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/poetbp.webp" alt="Lover of the Arts" style="max-width:20px; border:none; margin:0;">
-                  Lover of the Arts
-                </li>
-              </ul>
+          </details>
+        </div> 
+        <div class="staff-role" style="grid-column: 2;">
+          <h2>Head Admin</h2>
+          <details>
+            <summary>Tasha</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/tashaicon.jpg" alt="Tasha's Profile">
+                <h4>About Me</h4>
+                <p>What do I have to say?<br>I’m not good at things like this.</p>
+              </div>
             </div>
-          </div>
-        </details>
-        <details>
-          <summary>Marg</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/margicon.png" alt="Marg Profile">
-              <h4>About Me</h4>
-              <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/margbp1.webp" alt="Senior Contributor for TOHE" style="max-width:20px; border:none; margin:0;">
-                  Senior Contributor for TOHE (coded Coven and Neutral Apocalypse)
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/margbp2.webp" alt="Violin & Guitar Player" style="max-width:20px; border:none; margin:0;">
-                  Violin &amp; Guitar Player, Bowler, and occasional Artist
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/margbp3.webp" alt="Full-time furry" style="max-width:20px; border:none; margin:0;">
-                  Full-time furry
-                </li>
-              </ul>
-            </div>
-          </div>
-        </details>
-        <details>
-          <summary>Fish King</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/fishimage.jpg" alt="Fish King Profile">
-              <h4>About Me</h4>
-              <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/fish.webp" alt="Dad" style="max-width:20px; border:none; margin:0;">
-                  Dad
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/fish.webp" alt="Husband" style="max-width:20px; border:none; margin:0;">
-                  Husband
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/fish.webp" alt="Chemistry" style="max-width:20px; border:none; margin:0;">
-                  Chemistry
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/fish.webp" alt="Sports & Gaming" style="max-width:20px; border:none; margin:0;">
-                  Sports &amp; Gaming
-                </li>
-              </ul>
-            </div>
-          </div>
-        </details>
-        <details>
-          <summary>Sunny</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/sunnyicon.png" alt="Sunny Profile">
-              <h4>About Me</h4>
-              <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/sunnybp.webp" alt="Two-spirited" style="max-width:20px; border:none; margin:0;">
-                  two-spirited and feeling the urge to explore these lands
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/sunnybp.webp" alt="HOME-Resonance" style="max-width:20px; border:none; margin:0;">
-                  HOME-Resonance, Enya-Caribbean Blue
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/sunnybp.webp" alt="soccer" style="max-width:20px; border:none; margin:0;">
-                  soccer by day, soccer by night
-                </li>
-              </ul>
-            </div>
-          </div>
-        </details>
-        <details>
-          <summary>Tree</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/treeicon.webp" alt="Tree Profile">
-              <h4>About Me</h4>
-              <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/tree.png" alt="tree" style="max-width:20px; border:none; margin:0;">
-                  Just a tree
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/tree.png" alt="games" style="max-width:20px; border:none; margin:0;">
-                  Enjoys playing games with cool people
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/tree.png" alt="funny" style="max-width:20px; border:none; margin:0;">
-                  Sometimes funny
-                </li>
-              </ul>
-            </div>
-          </div>
-        </details>
-      </div>
+          </details>
+        </div> 
+        <div class="staff-role" style="grid-column: 3;">
+          <h2>Admin</h2>
 
-      <div class="staff-role" style="grid-column: 3;">
-        <h2>Trial Mod</h2>
-        <details>
-          <summary>Trial Mods</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <h3><!--trial mod--></h3>
-              <img src="images/trialmod.png" alt="Trial Mod">
-              <h4>About Me</h4>
-              <p><!-- About Me --></p>
+          <details>
+            <summary>V</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/v.png" alt="Admin @𝐕">
+                <h4>About Me</h4>
+                <p>I’m just happy to be here.</p>
+              </div>
             </div>
-          </div>
-        </details>
-      </div>
+          </details>
 
-      <div class="staff-role" style="grid-column: 1;">
-        <h2>Head of Verification &amp; Verification Moderators</h2>
-
-        <details>
-          <summary>Head of Verification – Goldenwolf</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/goldenwolficon.png" alt="Head of Verification – Goldenwolf">
-              <h4>About Me</h4>
-              <p><!-- Goldenwolf’s bio --></p>
+          <details>
+            <summary>Hannah✰⋆｡</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/hanicon.jpg" alt="Han Profile">
+                <h4>About Me</h4>
+                <ul>
+                  <li>
+                    <img src="images/hanbp.webp" alt="Cat enthusiast">
+                    Cat enthusiast
+                  </li>
+                  <li>
+                    <img src="images/hanbp.webp" alt="Scented candles improve quality of life">
+                    Firmly believes scented candles improve quality of life
+                  </li>
+                  <li>
+                    <img src="images/hanbp.webp" alt="Ferrari fan">
+                    Ferrari fan
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </details>
+          </details>
+        </div> 
+        <div class="staff-role" style="grid-column: 1;">
+          <h2>Senior Moderator</h2>
 
-        <details>
-          <summary>Verification Moderator – Spyder</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/spydericon.png" alt="Verification Moderator – Spyder">
-              <h4>About Me</h4>
-              <p>A student who hosts stuff and watches way too much anime.</p>
+          <details>
+            <summary>Northie</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/northieicon.jpg" alt="Northie Profile">
+                <h4>About Me</h4>
+                <ul>
+                  <li>
+                    <img src="images/northiebp.webp" alt="Love Music & Gaming">
+                    Love Music &amp; Gaming
+                  </li>
+                  <li>
+                    <img src="images/northiebp.webp" alt="Studying to be a Paramedic">
+                    Studying to be a Paramedic
+                  </li>
+                  <li>
+                    <img src="images/northiebp.webp" alt="I write stories & draw art">
+                    I write stories &amp; draw art
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </details>
+          </details>
 
-        <details>
-          <summary>Verification Moderator – Crowy</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/crowyicon.png" alt="Verification Moderator – Crowy">
-              <h4>About Me</h4>
-              <p><!-- Crowy’s bio --></p>
+          <details>
+            <summary>Summer ❀⭒˙</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/summericon.jpg" alt="Summer Profile">
+                <h4>About Me</h4>
+                <ul>
+                  <li>
+                    <img src="images/summerbp.webp" alt="Puns and bad dad jokes for life">
+                    Puns and bad dad jokes for life
+                  </li>
+                  <li>
+                    <img src="images/summerbp.webp" alt="Music/violin enthusiast">
+                    Music/violin enthusiast
+                  </li>
+                  <li>
+                    <img src="images/summerbp.webp" alt="Just a girl and her silly little games & pretty things against the world">
+                    Just a girl and her silly little games &amp; pretty things against the world
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </details>
+          </details>
+        </div> 
+        <div class="staff-role" style="grid-column: 2;">
+          <h2>Moderator</h2>
 
-        <details>
-          <summary>Verification Moderator – Ghoul</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/ghoulicon.png" alt="Verification Moderator – Ghoul">
-              <h4>About Me</h4>
-              <p>What`s up. I`m ghoul. I`m a student living in the Netherlands. I am a fan of reading, movies, and sports.</p>
+          <details>
+            <summary>LilPea</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/peaicon.png" alt="Moderator @!𝐋𝐢𝐋𝐏𝐄𝐀!">
+                <h4>About Me</h4>
+                <ul>
+                  <li>
+                    <img src="images/peabp.webp" alt="sore loser">
+                    sore loser
+                  </li>
+                  <li>
+                    <img src="images/peabp.webp" alt="lover of honey and women">
+                    lover of honey and women
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </details>
-      </div>
+          </details>
 
-      <div class="staff-role" style="grid-column: 2;">
-        <h2>Giveaways</h2>
-        <details>
-          <summary>This Dude</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/giveman.png" alt="Giveaway Manager – This Dude">
-              <h4>About Me</h4>
-              <p>
-                I’m This Dude, the giveaway manager for the discord server!<br>
-                I like to read and play video games, particularly Among Us and Minecraft.<br>
-                I also like to try digital drawing every now and then.
-              </p>
+          <details>
+            <summary>Poet</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/poeticon.webp" alt="Moderator @🎀 𝒫🍀𝑒𝓉 🎀">
+                <h4>About Me</h4>
+                <ul>
+                  <li>
+                    <img src="images/poetbp.webp" alt="Mom of Two Boys ❤️">
+                    Mom of Two Boys ❤️
+                  </li>
+                  <li>
+                    <img src="images/poetbp.webp" alt="Priest Wifey">
+                    Priest Wifey
+                  </li>
+                  <li>
+                    <img src="images/poetbp.webp" alt="HR Consultant/Data Analyst">
+                    HR Consultant/Data Analyst
+                  </li>
+                  <li>
+                    <img src="images/poetbp.webp" alt="Lover of the Arts">
+                    Lover of the Arts
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </details>
-      </div>
+          </details>
 
-      <div class="staff-role" style="grid-column: 3;">
-        <h2>Events</h2>
+          <details>
+            <summary>Marg</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/margicon.png" alt="Marg Profile">
+                <h4>About Me</h4>
+                <ul>
+                  <li>
+                    <img src="images/margbp1.webp" alt="Senior Contributor for TOHE">
+                    Senior Contributor for TOHE (coded Coven and Neutral Apocalypse)
+                  </li>
+                  <li>
+                    <img src="images/margbp2.webp" alt="Violin & Guitar Player">
+                    Violin &amp; Guitar Player, Bowler, and occasional Artist
+                  </li>
+                  <li>
+                    <img src="images/margbp3.webp" alt="Full-time furry">
+                    Full-time furry
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
 
-        <details>
-          <summary>Event Director – Ghoul</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/ghoulicon.png" alt="Event Director – Ghoul">
-              <h4>About Me</h4>
-              <p>What`s up. I`m ghoul. I`m a student living in the Netherlands. I am a fan of reading, movies, and sports.</p>
+          <details>
+            <summary>Fish King</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/fishimage.jpg" alt="Fish King Profile">
+                <h4>About Me</h4>
+                <ul>
+                  <li>
+                    <img src="images/fish.webp" alt="Dad">
+                    Dad
+                  </li>
+                  <li>
+                    <img src="images/fish.webp" alt="Husband">
+                    Husband
+                  </li>
+                  <li>
+                    <img src="images/fish.webp" alt="Chemistry">
+                    Chemistry
+                  </li>
+                  <li>
+                    <img src="images/fish.webp" alt="Sports & Gaming">
+                    Sports &amp; Gaming
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </details>
-        <details>
-          <summary>Event Manager – Spyder</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/spydericon.png" alt="Event Manager – Spyder">
-              <h4>About Me</h4>
-              <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/spyderbp.webp" alt="spyderinfo" style="max-width:20px; border:none; margin:0;">
-                  A student who hosts stuff and watches way too much anime.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </details>
+          </details>
 
-        <details>
-          <summary>Trial Event Manager – Night</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/imnighticon.png" alt="Trial Event Manager – Night">
-              <h4>About Me</h4>
-              <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-                <li>Silly brazilian guy.</li>
-                <li>Loves to play games (mostly PC games).</li>
-                <li>I’m shy or I have ADHD, I dont know I think it’s both.</li>
-                <li>Don’t ask me, I have the memory of a fish.</li>
-              </ul>
+          <details>
+            <summary>Sunny</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/sunnyicon.png" alt="Sunny Profile">
+                <h4>About Me</h4>
+                <ul>
+                  <li>
+                    <img src="images/sunnybp.webp" alt="Two-spirited">
+                    two-spirited and feeling the urge to explore these lands
+                  </li>
+                  <li>
+                    <img src="images/sunnybp.webp" alt="HOME-Resonance">
+                    HOME-Resonance, Enya-Caribbean Blue
+                  </li>
+                  <li>
+                    <img src="images/sunnybp.webp" alt="soccer">
+                    soccer by day, soccer by night
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </details>
+          </details>
 
-        <details>
-          <summary>Trial Event Manager – Mark</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/markicon.png" alt="Trial Event Manager – Mark">
-              <h4>About Me</h4>
-              <p><!-- Mark’s bio --></p>
+          <details>
+            <summary>Tree</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/treeicon.webp" alt="Tree Profile">
+                <h4>About Me</h4>
+                <ul>
+                  <li>
+                    <img src="images/tree.png" alt="tree">
+                    Just a tree
+                  </li>
+                  <li>
+                    <img src="images/tree.png" alt="games">
+                    Enjoys playing games with cool people
+                  </li>
+                  <li>
+                    <img src="images/tree.png" alt="funny">
+                    Sometimes funny
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </details>
+          </details>
+        </div> 
+        <div class="staff-role" style="grid-column: 3;">
+          <h2>Trial Mod</h2>
+          <details>
+            <summary>Trial Mods</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <h4>About Me</h4>
+                <img src="images/trialmod.png" alt="Trial Mod">
+                <p><!-- About Me --></p>
+              </div>
+            </div>
+          </details>
+        </div> 
+        <div class="staff-role" style="grid-column: 1;">
+          <h2>Head of Verification &amp; Verification Mods</h2>
 
-        <details>
-          <summary>Minecraft - Pyro</summary>
-          <div class="details-content">
-            <div class="staff-member">
-              <img src="images/pyroicon1.webp" alt="Pyro Profile">
-              <h4>About Me</h4>
-              <ul style="list-style: disc; padding-left: 20px; text-align: left;">
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/pyroicon.webp" alt="Gamer & Creator" style="max-width:20px; margin:0;">
-                  Gamer &amp; Creator
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/pyroicon2.webp" alt="The Funniest Guy You've Never Met!" style="max-width:20px; margin:0;">
-                  The Funniest Guy You’ve Never Met!
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  💙 Top 3 Favorite Games: Minecraft, Smash Bros, Xenoblade.
-                </li>
-                <li style="display: flex; align-items: center; gap: 5px;">
-                  <img src="images/pyroicon4.webp" alt="Fortnite Spender" style="max-width:20px; margin:0;">
-                  Spent way too much money on Fortnite…
-                </li>
-              </ul>
+          <details>
+            <summary>Head of Verification – Goldenwolf</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/goldenwolficon.png" alt="Head of Verification – Goldenwolf">
+                <h4>About Me</h4>
+                <p><!-- Goldenwolf’s bio --></p>
+              </div>
             </div>
-          </div>
-        </details>
+          </details>
+
+          <details>
+            <summary>Verification Moderator – Spyder</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/spydericon.png" alt="Verification Moderator – Spyder">
+                <h4>About Me</h4>
+                <p>A student who hosts stuff and watches way too much anime.</p>
+              </div>
+            </div>
+          </details>
+
+          <details>
+            <summary>Verification Moderator – Crowy</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/crowyicon.png" alt="Verification Moderator – Crowy">
+                <h4>About Me</h4>
+                <p><!-- Crowy’s bio --></p>
+              </div>
+            </div>
+          </details>
+
+          <details>
+            <summary>Verification Moderator – Ghoul</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/ghoulicon.png" alt="Verification Moderator – Ghoul">
+                <h4>About Me</h4>
+                <p>What`s up. I`m ghoul. I`m a student living in the Netherlands. I am a fan of reading, movies, and sports.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+ 
+        <div class="staff-role" style="grid-column: 2;">
+          <h2>Giveaways</h2>
+          <details>
+            <summary>This Dude</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/giveman.png" alt="Giveaway Manager – This Dude">
+                <h4>About Me</h4>
+                <p>
+                  I’m This Dude, the giveaway manager for the discord server!<br>
+                  I like to read and play video games, particularly Among Us and Minecraft.<br>
+                  I also like to try digital drawing every now and then.
+                </p>
+              </div>
+            </div>
+          </details>
+        </div>
+ 
+        <div class="staff-role" style="grid-column: 3;">
+          <h2>Events</h2>
+
+          <details>
+            <summary>Event Director – Ghoul</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/ghoulicon.png" alt="Event Director – Ghoul">
+                <h4>About Me</h4>
+                <p>What`s up. I`m ghoul. I`m a student living in the Netherlands. I am a fan of reading, movies, and sports.</p>
+              </div>
+            </div>
+          </details>
+
+          <details>
+            <summary>Event Manager – Spyder</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/spydericon.png" alt="Event Manager – Spyder">
+                <h4>About Me</h4>
+                <ul>
+                  <li>
+                    <img src="images/spyderbp.webp" alt="spyderinfo">
+                    A student who hosts stuff and watches way too much anime.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <details>
+            <summary>Trial Event Manager – Night</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/imnighticon.png" alt="Trial Event Manager – Night">
+                <h4>About Me</h4>
+                <ul>
+                  <li>Silly brazilian guy.</li>
+                  <li>Loves to play games (mostly PC games).</li>
+                  <li>I’m shy or I have ADHD, I dont know I think it’s both.</li>
+                  <li>Don’t ask me, I have the memory of a fish.</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <details>
+            <summary>Trial Event Manager – Mark</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/markicon.png" alt="Trial Event Manager – Mark">
+                <h4>About Me</h4>
+                <p><!-- Mark’s bio --></p>
+              </div>
+            </div>
+          </details>
+
+          <details>
+            <summary>Minecraft - Pyro</summary>
+            <div class="details-content">
+              <div class="staff-member">
+                <img src="images/pyroicon1.webp" alt="Pyro Profile">
+                <h4>About Me</h4>
+                <ul>
+                  <li>
+                    <img src="images/pyroicon.webp" alt="Gamer & Creator">
+                    Gamer &amp; Creator
+                  </li>
+                  <li>
+                    <img src="images/pyroicon2.webp" alt="The Funniest Guy You've Never Met!">
+                    The Funniest Guy You’ve Never Met!
+                  </li>
+                  <li>
+                    💙 Top 3 Favorite Games: Minecraft, Smash Bros, Xenoblade.
+                  </li>
+                  <li>
+                    <img src="images/pyroicon4.webp" alt="Fortnite Spender">
+                    Spent way too much money on Fortnite…
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+        </div>
       </div>
     </div>
-  </main>
-
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span id="close-modal" class="close">&times;</span>
-      <p>Applications are currently closed. For any questions about reopening applications, please ask in the server.</p>
+ 
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span id="close-modal" class="close">&times;</span>
+        <div class="modal-title">Applications Closed</div>
+        <p>Applications for this role are currently closed.</p>
+        <p>For any questions about reopening applications, please ask in the server.</p>
+      </div>
     </div>
-  </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => { 
-      const roleBoxes = document.querySelectorAll('.staff-role');
-      roleBoxes.forEach(roleBox => {
-        const detailsList = roleBox.querySelectorAll('details');
-        detailsList.forEach(detail => {
-          detail.addEventListener('toggle', () => {
-            if (detail.open) {
-              detailsList.forEach(other => {
-                if (other !== detail) {
-                  other.removeAttribute('open');
-                }
-              });
+    <script>
+      document.addEventListener('DOMContentLoaded', () => { 
+        const roleBoxes = document.querySelectorAll('.staff-role');
+        roleBoxes.forEach(roleBox => {
+          const detailsList = roleBox.querySelectorAll('details');
+          detailsList.forEach(detail => {
+            detail.addEventListener('toggle', () => {
+              if (detail.open) {
+                detailsList.forEach(other => {
+                  if (other !== detail) {
+                    other.removeAttribute('open');
+                  }
+                });
+              }
+            });
+          });
+        }); 
+        const dropdown = document.querySelector('.dropdown');
+        const button = document.querySelector('.dropbtn');
+
+        if (dropdown && button) {
+          button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('open');
+          });
+
+          document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+              dropdown.classList.remove('open');
             }
           });
+        }
+ 
+        ['moderation','verification-mod'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.addEventListener('click', () => {
+              document.getElementById('modal').style.display = "block";
+            });
+          }
         });
-      }); 
-      const dropdownBtn = document.querySelector('.dropbtn');
-      const dropdownContent = document.querySelector('.dropdown-content');
 
-      if (dropdownBtn && dropdownContent) {
-        dropdownBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          dropdownContent.classList.toggle('show');
-        });
+        const closeModal = document.getElementById('close-modal');
+        const modal = document.getElementById('modal');
 
-        document.addEventListener('click', () => {
-          dropdownContent.classList.remove('show');
-        });
-      } 
-      ['moderation','verification-mod'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.addEventListener('click', () => {
-            document.getElementById('modal').style.display = "block";
+        if (closeModal && modal) {
+          closeModal.addEventListener('click', () => {
+            modal.style.display = "none";
+          });
+
+          window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+              modal.style.display = "none";
+            }
           });
         }
       });
-
-      document.getElementById('close-modal').addEventListener('click', () => {
-        document.getElementById('modal').style.display = "none";
-      });
-
-      window.addEventListener('click', (event) => {
-        if (event.target === document.getElementById('modal')) {
-          document.getElementById('modal').style.display = "none";
-        }
-      });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
