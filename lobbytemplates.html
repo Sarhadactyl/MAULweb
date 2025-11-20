@@ -42,6 +42,7 @@
         color: var(--text-main);
         overflow-x: hidden;
       }
+
       body {
         background: #000 url("images/maulredbg.png") no-repeat top center fixed;
         background-size: auto 100%;
@@ -68,6 +69,7 @@
         background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
         z-index: -1;
       }
+
       .dropdown {
         position: fixed;
         top: 20px;
@@ -170,10 +172,11 @@
             0 0 12px rgba(255, 0, 0, 0.4);
         }
       }
+
       .page-wrapper {
         max-width: 1100px;
         margin: 0 auto;
-        padding: 80px 20px 60px;
+        padding: 80px 20px 40px;
       }
 
       @media (max-width: 600px) {
@@ -287,6 +290,7 @@
         border-color: var(--accent-soft);
         transform: translateY(-1px);
       }
+
       .info-paragraph {
         font-size: 0.98rem;
         line-height: 1.7;
@@ -305,16 +309,19 @@
         color: var(--accent);
         font-weight: 600;
       }
+
       .templates-section {
         width: 100%;
         max-width: 1100px;
         margin: 0 auto 28px;
         padding: 20px 18px 22px;
-        background: rgba(20, 5, 5, 0.85);
+        background:
+          radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 55%),
+          rgba(20, 5, 5, 0.9);
         border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 22px 55px rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(16px);
         text-align: center;
       }
 
@@ -347,11 +354,38 @@
       }
 
       .card {
-        background: var(--bg-card);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 16px;
+        position: relative;
+        background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), transparent 55%),
+                    var(--bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
         overflow: hidden;
-        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(14px);
+        transition: transform 0.18s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        isolation: isolate;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: -20%;
+        background:
+          radial-gradient(circle at top, rgba(255, 255, 255, 0.12), transparent 55%),
+          radial-gradient(circle at bottom, rgba(128, 0, 0, 0.18), transparent 60%);
+        opacity: 0.4;
+        z-index: -1;
+        transition: opacity 0.25s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 26px 60px rgba(0, 0, 0, 1);
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+
+      .card:hover::before {
+        opacity: 0.8;
       }
 
       .template-header {
@@ -548,6 +582,7 @@
         color: #fff;
         text-align: center;
       }
+
       .lightbox {
         position: fixed;
         inset: 0;
@@ -604,25 +639,36 @@
       }
 
       footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 10px 0 30px;
+        padding: 0 16px;
+      }
+
+      .footer-inner {
+        max-width: 900px;
         width: 100%;
         text-align: center;
-        padding: 14px;
-        background: rgba(0, 0, 0, 0.82);
-        z-index: 1000;
-        border-top: 1px solid #000;
-        backdrop-filter: blur(10px);
-        font-size: 0.85rem;
+        padding: 18px 24px;
+        border-radius: 18px;
+        background:
+          radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 55%),
+          linear-gradient(135deg, #240404, #0b0000);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+        font-size: 0.9rem;
+        color: var(--text-muted);
       }
 
       footer a {
-        color: #58a6ff;
+        color: var(--accent-strong);
         text-decoration: none;
+        font-weight: 600;
       }
 
       footer a:hover {
+        color: #ff0000;
         text-decoration: underline;
       }
     </style>
@@ -708,6 +754,7 @@
         <p>These only include Welcome, Rules, OnMeeting.</p>
         <div id="basic-templates-grid" class="grid"></div>
       </section>
+
       <section class="mini-steps-wrap" aria-labelledby="using-templates">
         <h3 id="using-templates" class="mini-steps-title">Using Template Files</h3>
         <ol class="mini-steps">
@@ -721,6 +768,7 @@
         </p>
       </section>
     </div>
+
     <div id="lightbox" class="lightbox" aria-hidden="true">
       <div class="lightbox-inner">
         <button class="lightbox-close" aria-label="Close image">&times;</button>
@@ -730,13 +778,15 @@
     </div>
 
     <footer>
-      <p>Made with ♥ by MAUL</p>
-      <p>
-        Want your template featured?
-        <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904">Open a ticket</a>
-        or send in templates in
-        <a href="https://discord.com/channels/995954559044304896/1410013572637130812">the presets channel</a>.
-      </p>
+      <div class="footer-inner">
+        <p>Made with ♥ by MAUL</p>
+        <p>
+          Want your template featured?
+          <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904">Open a ticket</a>
+          or send in templates in
+          <a href="https://discord.com/channels/995954559044304896/1410013572637130812">the presets channel</a>.
+        </p>
+      </div>
     </footer>
 
     <script>
@@ -1295,6 +1345,7 @@
 
       renderTemplates(templates, 'templates-grid');
       renderTemplates(basicTemplates, 'basic-templates-grid');
+
       document.addEventListener('DOMContentLoaded', () => {
         const dropdown = document.querySelector('.dropdown');
         const button = document.querySelector('.dropbtn');
