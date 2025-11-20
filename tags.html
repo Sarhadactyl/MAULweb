@@ -2037,7 +2037,15 @@ LowerText:
             .replace(/<\/color>/g, "")
             .replace(/<font=".*?">/g, "")
             .replace(/<\/font>/g, "");
-          html = html.replace(/ /g, "&nbsp;");
+          const parts = html.split(/(<[^>]+>)/); 
+          html = parts
+            .map(part => {
+              if (part.startsWith("<") && part.endsWith(">")) {
+                return part;
+              }
+              return part.replace(/ /g, "&nbsp;");
+            })
+            .join("");
 
           visEl.innerHTML = html;
 
@@ -2050,7 +2058,6 @@ LowerText:
 
         payloadEl.textContent = payload;
       }
-
       copyBtn.addEventListener("click", () => {
         copyToClipboard(outEl.textContent).then(() => {
           copyBtn.textContent = "Copied!";
