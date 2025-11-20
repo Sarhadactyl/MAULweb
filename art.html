@@ -1,340 +1,545 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>User Art</title>
-  <link rel="shortcut icon" type="image/png" href="images/favicon.png">
-  <meta property="og:title" content="Welcome to MAUL" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://moddedamong.us/" />
-  <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-  <meta property="og:description" content="Welcome to Modded Among Us Lobbies. Join our community to enhance your gaming experience!" />
-  <meta property="og:site_name" content="Modded Among Us Lobbies" />
-  <meta property="og:locale" content="en_US" />
-  <link rel="canonical" href="https://moddedamong.us/" />
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      font-family: Arial, sans-serif;
-      color: #fff;
-      overflow-x: hidden;
-    }
-    body {
-      background: #000 url("images/background.png") no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-bottom: 100px;
-    }
-    header {
-      width: 100%;
-      text-align: center;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.7);
-      position: relative;
-      z-index: 1000;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 3em;
-      color: #fff;
-    }
-    .dropdown {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 1000;
-    }
-    .dropbtn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      padding: 0;
-    }
-    .dropbtn:hover {
-      transform: scale(1.1);
-    }
-    .hamburger {
-      width: 30px;
-      height: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .hamburger span {
-      display: block;
-      height: 4px;
-      background-color: #fff;
-      border-radius: 2px;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 30px;
-      left: 0;
-      background-color: #151313;
-      min-width: 180px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      border-radius: 5px;
-      overflow: hidden;
-      transition: all 0.3s ease-in-out;
-    }
-    .dropdown-content a {
-      color: rgba(255,255,255,0.95);
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      transition: background 0.3s;
-    }
-    .dropdown-content a:hover {
-      background-color: #3a3a3a;
-    }
-    .dropdown:hover .dropdown-content,
-    .dropdown-content:hover {
-      display: block;
-    }
-    .slideshow-container {
-      position: relative;
-      width: 90%;
-      max-width: 800px;
-      min-height: 400px;
-      margin: 20px 0;
-    }
-    .slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-    .slide.active {
-      opacity: 1;
-    }
-    .slide h2 {
-      margin: 10px 0;
-      text-align: center;
-      font-size: 2em;
-      background: rgba(128,128,128,0.5);
-      padding: 10px 20px;
-      border-radius: 5px;
-      display: inline-block;
-    }
-    .slide img {
-      display: block;
-      margin: 0 auto;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-    .prev, .next {
-      position: absolute;
-      top: 80%;
-      transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.5);
-      border: none;
-      color: #fff;
-      font-size: 2em;
-      padding: 10px;
-      cursor: pointer;
-      border-radius: 50%;
-      user-select: none;
-      z-index: 999;
-    }
-    .prev:hover, .next:hover {
-      background-color: rgba(0,0,0,0.8);
-    }
-    .prev {
-      left: 10px;
-    }
-    .next {
-      right: 10px;
-    }
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      padding: 15px;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 1000;
-    }
-    @media (max-width: 600px) {
+<html lang="en">
+  <head>
+    <title>User Art • Modded Among Us Lobbies</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:title" content="User Art • MAUL" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/art.html" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta property="og:description" content="Community-created art from the Modded Among Us Lobbies Discord." />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://moddedamong.us/art.html" />
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+      :root {
+        --accent: #800000;
+        --accent-soft: rgba(128, 0, 0, 0.25);
+        --accent-strong: #b00000;
+        --bg-card: rgba(30, 12, 12, 0.9);
+        --bg-soft: rgba(45, 18, 18, 0.9);
+        --text-main: #ffffff;
+        --text-muted: #dedee8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        color: var(--text-main);
+        overflow-x: hidden;
+      }
+
+      body {
+        background: #000 url("images/maulredbg.png") no-repeat top center fixed;
+        background-size: auto 100%;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(circle at top, rgba(128, 0, 0, 0.45), transparent 55%),
+          radial-gradient(circle at bottom, rgba(180, 0, 60, 0.25), transparent 55%);
+        mix-blend-mode: screen;
+        opacity: 0.7;
+        pointer-events: none;
+        z-index: -2;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
+        z-index: -1;
+      }
+
+      .dropdown {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 100;
+      }
+
+      .dropbtn {
+        background: rgba(35, 10, 10, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        cursor: pointer;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        padding: 10px 10px;
+        border-radius: 999px;
+        backdrop-filter: blur(10px);
+      }
+
+      .dropbtn:hover {
+        transform: translateY(-1px) scale(1.03);
+        background: rgba(50, 16, 16, 0.98);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      }
+
+      .hamburger {
+        width: 26px;
+        height: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .hamburger span {
+        display: block;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), #ff0040);
+        border-radius: 999px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        margin-top: 8px;
+        background-color: rgba(35, 10, 10, 0.96);
+        min-width: 230px;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.85);
+        border-radius: 12px;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .dropdown-content a {
+        color: var(--text-main);
+        padding: 12px 18px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.95rem;
+        transition: background 0.25s, color 0.25s, padding-left 0.25s;
+      }
+
+      .dropdown-content a:hover {
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--accent);
+        padding-left: 22px;
+      }
+
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+
+      .beta-glow {
+        color: #ff4d4d !important;
+        font-weight: 700;
+        text-shadow: 0 0 8px rgba(255, 0, 0, 0.75),
+                     0 0 12px rgba(255, 0, 0, 0.55);
+        animation: betaPulse 1.6s ease-in-out infinite;
+      }
+
+      .beta-glow:hover {
+        background: rgba(255, 0, 0, 0.12) !important;
+        padding-left: 22px;
+        color: #ff8080 !important;
+        text-shadow: 0 0 10px rgba(255, 50, 50, 1),
+                     0 0 16px rgba(255, 0, 0, 0.9);
+      }
+
+      @keyframes betaPulse {
+        0% {
+          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
+                       0 0 12px rgba(255, 0, 0, 0.4);
+        }
+        50% {
+          text-shadow: 0 0 12px rgba(255, 60, 60, 1),
+                       0 0 24px rgba(255, 0, 0, 0.9);
+        }
+        100% {
+          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
+                       0 0 12px rgba(255, 0, 0, 0.4);
+        }
+      }
+
+      .page-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 80px 20px 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      @media (max-width: 600px) {
+        .page-wrapper {
+          padding-top: 90px;
+        }
+      }
+
+      header {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
       header h1 {
-        font-size: 2em;
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(2.2rem, 4vw, 3rem);
+        text-shadow: 0 8px 30px rgba(0,0,0,0.9);
+        letter-spacing: 0.06em;
       }
+
+      header h1 span {
+        background: linear-gradient(120deg, #ffffff, var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .subtitle {
+        margin-top: 8px;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .slideshow-card {
+        width: 100%;
+        max-width: 900px;
+        background: var(--bg-card);
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 18px 40px rgba(0,0,0,0.9);
+        padding: 20px 20px 28px;
+        position: relative;
+        backdrop-filter: blur(10px);
+      }
+
       .slideshow-container {
-        min-height: 300px;
+        position: relative;
+        width: 100%;
+        min-height: 380px;
       }
+
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 0.9s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .slide.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
       .slide h2 {
-        font-size: 1.4em;
-        padding: 5px 10px;
+        margin: 4px 0 12px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: rgba(60, 20, 20, 0.9);
+        border: 1px solid rgba(255,255,255,0.12);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.7);
       }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>User Art</h1>
-  </header>
 
-  <div class="dropdown">
-    <button class="dropbtn">
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+      .slide img {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: auto;
+        max-height: 520px;
+        object-fit: contain;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.2);
+        background: rgba(0,0,0,0.4);
+      }
+
+      .prev,
+      .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: radial-gradient(circle at center, rgba(60, 20, 20, 0.98), rgba(20, 0, 0, 0.95));
+        border: 1px solid rgba(255,255,255,0.25);
+        color: #fff;
+        font-size: 1.6em;
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: 999px;
+        user-select: none;
+        z-index: 5;
+        box-shadow: 0 10px 24px rgba(0,0,0,0.9);
+        transition: background 0.2s ease, transform 0.18s ease, box-shadow 0.2s ease;
+      }
+
+      .prev:hover,
+      .next:hover {
+        background: radial-gradient(circle at center, rgba(90, 30, 30, 1), rgba(30, 0, 0, 1));
+        transform: translateY(-50%) scale(1.05);
+        box-shadow: 0 14px 30px rgba(0,0,0,1);
+      }
+
+      .prev {
+        left: 6px;
+      }
+
+      .next {
+        right: 6px;
+      }
+
+      .slide-counter {
+        position: absolute;
+        bottom: -4px;
+        right: 10px;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      footer {
+        width: 100%;
+        max-width: 900px;
+        margin-top: 20px;
+        padding: 12px 16px;
+        text-align: center;
+        background: var(--bg-soft);
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.12);
+        box-shadow: 0 14px 30px rgba(0,0,0,0.9);
+        font-size: 0.9rem;
+        backdrop-filter: blur(10px);
+      }
+
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      footer a:hover {
+        color: var(--accent-strong);
+        text-decoration: underline;
+      }
+
+      @media (max-width: 700px) {
+        .slideshow-card {
+          padding: 16px 14px 24px;
+        }
+        .slideshow-container {
+          min-height: 320px;
+        }
+        .prev,
+        .next {
+          font-size: 1.4em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dropdown">
+      <button class="dropbtn" type="button">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+      <div class="dropdown-content">
+        <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
+        <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
+        <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
+        <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
+        <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
+        <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
+        <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
+        <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-hashtag"></i> Tag Generator</a>
+        <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
+        <a href="https://moddedamong.us/BETATemplates" class="beta-glow">
+          <i class="fa-solid fa-flask"></i> BETA Templates
+        </a>
       </div>
-    </button>
-    <div class="dropdown-content">
-      <a href="https://moddedamong.us/">Home</a>
-      <a href="https://moddedamong.us/ourstaff.html">Our Staff</a>
-      <a href="https://moddedamong.us/eventpics.html">Past Events</a>
-      <a href="https://moddedamong.us/calendar.html">Event Calendar</a>
-      <a href="https://moddedamong.us/mods.html">Featured Mods</a>
-      <a href="https://moddedamong.us/presets.html">Mod Presets</a>
-      <a href="https://moddedamong.us/icons.html">Icons and Fonts</a>
-      <a href="https://moddedamong.us/tags.html">Tag Generator</a>
     </div>
-  </div>
 
-  <div class="slideshow-container">
-    <div class="slide active">
-      <h2>By: @Imnight</h2>
-      <img src="images/userart1.png" alt="User Art 1">
-    </div>
-    <div class="slide">
-      <h2>By: @B_x</h2>
-      <img src="images/userart2.png" alt="User Art 2">
-    </div>
-    <div class="slide">
-      <h2>By: @Little Emo</h2>
-      <img src="images/userart3.png" alt="User Art 3">
-    </div>
-    <div class="slide">
-      <h2>By: @Dr. Zoidberg</h2>
-      <img src="images/userart4.jpg" alt="User Art 4">
-    </div>
-    <div class="slide">
-      <h2>By: @Golden Wolf</h2>
-      <img src="images/userart5.jpg" alt="User Art 5">
-    </div>
-    <div class="slide">
-      <h2>By: @This Dude</h2>
-      <img src="images/userart6.png" alt="User Art 6">
-    </div>
-    <div class="slide">
-      <h2>By: @Ody</h2>
-      <img src="images/userart7.png" alt="User Art 7">
-    </div>
-    <div class="slide">
-      <h2>By: @Sushi</h2>
-      <img src="images/userart8.png" alt="User Art 8">
-    </div>
-    <div class="slide">
-      <h2>By: @Shannu</h2>
-      <img src="images/userart9.png" alt="User Art 9">
-    </div>
-    <div class="slide">
-      <h2>By: @Kat</h2>
-      <img src="images/userart10.png" alt="User Art 10">
-    </div>
-    <div class="slide">
-      <h2>By: @JoyFrog</h2>
-      <img src="images/userart11.png" alt="User Art 11">
-    </div>
-    <div class="slide">
-      <h2>By: @Wastedfilms</h2>
-      <img src="images/userart12.jpg" alt="User Art 12">
-    </div>
-    <div class="slide">
-      <h2>By: @QMT13 - The Dark Knight</h2>
-      <img src="images/artqmt.png" alt="User Art 12">
-    </div>
-    <div class="slide">
-      <h2>By: @Cinna</h2>
-      <img src="images/artcinna.jpg" alt="User Art 12">
-    </div>
-    <div class="slide">
-      <h2>By: @This Dude - Polus Overlook</h2>
-      <img src="images/artthisdude.png" alt="User Art 12">
-    </div>
-    <div class="slide">
-      <h2>By: @R@ando - The Golden Cult</h2>
-      <img src="images/userart13.png" alt="User Art 12">
-    </div>
-    <div class="slide">
-      <h2>By: @R@ando</h2>
-      <img src="images/art14.png" alt="User Art 14">
-    </div>
-    <div class="slide">
-      <h2>By: @Fishking</h2>
-      <img src="images/art15.png" alt="User Art 15">
-    </div>
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-  </div>
+    <div class="page-wrapper">
+      <header>
+        <h1><span>User Art Gallery</span></h1>
+        <p class="subtitle">Showcasing creations from the Modded Among Us Lobbies community.</p>
+      </header>
 
-  <footer>
-    <p>
-      To get your user art featured here please <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904" style="color: blue; text-decoration: none;">Open a ticket</a>.
-    </p>
-  </footer>
+      <div class="slideshow-card">
+        <div class="slideshow-container">
+          <div class="slide active">
+            <h2>By: @Imnight</h2>
+            <img src="images/userart1.png" alt="User Art 1">
+          </div>
+          <div class="slide">
+            <h2>By: @B_x</h2>
+            <img src="images/userart2.png" alt="User Art 2">
+          </div>
+          <div class="slide">
+            <h2>By: @Little Emo</h2>
+            <img src="images/userart3.png" alt="User Art 3">
+          </div>
+          <div class="slide">
+            <h2>By: @Dr. Zoidberg</h2>
+            <img src="images/userart4.jpg" alt="User Art 4">
+          </div>
+          <div class="slide">
+            <h2>By: @Golden Wolf</h2>
+            <img src="images/userart5.jpg" alt="User Art 5">
+          </div>
+          <div class="slide">
+            <h2>By: @This Dude</h2>
+            <img src="images/userart6.png" alt="User Art 6">
+          </div>
+          <div class="slide">
+            <h2>By: @Ody</h2>
+            <img src="images/userart7.png" alt="User Art 7">
+          </div>
+          <div class="slide">
+            <h2>By: @Sushi</h2>
+            <img src="images/userart8.png" alt="User Art 8">
+          </div>
+          <div class="slide">
+            <h2>By: @Shannu</h2>
+            <img src="images/userart9.png" alt="User Art 9">
+          </div>
+          <div class="slide">
+            <h2>By: @Kat</h2>
+            <img src="images/userart10.png" alt="User Art 10">
+          </div>
+          <div class="slide">
+            <h2>By: @JoyFrog</h2>
+            <img src="images/userart11.png" alt="User Art 11">
+          </div>
+          <div class="slide">
+            <h2>By: @Wastedfilms</h2>
+            <img src="images/userart12.jpg" alt="User Art 12">
+          </div>
+          <div class="slide">
+            <h2>By: @QMT13 - The Dark Knight</h2>
+            <img src="images/artqmt.png" alt="User Art 13">
+          </div>
+          <div class="slide">
+            <h2>By: @Cinna</h2>
+            <img src="images/artcinna.jpg" alt="User Art 14">
+          </div>
+          <div class="slide">
+            <h2>By: @This Dude - Polus Overlook</h2>
+            <img src="images/artthisdude.png" alt="User Art 15">
+          </div>
+          <div class="slide">
+            <h2>By: @R@ando - The Golden Cult</h2>
+            <img src="images/userart13.png" alt="User Art 16">
+          </div>
+          <div class="slide">
+            <h2>By: @R@ando</h2>
+            <img src="images/art14.png" alt="User Art 17">
+          </div>
+          <div class="slide">
+            <h2>By: @Fishking</h2>
+            <img src="images/art15.png" alt="User Art 18">
+          </div>
 
-  <script>
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    let currentIndex = 0;
-    let slideInterval = setInterval(nextSlide, 5000);
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+          <div class="slide-counter" id="slideCounter"></div>
+        </div>
+      </div>
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-    }
+      <footer>
+        <p>
+          Want your art featured here?
+          <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904" target="_blank">
+            Open a ticket on Discord.
+          </a>
+        </p>
+      </footer>
+    </div>
 
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      showSlide(currentIndex);
-    }
+    <script>
+      const slides = document.querySelectorAll('.slide');
+      const prevBtn = document.querySelector('.prev');
+      const nextBtn = document.querySelector('.next');
+      const counter = document.getElementById('slideCounter');
+      let currentIndex = 0;
+      let slideInterval = setInterval(nextSlide, 5000);
 
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      showSlide(currentIndex);
-    }
-
-    nextBtn.addEventListener('click', () => {
-      clearInterval(slideInterval);
-      nextSlide();
-      slideInterval = setInterval(nextSlide, 5000);
-    });
-
-    prevBtn.addEventListener('click', () => {
-      clearInterval(slideInterval);
-      prevSlide();
-      slideInterval = setInterval(nextSlide, 5000);
-    });
-
-    document.addEventListener("click", function(event) {
-      const dropdownMenu = document.querySelector(".dropdown-content");
-      const dropdownButton = document.querySelector(".dropbtn");
-      if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-        dropdownMenu.style.display = "none";
+      function updateCounter() {
+        if (!counter) return;
+        counter.textContent = (currentIndex + 1) + ' / ' + slides.length;
       }
-    });
 
-    document.querySelector(".dropbtn").addEventListener("click", function(event) {
-      const dropdownMenu = document.querySelector(".dropdown-content");
-      dropdownMenu.style.display = (dropdownMenu.style.display === "block") ? "none" : "block";
-      event.stopPropagation();
-    });
-  </script>
-</body>
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+        updateCounter();
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+      }
+
+      if (nextBtn && prevBtn) {
+        nextBtn.addEventListener('click', () => {
+          clearInterval(slideInterval);
+          nextSlide();
+          slideInterval = setInterval(nextSlide, 5000);
+        });
+
+        prevBtn.addEventListener('click', () => {
+          clearInterval(slideInterval);
+          prevSlide();
+          slideInterval = setInterval(nextSlide, 5000);
+        });
+      }
+
+      showSlide(currentIndex);
+      document.addEventListener('DOMContentLoaded', () => {
+        const dropdown = document.querySelector('.dropdown');
+        const button = document.querySelector('.dropbtn');
+
+        if (!dropdown || !button) return;
+
+        button.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
