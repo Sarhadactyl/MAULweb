@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>MAUL Wrapped 2025ss</title>
-  <meta charset="UTF-8" />
+  <head>
+    <meta charset="utf-8" />
+    <title>Wrapped · MAUL</title>
+    <meta property="og:title" content="Wrapped · MAUL" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/wrapped.html" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta property="og:description" content="Explore our highlights from 2025." />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://moddedamong.us/wrapped.html" />
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet"
@@ -58,6 +67,86 @@
       inset: 0;
       background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
       z-index: -1;
+    }
+
+
+    .dropdown {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+    }
+
+    .dropbtn {
+      background: rgba(35, 10, 10, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      padding: 10px 10px;
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+    }
+
+    .dropbtn:hover {
+      transform: translateY(-1px) scale(1.03);
+      background: rgba(50, 16, 16, 0.98);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+    }
+
+    .hamburger {
+      width: 26px;
+      height: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), #ff0040);
+      border-radius: 999px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      margin-top: 8px;
+      background-color: rgba(35, 10, 10, 0.96);
+      min-width: 220px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.85);
+      border-radius: 12px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .dropdown-content a {
+      color: var(--text-main);
+      padding: 12px 18px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      transition: background 0.25s, color 0.25s, padding-left 0.25s;
+    }
+
+    .dropdown-content a:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--accent);
+      padding-left: 22px;
+    }
+
+    .dropdown.open .dropdown-content {
+      display: block;
+    }
+
+    .beta-glow {
+      color: #ff4d4d !important;
+      font-weight: 700;
+      text-shadow: 0 0 8px rgba(255, 0, 0, 0.75),
+                   0 0 12px rgba(255, 0, 0, 0.55);
     }
 
     .wrap-container {
@@ -212,14 +301,6 @@
       position: relative;
     }
 
-    /* background images 
-       .avatar-jojo    { background-image: url("images/jojo.png"); background-size: cover; background-position: center; }
-       .avatar-sil     { background-image: url("images/sil.png"); background-size: cover; background-position: center; }
-       .avatar-spyder  { background-image: url("images/spyder.png"); background-size: cover; background-position: center; }
-       .avatar-tas     { background-image: url("images/tas.png"); background-size: cover; background-position: center; }
-       .avatar-jackler { background-image: url("images/sir-jackler.png"); background-size: cover; background-position: center; }
-    */
-
     .avatar-circle img {
       width: 100%;
       height: 100%;
@@ -229,6 +310,15 @@
 
     .avatar-label {
       font-weight: 600;
+    }
+
+    .avatar-group {
+      display: flex;
+      gap: -16px;
+    }
+
+    .avatar-group .avatar-circle {
+      border-width: 2px;
     }
 
     .nav-controls {
@@ -335,6 +425,30 @@
 </head>
 <body>
 
+<div class="dropdown">
+  <button class="dropbtn" type="button">
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </button>
+  <div class="dropdown-content">
+    <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
+    <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
+    <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
+    <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
+    <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
+    <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
+    <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
+    <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-hashtag"></i> Tag Generator</a>
+    <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
+    <a href="https://moddedamong.us/BETAtemplates" class="beta-glow">
+      <i class="fa-solid fa-flask"></i> BETA Templates
+    </a>
+  </div>
+</div>
+
 <div class="wrap-container">
   <section class="wrap-slide" id="slide-1">
     <div class="wrap-inner">
@@ -353,6 +467,9 @@
       <div class="slide-card">
         <div class="slide-grid">
           <div class="stat-item">
+            <div class="avatar-circle avatar-ghosty">
+              <img src="images/ghosty.png" alt="Ghosty">
+            </div>
             <div>
               <div class="stat-label">Total Messages (humans)</div>
               <div class="stat-value">2,865,108</div>
@@ -388,6 +505,7 @@
 
     </div>
   </section>
+
   <section class="wrap-slide" id="slide-2">
     <div class="wrap-inner">
       <div class="slide-tag">
@@ -432,6 +550,17 @@
           </div>
 
           <div class="stat-item">
+            <div class="avatar-group">
+              <div class="avatar-circle avatar-tasha">
+                <img src="images/tasha.png" alt="tasha">
+              </div>
+              <div class="avatar-circle avatar-han">
+                <img src="images/han.png" alt="han">
+              </div>
+              <div class="avatar-circle avatar-northie">
+                <img src="images/northie.png" alt="northie">
+              </div>
+            </div>
             <div>
               <div class="stat-label">Most Non-Pingable Role Pinged</div>
               <div class="stat-value">red</div>
@@ -445,6 +574,7 @@
 
     </div>
   </section>
+
   <section class="wrap-slide" id="slide-3">
     <div class="wrap-inner">
       <div class="slide-tag">
@@ -462,7 +592,7 @@
         <div class="slide-grid">
           <div class="stat-item">
             <div class="avatar-circle avatar-spyder">
-                   <img src="images/spyder.png" alt="spyder">
+              <img src="images/spyder.png" alt="spyder">
             </div>
             <div>
               <div class="stat-label">Most Active Chatter</div>
@@ -472,6 +602,7 @@
               <div class="stat-note">Single-handedly kept the channels awake.</div>
             </div>
           </div>
+
           <div class="stat-item">
             <div>
               <div class="stat-label">Most Active Channel</div>
@@ -481,9 +612,10 @@
               </div>
             </div>
           </div>
+
           <div class="stat-item">
             <div class="avatar-circle avatar-tas">
-                   <img src="images/tas.png" alt="tas">
+              <img src="images/tas.png" alt="tas">
             </div>
             <div>
               <div class="stat-label">Most Active Reactor</div>
@@ -494,11 +626,27 @@
             </div>
           </div>
 
+          <div class="stat-item">
+            <div class="avatar-circle avatar-jackler">
+              <img src="images/sir-jackler.png" alt="Sir Jackler">
+            </div>
+            <div>
+              <div class="stat-label">Chaos Goblin</div>
+              <div class="stat-value">
+                <span class="avatar-label">Sir Jackler</span>
+              </div>
+              <div class="stat-note">
+                Caused a lot of <span class="stat-highlight">chaotic good</span> within the community.
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
     </div>
   </section>
+
   <section class="wrap-slide" id="slide-4">
     <div class="wrap-inner">
       <div class="slide-tag">
@@ -522,9 +670,10 @@
               <div class="stat-note">That’s a lot of time sus-ing each other out.</div>
             </div>
           </div>
+
           <div class="stat-item">
             <div class="avatar-circle avatar-jojo">
-                   <img src="images/jojo.png" alt="jojo">
+              <img src="images/jojo.png" alt="jojo">
             </div>
             <div>
               <div class="stat-label">Most Active VC User</div>
@@ -536,9 +685,10 @@
               </div>
             </div>
           </div>
+
           <div class="stat-item">
             <div class="avatar-circle avatar-sil">
-                   <img src="images/sil.png" alt="Sil">
+              <img src="images/sil.png" alt="Sil">
             </div>
             <div>
               <div class="stat-label">Most Active Speaking VC User</div>
@@ -550,17 +700,16 @@
               </div>
             </div>
           </div>
+
           <div class="stat-item">
-            <div class="avatar-circle avatar-jackler">
-                   <img src="images/sir-jackler.png" alt="Sir Jackler">
+            <div class="avatar-circle avatar-junko">
+              <img src="images/junko.png" alt="Junko">
             </div>
             <div>
-              <div class="stat-label">Chaos Goblin</div>
-              <div class="stat-value">
-                <span class="avatar-label">Sir Jackler</span>
-              </div>
+              <div class="stat-label">VC Activities</div>
+              <div class="stat-value">Wordle Queen – Junko</div>
               <div class="stat-note">
-                Caused a lot of <span class="stat-highlight">chaotic good</span> within the community.
+                Got a daily Wordle in <span class="stat-highlight">2 tries</span> during VC.
               </div>
             </div>
           </div>
@@ -570,6 +719,7 @@
 
     </div>
   </section>
+
   <section class="wrap-slide" id="slide-5">
     <div class="wrap-inner">
       <div class="slide-tag">
@@ -631,7 +781,8 @@
 
     </div>
   </section>
- <section class="wrap-slide" id="slide-6">
+
+  <section class="wrap-slide" id="slide-6">
     <div class="wrap-inner">
       <div class="slide-tag">
         <span class="slide-tag-dot"></span>
@@ -648,6 +799,9 @@
         <div class="slide-grid">
 
           <div class="stat-item">
+            <div class="avatar-circle avatar-han">
+              <img src="images/han.png" alt="han">
+            </div>
             <div>
               <div class="stat-label">Funniest Message</div>
               <div class="stat-value">
@@ -660,6 +814,9 @@
           </div>
 
           <div class="stat-item">
+            <div class="avatar-circle avatar-laik">
+              <img src="images/laik.png" alt="laik">
+            </div>
             <div>
               <div class="stat-label">Most Skulled Message</div>
               <div class="stat-value">"huh"</div>
@@ -670,6 +827,9 @@
           </div>
 
           <div class="stat-item">
+            <div class="avatar-circle avatar-chris">
+              <img src="images/chris.png" alt="Chris">
+            </div>
             <div>
               <div class="stat-label">Lives in my head rent free</div>
               <div class="stat-value">Poptart chicken sandwich</div>
@@ -680,6 +840,14 @@
           </div>
 
           <div class="stat-item">
+            <div class="avatar-group">
+              <div class="avatar-circle avatar-ghoul">
+                <img src="images/ghoul.png" alt="Ghoul">
+              </div>
+              <div class="avatar-circle avatar-fishking">
+                <img src="images/fishking.png" alt="Fish King">
+              </div>
+            </div>
             <div>
               <div class="stat-label">Sorry Ghoul!</div>
               <div class="stat-value">"You're lucky." – Fish King</div>
@@ -693,6 +861,7 @@
       </div>
     </div>
   </section>
+
   <section class="wrap-slide" id="slide-7">
     <div class="wrap-inner">
       <div class="slide-tag">
@@ -725,6 +894,7 @@
   </section>
 
 </div>
+
 <div class="nav-controls">
   <button class="nav-btn" id="prevSlide">
     <i class="fa-solid fa-arrow-left"></i> Back
@@ -797,6 +967,25 @@
   });
 
   window.addEventListener('resize', updateDots);
+
+  // Hamburger dropdown
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropdown = document.querySelector('.dropdown');
+    const button = document.querySelector('.dropbtn');
+
+    if (!dropdown || !button) return;
+
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+      }
+    });
+  });
 </script>
 
 </body>
