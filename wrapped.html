@@ -46,7 +46,7 @@
         height: 100%;
         margin: 0;
         padding: 0;
-        font-family: 'Roboto', sans-serif;
+        font-family: "Roboto", sans-serif;
         color: var(--text-main);
         overflow-x: hidden;
       }
@@ -203,7 +203,7 @@
       }
 
       .slide-title {
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
         font-size: clamp(2.2rem, 4vw, 3rem);
         margin: 0 0 10px;
         letter-spacing: 0.05em;
@@ -429,6 +429,142 @@
         transform: translateY(-1px);
         box-shadow: 0 14px 34px rgba(0, 0, 0, 0.95);
         filter: brightness(1.05);
+      }
+
+      /* STAFF SPECIAL THANKS BUBBLES */
+
+      .staff-thanks-section {
+        text-align: center;
+      }
+
+      .staff-thanks-title {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(2rem, 3.4vw, 3rem);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .staff-thanks-title-accent {
+        margin-top: -6px;
+        background: linear-gradient(90deg, #ffffff, #ff6666);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .staff-thanks-subtitle {
+        max-width: 780px;
+        margin: 18px auto 32px;
+        color: var(--text-muted);
+        font-size: 0.98rem;
+        line-height: 1.7;
+      }
+
+      .staff-thanks-card {
+        max-width: 1150px;
+        margin: 0 auto;
+        padding: 26px 26px 32px;
+        border-radius: 32px;
+        background:
+          radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 60%),
+          #1b0606;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 26px 60px rgba(0, 0, 0, 0.9);
+      }
+
+      .staff-thanks-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 26px 26px;
+        justify-items: center;
+      }
+
+      .staff-coin {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at top, rgba(255, 255, 255, 0.15), transparent 60%),
+          #341313;
+        box-shadow:
+          0 14px 32px rgba(0, 0, 0, 0.9),
+          inset 0 0 0 3px rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: staffCoinFloat 6s ease-in-out infinite;
+        position: relative;
+      }
+
+      .staff-coin:nth-child(3n) {
+        animation-duration: 7s;
+      }
+      .staff-coin:nth-child(4n) {
+        animation-duration: 5.5s;
+        animation-delay: 0.7s;
+      }
+      .staff-coin:nth-child(5n) {
+        animation-delay: 1.1s;
+      }
+
+      .staff-coin-inner {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .staff-coin-avatar {
+        width: 74px;
+        height: 74px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid rgba(255, 255, 255, 0.8);
+        margin-bottom: 10px;
+      }
+
+      .staff-coin-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .staff-coin-name {
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      .staff-coin-role {
+        font-size: 0.75rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        opacity: 0.9;
+        margin-top: 2px;
+      }
+
+      @keyframes staffCoinFloat {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      @media (max-width: 700px) {
+        .staff-thanks-card {
+          padding: 22px 16px 26px;
+          border-radius: 26px;
+        }
+
+        .staff-coin {
+          width: 150px;
+          height: 150px;
+        }
       }
     </style>
   </head>
@@ -901,6 +1037,248 @@
         </div>
       </section>
 
+      <!-- STAFF FLOATING BUBBLES TAB -->
+      <section class="wrap-slide" id="slide-8">
+        <div class="wrap-inner staff-thanks-section">
+          <h1 class="staff-thanks-title">
+            SPECIAL THANKS TO THE STAFF WHO
+          </h1>
+          <h1 class="staff-thanks-title staff-thanks-title-accent">
+            KEEP MAUL RUNNING
+          </h1>
+
+          <p class="staff-thanks-subtitle">
+            Lobbies don’t host themselves. From moderation to verification, events, and giveaways – these are
+            the people keeping the server safe, active, and fun all year long.
+          </p>
+
+          <div class="staff-thanks-card">
+            <div class="staff-thanks-grid">
+
+              <!-- Owners -->
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/laik.png" alt="Laikrai">
+                  </div>
+                  <div class="staff-coin-name">Laikrai</div>
+                  <div class="staff-coin-role">OWNER</div>
+                </div>
+              </article>
+
+              <!-- Head Admin -->
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/tashaicon.jpg" alt="Tasha">
+                  </div>
+                  <div class="staff-coin-name">Tasha</div>
+                  <div class="staff-coin-role">HEAD ADMIN</div>
+                </div>
+              </article>
+
+              <!-- Admins -->
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/v.png" alt="V">
+                  </div>
+                  <div class="staff-coin-name">V</div>
+                  <div class="staff-coin-role">ADMIN</div>
+                </div>
+              </article>
+
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/hanicon.jpg" alt="Hannah">
+                  </div>
+                  <div class="staff-coin-name">Hannah</div>
+                  <div class="staff-coin-role">ADMIN</div>
+                </div>
+              </article>
+
+              <!-- Senior Mods -->
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/northieicon.jpg" alt="Northie">
+                  </div>
+                  <div class="staff-coin-name">Northie</div>
+                  <div class="staff-coin-role">SR MOD</div>
+                </div>
+              </article>
+
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/summericon.jpg" alt="Summer">
+                  </div>
+                  <div class="staff-coin-name">Summer</div>
+                  <div class="staff-coin-role">SR MOD</div>
+                </div>
+              </article>
+
+              <!-- Moderators -->
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/peaicon.png" alt="LilPea">
+                  </div>
+                  <div class="staff-coin-name">LilPea</div>
+                  <div class="staff-coin-role">MOD</div>
+                </div>
+              </article>
+
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/poeticon.webp" alt="Poet">
+                  </div>
+                  <div class="staff-coin-name">Poet</div>
+                  <div class="staff-coin-role">MOD</div>
+                </div>
+              </article>
+
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/margicon.png" alt="Marg">
+                  </div>
+                  <div class="staff-coin-name">Marg</div>
+                  <div class="staff-coin-role">MOD</div>
+                </div>
+              </article>
+
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/fishimage.jpg" alt="Fish King">
+                  </div>
+                  <div class="staff-coin-name">Fish King</div>
+                  <div class="staff-coin-role">MOD</div>
+                </div>
+              </article>
+
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/sunnyicon.png" alt="Sunny">
+                  </div>
+                  <div class="staff-coin-name">Sunny</div>
+                  <div class="staff-coin-role">MOD</div>
+                </div>
+              </article>
+
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/treeicon.webp" alt="Tree">
+                  </div>
+                  <div class="staff-coin-name">Tree</div>
+                  <div class="staff-coin-role">MOD</div>
+                </div>
+              </article>
+
+              <!-- Trial Mods (collective) -->
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/trialmod.png" alt="Trial Mods">
+                  </div>
+                  <div class="staff-coin-name">Trial Mods</div>
+                  <div class="staff-coin-role">TRIAL MOD TEAM</div>
+                </div>
+              </article>
+
+              <!-- Verification -->
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/goldenwolficon.png" alt="Goldenwolf">
+                  </div>
+                  <div class="staff-coin-name">Goldenwolf</div>
+                  <div class="staff-coin-role">HEAD OF VERIF</div>
+                </div>
+              </article>
+
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/spydericon.png" alt="Spyder">
+                  </div>
+                  <div class="staff-coin-name">Spyder</div>
+                  <div class="staff-coin-role">VERIF / EVENTS</div>
+                </div>
+              </article>
+
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/crowyicon.png" alt="Crowy">
+                  </div>
+                  <div class="staff-coin-name">Crowy</div>
+                  <div class="staff-coin-role">VERIF MOD</div>
+                </div>
+              </article>
+
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/ghoulicon.png" alt="Ghoul">
+                  </div>
+                  <div class="staff-coin-name">Ghoul</div>
+                  <div class="staff-coin-role">VERIF / EVENTS</div>
+                </div>
+              </article>
+
+              <!-- Giveaways -->
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/giveman.png" alt="This Dude">
+                  </div>
+                  <div class="staff-coin-name">This Dude</div>
+                  <div class="staff-coin-role">GIVEAWAYS</div>
+                </div>
+              </article>
+
+              <!-- Events -->
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/imnighticon.png" alt="Night">
+                  </div>
+                  <div class="staff-coin-name">Night</div>
+                  <div class="staff-coin-role">TRIAL EM</div>
+                </div>
+              </article>
+
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/markicon.png" alt="Mark">
+                  </div>
+                  <div class="staff-coin-name">Mark</div>
+                  <div class="staff-coin-role">TRIAL EM</div>
+                </div>
+              </article>
+
+              <article class="staff-coin">
+                <div class="staff-coin-inner">
+                  <div class="staff-coin-avatar">
+                    <img src="images/pyroicon1.webp" alt="Pyro">
+                  </div>
+                  <div class="staff-coin-name">Pyro</div>
+                  <div class="staff-coin-role">MINECRAFT</div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
 
     <div class="nav-controls">
@@ -915,20 +1293,20 @@
     <div class="nav-dots" id="navDots"></div>
 
     <script>
-      const slides = Array.from(document.querySelectorAll('.wrap-slide'));
-      const navDotsContainer = document.getElementById('navDots');
+      const slides = Array.from(document.querySelectorAll(".wrap-slide"));
+      const navDotsContainer = document.getElementById("navDots");
       slides.forEach((slide, index) => {
-        const dot = document.createElement('div');
-        dot.classList.add('nav-dot');
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => scrollToSlide(index));
+        const dot = document.createElement("div");
+        dot.classList.add("nav-dot");
+        if (index === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => scrollToSlide(index));
         navDotsContainer.appendChild(dot);
       });
 
-      const dots = Array.from(document.querySelectorAll('.nav-dot'));
+      const dots = Array.from(document.querySelectorAll(".nav-dot"));
 
       function scrollToSlide(index) {
-        slides[index].scrollIntoView({ behavior: 'smooth' });
+        slides[index].scrollIntoView({ behavior: "smooth" });
       }
 
       function getCurrentSlideIndex() {
@@ -952,43 +1330,43 @@
       function updateDots() {
         const currentIndex = getCurrentSlideIndex();
         dots.forEach((dot, i) => {
-          dot.classList.toggle('active', i === currentIndex);
+          dot.classList.toggle("active", i === currentIndex);
         });
       }
 
-      document.getElementById('nextSlide').addEventListener('click', () => {
+      document.getElementById("nextSlide").addEventListener("click", () => {
         const currentIndex = getCurrentSlideIndex();
         const nextIndex = Math.min(slides.length - 1, currentIndex + 1);
         scrollToSlide(nextIndex);
       });
 
-      document.getElementById('prevSlide').addEventListener('click', () => {
+      document.getElementById("prevSlide").addEventListener("click", () => {
         const currentIndex = getCurrentSlideIndex();
         const prevIndex = Math.max(0, currentIndex - 1);
         scrollToSlide(prevIndex);
       });
 
       let scrollTimeout;
-      document.querySelector('.wrap-container').addEventListener('scroll', () => {
+      document.querySelector(".wrap-container").addEventListener("scroll", () => {
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(updateDots, 80);
       });
 
-      window.addEventListener('resize', updateDots);
-      document.addEventListener('DOMContentLoaded', () => {
-        const dropdown = document.querySelector('.dropdown');
-        const button = document.querySelector('.dropbtn');
+      window.addEventListener("resize", updateDots);
+      document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector(".dropdown");
+        const button = document.querySelector(".dropbtn");
 
         if (!dropdown || !button) return;
 
-        button.addEventListener('click', (e) => {
+        button.addEventListener("click", (e) => {
           e.stopPropagation();
-          dropdown.classList.toggle('open');
+          dropdown.classList.toggle("open");
         });
 
-        document.addEventListener('click', (e) => {
+        document.addEventListener("click", (e) => {
           if (!dropdown.contains(e.target)) {
-            dropdown.classList.remove('open');
+            dropdown.classList.remove("open");
           }
         });
       });
