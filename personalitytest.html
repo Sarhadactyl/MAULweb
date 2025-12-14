@@ -12,7 +12,7 @@
   <meta property="og:description" content="Modded among us personality test. which role are you?" />
   <meta property="og:site_name" content="Modded Among Us Lobbies" />
   <meta property="og:locale" content="en_US" />
-  <link rel="canonical" href="https://moddedamong.us/personalitytest" />  
+  <link rel="canonical" href="https://moddedamong.us/personalitytest" />
   <meta name="theme-color" content="#120006" />
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
@@ -57,7 +57,7 @@
       overflow-x: hidden;
       background: var(--bg0);
     }
- 
+
     body::before{
       content:"";
       position: fixed;
@@ -79,13 +79,13 @@
       pointer-events: none;
       z-index: -2;
     }
- 
+
     .wrap{
       max-width: 1120px;
       margin: 0 auto;
       padding: 34px 18px 70px;
     }
- 
+
     .nav{
       position: fixed;
       top: 18px;
@@ -157,7 +157,7 @@
       color: #ffd7de;
     }
     .nav-menu .danger:hover{ color: #ff9aa8; }
- 
+
     .hero{
       min-height: 68vh;
       display: grid;
@@ -220,7 +220,7 @@
     .subtitle .no-faction{
       color: rgba(255, 60, 90, 0.95);
       font-weight: 700;
-    } 
+    }
     .chips{
       margin-top: 18px;
       display: flex;
@@ -243,7 +243,7 @@
     }
     .chip i{ color: rgba(255,255,255,0.82); }
     .chip strong{ color: #fff; font-weight: 700; }
- 
+
     .actions{
       margin-top: 22px;
       display: flex;
@@ -279,7 +279,7 @@
       box-shadow: 0 16px 46px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.08) inset;
     }
     .btn.primary:hover{ filter: brightness(1.05); }
- 
+
     .panel{
       max-width: 960px;
       margin: 18px auto 0;
@@ -414,7 +414,7 @@
       flex-wrap: wrap;
       background: rgba(0,0,0,0.10);
     }
- 
+
     .result-grid{
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
@@ -481,12 +481,12 @@
       color: rgba(255,255,255,0.92);
       font-size: 0.90rem;
     }
- 
+
     .hidden{ display:none !important; }
   </style>
 </head>
 
-<body> 
+<body>
   <div class="nav" id="nav">
     <button class="nav-btn" id="navBtn" type="button" aria-label="Menu">
       <div class="burger"><span></span><span></span><span></span></div>
@@ -500,7 +500,6 @@
   </div>
 
   <div class="wrap">
- 
     <section class="hero" id="hero">
       <div>
         <div class="badge">
@@ -521,7 +520,7 @@
         <div class="chips">
           <div class="chip"><i class="fa-solid fa-brain"></i> <strong>8</strong> hidden traits</div>
           <div class="chip"><i class="fa-solid fa-masks-theater"></i> Archetype → Role</div>
-          <div class="chip"><i class="fa-solid fa-shield-heart"></i> Explanations</div>
+          <div class="chip"><i class="fa-solid fa-shield-heart"></i> Explanations </div>
         </div>
 
         <div class="actions">
@@ -529,7 +528,8 @@
           <button id="btn-load" class="btn"><i class="fa-solid fa-rotate"></i> Load</button>
         </div>
       </div>
-    </section> 
+    </section>
+
     <section id="quizPanel" class="panel hidden">
       <div class="panel-head">
         <div class="progress" aria-label="Progress"><div id="progressBar"></div></div>
@@ -551,7 +551,7 @@
         <button id="btn-reset" class="btn"><i class="fa-solid fa-trash"></i> Reset</button>
       </div>
     </section>
- 
+
     <section id="resultPanel" class="panel hidden">
       <div class="panel-head">
         <div class="meta"><span><i class="fa-solid fa-award"></i> Your result</span></div>
@@ -595,7 +595,7 @@
               <summary>How matching works (short)</summary>
               <p class="muted" style="margin-top:10px;">
                 Answers build an 8-trait profile. We match the closest archetype,
-                then pick the closest role within your main faction. Add-ons are optional flavor.
+                then pick a faction with weighted odds. Roles are matched by their own target profile when available.
               </p>
             </details>
           </div>
@@ -608,10 +608,9 @@
         </span>
       </div>
     </section>
-
   </div>
 
-  <script> 
+  <script>
     const TRAIT_KEYS = ["aggression","strategy","social","visibility","control","risk","loyalty","power"];
     const defaultTraits = () => Object.fromEntries(TRAIT_KEYS.map(k => [k, 0]));
 
@@ -789,43 +788,582 @@
         meaning:"You thrive in uncertainty. You like unusual lines, bold plays, and forcing the lobby to adapt." },
     ];
 
-    const rolePool = [
+    const baseRolePool = [
       { id:"detective", name:"Investigator", faction:"crewmate", archetype:["strategic_director"], weight:1.0,
-        meaning:"You’re an information-first player. You win by verifying patterns, catching contradictions, and making clean calls." },
+        meaning:"You’re an information-first player. You win by verifying patterns, catching contradictions, and making clean calls.",
+        target:{ aggression:0, strategy:7, social:1, visibility:0, control:2, risk:-1, loyalty:4, power:0 } },
+
       { id:"guardian", name:"Bodyguard", faction:"crewmate", archetype:["support_guardian"], weight:1.0,
-        meaning:"You focus on protecting key players and preventing snowballs. You stabilize the round for your team." },
+        meaning:"You focus on protecting key players and preventing snowballs. You stabilize the round for your team.",
+        target:{ aggression:-2, strategy:3, social:2, visibility:0, control:1, risk:-2, loyalty:8, power:-1 } },
+
       { id:"leader", name:"Mayor", faction:"crewmate", archetype:["social_controller","strategic_director"], weight:0.9,
-        meaning:"You influence decisions in meetings and help coordinate the team’s direction." },
+        meaning:"You influence decisions in meetings and help coordinate the team’s direction.",
+        target:{ aggression:0, strategy:6, social:6, visibility:2, control:6, risk:0, loyalty:5, power:0 } },
+
       { id:"analyst", name:"Analyst", faction:"crewmate", archetype:["strategic_director"], weight:0.9,
-        meaning:"You like structure and logic. You’re strong at narrowing possibilities and keeping discussions grounded." },
+        meaning:"You like structure and logic. You’re strong at narrowing possibilities and keeping discussions grounded.",
+        target:{ aggression:-1, strategy:8, social:1, visibility:-1, control:4, risk:-1, loyalty:4, power:0 } },
 
       { id:"camouflage", name:"Camouflager", faction:"impostor", archetype:["stealth_operator","social_controller"], weight:1.0,
-        meaning:"You prefer misdirection over brute force. You like making the lobby question what they saw." },
+        meaning:"You prefer misdirection over brute force. You like making the lobby question what they saw.",
+        target:{ aggression:2, strategy:5, social:3, visibility:-5, control:3, risk:2, loyalty:-4, power:2 } },
+
       { id:"framer", name:"Framer", faction:"impostor", archetype:["social_controller"], weight:0.95,
-        meaning:"You win by creating believable blame. You turn small details into convincing narratives." },
+        meaning:"You win by creating believable blame. You turn small details into convincing narratives.",
+        target:{ aggression:1, strategy:5, social:7, visibility:1, control:6, risk:2, loyalty:-5, power:2 } },
+
       { id:"ninja", name:"Ninja", faction:"impostor", archetype:["stealth_operator"], weight:1.0,
-        meaning:"You prefer clean, unseen impact. You pick moments where you can act without leaving obvious trails." },
+        meaning:"You prefer clean, unseen impact. You pick moments where you can act without leaving obvious trails.",
+        target:{ aggression:3, strategy:6, social:1, visibility:-7, control:2, risk:2, loyalty:-6, power:3 } },
+
       { id:"bomber", name:"Bomber", faction:"impostor", archetype:["chaotic_wildcard","aggressive_carry"], weight:0.85,
-        meaning:"You like high-pressure rounds. You force movement, panic, and difficult choices." },
+        meaning:"You like high-pressure rounds. You force movement, panic, and difficult choices.",
+        target:{ aggression:5, strategy:3, social:2, visibility:2, control:3, risk:8, loyalty:-6, power:4 } },
 
       { id:"opportunist", name:"Opportunist", faction:"neutral", archetype:["support_guardian","stealth_operator"], weight:1.0,
-        meaning:"You play for survival and smart positioning. You let other factions clash while you stay safe." },
+        meaning:"You play for survival and smart positioning. You let other factions clash while you stay safe.",
+        target:{ aggression:-4, strategy:3, social:1, visibility:-2, control:0, risk:-2, loyalty:4, power:1 } },
+
       { id:"jester", name:"Jester", faction:"neutral", archetype:["chaotic_wildcard","social_controller"], weight:1.0,
-        meaning:"You win by social chaos. You thrive on confusion, baiting reactions, and unpredictable behavior." },
+        meaning:"You win by social chaos. You thrive on confusion, baiting reactions, and unpredictable behavior.",
+        target:{ aggression:-2, strategy:2, social:8, visibility:5, control:3, risk:6, loyalty:-8, power:6 } },
+
       { id:"juggernaut", name:"Juggernaut", faction:"neutral", archetype:["aggressive_carry"], weight:0.95,
-        meaning:"You’re a snowball threat. You focus on momentum and turning one win into the next." },
+        meaning:"You’re a snowball threat. You focus on momentum and turning one win into the next.",
+        target:{ aggression:8, strategy:2, social:-2, visibility:0, control:1, risk:3, loyalty:-7, power:7 } },
+
       { id:"collector", name:"Collector", faction:"neutral", archetype:["strategic_director","social_controller"], weight:0.85,
-        meaning:"You win through meetings and alignment with group decisions. You track votes and optimize outcomes." },
+        meaning:"You win through meetings and alignment with group decisions. You track votes and optimize outcomes.",
+        target:{ aggression:-2, strategy:4, social:7, visibility:2, control:5, risk:1, loyalty:-6, power:6 } },
 
       { id:"covenleader", name:"Coven Leader", faction:"coven", archetype:["strategic_director","social_controller"], weight:1.0,
-        meaning:"You like structured control. You prefer coordinated plays that steadily reduce the lobby’s options." },
+        meaning:"You like structured control. You prefer coordinated plays that steadily reduce the lobby’s options.",
+        target:{ aggression:5, strategy:5, social:1, visibility:0, control:6, risk:1, loyalty:8, power:6 } },
+
       { id:"illusionist", name:"Illusionist", faction:"coven", archetype:["social_controller","stealth_operator"], weight:0.95,
-        meaning:"You manipulate perception. You enjoy turning certainty into doubt and making reads unreliable." },
+        meaning:"You manipulate perception. You enjoy turning certainty into doubt and making reads unreliable.",
+        target:{ aggression:1, strategy:7, social:2, visibility:-4, control:5, risk:2, loyalty:6, power:4 } },
+
       { id:"timelord", name:"Timelord", faction:"coven", archetype:["strategic_director"], weight:0.9,
-        meaning:"You manage pacing and cooldown timing. You’re strongest when you can orchestrate the tempo." },
+        meaning:"You manage pacing and cooldown timing. You’re strongest when you can orchestrate the tempo.",
+        target:{ aggression:1, strategy:7, social:1, visibility:-1, control:9, risk:2, loyalty:7, power:5 } },
+
       { id:"voodoo", name:"Voodoo Master", faction:"coven", archetype:["social_controller","chaotic_wildcard"], weight:0.85,
-        meaning:"You love indirect influence. You create moments where other players’ actions spiral into advantage." },
+        meaning:"You love indirect influence. You create moments where other players’ actions spiral into advantage.",
+        target:{ aggression:1, strategy:6, social:1, visibility:-1, control:9, risk:3, loyalty:6, power:4 } },
     ];
+    const extraRolePool = [
+      {
+        "id": "soul_collector",
+        "name": "Soul Collector",
+        "faction": "neutral",
+        "tags": ["killer", "delayed", "hidden-body", "stealth"],
+        "target": { "aggression": 6, "strategy": 5, "social": -1, "visibility": -5, "control": 2, "risk": 1, "loyalty": -6, "power": 4 },
+        "weight": 1.2
+      },
+      {
+        "id": "samurai",
+        "name": "Samurai",
+        "faction": "neutral",
+        "tags": ["killer", "delayed", "tempo", "precision"],
+        "target": { "aggression": 6, "strategy": 6, "social": -2, "visibility": -2, "control": 1, "risk": 2, "loyalty": -6, "power": 4 },
+        "weight": 1.1
+      },
+      {
+        "id": "weatherman",
+        "name": "Weatherman",
+        "faction": "neutral",
+        "tags": ["killer", "area-control", "chaos", "disaster"],
+        "target": { "aggression": 5, "strategy": 3, "social": -1, "visibility": 1, "control": 6, "risk": 4, "loyalty": -6, "power": 5 },
+        "weight": 1.1
+      },
+      {
+        "id": "blood_knight",
+        "name": "Blood Knight",
+        "faction": "neutral",
+        "tags": ["killer", "shield", "duelist", "snowball"],
+        "target": { "aggression": 7, "strategy": 2, "social": -2, "visibility": 0, "control": 0, "risk": 2, "loyalty": -5, "power": 6 },
+        "weight": 1.2
+      },
+      {
+        "id": "bubble",
+        "name": "Bubble",
+        "faction": "neutral",
+        "tags": ["killer", "delayed", "aoe", "trap"],
+        "target": { "aggression": 6, "strategy": 5, "social": -1, "visibility": 1, "control": 5, "risk": 3, "loyalty": -6, "power": 5 },
+        "weight": 1.2
+      },
+      {
+        "id": "evolver",
+        "name": "Evolver",
+        "faction": "neutral",
+        "tags": ["killer", "scaling", "upgrade", "adaptation"],
+        "target": { "aggression": 5, "strategy": 6, "social": -1, "visibility": 0, "control": 3, "risk": 2, "loyalty": -6, "power": 6 },
+        "weight": 1.2
+      },
+      {
+        "id": "eclipse",
+        "name": "Eclipse",
+        "faction": "neutral",
+        "tags": ["killer", "scaling", "snowball", "vision"],
+        "target": { "aggression": 6, "strategy": 3, "social": -2, "visibility": -1, "control": 0, "risk": 2, "loyalty": -6, "power": 6 },
+        "weight": 1.0
+      },
+      {
+        "id": "cherokious",
+        "name": "Cherokious",
+        "faction": "neutral",
+        "tags": ["killer", "resource", "tasks", "ammo"],
+        "target": { "aggression": 5, "strategy": 6, "social": -2, "visibility": -2, "control": 1, "risk": 1, "loyalty": -5, "power": 4 },
+        "weight": 1.0
+      },
+      {
+        "id": "vortex",
+        "name": "Vortex",
+        "faction": "neutral",
+        "tags": ["killer", "body-control", "vents", "stealth"],
+        "target": { "aggression": 6, "strategy": 6, "social": -2, "visibility": -5, "control": 4, "risk": 2, "loyalty": -6, "power": 4 },
+        "weight": 1.1
+      },
+      {
+        "id": "werewolf",
+        "name": "Werewolf",
+        "faction": "neutral",
+        "tags": ["killer", "burst", "rampage", "tempo"],
+        "target": { "aggression": 8, "strategy": 3, "social": -2, "visibility": 0, "control": 1, "risk": 4, "loyalty": -6, "power": 6 },
+        "weight": 1.2
+      },
+      {
+        "id": "wraith",
+        "name": "Wraith",
+        "faction": "neutral",
+        "tags": ["killer", "stealth", "invisible"],
+        "target": { "aggression": 6, "strategy": 4, "social": -2, "visibility": -6, "control": 1, "risk": 2, "loyalty": -6, "power": 4 },
+        "weight": 1.1
+      },
+      {
+        "id": "patroller",
+        "name": "Patroller",
+        "faction": "neutral",
+        "tags": ["killer", "map-control", "room-bonus", "tempo"],
+        "target": { "aggression": 6, "strategy": 5, "social": -1, "visibility": -1, "control": 3, "risk": 2, "loyalty": -6, "power": 4 },
+        "weight": 1.0
+      },
+      {
+        "id": "bandit",
+        "name": "Bandit",
+        "faction": "neutral",
+        "tags": ["utility", "steal", "addon-control", "tempo"],
+        "target": { "aggression": 3, "strategy": 5, "social": 1, "visibility": -1, "control": 6, "risk": 2, "loyalty": -5, "power": 4 },
+        "weight": 1.0
+      },
+      {
+        "id": "nonplus",
+        "name": "Nonplus",
+        "faction": "neutral",
+        "tags": ["killer", "debuff", "blind", "control"],
+        "target": { "aggression": 5, "strategy": 4, "social": -1, "visibility": -2, "control": 7, "risk": 2, "loyalty": -6, "power": 4 },
+        "weight": 1.0
+      },
+      {
+        "id": "agitator",
+        "name": "Agitator",
+        "faction": "neutral",
+        "tags": ["killer", "bomb", "pass", "chaos"],
+        "target": { "aggression": 5, "strategy": 4, "social": 3, "visibility": 2, "control": 5, "risk": 6, "loyalty": -6, "power": 4 },
+        "weight": 1.1
+      },
+      {
+        "id": "jinx",
+        "name": "Jinx",
+        "faction": "neutral",
+        "tags": ["killer", "counter", "trap", "punish"],
+        "target": { "aggression": 4, "strategy": 4, "social": -2, "visibility": -2, "control": 5, "risk": 2, "loyalty": -6, "power": 5 },
+        "weight": 1.0
+      },
+      {
+        "id": "poisoner",
+        "name": "Poisoner",
+        "faction": "neutral",
+        "tags": ["killer", "delayed", "stealth", "double-click"],
+        "target": { "aggression": 5, "strategy": 6, "social": -2, "visibility": -4, "control": 3, "risk": 2, "loyalty": -6, "power": 4 },
+        "weight": 1.0
+      },
+      {
+        "id": "vector",
+        "name": "Vector",
+        "faction": "neutral",
+        "tags": ["evil", "objective", "vents", "grind"],
+        "target": { "aggression": -2, "strategy": 6, "social": -1, "visibility": -2, "control": 1, "risk": 1, "loyalty": -4, "power": 5 },
+        "weight": 1.0
+      },
+      {
+        "id": "collector",
+        "name": "Collector",
+        "faction": "neutral",
+        "tags": ["evil", "meeting", "votes", "math"],
+        "target": { "aggression": -2, "strategy": 4, "social": 7, "visibility": 2, "control": 5, "risk": 1, "loyalty": -6, "power": 6 },
+        "weight": 1.2
+      },
+      {
+        "id": "doomsayer",
+        "name": "Doomsayer",
+        "faction": "neutral",
+        "tags": ["evil", "guessing", "win-trigger", "high-stakes"],
+        "target": { "aggression": 1, "strategy": 6, "social": 4, "visibility": 2, "control": 4, "risk": 5, "loyalty": -8, "power": 7 },
+        "weight": 1.3
+      },
+      {
+        "id": "gaslighter",
+        "name": "Gaslighter",
+        "faction": "neutral",
+        "tags": ["evil", "cycle", "multi-tool", "support-control"],
+        "target": { "aggression": 2, "strategy": 4, "social": 4, "visibility": 1, "control": 7, "risk": 2, "loyalty": -6, "power": 5 },
+        "weight": 1.1
+      },
+      {
+        "id": "jester",
+        "name": "Jester",
+        "faction": "neutral",
+        "tags": ["evil", "self-eject", "social", "chaos"],
+        "target": { "aggression": -2, "strategy": 2, "social": 8, "visibility": 5, "control": 3, "risk": 6, "loyalty": -8, "power": 6 },
+        "weight": 1.4
+      },
+      {
+        "id": "traitor",
+        "name": "Traitor",
+        "faction": "neutral",
+        "tags": ["killer", "info", "anti-impostor", "solo-win"],
+        "target": { "aggression": 6, "strategy": 5, "social": 1, "visibility": 0, "control": 2, "risk": 2, "loyalty": -8, "power": 6 },
+        "weight": 1.1
+      },
+      {
+        "id": "innocent",
+        "name": "Innocent",
+        "faction": "neutral",
+        "tags": ["evil", "frame", "self-sacrifice", "meeting"],
+        "target": { "aggression": 0, "strategy": 5, "social": 7, "visibility": 3, "control": 4, "risk": 7, "loyalty": -6, "power": 5 },
+        "weight": 1.1
+      },
+      {
+        "id": "executioner",
+        "name": "Executioner",
+        "faction": "neutral",
+        "tags": ["evil", "target", "meeting", "social"],
+        "target": { "aggression": -1, "strategy": 5, "social": 7, "visibility": 1, "control": 4, "risk": 2, "loyalty": -6, "power": 6 },
+        "weight": 1.1
+      },
+      {
+        "id": "magistrate",
+        "name": "Magistrate",
+        "faction": "neutral",
+        "tags": ["pariah", "meeting", "court", "extra-votes"],
+        "target": { "aggression": 0, "strategy": 3, "social": 5, "visibility": 4, "control": 8, "risk": 2, "loyalty": -2, "power": 6 },
+        "weight": 1.0
+      },
+      {
+        "id": "curser",
+        "name": "Curser",
+        "faction": "neutral",
+        "tags": ["pariah", "debuff", "reveal-alignment", "control"],
+        "target": { "aggression": -1, "strategy": 4, "social": 1, "visibility": -1, "control": 8, "risk": 2, "loyalty": -2, "power": 4 },
+        "weight": 1.0
+      },
+      {
+        "id": "clerk",
+        "name": "Clerk",
+        "faction": "neutral",
+        "tags": ["pariah", "tax", "meeting", "punish"],
+        "target": { "aggression": -1, "strategy": 5, "social": 3, "visibility": 1, "control": 6, "risk": 3, "loyalty": -1, "power": 4 },
+        "weight": 1.0
+      },
+      {
+        "id": "spirit",
+        "name": "Spirit",
+        "faction": "neutral",
+        "tags": ["pariah", "swap", "redirect", "control"],
+        "target": { "aggression": -2, "strategy": 5, "social": 1, "visibility": -1, "control": 8, "risk": 2, "loyalty": 1, "power": 4 },
+        "weight": 1.0
+      },
+      {
+        "id": "auditor",
+        "name": "Auditor",
+        "faction": "neutral",
+        "tags": ["pariah", "reveal", "charges", "smokebomb"],
+        "target": { "aggression": -1, "strategy": 6, "social": 1, "visibility": -1, "control": 7, "risk": 1, "loyalty": 0, "power": 4 },
+        "weight": 1.0
+      },
+      {
+        "id": "starspawn",
+        "name": "Starspawn",
+        "faction": "neutral",
+        "tags": ["pariah", "daybreak", "meeting-control", "isolate"],
+        "target": { "aggression": 0, "strategy": 5, "social": 2, "visibility": 1, "control": 8, "risk": 2, "loyalty": 0, "power": 5 },
+        "weight": 1.0
+      },
+      {
+        "id": "shifter",
+        "name": "Shifter",
+        "faction": "neutral",
+        "tags": ["benign", "role-swap", "identity", "support"],
+        "target": { "aggression": -3, "strategy": 5, "social": 1, "visibility": -1, "control": 3, "risk": 2, "loyalty": 4, "power": 0 },
+        "weight": 1.0
+      },
+      {
+        "id": "pursuer",
+        "name": "Pursuer",
+        "faction": "neutral",
+        "tags": ["benign", "blank-shot", "counter", "support"],
+        "target": { "aggression": -3, "strategy": 6, "social": 1, "visibility": -2, "control": 5, "risk": -1, "loyalty": 6, "power": 0 },
+        "weight": 1.0
+      },
+      {
+        "id": "specter",
+        "name": "Specter",
+        "faction": "neutral",
+        "tags": ["benign", "tasks", "death-required", "survive-end"],
+        "target": { "aggression": -4, "strategy": 4, "social": -1, "visibility": -1, "control": 0, "risk": 1, "loyalty": 6, "power": 1 },
+        "weight": 1.0
+      },
+      {
+        "id": "postman",
+        "name": "Postman",
+        "faction": "neutral",
+        "tags": ["benign", "objective", "targeted", "risk"],
+        "target": { "aggression": -3, "strategy": 6, "social": 1, "visibility": -1, "control": 1, "risk": 4, "loyalty": 4, "power": 2 },
+        "weight": 1.0
+      },
+      {
+        "id": "opportunist",
+        "name": "Opportunist",
+        "faction": "neutral",
+        "tags": ["benign", "survive", "low-profile"],
+        "target": { "aggression": -4, "strategy": 3, "social": 1, "visibility": -2, "control": 0, "risk": -2, "loyalty": 4, "power": 1 },
+        "weight": 1.1
+      },
+      {
+        "id": "necro_guesser",
+        "name": "Necro-Guesser",
+        "faction": "neutral",
+        "tags": ["benign", "guessing", "dead-only", "objective"],
+        "target": { "aggression": -3, "strategy": 7, "social": 2, "visibility": 0, "control": 2, "risk": 1, "loyalty": 3, "power": 3 },
+        "weight": 1.0
+      },
+      {
+        "id": "maverick",
+        "name": "Maverick",
+        "faction": "neutral",
+        "tags": ["benign", "killer", "quota", "survive"],
+        "target": { "aggression": 3, "strategy": 4, "social": -1, "visibility": -1, "control": 1, "risk": 1, "loyalty": 2, "power": 3 },
+        "weight": 1.0
+      },
+      {
+        "id": "schrodingers_cat",
+        "name": "Schrödinger's Cat",
+        "faction": "neutral",
+        "tags": ["benign", "counter", "adapt", "survive"],
+        "target": { "aggression": -2, "strategy": 5, "social": 0, "visibility": -1, "control": 3, "risk": 2, "loyalty": 2, "power": 2 },
+        "weight": 1.0
+      },
+      {
+        "id": "investor",
+        "name": "Investor",
+        "faction": "neutral",
+        "tags": ["benign", "mark", "win-with-others", "social"],
+        "target": { "aggression": -3, "strategy": 6, "social": 3, "visibility": 0, "control": 2, "risk": 0, "loyalty": 6, "power": 1 },
+        "weight": 1.0
+      },
+      {
+        "id": "hater",
+        "name": "Hater",
+        "faction": "neutral",
+        "tags": ["benign", "killer", "restricted", "misfire"],
+        "target": { "aggression": 4, "strategy": 4, "social": -2, "visibility": -1, "control": 1, "risk": 7, "loyalty": 2, "power": 2 },
+        "weight": 1.0
+      },
+      {
+        "id": "pestilence",
+        "name": "Pestilence",
+        "faction": "neutral",
+        "tags": ["killer", "immortal", "counter", "touch-kills"],
+        "target": { "aggression": 7, "strategy": 4, "social": -3, "visibility": 0, "control": 6, "risk": 1, "loyalty": -6, "power": 8 },
+        "weight": 1.3
+      },
+      {
+        "id": "dealer",
+        "name": "Dealer",
+        "faction": "neutral",
+        "tags": ["benign", "utility", "addons", "objective"],
+        "target": { "aggression": -4, "strategy": 5, "social": 2, "visibility": -1, "control": 4, "risk": 1, "loyalty": 6, "power": 0 },
+        "weight": 1.0
+      },
+      {
+        "id": "backstabber",
+        "name": "Backstabber",
+        "faction": "neutral",
+        "tags": ["benign", "killer", "one-shot", "win-shift"],
+        "target": { "aggression": 2, "strategy": 5, "social": 1, "visibility": -1, "control": 2, "risk": 4, "loyalty": -2, "power": 4 },
+        "weight": 1.0
+      },
+      {
+        "id": "god",
+        "name": "God",
+        "faction": "neutral",
+        "tags": ["chaos", "info", "solo-survive", "high-power"],
+        "target": { "aggression": -3, "strategy": 7, "social": 1, "visibility": 0, "control": 4, "risk": 0, "loyalty": -4, "power": 7 },
+        "weight": 1.2
+      },
+      {
+        "id": "provocateur",
+        "name": "Provocateur",
+        "faction": "neutral",
+        "tags": ["benign", "killer", "one-shot", "target-lose"],
+        "target": { "aggression": 1, "strategy": 6, "social": 2, "visibility": -1, "control": 2, "risk": 4, "loyalty": 2, "power": 3 },
+        "weight": 1.0
+      },
+
+      {
+        "id": "voodoo_master",
+        "name": "Voodoo Master",
+        "faction": "coven",
+        "tags": ["control", "puppet", "cooldown-manip", "misc"],
+        "target": { "aggression": 1, "strategy": 6, "social": 1, "visibility": -1, "control": 9, "risk": 3, "loyalty": 6, "power": 4 },
+        "weight": 1.2
+      },
+      {
+        "id": "empress",
+        "name": "Empress",
+        "faction": "coven",
+        "tags": ["power", "spells", "empower", "support"],
+        "target": { "aggression": 2, "strategy": 6, "social": 2, "visibility": 1, "control": 7, "risk": 2, "loyalty": 7, "power": 5 },
+        "weight": 1.2
+      },
+      {
+        "id": "augur",
+        "name": "Augur",
+        "faction": "coven",
+        "tags": ["guessing", "meeting", "misc"],
+        "target": { "aggression": 0, "strategy": 7, "social": 4, "visibility": 1, "control": 4, "risk": 3, "loyalty": 6, "power": 3 },
+        "weight": 1.1
+      },
+      {
+        "id": "potion_master",
+        "name": "Potion Master",
+        "faction": "coven",
+        "tags": ["utility", "reveal", "shield", "support"],
+        "target": { "aggression": 1, "strategy": 6, "social": 2, "visibility": 0, "control": 6, "risk": 1, "loyalty": 7, "power": 3 },
+        "weight": 1.0
+      },
+      {
+        "id": "reaper",
+        "name": "Reaper",
+        "faction": "coven",
+        "tags": ["curse", "souls", "transform", "misc"],
+        "target": { "aggression": 2, "strategy": 6, "social": -1, "visibility": -1, "control": 6, "risk": 2, "loyalty": 7, "power": 5 },
+        "weight": 1.1
+      },
+      {
+        "id": "death",
+        "name": "Death",
+        "faction": "coven",
+        "tags": ["immortal", "killer", "transform"],
+        "target": { "aggression": 6, "strategy": 4, "social": -2, "visibility": 0, "control": 4, "risk": 1, "loyalty": 7, "power": 7 },
+        "weight": 1.1
+      },
+      {
+        "id": "illusionist",
+        "name": "Illusionist",
+        "faction": "coven",
+        "tags": ["deception", "morph", "stealth"],
+        "target": { "aggression": 1, "strategy": 7, "social": 2, "visibility": -4, "control": 5, "risk": 2, "loyalty": 6, "power": 4 },
+        "weight": 1.0
+      },
+      {
+        "id": "enchanter",
+        "name": "Enchanter",
+        "faction": "coven",
+        "tags": ["deception", "frame", "investigators"],
+        "target": { "aggression": 1, "strategy": 7, "social": 1, "visibility": -3, "control": 6, "risk": 2, "loyalty": 6, "power": 4 },
+        "weight": 1.0
+      },
+      {
+        "id": "goddess",
+        "name": "Goddess",
+        "faction": "coven",
+        "tags": ["counter", "stone-gaze", "unreportable", "killer"],
+        "target": { "aggression": 5, "strategy": 4, "social": -2, "visibility": -1, "control": 6, "risk": 2, "loyalty": 6, "power": 6 },
+        "weight": 1.1
+      },
+      {
+        "id": "poache",
+        "name": "Poache",
+        "faction": "coven",
+        "tags": ["control", "vote-deny", "poison", "misc"],
+        "target": { "aggression": 1, "strategy": 6, "social": 2, "visibility": -1, "control": 8, "risk": 2, "loyalty": 6, "power": 4 },
+        "weight": 1.0
+      },
+      {
+        "id": "spellcaster",
+        "name": "Spellcaster",
+        "faction": "coven",
+        "tags": ["win-trigger", "hex", "hidden", "misc"],
+        "target": { "aggression": 1, "strategy": 7, "social": 1, "visibility": -5, "control": 7, "risk": 2, "loyalty": 7, "power": 7 },
+        "weight": 1.3
+      },
+      {
+        "id": "timelord",
+        "name": "Timelord",
+        "faction": "coven",
+        "tags": ["cooldown", "tempo", "meeting-time", "control"],
+        "target": { "aggression": 1, "strategy": 7, "social": 1, "visibility": -1, "control": 9, "risk": 2, "loyalty": 7, "power": 5 },
+        "weight": 1.1
+      },
+      {
+        "id": "dreamweaver",
+        "name": "Dreamweaver",
+        "faction": "coven",
+        "tags": ["insane", "forced-ability", "debuff", "control"],
+        "target": { "aggression": 0, "strategy": 6, "social": 1, "visibility": -2, "control": 9, "risk": 4, "loyalty": 6, "power": 5 },
+        "weight": 1.1
+      },
+      {
+        "id": "wyrd",
+        "name": "Wyrd",
+        "faction": "coven",
+        "tags": ["countdown", "fate", "trap", "control"],
+        "target": { "aggression": 2, "strategy": 7, "social": -1, "visibility": -2, "control": 8, "risk": 3, "loyalty": 6, "power": 5 },
+        "weight": 1.0
+      },
+      {
+        "id": "coven_leader",
+        "name": "Coven Leader",
+        "faction": "coven",
+        "tags": ["leader", "killer", "necronomicon-first"],
+        "target": { "aggression": 5, "strategy": 5, "social": 1, "visibility": 0, "control": 6, "risk": 1, "loyalty": 8, "power": 6 },
+        "weight": 1.2
+      },
+      {
+        "id": "coven_member",
+        "name": "Coven Member",
+        "faction": "coven",
+        "tags": ["promote", "fallback", "team"],
+        "target": { "aggression": 0, "strategy": 4, "social": 0, "visibility": -1, "control": 2, "risk": 0, "loyalty": 9, "power": 2 },
+        "weight": 0.9
+      }
+    ];
+
+    function mergeRolesPreferExtra(base, extra){
+      const m = new Map();
+      base.forEach(r => m.set(r.id, r));
+      extra.forEach(r => {
+        const normalized = { archetype: [], ...r };
+        m.set(normalized.id, normalized);
+      });
+      return Array.from(m.values());
+    }
+
+    const rolePool = mergeRolesPreferExtra(baseRolePool, extraRolePool);
 
     const addonPool = [
       { id:"sleuth", name:"Sleuth", tags:["info"], meaning:"You naturally notice small clues and timing tells." },
@@ -882,13 +1420,16 @@
     }
 
     function pickRole(player, archetypeId, faction){
-      const candidates = rolePool.filter(r => r.faction===faction && r.archetype.includes(archetypeId));
-      const pool = candidates.length ? candidates : rolePool.filter(r => r.faction===faction);
+      const factionRoles = rolePool.filter(r => r.faction === faction);
+
+      const preferred = factionRoles.filter(r => Array.isArray(r.archetype) && r.archetype.length && r.archetype.includes(archetypeId));
+      const pool = preferred.length ? preferred : factionRoles;
 
       let best=null, bestScore=Infinity;
       for(const r of pool){
-        const roleTarget = { ...archetypes.find(a => a.id === archetypeId)?.target };
-        const d = distance(player, roleTarget) / (r.weight ?? 1);
+        const roleTarget = r.target || (archetypes.find(a => a.id === archetypeId)?.target) || {};
+        const w = (r.weight ?? 1);
+        const d = distance(player, roleTarget) / w;
         if(d < bestScore){ bestScore=d; best=r; }
       }
       return best;
@@ -919,7 +1460,13 @@
         default: return "Your faction describes your core play identity.";
       }
     }
- 
+
+    function fallbackRoleMeaning(role){
+      const tags = Array.isArray(role.tags) && role.tags.length ? role.tags.join(", ") : "no tags";
+      const target = role.target ? "Custom target profile" : "Archetype target profile";
+      return `This role was picked by matching your trait profile to its target. (${target}; tags: ${tags})`;
+    }
+
     const STORAGE_KEY = "eh_role_quiz_v1";
 
     let state = { idx:0, traits: defaultTraits(), picks: Array(questions.length).fill(null), finished:false };
@@ -1072,7 +1619,7 @@
         : `<i class="fa-solid fa-puzzle-piece"></i> Add-on: (none)`;
 
       const factionExplain = explainFaction(faction);
-      const roleExplain = role.meaning;
+      const roleExplain = role.meaning || fallbackRoleMeaning(role);
       const archExplain = archetype.meaning;
       const addonExplain = addon ? addon.meaning : "No add-on was assigned — your identity stands strongly on its own.";
 
@@ -1101,11 +1648,18 @@
         traits: player,
         archetype: { id: archetype.id, name: archetype.name },
         faction,
-        role: { id: role.id, name: role.name },
-        addon: addon ? { id: addon.id, name: addon.name } : null
+        role: {
+          id: role.id,
+          name: role.name,
+          tags: role.tags || [],
+          weight: role.weight ?? 1,
+          target: role.target || null
+        },
+        addon: addon ? { id: addon.id, name: addon.name } : null,
+        rolePoolSize: rolePool.length
       }, null, 2);
     }
- 
+
     btnStart.addEventListener("click", startFresh);
     btnLoad.addEventListener("click", () => {
       if(loadState()){
@@ -1121,7 +1675,7 @@
       const addon = pickAddon(player);
       renderResults(addon || "none");
     });
- 
+
     navBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       nav.classList.toggle("open");
@@ -1129,7 +1683,7 @@
     document.addEventListener("click", (e) => {
       if(!nav.contains(e.target)) nav.classList.remove("open");
     });
- 
+
     menuSave.addEventListener("click", () => saveState());
     menuLoad.addEventListener("click", () => {
       nav.classList.remove("open");
@@ -1150,8 +1704,9 @@
       state.idx = questions.length;
       saveState();
       showResults();
-    }); 
-    (function init(){ 
+    });
+
+    (function init(){
     })();
   </script>
 </body>
