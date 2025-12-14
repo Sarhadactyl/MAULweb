@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Personality test</title>
+  <title>Personality Quiz • MAUL</title>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Personality Quiz • MAUL" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://moddedamong.us/personalitytest" />
+  <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+  <meta property="og:description" content="Modded among us personality test. which role are you?" />
+  <meta property="og:site_name" content="Modded Among Us Lobbies" />
+  <meta property="og:locale" content="en_US" />
+  <link rel="canonical" href="https://moddedamong.us/personalitytest" />  
+  <meta name="theme-color" content="#120006" />
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -12,457 +21,518 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
-    :root {
-      --accent: #800000;
-      --accent-soft: rgba(128, 0, 0, 0.25);
-      --accent-strong: #b00000;
-      --bg-card: rgba(30, 12, 12, 0.90);
-      --bg-soft: rgba(45, 18, 18, 0.90);
-      --text-main: #ffffff;
-      --text-muted: #dedee8;
+    :root{
+      --bg0: #050006;
+      --bg1: #120007;
+      --card: rgba(24, 8, 10, 0.78);
+      --card2: rgba(40, 12, 14, 0.72);
+
+      --accent: #8a0000;
+      --accent2: #ff0040;
+      --accent3: #b00000;
+
+      --text: #ffffff;
+      --muted: rgba(235,235,245,0.80);
+      --soft: rgba(235,235,245,0.65);
+
       --border: rgba(255,255,255,0.10);
+      --border2: rgba(255,255,255,0.14);
+
+      --shadow: 0 18px 55px rgba(0,0,0,0.85);
+      --shadow2: 0 14px 40px rgba(0,0,0,0.80);
+
+      --radius: 18px;
+      --radius2: 14px;
+
+      --font: 'Roboto', system-ui, -apple-system, Segoe UI, sans-serif;
+      --display: 'Poppins', system-ui, -apple-system, Segoe UI, sans-serif;
     }
 
     * { box-sizing: border-box; }
-    html, body {
-      height: 100%;
+    html, body { height: 100%; }
+    body{
       margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-      color: var(--text-main);
+      font-family: var(--font);
+      color: var(--text);
       overflow-x: hidden;
+      background: var(--bg0);
     }
-
-    body {
-      background: #000;
-
-      background: radial-gradient(circle at top, rgba(128,0,0,0.35), transparent 55%),
-                  radial-gradient(circle at bottom, rgba(180,0,60,0.20), transparent 55%),
-                  radial-gradient(circle at center, rgba(20,0,0,0.75), rgba(5,0,0,0.95));
-      position: relative;
-    }
-
-    body::before {
-      content: "";
+ 
+    body::before{
+      content:"";
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(circle at top, rgba(128, 0, 0, 0.45), transparent 55%),
-        radial-gradient(circle at bottom, rgba(180, 0, 60, 0.25), transparent 55%);
-      mix-blend-mode: screen;
-      opacity: 0.55;
+        radial-gradient(900px 540px at 50% 40%, rgba(138,0,0,0.30), transparent 62%),
+        radial-gradient(900px 540px at 50% 85%, rgba(255,0,80,0.10), transparent 70%),
+        radial-gradient(circle at 50% 50%, rgba(20,0,8,0.75), rgba(5,0,6,0.96));
+      z-index: -3;
+    }
+    body::after{
+      content:"";
+      position: fixed;
+      inset: 0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+      opacity: 0.24;
       pointer-events: none;
       z-index: -2;
     }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(20, 0, 0, 0.55), rgba(5, 0, 0, 0.9));
-      z-index: -1;
-      pointer-events: none;
+ 
+    .wrap{
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 34px 18px 70px;
     }
-
-    /* Hamburger dropdown (optional nav) */
-    .dropdown {
+ 
+    .nav{
       position: fixed;
       top: 18px;
       left: 18px;
-      z-index: 100;
+      z-index: 50;
     }
-    .dropbtn {
-      background: rgba(35, 10, 10, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.14);
+    .nav-btn{
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(20, 8, 10, 0.72);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.75);
       cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-      padding: 10px 10px;
-      border-radius: 999px;
-      backdrop-filter: blur(10px);
+      display: grid;
+      place-items: center;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
     }
-    .dropbtn:hover {
-      transform: translateY(-1px) scale(1.03);
-      background: rgba(50, 16, 16, 0.98);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+    .nav-btn:hover{
+      transform: translateY(-1px);
+      background: rgba(32, 10, 12, 0.82);
+      border-color: rgba(255,255,255,0.18);
     }
-    .hamburger {
-      width: 26px;
-      height: 18px;
+    .burger{
+      width: 22px;
+      height: 16px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    .hamburger span {
-      display: block;
+    .burger span{
       height: 3px;
-      background: linear-gradient(90deg, var(--accent), #ff0040);
       border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 12px rgba(255,0,80,0.25);
     }
-    .dropdown-content {
+
+    .nav-menu{
       display: none;
       position: absolute;
-      margin-top: 8px;
-      background-color: rgba(35, 10, 10, 0.96);
-      min-width: 260px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.85);
-      border-radius: 12px;
+      margin-top: 10px;
+      min-width: 250px;
+      border-radius: 14px;
       overflow: hidden;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(20, 8, 10, 0.90);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.88);
+      backdrop-filter: blur(14px);
     }
-    .dropdown-content button, .dropdown-content a {
+    .nav.open .nav-menu { display: block; }
+    .nav-menu button{
       width: 100%;
-      color: var(--text-main);
-      padding: 12px 18px;
-      text-decoration: none;
+      background: transparent;
+      border: 0;
+      color: var(--text);
+      cursor: pointer;
+      padding: 12px 14px;
+      text-align: left;
       display: flex;
       align-items: center;
       gap: 10px;
       font-size: 0.95rem;
-      transition: background 0.25s, color 0.25s, padding-left 0.25s;
-      background: transparent;
-      border: 0;
-      cursor: pointer;
-      text-align: left;
+      transition: background .18s ease, padding-left .18s ease, color .18s ease;
     }
-    .dropdown-content button:hover, .dropdown-content a:hover {
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--accent);
-      padding-left: 22px;
+    .nav-menu button:hover{
+      background: rgba(255,255,255,0.04);
+      padding-left: 18px;
+      color: #ffd7de;
     }
-    .dropdown.open .dropdown-content { display: block; }
-
-    /* Layout */
-    .page-wrapper {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 80px 18px 60px;
-    }
-    @media (max-width: 600px) { .page-wrapper { padding-top: 92px; } }
-
-    .header {
+    .nav-menu .danger:hover{ color: #ff9aa8; }
+ 
+    .hero{
+      min-height: 68vh;
+      display: grid;
+      place-items: center;
       text-align: center;
-      padding: 30px 18px 12px;
+      padding: 42px 0 10px;
     }
-    .header-badge {
+
+    .badge{
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
+      gap: 10px;
+      padding: 8px 14px;
       border-radius: 999px;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: linear-gradient(120deg, rgba(138, 0, 0, 0.45), rgba(255, 0, 80, 0.18));
+      box-shadow: 0 12px 32px rgba(0,0,0,0.50);
+      color: rgba(255,255,255,0.88);
       text-transform: uppercase;
-      background: linear-gradient(120deg, rgba(128, 0, 0, 0.5), rgba(200, 0, 80, 0.35));
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      color: var(--text-muted);
-      margin-bottom: 14px;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      backdrop-filter: blur(10px);
     }
-    .header-badge-dot {
+    .badge .dot{
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: radial-gradient(circle, #00ff9c, #00b36b);
-      box-shadow: 0 0 12px rgba(0, 255, 156, 0.7);
+      box-shadow: 0 0 12px rgba(0,255,156,0.55);
     }
-    .header h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(2.0rem, 3.6vw, 3.0rem);
-      margin: 0;
-      text-shadow: 0 8px 30px rgba(0,0,0,0.9);
-      letter-spacing: 0.04em;
-      animation: fadeIn 0.9s ease-out;
+
+    .title{
+      font-family: var(--display);
+      margin: 18px 0 0;
+      font-size: clamp(2.4rem, 5vw, 4.0rem);
+      letter-spacing: 0.02em;
+      text-shadow: 0 14px 50px rgba(0,0,0,0.88);
+      line-height: 1.08;
     }
-    .header h1 span {
-      background: linear-gradient(120deg, #ffffff, var(--accent));
+    .title .fade{
+      color: rgba(255,255,255,0.25);
+      font-weight: 700;
+      margin: 0 .15em;
+    }
+    .title .glow{
+      background: linear-gradient(120deg, #ffffff 0%, #ffe4ea 22%, rgba(255,0,80,0.88) 60%, rgba(138,0,0,1) 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-    }
-    .header-subtitle {
-      margin: 12px auto 0;
-      max-width: 740px;
-      font-size: 0.98rem;
-      line-height: 1.7;
-      color: var(--text-muted);
-    }
-    .header-highlight { font-weight: 700; color: var(--accent); }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-16px); }
-      to   { opacity: 1; transform: translateY(0); }
+      filter: drop-shadow(0 10px 28px rgba(255,0,80,0.10));
     }
 
-    .panel {
-      margin: 18px auto 0;
-      max-width: 920px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.85);
-      backdrop-filter: blur(12px);
-      overflow: hidden;
+    .subtitle{
+      margin: 14px auto 0;
+      max-width: 800px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.75;
     }
-
-    .panel-head {
-      padding: 16px 18px 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+    .subtitle .no-faction{
+      color: rgba(255, 60, 90, 0.95);
+      font-weight: 700;
+    } 
+    .chips{
+      margin-top: 18px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
+      justify-content: center;
       flex-wrap: wrap;
+      gap: 10px;
     }
-
-    .progress {
-      flex: 1;
-      min-width: 220px;
-      height: 12px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
+    .chip{
+      padding: 9px 13px;
       border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(24, 8, 10, 0.55);
+      color: rgba(255,255,255,0.86);
+      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.55);
+    }
+    .chip i{ color: rgba(255,255,255,0.82); }
+    .chip strong{ color: #fff; font-weight: 700; }
+ 
+    .actions{
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn{
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(24, 8, 10, 0.60);
+      color: var(--text);
+      padding: 11px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.96rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease, filter .18s ease;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.70);
+      backdrop-filter: blur(10px);
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(36, 10, 12, 0.72);
+      border-color: rgba(255,255,255,0.22);
+      box-shadow: 0 16px 44px rgba(0,0,0,0.82);
+    }
+    .btn.primary{
+      border: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      box-shadow: 0 16px 46px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.08) inset;
+    }
+    .btn.primary:hover{ filter: brightness(1.05); }
+ 
+    .panel{
+      max-width: 960px;
+      margin: 18px auto 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
       overflow: hidden;
     }
-    .progress > div {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(135deg, #800000, #b00000);
-      transition: width 0.25s ease;
+    .panel-head{
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.12);
     }
 
-    .meta {
-      color: var(--text-muted);
-      font-size: 0.92rem;
+    .meta{
       display: flex;
-      gap: 10px;
       align-items: center;
+      gap: 12px;
+      color: var(--soft);
+      font-size: 0.93rem;
       white-space: nowrap;
     }
 
-    .panel-body { padding: 18px; }
+    .progress{
+      flex: 1;
+      min-width: 240px;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      overflow: hidden;
+    }
+    .progress > div{
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 18px rgba(255,0,80,0.22);
+      transition: width .25s ease;
+    }
 
-    .q-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.25rem;
-      margin: 0 0 10px;
+    .panel-body{ padding: 18px; }
+
+    .q-title{
+      font-family: var(--display);
+      margin: 0;
+      font-size: 1.35rem;
       letter-spacing: 0.02em;
     }
-    .q-sub {
-      color: var(--text-muted);
-      margin: 0 0 14px;
-      line-height: 1.6;
-      font-size: 0.95rem;
+    .q-sub{
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.98rem;
     }
 
-    .answers {
+    .answers{
+      margin-top: 16px;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
-      margin-top: 8px;
     }
-    @media (max-width: 760px) { .answers { grid-template-columns: 1fr; } }
+    @media (max-width: 780px){
+      .answers{ grid-template-columns: 1fr; }
+      .hero{ min-height: 62vh; padding-top: 55px; }
+    }
 
-    .answer {
-      background-color: rgba(45, 16, 16, 0.96);
-      border: 1px solid rgba(255, 255, 255, 0.10);
-      border-radius: 14px;
-      padding: 14px 14px;
+    .answer{
       text-align: left;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(28, 10, 12, 0.70);
+      padding: 14px 14px;
       cursor: pointer;
+      transition: transform .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
       position: relative;
       overflow: hidden;
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
     }
-    .answer::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(128, 0, 0, 0.18), transparent 55%);
+    .answer::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(circle at top left, rgba(255,0,80,0.14), transparent 55%);
       opacity: 0;
-      transition: opacity 0.18s ease;
+      transition: opacity .16s ease;
       pointer-events: none;
     }
-    .answer:hover {
+    .answer:hover{
       transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.9);
-      border-color: var(--accent-soft);
-      background-color: rgba(60, 20, 20, 0.98);
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(38, 12, 14, 0.78);
+      box-shadow: var(--shadow2);
     }
-    .answer:hover::before { opacity: 1; }
-    .answer .letter {
-      width: 28px;
-      height: 28px;
+    .answer:hover::before{ opacity: 1; }
+
+    .letter{
+      width: 30px;
+      height: 30px;
       border-radius: 999px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      background: linear-gradient(135deg, rgba(128,0,0,0.6), rgba(200,0,80,0.4));
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #fff;
+      font-weight: 900;
+      background: linear-gradient(135deg, rgba(138,0,0,0.70), rgba(255,0,80,0.35));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.55);
       flex: 0 0 auto;
-      margin-top: 2px;
+      margin-top: 1px;
     }
-    .answer .text {
-      color: var(--text-main);
-      font-size: 0.98rem;
-      line-height: 1.45;
+    .answer .text{
+      color: rgba(255,255,255,0.92);
+      font-size: 1.0rem;
+      line-height: 1.5;
     }
-    .panel-foot {
+
+    .panel-foot{
       padding: 14px 18px;
       border-top: 1px solid rgba(255,255,255,0.06);
       display: flex;
       justify-content: space-between;
       gap: 10px;
       flex-wrap: wrap;
+      background: rgba(0,0,0,0.10);
     }
-
-    .btn {
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(40, 12, 12, 0.88);
-      color: var(--text-main);
-      padding: 10px 16px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, filter 0.18s ease;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-    }
-    .btn:hover {
-      background: rgba(55, 18, 18, 0.96);
-      transform: translateY(-1px);
-      box-shadow: 0 14px 34px rgba(0,0,0,0.95);
-    }
-    .btn.primary {
-      background: linear-gradient(135deg, #800000, #b00000);
-      border-color: transparent;
-    }
-    .btn.primary:hover { filter: brightness(1.05); }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .pill {
-      border: 1px solid rgba(255,255,255,0.12);
-      background: var(--bg-soft);
-      border-radius: 999px;
-      padding: 9px 12px;
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      backdrop-filter: blur(10px);
-    }
-    .pill strong { color: #fff; }
-
-    .result-grid {
+ 
+    .result-grid{
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 14px;
-      margin-top: 12px;
+      margin-top: 8px;
     }
-    @media (max-width: 920px) { .result-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 980px){ .result-grid{ grid-template-columns: 1fr; } }
 
-    .result-card {
-      background: rgba(45, 16, 16, 0.96);
-      border: 1px solid rgba(255, 255, 255, 0.10);
+    .card{
       border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(28, 10, 12, 0.70);
       padding: 16px;
-      box-shadow: 0 14px 30px rgba(0,0,0,0.75);
+      box-shadow: 0 14px 42px rgba(0,0,0,0.70);
     }
-    .result-card h3 {
-      margin: 0 0 6px;
-      font-family: 'Poppins', sans-serif;
-      letter-spacing: 0.03em;
+    .card h3{
+      font-family: var(--display);
+      margin: 0 0 8px;
+      letter-spacing: 0.02em;
     }
-    .muted { color: var(--text-muted); line-height: 1.65; }
+    .muted{ color: var(--muted); line-height: 1.7; }
 
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 10px;
+    .tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.14);
       background: rgba(0,0,0,0.18);
-      color: #fff;
-      margin-right: 8px;
-      margin-top: 8px;
-      font-size: 0.9rem;
+      color: rgba(255,255,255,0.95);
+      font-size: 0.92rem;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.45);
     }
 
-    details {
+    .pills{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .pill{
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(24, 8, 10, 0.55);
+      color: rgba(255,255,255,0.86);
+      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(10px);
+    }
+    .pill strong{ color:#fff; }
+
+    details{
       margin-top: 10px;
       border: 1px solid rgba(255,255,255,0.10);
       border-radius: 12px;
-      background: rgba(0,0,0,0.15);
+      background: rgba(0,0,0,0.14);
       padding: 10px 12px;
     }
-    summary { cursor: pointer; color: var(--text-muted); }
-    pre {
+    summary{ cursor: pointer; color: var(--soft); }
+    pre{
+      margin: 10px 0 0;
       white-space: pre-wrap;
       word-break: break-word;
-      color: #f3f3f8;
-      font-size: 0.9rem;
-      margin: 10px 0 0;
+      color: rgba(255,255,255,0.92);
+      font-size: 0.90rem;
     }
-
-    .hidden { display: none !important; }
+ 
+    .hidden{ display:none !important; }
   </style>
 </head>
 
-<body>
-  <div class="dropdown">
-    <button class="dropbtn" type="button" aria-label="Menu">
-      <div class="hamburger">
-        <span></span><span></span><span></span>
-      </div>
+<body> 
+  <div class="nav" id="nav">
+    <button class="nav-btn" id="navBtn" type="button" aria-label="Menu">
+      <div class="burger"><span></span><span></span><span></span></div>
     </button>
-    <div class="dropdown-content">
+    <div class="nav-menu" id="navMenu">
       <button id="menu-save"><i class="fa-regular fa-floppy-disk"></i> Save progress</button>
       <button id="menu-load"><i class="fa-solid fa-rotate"></i> Load progress</button>
-      <button id="menu-reset"><i class="fa-solid fa-trash"></i> Reset</button>
+      <button id="menu-reset" class="danger"><i class="fa-solid fa-trash"></i> Reset</button>
       <button id="menu-skip"><i class="fa-solid fa-forward"></i> Skip to results (dev)</button>
     </div>
   </div>
 
-  <div class="page-wrapper">
-    <div class="header">
-      <div class="header-badge">
-        <span class="header-badge-dot"></span>
-        Personality Quiz • MAUL
-      </div>
-      <h1>Find your <span>Faction.</span></h1>
-      <p class="header-subtitle">
-        Answer 24 questions. We score your playstyle, then match you to a faction + role + optional add-on.
-        <span class="header-highlight">No faction is mentioned in questions</span> — it’s all behavior-based.
-      </p>
-      <div class="pill-row">
-        <div class="pill"><i class="fa-solid fa-brain"></i> 8 hidden traits</div>
-        <div class="pill"><i class="fa-solid fa-masks-theater"></i> Archetype → Role</div>
-        <div class="pill"><i class="fa-solid fa-shield"></i> Clean + SFW explanations</div>
-      </div>
-      <div style="margin-top:16px;">
-        <button id="btn-start" class="btn primary"><i class="fa-solid fa-play"></i> Start Quiz</button>
-        <button id="btn-load" class="btn"><i class="fa-solid fa-rotate"></i> Load</button>
-      </div>
-    </div>
-
-    <div id="quizPanel" class="panel hidden">
-      <div class="panel-head">
-        <div class="progress" aria-label="Progress">
-          <div id="progressBar"></div>
+  <div class="wrap">
+ 
+    <section class="hero" id="hero">
+      <div>
+        <div class="badge">
+          <span class="dot"></span>
+          <span>Personality Quiz • MAUL</span>
         </div>
+
+        <h1 class="title">
+          Find your <span class="glow">Faction</span><span class="fade">.</span>
+        </h1>
+
+        <p class="subtitle">
+          Answer <strong>24 questions</strong>. We score your playstyle, then match you to a
+          <strong>Faction</strong> + <strong>Role</strong> + optional <strong>Add-on</strong>.
+          <span class="no-faction">No faction is mentioned in questions</span> — it’s all behavior-based.
+        </p>
+
+        <div class="chips">
+          <div class="chip"><i class="fa-solid fa-brain"></i> <strong>8</strong> hidden traits</div>
+          <div class="chip"><i class="fa-solid fa-masks-theater"></i> Archetype → Role</div>
+          <div class="chip"><i class="fa-solid fa-shield-heart"></i> Clean + SFW explanations</div>
+        </div>
+
+        <div class="actions">
+          <button id="btn-start" class="btn primary"><i class="fa-solid fa-play"></i> Start Quiz</button>
+          <button id="btn-load" class="btn"><i class="fa-solid fa-rotate"></i> Load</button>
+        </div>
+      </div>
+    </section> 
+    <section id="quizPanel" class="panel hidden">
+      <div class="panel-head">
+        <div class="progress" aria-label="Progress"><div id="progressBar"></div></div>
         <div class="meta">
           <span id="qIndexText">Q 1 / 24</span>
           <span>•</span>
@@ -480,14 +550,11 @@
         <button id="btn-back" class="btn"><i class="fa-solid fa-arrow-left"></i> Back</button>
         <button id="btn-reset" class="btn"><i class="fa-solid fa-trash"></i> Reset</button>
       </div>
-    </div>
-
-    <!-- RESULT PANEL -->
-    <div id="resultPanel" class="panel hidden">
+    </section>
+ 
+    <section id="resultPanel" class="panel hidden">
       <div class="panel-head">
-        <div class="meta">
-          <span><i class="fa-solid fa-award"></i> Your result</span>
-        </div>
+        <div class="meta"><span><i class="fa-solid fa-award"></i> Your result</span></div>
         <div class="meta">
           <button id="btn-reroll" class="btn"><i class="fa-solid fa-dice"></i> Reroll add-on</button>
           <button id="btn-restart" class="btn primary"><i class="fa-solid fa-rotate-right"></i> Restart</button>
@@ -496,10 +563,10 @@
 
       <div class="panel-body">
         <div class="result-grid">
-          <div class="result-card">
+          <div class="card">
             <h3 id="resultHeadline">You are: ???</h3>
 
-            <div>
+            <div class="tags">
               <span class="tag" id="tagFaction"><i class="fa-solid fa-flag"></i> Faction: ???</span>
               <span class="tag" id="tagRole"><i class="fa-solid fa-user-secret"></i> Role: ???</span>
               <span class="tag" id="tagAddon"><i class="fa-solid fa-puzzle-piece"></i> Add-on: (none)</span>
@@ -507,15 +574,16 @@
 
             <p id="resultMeaning" class="muted" style="margin-top:12px;"></p>
 
-            <h4 style="margin:14px 0 8px; font-family:'Poppins',sans-serif; letter-spacing:0.02em;">
+            <h4 style="margin:14px 0 8px; font-family: var(--display); letter-spacing: 0.02em;">
               Why you got this
             </h4>
-            <div id="whyPills" class="pill-row"></div>
+            <div id="whyPills" class="pills"></div>
           </div>
 
-          <div class="result-card">
+          <div class="card">
             <h3>Trait Snapshot</h3>
             <p class="muted" style="margin:0 0 10px;">
+              (You can hide this later — it’s useful while you tune role mapping.)
             </p>
 
             <details>
@@ -526,8 +594,8 @@
             <details>
               <summary>How matching works (short)</summary>
               <p class="muted" style="margin-top:10px;">
-                We convert answers into an 8-trait vector. Then we pick the closest archetype,
-                then pick the closest role inside that faction. Add-ons are optional flavor.
+                Answers build an 8-trait profile. We match the closest archetype,
+                then pick the closest role within your main faction. Add-ons are optional flavor.
               </p>
             </details>
           </div>
@@ -536,315 +604,192 @@
 
       <div class="panel-foot">
         <span class="muted" style="font-size:0.92rem;">
-          Tip: you can lock factions later (e.g., “Only Neutrals”) by filtering the role pool.
+          Tip: later you can add “Only Neutrals / Only Coven / etc.” filters by trimming the role pool.
         </span>
       </div>
-    </div>
+    </section>
+
   </div>
 
-  <script>
-    const TRAIT_KEYS = [
-      "aggression",   // passive -> violent
-      "strategy",     // chaotic -> calculated
-      "social",       // lone -> manipulator
-      "visibility",   // stealthy -> obvious
-      "control",      // reactive -> controlling
-      "risk",         // safe -> reckless
-      "loyalty",      // self -> team
-      "power"         // support -> carry
-    ];
-
+  <script> 
+    const TRAIT_KEYS = ["aggression","strategy","social","visibility","control","risk","loyalty","power"];
     const defaultTraits = () => Object.fromEntries(TRAIT_KEYS.map(k => [k, 0]));
 
     const questions = [
-      {
-        text: "A game gets quiet. What do you do?",
-        sub: "Think about how you create momentum.",
-        answers: [
-          { text: "Force action immediately, even if it’s risky.", effects: { aggression:+2, risk:+1, visibility:+1 } },
-          { text: "Wait for the perfect moment to act.", effects: { strategy:+2, visibility:-1 } },
-          { text: "Nudge others into making mistakes.", effects: { social:+2, control:+1 } },
-          { text: "Stay hidden and gather info first.", effects: { visibility:-2, strategy:+1 } },
-        ]
-      },
-      {
-        text: "You get a chance to remove someone. How do you prefer it?",
-        sub: "This is about your style, not your faction.",
-        answers: [
-          { text: "Direct and fast. Minimal fuss.", effects: { aggression:+2, strategy:-1 } },
-          { text: "Only if it advances a bigger plan.", effects: { strategy:+2, control:+1 } },
-          { text: "If it causes confusion and blame.", effects: { social:+1, control:+1, risk:+1 } },
-          { text: "I’d rather avoid it unless forced.", effects: { aggression:-2, risk:-1, loyalty:+1 } },
-        ]
-      },
-      {
-        text: "Your ideal pressure level mid-round is…",
-        sub: "",
-        answers: [
-          { text: "High. I like constant tension.", effects: { aggression:+1, risk:+1, power:+1 } },
-          { text: "Medium. Controlled pace is best.", effects: { strategy:+1, control:+1 } },
-          { text: "Low. I want time to read people.", effects: { strategy:+1, visibility:-1 } },
-          { text: "Unpredictable. Keep everyone guessing.", effects: { risk:+2, social:+1 } },
-        ]
-      },
-      {
-        text: "If someone is in your way, you usually…",
-        sub: "",
-        answers: [
-          { text: "Remove the obstacle.", effects: { aggression:+2, control:+1 } },
-          { text: "Outmaneuver them socially.", effects: { social:+2, strategy:+1 } },
-          { text: "Wait and let them trip up.", effects: { strategy:+2, visibility:-1 } },
-          { text: "Switch targets; not worth it.", effects: { risk:-1, control:-1, loyalty:+1 } },
-        ]
-      },
-      {
-        text: "When you fail an attempt, your next move is…",
-        sub: "",
-        answers: [
-          { text: "Double down. Speed matters.", effects: { aggression:+1, risk:+2 } },
-          { text: "Adapt the plan calmly.", effects: { strategy:+2, control:+1 } },
-          { text: "Turn it into a story to sell.", effects: { social:+2, visibility:+1 } },
-          { text: "Back off and reset quietly.", effects: { visibility:-2, risk:-1 } },
-        ]
-      },
-      {
-        text: "What kind of “power” feels best?",
-        sub: "",
-        answers: [
-          { text: "The kind that ends games.", effects: { power:+2, aggression:+1 } },
-          { text: "The kind that controls outcomes.", effects: { control:+2, strategy:+1 } },
-          { text: "The kind that shapes conversation.", effects: { social:+2, visibility:+1 } },
-          { text: "The kind that protects or supports.", effects: { loyalty:+2, power:-1 } },
-        ]
-      },
-      {
-        text: "During meetings, you’re usually…",
-        sub: "",
-        answers: [
-          { text: "Leading the conversation.", effects: { social:+2, control:+1, visibility:+1 } },
-          { text: "Dropping key facts only.", effects: { strategy:+2, visibility:-1 } },
-          { text: "Sowing doubt and redirecting.", effects: { social:+2, control:+1, risk:+1 } },
-          { text: "Quiet, watching who speaks.", effects: { visibility:-2, strategy:+1 } },
-        ]
-      },
-      {
-        text: "Someone accuses you. Your instinct is…",
-        sub: "",
-        answers: [
-          { text: "Confront them hard.", effects: { aggression:+2, visibility:+1 } },
-          { text: "Turn suspicion elsewhere smoothly.", effects: { social:+2, control:+1 } },
-          { text: "Lean into it to confuse the room.", effects: { risk:+2, social:+1, visibility:+1 } },
-          { text: "Say little; let evidence fade.", effects: { visibility:-2, strategy:+1 } },
-        ]
-      },
-      {
-        text: "You trust information that is…",
-        sub: "",
-        answers: [
-          { text: "Direct and obvious.", effects: { visibility:+2, strategy:-1 } },
-          { text: "Verified by patterns.", effects: { strategy:+2 } },
-          { text: "Useful, even if incomplete.", effects: { control:+1, strategy:+1 } },
-          { text: "Mostly a tool to influence people.", effects: { social:+2, control:+1 } },
-        ]
-      },
-      {
-        text: "Your favorite social move is…",
-        sub: "",
-        answers: [
-          { text: "Build an ally and stick with them.", effects: { loyalty:+2, social:+1 } },
-          { text: "Play independent; no attachments.", effects: { loyalty:-2, visibility:-1 } },
-          { text: "Collect influence across everyone.", effects: { social:+2, control:+1 } },
-          { text: "Stay neutral and dodge drama.", effects: { risk:-1, visibility:-1, strategy:+1 } },
-        ]
-      },
-      {
-        text: "When someone is obviously wrong, you…",
-        sub: "",
-        answers: [
-          { text: "Correct them instantly.", effects: { visibility:+2, control:+1 } },
-          { text: "Let them keep talking (it’s useful).", effects: { strategy:+1, social:+1, control:+1 } },
-          { text: "Exploit it to steer decisions.", effects: { social:+2, control:+2 } },
-          { text: "Avoid it; it attracts attention.", effects: { visibility:-2, risk:-1 } },
-        ]
-      },
-      {
-        text: "If you could choose, your reputation would be…",
-        sub: "",
-        answers: [
-          { text: "Fearless and dangerous.", effects: { aggression:+2, power:+1 } },
-          { text: "Reliable and helpful.", effects: { loyalty:+2, power:-1 } },
-          { text: "Impossible to read.", effects: { visibility:-2, strategy:+1 } },
-          { text: "Always in control.", effects: { control:+2, social:+1 } },
-        ]
-      },
-      {
-        text: "You prefer abilities that…",
-        sub: "",
-        answers: [
-          { text: "Remove threats quickly.", effects: { aggression:+2, power:+1 } },
-          { text: "Lock down the game’s pace.", effects: { control:+2, strategy:+1 } },
-          { text: "Mess with what people believe.", effects: { social:+2, control:+1 } },
-          { text: "Scale stronger over time.", effects: { strategy:+2, power:+1 } },
-        ]
-      },
-      {
-        text: "When given a limited-use tool, you…",
-        sub: "",
-        answers: [
-          { text: "Use it early to build tempo.", effects: { risk:+1, aggression:+1, visibility:+1 } },
-          { text: "Save it for a guaranteed swing.", effects: { strategy:+2, control:+1 } },
-          { text: "Use it to create uncertainty.", effects: { social:+1, risk:+1, control:+1 } },
-          { text: "Use it only to protect yourself.", effects: { risk:-1, loyalty:-1, visibility:-1 } },
-        ]
-      },
-      {
-        text: "You feel most powerful when…",
-        sub: "",
-        answers: [
-          { text: "People have to react to you.", effects: { control:+2, visibility:+1 } },
-          { text: "No one knows you’re behind it.", effects: { visibility:-2, strategy:+1 } },
-          { text: "You can carry the endgame.", effects: { power:+2, loyalty:-1 } },
-          { text: "Your team feels safe because of you.", effects: { loyalty:+2, power:-1 } },
-        ]
-      },
-      {
-        text: "Your decision-making style is…",
-        sub: "",
-        answers: [
-          { text: "Snap judgments.", effects: { strategy:-1, risk:+2 } },
-          { text: "Evidence-first.", effects: { strategy:+2, risk:-1 } },
-          { text: "People-first.", effects: { social:+2, strategy:+1 } },
-          { text: "Control-first.", effects: { control:+2, strategy:+1 } },
-        ]
-      },
-      {
-        text: "If you can “force” something, you…",
-        sub: "",
-        answers: [
-          { text: "Force it immediately.", effects: { control:+1, risk:+2, aggression:+1 } },
-          { text: "Force it only when it’s clean.", effects: { strategy:+2, control:+1 } },
-          { text: "Force it socially, not directly.", effects: { social:+2, control:+1 } },
-          { text: "Avoid forcing; it’s messy.", effects: { risk:-1, visibility:-1, loyalty:+1 } },
-        ]
-      },
-      {
-        text: "When a plan needs someone else’s cooperation, you…",
-        sub: "",
-        answers: [
-          { text: "Persuade them.", effects: { social:+2, control:+1 } },
-          { text: "Pressure them.", effects: { control:+2, visibility:+1 } },
-          { text: "Bait them into choosing it.", effects: { strategy:+1, social:+1, visibility:-1 } },
-          { text: "Abandon it; too many variables.", effects: { strategy:+1, risk:-1, loyalty:-1 } },
-        ]
-      },
-      {
-        text: "Your best games feel like…",
-        sub: "",
-        answers: [
-          { text: "A clean plan executed perfectly.", effects: { strategy:+2, control:+1 } },
-          { text: "A chaotic ride that you survive.", effects: { risk:+2, visibility:+1 } },
-          { text: "A social puzzle you solved.", effects: { social:+2, strategy:+1 } },
-          { text: "A duel where you outfight everyone.", effects: { aggression:+2, power:+1 } },
-        ]
-      },
-      {
-        text: "You’re most comfortable when…",
-        sub: "",
-        answers: [
-          { text: "You have a route and timing.", effects: { strategy:+2, visibility:-1 } },
-          { text: "You can improvise freely.", effects: { risk:+2, strategy:-1 } },
-          { text: "You can control the room.", effects: { control:+2, social:+1 } },
-          { text: "You have a trusted ally.", effects: { loyalty:+2, social:+1 } },
-        ]
-      },
-      {
-        text: "If you had to pick, you’d rather be…",
-        sub: "",
-        answers: [
-          { text: "Underestimated.", effects: { visibility:-2, strategy:+1 } },
-          { text: "Feared.", effects: { aggression:+2, visibility:+1 } },
-          { text: "Respected.", effects: { social:+1, loyalty:+1, control:+1 } },
-          { text: "Unpredictable.", effects: { risk:+2, social:+1 } },
-        ]
-      },
-      {
-        text: "When you take a risk, it’s usually because…",
-        sub: "",
-        answers: [
-          { text: "You want to end things fast.", effects: { risk:+2, aggression:+1 } },
-          { text: "The math says it’s worth it.", effects: { strategy:+2, risk:+1 } },
-          { text: "You can talk your way out later.", effects: { social:+2, risk:+1 } },
-          { text: "You don’t. You avoid risks.", effects: { risk:-2, strategy:+1 } },
-        ]
-      },
-      {
-        text: "In endgame, your priority is…",
-        sub: "",
-        answers: [
-          { text: "Carry and finish.", effects: { power:+2, aggression:+1 } },
-          { text: "Control the last decisions.", effects: { control:+2, social:+1 } },
-          { text: "Stay alive at all costs.", effects: { risk:-1, visibility:-1, strategy:+1 } },
-          { text: "Win with allies if possible.", effects: { loyalty:+2, social:+1 } },
-        ]
-      },
-      {
-        text: "If you’re behind, you…",
-        sub: "",
-        answers: [
-          { text: "Make a bold swing.", effects: { risk:+2, visibility:+1 } },
-          { text: "Rebuild slowly with a plan.", effects: { strategy:+2, control:+1 } },
-          { text: "Shift the narrative.", effects: { social:+2, control:+1 } },
-          { text: "Disengage and survive longer.", effects: { visibility:-2, risk:-1 } },
-        ]
-      },
+      { text:"A game gets quiet. What do you do?", sub:"Think about how you create momentum.", answers:[
+        { text:"Force action immediately, even if it’s risky.", effects:{ aggression:+2, risk:+1, visibility:+1 } },
+        { text:"Wait for the perfect moment to act.", effects:{ strategy:+2, visibility:-1 } },
+        { text:"Nudge others into making mistakes.", effects:{ social:+2, control:+1 } },
+        { text:"Stay hidden and gather info first.", effects:{ visibility:-2, strategy:+1 } },
+      ]},
+      { text:"You get a chance to remove someone. How do you prefer it?", sub:"This is about your style, not your faction.", answers:[
+        { text:"Direct and fast. Minimal fuss.", effects:{ aggression:+2, strategy:-1 } },
+        { text:"Only if it advances a bigger plan.", effects:{ strategy:+2, control:+1 } },
+        { text:"If it causes confusion and blame.", effects:{ social:+1, control:+1, risk:+1 } },
+        { text:"I’d rather avoid it unless forced.", effects:{ aggression:-2, risk:-1, loyalty:+1 } },
+      ]},
+      { text:"Your ideal pressure level mid-round is…", sub:"", answers:[
+        { text:"High. I like constant tension.", effects:{ aggression:+1, risk:+1, power:+1 } },
+        { text:"Medium. Controlled pace is best.", effects:{ strategy:+1, control:+1 } },
+        { text:"Low. I want time to read people.", effects:{ strategy:+1, visibility:-1 } },
+        { text:"Unpredictable. Keep everyone guessing.", effects:{ risk:+2, social:+1 } },
+      ]},
+      { text:"If someone is in your way, you usually…", sub:"", answers:[
+        { text:"Remove the obstacle.", effects:{ aggression:+2, control:+1 } },
+        { text:"Outmaneuver them socially.", effects:{ social:+2, strategy:+1 } },
+        { text:"Wait and let them trip up.", effects:{ strategy:+2, visibility:-1 } },
+        { text:"Switch targets; not worth it.", effects:{ risk:-1, control:-1, loyalty:+1 } },
+      ]},
+      { text:"When you fail an attempt, your next move is…", sub:"", answers:[
+        { text:"Double down. Speed matters.", effects:{ aggression:+1, risk:+2 } },
+        { text:"Adapt the plan calmly.", effects:{ strategy:+2, control:+1 } },
+        { text:"Turn it into a story to sell.", effects:{ social:+2, visibility:+1 } },
+        { text:"Back off and reset quietly.", effects:{ visibility:-2, risk:-1 } },
+      ]},
+      { text:"What kind of “power” feels best?", sub:"", answers:[
+        { text:"The kind that ends games.", effects:{ power:+2, aggression:+1 } },
+        { text:"The kind that controls outcomes.", effects:{ control:+2, strategy:+1 } },
+        { text:"The kind that shapes conversation.", effects:{ social:+2, visibility:+1 } },
+        { text:"The kind that protects or supports.", effects:{ loyalty:+2, power:-1 } },
+      ]},
+      { text:"During meetings, you’re usually…", sub:"", answers:[
+        { text:"Leading the conversation.", effects:{ social:+2, control:+1, visibility:+1 } },
+        { text:"Dropping key facts only.", effects:{ strategy:+2, visibility:-1 } },
+        { text:"Sowing doubt and redirecting.", effects:{ social:+2, control:+1, risk:+1 } },
+        { text:"Quiet, watching who speaks.", effects:{ visibility:-2, strategy:+1 } },
+      ]},
+      { text:"Someone accuses you. Your instinct is…", sub:"", answers:[
+        { text:"Confront them hard.", effects:{ aggression:+2, visibility:+1 } },
+        { text:"Turn suspicion elsewhere smoothly.", effects:{ social:+2, control:+1 } },
+        { text:"Lean into it to confuse the room.", effects:{ risk:+2, social:+1, visibility:+1 } },
+        { text:"Say little; let evidence fade.", effects:{ visibility:-2, strategy:+1 } },
+      ]},
+      { text:"You trust information that is…", sub:"", answers:[
+        { text:"Direct and obvious.", effects:{ visibility:+2, strategy:-1 } },
+        { text:"Verified by patterns.", effects:{ strategy:+2 } },
+        { text:"Useful, even if incomplete.", effects:{ control:+1, strategy:+1 } },
+        { text:"Mostly a tool to influence people.", effects:{ social:+2, control:+1 } },
+      ]},
+      { text:"Your favorite social move is…", sub:"", answers:[
+        { text:"Build an ally and stick with them.", effects:{ loyalty:+2, social:+1 } },
+        { text:"Play independent; no attachments.", effects:{ loyalty:-2, visibility:-1 } },
+        { text:"Collect influence across everyone.", effects:{ social:+2, control:+1 } },
+        { text:"Stay neutral and dodge drama.", effects:{ risk:-1, visibility:-1, strategy:+1 } },
+      ]},
+      { text:"When someone is obviously wrong, you…", sub:"", answers:[
+        { text:"Correct them instantly.", effects:{ visibility:+2, control:+1 } },
+        { text:"Let them keep talking (it’s useful).", effects:{ strategy:+1, social:+1, control:+1 } },
+        { text:"Exploit it to steer decisions.", effects:{ social:+2, control:+2 } },
+        { text:"Avoid it; it attracts attention.", effects:{ visibility:-2, risk:-1 } },
+      ]},
+      { text:"If you could choose, your reputation would be…", sub:"", answers:[
+        { text:"Fearless and dangerous.", effects:{ aggression:+2, power:+1 } },
+        { text:"Reliable and helpful.", effects:{ loyalty:+2, power:-1 } },
+        { text:"Impossible to read.", effects:{ visibility:-2, strategy:+1 } },
+        { text:"Always in control.", effects:{ control:+2, social:+1 } },
+      ]},
+      { text:"You prefer abilities that…", sub:"", answers:[
+        { text:"Remove threats quickly.", effects:{ aggression:+2, power:+1 } },
+        { text:"Lock down the game’s pace.", effects:{ control:+2, strategy:+1 } },
+        { text:"Mess with what people believe.", effects:{ social:+2, control:+1 } },
+        { text:"Scale stronger over time.", effects:{ strategy:+2, power:+1 } },
+      ]},
+      { text:"When given a limited-use tool, you…", sub:"", answers:[
+        { text:"Use it early to build tempo.", effects:{ risk:+1, aggression:+1, visibility:+1 } },
+        { text:"Save it for a guaranteed swing.", effects:{ strategy:+2, control:+1 } },
+        { text:"Use it to create uncertainty.", effects:{ social:+1, risk:+1, control:+1 } },
+        { text:"Use it only to protect yourself.", effects:{ risk:-1, loyalty:-1, visibility:-1 } },
+      ]},
+      { text:"You feel most powerful when…", sub:"", answers:[
+        { text:"People have to react to you.", effects:{ control:+2, visibility:+1 } },
+        { text:"No one knows you’re behind it.", effects:{ visibility:-2, strategy:+1 } },
+        { text:"You can carry the endgame.", effects:{ power:+2, loyalty:-1 } },
+        { text:"Your team feels safe because of you.", effects:{ loyalty:+2, power:-1 } },
+      ]},
+      { text:"Your decision-making style is…", sub:"", answers:[
+        { text:"Snap judgments.", effects:{ strategy:-1, risk:+2 } },
+        { text:"Evidence-first.", effects:{ strategy:+2, risk:-1 } },
+        { text:"People-first.", effects:{ social:+2, strategy:+1 } },
+        { text:"Control-first.", effects:{ control:+2, strategy:+1 } },
+      ]},
+      { text:"If you can “force” something, you…", sub:"", answers:[
+        { text:"Force it immediately.", effects:{ control:+1, risk:+2, aggression:+1 } },
+        { text:"Force it only when it’s clean.", effects:{ strategy:+2, control:+1 } },
+        { text:"Force it socially, not directly.", effects:{ social:+2, control:+1 } },
+        { text:"Avoid forcing; it’s messy.", effects:{ risk:-1, visibility:-1, loyalty:+1 } },
+      ]},
+      { text:"When a plan needs someone else’s cooperation, you…", sub:"", answers:[
+        { text:"Persuade them.", effects:{ social:+2, control:+1 } },
+        { text:"Pressure them.", effects:{ control:+2, visibility:+1 } },
+        { text:"Bait them into choosing it.", effects:{ strategy:+1, social:+1, visibility:-1 } },
+        { text:"Abandon it; too many variables.", effects:{ strategy:+1, risk:-1, loyalty:-1 } },
+      ]},
+      { text:"Your best games feel like…", sub:"", answers:[
+        { text:"A clean plan executed perfectly.", effects:{ strategy:+2, control:+1 } },
+        { text:"A chaotic ride that you survive.", effects:{ risk:+2, visibility:+1 } },
+        { text:"A social puzzle you solved.", effects:{ social:+2, strategy:+1 } },
+        { text:"A duel where you outfight everyone.", effects:{ aggression:+2, power:+1 } },
+      ]},
+      { text:"You’re most comfortable when…", sub:"", answers:[
+        { text:"You have a route and timing.", effects:{ strategy:+2, visibility:-1 } },
+        { text:"You can improvise freely.", effects:{ risk:+2, strategy:-1 } },
+        { text:"You can control the room.", effects:{ control:+2, social:+1 } },
+        { text:"You have a trusted ally.", effects:{ loyalty:+2, social:+1 } },
+      ]},
+      { text:"If you had to pick, you’d rather be…", sub:"", answers:[
+        { text:"Underestimated.", effects:{ visibility:-2, strategy:+1 } },
+        { text:"Feared.", effects:{ aggression:+2, visibility:+1 } },
+        { text:"Respected.", effects:{ social:+1, loyalty:+1, control:+1 } },
+        { text:"Unpredictable.", effects:{ risk:+2, social:+1 } },
+      ]},
+      { text:"When you take a risk, it’s usually because…", sub:"", answers:[
+        { text:"You want to end things fast.", effects:{ risk:+2, aggression:+1 } },
+        { text:"The math says it’s worth it.", effects:{ strategy:+2, risk:+1 } },
+        { text:"You can talk your way out later.", effects:{ social:+2, risk:+1 } },
+        { text:"You don’t. You avoid risks.", effects:{ risk:-2, strategy:+1 } },
+      ]},
+      { text:"In endgame, your priority is…", sub:"", answers:[
+        { text:"Carry and finish.", effects:{ power:+2, aggression:+1 } },
+        { text:"Control the last decisions.", effects:{ control:+2, social:+1 } },
+        { text:"Stay alive at all costs.", effects:{ risk:-1, visibility:-1, strategy:+1 } },
+        { text:"Win with allies if possible.", effects:{ loyalty:+2, social:+1 } },
+      ]},
+      { text:"If you’re behind, you…", sub:"", answers:[
+        { text:"Make a bold swing.", effects:{ risk:+2, visibility:+1 } },
+        { text:"Rebuild slowly with a plan.", effects:{ strategy:+2, control:+1 } },
+        { text:"Shift the narrative.", effects:{ social:+2, control:+1 } },
+        { text:"Disengage and survive longer.", effects:{ visibility:-2, risk:-1 } },
+      ]},
     ];
+
     const archetypes = [
-      {
-        id: "aggressive_carry",
-        name: "Aggressive Carry",
-        target: { aggression: 7, power: 6, risk: 4, strategy: 2, social: 1, visibility: 2, control: 1, loyalty: -1 },
-        factionBias: { impostor: 1.0, neutral: 1.0, coven: 0.9, crewmate: 0.6 },
-        meaning: "You like direct impact. You create pressure and you’re willing to take fights to close the game."
-      },
-      {
-        id: "stealth_operator",
-        name: "Stealth Operator",
-        target: { visibility: -7, strategy: 5, control: 3, risk: 2, social: 1, aggression: 1, loyalty: 0, power: 1 },
-        factionBias: { impostor: 1.1, neutral: 1.0, coven: 0.9, crewmate: 0.8 },
-        meaning: "You win by being hard to read. You move quietly, pick clean moments, and avoid unnecessary spotlight."
-      },
-      {
-        id: "social_controller",
-        name: "Social Controller",
-        target: { social: 7, control: 6, strategy: 4, visibility: 2, risk: 2, aggression: 1, loyalty: 0, power: 1 },
-        factionBias: { impostor: 1.0, coven: 1.0, crewmate: 0.9, neutral: 0.8 },
-        meaning: "You shape decisions. You steer meetings, influence alliances, and turn small moments into big outcomes."
-      },
-      {
-        id: "strategic_director",
-        name: "Strategic Director",
-        target: { strategy: 8, control: 5, visibility: -1, risk: 0, social: 2, aggression: 0, loyalty: 1, power: 1 },
-        factionBias: { crewmate: 1.0, coven: 1.0, impostor: 0.9, neutral: 0.8 },
-        meaning: "You value clean planning. You like reliable lines, timing windows, and measured decisions."
-      },
-      {
-        id: "support_guardian",
-        name: "Support Guardian",
-        target: { loyalty: 8, power: -2, strategy: 3, risk: -2, social: 2, control: 1, visibility: 0, aggression: -2 },
-        factionBias: { crewmate: 1.2, coven: 0.8, impostor: 0.5, neutral: 0.7 },
-        meaning: "You prefer stability. You protect, enable, and keep the game structured so others can succeed."
-      },
-      {
-        id: "chaotic_wildcard",
-        name: "Chaotic Wildcard",
-        target: { risk: 8, strategy: -1, social: 3, visibility: 2, aggression: 2, control: 1, loyalty: -1, power: 1 },
-        factionBias: { neutral: 1.2, impostor: 0.9, coven: 0.9, crewmate: 0.8 },
-        meaning: "You thrive in uncertainty. You like unusual lines, bold plays, and forcing the lobby to adapt."
-      },
+      { id:"aggressive_carry", name:"Aggressive Carry",
+        target:{ aggression:7, power:6, risk:4, strategy:2, social:1, visibility:2, control:1, loyalty:-1 },
+        factionBias:{ impostor:1.0, neutral:1.0, coven:0.9, crewmate:0.6 },
+        meaning:"You like direct impact. You create pressure and you’re willing to take fights to close the game." },
+      { id:"stealth_operator", name:"Stealth Operator",
+        target:{ visibility:-7, strategy:5, control:3, risk:2, social:1, aggression:1, loyalty:0, power:1 },
+        factionBias:{ impostor:1.1, neutral:1.0, coven:0.9, crewmate:0.8 },
+        meaning:"You win by being hard to read. You move quietly, pick clean moments, and avoid unnecessary spotlight." },
+      { id:"social_controller", name:"Social Controller",
+        target:{ social:7, control:6, strategy:4, visibility:2, risk:2, aggression:1, loyalty:0, power:1 },
+        factionBias:{ impostor:1.0, coven:1.0, crewmate:0.9, neutral:0.8 },
+        meaning:"You shape decisions. You steer meetings, influence alliances, and turn small moments into big outcomes." },
+      { id:"strategic_director", name:"Strategic Director",
+        target:{ strategy:8, control:5, visibility:-1, risk:0, social:2, aggression:0, loyalty:1, power:1 },
+        factionBias:{ crewmate:1.0, coven:1.0, impostor:0.9, neutral:0.8 },
+        meaning:"You value clean planning. You like reliable lines, timing windows, and measured decisions." },
+      { id:"support_guardian", name:"Support Guardian",
+        target:{ loyalty:8, power:-2, strategy:3, risk:-2, social:2, control:1, visibility:0, aggression:-2 },
+        factionBias:{ crewmate:1.2, coven:0.8, impostor:0.5, neutral:0.7 },
+        meaning:"You prefer stability. You protect, enable, and keep the game structured so others can succeed." },
+      { id:"chaotic_wildcard", name:"Chaotic Wildcard",
+        target:{ risk:8, strategy:-1, social:3, visibility:2, aggression:2, control:1, loyalty:-1, power:1 },
+        factionBias:{ neutral:1.2, impostor:0.9, coven:0.9, crewmate:0.8 },
+        meaning:"You thrive in uncertainty. You like unusual lines, bold plays, and forcing the lobby to adapt." },
     ];
 
     const rolePool = [
-      // CREWMATE
       { id:"detective", name:"Investigator", faction:"crewmate", archetype:["strategic_director"], weight:1.0,
         meaning:"You’re an information-first player. You win by verifying patterns, catching contradictions, and making clean calls." },
       { id:"guardian", name:"Bodyguard", faction:"crewmate", archetype:["support_guardian"], weight:1.0,
@@ -854,7 +799,6 @@
       { id:"analyst", name:"Analyst", faction:"crewmate", archetype:["strategic_director"], weight:0.9,
         meaning:"You like structure and logic. You’re strong at narrowing possibilities and keeping discussions grounded." },
 
-      // IMPOSTOR
       { id:"camouflage", name:"Camouflager", faction:"impostor", archetype:["stealth_operator","social_controller"], weight:1.0,
         meaning:"You prefer misdirection over brute force. You like making the lobby question what they saw." },
       { id:"framer", name:"Framer", faction:"impostor", archetype:["social_controller"], weight:0.95,
@@ -864,7 +808,6 @@
       { id:"bomber", name:"Bomber", faction:"impostor", archetype:["chaotic_wildcard","aggressive_carry"], weight:0.85,
         meaning:"You like high-pressure rounds. You force movement, panic, and difficult choices." },
 
-      // NEUTRAL
       { id:"opportunist", name:"Opportunist", faction:"neutral", archetype:["support_guardian","stealth_operator"], weight:1.0,
         meaning:"You play for survival and smart positioning. You let other factions clash while you stay safe." },
       { id:"jester", name:"Jester", faction:"neutral", archetype:["chaotic_wildcard","social_controller"], weight:1.0,
@@ -874,7 +817,6 @@
       { id:"collector", name:"Collector", faction:"neutral", archetype:["strategic_director","social_controller"], weight:0.85,
         meaning:"You win through meetings and alignment with group decisions. You track votes and optimize outcomes." },
 
-      // COVEN
       { id:"covenleader", name:"Coven Leader", faction:"coven", archetype:["strategic_director","social_controller"], weight:1.0,
         meaning:"You like structured control. You prefer coordinated plays that steadily reduce the lobby’s options." },
       { id:"illusionist", name:"Illusionist", faction:"coven", archetype:["social_controller","stealth_operator"], weight:0.95,
@@ -898,173 +840,101 @@
       { id:"nimble", name:"Nimble", tags:["movement"], meaning:"You value mobility and quick repositioning." },
     ];
 
-    function clamp(n, min, max) { return Math.max(min, Math.min(max, n)); }
-
-    function distance(a, b) {
-      let d = 0;
-      for (const k of TRAIT_KEYS) d += Math.abs((a[k] ?? 0) - (b[k] ?? 0));
-      return d;
+    function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+    function distance(a,b){ let d=0; for(const k of TRAIT_KEYS) d += Math.abs((a[k]??0)-(b[k]??0)); return d; }
+    function applyEffects(traits, effects){ for(const [k,v] of Object.entries(effects)) traits[k]=(traits[k]??0)+v; }
+    function topTraits(traits, count=3){
+      const entries = Object.entries(traits).map(([k,v])=>[k,v]);
+      entries.sort((a,b)=>Math.abs(b[1]) - Math.abs(a[1]));
+      return entries.slice(0,count);
+    }
+    function normalizeTraits(traits){
+      const out={}; for(const k of TRAIT_KEYS) out[k]=clamp(traits[k]??0,-12,12); return out;
     }
 
-    function applyEffects(traits, effects) {
-      for (const [k, v] of Object.entries(effects)) {
-        traits[k] = (traits[k] ?? 0) + v;
-      }
-    }
-
-    function topTraits(traits, count = 3) {
-      const entries = Object.entries(traits).map(([k,v]) => [k, v]);
-      entries.sort((a,b) => Math.abs(b[1]) - Math.abs(a[1]));
-      return entries.slice(0, count);
-    }
-
-    function normalizeTraits(traits) {
-      const out = {};
-      for (const k of TRAIT_KEYS) out[k] = clamp(traits[k] ?? 0, -12, 12);
-      return out;
-    }
-    function pickArchetype(player) {
-      let best = null;
-      let bestD = Infinity;
-      for (const a of archetypes) {
+    function pickArchetype(player){
+      let best=null, bestD=Infinity;
+      for(const a of archetypes){
         const d = distance(player, a.target);
-        if (d < bestD) { bestD = d; best = a; }
+        if(d < bestD){ bestD=d; best=a; }
       }
       return { archetype: best, dist: bestD };
     }
 
-    function factionFromTraits(player, archetype) {
-      const base = { crewmate: 1, impostor: 1, neutral: 1, coven: 1 };
-      for (const f of Object.keys(base)) base[f] *= (archetype.factionBias[f] ?? 1);
+    function factionFromTraits(player, archetype){
+      const base = { crewmate:1, impostor:1, neutral:1, coven:1 };
+      for(const f of Object.keys(base)) base[f] *= (archetype.factionBias[f] ?? 1);
+
       base.crewmate *= (1 + Math.max(0, player.loyalty) * 0.06);
       base.coven    *= (1 + Math.max(0, player.control) * 0.04);
 
       base.neutral  *= (1 + Math.max(0, -player.loyalty) * 0.06);
       base.impostor *= (1 + Math.max(0, player.social) * 0.04);
+
       base.impostor *= (1 + Math.max(0, player.aggression) * 0.03);
       base.neutral  *= (1 + Math.max(0, player.power) * 0.03);
+
       const entries = Object.entries(base);
-      const total = entries.reduce((s, [,w]) => s + w, 0);
-      let r = Math.random() * total;
-      for (const [f, w] of entries) {
-        r -= w;
-        if (r <= 0) return f;
-      }
+      const total = entries.reduce((s, [,w]) => s+w, 0);
+      let r = Math.random()*total;
+      for(const [f,w] of entries){ r -= w; if(r<=0) return f; }
       return "neutral";
     }
 
-    function pickRole(player, archetypeId, faction) {
-      const candidates = rolePool
-        .filter(r => r.faction === faction && r.archetype.includes(archetypeId));
+    function pickRole(player, archetypeId, faction){
+      const candidates = rolePool.filter(r => r.faction===faction && r.archetype.includes(archetypeId));
+      const pool = candidates.length ? candidates : rolePool.filter(r => r.faction===faction);
 
-      // fallback: any role in faction
-      const pool = candidates.length ? candidates : rolePool.filter(r => r.faction === faction);
-
-      let best = null;
-      let bestScore = Infinity;
-      for (const r of pool) {
+      let best=null, bestScore=Infinity;
+      for(const r of pool){
         const roleTarget = { ...archetypes.find(a => a.id === archetypeId)?.target };
-
         const d = distance(player, roleTarget) / (r.weight ?? 1);
-
-        if (d < bestScore) { bestScore = d; best = r; }
+        if(d < bestScore){ bestScore=d; best=r; }
       }
-
       return best;
     }
 
-    function pickAddon(player, faction) {
+    function pickAddon(player){
       const tops = topTraits(player, 2).map(([k]) => k);
-
       const tagMap = {
-        aggression: ["tempo"],
-        strategy: ["info"],
-        social: ["chaos","info"],
-        visibility: ["visibility","stealth"],
-        control: ["info"],
-        risk: ["risk","chaos"],
-        loyalty: ["team"],
-        power: ["tempo","movement"]
+        aggression:["tempo"], strategy:["info"], social:["chaos","info"], visibility:["visibility","stealth"],
+        control:["info"], risk:["risk","chaos"], loyalty:["team"], power:["tempo","movement"]
       };
-
       const desiredTags = new Set();
       tops.forEach(t => (tagMap[t] || []).forEach(tag => desiredTags.add(tag)));
 
       const matches = addonPool.filter(a => a.tags.some(tag => desiredTags.has(tag)));
       const pool = matches.length ? matches : addonPool;
 
-      if (Math.random() < 0.25) return null;
-
-      return pool[Math.floor(Math.random() * pool.length)];
+      if(Math.random() < 0.25) return null;
+      return pool[Math.floor(Math.random()*pool.length)];
     }
 
-    function explainFaction(faction) {
-      switch (faction) {
-        case "crewmate":
-          return "Crewmates win through coordination, information, and stability. Your result suggests you prefer structured play and consistent decision-making.";
-        case "impostor":
-          return "Impostors win through deception, timing, and pressure. Your result suggests you like influencing outcomes and creating uncertainty.";
-        case "neutral":
-          return "Neutrals win with special goals or solo plans. Your result suggests you value independence, clever positioning, and flexible win paths.";
-        case "coven":
-          return "Coven win through layered control and team synergy. Your result suggests you like orchestrating tempo and shaping the game from behind the scenes.";
-        default:
-          return "Your faction describes your core play identity.";
+    function explainFaction(faction){
+      switch (faction){
+        case "crewmate": return "Crewmates win through coordination, information, and stability. This result suggests you prefer structured play and consistent decision-making.";
+        case "impostor": return "Impostors win through deception, timing, and pressure. This result suggests you like influencing outcomes and creating uncertainty.";
+        case "neutral":  return "Neutrals win with special goals or flexible paths. This result suggests you value independence, clever positioning, and adapting on the fly.";
+        case "coven":    return "Coven win through layered control and teamwork. This result suggests you like orchestrating tempo and shaping the game behind the scenes.";
+        default: return "Your faction describes your core play identity.";
       }
     }
+ 
     const STORAGE_KEY = "eh_role_quiz_v1";
 
-    let state = {
-      idx: 0,
-      traits: defaultTraits(),
-      picks: Array(questions.length).fill(null),
-      finished: false
-    };
+    let state = { idx:0, traits: defaultTraits(), picks: Array(questions.length).fill(null), finished:false };
 
-    function saveState() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-      toastAutosave();
-    }
-
-    function loadState() {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return false;
-      try {
-        const parsed = JSON.parse(raw);
-        if (!parsed || typeof parsed !== "object") return false;
-        if (!Array.isArray(parsed.picks) || parsed.picks.length !== questions.length) return false;
-
-        state = parsed;
-        state.traits = { ...defaultTraits(), ...(state.traits || {}) };
-        return true;
-      } catch {
-        return false;
-      }
-    }
-
-    function resetState() {
-      state = {
-        idx: 0,
-        traits: defaultTraits(),
-        picks: Array(questions.length).fill(null),
-        finished: false
-      };
-      localStorage.removeItem(STORAGE_KEY);
-    }
+    const hero = document.getElementById("hero");
     const quizPanel = document.getElementById("quizPanel");
     const resultPanel = document.getElementById("resultPanel");
 
-    const btnStart = document.getElementById("btn-start");
-    const btnLoad  = document.getElementById("btn-load");
-    const btnBack  = document.getElementById("btn-back");
-    const btnReset = document.getElementById("btn-reset");
-
     const qTitle = document.getElementById("qTitle");
-    const qSub   = document.getElementById("qSub");
+    const qSub = document.getElementById("qSub");
     const answersEl = document.getElementById("answers");
     const qIndexText = document.getElementById("qIndexText");
     const progressBar = document.getElementById("progressBar");
     const autosaveText = document.getElementById("autosaveText");
+
     const resultHeadline = document.getElementById("resultHeadline");
     const tagFaction = document.getElementById("tagFaction");
     const tagRole = document.getElementById("tagRole");
@@ -1072,39 +942,83 @@
     const resultMeaning = document.getElementById("resultMeaning");
     const whyPills = document.getElementById("whyPills");
     const debugOut = document.getElementById("debugOut");
+
+    const btnStart = document.getElementById("btn-start");
+    const btnLoad = document.getElementById("btn-load");
+    const btnBack = document.getElementById("btn-back");
+    const btnReset = document.getElementById("btn-reset");
     const btnRestart = document.getElementById("btn-restart");
     const btnReroll = document.getElementById("btn-reroll");
-    const dropdown = document.querySelector(".dropdown");
-    const dropbtn = document.querySelector(".dropbtn");
+
+    const nav = document.getElementById("nav");
+    const navBtn = document.getElementById("navBtn");
+
     const menuSave = document.getElementById("menu-save");
     const menuLoad = document.getElementById("menu-load");
     const menuReset = document.getElementById("menu-reset");
     const menuSkip = document.getElementById("menu-skip");
 
-    function showQuiz() {
+    function saveState(){
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      autosaveText.textContent = "Autosave: Saved";
+      setTimeout(() => autosaveText.textContent = "Autosave: ON", 700);
+    }
+    function loadState(){
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return false;
+      try{
+        const parsed = JSON.parse(raw);
+        if(!parsed || typeof parsed !== "object") return false;
+        if(!Array.isArray(parsed.picks) || parsed.picks.length !== questions.length) return false;
+        state = parsed;
+        state.traits = { ...defaultTraits(), ...(state.traits || {}) };
+        return true;
+      }catch{ return false; }
+    }
+    function resetState(){
+      state = { idx:0, traits: defaultTraits(), picks: Array(questions.length).fill(null), finished:false };
+      localStorage.removeItem(STORAGE_KEY);
+    }
+
+    function showQuiz(){
+      hero.classList.add("hidden");
       quizPanel.classList.remove("hidden");
       resultPanel.classList.add("hidden");
       renderQuestion();
     }
-
-    function showResults() {
+    function showResults(){
+      hero.classList.add("hidden");
       quizPanel.classList.add("hidden");
       resultPanel.classList.remove("hidden");
       renderResults();
     }
+    function startFresh(){
+      resetState();
+      saveState();
+      showQuiz();
+    }
 
-    function renderQuestion() {
+    function recomputeTraitsFromPicks(){
+      const t = defaultTraits();
+      for(let i=0;i<questions.length;i++){
+        const pick = state.picks[i];
+        if(pick === null) continue;
+        applyEffects(t, questions[i].answers[pick].effects);
+      }
+      state.traits = t;
+    }
+
+    function renderQuestion(){
       const q = questions[state.idx];
       qTitle.textContent = q.text;
       qSub.textContent = q.sub || "Pick what fits you best.";
-      qIndexText.textContent = `Q ${state.idx + 1} / ${questions.length}`;
+      qIndexText.textContent = `Q ${state.idx+1} / ${questions.length}`;
 
       const pct = Math.round((state.idx / questions.length) * 100);
       progressBar.style.width = `${pct}%`;
 
       answersEl.innerHTML = "";
-      const letters = ["A", "B", "C", "D"];
-
+      const letters = ["A","B","C","D"];
       q.answers.forEach((ans, i) => {
         const btn = document.createElement("button");
         btn.className = "answer";
@@ -1114,64 +1028,41 @@
         answersEl.appendChild(btn);
       });
 
-      btnBack.style.opacity = state.idx === 0 ? "0.5" : "1";
+      btnBack.style.opacity = state.idx === 0 ? "0.45" : "1";
       btnBack.style.pointerEvents = state.idx === 0 ? "none" : "auto";
     }
 
-    function recomputeTraitsFromPicks() {
-      const t = defaultTraits();
-      for (let qi = 0; qi < questions.length; qi++) {
-        const pick = state.picks[qi];
-        if (pick === null) continue;
-        applyEffects(t, questions[qi].answers[pick].effects);
-      }
-      state.traits = t;
-    }
-
-    function chooseAnswer(answerIndex) {
+    function chooseAnswer(answerIndex){
       state.picks[state.idx] = answerIndex;
       recomputeTraitsFromPicks();
 
       state.idx += 1;
-      if (state.idx >= questions.length) {
+      if(state.idx >= questions.length){
         state.finished = true;
         saveState();
         showResults();
         return;
       }
-
       saveState();
       renderQuestion();
     }
 
-    function goBack() {
-      if (state.idx <= 0) return;
+    function goBack(){
+      if(state.idx <= 0) return;
       state.idx -= 1;
       saveState();
       renderQuestion();
     }
 
-    function startFresh() {
-      resetState();
-      saveState();
-      showQuiz();
-    }
-
-    function toastAutosave() {
-      autosaveText.textContent = "Autosave: Saved";
-      setTimeout(() => autosaveText.textContent = "Autosave: ON", 700);
-    }
-
-    function renderResults(addonOverride = null) {
+    function renderResults(addonOverride=null){
       const player = normalizeTraits(state.traits);
-
       const { archetype } = pickArchetype(player);
       const faction = factionFromTraits(player, archetype);
       const role = pickRole(player, archetype.id, faction);
 
       const addon = addonOverride === "none"
         ? null
-        : (addonOverride || pickAddon(player, faction));
+        : (addonOverride || pickAddon(player));
 
       resultHeadline.textContent = `You are: ${role.name}`;
       tagFaction.innerHTML = `<i class="fa-solid fa-flag"></i> Faction: ${faction.toUpperCase()}`;
@@ -1183,28 +1074,22 @@
       const factionExplain = explainFaction(faction);
       const roleExplain = role.meaning;
       const archExplain = archetype.meaning;
-      const addonExplain = addon ? `Add-on flavor: ${addon.meaning}` : "No add-on was assigned — your identity stands strongly on its own.";
+      const addonExplain = addon ? addon.meaning : "No add-on was assigned — your identity stands strongly on its own.";
 
       resultMeaning.innerHTML = `
         <strong>${archetype.name}</strong> vibe: ${archExplain}<br><br>
         <strong>Faction meaning:</strong> ${factionExplain}<br><br>
         <strong>Role meaning:</strong> ${roleExplain}<br><br>
-        <strong>${addon ? "Add-on meaning" : "Add-on" }:</strong> ${addonExplain}
+        <strong>${addon ? "Add-on meaning" : "Add-on"}:</strong> ${addonExplain}
       `;
 
       whyPills.innerHTML = "";
       const top = topTraits(player, 4);
       const pretty = {
-        aggression: "Aggression",
-        strategy: "Strategy",
-        social: "Social",
-        visibility: "Visibility",
-        control: "Control",
-        risk: "Risk",
-        loyalty: "Loyalty",
-        power: "Power Scale"
+        aggression:"Aggression", strategy:"Strategy", social:"Social", visibility:"Visibility",
+        control:"Control", risk:"Risk", loyalty:"Loyalty", power:"Power Scale"
       };
-      top.forEach(([k, v]) => {
+      top.forEach(([k,v]) => {
         const pill = document.createElement("div");
         pill.className = "pill";
         const sign = v >= 0 ? "+" : "";
@@ -1220,74 +1105,53 @@
         addon: addon ? { id: addon.id, name: addon.name } : null
       }, null, 2);
     }
-
-    btnStart.addEventListener("click", () => {
-      quizPanel.classList.remove("hidden");
-      resultPanel.classList.add("hidden");
-      startFresh();
-    });
-
+ 
+    btnStart.addEventListener("click", startFresh);
     btnLoad.addEventListener("click", () => {
-      if (loadState()) {
-        if (state.finished) showResults();
+      if(loadState()){
+        if(state.finished) showResults();
         else showQuiz();
-      } else {
-        startFresh();
-      }
+      } else startFresh();
     });
-
     btnBack.addEventListener("click", goBack);
-
-    btnReset.addEventListener("click", () => {
-      if (confirm("Reset quiz progress?")) {
-        startFresh();
-      }
-    });
-
-    btnRestart.addEventListener("click", () => startFresh());
-
+    btnReset.addEventListener("click", () => { if(confirm("Reset quiz progress?")) startFresh(); });
+    btnRestart.addEventListener("click", startFresh);
     btnReroll.addEventListener("click", () => {
       const player = normalizeTraits(state.traits);
-      const { archetype } = pickArchetype(player);
-      const faction = factionFromTraits(player, archetype);
-      const role = pickRole(player, archetype.id, faction);
-      const addon = pickAddon(player, faction);
+      const addon = pickAddon(player);
       renderResults(addon || "none");
     });
-
-    dropbtn.addEventListener("click", (e) => {
+ 
+    navBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      dropdown.classList.toggle("open");
+      nav.classList.toggle("open");
     });
     document.addEventListener("click", (e) => {
-      if (!dropdown.contains(e.target)) dropdown.classList.remove("open");
+      if(!nav.contains(e.target)) nav.classList.remove("open");
     });
-
+ 
     menuSave.addEventListener("click", () => saveState());
     menuLoad.addEventListener("click", () => {
-      dropdown.classList.remove("open");
-      if (loadState()) {
-        if (state.finished) showResults();
+      nav.classList.remove("open");
+      if(loadState()){
+        if(state.finished) showResults();
         else showQuiz();
       } else alert("No saved progress found.");
     });
     menuReset.addEventListener("click", () => {
-      dropdown.classList.remove("open");
-      if (confirm("Reset quiz progress?")) startFresh();
+      nav.classList.remove("open");
+      if(confirm("Reset quiz progress?")) startFresh();
     });
     menuSkip.addEventListener("click", () => {
-      dropdown.classList.remove("open");
+      nav.classList.remove("open");
       state.picks = state.picks.map(() => Math.floor(Math.random()*4));
       recomputeTraitsFromPicks();
       state.finished = true;
       state.idx = questions.length;
       saveState();
       showResults();
-    });
-
-    (function init() {
-      if (loadState()) {
-      }
+    }); 
+    (function init(){ 
     })();
   </script>
 </body>
