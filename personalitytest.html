@@ -1350,7 +1350,47 @@
         "tags": ["promote", "fallback", "team"],
         "target": { "aggression": 0, "strategy": 4, "social": 0, "visibility": -1, "control": 2, "risk": 0, "loyalty": 9, "power": 2 },
         "weight": 0.9
-      }
+      },
+      {
+        "id": "pelican",
+        "name": "Pelican",
+        "faction": "neutral",
+        "tags": ["killer", "swallow", "delayed-death", "bypass-immunity"],
+        "target": { "aggression": 6, "strategy": 5, "social": -2, "visibility": -1, "control": 5, "risk": 3, "loyalty": -6, "power": 5 },
+        "weight": 1.2
+        },
+        {
+        "id": "sidekick",
+        "name": "Sidekick",
+        "faction": "neutral",
+        "tags": ["killer", "convert", "promotion", "teamplay"],
+        "target": { "aggression": 5, "strategy": 4, "social": 1, "visibility": -1, "control": 3, "risk": 2, "loyalty": -4, "power": 4 },
+        "weight": 1.0
+        },
+        {
+        "id": "entranced",
+        "name": "Entranced",
+        "faction": "coven",
+        "tags": ["betrayal", "conversion", "win-shift"],
+        "target": { "aggression": 0, "strategy": 4, "social": 1, "visibility": -1, "control": 3, "risk": 1, "loyalty": 8, "power": 2 },
+        "weight": 0.9
+        },
+        {
+        "id": "impartial",
+        "name": "Impartial",
+        "faction": "neutral",
+        "tags": ["killer", "quota", "balanced", "objective"],
+        "target": { "aggression": 5, "strategy": 6, "social": -1, "visibility": -1, "control": 2, "risk": 3, "loyalty": -5, "power": 4 },
+        "weight": 1.0
+        },
+        {
+        "id": "follower",
+        "name": "Follower",
+        "faction": "neutral",
+        "tags": ["benign", "tracking", "win-with-others"],
+        "target": { "aggression": -3, "strategy": 4, "social": 2, "visibility": -1, "control": 2, "risk": 1, "loyalty": 5, "power": 1 },
+        "weight": 1.0
+        }      
     ];
 
     function mergeRolesPreferExtra(base, extra){
