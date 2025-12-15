@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -533,14 +534,16 @@
           <div class="chip"><i class="fa-solid fa-shield-heart"></i> Explanations</div>
         </div>
 
-      <div class="actions">
-      <button id="btn-start" class="btn primary">
-          <i class="fa-solid fa-play"></i> Start Quiz
-      </button>
+        <div class="actions">
+          <button id="btn-start" class="btn primary">
+            <i class="fa-solid fa-play"></i> Start Quiz
+          </button>
 
-      <a id="btn-join" class="btn" href="https://discord.gg/maul" target="_blank" rel="noopener">
-          <i class="fa-brands fa-discord"></i> Join MAUL
-      </a>
+          <!-- OPTION 2 BUTTON -->
+          <a id="btn-option2" class="btn" href="https://discord.gg/maul" target="_blank" rel="noopener">
+            <i class="fa-brands fa-discord"></i> Option 2
+          </a>
+        </div>
       </div>
     </section>
 
@@ -569,8 +572,12 @@
     <section id="resultPanel" class="panel hidden">
       <div class="panel-head">
         <div class="meta"><span><i class="fa-solid fa-award"></i> Your result</span></div>
+
         <div class="meta">
           <button id="btn-restart" class="btn primary"><i class="fa-solid fa-rotate-right"></i> Restart</button>
+          <a id="btn-option2-result" class="btn" href="https://discord.gg/maul" target="_blank" rel="noopener">
+            <i class="fa-brands fa-discord"></i> Option 2
+          </a>
         </div>
       </div>
 
@@ -594,7 +601,8 @@
           </div>
         </div>
       </div>
-
+    </section>
+  </div>
 
   <footer>
     <div class="footer-inner">
@@ -797,8 +805,6 @@
         meaning:"You thrive in uncertainty. You like unusual lines, bold plays, and forcing the lobby to adapt." },
     ];
 
-
-
     const allRolesRaw = [
       { id:"detective", name:"Investigator", faction:"crewmate", archetype:["strategic_director"],
         meaning:"You’re an information-first player. You win by verifying patterns, catching contradictions, and making clean calls.",
@@ -848,6 +854,7 @@
       { id:"voodoo", name:"Voodoo Master", faction:"coven", archetype:["social_controller","chaotic_wildcard"],
         meaning:"You love indirect influence. You create moments where other players’ actions spiral into advantage.",
         target:{ aggression:1, strategy:6, social:1, visibility:-1, control:9, risk:3, loyalty:6, power:4 } },
+
       { "id": "soul_collector", "name": "Soul Collector", "faction": "neutral", "tags": ["killer","delayed","hidden-body","stealth"], "target": { "aggression": 6, "strategy": 5, "social": -1, "visibility": -5, "control": 2, "risk": 1, "loyalty": -6, "power": 4 } },
       { "id": "samurai", "name": "Samurai", "faction": "neutral", "tags": ["killer","delayed","tempo","precision"], "target": { "aggression": 6, "strategy": 6, "social": -2, "visibility": -2, "control": 1, "risk": 2, "loyalty": -6, "power": 4 } },
       { "id": "weatherman", "name": "Weatherman", "faction": "neutral", "tags": ["killer","area-control","chaos","disaster"], "target": { "aggression": 5, "strategy": 3, "social": -1, "visibility": 1, "control": 6, "risk": 4, "loyalty": -6, "power": 5 } },
@@ -1191,12 +1198,10 @@
     btnRestart.addEventListener("click", startFresh);
 
     (function init(){
-      if(loadState()){
-        recomputeTraitsFromPicks();
-        if(state.finished) showResults();
-        else if(state.idx > 0) showQuiz();
-      }
+      localStorage.removeItem(STORAGE_KEY);
+      resetState();
     })();
   </script>
 </body>
 </html>
+```
