@@ -8,16 +8,25 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moddedamong.us/calendar.html" />
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-    <meta property="og:description" content="Stay up to date on upcoming, active, and past events in Modded Among Us Lobbies." />
+    <meta
+      property="og:description"
+      content="Stay up to date on upcoming, active, and past events in Modded Among Us Lobbies."
+    />
     <meta property="og:site_name" content="Modded Among Us Lobbies" />
     <meta property="og:locale" content="en_US" />
     <link rel="canonical" href="https://moddedamong.us/calendar.html" />
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-          integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
-          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <style>
       :root {
@@ -30,9 +39,7 @@
         --text-muted: #dedee8;
       }
 
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
 
       html, body {
         height: 100%;
@@ -148,9 +155,7 @@
                      0 0 12px rgba(255, 0, 0, 0.55);
       }
 
-      .dropdown.open .dropdown-content {
-        display: block;
-      }
+      .dropdown.open .dropdown-content { display: block; }
 
       .page-wrapper {
         max-width: 1100px;
@@ -159,9 +164,7 @@
       }
 
       @media (max-width: 600px) {
-        .page-wrapper {
-          padding-top: 90px;
-        }
+        .page-wrapper { padding-top: 90px; }
       }
 
       .page-header {
@@ -280,9 +283,7 @@
         font-weight: 600;
       }
 
-      .calendar-grid {
-        margin-top: 12px;
-      }
+      .calendar-grid { margin-top: 12px; }
 
       .weekday-row,
       .calendar {
@@ -316,70 +317,35 @@
         justify-content: space-between;
       }
 
-      .day.empty {
-        visibility: hidden;
-        pointer-events: none;
-      }
+      .day.empty { visibility: hidden; pointer-events: none; }
 
       .day:hover {
         background: rgba(60, 22, 22, 0.9);
         box-shadow: 0 10px 26px rgba(0,0,0,0.8);
       }
 
-      .day-number {
-        font-weight: 600;
-        margin-bottom: 6px;
-      }
+      .day-number { font-weight: 600; margin-bottom: 6px; }
 
-      .day-label {
-        font-size: 0.72rem;
-        color: var(--text-muted);
-      }
+      .day-label { font-size: 0.72rem; color: var(--text-muted); }
 
-      .day-has-event .day-label {
-        color: #ffffff;
-      }
+      .day-has-event .day-label { color: #ffffff; }
 
       .day.selected {
         border-color: var(--accent-soft);
         box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 10px 26px rgba(0,0,0,0.9);
       }
 
-      .day.badge-ended {
-        background: rgba(120, 25, 25, 0.9);
-      }
+      .day.badge-ended { background: rgba(120, 25, 25, 0.9); }
+      .day.badge-active { background: rgba(0, 100, 40, 0.95); }
+      .day.badge-upcoming { background: rgba(40, 70, 120, 0.9); }
 
-      .day.badge-active {
-        background: rgba(0, 100, 40, 0.95);
-      }
+      .event-dot-row { display: flex; gap: 4px; margin-top: 4px; }
 
-      .day.badge-upcoming {
-        background: rgba(40, 70, 120, 0.9);
-      }
+      .event-dot { width: 8px; height: 8px; border-radius: 50%; }
 
-      .event-dot-row {
-        display: flex;
-        gap: 4px;
-        margin-top: 4px;
-      }
-
-      .event-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-      }
-
-      .event-dot.ended {
-        background: linear-gradient(135deg, #ff4d4d, #b00000);
-      }
-
-      .event-dot.active {
-        background: linear-gradient(135deg, #00ff9c, #00b36b);
-      }
-
-      .event-dot.upcoming {
-        background: linear-gradient(135deg, #66aaff, #3355aa);
-      }
+      .event-dot.ended { background: linear-gradient(135deg, #ff4d4d, #b00000); }
+      .event-dot.active { background: linear-gradient(135deg, #00ff9c, #00b36b); }
+      .event-dot.upcoming { background: linear-gradient(135deg, #66aaff, #3355aa); }
 
       .legend {
         margin-top: 14px;
@@ -390,29 +356,12 @@
         color: var(--text-muted);
       }
 
-      .legend-item {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-      }
+      .legend-item { display: inline-flex; align-items: center; gap: 6px; }
 
-      .legend-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 999px;
-      }
-
-      .legend-dot.ended {
-        background: linear-gradient(135deg, #ff4d4d, #b00000);
-      }
-
-      .legend-dot.active {
-        background: linear-gradient(135deg, #00ff9c, #00b36b);
-      }
-
-      .legend-dot.upcoming {
-        background: linear-gradient(135deg, #66aaff, #3355aa);
-      }
+      .legend-dot { width: 10px; height: 10px; border-radius: 999px; }
+      .legend-dot.ended { background: linear-gradient(135deg, #ff4d4d, #b00000); }
+      .legend-dot.active { background: linear-gradient(135deg, #00ff9c, #00b36b); }
+      .legend-dot.upcoming { background: linear-gradient(135deg, #66aaff, #3355aa); }
 
       .event-details {
         margin-top: 18px;
@@ -460,13 +409,9 @@
         border-top: 1px solid rgba(255, 255, 255, 0.06);
       }
 
-      .event-list li:first-child {
-        border-top: none;
-      }
+      .event-list li:first-child { border-top: none; }
 
-      .event-name {
-        flex: 1;
-      }
+      .event-name { flex: 1; }
 
       .event-status-badge {
         font-size: 0.78rem;
@@ -477,22 +422,11 @@
         white-space: nowrap;
       }
 
-      .event-status-ended {
-        background: rgba(120, 25, 25, 0.95);
-      }
+      .event-status-ended { background: rgba(120, 25, 25, 0.95); }
+      .event-status-active { background: rgba(0, 100, 40, 0.95); }
+      .event-status-upcoming { background: rgba(40, 70, 120, 0.95); }
 
-      .event-status-active {
-        background: rgba(0, 100, 40, 0.95);
-      }
-
-      .event-status-upcoming {
-        background: rgba(40, 70, 120, 0.95);
-      }
-
-      .event-details-empty {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-      }
+      .event-details-empty { font-size: 0.9rem; color: var(--text-muted); }
 
       .live-events-container {
         max-width: 900px;
@@ -561,9 +495,7 @@
         gap: 10px;
       }
 
-      .active-event-name {
-        flex: 1;
-      }
+      .active-event-name { flex: 1; }
 
       .active-event-date {
         font-size: 0.8rem;
@@ -571,9 +503,17 @@
         white-space: nowrap;
       }
 
-      .no-active-events {
-        font-size: 0.9rem;
-        color: var(--text-muted);
+      .no-active-events { font-size: 0.9rem; color: var(--text-muted); }
+
+      .error-box {
+        max-width: 900px;
+        margin: 16px auto 0;
+        padding: 14px 16px;
+        border-radius: 14px;
+        background: rgba(120, 25, 25, 0.35);
+        border: 1px solid rgba(255, 90, 90, 0.4);
+        color: #ffd7d7;
+        display: none;
       }
 
       footer {
@@ -583,24 +523,12 @@
         color: var(--text-muted);
       }
 
-      footer a {
-        color: #7fb4ff;
-        text-decoration: none;
-      }
-
-      footer a:hover {
-        text-decoration: underline;
-      }
+      footer a { color: #7fb4ff; text-decoration: none; }
+      footer a:hover { text-decoration: underline; }
 
       @media (max-width: 700px) {
-        .calendar-header {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .calendar-card {
-          padding: 18px 14px 14px;
-        }
+        .calendar-header { flex-direction: column; align-items: flex-start; }
+        .calendar-card { padding: 18px 14px 14px; }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -613,31 +541,29 @@
       }
     </style>
   </head>
+
   <body>
     <div class="dropdown">
       <button class="dropbtn" type="button" aria-label="Open navigation menu">
         <div class="hamburger" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </div>
       </button>
+
       <div class="dropdown-content">
-      <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
-      <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
-      <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
-      <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
-      <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
-      <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
-      <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
-      <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
-      <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
-      <a href="https://moddedamong.us/wrapped"><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a>
-      <a href="https://moddedamong.us/roletest"><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a>
-      <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
- 
-        </a>
+        <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
+        <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
+        <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
+        <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
+        <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
+        <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
+        <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
+        <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
+        <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
+        <a href="https://moddedamong.us/wrapped"><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a>
+        <a href="https://moddedamong.us/roletest"><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a>
+        <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
       </div>
     </div>
 
@@ -647,15 +573,16 @@
           <span class="header-badge-dot"></span>
           Event Schedule · MAUL
         </div>
-        <h1>
-          Event <span>Calendar</span>
-        </h1>
+
+        <h1>Event <span>Calendar</span></h1>
+
         <p class="page-header-subtitle">
           Track upcoming, active, and past events for
-          <strong>Modded Among Us Lobbies</strong> – from movie nights to XP
-          boosts and special game modes.
+          <strong>Modded Among Us Lobbies</strong> – from movie nights to XP boosts and special game modes.
         </p>
       </header>
+
+      <div class="error-box" id="errorBox"></div>
 
       <section class="calendar-card">
         <div class="calendar-header">
@@ -724,80 +651,21 @@
 
       <footer>
         Want to
-        <a href="https://discord.com/channels/995954559044304896/1114516322995421194" target="_blank" rel="noopener">
+        <a
+          href="https://discord.com/channels/995954559044304896/1114516322995421194"
+          target="_blank"
+          rel="noopener"
+        >
           suggest an event?
         </a>
       </footer>
     </div>
 
     <script>
-      const events = {
-        "March 2025": {
-          14: [{ name: "Spring Scavenger Hunt · By Sarha", status: "ended" }],
-          15: [{ name: "Mafia Night · By Cris", status: "ended" }],
-          21: [{ name: "Movie Event: Ponyo · By Sunny", status: "ended" }],
-          22: [{ name: "Movie Event: Peter Pan · By Sunny", status: "ended" }],
-          23: [{ name: "Server Art Event · By Sarha", status: "ended" }]
-        },
-        "April 2025": {
-          18: [{ name: "Flash XP Event · By Sarha", status: "ended" }],
-          19: [{ name: "Mafia Night · By Spyder", status: "ended" }],
-          26: [{ name: "Flash XP Event · By Sarha", status: "ended" }],
-          28: [{ name: "Minecraft Server Revamp · By Laikrai", status: "active" }]
-        },
-        "May 2025": {
-          2:  [{ name: "Flash XP Event · By Sarha", status: "ended" }],
-          4:  [{ name: "Flash XP Event · By Sarha", status: "ended" }],
-          10: [{ name: "Guess The Number · By Sarha", status: "ended" }],
-          16: [{ name: "Text XP Boost Event · By Sarha", status: "ended" }],
-          17: [{ name: "Mafia Night · By Spyder", status: "ended" }],
-          18: [{ name: "Clash of Creations · By Sarha", status: "ended" }],
-          23: [{ name: "Town of Us: Reactivated · By Northie", status: "ended" }],
-          25: [{ name: "TOHE Mega Lobby · By GoldenWolf", status: "ended" }],
-          30: [{ name: "Summer Banner Event · By Sarha", status: "ended" }]
-        },
-        "June 2025": {
-          1: [
-            { name: "500% VC XP Boost · By Sarha", status: "ended" },
-            { name: "Summer Banner Event · By Sarha", status: "ended" }
-          ],
-          10: [{ name: "GGD · By Ghoul", status: "ended" }],
-          29: [{ name: "Scribble.io · By Spyder", status: "ended" }]
-        },
-        "July 2025": {
-          12: [{ name: "500% XP Boost · By Sarha", status: "ended" }],
-          13: [{ name: "Mafia Night · By Ghoul", status: "ended" }],
-          20: [{ name: "Mafia Night · By Ghoul", status: "ended" }],
-          26: [
-            { name: "Movie Night: How to Train Your Dragon · By Spyder", status: "ended" },
-            { name: "Codenames · By Mark", status: "ended" }
-          ],
-          27: [
-            { name: "Mafia Night · By Ghoul", status: "ended" },
-            { name: "500% Flash XP Event · By Sarha", status: "ended" }
-          ],
-          31: [{ name: "Codenames · By Mark", status: "ended" }]
-        },
-        "August 2025": {
-          1: [
-            { name: "Monthly Clan Wars Event", status: "ended" }
-          ],
-          2: [
-            { name: "Hangry Games · By Spyder", status: "ended" },
-            { name: "Code Names · By Mark", status: "ended" },
-            { name: "Scribbl.io Night · By Spyder", status: "ended" }
-          ],
-          8:  [{ name: "Hangry Games · By Spyder", status: "ended" }],
-          9:  [{ name: "Code Names · By Mark", status: "ended" }],
-          10: [{ name: "Mafia Night · By Ghoul", status: "ended" }],
-          16: [{ name: "Hangry Games · By Spyder", status: "ended" }],
-          17: [{ name: "Mafia Night · By Ghoul", status: "ended" }],
-          23: [{ name: "Hangry Games · By Spyder", status: "ended" }],
-          30: [{ name: "Hangry Games · By Spyder", status: "ended" }]
-        }
-      };
 
-      const monthNames = Object.keys(events);
+      
+      let events = {};
+      let monthNames = [];
       let currentMonthIndex = 0;
 
       const monthTitleEl = document.getElementById("monthTitle");
@@ -813,6 +681,32 @@
 
       const activeEventsList = document.getElementById("active-events-list");
       const noActiveEventsEl = document.getElementById("no-active-events");
+      const errorBox = document.getElementById("errorBox");
+
+      function showError(msg) {
+        errorBox.style.display = "block";
+        errorBox.textContent = msg;
+      }
+
+      function hideError() {
+        errorBox.style.display = "none";
+        errorBox.textContent = "";
+      }
+
+      function parseMonthLabel(label) {
+        const [monthText, yearText] = label.split(" ");
+        const year = parseInt(yearText, 10);
+        const d = new Date(`${monthText} 1, ${year}`);
+        return { monthText, year, monthIndex: d.getMonth(), sortKey: d.getTime() };
+      }
+
+      function sortMonthLabels(labels) {
+        return labels
+          .map(l => ({ label: l, ...parseMonthLabel(l) }))
+          .filter(x => Number.isFinite(x.sortKey))
+          .sort((a, b) => a.sortKey - b.sortKey)
+          .map(x => x.label);
+      }
 
       function setupWeekdays() {
         const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -826,10 +720,7 @@
       }
 
       function getMonthInfo(monthLabel) {
-        const [monthText, yearText] = monthLabel.split(" ");
-        const year = parseInt(yearText, 10);
-        const tempDate = new Date(`${monthText} 1, ${year}`);
-        const monthIndex = tempDate.getMonth();
+        const { year, monthIndex, monthText } = parseMonthLabel(monthLabel);
         const firstDay = new Date(year, monthIndex, 1).getDay();
         const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
         return { year, monthIndex, firstDay, daysInMonth, monthText };
@@ -843,13 +734,28 @@
         return null;
       }
 
+      function normalizeMonthEvents(monthLabel) {
+        const monthEvents = events[monthLabel] || {};
+        return monthEvents;
+      }
+
       function renderCalendar() {
+        if (!monthNames.length) {
+          monthTitleEl.textContent = "No months found";
+          calendarDaysEl.innerHTML = "";
+          prevMonthBtn.classList.add("disabled");
+          nextMonthBtn.classList.add("disabled");
+          eventDetails.style.display = "none";
+          renderActiveEventsAllMonths();
+          return;
+        }
+
         const monthLabel = monthNames[currentMonthIndex];
         monthTitleEl.textContent = monthLabel;
         calendarDaysEl.innerHTML = "";
 
-        const { year, monthIndex, firstDay, daysInMonth, monthText } = getMonthInfo(monthLabel);
-        const monthEvents = events[monthLabel] || {};
+        const { firstDay, daysInMonth } = getMonthInfo(monthLabel);
+        const monthEvents = normalizeMonthEvents(monthLabel);
 
         prevMonthBtn.classList.toggle("disabled", currentMonthIndex === 0);
         nextMonthBtn.classList.toggle("disabled", currentMonthIndex === monthNames.length - 1);
@@ -863,7 +769,8 @@
         for (let day = 1; day <= daysInMonth; day++) {
           const div = document.createElement("div");
           div.className = "day";
-          const eventsForDay = monthEvents[day] || [];
+
+          const eventsForDay = monthEvents[String(day)] || [];
 
           const status = getDayStatus(eventsForDay);
           if (status) {
@@ -902,14 +809,11 @@
               d.className = "event-dot ended";
               dotRow.appendChild(d);
             }
-
             div.appendChild(dotRow);
           }
 
           div.addEventListener("click", () => {
-            document
-              .querySelectorAll(".day.selected")
-              .forEach(d => d.classList.remove("selected"));
+            document.querySelectorAll(".day.selected").forEach(d => d.classList.remove("selected"));
             div.classList.add("selected");
             showEventDetails(monthLabel, day, eventsForDay);
           });
@@ -918,8 +822,7 @@
         }
 
         eventDetails.style.display = "none";
-
-        renderActiveEventsForMonth(monthLabel);
+        renderActiveEventsAllMonths();
       }
 
       function showEventDetails(monthLabel, day, eventsForDay) {
@@ -938,16 +841,19 @@
 
         eventsForDay.forEach(evt => {
           const li = document.createElement("li");
+
           const nameSpan = document.createElement("span");
           nameSpan.className = "event-name";
-          nameSpan.textContent = evt.name;
+          nameSpan.textContent = evt.name || "Event";
 
           const statusSpan = document.createElement("span");
           statusSpan.className = "event-status-badge";
-          if (evt.status === "active") statusSpan.classList.add("event-status-active");
-          if (evt.status === "upcoming") statusSpan.classList.add("event-status-upcoming");
-          if (evt.status === "ended") statusSpan.classList.add("event-status-ended");
-          statusSpan.textContent = evt.status || "event";
+
+          const st = (evt.status || "event").toLowerCase();
+          if (st === "active") statusSpan.classList.add("event-status-active");
+          if (st === "upcoming") statusSpan.classList.add("event-status-upcoming");
+          if (st === "ended") statusSpan.classList.add("event-status-ended");
+          statusSpan.textContent = st;
 
           li.appendChild(nameSpan);
           li.appendChild(statusSpan);
@@ -955,20 +861,32 @@
         });
       }
 
-      function renderActiveEventsForMonth(monthLabel) {
+      function renderActiveEventsAllMonths() {
         activeEventsList.innerHTML = "";
         noActiveEventsEl.style.display = "none";
 
-        const monthEvents = events[monthLabel] || {};
         const activeEntries = [];
 
-        Object.keys(monthEvents).forEach(dayStr => {
-          const day = parseInt(dayStr, 10);
-          const list = monthEvents[day] || [];
-          list.forEach(evt => {
-            if (evt.status === "active") {
-              activeEntries.push({ day, evt });
-            }
+        monthNames.forEach(monthLabel => {
+          const { year, monthIndex, monthText } = parseMonthLabel(monthLabel);
+          const monthEvents = normalizeMonthEvents(monthLabel);
+
+          Object.keys(monthEvents).forEach(dayStr => {
+            const day = parseInt(dayStr, 10);
+            const list = monthEvents[dayStr] || [];
+            list.forEach(evt => {
+              if ((evt.status || "").toLowerCase() === "active") {
+                activeEntries.push({
+                  monthLabel,
+                  monthText,
+                  year,
+                  monthIndex,
+                  day,
+                  name: evt.name || "Event",
+                  sortKey: new Date(year, monthIndex, day).getTime()
+                });
+              }
+            });
           });
         });
 
@@ -977,27 +895,65 @@
           return;
         }
 
-        const [monthText, yearText] = monthLabel.split(" ");
-        const year = parseInt(yearText, 10);
+        activeEntries.sort((a, b) => a.sortKey - b.sortKey);
 
-        activeEntries.sort((a, b) => a.day - b.day);
-
-        activeEntries.forEach(({ day, evt }) => {
+        activeEntries.forEach(item => {
           const div = document.createElement("div");
           div.className = "active-event-display";
 
           const nameSpan = document.createElement("span");
           nameSpan.className = "active-event-name";
-          nameSpan.textContent = evt.name;
+          nameSpan.textContent = item.name;
 
           const dateSpan = document.createElement("span");
           dateSpan.className = "active-event-date";
-          dateSpan.textContent = `${monthText} ${day}, ${year}`;
+          dateSpan.textContent = `${item.monthText} ${item.day}, ${item.year}`;
 
           div.appendChild(nameSpan);
           div.appendChild(dateSpan);
           activeEventsList.appendChild(div);
         });
+      }
+
+      function autoSelectMonthNearToday() {
+        const today = new Date();
+        const currentMonthStr =
+          today.toLocaleString("default", { month: "long" }) + " " + today.getFullYear();
+
+        const exactIdx = monthNames.findIndex(m => m === currentMonthStr);
+        if (exactIdx !== -1) {
+          currentMonthIndex = exactIdx;
+          return;
+        }
+
+        let bestIdx = 0;
+        let bestTime = -Infinity;
+
+        monthNames.forEach((label, idx) => {
+          const { sortKey } = parseMonthLabel(label);
+          if (sortKey <= today.getTime() && sortKey > bestTime) {
+            bestTime = sortKey;
+            bestIdx = idx;
+          }
+        });
+
+        currentMonthIndex = bestIdx;
+      }
+
+      function initDropdown() {
+        const dropdown = document.querySelector(".dropdown");
+        const button = document.querySelector(".dropbtn");
+
+        if (dropdown && button) {
+          button.addEventListener("click", (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle("open");
+          });
+
+          document.addEventListener("click", (e) => {
+            if (!dropdown.contains(e.target)) dropdown.classList.remove("open");
+          });
+        }
       }
 
       prevMonthBtn.addEventListener("click", () => {
@@ -1014,38 +970,36 @@
         }
       });
 
-      (function autoSelectCurrentMonth() {
-        const today = new Date();
-        const currentMonthStr =
-          today.toLocaleString("default", { month: "long" }) +
-          " " +
-          today.getFullYear();
+      async function loadEvents() {
+        hideError();
+        try {
+          const url = `/data/events.json?v=${Date.now()}`;
+          const res = await fetch(url, { cache: "no-store" });
+          if (!res.ok) throw new Error(`Could not load ${url} (HTTP ${res.status})`);
 
-        const idx = monthNames.findIndex(m => m === currentMonthStr);
-        if (idx !== -1) currentMonthIndex = idx;
-      })();
+          const data = await res.json();
+          if (!data || typeof data !== "object") throw new Error("events.json is not an object");
 
-      function initDropdown() {
-        const dropdown = document.querySelector('.dropdown');
-        const button = document.querySelector('.dropbtn');
+          events = data;
+          monthNames = sortMonthLabels(Object.keys(events));
 
-        if (dropdown && button) {
-          button.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdown.classList.toggle('open');
-          });
-
-          document.addEventListener('click', (e) => {
-            if (!dropdown.contains(e.target)) {
-              dropdown.classList.remove('open');
-            }
-          });
+          setupWeekdays();
+          autoSelectMonthNearToday();
+          renderCalendar();
+          initDropdown();
+        } catch (err) {
+          showError(
+            "Could not load event data. Make sure /data/events.json exists and is valid JSON.\n\n" +
+            String(err)
+          );
+          setupWeekdays();
+          monthNames = [];
+          renderCalendar();
+          initDropdown();
         }
       }
 
-      setupWeekdays();
-      renderCalendar();
-      initDropdown();
+      loadEvents();
     </script>
   </body>
 </html>
