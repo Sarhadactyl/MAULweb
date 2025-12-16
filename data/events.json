@@ -1,138 +1,264 @@
 {
   "March 2025": {
     "14": [
-      { "name": "Spring Scavenger Hunt · By Sarha", "status": "ended" }
+      {
+        "name": "Spring Scavenger Hunt · By Sarha",
+        "status": "ended"
+      }
     ],
     "15": [
-      { "name": "Mafia Night · By Cris", "status": "ended" }
+      {
+        "name": "Mafia Night · By Cris",
+        "status": "ended"
+      }
     ],
     "21": [
-      { "name": "Movie Event: Ponyo · By Sunny", "status": "ended" }
+      {
+        "name": "Movie Event: Ponyo · By Sunny",
+        "status": "ended"
+      }
     ],
     "22": [
-      { "name": "Movie Event: Peter Pan · By Sunny", "status": "ended" }
+      {
+        "name": "Movie Event: Peter Pan · By Sunny",
+        "status": "ended"
+      }
     ],
     "23": [
-      { "name": "Server Art Event · By Sarha", "status": "ended" }
+      {
+        "name": "Server Art Event · By Sarha",
+        "status": "ended"
+      }
     ]
   },
-
   "April 2025": {
     "18": [
-      { "name": "Flash XP Event · By Sarha", "status": "ended" }
+      {
+        "name": "Flash XP Event · By Sarha",
+        "status": "ended"
+      }
     ],
     "19": [
-      { "name": "Mafia Night · By Spyder", "status": "ended" }
+      {
+        "name": "Mafia Night · By Spyder",
+        "status": "ended"
+      }
     ],
     "26": [
-      { "name": "Flash XP Event · By Sarha", "status": "ended" }
+      {
+        "name": "Flash XP Event · By Sarha",
+        "status": "ended"
+      }
     ],
     "28": [
-      { "name": "Minecraft Server Revamp · By Laikrai", "status": "active" }
+      {
+        "name": "Minecraft Server Revamp · By Laikrai",
+        "status": "active"
+      }
     ]
   },
-
   "May 2025": {
     "2": [
-      { "name": "Flash XP Event · By Sarha", "status": "ended" }
+      {
+        "name": "Flash XP Event · By Sarha",
+        "status": "ended"
+      }
     ],
     "4": [
-      { "name": "Flash XP Event · By Sarha", "status": "ended" }
+      {
+        "name": "Flash XP Event · By Sarha",
+        "status": "ended"
+      }
     ],
     "10": [
-      { "name": "Guess The Number · By Sarha", "status": "ended" }
+      {
+        "name": "Guess The Number · By Sarha",
+        "status": "ended"
+      }
     ],
     "16": [
-      { "name": "Text XP Boost Event · By Sarha", "status": "ended" }
+      {
+        "name": "Text XP Boost Event · By Sarha",
+        "status": "ended"
+      }
     ],
     "17": [
-      { "name": "Mafia Night · By Spyder", "status": "ended" }
+      {
+        "name": "Mafia Night · By Spyder",
+        "status": "ended"
+      }
     ],
     "18": [
-      { "name": "Clash of Creations · By Sarha", "status": "ended" }
+      {
+        "name": "Clash of Creations · By Sarha",
+        "status": "ended"
+      }
     ],
     "23": [
-      { "name": "Town of Us: Reactivated · By Northie", "status": "ended" }
+      {
+        "name": "Town of Us: Reactivated · By Northie",
+        "status": "ended"
+      }
     ],
     "25": [
-      { "name": "TOHE Mega Lobby · By GoldenWolf", "status": "ended" }
+      {
+        "name": "TOHE Mega Lobby · By GoldenWolf",
+        "status": "ended"
+      }
     ],
     "30": [
-      { "name": "Summer Banner Event · By Sarha", "status": "ended" }
+      {
+        "name": "Summer Banner Event · By Sarha",
+        "status": "ended"
+      }
     ]
   },
-
   "June 2025": {
     "1": [
-      { "name": "500% VC XP Boost · By Sarha", "status": "ended" },
-      { "name": "Summer Banner Event · By Sarha", "status": "ended" }
+      {
+        "name": "500% VC XP Boost · By Sarha",
+        "status": "ended"
+      },
+      {
+        "name": "Summer Banner Event · By Sarha",
+        "status": "ended"
+      }
     ],
     "10": [
-      { "name": "GGD · By Ghoul", "status": "ended" }
+      {
+        "name": "GGD · By Ghoul",
+        "status": "ended"
+      }
     ],
     "29": [
-      { "name": "Scribble.io · By Spyder", "status": "ended" }
+      {
+        "name": "Scribble.io · By Spyder",
+        "status": "ended"
+      }
     ]
   },
-
   "July 2025": {
     "12": [
-      { "name": "500% XP Boost · By Sarha", "status": "ended" }
+      {
+        "name": "500% XP Boost · By Sarha",
+        "status": "ended"
+      }
     ],
     "13": [
-      { "name": "Mafia Night · By Ghoul", "status": "ended" }
+      {
+        "name": "Mafia Night · By Ghoul",
+        "status": "ended"
+      }
     ],
     "20": [
-      { "name": "Mafia Night · By Ghoul", "status": "ended" }
+      {
+        "name": "Mafia Night · By Ghoul",
+        "status": "ended"
+      }
     ],
     "26": [
-      { "name": "Movie Night: How to Train Your Dragon · By Spyder", "status": "ended" },
-      { "name": "Codenames · By Mark", "status": "ended" }
+      {
+        "name": "Movie Night: How to Train Your Dragon · By Spyder",
+        "status": "ended"
+      },
+      {
+        "name": "Codenames · By Mark",
+        "status": "ended"
+      }
     ],
     "27": [
-      { "name": "Mafia Night · By Ghoul", "status": "ended" },
-      { "name": "500% Flash XP Event · By Sarha", "status": "ended" }
+      {
+        "name": "Mafia Night · By Ghoul",
+        "status": "ended"
+      },
+      {
+        "name": "500% Flash XP Event · By Sarha",
+        "status": "ended"
+      }
     ],
     "31": [
-      { "name": "Codenames · By Mark", "status": "ended" }
+      {
+        "name": "Codenames · By Mark",
+        "status": "ended"
+      }
     ]
   },
-
   "August 2025": {
     "1": [
-      { "name": "Monthly Clan Wars Event", "status": "ended" }
+      {
+        "name": "Monthly Clan Wars Event",
+        "status": "ended"
+      }
     ],
     "2": [
-      { "name": "Hangry Games · By Spyder", "status": "ended" },
-      { "name": "Code Names · By Mark", "status": "ended" },
-      { "name": "Scribbl.io Night · By Spyder", "status": "ended" }
+      {
+        "name": "Hangry Games · By Spyder",
+        "status": "ended"
+      },
+      {
+        "name": "Code Names · By Mark",
+        "status": "ended"
+      },
+      {
+        "name": "Scribbl.io Night · By Spyder",
+        "status": "ended"
+      }
     ],
     "8": [
-      { "name": "Hangry Games · By Spyder", "status": "ended" }
+      {
+        "name": "Hangry Games · By Spyder",
+        "status": "ended"
+      }
     ],
     "9": [
-      { "name": "Code Names · By Mark", "status": "ended" }
+      {
+        "name": "Code Names · By Mark",
+        "status": "ended"
+      }
     ],
     "10": [
-      { "name": "Mafia Night · By Ghoul", "status": "ended" }
+      {
+        "name": "Mafia Night · By Ghoul",
+        "status": "ended"
+      }
     ],
     "16": [
-      { "name": "Hangry Games · By Spyder", "status": "ended" }
+      {
+        "name": "Hangry Games · By Spyder",
+        "status": "ended"
+      }
     ],
     "17": [
-      { "name": "Mafia Night · By Ghoul", "status": "ended" }
+      {
+        "name": "Mafia Night · By Ghoul",
+        "status": "ended"
+      }
     ],
     "23": [
-      { "name": "Hangry Games · By Spyder", "status": "ended" }
+      {
+        "name": "Hangry Games · By Spyder",
+        "status": "ended"
+      }
     ],
     "30": [
-      { "name": "Hangry Games · By Spyder", "status": "ended" }
+      {
+        "name": "Hangry Games · By Spyder",
+        "status": "ended"
+      }
     ]
   },
-
   "December 2025": {
     "15": [
-      { "name": "Test", "status": "active" }
+      {
+        "name": "Test",
+        "status": "active"
+      }
+    ],
+    "16": [
+      {
+        "name": "Test",
+        "status": "active"
+      }
     ]
   }
 }
