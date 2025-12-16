@@ -14,11 +14,16 @@
   <meta property="og:locale" content="en_US" />
   <link rel="canonical" href="https://moddedamong.us/personalitytest" />
   <meta name="theme-color" content="#120006" />
+
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
   <style>
     :root {
@@ -33,6 +38,7 @@
 
     * { box-sizing: border-box; }
     html, body { height: 100%; margin: 0; padding: 0; }
+
     body{
       font-family: "Roboto", sans-serif;
       color: var(--text-main);
@@ -536,7 +542,7 @@
         </div>
 
         <div class="actions">
-          <button id="btn-start" class="btn">
+          <button id="btn-start" class="btn" type="button">
             <i class="fa-solid fa-play"></i> Start Quiz
           </button>
 
@@ -564,19 +570,26 @@
       </div>
 
       <div class="panel-foot">
-        <button id="btn-back" class="btn"><i class="fa-solid fa-arrow-left"></i> Back</button>
-        <button id="btn-reset" class="btn"><i class="fa-solid fa-trash"></i> Reset</button>
+        <button id="btn-back" class="btn" type="button"><i class="fa-solid fa-arrow-left"></i> Back</button>
+        <button id="btn-reset" class="btn" type="button"><i class="fa-solid fa-trash"></i> Reset</button>
       </div>
     </section>
 
-          <button id="btn-restart" class="btn">
+    <section id="resultPanel" class="panel hidden">
+      <div class="panel-head">
+        <div class="meta">
+          <span><i class="fa-solid fa-square-poll-vertical"></i> Results</span>
+        </div>
+
+        <div class="actions" style="margin-top:0;">
+          <button id="btn-restart" class="btn" type="button">
             <i class="fa-solid fa-rotate-right"></i> Restart
           </button>
 
           <a id="btn-option2-result" class="btn primary"
-            href="https://github.com/Gurge44/EndlessHostRoles?dhc-id=80403589163388934"
-            target="_blank" rel="noopener">
-            <i class="fa-brands fa-discord"></i> Based on EHR
+             href="https://github.com/Gurge44/EndlessHostRoles?dhc-id=80403589163388934"
+             target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> Based on EHR
           </a>
         </div>
       </div>
@@ -855,6 +868,7 @@
         meaning:"You love indirect influence. You create moments where other players’ actions spiral into advantage.",
         target:{ aggression:1, strategy:6, social:1, visibility:-1, control:9, risk:3, loyalty:6, power:4 } },
 
+      /* --- keep your big JSON role list below as-is --- */
       { "id": "soul_collector", "name": "Soul Collector", "faction": "neutral", "tags": ["killer","delayed","hidden-body","stealth"], "target": { "aggression": 6, "strategy": 5, "social": -1, "visibility": -5, "control": 2, "risk": 1, "loyalty": -6, "power": 4 } },
       { "id": "samurai", "name": "Samurai", "faction": "neutral", "tags": ["killer","delayed","tempo","precision"], "target": { "aggression": 6, "strategy": 6, "social": -2, "visibility": -2, "control": 1, "risk": 2, "loyalty": -6, "power": 4 } },
       { "id": "weatherman", "name": "Weatherman", "faction": "neutral", "tags": ["killer","area-control","chaos","disaster"], "target": { "aggression": 5, "strategy": 3, "social": -1, "visibility": 1, "control": 6, "risk": 4, "loyalty": -6, "power": 5 } },
@@ -873,7 +887,7 @@
       { "id": "jinx", "name": "Jinx", "faction": "neutral", "tags": ["killer","counter","trap","punish"], "target": { "aggression": 4, "strategy": 4, "social": -2, "visibility": -2, "control": 5, "risk": 2, "loyalty": -6, "power": 5 } },
       { "id": "poisoner", "name": "Poisoner", "faction": "neutral", "tags": ["killer","delayed","stealth","double-click"], "target": { "aggression": 5, "strategy": 6, "social": -2, "visibility": -4, "control": 3, "risk": 2, "loyalty": -6, "power": 4 } },
       { "id": "vector", "name": "Vector", "faction": "neutral", "tags": ["evil","objective","vents","grind"], "target": { "aggression": -2, "strategy": 6, "social": -1, "visibility": -2, "control": 1, "risk": 1, "loyalty": -4, "power": 5 } },
-      { "id": "collector", "name": "Collector", "faction": "neutral", "tags": ["evil","meeting","votes","math"], "target": { "aggression": -2, "strategy": 4, "social": 7, "visibility": 2, "control": 5, "risk": 1, "loyalty": -6, "power": 6 } },
+{ "id": "collector", "name": "Collector", "faction": "neutral", "tags": ["evil","meeting","votes","math"], "target": { "aggression": -2, "strategy": 4, "social": 7, "visibility": 2, "control": 5, "risk": 1, "loyalty": -6, "power": 6 } },
       { "id": "doomsayer", "name": "Doomsayer", "faction": "neutral", "tags": ["evil","guessing","win-trigger","high-stakes"], "target": { "aggression": 1, "strategy": 6, "social": 4, "visibility": 2, "control": 4, "risk": 5, "loyalty": -8, "power": 7 } },
       { "id": "gaslighter", "name": "Gaslighter", "faction": "neutral", "tags": ["evil","cycle","multi-tool","support-control"], "target": { "aggression": 2, "strategy": 4, "social": 4, "visibility": 1, "control": 7, "risk": 2, "loyalty": -6, "power": 5 } },
       { "id": "jester", "name": "Jester", "faction": "neutral", "tags": ["evil","self-eject","social","chaos"], "target": { "aggression": -2, "strategy": 2, "social": 8, "visibility": 5, "control": 3, "risk": 6, "loyalty": -8, "power": 6 } },
@@ -926,16 +940,16 @@
       { "id": "follower", "name": "Follower", "faction": "neutral", "tags": ["benign","tracking","win-with-others"], "target": { "aggression": -3, "strategy": 4, "social": 2, "visibility": -1, "control": 2, "risk": 1, "loyalty": 5, "power": 1 } },
     ];
 
-    function dedupeRolesById(roles){
+    function dedupeRolesByIdFirstWins(roles){
       const m = new Map();
       for(const r of roles){
         if(!r || !r.id) continue;
-        m.set(r.id, { archetype: [], ...r });
+        if(!m.has(r.id)) m.set(r.id, { archetype: [], ...r });
       }
       return Array.from(m.values());
     }
 
-    const rolePool = dedupeRolesById(allRolesRaw);
+    const rolePool = dedupeRolesByIdFirstWins(allRolesRaw);
 
     const addonPool = [
       { id:"sleuth", name:"Sleuth", tags:["info"], meaning:"You naturally notice small clues and timing tells." },
@@ -990,6 +1004,7 @@
       for(const [f,w] of entries){ r -= w; if(r<=0) return f; }
       return "neutral";
     }
+
     function pickRoleUniformByFaction(faction){
       const factionRoles = rolePool.filter(r => r.faction === faction);
       const pool = factionRoles.length ? factionRoles : rolePool;
@@ -1059,6 +1074,7 @@
       autosaveText.textContent = "Autosave: Saved";
       setTimeout(() => autosaveText.textContent = "Autosave: ON", 700);
     }
+
     function loadState(){
       const raw = localStorage.getItem(STORAGE_KEY);
       if(!raw) return false;
@@ -1071,9 +1087,16 @@
         return true;
       }catch{ return false; }
     }
+
     function resetState(){
       state = { idx:0, traits: defaultTraits(), picks: Array(questions.length).fill(null), finished:false };
       localStorage.removeItem(STORAGE_KEY);
+    }
+
+    function showHero(){
+      hero.classList.remove("hidden");
+      quizPanel.classList.add("hidden");
+      resultPanel.classList.add("hidden");
     }
 
     function showQuiz(){
@@ -1082,12 +1105,14 @@
       resultPanel.classList.add("hidden");
       renderQuestion();
     }
+
     function showResults(){
       hero.classList.add("hidden");
       quizPanel.classList.add("hidden");
       resultPanel.classList.remove("hidden");
       renderResults();
     }
+
     function startFresh(){
       resetState();
       saveState();
@@ -1110,11 +1135,13 @@
       qSub.textContent = q.sub || "Pick what fits you best.";
       qIndexText.textContent = `Q ${state.idx+1} / ${questions.length}`;
 
-      const pct = Math.round((state.idx / questions.length) * 100);
+      // fixed: reaches 100% on last question
+      const pct = Math.round(((state.idx + 1) / questions.length) * 100);
       progressBar.style.width = `${pct}%`;
 
       answersEl.innerHTML = "";
       const letters = ["A","B","C","D"];
+
       q.answers.forEach((ans, i) => {
         const btn = document.createElement("button");
         btn.className = "answer";
@@ -1133,12 +1160,14 @@
       recomputeTraitsFromPicks();
 
       state.idx += 1;
+
       if(state.idx >= questions.length){
         state.finished = true;
         saveState();
         showResults();
         return;
       }
+
       saveState();
       renderQuestion();
     }
@@ -1155,7 +1184,6 @@
       const { archetype } = pickArchetype(player);
       const faction = factionFromTraits(player, archetype);
       const role = pickRoleUniformByFaction(faction);
-
       const addon = pickAddon(player);
 
       resultHeadline.textContent = `You are: ${role.name}`;
@@ -1183,6 +1211,7 @@
         aggression:"Aggression", strategy:"Strategy", social:"Social", visibility:"Visibility",
         control:"Control", risk:"Risk", loyalty:"Loyalty", power:"Power Scale"
       };
+
       top.forEach(([k,v]) => {
         const pill = document.createElement("div");
         pill.className = "pill";
@@ -1198,8 +1227,12 @@
     btnRestart.addEventListener("click", startFresh);
 
     (function init(){
-      localStorage.removeItem(STORAGE_KEY);
-      resetState();
+      if(loadState()){
+        if(state.finished) showResults();
+        else showQuiz();
+      } else {
+        showHero();
+      }
     })();
   </script>
 </body>
