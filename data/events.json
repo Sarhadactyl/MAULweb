@@ -1,8 +1,26 @@
 {
   "March 2025": {
-    "14": [{ "name": "Spring Scavenger Hunt · By Sarha", "status": "ended" }]
+    "14": [
+      {
+        "name": "Spring Scavenger Hunt · By Sarha",
+        "status": "ended"
+      }
+    ]
   },
   "April 2025": {
-    "28": [{ "name": "Minecraft Server Revamp · By Laikrai", "status": "active" }]
+    "28": [
+      {
+        "name": "Minecraft Server Revamp · By Laikrai",
+        "status": "active"
+      }
+    ]
+  },
+  "December 2025": {
+    "15": [
+      {
+        "name": "Test",
+        "status": "active"
+      }
+    ]
   }
 }
