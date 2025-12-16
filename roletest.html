@@ -1226,7 +1226,18 @@
     btnReset.addEventListener("click", () => { if(confirm("Reset quiz progress?")) startFresh(); });
     btnRestart.addEventListener("click", startFresh);
 
+    function isReloadNavigation() {
+      const navEntry = performance.getEntriesByType?.("navigation")?.[0];
+      if (navEntry && typeof navEntry.type === "string") return navEntry.type === "reload";
+      return performance?.navigation?.type === 1; // fallback
+    }
+
     (function init(){
+      if (isReloadNavigation()){
+        showHero();
+        return;
+      }
+
       if(loadState()){
         if(state.finished) showResults();
         else showQuiz();
