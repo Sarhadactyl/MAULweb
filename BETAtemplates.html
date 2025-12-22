@@ -1,1952 +1,2349 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <title>BETA Live Template Editor · MAUL</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <meta property="og:title" content="BETA Live Template Editor · MAUL" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://moddedamong.us/BETAtemplates" />
-    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-    <meta
-      property="og:description"
-      content="Type, style, and export Among Us templates in real time."
-    />
-    <meta property="og:site_name" content="Modded Among Us Lobbies" />
-    <meta property="og:locale" content="en_US" />
-    <link rel="canonical" href="https://moddedamong.us/BETAtemplates" />
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
- 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;700;900&family=VT323&family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&family=Press+Start+2P&family=Share+Tech+Mono&family=Rajdhani:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
-    <style>
-      :root {
-        --accent: #800000;
-        --accent-soft: rgba(128, 0, 0, 0.25);
-        --accent-strong: #b00000;
-        --bg-card: rgba(30, 12, 12, 0.9);
-        --bg-soft: rgba(45, 18, 18, 0.9);
-        --text-main: #ffffff;
-        --text-muted: #dedee8;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        font-family: "Roboto", sans-serif;
-        color: var(--text-main);
-        overflow-x: hidden;
-      }
-
-      body {
-        background: #000 url("images/maulredbg.png") no-repeat top center fixed;
-        background-size: auto 100%;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background: radial-gradient(circle at top, rgba(128, 0, 0, 0.45), transparent 55%),
-          radial-gradient(circle at bottom, rgba(180, 0, 60, 0.25), transparent 55%);
-        mix-blend-mode: screen;
-        opacity: 0.7;
-        pointer-events: none;
-        z-index: -2;
-      }
-
-      body::after {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
-        z-index: -1;
-      }
- 
-      .dropdown {
-        position: fixed;
-        top: 18px;
-        left: 18px;
-        z-index: 100;
-      }
-
-      .dropbtn {
-        background: rgba(35, 10, 10, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        cursor: pointer;
-        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-        padding: 10px 10px;
-        border-radius: 999px;
-        backdrop-filter: blur(10px);
-      }
-
-      .dropbtn:hover {
-        transform: translateY(-1px) scale(1.03);
-        background: rgba(50, 16, 16, 0.98);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
-      }
-
-      .hamburger {
-        width: 26px;
-        height: 18px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .hamburger span {
-        display: block;
-        height: 3px;
-        background: linear-gradient(90deg, var(--accent), #ff0040);
-        border-radius: 999px;
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        margin-top: 8px;
-        background-color: rgba(35, 10, 10, 0.96);
-        min-width: 220px;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
-        border-radius: 12px;
-        overflow: hidden;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .dropdown.open .dropdown-content {
-        display: block;
-      }
-
-      .dropdown-content a {
-        color: var(--text-main);
-        padding: 12px 18px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.95rem;
-        transition: background 0.25s, color 0.25s, padding-left 0.25s;
-      }
-
-      .dropdown-content a:hover {
-        background: rgba(255, 255, 255, 0.04);
-        color: var(--accent);
-        padding-left: 22px;
-      }
-
-      .beta-glow {
-        color: #ff4d4d !important;
-        font-weight: 700;
-        text-shadow: 0 0 8px rgba(255, 0, 0, 0.75), 0 0 12px rgba(255, 0, 0, 0.55);
-      }
-
-      .page-wrapper {
-        max-width: 1200px;
-        width: 100%;
-        margin: 0 auto 40px;
-        padding: 80px 20px 0;
-      }
-
-      @media (max-width: 600px) {
-        .page-wrapper {
-          padding-top: 90px;
-        }
-      }
-
-      .header {
-        position: relative;
-        text-align: center;
-        padding: 40px 20px 20px;
-      }
-
-      .header-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 6px 12px;
-        border-radius: 999px;
-        font-size: 0.8rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        background: linear-gradient(120deg, rgba(128, 0, 0, 0.5), rgba(200, 0, 80, 0.35));
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        color: var(--text-muted);
-        margin-bottom: 16px;
-      }
-
-      .header-badge-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: radial-gradient(circle, #00ff9c, #00b36b);
-        box-shadow: 0 0 12px rgba(0, 255, 156, 0.7);
-      }
-
-      .header h1 {
-        font-family: "Poppins", sans-serif;
-        font-size: clamp(2.4rem, 4vw, 3.2rem);
-        margin: 0;
-        text-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
-        letter-spacing: 0.04em;
-      }
-
-      .header h1 span {
-        background: linear-gradient(135deg, #ff3b3b, var(--accent));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .header-subtitle {
-        max-width: 720px;
-        margin: 14px auto 0;
-        color: var(--text-muted);
-        font-size: 0.95rem;
-        line-height: 1.6;
-      }
-
-      .header-highlight {
-        color: var(--accent);
-        font-weight: 600;
-      }
-
-      .header-actions {
-        margin-top: 24px;
-        display: flex;
-        justify-content: center;
-        gap: 14px;
-        flex-wrap: wrap;
-      }
-
-      .cta-primary,
-      .cta-secondary {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 9px 16px;
-        border-radius: 999px;
-        text-decoration: none;
-        font-size: 0.9rem;
-        cursor: pointer;
-        transition: background 0.2s ease, border-color 0.2s ease, transform 0.18s ease,
-          box-shadow 0.18s ease, filter 0.18s ease;
-      }
-
-      .cta-primary {
-        padding: 10px 18px;
-        background: linear-gradient(135deg, #800000, #b00000);
-        color: #ffffff;
-        font-weight: 600;
-        font-size: 0.95rem;
-        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.9);
-      }
-
-      .cta-secondary {
-        border: 1px solid rgba(255, 255, 255, 0.22);
-        background: rgba(40, 12, 12, 0.9);
-        color: var(--text-muted);
-      }
-
-      .cta-secondary:hover {
-        background: rgba(55, 18, 18, 0.98);
-        border-color: var(--accent-soft);
-        transform: translateY(-1px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
-      }
-
-      .cta-primary:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.95);
-        filter: brightness(1.05);
-      }
-
-      .info-paragraph {
-        font-size: 0.98rem;
-        line-height: 1.7;
-        background: var(--bg-card);
-        padding: 22px 24px;
-        border-radius: 16px;
-        max-width: 900px;
-        margin: 28px auto 20px;
-        text-align: left;
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .info-paragraph strong {
-        color: var(--accent);
-        font-weight: 600;
-      }
-
-      .content-grid {
-        max-width: 1100px;
-        width: 100%;
-        margin: 0 auto 40px;
-        padding: 0 20px 10px;
-        display: grid;
-        gap: 22px;
-      }
-
-      .panel {
-        background: var(--bg-card);
-        border-radius: 20px;
-        padding: 22px 22px 24px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95);
-        backdrop-filter: blur(14px);
-      }
-
-      .section-title {
-        font-size: 1.7rem;
-        margin: 0 0 6px;
-        text-align: center;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      .section-subtitle {
-        text-align: center;
-        color: var(--text-muted);
-        margin: 0 0 18px;
-        font-size: 0.9rem;
-      }
-
-      @media (max-width: 700px) {
-        .content-grid {
-          padding: 0 14px 10px;
-        }
-        .page-wrapper {
-          padding-top: 80px;
-        }
-      }
-
-      /* Controls */
-      .tool-wrap {
-        display: grid;
-        gap: 14px;
-      }
-
-      .tool-controls {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
-      }
-
-      .tool-controls .field {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        padding: 6px 10px;
-        border-radius: 999px;
-        font-size: 0.85rem;
-        color: var(--text-muted);
-      }
-
-      .tool-controls input[type="text"],
-      .tool-controls input[type="number"],
-      .tool-controls select,
-      .tool-controls textarea {
-        background: rgba(0, 0, 0, 0.6);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
-        color: #def;
-        padding: 6px 8px;
-        outline: none;
-      }
-
-      .btn {
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.22);
-        color: #e7f0ff;
-        font-size: 0.9em;
-        padding: 7px 12px;
-        border-radius: 999px;
-        cursor: pointer;
-        transition: background 0.2s, border-color 0.2s, transform 0.02s, box-shadow 0.2s;
-        user-select: none;
-      }
-
-      .btn:hover {
-        background: rgba(255, 255, 255, 0.12);
-        border-color: rgba(255, 255, 255, 0.3);
-        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.8);
-      }
-
-      .btn:active {
-        transform: scale(0.98);
-      }
-
-      .btn.primary {
-        background: linear-gradient(135deg, #800000, #b00000);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-      }
-
-      .btn.primary:hover {
-        filter: brightness(1.05);
-      }
-
-      .split {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-      }
-
-      @media (max-width: 900px) {
-        .split {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .codebox {
-        display: grid;
-        gap: 8px;
-      }
-
-      .codebox code,
-      .codebox pre {
-        display: block;
-        background: rgba(0, 0, 0, 0.7);
-        border: 1px solid rgba(255, 255, 255, 0.22);
-        border-radius: 12px;
-        padding: 10px;
-        white-space: pre-wrap;
-        word-break: break-word;
-        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-        font-size: 0.85rem;
-        margin: 0;
-      }
-
-      .preview {
-        padding: 12px;
-        border-radius: 12px;
-        background: rgba(0, 0, 0, 0.55);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        min-height: 80px;
-      }
-
-      .preview span {
-        display: inline-block;
-      }
-
-      .stops {
-        display: grid;
-        gap: 8px;
-        margin-top: 6px;
-      }
-
-      .stop-row {
-        display: grid;
-        grid-template-columns: 120px 1fr 140px;
-        gap: 8px;
-        align-items: center;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: 12px;
-        padding: 8px;
-      }
-
-      @media (max-width: 760px) {
-        .stop-row {
-          grid-template-columns: 120px 1fr;
-        }
-        .stop-row .row-btns {
-          grid-column: 1 / -1;
-          display: flex;
-          gap: 8px;
-          justify-content: flex-end;
-        }
-      }
-
-      .stop-row input[type="color"] {
-        width: 42px;
-        height: 32px;
-        border: none;
-        background: transparent;
-        padding: 0;
-        cursor: pointer;
-      }
-
-      .grad-preview {
-        height: 44px;
-        border-radius: 8px;
-        border: 1px solid #000;
-        margin: 8px 0;
-      }
-
-      .status {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        min-height: 1.2em;
-      }
-
-      /* Icons palette */
-      .icon-palette {
-        display: none;
-        margin-top: 10px;
-        background: rgba(0, 0, 0, 0.65);
-        border: 1px solid rgba(255, 255, 255, 0.22);
-        border-radius: 12px;
-        padding: 10px;
-        max-height: 220px;
-        overflow: auto;
-      }
-      .icon-palette.open {
-        display: block;
-      }
-      .icon-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-      }
-      .icon-grid button {
-        min-width: 34px;
-        padding: 6px 10px;
-      }
-
-      /* Popup / modal */
-      .modal {
-        position: fixed;
-        inset: 0;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        padding: 18px;
-        z-index: 999;
-      }
-      .modal.open {
-        display: flex;
-      }
-      .modal-backdrop {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.72);
-        backdrop-filter: blur(6px);
-      }
-      .modal-card {
-        position: relative;
-        max-width: 760px;
-        width: 100%;
-        background: rgba(35, 10, 10, 0.96);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 18px;
-        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
-        padding: 18px 18px 16px;
-      }
-      .modal-title {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        margin-bottom: 10px;
-      }
-      .modal-title h3 {
-        margin: 0;
-        font-family: "Poppins", sans-serif;
-        letter-spacing: 0.05em;
-      }
-      .modal-title h3 span {
-        background: linear-gradient(135deg, #ff3b3b, var(--accent));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-      .modal-body {
-        color: var(--text-muted);
-        line-height: 1.6;
-        font-size: 0.95rem;
-      }
-      .modal-body code {
-        background: rgba(0, 0, 0, 0.55);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        padding: 1px 6px;
-        border-radius: 8px;
-        color: #def;
-      }
-      .modal-actions {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-        margin-top: 12px;
-        flex-wrap: wrap;
-      }
-      .modal-actions label {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        color: var(--text-muted);
-        font-size: 0.9rem;
-        user-select: none;
-      }
-
-      footer {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin: 40px 0 30px;
-        padding: 0 16px;
-      }
-
-      .footer-inner {
-        max-width: 900px;
-        width: 100%;
-        text-align: center;
-        padding: 18px 24px;
-        border-radius: 18px;
-        background: radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 55%),
-          linear-gradient(135deg, #240404, #0b0000);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
-        font-size: 0.9rem;
-        color: var(--text-muted);
-      }
-
-      .footer-inner a {
-        color: var(--accent-strong);
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .footer-inner a:hover {
-        color: #ff0000;
-        text-decoration: underline;
-      }
-    </style>
-  </head>
-
-  <body>
-    <!-- NAV (copied from tags page) -->
-    <div class="dropdown">
-      <button class="dropbtn" type="button" aria-label="Open navigation menu">
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </button>
-      <div class="dropdown-content">
-        <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
-        <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
-        <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
-        <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
-        <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
-        <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
-        <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
-        <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
-        <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
-        <a href="https://moddedamong.us/wrapped"
-          ><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a
-        >
-        <a href="https://moddedamong.us/roletest"
-          ><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a
-        >
-        <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"
-          ><i class="fa-solid fa-flask"></i> BETA Templates</a
-        >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MAUL | BETA Live Template Editor</title>
+
+  <link rel="canonical" href="https://moddedamong.us/templates.html" />
+  <meta name="description" content="Type, color, and export Among Us templates with smooth gradients in real time." />
+
+  <meta property="og:title" content="MAUL | Live Template Editor" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://moddedamong.us/templates.html" />
+  <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+  <meta property="og:description" content="Type, color, and export Among Us templates with smooth gradients in real time." />
+  <meta property="og:site_name" content="Modded Among Us Lobbies" />
+  <meta property="og:locale" content="en_US" />
+
+  <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&family=Barlow:wght@300;700;900&family=VT323&family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&family=Press+Start+2P&family=Share+Tech+Mono&family=Rajdhani:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    :root {
+      --accent: #800000;
+      --accent-soft: rgba(128, 0, 0, 0.25);
+      --accent-strong: #b00000;
+
+      --bg-card: rgba(30, 12, 12, 0.9);
+      --bg-soft: rgba(45, 18, 18, 0.9);
+
+      --text-main: #ffffff;
+      --text-muted: #dedee8;
+
+      --mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      --sans: "Roboto", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--sans);
+      color: var(--text-main);
+      overflow-x: hidden;
+
+      background: #000 url("images/maulredbg.png") no-repeat top center fixed;
+      background-size: auto 100%;
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(128, 0, 0, 0.45), transparent 55%),
+        radial-gradient(circle at bottom, rgba(180, 0, 60, 0.25), transparent 55%);
+      mix-blend-mode: screen;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    a { color: inherit; }
+
+    .dropdown {
+      position: fixed;
+      top: 18px;
+      left: 18px;
+      z-index: 1000;
+    }
+
+    .dropbtn {
+      background: rgba(35, 10, 10, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      cursor: pointer;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+      padding: 10px 10px;
+      border-radius: 999px;
+      backdrop-filter: blur(10px);
+    }
+
+    .dropbtn:hover {
+      transform: translateY(-1px) scale(1.03);
+      background: rgba(50, 16, 16, 0.98);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+    }
+
+    .hamburger {
+      width: 26px;
+      height: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), #ff0040);
+      border-radius: 999px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      margin-top: 8px;
+      background-color: rgba(35, 10, 10, 0.96);
+      min-width: 240px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+      border-radius: 12px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .dropdown.open .dropdown-content { display: block; }
+
+    .dropdown-content a {
+      color: var(--text-main);
+      padding: 12px 18px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      transition:
+        background 0.25s,
+        color 0.25s,
+        padding-left 0.25s;
+      white-space: nowrap;
+    }
+
+    .dropdown-content a:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--accent);
+      padding-left: 22px;
+    }
+
+    .beta-glow {
+      color: #ff4d4d !important;
+      font-weight: 700;
+      text-shadow:
+        0 0 8px rgba(255, 0, 0, 0.75),
+        0 0 12px rgba(255, 0, 0, 0.55);
+    }
+
+    .page-wrapper {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto 40px;
+      padding: 80px 20px 0;
+    }
+    @media (max-width: 600px) {
+      .page-wrapper { padding-top: 90px; }
+    }
+
+    .header {
+      text-align: center;
+      padding: 40px 20px 10px;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: linear-gradient(
+        120deg,
+        rgba(128, 0, 0, 0.5),
+        rgba(200, 0, 80, 0.35)
+      );
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .header-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #00ff9c, #00b36b);
+      box-shadow: 0 0 12px rgba(0, 255, 156, 0.7);
+    }
+
+    .header h1 {
+      font-family: "Poppins", sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.0rem);
+      margin: 0;
+      text-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+      letter-spacing: 0.04em;
+    }
+
+    .header h1 span {
+      background: linear-gradient(120deg, #ffffff, var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .header-subtitle {
+      max-width: 860px;
+      margin: 14px auto 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .header-actions {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .cta-primary, .cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        filter 0.18s ease;
+    }
+
+    .cta-primary {
+      padding: 10px 18px;
+      background: linear-gradient(135deg, #800000, #b00000);
+      color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .cta-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(40, 12, 12, 0.9);
+      color: var(--text-muted);
+    }
+
+    .cta-secondary:hover {
+      background: rgba(55, 18, 18, 0.98);
+      border-color: var(--accent-soft);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.95);
+      filter: brightness(1.05);
+    }
+
+    .panel {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 22px 22px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(14px);
+    }
+
+    main.container{
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .panel-header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+
+    .title-wrap h2{
+      margin:0;
+      font-size:1.55rem;
+      letter-spacing:.4px;
+      font-family:"Barlow", var(--sans);
+      text-transform: uppercase;
+    }
+
+    .subtitle{
+      margin:6px 0 0;
+      color:var(--text-muted);
+      font-size:.95rem;
+      line-height: 1.6;
+    }
+
+    .grid{display:grid;gap:12px}
+    .row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .toolbar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:stretch;
+      justify-content:center;
+    }
+
+    .field{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+    }
+    .field label{font-size:.92rem;color:rgba(255,255,255,.92)}
+    .field small{color:rgba(255,255,255,.70)}
+    .field input, .field select, .field textarea{
+      background:rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.20);
+      border-radius:10px;
+      color:#ffe9f0;
+      padding:8px 10px;
+      outline:none;
+      font-family: var(--sans);
+    }
+    .field input:focus, .field select:focus, .field textarea:focus{
+      border-color: rgba(255, 0, 64, 0.55);
+      box-shadow: 0 0 0 3px rgba(128,0,0,0.25);
+    }
+
+    .btn{
+      appearance:none;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.08);
+      color:rgba(255,255,255,.95);
+      padding:9px 12px;
+      border-radius:999px;
+      cursor:pointer;
+      transition:transform .03s, background .15s, border-color .15s, box-shadow .15s;
+      user-select:none;
+      font-family: var(--sans);
+    }
+    .btn:hover{
+      background:rgba(255,255,255,.12);
+      border-color:rgba(255,255,255,.30);
+      box-shadow:0 0 0 3px rgba(128,0,0,.18);
+    }
+    .btn:active{transform:scale(.98)}
+    .btn.small{padding:7px 10px;font-size:.86rem}
+    .btn.red{
+      background: rgba(128,0,0,0.24);
+      border-color: rgba(255,0,64,0.22);
+    }
+    .btn.red:hover{
+      background: rgba(176,0,0,0.28);
+      border-color: rgba(255,0,64,0.32);
+    }
+    .btn.ghost{
+      background: rgba(0,0,0,0.15);
+      border-color: rgba(255,255,255,0.16);
+    }
+
+    .twocol{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 900px){
+      .twocol{grid-template-columns:1fr}
+    }
+
+    .codebox{
+      background:rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:14px;
+      padding:14px;
+      font-family: var(--mono);
+      white-space:pre-wrap;
+      word-break:break-word;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.65);
+    }
+
+    #output{
+      height:220px;
+      overflow:auto;
+    }
+
+    #preview{
+      min-height:360px;
+      padding:0;
+      overflow:hidden;
+    }
+    #preview .preview-header{
+      padding:10px 14px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.35);
+      position:sticky;
+      top:0;
+      z-index:1;
+      color: rgba(255,255,255,0.88);
+    }
+    #preview-content{
+      padding:16px 18px;
+      font-size:1.35rem;
+      line-height:1.6;
+    }
+
+    #editor{
+      min-height:200px;
+      resize:vertical;
+      font-family: var(--mono);
+      letter-spacing:.15px;
+      border-radius: 16px;
+    }
+
+    .status{
+      min-height:20px;
+      color:#ffe0e8;
+      font-size:.92rem;
+      text-shadow:0 0 14px rgba(255,0,64,.14);
+      text-align:right;
+    }
+
+    .preview-bar{
+      height:44px;
+      border-radius:12px;
+      border:1px solid rgba(0,0,0,.75);
+      box-shadow:0 0 0 1px rgba(255,255,255,.08) inset;
+      margin:6px 0;
+      background:#111;
+    }
+
+    .stops-wrap{
+      display:grid;
+      gap:8px;
+      width:min(720px, 100%);
+      margin: 0 auto;
+    }
+    .stop-row{
+      display:grid;
+      grid-template-columns: 110px 44px 1fr 78px auto;
+      gap:8px;
+      align-items:center;
+      padding:8px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+    }
+    @media (max-width:780px){
+      .stop-row{grid-template-columns:1fr 44px 1fr 78px auto}
+    }
+    .stop-row input[type="range"]{width:100%}
+    .stop-row .pos{
+      width:78px;
+      text-align:center;
+      font-family:var(--mono);
+      font-size:.9rem;
+      opacity:.92;
+    }
+    .stop-actions{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .preset-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:10px;
+    }
+    @media (max-width:1200px){.preset-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:700px){.preset-grid{grid-template-columns:1fr}}
+
+    .preset-card{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:14px;
+      padding:12px;
+      display:grid;
+      gap:10px;
+    }
+    .preset-name{
+      font-family:"Barlow", var(--sans);
+      font-weight:900;
+      letter-spacing:.2px;
+      text-transform: uppercase;
+    }
+    .preset-swatch{
+      height:32px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 0 0 1px rgba(0,0,0,.35) inset;
+    }
+    .preset-hex{
+      background:rgba(0,0,0,.40);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:12px;
+      padding:10px;
+      font-family:var(--mono);
+      font-size:.85rem;
+      color:#ffe6ee;
+      white-space:pre-wrap;
+    }
+    .preset-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+    .export-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width:900px){.export-grid{grid-template-columns:1fr}}
+
+    .export-card{
+      display:grid;
+      gap:8px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:14px;
+      padding:12px;
+    }
+    .export-card textarea{
+      min-height: 130px;
+      resize: vertical;
+      font-family: var(--mono);
+      border-radius: 14px;
+    }
+
+    #icon-palette{
+      display:none;
+      max-height:240px;
+      overflow:auto;
+      margin:8px auto 0;
+      padding:10px;
+      border-radius:14px;
+      background:rgba(0,0,0,.78);
+      border:1px solid rgba(255,255,255,.14);
+      max-width:720px;
+      box-shadow:0 18px 46px rgba(0,0,0,.6);
+    }
+    #icon-palette.open{display:block}
+    #icon-grid{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+    .icon-btn{min-width:34px;padding:6px 10px;font-size:1.05rem;line-height:1}
+
+    #modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+    }
+    #modal.open{display:flex}
+    #modal-backdrop{
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,.72);
+    }
+    #modal-dialog{
+      position:relative;
+      max-width:820px;
+      width:92%;
+      max-height:82vh;
+      overflow:auto;
+      background:rgba(12,0,0,.94);
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.18);
+      padding:18px 20px 16px;
+      box-shadow:0 24px 60px rgba(0,0,0,.75);
+      font-size:.95rem;
+    }
+    #modal-dialog h2{
+      margin:0 0 6px;
+      font-family:"Barlow", var(--sans);
+      font-size:1.35rem;
+      letter-spacing:.3px;
+      text-transform: uppercase;
+    }
+    #modal-dialog p{margin:6px 0;color:#ffe8ef}
+    #modal-dialog ul{margin:6px 0 12px 18px;padding:0;color:#ffd7e3}
+    #modal-dialog code{
+      background:rgba(255,255,255,.08);
+      padding:1px 6px;
+      border-radius:8px;
+      font-size:.92em;
+      font-family: var(--mono);
+    }
+    #modal-close{
+      position:absolute;
+      top:10px;
+      right:10px;
+    }
+
+    footer{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      margin: 28px 0 30px;
+      padding: 0 16px;
+    }
+    .footer-inner{
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+      padding: 18px 24px;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 55%),
+        linear-gradient(135deg, #240404, #0b0000);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .footer-inner a{
+      color: var(--accent-strong);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .footer-inner a:hover{
+      color: #ff0000;
+      text-decoration: underline;
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .btn, .dropbtn { transition:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dropdown">
+    <button class="dropbtn" type="button" aria-label="Open navigation menu">
+      <div class="hamburger">
+        <span></span><span></span><span></span>
       </div>
+    </button>
+    <div class="dropdown-content">
+      <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
+      <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
+      <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
+      <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
+      <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
+      <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
+      <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
+      <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
+      <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
+      <a href="https://moddedamong.us/wrapped"><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a>
+      <a href="https://moddedamong.us/roletest"><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a>
+      <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
+      <a href="#editor-panel"><i class="fa-solid fa-pen"></i> Editor</a>
+      <a href="#presets-panel"><i class="fa-solid fa-swatchbook"></i> Presets</a>
+      <a href="#exports-panel"><i class="fa-solid fa-file-export"></i> Named Exports</a>
+      <a href="#" id="open-help-menu"><i class="fa-solid fa-circle-question"></i> Help</a>
     </div>
- 
-    <div class="modal" id="betaModal" aria-hidden="true">
-      <div class="modal-backdrop" id="betaModalBackdrop"></div>
-      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="betaModalTitle">
-        <div class="modal-title">
-          <h3 id="betaModalTitle"><span>Important</span> – Read before using</h3>
-          <button class="btn" type="button" id="betaModalClose" aria-label="Close popup">✕</button>
-        </div>
-        <div class="modal-body">
-          <p style="margin: 0 0 10px">
-            This tool is <strong class="beta-glow">BETA</strong>. A few rules to keep your template clean:
-          </p>
-          <ul style="margin: 0 0 10px; padding-left: 18px">
-            <li>
-              New lines export as literal <code>\n</code>. You can insert one with the <strong>↵ \n</strong> button.
-            </li>
-            <li>
-              Gradients apply only to <strong>real characters</strong> — they skip tokens like <code>{{PlayerName}}</code>
-              and they skip the literal <code>\n</code>.
-            </li>
-            <li>
-              Markup output is kept <strong>compact</strong>: base tags wrap the line, and only the pieces that change
-              (like per-char colors in a gradient) get extra tags.
-            </li>
-          </ul>
-          <p style="margin: 0">
-            If something looks odd, hit <strong>Normalize output</strong> or re-apply a style to the selection.
-          </p>
-        </div>
-        <div class="modal-actions">
-          <label>
-            <input type="checkbox" id="dontShowAgain" />
-            Don’t show this again
-          </label>
-          <button class="btn primary" type="button" id="betaModalOk">Got it</button>
-        </div>
+  </div>
+
+  <div class="page-wrapper">
+    <div class="header">
+      <div class="header-badge">
+        <span class="header-badge-dot"></span>
+        Template tools for MAUL lobbies
       </div>
-    </div>
-
-    <div class="page-wrapper">
-      <div class="header">
-        <div class="header-badge">
-          <span class="header-badge-dot"></span>
-          Template tools for MAUL lobbies
-        </div>
-
-        <h1><span>MAUL Live Template Editor</span></h1>
-
-        <p class="header-subtitle">
-          Build <span class="header-highlight">multi-line lobby templates</span> with fonts, sizes, bold/italic/underline,
-          solid color, and gradients. Copy the output and paste it directly into your config.
-        </p>
-
-        <div class="header-actions">
-          <a href="https://moddedamong.us/" class="cta-secondary">
-            <i class="fa-solid fa-arrow-left"></i>
-            Back to Home
-          </a>
-          <a href="https://moddedamong.us/icons.html" class="cta-primary">
-            <i class="fa-regular fa-face-smile"></i>
-            Icons &amp; Fonts
-          </a>
-        </div>
-      </div>
-
-      <p class="info-paragraph">
-        Live editor that keeps markup <strong>clean and stable</strong> while you type. Select text to style it, then copy
-        the export. Tokens like <code>{{PlayerName}}</code> stay untouched.
+      <h1><span>BETA Live Template Editor</span></h1>
+      <p class="header-subtitle">
+        Type plain text, style safely, and export clean Among Us markup with stable editing (no tag fighting).
+        Preview uses web-font approximations; output uses your selected SDF font name.
       </p>
+      <div class="header-actions">
+        <a href="https://moddedamong.us/" class="cta-secondary">
+          <i class="fa-solid fa-arrow-left"></i> Back to Home
+        </a>
+        <a href="https://moddedamong.us/icons.html" class="cta-primary">
+          <i class="fa-regular fa-face-smile"></i> Icons & Fonts
+        </a>
+        <a href="#" class="cta-secondary" id="open-help-top">
+          <i class="fa-solid fa-circle-question"></i> Open Help
+        </a>
+      </div>
+    </div>
 
-      <main class="content-grid">
-        <section class="panel">
-          <h2 class="section-title"><u>BETA Live Template Editor</u></h2>
-          <p class="section-subtitle">
-            Type on the left, preview + export on the right. (Preview is a web approximation.)
-          </p>
+    <div id="modal" role="dialog" aria-modal="true" aria-labelledby="help-title">
+      <div id="modal-backdrop" tabindex="-1"></div>
+      <div id="modal-dialog">
+        <button class="btn small" id="modal-close" type="button">Close</button>
+        <h2 id="help-title">About the Live Template Editor</h2>
 
-          <div class="tool-wrap">
-            <!-- CONTROLS -->
-            <div class="tool-controls">
-              <div class="field">
-                <strong>Font</strong>
-                <select id="fontSel">
-                  <option>OCRAXT SDF</option>
-                  <option>BROOK SDF</option>
-                  <option>VCR SDF</option>
-                  <option>Barlow-Black SDF</option>
-                  <option>Barlow-BoldItalic SDF</option>
-                  <option>Barlow-Light SDF</option>
-                  <option>CONSOLA SDF</option>
-                  <option>DIGITAL-7 SDF</option>
-                  <option>DIN_Pro_Bold_700 SDF</option>
-                  <option>LiberationSans SDF</option>
-                  <option>NotoSansJP-Regular SDF</option>
-                  <option>OCRAEXT SDF</option>
-                </select>
-                <button class="btn" id="applyFont" type="button">Apply</button>
+        <p><strong>Typing &amp; Preview</strong></p>
+        <ul>
+          <li>Type your message in the Editor (left).</li>
+          <li>Preview shows web-font approximations for SDF fonts.</li>
+          <li>Output shows final Among Us markup (copy/download).</li>
+        </ul>
+
+        <p><strong>Line breaks</strong></p>
+        <ul>
+          <li>Use <strong>↵ \n</strong> to insert a literal <code>\n</code> (recommended).</li>
+          <li>If you press Enter, export will still convert newlines to <code>\n</code>.</li>
+        </ul>
+
+        <p><strong>Stops / Gradient</strong></p>
+        <ul>
+          <li>Stops have a <strong>position</strong> now (0–100%).</li>
+          <li><strong>Distribute</strong> spaces stop positions evenly.</li>
+          <li>Applying gradient assigns per-character colors (tokens and <code>\n</code> are skipped).</li>
+        </ul>
+
+        <p><strong>Editing fixes</strong></p>
+        <ul>
+          <li>Undo/redo tracks both text and styles together (no desync).</li>
+          <li>Typing, deleting, and pasting keep styles stable.</li>
+          <li><strong>Normalize output</strong> rebuilds minimal clean markup anytime.</li>
+        </ul>
+
+        <p><strong>Shortcuts</strong></p>
+        <ul>
+          <li><code>Ctrl/Cmd+B</code> bold, <code>Ctrl/Cmd+I</code> italic, <code>Ctrl/Cmd+U</code> underline</li>
+          <li><code>Ctrl/Cmd+Shift+G</code> apply gradient</li>
+          <li><code>Ctrl/Cmd+Shift+C</code> apply solid color</li>
+          <li><code>Ctrl/Cmd+Enter</code> insert literal <code>\n</code></li>
+          <li><code>Ctrl/Cmd+S</code> download template</li>
+        </ul>
+      </div>
+    </div>
+
+    <main class="container">
+      <!-- EDITOR -->
+      <section class="panel" id="editor-panel">
+        <div class="panel-header">
+          <div class="title-wrap">
+            <h2>Editor</h2>
+            <p class="subtitle">
+              Plain text in • safe markup out • stable editing (no weird tag fights).
+            </p>
+          </div>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:flex-end">
+            <button class="btn small ghost" id="open-help-inline" type="button">
+              <i class="fa-solid fa-circle-question"></i> Help
+            </button>
+          </div>
+        </div>
+
+        <div class="grid">
+          <!-- TOOLBAR -->
+          <div class="toolbar">
+            <div class="field">
+              <label for="fontSel">Font</label>
+              <select id="fontSel">
+                <option>OCRAXT SDF</option><option>BROOK SDF</option><option>VCR SDF</option>
+                <option>Barlow-Black SDF</option><option>Barlow-BoldItalic SDF</option>
+                <option>Barlow-Light SDF</option><option>CONSOLA SDF</option>
+                <option>DIGITAL-7 SDF</option><option>DIN_Pro_Bold_700 SDF</option>
+                <option>LiberationSans SDF</option><option>NotoSansJP-Regular SDF</option>
+                <option>OCRAEXT SDF</option>
+              </select>
+              <button class="btn small" id="applyFont" type="button">Apply</button>
+            </div>
+
+            <div class="field">
+              <label>Align</label>
+              <button class="btn small" type="button" data-align="left">Left</button>
+              <button class="btn small" type="button" data-align="center">Center</button>
+              <button class="btn small" type="button" data-align="right">Right</button>
+            </div>
+
+            <div class="field">
+              <label for="sizePct">Size %</label>
+              <input id="sizePct" type="number" min="50" max="300" step="5" value="100" style="width:92px" />
+              <button class="btn small" id="applySize" type="button">Apply</button>
+            </div>
+
+            <div class="field">
+              <label>Style</label>
+              <button class="btn small" type="button" id="btnB"><strong>B</strong></button>
+              <button class="btn small" type="button" id="btnI"><em>I</em></button>
+              <button class="btn small" type="button" id="btnU"><u>U</u></button>
+              <button class="btn small" id="btnNL" type="button">↵ \n</button>
+              <button class="btn small" id="btnUndo" type="button">Undo</button>
+              <button class="btn small" id="btnRedo" type="button">Redo</button>
+            </div>
+
+            <div class="field">
+              <label for="solidColor">Solid</label>
+              <input id="solidColor" type="color" value="#FFFFFF" />
+              <button class="btn small" id="applySolid" type="button">Apply</button>
+              <button class="btn small" id="pickSolid" type="button">Pick</button>
+            </div>
+
+            <div class="field">
+              <label for="autoToken">Auto</label>
+              <select id="autoToken">
+                <option value="{{PlayerName}}">{{PlayerName}}</option>
+                <option value="{{HostName}}">{{HostName}}</option>
+                <option value="{{ModVersion}}">{{ModVersion}}</option>
+              </select>
+              <button class="btn small" id="insertToken" type="button">Insert</button>
+            </div>
+
+            <div class="field">
+              <label>Line</label>
+              <label style="display:flex;align-items:center;gap:6px">
+                <input type="checkbox" id="applyLine" />
+                <small>Apply to whole line</small>
+              </label>
+              <button class="btn small" id="resetLine" type="button">Reset line</button>
+            </div>
+
+            <div class="field">
+              <label>New line</label>
+              <label style="display:flex;align-items:center;gap:6px">
+                <input type="checkbox" id="cleanSlate" checked />
+                <small>Clean slate</small>
+              </label>
+            </div>
+
+            <div class="field">
+              <label>Brush</label>
+              <button class="btn small" id="pickBrush" type="button">Pick</button>
+              <button class="btn small" id="paintBrush" type="button">Paint</button>
+            </div>
+
+            <div class="field">
+              <label>Tools</label>
+              <button class="btn small" id="normalizeBtn" type="button">Normalize output</button>
+              <button class="btn small" id="clearStylesBtn" type="button">Clear selection</button>
+            </div>
+
+            <div class="field">
+              <label>Icons</label>
+              <button class="btn small" id="toggleIcons" type="button">Pick icon</button>
+              <label style="display:flex;align-items:center;gap:6px">
+                <input type="checkbox" id="safeIcons" checked />
+                <small>Safe only</small>
+              </label>
+            </div>
+          </div>
+
+          <!-- ICON PALETTE -->
+          <div id="icon-palette" aria-label="Icon palette">
+            <div id="icon-grid"></div>
+          </div>
+
+          <!-- GRADIENT STOPS -->
+          <div class="panel" style="padding:14px;border-radius:14px;background:rgba(255,255,255,.04)">
+            <div class="row" style="justify-content:space-between">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                <strong style="font-family:'Barlow',var(--sans);letter-spacing:.3px;text-transform:uppercase">Gradient stops</strong>
               </div>
-
-              <div class="field">
-                <strong>Size %</strong>
-                <input id="sizePct" type="number" min="50" max="300" step="5" value="100" style="width: 84px" />
-                <button class="btn" id="applySize" type="button">Apply</button>
-              </div>
-
-              <div class="field">
-                <strong>Style</strong>
-                <button class="btn" id="btnB" type="button"><strong>B</strong></button>
-                <button class="btn" id="btnI" type="button"><em>I</em></button>
-                <button class="btn" id="btnU" type="button"><u>U</u></button>
-                <button class="btn" id="btnNL" type="button">↵ \n</button>
-                <button class="btn" id="btnUndo" type="button">Undo</button>
-                <button class="btn" id="btnRedo" type="button">Redo</button>
-              </div>
-
-              <div class="field">
-                <strong>Align</strong>
-                <button class="btn" type="button" data-align="left">Left</button>
-                <button class="btn" type="button" data-align="center">Center</button>
-                <button class="btn" type="button" data-align="right">Right</button>
-              </div>
-
-              <div class="field">
-                <strong>Solid</strong>
-                <input id="solidColor" type="color" value="#FFFFFF" />
-                <button class="btn" id="applySolid" type="button">Apply</button>
-              </div>
-
-              <div class="field">
-                <strong>Token</strong>
-                <select id="tokenSel" style="min-width: 170px">
-                  <option value="{{PlayerName}}">{{PlayerName}}</option>
-                  <option value="{{HostName}}">{{HostName}}</option>
-                  <option value="{{ModVersion}}">{{ModVersion}}</option>
-                </select>
-                <button class="btn" id="insertToken" type="button">Insert</button>
-              </div>
-
-              <div class="field">
-                <strong>Line</strong>
-                <label style="display: flex; align-items: center; gap: 6px">
-                  <input type="checkbox" id="applyLine" />
-                  Apply to line
-                </label>
-                <button class="btn" id="resetLine" type="button">Reset</button>
-              </div>
-
-              <div class="field">
-                <strong>New line</strong>
-                <label style="display: flex; align-items: center; gap: 6px">
-                  <input type="checkbox" id="cleanSlate" checked />
-                  Clean slate
-                </label>
-              </div>
-
-              <div class="field">
-                <strong>Icons</strong>
-                <button class="btn" id="toggleIcons" type="button">Palette</button>
-                <label style="display: flex; align-items: center; gap: 6px">
-                  <input type="checkbox" id="safeIcons" checked />
-                  Safe only
-                </label>
-              </div>
-
-              <div class="field">
-                <strong>Tools</strong>
-                <button class="btn" id="clearStyles" type="button">Clear selection</button>
-                <button class="btn" id="normalize" type="button">Normalize output</button>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
+                <button class="btn small" id="addStop" type="button">Add</button>
+                <button class="btn small" id="randomizeStops" type="button">Randomize</button>
+                <button class="btn small" id="reverseStops" type="button">Reverse</button>
+                <button class="btn small" id="distributeStops" type="button">Distribute</button>
+                <button class="btn small red" id="applyGradient" type="button">Apply gradient</button>
               </div>
             </div>
 
-            <!-- ICONS -->
-            <div class="icon-palette" id="iconPalette" aria-label="Icon palette">
-              <div class="icon-grid" id="iconGrid"></div>
-            </div>
+            <div class="preview-bar" id="gradPreview" aria-label="Gradient preview"></div>
+            <div class="stops-wrap" id="stopsWrap"></div>
 
-            <!-- GRADIENT -->
-            <div class="tool-controls" style="justify-content: space-between">
+            <div class="row" style="justify-content:flex-end">
               <div class="field">
-                <strong>Gradient</strong>
-                <button class="btn" id="addStop" type="button">Add stop</button>
-                <button class="btn" id="remStop" type="button">Remove stop</button>
-                <button class="btn" id="randStops" type="button">Randomize</button>
-              </div>
-              <div class="field">
-                <button class="btn primary" id="applyGradient" type="button">
-                  <i class="fa-solid fa-wand-magic-sparkles"></i>
-                  Apply gradient
-                </button>
-              </div>
-            </div>
-
-            <div class="grad-preview" id="gradPreview" aria-label="Gradient preview"></div>
-            <div class="stops" id="stops"></div>
-
-            <!-- EDITOR / OUTPUT -->
-            <div class="split">
-              <div class="codebox">
-                <textarea id="editor" style="min-height: 220px" spellcheck="false"></textarea>
-
-                <div class="tool-controls" style="justify-content: space-between">
-                  <div style="display: flex; gap: 10px; flex-wrap: wrap">
-                    <button class="btn primary" id="copyMarkup" type="button">Copy markup</button>
-                    <button class="btn" id="downloadTxt" type="button">Download .txt</button>
-                  </div>
-                  <div class="status" id="status" aria-live="polite"></div>
-                </div>
-
-                <pre><code id="output"></code></pre>
-              </div>
-
-              <div class="codebox">
-                <div class="tool-controls" style="justify-content: space-between">
-                  <div class="field" style="flex: 1">
-                    <strong>Preview</strong>
-                    <span style="opacity: 0.9">Web font approximations only.</span>
-                  </div>
-                </div>
-
-                <div class="preview" id="preview"></div>
+                <label for="presetSelect">Preset</label>
+                <select id="presetSelect"></select>
+                <button class="btn small" id="loadPreset" type="button">Load</button>
               </div>
             </div>
           </div>
-        </section>
-      </main>
 
-      <footer>
-        <div class="footer-inner">
-          <p>Made with ♥ by MAUL</p>
+          <div class="twocol">
+            <div class="grid">
+              <textarea id="editor" placeholder="Type here…"></textarea>
+
+              <div class="row" style="justify-content:space-between">
+                <div style="display:flex;gap:8px;flex-wrap:wrap">
+                  <button class="btn red" id="copyOut" type="button">Copy markup</button>
+                  <button class="btn" id="downloadOut" type="button">Download .txt</button>
+                </div>
+                <div class="status" id="status" aria-live="polite"></div>
+              </div>
+
+              <div class="codebox" id="output" aria-label="Output markup"></div>
+            </div>
+
+            <div class="grid">
+              <div id="preview" class="codebox" aria-label="Live preview">
+                <div class="preview-header">Live Preview (web-font approximations)</div>
+                <div id="preview-content"></div>
+              </div>
+              <div class="field" style="border-radius:14px">
+                <small style="color:rgba(255,255,255,.75)">
+                  SDF fonts are mapped to similar web fonts for preview only; output uses the selected SDF font name.
+                </small>
+              </div>
+            </div>
+          </div>
         </div>
-      </footer>
-    </div>
+      </section>
 
-    <script>
-      // Dropdown menu (same logic as tags page)
-      document.addEventListener("DOMContentLoaded", () => {
-        const dropdown = document.querySelector(".dropdown");
-        const button = document.querySelector(".dropbtn");
-        if (!dropdown || !button) return;
+      <section class="panel" id="presets-panel">
+        <div class="panel-header">
+          <div class="title-wrap">
+            <h2>Gradient Presets</h2>
+            <p class="subtitle">Use a preset card or load from the dropdown above.</p>
+          </div>
+        </div>
+        <div class="preset-grid" id="presetGrid"></div>
+      </section>
 
-        button.addEventListener("click", (e) => {
-          e.stopPropagation();
-          dropdown.classList.toggle("open");
-        });
+      <section class="panel" id="exports-panel" style="background:rgba(255,255,255,.05)">
+        <div class="panel-header">
+          <div class="title-wrap">
+            <h2>Named Exports</h2>
+            <p class="subtitle">Download emits <code>name:&lt;markup&gt;</code> per line.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end">
+            <button class="btn red" id="downloadNamed" type="button">Download named .txt</button>
+            <button class="btn" id="copyNamed" type="button">Copy named</button>
+          </div>
+        </div>
 
-        document.addEventListener("click", (e) => {
-          if (!dropdown.contains(e.target)) dropdown.classList.remove("open");
-        });
+        <div class="export-grid">
+          <div class="export-card">
+            <div class="row" style="justify-content:space-between">
+              <strong>welcome</strong>
+              <button class="btn small" data-capture="welcome" type="button">Use current</button>
+            </div>
+            <textarea id="exp-welcome"></textarea>
+          </div>
+
+          <div class="export-card">
+            <div class="row" style="justify-content:space-between">
+              <strong>onmeeting</strong>
+              <button class="btn small" data-capture="onmeeting" type="button">Use current</button>
+            </div>
+            <textarea id="exp-onmeeting"></textarea>
+          </div>
+
+          <div class="export-card">
+            <div class="row" style="justify-content:space-between">
+              <strong>rules</strong>
+              <button class="btn small" data-capture="rules" type="button">Use current</button>
+            </div>
+            <textarea id="exp-rules"></textarea>
+          </div>
+
+          <div class="export-card">
+            <div class="row" style="justify-content:space-between">
+              <strong>vip</strong>
+              <button class="btn small" data-capture="vip" type="button">Use current</button>
+            </div>
+            <textarea id="exp-vip"></textarea>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <p>Made with ♥ by MAUL — template tools for hosts &amp; creators</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropdown = document.querySelector(".dropdown");
+      const button = document.querySelector(".dropbtn");
+      if (!dropdown || !button) return;
+
+      button.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle("open");
       });
-    </script>
 
-    <script>
-      /* ============================================================
-         Engine:
-         - keeps markup COMPACT (no repeating align/font/size per char)
-         - gradient only changes <color> as needed
-         - tokens {{...}} and literal \n are not styled by gradient
-         ============================================================ */
+      document.addEventListener("click", (e) => {
+        if (!dropdown.contains(e.target)) dropdown.classList.remove("open");
+      });
+    });
+  </script>
 
-      function copyToClipboard(text) {
-        if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
-        const ta = document.createElement("textarea");
-        ta.value = text;
-        ta.style.position = "fixed";
-        ta.style.left = "-9999px";
-        document.body.appendChild(ta);
-        ta.select();
-        try {
-          document.execCommand("copy");
-        } finally {
-          document.body.removeChild(ta);
+  <script>
+    const FONT_MAP = {
+      "BROOK SDF": "\"Barlow\",\"Rajdhani\",sans-serif",
+      "VCR SDF": "\"VT323\",monospace",
+      "Barlow-Black SDF": "\"Barlow\",sans-serif",
+      "Barlow-BoldItalic SDF": "\"Barlow\",sans-serif",
+      "Barlow-Light SDF": "\"Barlow\",sans-serif",
+      "CONSOLA SDF": "\"Share Tech Mono\",\"Roboto Mono\",monospace",
+      "DIGITAL-7 SDF": "\"Orbitron\",monospace",
+      "DIN_Pro_Bold_700 SDF": "\"Rajdhani\",sans-serif",
+      "LiberationSans SDF": "\"Barlow\",sans-serif",
+      "NotoSansJP-Regular SDF": "\"Noto Sans JP\",sans-serif",
+      "OCRAEXT SDF": "\"Press Start 2P\",\"VT323\",monospace",
+      "OCRAXT SDF": "\"Press Start 2P\",\"VT323\",monospace"
+    };
+
+    const $ = (id) => document.getElementById(id);
+
+    const openHelpTop = $("open-help-top");
+    const openHelpInline = $("open-help-inline");
+    const openHelpMenu = $("open-help-menu");
+
+    const modal = $("modal");
+    const modalBackdrop = $("modal-backdrop");
+    const modalClose = $("modal-close");
+
+    const editor = $("editor");
+    const output = $("output");
+    const preview = $("preview-content");
+    const statusEl = $("status");
+
+    const fontSel = $("fontSel");
+    const applyFontBtn = $("applyFont");
+
+    const sizePct = $("sizePct");
+    const applySizeBtn = $("applySize");
+
+    const solidColor = $("solidColor");
+    const applySolidBtn = $("applySolid");
+    const pickSolidBtn = $("pickSolid");
+
+    const btnB = $("btnB");
+    const btnI = $("btnI");
+    const btnU = $("btnU");
+    const btnNL = $("btnNL");
+
+    const btnUndo = $("btnUndo");
+    const btnRedo = $("btnRedo");
+
+    const applyLine = $("applyLine");
+    const cleanSlate = $("cleanSlate");
+    const resetLineBtn = $("resetLine");
+
+    const pickBrushBtn = $("pickBrush");
+    const paintBrushBtn = $("paintBrush");
+
+    const normalizeBtn = $("normalizeBtn");
+    const clearStylesBtn = $("clearStylesBtn");
+
+    const copyOutBtn = $("copyOut");
+    const downloadOutBtn = $("downloadOut");
+
+    const autoToken = $("autoToken");
+    const insertTokenBtn = $("insertToken");
+
+    const toggleIconsBtn = $("toggleIcons");
+    const iconPalette = $("icon-palette");
+    const iconGrid = $("icon-grid");
+    const safeIconsToggle = $("safeIcons");
+
+    const stopsWrap = $("stopsWrap");
+    const gradPreview = $("gradPreview");
+    const addStopBtn = $("addStop");
+    const randomizeStopsBtn = $("randomizeStops");
+    const reverseStopsBtn = $("reverseStops");
+    const distributeStopsBtn = $("distributeStops");
+    const applyGradientBtn = $("applyGradient");
+
+    const presetSelect = $("presetSelect");
+    const loadPresetBtn = $("loadPreset");
+    const presetGrid = $("presetGrid");
+
+    const expAreas = {
+      welcome: $("exp-welcome"),
+      onmeeting: $("exp-onmeeting"),
+      rules: $("exp-rules"),
+      vip: $("exp-vip")
+    };
+    const downloadNamedBtn = $("downloadNamed");
+    const copyNamedBtn = $("copyNamed");
+
+    const clamp = (v,a,b)=>Math.min(b,Math.max(a,v));
+    const saveLS=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+    const loadLS=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch{return d}};
+
+    const normHex=(s,withHash=true)=>{
+      s=(s||"").trim();
+      if(!s) return withHash ? "#FFFFFF" : "FFFFFF";
+      s=s.replace(/^#/,"").replace(/[^0-9a-fA-F]/g,"").slice(0,6);
+      if(s.length===3) s=s.split("").map(c=>c+c).join("");
+      if(s.length<6) s=(s+"FFFFFF").slice(0,6);
+      return (withHash?"#":"")+s.toUpperCase();
+    };
+
+    const hexToRgb = (h)=>{
+      h=normHex(h,true).slice(1);
+      return { r:parseInt(h.slice(0,2),16), g:parseInt(h.slice(2,4),16), b:parseInt(h.slice(4,6),16) };
+    };
+    const rgbToHex = ({r,g,b}) => "#"+[r,g,b].map(x=>Math.max(0,Math.min(255, x|0)).toString(16).padStart(2,"0")).join("").toUpperCase();
+    const lerp=(a,b,t)=>a+(b-a)*t;
+    const lerpColor=(h1,h2,t)=>{
+      const c1=hexToRgb(h1), c2=hexToRgb(h2);
+      return rgbToHex({ r:lerp(c1.r,c2.r,t), g:lerp(c1.g,c2.g,t), b:lerp(c1.b,c2.b,t) });
+    };
+
+    async function copyToClipboard(text){
+      try{
+        if(navigator.clipboard && window.isSecureContext){
+          await navigator.clipboard.writeText(text);
+          return true;
         }
-        return Promise.resolve();
-      }
+      }catch{}
+      const ta=document.createElement("textarea");
+      ta.value=text;
+      ta.style.position="fixed";
+      ta.style.left="-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      try{ document.execCommand("copy"); } finally { document.body.removeChild(ta); }
+      return true;
+    }
 
-      const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-      const normHex = (s, withHash = true) => {
-        s = (s || "").trim();
-        if (!s) return withHash ? "#FFFFFF" : "FFFFFF";
-        s = s.replace(/^#/, "").replace(/[^0-9a-fA-F]/g, "").slice(0, 6);
-        if (s.length === 3) s = s.split("").map((c) => c + c).join("");
-        if (s.length < 6) s = (s + "FFFFFF").slice(0, 6);
-        return (withHash ? "#" : "") + s.toUpperCase();
+    function downloadText(filename, text){
+      const blob=new Blob([text],{type:"text/plain;charset=utf-8"});
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement("a");
+      a.href=url; a.download=filename;
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    const status = (m)=>{ statusEl.textContent = m || ""; };
+
+    function debounce(fn, ms){
+      let t=null;
+      return (...args)=>{
+        clearTimeout(t);
+        t=setTimeout(()=>fn(...args), ms);
       };
+    }
+    function isTokenStart(str,i){ return str[i]==="{" && str[i+1]==="{"; }
+    function readToken(str,i){
+      const k=str.indexOf("}}", i+2);
+      return k===-1 ? null : { start:i, end:k+2 };
+    }
+    function isLiteralNL(str,i){ return str[i]==="\\" && str[i+1]==="n"; }
 
-      const hexToRgb = (h) => {
-        h = normHex(h, true).slice(1);
-        return { r: parseInt(h.slice(0, 2), 16), g: parseInt(h.slice(2, 4), 16), b: parseInt(h.slice(4, 6), 16) };
-      };
-      const rgbToHex = ({ r, g, b }) =>
-        "#" + [r, g, b].map((x) => clamp(x | 0, 0, 255).toString(16).padStart(2, "0")).join("").toUpperCase();
-      const lerp = (a, b, t) => a + (b - a) * t;
-      const lerpColor = (h1, h2, t) => {
-        const c1 = hexToRgb(h1),
-          c2 = hexToRgb(h2);
-        return rgbToHex({ r: lerp(c1.r, c2.r, t), g: lerp(c1.g, c2.g, t), b: lerp(c1.b, c2.b, t) });
-      };
+    function buildVisibleMap(text){
+      const visToEdit=[];
+      const editToVis=new Int32Array(text.length+1);
+      let v=0;
+      let i=0;
+      while(i<text.length){
+        editToVis[i]=v;
 
-      const FONT_MAP = {
-        "VCR SDF": '"VT323", monospace',
-        "Barlow-Black SDF": '"Barlow", sans-serif',
-        "Barlow-BoldItalic SDF": '"Barlow", sans-serif',
-        "Barlow-Light SDF": '"Barlow", sans-serif',
-        "BROOK SDF": '"Rajdhani", sans-serif',
-        "CONSOLA SDF": '"Roboto Mono", monospace',
-        "DIGITAL-7 SDF": '"Orbitron", monospace',
-        "DIN_Pro_Bold_700 SDF": '"Rajdhani", sans-serif',
-        "LiberationSans SDF": '"Roboto", sans-serif',
-        "NotoSansJP-Regular SDF": '"Noto Sans JP", sans-serif',
-        "OCRAEXT SDF": '"Share Tech Mono", monospace',
-        "OCRAXT SDF": '"Share Tech Mono", "VT323", monospace'
-      };
-
-      const $ = (id) => document.getElementById(id);
-
-      // UI refs
-      const editor = $("editor");
-      const output = $("output");
-      const preview = $("preview");
-      const status = $("status");
-
-      const fontSel = $("fontSel");
-      const sizePct = $("sizePct");
-      const solidColor = $("solidColor");
-
-      const applyFontBtn = $("applyFont");
-      const applySizeBtn = $("applySize");
-      const applySolidBtn = $("applySolid");
-
-      const btnB = $("btnB");
-      const btnI = $("btnI");
-      const btnU = $("btnU");
-      const btnNL = $("btnNL");
-      const btnUndo = $("btnUndo");
-      const btnRedo = $("btnRedo");
-
-      const applyLine = $("applyLine");
-      const resetLineBtn = $("resetLine");
-      const cleanSlate = $("cleanSlate");
-
-      const tokenSel = $("tokenSel");
-      const insertTokenBtn = $("insertToken");
-
-      const toggleIconsBtn = $("toggleIcons");
-      const safeIcons = $("safeIcons");
-      const iconPalette = $("iconPalette");
-      const iconGrid = $("iconGrid");
-
-      const clearStylesBtn = $("clearStyles");
-      const normalizeBtn = $("normalize");
-
-      const addStopBtn = $("addStop");
-      const remStopBtn = $("remStop");
-      const randStopsBtn = $("randStops");
-      const gradPreview = $("gradPreview");
-      const stopsEl = $("stops");
-      const applyGradientBtn = $("applyGradient");
-
-      const copyMarkupBtn = $("copyMarkup");
-      const downloadTxtBtn = $("downloadTxt");
-
-      // Modal refs
-      const betaModal = $("betaModal");
-      const betaModalBackdrop = $("betaModalBackdrop");
-      const betaModalClose = $("betaModalClose");
-      const betaModalOk = $("betaModalOk");
-      const dontShowAgain = $("dontShowAgain");
-
-      const setStatus = (m) => (status.textContent = m || "");
-
-      // Modal logic
-      function openModal() {
-        betaModal.classList.add("open");
-        betaModal.setAttribute("aria-hidden", "false");
-      }
-      function closeModal() {
-        if (dontShowAgain.checked) localStorage.setItem("maul_beta_modal_hide", "1");
-        betaModal.classList.remove("open");
-        betaModal.setAttribute("aria-hidden", "true");
-      }
-      betaModalBackdrop.addEventListener("click", closeModal);
-      betaModalClose.addEventListener("click", closeModal);
-      betaModalOk.addEventListener("click", closeModal);
-
-      // Token parsing rules
-      const isTokenStart = (str, i) => str[i] === "{" && str[i + 1] === "{";
-      const readToken = (str, i) => {
-        const k = str.indexOf("}}", i + 2);
-        return k === -1 ? null : { start: i, end: k + 2 };
-      };
-      const isLiteralNL = (str, i) => str[i] === "\\" && str[i + 1] === "n";
-
-      function buildVisibleMap(text) {
-        const visToEdit = [];
-        const editToVis = new Int32Array(text.length + 1);
-        let v = 0;
-        let i = 0;
-        while (i < text.length) {
-          editToVis[i] = v;
-
-          if (isLiteralNL(text, i)) {
-            i += 2;
-            continue;
-          }
-          if (text[i] === "\n" || text[i] === "\r") {
-            i++;
-            continue;
-          }
-
-          if (isTokenStart(text, i)) {
-            const tok = readToken(text, i);
-            if (tok) {
-              i = tok.end;
-              continue;
-            }
-          }
-
-          visToEdit.push(i);
-          v++;
-          i++;
+        if(isLiteralNL(text,i)){ i+=2; continue; }
+        if(isTokenStart(text,i)){
+          const tok=readToken(text,i);
+          if(tok){ i=tok.end; continue; }
         }
-        editToVis[text.length] = v;
-        return { visToEdit, editToVis, visLen: v };
+
+        if(text[i]==="\n" || text[i]==="\r"){ i++; continue; }
+
+        visToEdit.push(i);
+        v++;
+        i++;
       }
+      editToVis[text.length]=v;
+      return { visToEdit, editToVis, visLen:v };
+    }
 
-      const DEFAULTS = {
-        color: "#FFFFFF",
-        b: false,
-        i: false,
-        u: false,
-        size: 100,
-        font: "OCRAXT SDF",
-        align: "left"
-      };
+    const DEFAULTS = {
+      color:"#FFFFFF",
+      b:false, i:false, u:false,
+      size:100,
+      font:"OCRAXT SDF",
+      align:"left"
+    };
 
-      let TEXT = "";
-      let MAP = buildVisibleMap("");
-      let STYLE = { color: [], b: [], i: [], u: [], size: [], font: [], align: [] };
+    let TEXT = "";
+    let MAP = buildVisibleMap("");
+    let STYLE = {
+      color:[],
+      b:[], i:[], u:[],
+      size:[],
+      font:[],
+      align:[]
+    };
 
-      function ensureStyleLength(n) {
-        for (const k of Object.keys(STYLE)) {
-          if (STYLE[k].length < n) {
-            const fill =
-              k === "color"
-                ? DEFAULTS.color
-                : k === "b" || k === "i" || k === "u"
-                ? false
-                : k === "size"
-                ? DEFAULTS.size
-                : k === "font"
-                ? DEFAULTS.font
-                : k === "align"
-                ? DEFAULTS.align
-                : null;
-            while (STYLE[k].length < n) STYLE[k].push(fill);
-          } else if (STYLE[k].length > n) {
-            STYLE[k].length = n;
-          }
+    function ensureStyleLength(n){
+      const keys=Object.keys(STYLE);
+      for(const k of keys){
+        if(STYLE[k].length<n){
+          const fill = (k==="color") ? DEFAULTS.color :
+                       (k==="b"||k==="i"||k==="u") ? false :
+                       (k==="size") ? DEFAULTS.size :
+                       (k==="font") ? DEFAULTS.font :
+                       (k==="align") ? DEFAULTS.align : null;
+          while(STYLE[k].length<n) STYLE[k].push(fill);
+        }else if(STYLE[k].length>n){
+          STYLE[k].length=n;
         }
       }
+    }
 
-      function getSelectionEditRange() {
-        let s = editor.selectionStart | 0,
-          e = editor.selectionEnd | 0;
-        if (applyLine.checked) {
-          const val = editor.value;
-          const lineStart = val.lastIndexOf("\n", s - 1) + 1;
-          const nextNL = val.indexOf("\n", e);
-          const lineEnd = nextNL === -1 ? val.length : nextNL;
-          s = lineStart;
-          e = lineEnd;
-          editor.selectionStart = s;
-          editor.selectionEnd = e;
-        }
-        return { s, e };
+    function getSelectionEditRange(){
+      let s=editor.selectionStart|0, e=editor.selectionEnd|0;
+      if(applyLine.checked){
+        const val=editor.value;
+        const lineStart = val.lastIndexOf("\n", s-1)+1;
+        const nextNL = val.indexOf("\n", e);
+        const lineEnd = nextNL===-1 ? val.length : nextNL;
+        s=lineStart; e=lineEnd;
+        editor.selectionStart=s;
+        editor.selectionEnd=e;
       }
+      return {s,e};
+    }
 
-      function getSelectionVisibleRange() {
-        const { s, e } = getSelectionEditRange();
-        const vs = MAP.editToVis[clamp(s, 0, TEXT.length)];
-        const ve = MAP.editToVis[clamp(e, 0, TEXT.length)];
-        return { vs, ve };
+    function getSelectionVisibleRange(){
+      const {s,e}=getSelectionEditRange();
+      const vs = MAP.editToVis[clamp(s,0,TEXT.length)];
+      const ve = MAP.editToVis[clamp(e,0,TEXT.length)];
+      return {vs, ve};
+    }
+
+    function styleAtCaret(){
+      const caret = editor.selectionStart|0;
+      const v = MAP.editToVis[clamp(caret,0,TEXT.length)];
+      const idx = clamp(v, 0, Math.max(0, MAP.visLen-1));
+      if(MAP.visLen===0){
+        return {...DEFAULTS, font:fontSel.value, color:normHex(solidColor.value,true), size:parseInt(sizePct.value||"100",10) };
       }
+      return {
+        color: STYLE.color[idx],
+        b: STYLE.b[idx],
+        i: STYLE.i[idx],
+        u: STYLE.u[idx],
+        size: STYLE.size[idx],
+        font: STYLE.font[idx],
+        align: STYLE.align[idx]
+      };
+    }
 
-      // Undo/redo snapshots
-      const MAX_HIST = 60;
-      let undoStack = [],
-        redoStack = [];
+    const MAX_HIST=60;
+    let undoStack=[], redoStack=[];
 
-      function snapshot() {
-        return {
-          text: TEXT,
-          style: {
-            color: [...STYLE.color],
-            b: [...STYLE.b],
-            i: [...STYLE.i],
-            u: [...STYLE.u],
-            size: [...STYLE.size],
-            font: [...STYLE.font],
-            align: [...STYLE.align]
-          },
-          stops: STOPS.slice(),
-          solid: normHex(solidColor.value, true),
-          fontSel: fontSel.value,
-          sizeCtl: parseInt(sizePct.value || "100", 10),
-          cleanSlate: !!cleanSlate.checked
-        };
-      }
+    function snapshot(){
+      return {
+        text: TEXT,
+        style: {
+          color:[...STYLE.color],
+          b:[...STYLE.b], i:[...STYLE.i], u:[...STYLE.u],
+          size:[...STYLE.size],
+          font:[...STYLE.font],
+          align:[...STYLE.align]
+        },
+        stops: STOPS.map(s=>({...s})),
+        baseColor: normHex(solidColor.value,true),
+        fontSel: fontSel.value,
+        sizeCtl: parseInt(sizePct.value||"100",10),
+        safeIcons: !!safeIconsToggle.checked,
+        cleanSlate: !!cleanSlate.checked
+      };
+    }
 
-      function restore(s) {
-        TEXT = s.text;
-        editor.value = TEXT;
-        MAP = buildVisibleMap(TEXT);
-        STYLE = s.style;
-        ensureStyleLength(MAP.visLen);
+    function restore(snap){
+      TEXT = snap.text;
+      editor.value = TEXT;
+      MAP = buildVisibleMap(TEXT);
+      STYLE = snap.style;
+      ensureStyleLength(MAP.visLen);
 
-        STOPS = (s.stops && s.stops.length ? s.stops : STOPS).map((x) => normHex(x, true));
-        solidColor.value = normHex(s.solid || "#FFFFFF", true);
-        fontSel.value = s.fontSel || fontSel.value;
-        sizePct.value = s.sizeCtl || sizePct.value;
-        cleanSlate.checked = !!s.cleanSlate;
+      STOPS = (snap.stops && snap.stops.length ? snap.stops : STOPS).map(s=>({
+        color:normHex(s.color,true),
+        pos:clamp(parseFloat(s.pos),0,100)
+      }));
+      sortStops();
 
-        renderStops();
-        renderAll();
-      }
+      solidColor.value = normHex(snap.baseColor || "#FFFFFF", true);
+      fontSel.value = snap.fontSel || fontSel.value;
+      sizePct.value = snap.sizeCtl || sizePct.value;
+      safeIconsToggle.checked = !!snap.safeIcons;
+      cleanSlate.checked = !!snap.cleanSlate;
 
-      function pushHistory() {
-        undoStack.push(snapshot());
-        if (undoStack.length > MAX_HIST) undoStack.shift();
-        redoStack.length = 0;
-      }
+      syncPreviewBaseFont();
+      renderStopsUI();
+      renderGradientPreview();
+      renderAll();
+      autosizeEditor();
+    }
 
-      function undo() {
-        if (!undoStack.length) return;
-        redoStack.push(snapshot());
-        restore(undoStack.pop());
-        setStatus("Undone.");
-      }
+    function pushHistory(){
+      undoStack.push(snapshot());
+      if(undoStack.length>MAX_HIST) undoStack.shift();
+      redoStack.length=0;
+    }
 
-      function redo() {
-        if (!redoStack.length) return;
-        undoStack.push(snapshot());
-        restore(redoStack.pop());
-        setStatus("Redone.");
-      }
+    function undo(){
+      if(!undoStack.length) return;
+      const cur = snapshot();
+      redoStack.push(cur);
+      const prev = undoStack.pop();
+      restore(prev);
+      status("Undone.");
+    }
 
-      // Gradient stops
-      let STOPS = ["#FF0033", "#FF4D79", "#FF7219", "#FFEB0C", "#00EAF0", "#7F00FF"].map((h) => normHex(h, true));
+    function redo(){
+      if(!redoStack.length) return;
+      const cur = snapshot();
+      undoStack.push(cur);
+      const nxt = redoStack.pop();
+      restore(nxt);
+      status("Redone.");
+    }
 
-      function randHex() {
-        return (
-          "#" + Array.from({ length: 6 }, () => "89ABCDEF01234567"[Math.floor(Math.random() * 16)]).join("")
-        );
-      }
-
-      function updateGradPreview() {
-        const css = `linear-gradient(90deg, ${STOPS
-          .map((c, i) => `${normHex(c, true)} ${(i * 100) / Math.max(STOPS.length - 1, 1)}%`)
-          .join(", ")})`;
-        gradPreview.style.background = css;
-      }
-
-      function renderStops() {
-        stopsEl.innerHTML = "";
-        STOPS.forEach((hex, idx) => {
-          const row = document.createElement("div");
-          row.className = "stop-row";
-          row.innerHTML = `
-            <div class="color" style="min-width:120px"><label>Stop ${idx + 1}</label></div>
-            <div class="color" style="display:flex;align-items:center;gap:8px">
-              <input type="text" value="${normHex(hex, true)}" aria-label="Hex stop ${idx + 1}">
-              <input type="color" value="${normHex(hex, true)}" aria-label="Pick stop ${idx + 1}">
-            </div>
-            <div class="row-btns" style="display:flex;gap:8px;justify-content:flex-end;">
-              <button class="btn stop-up" data-idx="${idx}" type="button" title="Up">▲</button>
-              <button class="btn stop-down" data-idx="${idx}" type="button" title="Down">▼</button>
-              <button class="btn stop-del" data-idx="${idx}" type="button" title="Remove">✕</button>
-            </div>
-          `;
-          stopsEl.appendChild(row);
-        });
-        updateGradPreview();
-      }
-
-      // Icons
-      const ICONS_SAFE = [
-        "✿",
-        "❀",
-        "❖",
-        "★",
-        "☆",
-        "✓",
-        "∞",
-        "☯",
-        "⚠",
-        "♥",
-        "♡",
-        "♦",
-        "♣",
-        "♠",
-        "→",
-        "←",
-        "↑",
-        "↓",
-        "↔",
-        "↕",
-        "◉",
-        "○",
-        "◎",
-        "●",
-        "◯",
-        "◇",
-        "◆",
-        "◈",
-        "■",
-        "□",
-        "▪",
-        "▫",
-        "░",
-        "▒",
-        "▓",
-        "█"
+    let STOPS = loadLS("stopsPosV2", null);
+    if(!Array.isArray(STOPS) || !STOPS.length){
+      STOPS = [
+        {color:"#FF0033", pos:0},
+        {color:"#FF4D79", pos:18},
+        {color:"#FF7219", pos:38},
+        {color:"#FFEB0C", pos:58},
+        {color:"#00EAF0", pos:78},
+        {color:"#7F00FF", pos:100}
       ];
-      const ICONS_FULL = [
-        "✿",
-        "❀",
-        "❖",
-        "⚽",
-        "⚾",
-        "♠",
-        "♣",
-        "♦",
-        "♥",
-        "♤",
-        "♧",
-        "♢",
-        "♡",
-        "☯",
-        "✚",
-        "⚠",
-        "†",
-        "∞",
-        "✓",
-        "☎",
-        "☏",
-        "☀",
-        "☁",
-        "☂",
-        "☃",
-        "★",
-        "☆",
-        "✽",
-        "↑",
-        "↓",
-        "→",
-        "←",
-        "↔",
-        "↕",
-        "⚙",
-        "⚡",
-        "♩",
-        "♪",
-        "♫",
-        "♬",
-        "░",
-        "▒",
-        "▓",
-        "█",
-        "▪",
-        "▫",
-        "◆",
-        "◣",
-        "◥",
-        "◤",
-        "◢"
-      ];
+    }else{
+      STOPS = STOPS.map(s=>({color:normHex(s.color,true), pos:clamp(parseFloat(s.pos),0,100)}));
+    }
 
-      function buildIcons() {
-        iconGrid.innerHTML = "";
-        const src = safeIcons.checked ? ICONS_SAFE : ICONS_FULL;
-        src.forEach((ch) => {
-          const b = document.createElement("button");
-          b.className = "btn";
-          b.type = "button";
-          b.textContent = ch;
-          b.addEventListener("click", () => insertAtCaret(ch));
-          iconGrid.appendChild(b);
-        });
-      }
+    function sortStops(){ STOPS.sort((a,b)=>a.pos-b.pos); }
 
-      function insertAtCaret(text) {
-        pushHistory();
-        const s = editor.selectionStart | 0,
-          e = editor.selectionEnd | 0;
-        const val = editor.value;
-        const next = val.slice(0, s) + text + val.slice(e);
-        editor.value = next;
-        editor.selectionStart = editor.selectionEnd = s + text.length;
-        lastEditorValue = next;
-        TEXT = next;
-        MAP = buildVisibleMap(TEXT);
-        ensureStyleLength(MAP.visLen);
-        renderAll();
-      }
+    function distributeStops(){
+      if(STOPS.length<=2) return;
+      sortStops();
+      const n=STOPS.length;
+      for(let i=0;i<n;i++) STOPS[i].pos = (i*100)/(n-1);
+    }
 
-      function countVisibleInSlice(str, a, b) {
-        let v = 0,
-          i = a;
-        while (i < b) {
-          if (isLiteralNL(str, i)) {
-            i += 2;
-            continue;
-          }
-          if (str[i] === "\n" || str[i] === "\r") {
-            i++;
-            continue;
-          }
-          if (isTokenStart(str, i)) {
-            const tok = readToken(str, i);
-            if (tok && tok.end <= b) {
-              i = tok.end;
-              continue;
-            }
-          }
-          v++;
-          i++;
+    function randomizeStops(){
+      for(const s of STOPS) s.color = randHex();
+      distributeStops();
+    }
+
+    function reverseStops(){
+      sortStops();
+      const colors = STOPS.map(s=>s.color).reverse();
+      for(let i=0;i<STOPS.length;i++) STOPS[i].color = colors[i];
+    }
+
+    function randHex(){
+      return "#"+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,"0").toUpperCase();
+    }
+
+    function colorAtT(t01){
+      sortStops();
+      const t = clamp(t01,0,1)*100;
+      if(STOPS.length===1) return STOPS[0].color;
+      if(t<=STOPS[0].pos) return STOPS[0].color;
+      if(t>=STOPS[STOPS.length-1].pos) return STOPS[STOPS.length-1].color;
+
+      for(let i=0;i<STOPS.length-1;i++){
+        const a=STOPS[i], b=STOPS[i+1];
+        if(t>=a.pos && t<=b.pos){
+          const span = (b.pos-a.pos)||1;
+          const lt = (t-a.pos)/span;
+          return normHex(lerpColor(a.color, b.color, lt), true);
         }
-        return v;
       }
+      return STOPS[STOPS.length-1].color;
+    }
 
-      // Keep styles stable while editing
-      let lastEditorValue = "";
+    function renderGradientPreview(){
+      sortStops();
+      const parts = STOPS.map(s=>`${normHex(s.color,true)} ${clamp(s.pos,0,100)}%`);
+      gradPreview.style.background = `linear-gradient(90deg, ${parts.join(", ")})`;
+      saveLS("stopsPosV2", STOPS);
+    }
 
-      function onEditorInput() {
-        const newVal = editor.value;
-        const oldVal = lastEditorValue;
+    function renderStopsUI(){
+      stopsWrap.innerHTML="";
+      sortStops();
+      STOPS.forEach((s, idx)=>{
+        const row=document.createElement("div");
+        row.className="stop-row";
 
-        // find splice
-        let p = 0;
-        while (p < oldVal.length && p < newVal.length && oldVal[p] === newVal[p]) p++;
-        let os = oldVal.length - 1,
-          ns = newVal.length - 1;
-        while (os >= p && ns >= p && oldVal[os] === newVal[ns]) {
-          os--;
-          ns--;
-        }
+        const hex=document.createElement("input");
+        hex.type="text";
+        hex.value=normHex(s.color,true);
+        hex.setAttribute("aria-label", `Stop ${idx+1} hex`);
 
-        const oldMidA = p,
-          oldMidB = os + 1;
-        const newMidA = p,
-          newMidB = ns + 1;
+        const col=document.createElement("input");
+        col.type="color";
+        col.value=normHex(s.color,true);
+        col.setAttribute("aria-label", `Stop ${idx+1} color`);
 
-        TEXT = newVal;
-        MAP = buildVisibleMap(TEXT);
+        const range=document.createElement("input");
+        range.type="range";
+        range.min="0"; range.max="100"; range.step="1";
+        range.value=String(clamp(s.pos,0,100));
+        range.setAttribute("aria-label", `Stop ${idx+1} position`);
 
-        const oldRemovedVis = countVisibleInSlice(oldVal, oldMidA, oldMidB);
-        const newInsertedVis = countVisibleInSlice(newVal, newMidA, newMidB);
+        const pos=document.createElement("div");
+        pos.className="pos";
+        pos.textContent = `${Math.round(clamp(s.pos,0,100))}%`;
 
-        const oldMap = buildVisibleMap(oldVal);
-        const vAtP = oldMap.editToVis[clamp(p, 0, oldVal.length)];
+        const actions=document.createElement("div");
+        actions.className="stop-actions";
 
-        for (const k of Object.keys(STYLE)) STYLE[k].splice(vAtP, oldRemovedVis);
+        const rm=document.createElement("button");
+        rm.className="btn small";
+        rm.type="button";
+        rm.textContent="✕";
 
-        const fillIdx = clamp(vAtP - 1, 0, Math.max(0, oldMap.visLen - 1));
-        const fill =
-          oldMap.visLen === 0 || vAtP === 0
-            ? {
-                color: normHex(solidColor.value, true),
-                b: false,
-                i: false,
-                u: false,
-                size: clamp(parseInt(sizePct.value || "100", 10), 50, 300),
-                font: fontSel.value,
-                align: "left"
-              }
-            : {
-                color: STYLE.color[fillIdx] || DEFAULTS.color,
-                b: !!STYLE.b[fillIdx],
-                i: !!STYLE.i[fillIdx],
-                u: !!STYLE.u[fillIdx],
-                size: STYLE.size[fillIdx] || DEFAULTS.size,
-                font: STYLE.font[fillIdx] || DEFAULTS.font,
-                align: STYLE.align[fillIdx] || DEFAULTS.align
-              };
+        const up=document.createElement("button");
+        up.className="btn small";
+        up.type="button";
+        up.textContent="▲";
 
-        for (let i = 0; i < newInsertedVis; i++) {
-          STYLE.color.splice(vAtP + i, 0, fill.color);
-          STYLE.b.splice(vAtP + i, 0, fill.b);
-          STYLE.i.splice(vAtP + i, 0, fill.i);
-          STYLE.u.splice(vAtP + i, 0, fill.u);
-          STYLE.size.splice(vAtP + i, 0, fill.size);
-          STYLE.font.splice(vAtP + i, 0, fill.font);
-          STYLE.align.splice(vAtP + i, 0, fill.align);
-        }
+        const dn=document.createElement("button");
+        dn.className="btn small";
+        dn.type="button";
+        dn.textContent="▼";
 
-        ensureStyleLength(MAP.visLen);
-        lastEditorValue = newVal;
-        renderAll();
-      }
-
-      // Apply ops
-      function applyToRange(fn) {
-        const { vs, ve } = getSelectionVisibleRange();
-        if (ve <= vs) {
-          setStatus("Select some text first.");
-          return false;
-        }
-        pushHistory();
-        for (let v = vs; v < ve; v++) fn(v);
-        renderAll();
-        return true;
-      }
-
-      function toggleFlag(key) {
-        const { vs, ve } = getSelectionVisibleRange();
-        if (ve <= vs) {
-          setStatus("Select some text first.");
-          return;
-        }
-        pushHistory();
-        let tr = 0;
-        for (let v = vs; v < ve; v++) if (STYLE[key][v]) tr++;
-        const setTo = tr < (ve - vs) / 2;
-        for (let v = vs; v < ve; v++) STYLE[key][v] = setTo;
-        renderAll();
-      }
-
-      function applyAlign(mode) {
-        applyToRange((v) => (STYLE.align[v] = mode));
-        setStatus(`Aligned ${mode}.`);
-      }
-
-      // Compact markup builder:
-      // - Keep <align><font><size> stable across runs
-      // - Only open/close <color> when it changes
-      // - b/i/u run-length encoded too
-      // - tokens & literal \n are emitted raw and do not consume visible indices
-      function buildMarkup() {
-        const raw = TEXT.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
-        const m = buildVisibleMap(raw);
-        ensureStyleLength(m.visLen);
-
-        let out = [];
-        let vIndex = 0;
-
-        let cur = {
-          align: null,
-          font: null,
-          size: null,
-          color: null,
-          b: false,
-          i: false,
-          u: false
+        const setIdx = ()=>{
+          const current = STOPS[idx];
+          return current ? idx : STOPS.findIndex(x=>x===s);
         };
 
-        function closeFlags() {
-          if (cur.u) {
-            out.push("</u>");
-            cur.u = false;
+        hex.addEventListener("input", ()=>{
+          const i=setIdx(); if(i<0) return;
+          STOPS[i].color = normHex(hex.value,true);
+          col.value = STOPS[i].color;
+          renderGradientPreview();
+        });
+
+        col.addEventListener("input", ()=>{
+          const i=setIdx(); if(i<0) return;
+          STOPS[i].color = normHex(col.value,true);
+          hex.value = STOPS[i].color;
+          renderGradientPreview();
+        });
+
+        range.addEventListener("input", ()=>{
+          const i=setIdx(); if(i<0) return;
+          STOPS[i].pos = clamp(parseFloat(range.value),0,100);
+          pos.textContent = `${Math.round(STOPS[i].pos)}%`;
+          renderGradientPreview();
+        });
+
+        rm.addEventListener("click", ()=>{
+          pushHistory();
+          if(STOPS.length<=1) return;
+          STOPS.splice(idx,1);
+          if(STOPS.length>1) distributeStops();
+          renderStopsUI();
+          renderGradientPreview();
+          status("Stop removed.");
+        });
+
+        up.addEventListener("click", ()=>{
+          if(idx<=0) return;
+          pushHistory();
+          const tmp=STOPS[idx-1]; STOPS[idx-1]=STOPS[idx]; STOPS[idx]=tmp;
+          renderStopsUI();
+          renderGradientPreview();
+        });
+
+        dn.addEventListener("click", ()=>{
+          if(idx>=STOPS.length-1) return;
+          pushHistory();
+          const tmp=STOPS[idx+1]; STOPS[idx+1]=STOPS[idx]; STOPS[idx]=tmp;
+          renderStopsUI();
+          renderGradientPreview();
+        });
+
+        actions.append(up,dn,rm);
+        row.append(hex,col,range,pos,actions);
+        stopsWrap.appendChild(row);
+      });
+    }
+
+    const PRESETS = {
+      "Rose Red":["590d22","800f2f","a4133c","c9184a","ff4d6d","ff758f","ff8fa3","ffb3c1","ffccd5","fff0f3"],
+      "True Red":["7a0000","b00016","d61c1c","ff3b3b","ff9a9a"],
+      "Crimson Fade":["430010","6e001b","9a0f2a","d43c4b","ff8a9a"],
+      "Golden Flame":["ff7b00","ff8800","ff9500","ffa200","ffaa00","ffb700","ffc300","ffd000","ffd933","ffe15c"],
+      "Ocean Blue":["03045e","023e8a","0077b6","0096c7","00b4d8","48cae4","90e0ef","ade8f4","caf0f8"],
+      "Royal Purple":["3a0ca3","5f0f40","9d0191","c200fb","e100ff","f72585","ff00a0","ff5ab3","ff85c1"],
+      "Monochrome Fade":["0b0b0b","2e2e2e","6b6b6b","b0b0b0","e5e5e5"],
+      "Rainbow Pulse":["ff0000","ff8700","ffd300","deff0a","a1ff0a","0aff99","0aefff","147df5","580aff","be0aff"],
+      "Sunset Glow":["c200fb","d704b2","e2068d","ec0868","f41c34","fc2f00","f45608","ec7d10","f69d0d","ffbc0a"],
+      "RGB Stripe":["ff0033","ffe500","00ff66","00eaff","0047ff","7f00ff"],
+      "Signal Glow":["ff00a0","ff0066","ff3d00","ffc400","8cff00"]
+    };
+
+    function buildPresetUI(){
+      presetSelect.innerHTML="";
+      Object.keys(PRESETS).forEach(name=>{
+        const o=document.createElement("option");
+        o.value=name; o.textContent=name;
+        presetSelect.appendChild(o);
+      });
+
+      presetGrid.innerHTML="";
+      const toQuoted = arr => arr.map(h=>`"#${h.toLowerCase()}"`).join(", ");
+
+      Object.entries(PRESETS).forEach(([name,arr])=>{
+        const card=document.createElement("div");
+        card.className="preset-card";
+
+        const nm=document.createElement("div");
+        nm.className="preset-name";
+        nm.textContent=name;
+
+        const sw=document.createElement("div");
+        sw.className="preset-swatch";
+        sw.style.background=`linear-gradient(90deg, ${arr.map((c,i)=>"#"+c+" "+(i*100/(arr.length-1))+"%").join(",")})`;
+
+        const hex=document.createElement("div");
+        hex.className="preset-hex";
+        hex.textContent=toQuoted(arr);
+
+        const actions=document.createElement("div");
+        actions.className="preset-actions";
+
+        const use=document.createElement("button");
+        use.className="btn small red";
+        use.type="button";
+        use.textContent="Use";
+        use.addEventListener("click", ()=>{
+          pushHistory();
+          STOPS = arr.map((c,i)=>({color:"#"+c.toUpperCase(), pos: (i*100)/(arr.length-1)}));
+          renderStopsUI();
+          renderGradientPreview();
+          status(`Preset "${name}" loaded.`);
+        });
+
+        const copy=document.createElement("button");
+        copy.className="btn small";
+        copy.type="button";
+        copy.textContent="Copy hex";
+        copy.addEventListener("click", async ()=>{
+          await copyToClipboard(toQuoted(arr));
+          status(`Copied ${name} hexes`);
+        });
+
+        actions.append(use,copy);
+        card.append(nm,sw,hex,actions);
+        presetGrid.appendChild(card);
+      });
+    }
+
+    function escapeHtml(s){
+      return String(s)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;");
+    }
+
+    function toPreviewHTML(markup){
+      let html = escapeHtml(markup);
+
+      html = html
+        .replace(/&lt;font="([^"]+)"&gt;/g, (_,n)=>`<span style="font-family:${FONT_MAP[n.trim()]||"inherit"}">`)
+        .replace(/&lt;\/font&gt;/g, "</span>");
+
+      html = html
+        .replace(/&lt;color=(#[0-9A-Fa-f]{6})&gt;/g, (_,h)=>`<span style="color:${h}">`)
+        .replace(/&lt;\/color&gt;/g, "</span>");
+
+      html = html
+        .replace(/&lt;size=(\d{1,3})%&gt;/g, (_,p)=>`<span style="font-size:${p}%">`)
+        .replace(/&lt;\/size&gt;/g, "</span>");
+
+      html = html
+        .replace(/&lt;align=(left|center|right)&gt;/g, (_,pos)=>`<div style="text-align:${pos}">`)
+        .replace(/&lt;\/align&gt;/g, "</div>");
+
+      html = html
+        .replace(/&lt;b&gt;/g,"<b>").replace(/&lt;\/b&gt;/g,"</b>")
+        .replace(/&lt;i&gt;/g,"<i>").replace(/&lt;\/i&gt;/g,"</i>")
+        .replace(/&lt;u&gt;/g,"<u>").replace(/&lt;\/u&gt;/g,"</u>");
+
+      html = html.replace(/\\n/g,"<br/>").replace(/\n/g,"<br/>");
+      return html;
+    }
+
+    function normalizeOutput(){
+      sizePct.value = clamp(parseInt(sizePct.value||"100",10), 50, 300);
+      solidColor.value = normHex(solidColor.value,true);
+      renderAll();
+      status("Output normalized.");
+    }
+
+    function buildMarkup(){
+      const raw = TEXT.replace(/\r\n/g,"\n").replace(/\r/g,"\n");
+      const m = buildVisibleMap(raw);
+      const visLen = m.visLen;
+
+      ensureStyleLength(visLen);
+
+      let out = [];
+      let vIndex = 0;
+
+      let cur = {
+        align:null, font:null, size:null, color:null,
+        b:false, i:false, u:false
+      };
+
+      function closeTag(name){
+        if(name==="u" && cur.u){ out.push("</u>"); cur.u=false; }
+        if(name==="i" && cur.i){ out.push("</i>"); cur.i=false; }
+        if(name==="b" && cur.b){ out.push("</b>"); cur.b=false; }
+        if(name==="color" && cur.color){ out.push("</color>"); cur.color=null; }
+        if(name==="size" && cur.size!=null){ out.push("</size>"); cur.size=null; }
+        if(name==="font" && cur.font){ out.push("</font>"); cur.font=null; }
+        if(name==="align" && cur.align){ out.push("</align>"); cur.align=null; }
+      }
+
+      function openTag(name, val){
+        if(name==="align"){ out.push(`<align=${val}>`); cur.align=val; }
+        if(name==="font"){ out.push(`<font="${val}">`); cur.font=val; }
+        if(name==="size"){ out.push(`<size=${val}%>`); cur.size=val; }
+        if(name==="color"){ out.push(`<color=${val}>`); cur.color=val; }
+        if(name==="b"){ out.push("<b>"); cur.b=true; }
+        if(name==="i"){ out.push("<i>"); cur.i=true; }
+        if(name==="u"){ out.push("<u>"); cur.u=true; }
+      }
+
+      function resetAll(){
+        closeTag("u"); closeTag("i"); closeTag("b");
+        closeTag("color"); closeTag("size"); closeTag("font"); closeTag("align");
+      }
+
+      function applyStyleForVisibleChar(v){
+        const desired = {
+          align: STYLE.align[v] || DEFAULTS.align,
+          font:  STYLE.font[v]  || DEFAULTS.font,
+          size:  STYLE.size[v]  || DEFAULTS.size,
+          color: STYLE.color[v] || DEFAULTS.color,
+          b: !!STYLE.b[v], i: !!STYLE.i[v], u: !!STYLE.u[v]
+        };
+
+        function setAttr(name){
+          const val = desired[name];
+          if(cur[name] === val) return;
+
+          if(name==="align"){
+            closeTag("u"); closeTag("i"); closeTag("b"); closeTag("color"); closeTag("size"); closeTag("font"); closeTag("align");
+            openTag("align", val);
+            openTag("font", desired.font);
+            openTag("size", desired.size);
+            openTag("color", desired.color);
+            if(desired.b) openTag("b");
+            if(desired.i) openTag("i");
+            if(desired.u) openTag("u");
+            return;
           }
-          if (cur.i) {
-            out.push("</i>");
-            cur.i = false;
+          if(name==="font"){
+            closeTag("u"); closeTag("i"); closeTag("b"); closeTag("color"); closeTag("size"); closeTag("font");
+            openTag("font", val);
+            openTag("size", desired.size);
+            openTag("color", desired.color);
+            if(desired.b) openTag("b");
+            if(desired.i) openTag("i");
+            if(desired.u) openTag("u");
+            return;
           }
-          if (cur.b) {
-            out.push("</b>");
-            cur.b = false;
+          if(name==="size"){
+            closeTag("u"); closeTag("i"); closeTag("b"); closeTag("color"); closeTag("size");
+            openTag("size", val);
+            openTag("color", desired.color);
+            if(desired.b) openTag("b");
+            if(desired.i) openTag("i");
+            if(desired.u) openTag("u");
+            return;
+          }
+          if(name==="color"){
+            closeTag("u"); closeTag("i"); closeTag("b"); closeTag("color");
+            openTag("color", val);
+            if(desired.b) openTag("b");
+            if(desired.i) openTag("i");
+            if(desired.u) openTag("u");
+            return;
           }
         }
 
-        function closeAll() {
-          closeFlags();
-          if (cur.color) {
-            out.push("</color>");
-            cur.color = null;
-          }
-          if (cur.size != null) {
-            out.push("</size>");
-            cur.size = null;
-          }
-          if (cur.font) {
-            out.push("</font>");
-            cur.font = null;
-          }
-          if (cur.align) {
-            out.push("</align>");
-            cur.align = null;
-          }
+        if(!cur.align){ openTag("align", desired.align); }
+        if(!cur.font){ openTag("font", desired.font); }
+        if(cur.size==null){ openTag("size", desired.size); }
+        if(!cur.color){ openTag("color", desired.color); }
+
+        setAttr("align");
+        setAttr("font");
+        setAttr("size");
+        setAttr("color");
+
+        if(cur.b !== desired.b){
+          if(cur.b) closeTag("b"); else openTag("b");
+        }
+        if(cur.i !== desired.i){
+          if(cur.i) closeTag("i"); else openTag("i");
+        }
+        if(cur.u !== desired.u){
+          if(cur.u) closeTag("u"); else openTag("u");
+        }
+      }
+
+      let i=0;
+      while(i<raw.length){
+        if(isLiteralNL(raw,i)){
+          if(cleanSlate.checked){ resetAll(); }
+          out.push("\\n");
+          i+=2;
+          continue;
         }
 
-        function openBase(desired) {
-          if (cur.align !== desired.align) {
-            if (cur.align) out.push("</align>");
-            out.push(`<align=${desired.align}>`);
-            cur.align = desired.align;
-          }
-          if (cur.font !== desired.font) {
-            if (cur.font) out.push("</font>");
-            out.push(`<font="${desired.font}">`);
-            cur.font = desired.font;
-          }
-          if (cur.size !== desired.size) {
-            if (cur.size != null) out.push("</size>");
-            out.push(`<size=${desired.size}%>`);
-            cur.size = desired.size;
-          }
+        if(raw[i]==="\n"){
+          if(cleanSlate.checked){ resetAll(); }
+          out.push("\\n");
+          i++;
+          continue;
         }
 
-        function applyDesired(desired) {
-          // If base changes, close color + flags first so nesting stays sane
-          const baseChanged = cur.align !== desired.align || cur.font !== desired.font || cur.size !== desired.size;
-          if (baseChanged) {
-            closeFlags();
-            if (cur.color) {
-              out.push("</color>");
-              cur.color = null;
-            }
-          }
-
-          openBase(desired);
-
-          // color run
-          if (cur.color !== desired.color) {
-            closeFlags();
-            if (cur.color) out.push("</color>");
-            out.push(`<color=${desired.color}>`);
-            cur.color = desired.color;
-          }
-
-          // flags run
-          if (cur.b !== desired.b) {
-            out.push(desired.b ? "<b>" : "</b>");
-            cur.b = desired.b;
-          }
-          if (cur.i !== desired.i) {
-            out.push(desired.i ? "<i>" : "</i>");
-            cur.i = desired.i;
-          }
-          if (cur.u !== desired.u) {
-            out.push(desired.u ? "<u>" : "</u>");
-            cur.u = desired.u;
-          }
-        }
-
-        let i = 0;
-        while (i < raw.length) {
-          // literal \n
-          if (isLiteralNL(raw, i)) {
-            if (cleanSlate.checked) closeAll();
-            out.push("\\n");
-            i += 2;
+        if(isTokenStart(raw,i)){
+          const tok=readToken(raw,i);
+          if(tok){
+            out.push(raw.slice(tok.start, tok.end));
+            i=tok.end;
             continue;
           }
-          // actual newline
-          if (raw[i] === "\n") {
-            if (cleanSlate.checked) closeAll();
-            out.push("\\n");
-            i++;
-            continue;
-          }
-          // token
-          if (isTokenStart(raw, i)) {
-            const tok = readToken(raw, i);
-            if (tok) {
-              out.push(raw.slice(tok.start, tok.end));
-              i = tok.end;
-              continue;
-            }
-          }
+        }
 
-          // visible char
-          const v = vIndex;
-          const desired = {
-            align: STYLE.align[v] || DEFAULTS.align,
-            font: STYLE.font[v] || DEFAULTS.font,
-            size: STYLE.size[v] || DEFAULTS.size,
-            color: STYLE.color[v] || DEFAULTS.color,
-            b: !!STYLE.b[v],
-            i: !!STYLE.i[v],
-            u: !!STYLE.u[v]
-          };
-
-          applyDesired(desired);
+        if(vIndex < visLen){
+          applyStyleForVisibleChar(vIndex);
           out.push(raw[i]);
-
           vIndex++;
           i++;
+          continue;
         }
 
-        closeAll();
-        return out.join("");
+        out.push(raw[i]);
+        i++;
       }
 
-      function toPreviewHTML(markup) {
-        let html = markup.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      resetAll();
+      return out.join("");
+    }
 
-        // align blocks
-        html = html
-          .replace(/&lt;align=(left|center|right)&gt;/g, (_, pos) => `<div style="text-align:${pos}">`)
-          .replace(/&lt;\/align&gt;/g, "</div>");
+    function renderAll(){
+      MAP = buildVisibleMap(TEXT);
+      ensureStyleLength(MAP.visLen);
 
-        // font
-        html = html
-          .replace(/&lt;font="([^"]+)"&gt;/g, (_, n) => `<span style="font-family:${FONT_MAP[n.trim()] || "inherit"}">`)
-          .replace(/&lt;\/font&gt;/g, "</span>");
+      const markup = buildMarkup();
+      output.textContent = markup;
+      preview.innerHTML = toPreviewHTML(markup);
 
-        // size
-        html = html
-          .replace(/&lt;size=(\d{1,3})%&gt;/g, (_, p) => `<span style="font-size:${p}%">`)
-          .replace(/&lt;\/size&gt;/g, "</span>");
+      saveLS("baseColorV2", normHex(solidColor.value,true));
+      saveLS("fontSelV2", fontSel.value);
+      saveLS("sizeCtlV2", clamp(parseInt(sizePct.value||"100",10),50,300));
+    }
 
-        // color
-        html = html
-          .replace(/&lt;color=(#[0-9A-Fa-f]{6})&gt;/g, (_, h) => `<span style="color:${h}">`)
-          .replace(/&lt;\/color&gt;/g, "</span>");
+    const renderAllDebounced = debounce(renderAll, 35);
 
-        // b/i/u
-        html = html
-          .replace(/&lt;b&gt;/g, "<b>")
-          .replace(/&lt;\/b&gt;/g, "</b>")
-          .replace(/&lt;i&gt;/g, "<i>")
-          .replace(/&lt;\/i&gt;/g, "</i>")
-          .replace(/&lt;u&gt;/g, "<u>")
-          .replace(/&lt;\/u&gt;/g, "</u>");
+    function syncPreviewBaseFont(){
+      preview.style.fontFamily = FONT_MAP[fontSel.value] || "inherit";
+    }
 
-        // line breaks
-        html = html.replace(/\\n/g, "<br/>").replace(/\n/g, "<br/>");
-        return html;
+    function autosizeEditor(){
+      editor.style.height="auto";
+      editor.style.height = Math.min(editor.scrollHeight, 640) + "px";
+    }
+
+    let lastEditorValue = "";
+
+    function countVisibleInSlice(str, a, b){
+      let v=0, i=a;
+      while(i<b){
+        if(isLiteralNL(str,i)){ i+=2; continue; }
+        if(str[i]==="\n"||str[i]==="\r"){ i++; continue; }
+        if(isTokenStart(str,i)){
+          const tok=readToken(str,i);
+          if(tok && tok.end<=b){ i=tok.end; continue; }
+        }
+        v++; i++;
+      }
+      return v;
+    }
+
+    function onEditorInput(){
+      const newVal = editor.value;
+      const oldVal = lastEditorValue;
+
+      let p=0;
+      while(p<oldVal.length && p<newVal.length && oldVal[p]===newVal[p]) p++;
+
+      let os=oldVal.length-1, ns=newVal.length-1;
+      while(os>=p && ns>=p && oldVal[os]===newVal[ns]){ os--; ns--; }
+
+      const oldMidA = p;
+      const oldMidB = os+1;
+      const newMidA = p;
+      const newMidB = ns+1;
+
+      TEXT = newVal;
+      MAP = buildVisibleMap(TEXT);
+
+      const oldRemovedVis = countVisibleInSlice(oldVal, oldMidA, oldMidB);
+      const newInsertedVis = countVisibleInSlice(newVal, newMidA, newMidB);
+
+      const oldMap = buildVisibleMap(oldVal);
+      const vAtP = oldMap.editToVis[clamp(p,0,oldVal.length)];
+
+      for(const k of Object.keys(STYLE)){
+        STYLE[k].splice(vAtP, oldRemovedVis);
       }
 
-      function renderAll() {
-        MAP = buildVisibleMap(TEXT);
-        ensureStyleLength(MAP.visLen);
-
-        const markup = buildMarkup();
-        output.textContent = markup;
-        preview.innerHTML = toPreviewHTML(markup);
-      }
-
-      function normalizeOutput() {
-        sizePct.value = clamp(parseInt(sizePct.value || "100", 10), 50, 300);
-        solidColor.value = normHex(solidColor.value, true);
-        renderAll();
-        setStatus("Normalized.");
-      }
-
-      function applyGradient() {
-        const { vs, ve } = getSelectionVisibleRange();
-        if (ve <= vs) {
-          setStatus("Select text for gradient.");
-          return;
+      const fillStyle = (()=>{
+        const idx = clamp(vAtP-1, 0, Math.max(0, oldMap.visLen-1));
+        if(oldMap.visLen===0 || vAtP===0){
+          return {
+            color:normHex(solidColor.value,true),
+            b:false,i:false,u:false,
+            size:clamp(parseInt(sizePct.value||"100",10),50,300),
+            font:fontSel.value,
+            align:"left"
+          };
         }
-        pushHistory();
-
-        const len = ve - vs;
-        if (len === 1) {
-          STYLE.color[vs] = STOPS[Math.floor(STOPS.length / 2)];
-        } else {
-          for (let i = 0; i < len; i++) {
-            const t = i / (len - 1);
-            const seg = (STOPS.length - 1) * t;
-            const i0 = Math.floor(seg);
-            const i1 = Math.min(STOPS.length - 1, i0 + 1);
-            const localT = seg - i0;
-            STYLE.color[vs + i] = normHex(lerpColor(STOPS[i0], STOPS[i1], localT), true);
-          }
-        }
-        renderAll();
-        setStatus("Gradient applied.");
-      }
-
-      function resetLine() {
-        const old = applyLine.checked;
-        applyLine.checked = true;
-        const { vs, ve } = getSelectionVisibleRange();
-        applyLine.checked = old;
-
-        if (ve <= vs) {
-          setStatus("Nothing on this line.");
-          return;
-        }
-        pushHistory();
-        const base = normHex(solidColor.value, true);
-        const sz = clamp(parseInt(sizePct.value || "100", 10), 50, 300);
-        const f = fontSel.value;
-
-        for (let v = vs; v < ve; v++) {
-          STYLE.color[v] = base;
-          STYLE.b[v] = false;
-          STYLE.i[v] = false;
-          STYLE.u[v] = false;
-          STYLE.size[v] = sz;
-          STYLE.font[v] = f;
-          STYLE.align[v] = "left";
-        }
-        renderAll();
-        setStatus("Line reset.");
-      }
-
-      function downloadText(filename, text) {
-        const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(url);
-      }
-
-      // Events
-      editor.addEventListener("input", onEditorInput);
-
-      applySolidBtn.addEventListener("click", () => {
-        const hex = normHex(solidColor.value, true);
-        if (applyToRange((v) => (STYLE.color[v] = hex))) setStatus("Solid applied.");
-      });
-
-      applyFontBtn.addEventListener("click", () => {
-        const f = fontSel.value;
-        if (applyToRange((v) => (STYLE.font[v] = f))) setStatus("Font applied.");
-      });
-
-      applySizeBtn.addEventListener("click", () => {
-        const s = clamp(parseInt(sizePct.value || "100", 10), 50, 300);
-        sizePct.value = s;
-        if (applyToRange((v) => (STYLE.size[v] = s))) setStatus("Size applied.");
-      });
-
-      btnB.addEventListener("click", () => toggleFlag("b"));
-      btnI.addEventListener("click", () => toggleFlag("i"));
-      btnU.addEventListener("click", () => toggleFlag("u"));
-
-      btnNL.addEventListener("click", () => insertAtCaret("\\n"));
-
-      btnUndo.addEventListener("click", undo);
-      btnRedo.addEventListener("click", redo);
-
-      document.querySelectorAll("[data-align]").forEach((b) => {
-        b.addEventListener("click", () => applyAlign(b.getAttribute("data-align")));
-      });
-
-      resetLineBtn.addEventListener("click", resetLine);
-
-      insertTokenBtn.addEventListener("click", () => insertAtCaret(tokenSel.value));
-
-      toggleIconsBtn.addEventListener("click", () => {
-        const open = !iconPalette.classList.contains("open");
-        iconPalette.classList.toggle("open", open);
-        if (open) buildIcons();
-      });
-      safeIcons.addEventListener("change", () => iconPalette.classList.contains("open") && buildIcons());
-
-      clearStylesBtn.addEventListener("click", () => {
-        const base = normHex(solidColor.value, true);
-        const sz = clamp(parseInt(sizePct.value || "100", 10), 50, 300);
-        const f = fontSel.value;
-        if (
-          applyToRange((v) => {
-            STYLE.color[v] = base;
-            STYLE.b[v] = false;
-            STYLE.i[v] = false;
-            STYLE.u[v] = false;
-            STYLE.size[v] = sz;
-            STYLE.font[v] = f;
-            STYLE.align[v] = "left";
-          })
-        )
-          setStatus("Selection cleared.");
-      });
-
-      normalizeBtn.addEventListener("click", normalizeOutput);
-
-      addStopBtn.addEventListener("click", () => {
-        if (STOPS.length >= 10) return;
-        pushHistory();
-        STOPS.push(randHex());
-        renderStops();
-        setStatus("Stop added.");
-      });
-
-      remStopBtn.addEventListener("click", () => {
-        if (STOPS.length <= 2) return;
-        pushHistory();
-        STOPS.pop();
-        renderStops();
-        setStatus("Stop removed.");
-      });
-
-      randStopsBtn.addEventListener("click", () => {
-        pushHistory();
-        STOPS = STOPS.map(() => randHex());
-        renderStops();
-        setStatus("Stops randomized.");
-      });
-
-      stopsEl.addEventListener("input", (e) => {
-        const row = e.target.closest(".stop-row");
-        if (!row) return;
-        const idx = [...stopsEl.children].indexOf(row);
-        const [hexInput, colorInput] = row.querySelectorAll("input");
-        if (e.target === hexInput) {
-          const h = normHex(hexInput.value, true);
-          hexInput.value = h;
-          colorInput.value = h;
-          STOPS[idx] = h;
-        } else if (e.target === colorInput) {
-          const h = normHex(colorInput.value, true);
-          hexInput.value = h;
-          STOPS[idx] = h;
-        }
-        updateGradPreview();
-      });
-
-      stopsEl.addEventListener("click", (e) => {
-        const btn = e.target.closest("button");
-        if (!btn) return;
-        const i = parseInt(btn.dataset.idx, 10);
-        if (btn.classList.contains("stop-del") && STOPS.length > 2) {
-          pushHistory();
-          STOPS.splice(i, 1);
-        } else if (btn.classList.contains("stop-up") && i > 0) {
-          pushHistory();
-          [STOPS[i - 1], STOPS[i]] = [STOPS[i], STOPS[i - 1]];
-        } else if (btn.classList.contains("stop-down") && i < STOPS.length - 1) {
-          pushHistory();
-          [STOPS[i + 1], STOPS[i]] = [STOPS[i], STOPS[i + 1]];
-        }
-        renderStops();
-      });
-
-      applyGradientBtn.addEventListener("click", applyGradient);
-
-      copyMarkupBtn.addEventListener("click", () => {
-        copyToClipboard(buildMarkup()).then(() => setStatus("Copied."));
-      });
-
-      downloadTxtBtn.addEventListener("click", () => {
-        downloadText("template.txt", buildMarkup());
-        setStatus("Downloaded template.txt");
-      });
-
-      // Boot
-      (function init() {
-        // show popup unless disabled
-        if (!localStorage.getItem("maul_beta_modal_hide")) openModal();
-
-        TEXT = "♡Welcome to my lobby♡\\n";
-        editor.value = TEXT;
-        lastEditorValue = TEXT;
-
-        MAP = buildVisibleMap(TEXT);
-        ensureStyleLength(MAP.visLen);
-
-        const base = normHex(solidColor.value, true);
-        const sz = clamp(parseInt(sizePct.value || "100", 10), 50, 300);
-        const f = fontSel.value;
-
-        for (let v = 0; v < MAP.visLen; v++) {
-          STYLE.color[v] = base;
-          STYLE.size[v] = sz;
-          STYLE.font[v] = f;
-          STYLE.align[v] = "left";
-          STYLE.b[v] = false;
-          STYLE.i[v] = false;
-          STYLE.u[v] = false;
-        }
-
-        renderStops();
-        renderAll();
+        return {
+          color: STYLE.color[idx] || DEFAULTS.color,
+          b: !!STYLE.b[idx],
+          i: !!STYLE.i[idx],
+          u: !!STYLE.u[idx],
+          size: STYLE.size[idx] || DEFAULTS.size,
+          font: STYLE.font[idx] || DEFAULTS.font,
+          align: STYLE.align[idx] || DEFAULTS.align
+        };
       })();
-    </script>
-  </body>
+
+      function pushFill(n){
+        for(let i=0;i<n;i++){
+          STYLE.color.splice(vAtP+i, 0, fillStyle.color);
+          STYLE.b.splice(vAtP+i, 0, fillStyle.b);
+          STYLE.i.splice(vAtP+i, 0, fillStyle.i);
+          STYLE.u.splice(vAtP+i, 0, fillStyle.u);
+          STYLE.size.splice(vAtP+i, 0, fillStyle.size);
+          STYLE.font.splice(vAtP+i, 0, fillStyle.font);
+          STYLE.align.splice(vAtP+i, 0, fillStyle.align);
+        }
+      }
+      if(newInsertedVis>0) pushFill(newInsertedVis);
+
+      ensureStyleLength(MAP.visLen);
+
+      lastEditorValue = newVal;
+      autosizeEditor();
+      renderAllDebounced();
+    }
+
+    function applyToVisibleRange(vs, ve, fn){
+      if(ve<=vs){
+        status("Select some text first.");
+        return false;
+      }
+      pushHistory();
+      for(let v=vs; v<ve; v++) fn(v);
+      renderAll();
+      return true;
+    }
+
+    function applySolid(){
+      const hex = normHex(solidColor.value,true);
+      const {vs,ve}=getSelectionVisibleRange();
+      return applyToVisibleRange(vs,ve, (v)=>{ STYLE.color[v]=hex; });
+    }
+
+    function applyGradient(){
+      const {vs,ve}=getSelectionVisibleRange();
+      if(ve<=vs){ status("Select text for gradient."); return; }
+      pushHistory();
+
+      const len = ve-vs;
+      if(len<=1){
+        STYLE.color[vs]=colorAtT(0);
+      }else{
+        for(let i=0;i<len;i++){
+          const t = i/(len-1);
+          STYLE.color[vs+i]=colorAtT(t);
+        }
+      }
+      renderAll();
+      status("Gradient applied.");
+    }
+
+    function toggleB(){
+      const {vs,ve}=getSelectionVisibleRange();
+      if(ve<=vs){ status("Select text first."); return; }
+      pushHistory();
+      let tr=0;
+      for(let v=vs; v<ve; v++) if(STYLE.b[v]) tr++;
+      const setTo = tr < (ve-vs)/2;
+      for(let v=vs; v<ve; v++) STYLE.b[v]=setTo;
+      renderAll();
+      status(setTo ? "Bold applied." : "Bold removed.");
+    }
+
+    function toggleI(){
+      const {vs,ve}=getSelectionVisibleRange();
+      if(ve<=vs){ status("Select text first."); return; }
+      pushHistory();
+      let tr=0;
+      for(let v=vs; v<ve; v++) if(STYLE.i[v]) tr++;
+      const setTo = tr < (ve-vs)/2;
+      for(let v=vs; v<ve; v++) STYLE.i[v]=setTo;
+      renderAll();
+      status(setTo ? "Italic applied." : "Italic removed.");
+    }
+
+    function toggleU(){
+      const {vs,ve}=getSelectionVisibleRange();
+      if(ve<=vs){ status("Select text first."); return; }
+      pushHistory();
+      let tr=0;
+      for(let v=vs; v<ve; v++) if(STYLE.u[v]) tr++;
+      const setTo = tr < (ve-vs)/2;
+      for(let v=vs; v<ve; v++) STYLE.u[v]=setTo;
+      renderAll();
+      status(setTo ? "Underline applied." : "Underline removed.");
+    }
+
+    function applySize(){
+      const pct = clamp(parseInt(sizePct.value||"100",10),50,300);
+      sizePct.value = pct;
+      const {vs,ve}=getSelectionVisibleRange();
+      return applyToVisibleRange(vs,ve,(v)=>{ STYLE.size[v]=pct; });
+    }
+
+    function applyFont(){
+      const f = fontSel.value;
+      const {vs,ve}=getSelectionVisibleRange();
+      return applyToVisibleRange(vs,ve,(v)=>{ STYLE.font[v]=f; });
+    }
+
+    function applyAlign(mode){
+      const {vs,ve}=getSelectionVisibleRange();
+      return applyToVisibleRange(vs,ve,(v)=>{ STYLE.align[v]=mode; });
+    }
+
+    function clearSelectionStyles(){
+      const {vs,ve}=getSelectionVisibleRange();
+      if(ve<=vs){ status("Select text first."); return; }
+      pushHistory();
+      for(let v=vs; v<ve; v++){
+        STYLE.color[v]=normHex(solidColor.value,true);
+        STYLE.b[v]=false; STYLE.i[v]=false; STYLE.u[v]=false;
+        STYLE.size[v]=clamp(parseInt(sizePct.value||"100",10),50,300);
+        STYLE.font[v]=fontSel.value;
+        STYLE.align[v]="left";
+      }
+      renderAll();
+      status("Selection cleared.");
+    }
+
+    function resetLine(){
+      const oldApplyLine = applyLine.checked;
+      applyLine.checked = true;
+      const {vs,ve}=getSelectionVisibleRange();
+      applyLine.checked = oldApplyLine;
+
+      if(ve<=vs){ status("Nothing on this line."); return; }
+      pushHistory();
+
+      for(let v=vs; v<ve; v++){
+        STYLE.color[v]=normHex(solidColor.value,true);
+        STYLE.b[v]=false; STYLE.i[v]=false; STYLE.u[v]=false;
+        STYLE.size[v]=clamp(parseInt(sizePct.value||"100",10),50,300);
+        STYLE.font[v]=fontSel.value;
+        STYLE.align[v]="left";
+      }
+      renderAll();
+      status("Line reset.");
+    }
+
+    let BRUSH = null;
+
+    function pickBrush(){
+      BRUSH = styleAtCaret();
+      status("Brush picked from caret.");
+    }
+
+    function paintBrush(){
+      if(!BRUSH){ status("Pick brush first."); return; }
+      const {vs,ve}=getSelectionVisibleRange();
+      if(ve<=vs){ status("Select text to paint."); return; }
+      pushHistory();
+      for(let v=vs; v<ve; v++){
+        STYLE.color[v]=BRUSH.color;
+        STYLE.b[v]=BRUSH.b;
+        STYLE.i[v]=BRUSH.i;
+        STYLE.u[v]=BRUSH.u;
+        STYLE.size[v]=BRUSH.size;
+        STYLE.font[v]=BRUSH.font;
+        STYLE.align[v]=BRUSH.align;
+      }
+      renderAll();
+      status("Brush painted.");
+    }
+
+    // ============================================================
+    // 11) Insert helpers (tokens, icons, literal \n)
+    // ============================================================
+    function insertAtCaret(text){
+      pushHistory();
+      const s=editor.selectionStart|0, e=editor.selectionEnd|0;
+      const val=editor.value;
+      const next = val.slice(0,s) + text + val.slice(e);
+      editor.value = next;
+      editor.selectionStart = editor.selectionEnd = s + text.length;
+      lastEditorValue = next;
+      TEXT = next;
+      MAP = buildVisibleMap(TEXT);
+      ensureStyleLength(MAP.visLen);
+      autosizeEditor();
+      renderAll();
+    }
+
+    function insertLiteralNL(){
+      insertAtCaret("\\n");
+      status("Inserted literal \\n");
+    }
+
+    const ICONS_SAFE = [
+      "✿","❀","❖","★","☆","✓","∞","☯","⚠","♥","♡","♦","♣","♠","→","←","↑","↓","↔","↕",
+      "◉","○","◎","●","◯","◇","◆","◈","■","□","▪","▫","░","▒","▓","█"
+    ];
+    const ICONS_FULL = [
+      "✿","❀","❖","⚽","⚾","♠","♣","♦","♥","♤","♧","♢","♡","☯","✚","⚠","†","∞","✓",
+      "☎","☏","☀","☁","☂","☃","☉","★","☆","⁂","✽","☝","☞","☟","☜","↑","↓","→","←","↔","↕",
+      "⌘","⌅","⌆","⌇","〶","⚙","⚛","⚜","⚓","⚡","⚕","⚒","⚖","♩","♪","♫","♬","♭","♮","♯",
+      "☕","☘","☄","☇","☈","〠","ヅ","ツ","㋡","웃","유","シ","ッ","㋛","◉","○","◎","●","⊗","⊙",
+      "◯","◇","◈","◍","◐","◑","◒","◓","◦","∅","⊕","⊖","⊘","⦿","▀","▁","▂","▃","▄","▅","▆","▇",
+      "▉","▋","█","░","▒","▓","▢","▣","▤","▥","▦","▧","▨","▩","▪","▫","◆","◣","◥","◤","◢",
+      "☠","☢","☣","⚰","⚱","♨","☮","✠","✡","™","〰","Ⓜ","♻","🆘","🅰","🅱","🅾","🆚"
+    ];
+
+    function buildIcons(){
+      iconGrid.innerHTML="";
+      const src = safeIconsToggle.checked ? ICONS_SAFE : ICONS_FULL;
+      src.forEach(ch=>{
+        const b=document.createElement("button");
+        b.type="button";
+        b.className="btn small icon-btn";
+        b.textContent=ch;
+        b.addEventListener("click", ()=>{
+          insertAtCaret(ch);
+          status(`Inserted icon ${ch}`);
+        });
+        iconGrid.appendChild(b);
+      });
+    }
+
+    // ============================================================
+    // 12) Buttons + events
+    // ============================================================
+    function openHelp(){
+      modal.classList.add("open");
+      modalClose.focus();
+    }
+    function closeHelp(){
+      modal.classList.remove("open");
+    }
+
+    openHelpTop?.addEventListener("click", (e)=>{ e.preventDefault(); openHelp(); });
+    openHelpInline?.addEventListener("click", openHelp);
+    openHelpMenu?.addEventListener("click", (e)=>{ e.preventDefault(); openHelp(); });
+
+    modalClose.addEventListener("click", closeHelp);
+    modalBackdrop.addEventListener("click", closeHelp);
+
+    document.addEventListener("keydown", (e)=>{
+      if(e.key==="Escape" && modal.classList.contains("open")) closeHelp();
+    });
+
+    editor.addEventListener("input", onEditorInput);
+
+    editor.addEventListener("keydown", (e)=>{
+      const mod = e.ctrlKey || e.metaKey;
+
+      if(mod && e.key.toLowerCase()==="s"){
+        e.preventDefault();
+        downloadOutBtn.click();
+        return;
+      }
+      if(mod && e.key==="Enter"){
+        e.preventDefault();
+        insertLiteralNL();
+        return;
+      }
+      if(mod && !e.shiftKey && e.key.toLowerCase()==="b"){ e.preventDefault(); toggleB(); return; }
+      if(mod && !e.shiftKey && e.key.toLowerCase()==="i"){ e.preventDefault(); toggleI(); return; }
+      if(mod && !e.shiftKey && e.key.toLowerCase()==="u"){ e.preventDefault(); toggleU(); return; }
+
+      if(mod && e.shiftKey && e.key.toLowerCase()==="g"){ e.preventDefault(); applyGradient(); return; }
+      if(mod && e.shiftKey && e.key.toLowerCase()==="c"){ e.preventDefault(); applySolid(); return; }
+
+      if(mod && !e.shiftKey && e.key.toLowerCase()==="z"){ e.preventDefault(); undo(); return; }
+      if(mod && (e.key.toLowerCase()==="y" || (e.shiftKey && e.key.toLowerCase()==="z"))){
+        e.preventDefault(); redo(); return;
+      }
+    });
+
+    fontSel.addEventListener("change", ()=>{
+      syncPreviewBaseFont();
+      renderAll();
+    });
+
+    pickSolidBtn.addEventListener("click", ()=>solidColor.showPicker?.());
+    solidColor.addEventListener("input", ()=>{ renderAllDebounced(); });
+
+    applySolidBtn.addEventListener("click", ()=>{ if(applySolid()) status("Solid applied."); });
+    applyGradientBtn.addEventListener("click", applyGradient);
+
+    btnB.addEventListener("click", toggleB);
+    btnI.addEventListener("click", toggleI);
+    btnU.addEventListener("click", toggleU);
+
+    btnNL.addEventListener("click", insertLiteralNL);
+
+    applySizeBtn.addEventListener("click", ()=>{ if(applySize()) status("Size applied."); });
+    applyFontBtn.addEventListener("click", ()=>{ if(applyFont()) status("Font applied."); });
+
+    document.querySelectorAll("[data-align]").forEach(b=>{
+      b.addEventListener("click", ()=>{
+        const mode=b.getAttribute("data-align");
+        if(applyAlign(mode)) status(`Aligned ${mode}.`);
+      });
+    });
+
+    resetLineBtn.addEventListener("click", resetLine);
+
+    normalizeBtn.addEventListener("click", normalizeOutput);
+    clearStylesBtn.addEventListener("click", clearSelectionStyles);
+
+    btnUndo.addEventListener("click", undo);
+    btnRedo.addEventListener("click", redo);
+
+    pickBrushBtn.addEventListener("click", pickBrush);
+    paintBrushBtn.addEventListener("click", paintBrush);
+
+    insertTokenBtn.addEventListener("click", ()=>{
+      insertAtCaret(autoToken.value);
+      status(`Inserted ${autoToken.value}`);
+    });
+
+    toggleIconsBtn.addEventListener("click", ()=>{
+      const willOpen = !iconPalette.classList.contains("open");
+      iconPalette.classList.toggle("open", willOpen);
+      if(willOpen) buildIcons();
+    });
+    safeIconsToggle.addEventListener("change", ()=>{
+      if(iconPalette.classList.contains("open")) buildIcons();
+    });
+
+    addStopBtn.addEventListener("click", ()=>{
+      pushHistory();
+      const last = STOPS.length ? STOPS[STOPS.length-1].pos : 100;
+      const pos = clamp(last + 5, 0, 100);
+      STOPS.push({color:randHex(), pos});
+      distributeStops();
+      renderStopsUI();
+      renderGradientPreview();
+      status("Stop added.");
+    });
+
+    randomizeStopsBtn.addEventListener("click", ()=>{
+      pushHistory();
+      randomizeStops();
+      renderStopsUI();
+      renderGradientPreview();
+      status("Stops randomized.");
+    });
+
+    reverseStopsBtn.addEventListener("click", ()=>{
+      pushHistory();
+      reverseStops();
+      renderStopsUI();
+      renderGradientPreview();
+      status("Stops reversed.");
+    });
+
+    distributeStopsBtn.addEventListener("click", ()=>{
+      pushHistory();
+      distributeStops();
+      renderStopsUI();
+      renderGradientPreview();
+      status("Stops distributed.");
+    });
+
+    loadPresetBtn.addEventListener("click", ()=>{
+      const name=presetSelect.value;
+      if(!name) return;
+      pushHistory();
+      const arr=PRESETS[name];
+      STOPS = arr.map((c,i)=>({color:"#"+c.toUpperCase(), pos:(i*100)/(arr.length-1)}));
+      renderStopsUI();
+      renderGradientPreview();
+      status(`Preset "${name}" loaded.`);
+    });
+
+    copyOutBtn.addEventListener("click", async ()=>{
+      const text = buildMarkup();
+      await copyToClipboard(text);
+      status("Markup copied.");
+    });
+
+    downloadOutBtn.addEventListener("click", ()=>{
+      const text = buildMarkup();
+      downloadText("template.txt", text);
+      status("Downloaded template.txt");
+    });
+
+    document.querySelectorAll("[data-capture]").forEach(b=>{
+      b.addEventListener("click", ()=>{
+        const key=b.getAttribute("data-capture");
+        expAreas[key].value = buildMarkup();
+        status(`Captured into "${key}".`);
+      });
+    });
+
+    function buildNamedLines(){
+      const parts=[];
+      for(const [name,ta] of Object.entries(expAreas)){
+        const body=(ta.value||"").trim();
+        if(body) parts.push(`${name}:${body}`);
+      }
+      return parts;
+    }
+
+    downloadNamedBtn.addEventListener("click", ()=>{
+      const parts=buildNamedLines();
+      if(!parts.length){ status("Nothing to export."); return; }
+      downloadText("named.txt", parts.join("\n"));
+      status("Downloaded named.txt");
+    });
+
+    copyNamedBtn.addEventListener("click", async ()=>{
+      const parts=buildNamedLines();
+      if(!parts.length){ status("Nothing to copy."); return; }
+      await copyToClipboard(parts.join("\n"));
+      status("Copied named exports.");
+    });
+
+    // ============================================================
+    // 13) Boot
+    // ============================================================
+    function boot(){
+      const bc = loadLS("baseColorV2", "#FFFFFF");
+      const fs = loadLS("fontSelV2", "OCRAXT SDF");
+      const sz = loadLS("sizeCtlV2", 100);
+
+      solidColor.value = normHex(bc,true);
+      fontSel.value = fs;
+      sizePct.value = clamp(parseInt(sz||"100",10),50,300);
+
+      syncPreviewBaseFont();
+
+      TEXT = "♡Welcome to my lobby♡\\n";
+      editor.value = TEXT;
+      lastEditorValue = TEXT;
+
+      MAP = buildVisibleMap(TEXT);
+      ensureStyleLength(MAP.visLen);
+
+      const base = normHex(solidColor.value,true);
+      const size = clamp(parseInt(sizePct.value||"100",10),50,300);
+      const fnt = fontSel.value;
+
+      for(let v=0; v<MAP.visLen; v++){
+        STYLE.color[v]=base;
+        STYLE.size[v]=size;
+        STYLE.font[v]=fnt;
+        STYLE.align[v]="left";
+        STYLE.b[v]=false; STYLE.i[v]=false; STYLE.u[v]=false;
+      }
+
+      sortStops();
+      renderStopsUI();
+      renderGradientPreview();
+      buildPresetUI();
+
+      autosizeEditor();
+      renderAll();
+
+      const seen = loadLS("seenHelpV2", false);
+      if(!seen){
+        openHelp();
+        saveLS("seenHelpV2", true);
+      }
+    }
+
+    boot();
+  </script>
+</body>
 </html>
