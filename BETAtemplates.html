@@ -7,13 +7,18 @@
 
     <meta property="og:title" content="BETA Live Template Editor · MAUL" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://moddedamong.us/templates.html" />
+    <meta property="og:url" content="https://moddedamong.us/BETAtemplates" />
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-    <meta property="og:description" content="Type, style, and export Among Us templates in real time." />
+    <meta
+      property="og:description"
+      content="Type, style, and export Among Us templates in real time."
+    />
     <meta property="og:site_name" content="Modded Among Us Lobbies" />
     <meta property="og:locale" content="en_US" />
-    <link rel="canonical" href="https://moddedamong.us/templates.html" />
+    <link rel="canonical" href="https://moddedamong.us/BETAtemplates" />
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+
+    <!-- Fonts: same set as your tags page -->
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
       rel="stylesheet"
@@ -68,8 +73,7 @@
         content: "";
         position: fixed;
         inset: 0;
-        background:
-          radial-gradient(circle at top, rgba(128, 0, 0, 0.45), transparent 55%),
+        background: radial-gradient(circle at top, rgba(128, 0, 0, 0.45), transparent 55%),
           radial-gradient(circle at bottom, rgba(180, 0, 60, 0.25), transparent 55%);
         mix-blend-mode: screen;
         opacity: 0.7;
@@ -85,6 +89,7 @@
         z-index: -1;
       }
 
+      /* Hamburger dropdown (same as tags page) */
       .dropdown {
         position: fixed;
         top: 18px;
@@ -96,10 +101,7 @@
         background: rgba(35, 10, 10, 0.9);
         border: 1px solid rgba(255, 255, 255, 0.14);
         cursor: pointer;
-        transition:
-          transform 0.25s ease,
-          box-shadow 0.25s ease,
-          background 0.25s ease;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
         padding: 10px 10px;
         border-radius: 999px;
         backdrop-filter: blur(10px);
@@ -151,10 +153,7 @@
         align-items: center;
         gap: 8px;
         font-size: 0.95rem;
-        transition:
-          background 0.25s,
-          color 0.25s,
-          padding-left 0.25s;
+        transition: background 0.25s, color 0.25s, padding-left 0.25s;
       }
 
       .dropdown-content a:hover {
@@ -166,9 +165,7 @@
       .beta-glow {
         color: #ff4d4d !important;
         font-weight: 700;
-        text-shadow:
-          0 0 8px rgba(255, 0, 0, 0.75),
-          0 0 12px rgba(255, 0, 0, 0.55);
+        text-shadow: 0 0 8px rgba(255, 0, 0, 0.75), 0 0 12px rgba(255, 0, 0, 0.55);
       }
 
       .page-wrapper {
@@ -199,11 +196,7 @@
         font-size: 0.8rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        background: linear-gradient(
-          120deg,
-          rgba(128, 0, 0, 0.5),
-          rgba(200, 0, 80, 0.35)
-        );
+        background: linear-gradient(120deg, rgba(128, 0, 0, 0.5), rgba(200, 0, 80, 0.35));
         border: 1px solid rgba(255, 255, 255, 0.18);
         color: var(--text-muted);
         margin-bottom: 16px;
@@ -263,12 +256,8 @@
         text-decoration: none;
         font-size: 0.9rem;
         cursor: pointer;
-        transition:
-          background 0.2s ease,
-          border-color 0.2s ease,
-          transform 0.18s ease,
-          box-shadow 0.18s ease,
-          filter 0.18s ease;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.18s ease,
+          box-shadow 0.18s ease, filter 0.18s ease;
       }
 
       .cta-primary {
@@ -278,7 +267,6 @@
         font-weight: 600;
         font-size: 0.95rem;
         box-shadow: 0 10px 26px rgba(0, 0, 0, 0.9);
-        border: none;
       }
 
       .cta-secondary {
@@ -360,6 +348,7 @@
         }
       }
 
+      /* Controls */
       .tool-wrap {
         display: grid;
         gap: 14px;
@@ -384,11 +373,6 @@
         color: var(--text-muted);
       }
 
-      .tool-controls .field strong {
-        color: var(--text-main);
-        letter-spacing: 0.02em;
-      }
-
       .tool-controls input[type="text"],
       .tool-controls input[type="number"],
       .tool-controls select,
@@ -401,16 +385,6 @@
         outline: none;
       }
 
-      .tool-controls select {
-        min-width: 190px;
-      }
-
-      .tool-controls textarea {
-        width: 100%;
-        min-height: 46px;
-        resize: vertical;
-      }
-
       .btn {
         background: rgba(255, 255, 255, 0.08);
         border: 1px solid rgba(255, 255, 255, 0.22);
@@ -419,11 +393,7 @@
         padding: 7px 12px;
         border-radius: 999px;
         cursor: pointer;
-        transition:
-          background 0.2s,
-          border-color 0.2s,
-          transform 0.02s,
-          box-shadow 0.2s;
+        transition: background 0.2s, border-color 0.2s, transform 0.02s, box-shadow 0.2s;
         user-select: none;
       }
 
@@ -518,12 +488,6 @@
         }
       }
 
-      .stop-row .color {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
       .stop-row input[type="color"] {
         width: 42px;
         height: 32px;
@@ -546,40 +510,7 @@
         min-height: 1.2em;
       }
 
-      footer {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin: 40px 0 30px;
-        padding: 0 16px;
-      }
-
-      .footer-inner {
-        max-width: 900px;
-        width: 100%;
-        text-align: center;
-        padding: 18px 24px;
-        border-radius: 18px;
-        background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 55%),
-          linear-gradient(135deg, #240404, #0b0000);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
-        font-size: 0.9rem;
-        color: var(--text-muted);
-      }
-
-      .footer-inner a {
-        color: var(--accent-strong);
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .footer-inner a:hover {
-        color: #ff0000;
-        text-decoration: underline;
-      }
-
+      /* Icons palette */
       .icon-palette {
         display: none;
         margin-top: 10px;
@@ -602,10 +533,120 @@
         min-width: 34px;
         padding: 6px 10px;
       }
+
+      /* Popup / modal */
+      .modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        z-index: 999;
+      }
+      .modal.open {
+        display: flex;
+      }
+      .modal-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.72);
+        backdrop-filter: blur(6px);
+      }
+      .modal-card {
+        position: relative;
+        max-width: 760px;
+        width: 100%;
+        background: rgba(35, 10, 10, 0.96);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 18px;
+        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
+        padding: 18px 18px 16px;
+      }
+      .modal-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .modal-title h3 {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        letter-spacing: 0.05em;
+      }
+      .modal-title h3 span {
+        background: linear-gradient(135deg, #ff3b3b, var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .modal-body {
+        color: var(--text-muted);
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+      .modal-body code {
+        background: rgba(0, 0, 0, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        padding: 1px 6px;
+        border-radius: 8px;
+        color: #def;
+      }
+      .modal-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-top: 12px;
+        flex-wrap: wrap;
+      }
+      .modal-actions label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        user-select: none;
+      }
+
+      footer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 40px 0 30px;
+        padding: 0 16px;
+      }
+
+      .footer-inner {
+        max-width: 900px;
+        width: 100%;
+        text-align: center;
+        padding: 18px 24px;
+        border-radius: 18px;
+        background: radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 55%),
+          linear-gradient(135deg, #240404, #0b0000);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .footer-inner a {
+        color: var(--accent-strong);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .footer-inner a:hover {
+        color: #ff0000;
+        text-decoration: underline;
+      }
     </style>
   </head>
 
   <body>
+    <!-- NAV (copied from tags page) -->
     <div class="dropdown">
       <button class="dropbtn" type="button" aria-label="Open navigation menu">
         <div class="hamburger">
@@ -625,9 +666,54 @@
         <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
         <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
         <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
-        <a href="https://moddedamong.us/wrapped"><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a>
-        <a href="https://moddedamong.us/roletest"><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a>
-        <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
+        <a href="https://moddedamong.us/wrapped"
+          ><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a
+        >
+        <a href="https://moddedamong.us/roletest"
+          ><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a
+        >
+        <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"
+          ><i class="fa-solid fa-flask"></i> BETA Templates</a
+        >
+      </div>
+    </div>
+
+    <!-- POPUP MESSAGE (re-added) -->
+    <div class="modal" id="betaModal" aria-hidden="true">
+      <div class="modal-backdrop" id="betaModalBackdrop"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="betaModalTitle">
+        <div class="modal-title">
+          <h3 id="betaModalTitle"><span>Important</span> – Read before using</h3>
+          <button class="btn" type="button" id="betaModalClose" aria-label="Close popup">✕</button>
+        </div>
+        <div class="modal-body">
+          <p style="margin: 0 0 10px">
+            This tool is <strong class="beta-glow">BETA</strong>. A few rules to keep your template clean:
+          </p>
+          <ul style="margin: 0 0 10px; padding-left: 18px">
+            <li>
+              New lines export as literal <code>\n</code>. You can insert one with the <strong>↵ \n</strong> button.
+            </li>
+            <li>
+              Gradients apply only to <strong>real characters</strong> — they skip tokens like <code>{{PlayerName}}</code>
+              and they skip the literal <code>\n</code>.
+            </li>
+            <li>
+              Markup output is kept <strong>compact</strong>: base tags wrap the line, and only the pieces that change
+              (like per-char colors in a gradient) get extra tags.
+            </li>
+          </ul>
+          <p style="margin: 0">
+            If something looks odd, hit <strong>Normalize output</strong> or re-apply a style to the selection.
+          </p>
+        </div>
+        <div class="modal-actions">
+          <label>
+            <input type="checkbox" id="dontShowAgain" />
+            Don’t show this again
+          </label>
+          <button class="btn primary" type="button" id="betaModalOk">Got it</button>
+        </div>
       </div>
     </div>
 
@@ -641,8 +727,8 @@
         <h1><span>MAUL Live Template Editor</span></h1>
 
         <p class="header-subtitle">
-          A live editor for <span class="header-highlight">multi-line lobby templates</span> with fonts, sizes, bold/italic/underline,
-          solid color, and gradients. Output is clean markup you can paste directly into your txt.
+          Build <span class="header-highlight">multi-line lobby templates</span> with fonts, sizes, bold/italic/underline,
+          solid color, and gradients. Copy the output and paste it directly into your config.
         </p>
 
         <div class="header-actions">
@@ -658,18 +744,19 @@
       </div>
 
       <p class="info-paragraph">
-        This editor is designed to help new hosts learn how the templates should look on output and function.
-        Type plain text, styles apply per character, and the tool generates clean markup every time.
+        Live editor that keeps markup <strong>clean and stable</strong> while you type. Select text to style it, then copy
+        the export. Tokens like <code>{{PlayerName}}</code> stay untouched.
       </p>
 
       <main class="content-grid">
         <section class="panel">
           <h2 class="section-title"><u>BETA Live Template Editor</u></h2>
           <p class="section-subtitle">
-            Type on the left, preview + export on the right. Use the gradient stops to paint text.
+            Type on the left, preview + export on the right. (Preview is a web approximation.)
           </p>
 
           <div class="tool-wrap">
+            <!-- CONTROLS -->
             <div class="tool-controls">
               <div class="field">
                 <strong>Font</strong>
@@ -731,7 +818,7 @@
 
               <div class="field">
                 <strong>Line</strong>
-                <label style="display:flex;align-items:center;gap:6px">
+                <label style="display: flex; align-items: center; gap: 6px">
                   <input type="checkbox" id="applyLine" />
                   Apply to line
                 </label>
@@ -740,7 +827,7 @@
 
               <div class="field">
                 <strong>New line</strong>
-                <label style="display:flex;align-items:center;gap:6px">
+                <label style="display: flex; align-items: center; gap: 6px">
                   <input type="checkbox" id="cleanSlate" checked />
                   Clean slate
                 </label>
@@ -749,7 +836,7 @@
               <div class="field">
                 <strong>Icons</strong>
                 <button class="btn" id="toggleIcons" type="button">Palette</button>
-                <label style="display:flex;align-items:center;gap:6px">
+                <label style="display: flex; align-items: center; gap: 6px">
                   <input type="checkbox" id="safeIcons" checked />
                   Safe only
                 </label>
@@ -762,10 +849,12 @@
               </div>
             </div>
 
+            <!-- ICONS -->
             <div class="icon-palette" id="iconPalette" aria-label="Icon palette">
               <div class="icon-grid" id="iconGrid"></div>
             </div>
 
+            <!-- GRADIENT -->
             <div class="tool-controls" style="justify-content: space-between">
               <div class="field">
                 <strong>Gradient</strong>
@@ -784,19 +873,13 @@
             <div class="grad-preview" id="gradPreview" aria-label="Gradient preview"></div>
             <div class="stops" id="stops"></div>
 
+            <!-- EDITOR / OUTPUT -->
             <div class="split">
               <div class="codebox">
-                <div class="tool-controls" style="justify-content: space-between">
-                  <div class="field" style="flex: 1">
-                    <strong>Editor</strong>
-                    <span style="opacity:.9">Plain text. Newlines export as <code>\n</code>.</span>
-                  </div>
-                </div>
-
                 <textarea id="editor" style="min-height: 220px" spellcheck="false"></textarea>
 
                 <div class="tool-controls" style="justify-content: space-between">
-                  <div style="display:flex;gap:10px;flex-wrap:wrap">
+                  <div style="display: flex; gap: 10px; flex-wrap: wrap">
                     <button class="btn primary" id="copyMarkup" type="button">Copy markup</button>
                     <button class="btn" id="downloadTxt" type="button">Download .txt</button>
                   </div>
@@ -810,65 +893,11 @@
                 <div class="tool-controls" style="justify-content: space-between">
                   <div class="field" style="flex: 1">
                     <strong>Preview</strong>
-                    <span style="opacity:.9">Web font approximations only.</span>
+                    <span style="opacity: 0.9">Web font approximations only.</span>
                   </div>
                 </div>
 
                 <div class="preview" id="preview"></div>
-
-                <div class="tool-controls" style="justify-content: space-between">
-                  <div class="field" style="flex: 1">
-                    <strong>Tip</strong>
-                    <span style="opacity:.9">Use <code>Ctrl/Cmd + Shift + G</code> for gradient.</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="panel" style="background: var(--bg-soft)">
-              <h3 style="margin: 0 0 8px; text-align:center; letter-spacing:.12em; text-transform: uppercase;">
-                Named Exports
-              </h3>
-              <p class="section-subtitle" style="margin-bottom: 14px;">
-                Optional: store multiple templates and download as <code>name:&lt;markup&gt;</code>.
-              </p>
-
-              <div class="tool-controls" style="justify-content: space-between">
-                <div class="field" style="flex:1">
-                  <strong>welcome</strong>
-                  <button class="btn" data-cap="welcome" type="button">Use current</button>
-                </div>
-                <div class="field" style="flex:1">
-                  <strong>rules</strong>
-                  <button class="btn" data-cap="rules" type="button">Use current</button>
-                </div>
-                <div class="field" style="flex:1">
-                  <strong>onmeeting</strong>
-                  <button class="btn" data-cap="onmeeting" type="button">Use current</button>
-                </div>
-                <div class="field" style="flex:1">
-                  <strong>vip</strong>
-                  <button class="btn" data-cap="vip" type="button">Use current</button>
-                </div>
-              </div>
-
-              <div class="split" style="margin-top: 10px;">
-                <div class="codebox">
-                  <textarea id="exp-welcome" placeholder="welcome markup..." style="min-height:120px"></textarea>
-                  <textarea id="exp-rules" placeholder="rules markup..." style="min-height:120px"></textarea>
-                </div>
-                <div class="codebox">
-                  <textarea id="exp-onmeeting" placeholder="onmeeting markup..." style="min-height:120px"></textarea>
-                  <textarea id="exp-vip" placeholder="vip markup..." style="min-height:120px"></textarea>
-                </div>
-              </div>
-
-              <div class="tool-controls" style="justify-content: space-between; margin-top: 10px;">
-                <div style="display:flex;gap:10px;flex-wrap:wrap">
-                  <button class="btn primary" id="copyNamed" type="button">Copy named</button>
-                  <button class="btn" id="downloadNamed" type="button">Download named .txt</button>
-                </div>
-                <div class="status" id="namedStatus"></div>
               </div>
             </div>
           </div>
@@ -883,6 +912,7 @@
     </div>
 
     <script>
+      // Dropdown menu (same logic as tags page)
       document.addEventListener("DOMContentLoaded", () => {
         const dropdown = document.querySelector(".dropdown");
         const button = document.querySelector(".dropbtn");
@@ -900,11 +930,15 @@
     </script>
 
     <script>
+      /* ============================================================
+         Engine:
+         - keeps markup COMPACT (no repeating align/font/size per char)
+         - gradient only changes <color> as needed
+         - tokens {{...}} and literal \n are not styled by gradient
+         ============================================================ */
 
       function copyToClipboard(text) {
-        if (navigator.clipboard && window.isSecureContext) {
-          return navigator.clipboard.writeText(text);
-        }
+        if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
         const ta = document.createElement("textarea");
         ta.value = text;
         ta.style.position = "fixed";
@@ -937,16 +971,17 @@
         "#" + [r, g, b].map((x) => clamp(x | 0, 0, 255).toString(16).padStart(2, "0")).join("").toUpperCase();
       const lerp = (a, b, t) => a + (b - a) * t;
       const lerpColor = (h1, h2, t) => {
-        const c1 = hexToRgb(h1), c2 = hexToRgb(h2);
+        const c1 = hexToRgb(h1),
+          c2 = hexToRgb(h2);
         return rgbToHex({ r: lerp(c1.r, c2.r, t), g: lerp(c1.g, c2.g, t), b: lerp(c1.b, c2.b, t) });
       };
 
       const FONT_MAP = {
-        "BROOK SDF": '"Rajdhani", sans-serif',
         "VCR SDF": '"VT323", monospace',
         "Barlow-Black SDF": '"Barlow", sans-serif',
         "Barlow-BoldItalic SDF": '"Barlow", sans-serif',
         "Barlow-Light SDF": '"Barlow", sans-serif',
+        "BROOK SDF": '"Rajdhani", sans-serif',
         "CONSOLA SDF": '"Roboto Mono", monospace',
         "DIGITAL-7 SDF": '"Orbitron", monospace',
         "DIN_Pro_Bold_700 SDF": '"Rajdhani", sans-serif',
@@ -958,6 +993,7 @@
 
       const $ = (id) => document.getElementById(id);
 
+      // UI refs
       const editor = $("editor");
       const output = $("output");
       const preview = $("preview");
@@ -1003,19 +1039,30 @@
       const copyMarkupBtn = $("copyMarkup");
       const downloadTxtBtn = $("downloadTxt");
 
-      const exp = {
-        welcome: $("exp-welcome"),
-        rules: $("exp-rules"),
-        onmeeting: $("exp-onmeeting"),
-        vip: $("exp-vip")
-      };
-      const copyNamedBtn = $("copyNamed");
-      const downloadNamedBtn = $("downloadNamed");
-      const namedStatus = $("namedStatus");
+      // Modal refs
+      const betaModal = $("betaModal");
+      const betaModalBackdrop = $("betaModalBackdrop");
+      const betaModalClose = $("betaModalClose");
+      const betaModalOk = $("betaModalOk");
+      const dontShowAgain = $("dontShowAgain");
 
       const setStatus = (m) => (status.textContent = m || "");
-      const setNamedStatus = (m) => (namedStatus.textContent = m || "");
 
+      // Modal logic
+      function openModal() {
+        betaModal.classList.add("open");
+        betaModal.setAttribute("aria-hidden", "false");
+      }
+      function closeModal() {
+        if (dontShowAgain.checked) localStorage.setItem("maul_beta_modal_hide", "1");
+        betaModal.classList.remove("open");
+        betaModal.setAttribute("aria-hidden", "true");
+      }
+      betaModalBackdrop.addEventListener("click", closeModal);
+      betaModalClose.addEventListener("click", closeModal);
+      betaModalOk.addEventListener("click", closeModal);
+
+      // Token parsing rules
       const isTokenStart = (str, i) => str[i] === "{" && str[i + 1] === "{";
       const readToken = (str, i) => {
         const k = str.indexOf("}}", i + 2);
@@ -1031,12 +1078,21 @@
         while (i < text.length) {
           editToVis[i] = v;
 
-          if (isLiteralNL(text, i)) { i += 2; continue; }
-          if (text[i] === "\n" || text[i] === "\r") { i++; continue; }
+          if (isLiteralNL(text, i)) {
+            i += 2;
+            continue;
+          }
+          if (text[i] === "\n" || text[i] === "\r") {
+            i++;
+            continue;
+          }
 
           if (isTokenStart(text, i)) {
             const tok = readToken(text, i);
-            if (tok) { i = tok.end; continue; }
+            if (tok) {
+              i = tok.end;
+              continue;
+            }
           }
 
           visToEdit.push(i);
@@ -1065,11 +1121,17 @@
         for (const k of Object.keys(STYLE)) {
           if (STYLE[k].length < n) {
             const fill =
-              k === "color" ? DEFAULTS.color :
-              (k === "b" || k === "i" || k === "u") ? false :
-              k === "size" ? DEFAULTS.size :
-              k === "font" ? DEFAULTS.font :
-              k === "align" ? DEFAULTS.align : null;
+              k === "color"
+                ? DEFAULTS.color
+                : k === "b" || k === "i" || k === "u"
+                ? false
+                : k === "size"
+                ? DEFAULTS.size
+                : k === "font"
+                ? DEFAULTS.font
+                : k === "align"
+                ? DEFAULTS.align
+                : null;
             while (STYLE[k].length < n) STYLE[k].push(fill);
           } else if (STYLE[k].length > n) {
             STYLE[k].length = n;
@@ -1078,13 +1140,15 @@
       }
 
       function getSelectionEditRange() {
-        let s = editor.selectionStart | 0, e = editor.selectionEnd | 0;
+        let s = editor.selectionStart | 0,
+          e = editor.selectionEnd | 0;
         if (applyLine.checked) {
           const val = editor.value;
           const lineStart = val.lastIndexOf("\n", s - 1) + 1;
           const nextNL = val.indexOf("\n", e);
           const lineEnd = nextNL === -1 ? val.length : nextNL;
-          s = lineStart; e = lineEnd;
+          s = lineStart;
+          e = lineEnd;
           editor.selectionStart = s;
           editor.selectionEnd = e;
         }
@@ -1098,8 +1162,10 @@
         return { vs, ve };
       }
 
+      // Undo/redo snapshots
       const MAX_HIST = 60;
-      let undoStack = [], redoStack = [];
+      let undoStack = [],
+        redoStack = [];
 
       function snapshot() {
         return {
@@ -1158,12 +1224,12 @@
         setStatus("Redone.");
       }
 
+      // Gradient stops
       let STOPS = ["#FF0033", "#FF4D79", "#FF7219", "#FFEB0C", "#00EAF0", "#7F00FF"].map((h) => normHex(h, true));
 
       function randHex() {
         return (
-          "#" +
-          Array.from({ length: 6 }, () => "89ABCDEF01234567"[Math.floor(Math.random() * 16)]).join("")
+          "#" + Array.from({ length: 6 }, () => "89ABCDEF01234567"[Math.floor(Math.random() * 16)]).join("")
         );
       }
 
@@ -1180,10 +1246,8 @@
           const row = document.createElement("div");
           row.className = "stop-row";
           row.innerHTML = `
-            <div class="color" style="min-width:120px">
-              <label>Stop ${idx + 1}</label>
-            </div>
-            <div class="color">
+            <div class="color" style="min-width:120px"><label>Stop ${idx + 1}</label></div>
+            <div class="color" style="display:flex;align-items:center;gap:8px">
               <input type="text" value="${normHex(hex, true)}" aria-label="Hex stop ${idx + 1}">
               <input type="color" value="${normHex(hex, true)}" aria-label="Pick stop ${idx + 1}">
             </div>
@@ -1198,14 +1262,97 @@
         updateGradPreview();
       }
 
+      // Icons
       const ICONS_SAFE = [
-        "✿","❀","❖","★","☆","✓","∞","☯","⚠","♥","♡","♦","♣","♠","→","←","↑","↓","↔","↕",
-        "◉","○","◎","●","◯","◇","◆","◈","■","□","▪","▫","░","▒","▓","█"
+        "✿",
+        "❀",
+        "❖",
+        "★",
+        "☆",
+        "✓",
+        "∞",
+        "☯",
+        "⚠",
+        "♥",
+        "♡",
+        "♦",
+        "♣",
+        "♠",
+        "→",
+        "←",
+        "↑",
+        "↓",
+        "↔",
+        "↕",
+        "◉",
+        "○",
+        "◎",
+        "●",
+        "◯",
+        "◇",
+        "◆",
+        "◈",
+        "■",
+        "□",
+        "▪",
+        "▫",
+        "░",
+        "▒",
+        "▓",
+        "█"
       ];
       const ICONS_FULL = [
-        "✿","❀","❖","⚽","⚾","♠","♣","♦","♥","♤","♧","♢","♡","☯","✚","⚠","†","∞","✓",
-        "☎","☏","☀","☁","☂","☃","★","☆","✽","↑","↓","→","←","↔","↕",
-        "⚙","⚡","♩","♪","♫","♬","░","▒","▓","█","▪","▫","◆","◣","◥","◤","◢"
+        "✿",
+        "❀",
+        "❖",
+        "⚽",
+        "⚾",
+        "♠",
+        "♣",
+        "♦",
+        "♥",
+        "♤",
+        "♧",
+        "♢",
+        "♡",
+        "☯",
+        "✚",
+        "⚠",
+        "†",
+        "∞",
+        "✓",
+        "☎",
+        "☏",
+        "☀",
+        "☁",
+        "☂",
+        "☃",
+        "★",
+        "☆",
+        "✽",
+        "↑",
+        "↓",
+        "→",
+        "←",
+        "↔",
+        "↕",
+        "⚙",
+        "⚡",
+        "♩",
+        "♪",
+        "♫",
+        "♬",
+        "░",
+        "▒",
+        "▓",
+        "█",
+        "▪",
+        "▫",
+        "◆",
+        "◣",
+        "◥",
+        "◤",
+        "◢"
       ];
 
       function buildIcons() {
@@ -1223,7 +1370,8 @@
 
       function insertAtCaret(text) {
         pushHistory();
-        const s = editor.selectionStart | 0, e = editor.selectionEnd | 0;
+        const s = editor.selectionStart | 0,
+          e = editor.selectionEnd | 0;
         const val = editor.value;
         const next = val.slice(0, s) + text + val.slice(e);
         editor.value = next;
@@ -1236,32 +1384,51 @@
       }
 
       function countVisibleInSlice(str, a, b) {
-        let v = 0, i = a;
+        let v = 0,
+          i = a;
         while (i < b) {
-          if (isLiteralNL(str, i)) { i += 2; continue; }
-          if (str[i] === "\n" || str[i] === "\r") { i++; continue; }
+          if (isLiteralNL(str, i)) {
+            i += 2;
+            continue;
+          }
+          if (str[i] === "\n" || str[i] === "\r") {
+            i++;
+            continue;
+          }
           if (isTokenStart(str, i)) {
             const tok = readToken(str, i);
-            if (tok && tok.end <= b) { i = tok.end; continue; }
+            if (tok && tok.end <= b) {
+              i = tok.end;
+              continue;
+            }
           }
-          v++; i++;
+          v++;
+          i++;
         }
         return v;
       }
 
+      // Keep styles stable while editing
       let lastEditorValue = "";
 
       function onEditorInput() {
         const newVal = editor.value;
         const oldVal = lastEditorValue;
 
+        // find splice
         let p = 0;
         while (p < oldVal.length && p < newVal.length && oldVal[p] === newVal[p]) p++;
-        let os = oldVal.length - 1, ns = newVal.length - 1;
-        while (os >= p && ns >= p && oldVal[os] === newVal[ns]) { os--; ns--; }
+        let os = oldVal.length - 1,
+          ns = newVal.length - 1;
+        while (os >= p && ns >= p && oldVal[os] === newVal[ns]) {
+          os--;
+          ns--;
+        }
 
-        const oldMidA = p, oldMidB = os + 1;
-        const newMidA = p, newMidB = ns + 1;
+        const oldMidA = p,
+          oldMidB = os + 1;
+        const newMidA = p,
+          newMidB = ns + 1;
 
         TEXT = newVal;
         MAP = buildVisibleMap(TEXT);
@@ -1275,21 +1442,26 @@
         for (const k of Object.keys(STYLE)) STYLE[k].splice(vAtP, oldRemovedVis);
 
         const fillIdx = clamp(vAtP - 1, 0, Math.max(0, oldMap.visLen - 1));
-        const fill = oldMap.visLen === 0 || vAtP === 0 ? {
-          color: normHex(solidColor.value, true),
-          b: false, i: false, u: false,
-          size: clamp(parseInt(sizePct.value || "100", 10), 50, 300),
-          font: fontSel.value,
-          align: "left"
-        } : {
-          color: STYLE.color[fillIdx] || DEFAULTS.color,
-          b: !!STYLE.b[fillIdx],
-          i: !!STYLE.i[fillIdx],
-          u: !!STYLE.u[fillIdx],
-          size: STYLE.size[fillIdx] || DEFAULTS.size,
-          font: STYLE.font[fillIdx] || DEFAULTS.font,
-          align: STYLE.align[fillIdx] || DEFAULTS.align
-        };
+        const fill =
+          oldMap.visLen === 0 || vAtP === 0
+            ? {
+                color: normHex(solidColor.value, true),
+                b: false,
+                i: false,
+                u: false,
+                size: clamp(parseInt(sizePct.value || "100", 10), 50, 300),
+                font: fontSel.value,
+                align: "left"
+              }
+            : {
+                color: STYLE.color[fillIdx] || DEFAULTS.color,
+                b: !!STYLE.b[fillIdx],
+                i: !!STYLE.i[fillIdx],
+                u: !!STYLE.u[fillIdx],
+                size: STYLE.size[fillIdx] || DEFAULTS.size,
+                font: STYLE.font[fillIdx] || DEFAULTS.font,
+                align: STYLE.align[fillIdx] || DEFAULTS.align
+              };
 
         for (let i = 0; i < newInsertedVis; i++) {
           STYLE.color.splice(vAtP + i, 0, fill.color);
@@ -1306,9 +1478,13 @@
         renderAll();
       }
 
+      // Apply ops
       function applyToRange(fn) {
         const { vs, ve } = getSelectionVisibleRange();
-        if (ve <= vs) { setStatus("Select some text first."); return false; }
+        if (ve <= vs) {
+          setStatus("Select some text first.");
+          return false;
+        }
         pushHistory();
         for (let v = vs; v < ve; v++) fn(v);
         renderAll();
@@ -1317,7 +1493,10 @@
 
       function toggleFlag(key) {
         const { vs, ve } = getSelectionVisibleRange();
-        if (ve <= vs) { setStatus("Select some text first."); return; }
+        if (ve <= vs) {
+          setStatus("Select some text first.");
+          return;
+        }
         pushHistory();
         let tr = 0;
         for (let v = vs; v < ve; v++) if (STYLE[key][v]) tr++;
@@ -1331,7 +1510,11 @@
         setStatus(`Aligned ${mode}.`);
       }
 
-      // Build markup output
+      // Compact markup builder:
+      // - Keep <align><font><size> stable across runs
+      // - Only open/close <color> when it changes
+      // - b/i/u run-length encoded too
+      // - tokens & literal \n are emitted raw and do not consume visible indices
       function buildMarkup() {
         const raw = TEXT.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
         const m = buildVisibleMap(raw);
@@ -1340,68 +1523,129 @@
         let out = [];
         let vIndex = 0;
 
-        let cur = { align: null, font: null, size: null, color: null, b: false, i: false, u: false };
+        let cur = {
+          align: null,
+          font: null,
+          size: null,
+          color: null,
+          b: false,
+          i: false,
+          u: false
+        };
+
+        function closeFlags() {
+          if (cur.u) {
+            out.push("</u>");
+            cur.u = false;
+          }
+          if (cur.i) {
+            out.push("</i>");
+            cur.i = false;
+          }
+          if (cur.b) {
+            out.push("</b>");
+            cur.b = false;
+          }
+        }
 
         function closeAll() {
-          if (cur.u) { out.push("</u>"); cur.u = false; }
-          if (cur.i) { out.push("</i>"); cur.i = false; }
-          if (cur.b) { out.push("</b>"); cur.b = false; }
-          if (cur.color) { out.push("</color>"); cur.color = null; }
-          if (cur.size != null) { out.push("</size>"); cur.size = null; }
-          if (cur.font) { out.push("</font>"); cur.font = null; }
-          if (cur.align) { out.push("</align>"); cur.align = null; }
+          closeFlags();
+          if (cur.color) {
+            out.push("</color>");
+            cur.color = null;
+          }
+          if (cur.size != null) {
+            out.push("</size>");
+            cur.size = null;
+          }
+          if (cur.font) {
+            out.push("</font>");
+            cur.font = null;
+          }
+          if (cur.align) {
+            out.push("</align>");
+            cur.align = null;
+          }
         }
 
         function openBase(desired) {
-          if (!cur.align) { out.push(`<align=${desired.align}>`); cur.align = desired.align; }
-          if (!cur.font) { out.push(`<font="${desired.font}">`); cur.font = desired.font; }
-          if (cur.size == null) { out.push(`<size=${desired.size}%>`); cur.size = desired.size; }
-          if (!cur.color) { out.push(`<color=${desired.color}>`); cur.color = desired.color; }
+          if (cur.align !== desired.align) {
+            if (cur.align) out.push("</align>");
+            out.push(`<align=${desired.align}>`);
+            cur.align = desired.align;
+          }
+          if (cur.font !== desired.font) {
+            if (cur.font) out.push("</font>");
+            out.push(`<font="${desired.font}">`);
+            cur.font = desired.font;
+          }
+          if (cur.size !== desired.size) {
+            if (cur.size != null) out.push("</size>");
+            out.push(`<size=${desired.size}%>`);
+            cur.size = desired.size;
+          }
         }
 
         function applyDesired(desired) {
-          openBase(desired);
-
-          const needReset =
-            cur.align !== desired.align || cur.font !== desired.font || cur.size !== desired.size || cur.color !== desired.color;
-
-          if (needReset) {
-            // close style flags first, then attrs, reopen
-            if (cur.u) { out.push("</u>"); cur.u = false; }
-            if (cur.i) { out.push("</i>"); cur.i = false; }
-            if (cur.b) { out.push("</b>"); cur.b = false; }
-
-            if (cur.color) { out.push("</color>"); cur.color = null; }
-            if (cur.size != null) { out.push("</size>"); cur.size = null; }
-            if (cur.font) { out.push("</font>"); cur.font = null; }
-            if (cur.align) { out.push("</align>"); cur.align = null; }
-
-            openBase(desired);
+          // If base changes, close color + flags first so nesting stays sane
+          const baseChanged = cur.align !== desired.align || cur.font !== desired.font || cur.size !== desired.size;
+          if (baseChanged) {
+            closeFlags();
+            if (cur.color) {
+              out.push("</color>");
+              cur.color = null;
+            }
           }
 
-          // flags
-          if (cur.b !== desired.b) { out.push(desired.b ? "<b>" : "</b>"); cur.b = desired.b; }
-          if (cur.i !== desired.i) { out.push(desired.i ? "<i>" : "</i>"); cur.i = desired.i; }
-          if (cur.u !== desired.u) { out.push(desired.u ? "<u>" : "</u>"); cur.u = desired.u; }
+          openBase(desired);
+
+          // color run
+          if (cur.color !== desired.color) {
+            closeFlags();
+            if (cur.color) out.push("</color>");
+            out.push(`<color=${desired.color}>`);
+            cur.color = desired.color;
+          }
+
+          // flags run
+          if (cur.b !== desired.b) {
+            out.push(desired.b ? "<b>" : "</b>");
+            cur.b = desired.b;
+          }
+          if (cur.i !== desired.i) {
+            out.push(desired.i ? "<i>" : "</i>");
+            cur.i = desired.i;
+          }
+          if (cur.u !== desired.u) {
+            out.push(desired.u ? "<u>" : "</u>");
+            cur.u = desired.u;
+          }
         }
 
         let i = 0;
         while (i < raw.length) {
+          // literal \n
           if (isLiteralNL(raw, i)) {
             if (cleanSlate.checked) closeAll();
             out.push("\\n");
             i += 2;
             continue;
           }
+          // actual newline
           if (raw[i] === "\n") {
             if (cleanSlate.checked) closeAll();
             out.push("\\n");
             i++;
             continue;
           }
+          // token
           if (isTokenStart(raw, i)) {
             const tok = readToken(raw, i);
-            if (tok) { out.push(raw.slice(tok.start, tok.end)); i = tok.end; continue; }
+            if (tok) {
+              out.push(raw.slice(tok.start, tok.end));
+              i = tok.end;
+              continue;
+            }
           }
 
           // visible char
@@ -1415,8 +1659,10 @@
             i: !!STYLE.i[v],
             u: !!STYLE.u[v]
           };
+
           applyDesired(desired);
           out.push(raw[i]);
+
           vIndex++;
           i++;
         }
@@ -1426,34 +1672,38 @@
       }
 
       function toPreviewHTML(markup) {
-        let html = markup
-          .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        let html = markup.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+        // align blocks
+        html = html
+          .replace(/&lt;align=(left|center|right)&gt;/g, (_, pos) => `<div style="text-align:${pos}">`)
+          .replace(/&lt;\/align&gt;/g, "</div>");
 
         // font
         html = html
           .replace(/&lt;font="([^"]+)"&gt;/g, (_, n) => `<span style="font-family:${FONT_MAP[n.trim()] || "inherit"}">`)
           .replace(/&lt;\/font&gt;/g, "</span>");
 
-        // color
-        html = html
-          .replace(/&lt;color=(#[0-9A-Fa-f]{6})&gt;/g, (_, h) => `<span style="color:${h}">`)
-          .replace(/&lt;\/color&gt;/g, "</span>");
-
         // size
         html = html
           .replace(/&lt;size=(\d{1,3})%&gt;/g, (_, p) => `<span style="font-size:${p}%">`)
           .replace(/&lt;\/size&gt;/g, "</span>");
 
-        // align
+        // color
         html = html
-          .replace(/&lt;align=(left|center|right)&gt;/g, (_, pos) => `<div style="text-align:${pos}">`)
-          .replace(/&lt;\/align&gt;/g, "</div>");
+          .replace(/&lt;color=(#[0-9A-Fa-f]{6})&gt;/g, (_, h) => `<span style="color:${h}">`)
+          .replace(/&lt;\/color&gt;/g, "</span>");
 
         // b/i/u
         html = html
-          .replace(/&lt;b&gt;/g, "<b>").replace(/&lt;\/b&gt;/g, "</b>")
-          .replace(/&lt;i&gt;/g, "<i>").replace(/&lt;\/i&gt;/g, "</i>")
-          .replace(/&lt;u&gt;/g, "<u>").replace(/&lt;\/u&gt;/g, "</u>")
+          .replace(/&lt;b&gt;/g, "<b>")
+          .replace(/&lt;\/b&gt;/g, "</b>")
+          .replace(/&lt;i&gt;/g, "<i>")
+          .replace(/&lt;\/i&gt;/g, "</i>")
+          .replace(/&lt;u&gt;/g, "<u>")
+          .replace(/&lt;\/u&gt;/g, "</u>");
+
+        // line breaks
         html = html.replace(/\\n/g, "<br/>").replace(/\n/g, "<br/>");
         return html;
       }
@@ -1471,12 +1721,15 @@
         sizePct.value = clamp(parseInt(sizePct.value || "100", 10), 50, 300);
         solidColor.value = normHex(solidColor.value, true);
         renderAll();
-        setStatus("Output normalized.");
+        setStatus("Normalized.");
       }
 
       function applyGradient() {
         const { vs, ve } = getSelectionVisibleRange();
-        if (ve <= vs) { setStatus("Select text for gradient."); return; }
+        if (ve <= vs) {
+          setStatus("Select text for gradient.");
+          return;
+        }
         pushHistory();
 
         const len = ve - vs;
@@ -1502,7 +1755,10 @@
         const { vs, ve } = getSelectionVisibleRange();
         applyLine.checked = old;
 
-        if (ve <= vs) { setStatus("Nothing on this line."); return; }
+        if (ve <= vs) {
+          setStatus("Nothing on this line.");
+          return;
+        }
         pushHistory();
         const base = normHex(solidColor.value, true);
         const sz = clamp(parseInt(sizePct.value || "100", 10), 50, 300);
@@ -1521,15 +1777,6 @@
         setStatus("Line reset.");
       }
 
-      function buildNamedLines() {
-        const parts = [];
-        for (const [name, ta] of Object.entries(exp)) {
-          const body = (ta.value || "").trim();
-          if (body) parts.push(`${name}:${body}`);
-        }
-        return parts;
-      }
-
       function downloadText(filename, text) {
         const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
         const url = URL.createObjectURL(blob);
@@ -1542,6 +1789,7 @@
         URL.revokeObjectURL(url);
       }
 
+      // Events
       editor.addEventListener("input", onEditorInput);
 
       applySolidBtn.addEventListener("click", () => {
@@ -1591,12 +1839,15 @@
         if (
           applyToRange((v) => {
             STYLE.color[v] = base;
-            STYLE.b[v] = false; STYLE.i[v] = false; STYLE.u[v] = false;
+            STYLE.b[v] = false;
+            STYLE.i[v] = false;
+            STYLE.u[v] = false;
             STYLE.size[v] = sz;
             STYLE.font[v] = f;
             STYLE.align[v] = "left";
           })
-        ) setStatus("Selection cleared.");
+        )
+          setStatus("Selection cleared.");
       });
 
       normalizeBtn.addEventListener("click", normalizeOutput);
@@ -1662,7 +1913,7 @@
       applyGradientBtn.addEventListener("click", applyGradient);
 
       copyMarkupBtn.addEventListener("click", () => {
-        copyToClipboard(buildMarkup()).then(() => setStatus("Markup copied."));
+        copyToClipboard(buildMarkup()).then(() => setStatus("Copied."));
       });
 
       downloadTxtBtn.addEventListener("click", () => {
@@ -1670,40 +1921,11 @@
         setStatus("Downloaded template.txt");
       });
 
-      document.querySelectorAll("[data-cap]").forEach((b) => {
-        b.addEventListener("click", () => {
-          const key = b.getAttribute("data-cap");
-          exp[key].value = buildMarkup();
-          setNamedStatus(`Captured into "${key}".`);
-        });
-      });
-
-      copyNamedBtn.addEventListener("click", () => {
-        const lines = buildNamedLines();
-        if (!lines.length) { setNamedStatus("Nothing to copy."); return; }
-        copyToClipboard(lines.join("\n")).then(() => setNamedStatus("Copied named exports."));
-      });
-
-      downloadNamedBtn.addEventListener("click", () => {
-        const lines = buildNamedLines();
-        if (!lines.length) { setNamedStatus("Nothing to export."); return; }
-        downloadText("named.txt", lines.join("\n"));
-        setNamedStatus("Downloaded named.txt");
-      });
-
-      editor.addEventListener("keydown", (e) => {
-        const mod = e.ctrlKey || e.metaKey;
-        if (mod && e.key.toLowerCase() === "s") { e.preventDefault(); downloadTxtBtn.click(); }
-        if (mod && e.key === "Enter") { e.preventDefault(); insertAtCaret("\\n"); }
-        if (mod && !e.shiftKey && e.key.toLowerCase() === "b") { e.preventDefault(); toggleFlag("b"); }
-        if (mod && !e.shiftKey && e.key.toLowerCase() === "i") { e.preventDefault(); toggleFlag("i"); }
-        if (mod && !e.shiftKey && e.key.toLowerCase() === "u") { e.preventDefault(); toggleFlag("u"); }
-        if (mod && e.shiftKey && e.key.toLowerCase() === "g") { e.preventDefault(); applyGradient(); }
-        if (mod && !e.shiftKey && e.key.toLowerCase() === "z") { e.preventDefault(); undo(); }
-        if (mod && (e.key.toLowerCase() === "y" || (e.shiftKey && e.key.toLowerCase() === "z"))) { e.preventDefault(); redo(); }
-      });
-
+      // Boot
       (function init() {
+        // show popup unless disabled
+        if (!localStorage.getItem("maul_beta_modal_hide")) openModal();
+
         TEXT = "♡Welcome to my lobby♡\\n";
         editor.value = TEXT;
         lastEditorValue = TEXT;
@@ -1720,7 +1942,9 @@
           STYLE.size[v] = sz;
           STYLE.font[v] = f;
           STYLE.align[v] = "left";
-          STYLE.b[v] = false; STYLE.i[v] = false; STYLE.u[v] = false;
+          STYLE.b[v] = false;
+          STYLE.i[v] = false;
+          STYLE.u[v] = false;
         }
 
         renderStops();
