@@ -32,9 +32,7 @@
         --text-muted: #dedee8;
       }
 
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
 
       html, body {
         height: 100%;
@@ -159,9 +157,7 @@
                      0 0 16px rgba(255, 0, 0, 0.9);
       }
 
-      .dropdown.open .dropdown-content {
-        display: block;
-      }
+      .dropdown.open .dropdown-content { display: block; }
 
       @keyframes betaPulse {
         0% {
@@ -185,9 +181,7 @@
       }
 
       @media (max-width: 600px) {
-        .page-wrapper {
-          padding-top: 90px;
-        }
+        .page-wrapper { padding-top: 90px; }
       }
 
       .page-header {
@@ -469,6 +463,49 @@
         line-height: 1.4;
       }
 
+      /* NEW: long-form preset details block */
+      .preset-details {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px dashed rgba(255,255,255,0.12);
+        color: var(--text-muted);
+        font-size: 0.88rem;
+        line-height: 1.55;
+      }
+
+      .preset-details h4 {
+        margin: 10px 0 6px;
+        font-size: 0.85rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        opacity: 0.9;
+      }
+
+      .preset-details ul {
+        margin: 6px 0 10px 18px;
+      }
+
+      .preset-details .pillrow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 8px;
+        justify-content: flex-start;
+      }
+
+      .preset-details .pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.12);
+        color: var(--text-muted);
+        font-size: 0.75rem;
+      }
+
       .mini-steps-wrap {
         max-width: 900px;
         margin: 12px auto 32px;
@@ -544,6 +581,7 @@
       }
     </style>
   </head>
+
   <body>
     <div class="dropdown">
       <button class="dropbtn" type="button" aria-label="Open navigation menu">
@@ -554,20 +592,19 @@
         </div>
       </button>
       <div class="dropdown-content">
-      <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
-      <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
-      <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
-      <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
-      <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
-      <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
-      <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
-      <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
-      <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
-      <a href="https://moddedamong.us/wrapped"><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a>
-      <a href="https://moddedamong.us/roletest"><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a>
-      <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
-        </a>
+        <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
+        <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
+        <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
+        <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
+        <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
+        <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
+        <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
+        <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
+        <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
+        <a href="https://moddedamong.us/wrapped"><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a>
+        <a href="https://moddedamong.us/roletest"><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a>
+        <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
       </div>
     </div>
 
@@ -577,9 +614,7 @@
           <span class="header-badge-dot"></span>
           Ready-to-Use Settings for Mods
         </div>
-        <h1>
-          Mod <span>Presets</span>
-        </h1>
+        <h1>Mod <span>Presets</span></h1>
         <p class="page-header-subtitle">
           Download and plug in community-made presets for
           <strong>Town of Host, EHR, TOU-Mira, Project Lotus</strong> and more – tuned for Modded Among Us Lobbies.
@@ -643,16 +678,81 @@
               {
                 host: "Sarha",
                 name: "Balanced Chaos",
-                description: "Same settings that were used within my TOHE preset with a few simple EHR roles added.",
-                file: "presets/SarhaEHR6.1.1Options.json",
+                description: "Good settings to dive right in and learn how roles work.",
+                file: "presets/sarhaOptions.json",
                 notes: "Settings are on Preset 1. Low kill cooldowns, high intensity."
               },
               {
                 host: "Wyzeris",
                 name: "Multiple intensity types",
                 description: "Preset 1 is chaotic.<br>Preset 4 is semi-chaotic.<br>Preset 2/3/6 are non-chaotic.",
-                file: "presets/Wyzeris_EHR_6.1.1Options.json",
-                notes: "Compatible on EHR 6.1.1."
+                file: "presets/wyzerisOptions.json",
+                notes: "Compatible on EHR 6.7.2.",
+                detailsHtml: `
+                  <div class="preset-details">
+                    <h4>Core Setup</h4>
+                    <ul>
+                      <li><strong>Mod:</strong> Endless Host Roles 6.7.2</li>
+                      <li><strong>Main Preset:</strong> Preset 1 (chaotic preset but balanced quite a bit)</li>
+                      <li><strong>Role Count:</strong> 96 Roles, 23 Addons (2 Imps, 1 MM [DoubleAgent-guaranteed], 1 Neutral Killer, 1 Neutral Benign/Evil, 1 Coven depending on player counts)</li>
+                    </ul>
+
+                    <h4>Rules</h4>
+                    <ul>
+                      <li><strong>Guessing:</strong> All Killers + 2 Crewmates can guess (Addons cannot be guessed &amp; onbound is off)</li>
+                      <li><strong>Voting:</strong> Mayor &amp; Pickpocket are the only role with extra votes</li>
+                      <li><strong>Crewmate Venting:</strong> Mechanic is the only crewmate role that can vent</li>
+                    </ul>
+
+                    <h4>Rotation & Maps</h4>
+                    <ul>
+                      <li><strong>Rotation:</strong> 4 Standard Games → 1 Gamemode Game</li>
+                      <li><strong>Random Maps:</strong> Skeld 20%, MiraHQ 25%, Polus 35%, Airship 10%, Fungle 10%</li>
+                    </ul>
+
+                    <h4>Factions</h4>
+                    <ul>
+                      <li><strong>Recruiting roles:</strong> Off</li>
+                      <li><strong>Faction stability:</strong> Factions are the same and don’t change</li>
+                      <li><strong>Direct kill cap:</strong> Max of 3 killers that can kill directly (2 Imp, 1 NK) on 15+ players</li>
+                      <li><strong>Coven kill pacing:</strong> Coven can kill after 3 meetings</li>
+                    </ul>
+
+                    <h4>Tasks & Ability</h4>
+                    <ul>
+                      <li>Completing 2 Tasks grants 1 ability use</li>
+                      <li>Once all tasks are completed, gain 1 ability use every 25s</li>
+                      <li>Impostors gain 1 ability every 2 kills</li>
+                    </ul>
+
+                    <h4>Cooldowns & Vision</h4>
+                    <ul>
+                      <li><strong>Kill Cooldowns:</strong> Impostors 21s, Neutral Killers 18s (some can be lower, e.g. “Serial Killer”), Coven 15s, Sheriff 21s</li>
+                      <li><strong>Ability Cooldown:</strong> 15s</li>
+                      <li><strong>Vision:</strong> Impostors only have impostor vision; all others have crewmate vision (NK, Coven, etc). 0.65x Crew, 1.5x Imps</li>
+                    </ul>
+
+                    <h4>Lobby Notes</h4>
+                    <ul>
+                      <li><strong>Whisper:</strong> Enabled</li>
+                      <li><strong>Target players:</strong> Mostly made for 10–15 players (below can be gamemodes)</li>
+                      <li><strong>Other presets:</strong>
+                        Preset 2 Murder Mystery (gamemode style),
+                        Preset 3 Town of Us Mira (balanced),
+                        Preset 4 The Other Roles (balanced),
+                        Preset 9 All Roles On (chaotic)
+                      </li>
+                    </ul>
+
+                    <div class="pillrow">
+                      <span class="pill">10–15 players</span>
+                      <span class="pill">Whisper on</span>
+                      <span class="pill">3 direct killers cap</span>
+                      <span class="pill">Task-based abilities</span>
+                      <span class="pill">Map rotation</span>
+                    </div>
+                  </div>
+                `
               },
               {
                 host: "GoldenWolf",
@@ -664,7 +764,8 @@
             ]
           }
         ],
-      mods: [
+
+        mods: [
           {
             id: "toh",
             title: "Town of Host",
@@ -691,16 +792,81 @@
               {
                 host: "Sarha",
                 name: "Balanced Chaos",
-                description: "Same settings that were used within my TOHE preset with a few simple EHR roles added.",
-                file: "presets/SarhaEHR6.1.1Options.json",
+                description: "Good settings to dive right in and learn how roles work.",
+                file: "presets/sarhaOptions.json",
                 notes: "Settings are on Preset 1. Low kill cooldowns, high intensity."
               },
               {
                 host: "Wyzeris",
                 name: "Multiple intensity types",
                 description: "Preset 1 is chaotic.<br>Preset 4 is semi-chaotic.<br>Preset 2/3/6 are non-chaotic.",
-                file: "presets/Wyzeris_EHR_6.1.1Options.json",
-                notes: "Compatible on EHR 6.1.1."
+                file: "presets/wyzerisOptions.json",
+                notes: "Compatible on EHR 6.7.2.",
+                detailsHtml: `
+                  <div class="preset-details">
+                    <h4>Core Setup</h4>
+                    <ul>
+                      <li><strong>Mod:</strong> Endless Host Roles 6.7.2</li>
+                      <li><strong>Main Preset:</strong> Preset 1 (chaotic preset but balanced quite a bit)</li>
+                      <li><strong>Role Count:</strong> 96 Roles, 23 Addons (2 Imps, 1 MM [DoubleAgent-guaranteed], 1 Neutral Killer, 1 Neutral Benign/Evil, 1 Coven depending on player counts)</li>
+                    </ul>
+
+                    <h4>Rules</h4>
+                    <ul>
+                      <li><strong>Guessing:</strong> All Killers + 2 Crewmates can guess (Addons cannot be guessed &amp; onbound is off)</li>
+                      <li><strong>Voting:</strong> Mayor &amp; Pickpocket are the only role with extra votes</li>
+                      <li><strong>Crewmate Venting:</strong> Mechanic is the only crewmate role that can vent</li>
+                    </ul>
+
+                    <h4>Rotation & Maps</h4>
+                    <ul>
+                      <li><strong>Rotation:</strong> 4 Standard Games → 1 Gamemode Game</li>
+                      <li><strong>Random Maps:</strong> Skeld 20%, MiraHQ 25%, Polus 35%, Airship 10%, Fungle 10%</li>
+                    </ul>
+
+                    <h4>Factions</h4>
+                    <ul>
+                      <li><strong>Recruiting roles:</strong> Off</li>
+                      <li><strong>Faction stability:</strong> Factions are the same and don’t change</li>
+                      <li><strong>Direct kill cap:</strong> Max of 3 killers that can kill directly (2 Imp, 1 NK) on 15+ players</li>
+                      <li><strong>Coven kill pacing:</strong> Coven can kill after 3 meetings</li>
+                    </ul>
+
+                    <h4>Tasks & Ability</h4>
+                    <ul>
+                      <li>Completing 2 Tasks grants 1 ability use</li>
+                      <li>Once all tasks are completed, gain 1 ability use every 25s</li>
+                      <li>Impostors gain 1 ability every 2 kills</li>
+                    </ul>
+
+                    <h4>Cooldowns & Vision</h4>
+                    <ul>
+                      <li><strong>Kill Cooldowns:</strong> Impostors 21s, Neutral Killers 18s (some can be lower, e.g. “Serial Killer”), Coven 15s, Sheriff 21s</li>
+                      <li><strong>Ability Cooldown:</strong> 15s</li>
+                      <li><strong>Vision:</strong> Impostors only have impostor vision; all others have crewmate vision (NK, Coven, etc). 0.65x Crew, 1.5x Imps</li>
+                    </ul>
+
+                    <h4>Lobby Notes</h4>
+                    <ul>
+                      <li><strong>Whisper:</strong> Enabled</li>
+                      <li><strong>Target players:</strong> Mostly made for 10–15 players (below can be gamemodes)</li>
+                      <li><strong>Other presets:</strong>
+                        Preset 2 Murder Mystery (gamemode style),
+                        Preset 3 Town of Us Mira (balanced),
+                        Preset 4 The Other Roles (balanced),
+                        Preset 9 All Roles On (chaotic)
+                      </li>
+                    </ul>
+
+                    <div class="pillrow">
+                      <span class="pill">10–15 players</span>
+                      <span class="pill">Whisper on</span>
+                      <span class="pill">3 direct killers cap</span>
+                      <span class="pill">Task-based abilities</span>
+                      <span class="pill">Map rotation</span>
+                    </div>
+                  </div>
+                `
               },
               {
                 host: "GoldenWolf",
@@ -788,10 +954,15 @@
         s.textContent = `${p.host} — ${p.name}`;
         d.appendChild(s);
 
-        const meta = el('div', 'preset-meta', p.description);
+        const meta = el('div', 'preset-meta', p.description || '');
         d.appendChild(meta);
 
+        if (p.detailsHtml) {
+          d.appendChild(el('div', '', p.detailsHtml));
+        }
+
         const actions = el('div', 'preset-actions');
+
         if (p.file && /\.\w{2,5}$/.test(p.file)) {
           const dl = el('a', 'btn');
           dl.href = p.file;
@@ -799,10 +970,12 @@
           dl.textContent = 'Download Preset';
           actions.appendChild(dl);
         }
+
         if (p.notes) {
           const badge = el('span', 'badge', p.notes);
           actions.appendChild(badge);
         }
+
         d.appendChild(actions);
         return d;
       }
