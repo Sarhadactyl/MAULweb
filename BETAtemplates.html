@@ -1,9 +1,13 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>MAUL | BETA Live Template Editor</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MAUL | BETA Live Template Editor</title>
+
+  <link rel="canonical" href="https://moddedamong.us/templates.html" />
+  <meta name="description" content="Type, color, and export Among Us templates with smooth gradients in real time." />
+
   <meta property="og:title" content="MAUL | Live Template Editor" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://moddedamong.us/templates.html" />
@@ -11,82 +15,493 @@
   <meta property="og:description" content="Type, color, and export Among Us templates with smooth gradients in real time." />
   <meta property="og:site_name" content="Modded Among Us Lobbies" />
   <meta property="og:locale" content="en_US" />
-  <link rel="canonical" href="https://moddedamong.us/templates.html" />
-  <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;700;900&family=VT323&family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&family=Press+Start+2P&family=Share+Tech+Mono&family=Rajdhani:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;700;900&family=VT323&family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;700&family=Press+Start+2P&family=Share+Tech+Mono&family=Rajdhani:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    :root{--panel-bg:rgba(0,0,0,.68);--panel-br:rgba(255,255,255,.12);--chip-br:rgba(255,255,255,.22);--muted:#e6e6e6}
-    html,body{height:100%;margin:0;padding:0;background:#000;color:#fff;font-family:'Roboto',sans-serif;overflow-x:hidden}
-    body{background:linear-gradient(90deg,#ff4d79,#fe9f5b,#41d3bd,#3e64ff) 0 0/100% 5px no-repeat,linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.9)),url('images/background.png') no-repeat center/cover fixed;display:flex;flex-direction:column;align-items:center;padding-bottom:100px}
-    header{width:100%;text-align:center;padding:20px;background:rgba(0,0,0,.94)}
-    header h1{margin:0;font-size:2rem;letter-spacing:.5px}
-    footer{position:fixed;bottom:0;left:0;width:100%;text-align:center;padding:12px;background:rgba(0,0,0,.92);font-size:.9rem}
-    .container{max-width:1180px;width:92%;margin:24px auto;display:grid;gap:20px}
-    .panel{background:var(--panel-bg);border:1px solid var(--panel-br);border-radius:10px;padding:18px}
-    .section-title{font-size:1.6rem;text-align:center;margin:0 0 6px}
-    .section-subtitle{text-align:center;color:var(--muted);margin:0 0 16px;font-size:.98rem}
-    .grid{display:grid;gap:14px}
-    .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
-    .field{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);padding:6px 10px;border-radius:8px}
-    .field input,.field select,.field textarea{background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.24);border-radius:6px;color:#def;padding:8px}
-    .field textarea{width:100%;min-height:130px;resize:vertical}
-    .btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#e7f0ff;font-size:.92rem;padding:8px 12px;border-radius:6px;cursor:pointer;transition:background .15s,border-color .15s,transform .02s}
-    .btn:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.38)}
-    .btn:active{transform:scale(.98)}
-    .btn.small{padding:6px 8px;font-size:.85rem}
-    .codebox{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:14px;font-family:'Roboto Mono',monospace;white-space:pre-wrap;word-break:break-word}
-    .twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media(max-width:900px){.twocol{grid-template-columns:1fr}}
-    #lte-preview{min-height:360px;padding:0}
-    #lte-preview header{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.35);position:sticky;top:0}
-    #lte-preview-content{padding:16px 18px;font-size:1.35rem;line-height:1.6}
-    #lte-output{height:220px;overflow:auto}
-    #lte-editor{
-      min-height:180px;
-      resize:vertical;
-      overflow:auto;
+    :root{
+      --bg0:#060006;
+      --bg1:#0c0010;
+      --panel:rgba(8,0,10,.72);
+      --panel2:rgba(255,255,255,.06);
+      --br:rgba(255,255,255,.12);
+      --br2:rgba(255,255,255,.18);
+      --text:#ffffff;
+      --muted:#f0d6dd;
+
+      --red:#ff2b52;
+      --red2:#ff4d79;
+      --hot:#ff7b3d;
+      --glow:rgba(255,43,82,.22);
+
+      --mono:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      --sans:"Roboto",system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+
+      --radius:12px;
     }
-    .gg-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-    .color-chip{width:40px;height:32px;border:1px solid var(--chip-br);background:transparent}
-    .preview-bar{height:44px;border-radius:8px;border:1px solid #000;margin:6px 0}
-    .export-card{display:grid;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:10px}
-    .export-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    @media(max-width:900px){.export-grid{grid-template-columns:1fr}} 
-    .preset-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-    @media(max-width:1200px){.preset-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:700px){.preset-grid{grid-template-columns:1fr}}
-    .preset-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:10px;display:grid;gap:8px}
-    .preset-swatch{height:32px;border-radius:6px;border:1px solid rgba(255,255,255,.2)}
-    .preset-hex{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:8px;font-family:'Roboto Mono',monospace;font-size:.85rem;color:#e7f0ff;white-space:pre-wrap}
-    #icon-palette{
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family:var(--sans);
+      overflow-x:hidden;
+
+      background:
+        linear-gradient(90deg, var(--red), #ff3a67, #ff2b52) 0 0/100% 5px no-repeat,
+        radial-gradient(900px 500px at 20% 10%, rgba(255,43,82,.22), transparent 60%),
+        radial-gradient(900px 500px at 80% 20%, rgba(255,123,61,.14), transparent 60%),
+        linear-gradient(rgba(0,0,0,.92), rgba(0,0,0,.92)),
+        url("images/background.png") no-repeat center/cover fixed;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+
+      padding-bottom:92px;
+    }
+
+    a{color:inherit}
+
+    .topbar{
+      width:100%;
+      position:sticky;
+      top:0;
+      z-index:50;
+
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.92), rgba(0,0,0,.78));
+
+      border-bottom:1px solid rgba(255,255,255,.10);
+      box-shadow:0 10px 30px rgba(0,0,0,.55);
+    }
+
+    .topbar-inner{
+      max-width:1180px;
+      width:92%;
+      margin:0 auto;
+      padding:14px 0;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      user-select:none;
+    }
+
+    .brand-badge{
+      width:36px;height:36px;
+      border-radius:10px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), transparent 55%),
+        linear-gradient(135deg, var(--red), #b8002f);
+      box-shadow:0 0 0 1px rgba(255,255,255,.12), 0 14px 28px rgba(0,0,0,.5);
+    }
+
+    .brand h1{
+      margin:0;
+      font-size:1.2rem;
+      letter-spacing:.6px;
+      font-weight:900;
+      font-family:"Barlow",var(--sans);
+    }
+    .brand small{
+      display:block;
+      margin-top:2px;
+      color:rgba(255,255,255,.72);
+      font-size:.78rem;
+      letter-spacing:.25px;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .nav a{
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid transparent;
+      color:rgba(255,255,255,.88);
+      font-size:.92rem;
+    }
+    .nav a:hover{
+      border-color:rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+    }
+
+    .hamburger{
       display:none;
-      max-height:220px;
-      overflow:auto;
-      margin:8px auto 0;
-      padding:8px;
-      border-radius:8px;
-      background:rgba(0,0,0,.88);
-      border:1px solid rgba(255,255,255,.18);
-      max-width:600px;
+      align-items:center;
+      gap:8px;
     }
-    #icon-palette.open{display:block;}
-    #icon-grid{
+    .btn{
+      appearance:none;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.08);
+      color:rgba(255,255,255,.95);
+      padding:9px 12px;
+      border-radius:10px;
+      cursor:pointer;
+      transition:transform .03s, background .15s, border-color .15s, box-shadow .15s;
+      user-select:none;
+    }
+    .btn:hover{
+      background:rgba(255,255,255,.12);
+      border-color:rgba(255,255,255,.30);
+      box-shadow:0 0 0 3px rgba(255,43,82,.14);
+    }
+    .btn:active{transform:scale(.98)}
+    .btn.small{padding:7px 9px;font-size:.86rem;border-radius:9px}
+    .btn.ghost{background:transparent;border-color:rgba(255,255,255,.18)}
+    .btn.red{
+      background:rgba(255,43,82,.16);
+      border-color:rgba(255,43,82,.30);
+    }
+    .btn.red:hover{background:rgba(255,43,82,.22);border-color:rgba(255,43,82,.40)}
+    .btn.pill{border-radius:999px}
+
+    .menu-btn{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .burger-lines{
+      width:18px;height:12px;position:relative;
+    }
+    .burger-lines span{
+      position:absolute;left:0;right:0;height:2px;border-radius:999px;
+      background:rgba(255,255,255,.88);
+      box-shadow:0 0 10px rgba(255,43,82,.10);
+      transition:transform .15s, top .15s, opacity .15s;
+    }
+    .burger-lines span:nth-child(1){top:0}
+    .burger-lines span:nth-child(2){top:5px}
+    .burger-lines span:nth-child(3){top:10px}
+
+    .drawer{
+      display:none;
+      border-top:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.78);
+    }
+    .drawer.open{display:block}
+    .drawer-inner{
+      max-width:1180px;
+      width:92%;
+      margin:0 auto;
+      padding:10px 0 14px;
+
+      display:grid;
+      gap:8px;
+    }
+    .drawer-inner a{
+      display:block;
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      color:rgba(255,255,255,.92);
+    }
+    .drawer-inner a:hover{
+      border-color:rgba(255,255,255,.22);
+      background:rgba(255,255,255,.07);
+    }
+
+    @media (max-width:900px){
+      .nav{display:none}
+      .hamburger{display:flex}
+    }
+
+    main.container{
+      max-width:1180px;
+      width:92%;
+      margin:18px auto 0;
+      display:grid;
+      gap:18px;
+    }
+
+    .panel{
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,.25) inset,
+        0 18px 46px rgba(0,0,0,.55);
+    }
+
+    .panel-header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+
+    .title-wrap h2{
+      margin:0;
+      font-size:1.55rem;
+      letter-spacing:.4px;
+      font-family:"Barlow",var(--sans);
+    }
+    .subtitle{
+      margin:4px 0 0;
+      color:rgba(255,255,255,.75);
+      font-size:.95rem;
+    }
+
+    .section-help{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .help-link{
+      color:#ffd0dc;
+      font-size:.92rem;
+    }
+
+    .grid{display:grid;gap:12px}
+    .row{
       display:flex;
       flex-wrap:wrap;
-      gap:6px;
+      gap:10px;
+      align-items:center;
       justify-content:center;
     }
-    .icon-btn{
-      min-width:32px;
-      padding:4px 6px;
-      font-size:1rem;
-      line-height:1;
+    .toolbar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:stretch;
+      justify-content:center;
     }
- 
-    #about-modal{
+
+    .field{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+    }
+    .field label{font-size:.92rem;color:rgba(255,255,255,.90)}
+    .field small{color:rgba(255,255,255,.68)}
+    .field input, .field select, .field textarea{
+      background:rgba(0,0,0,.42);
+      border:1px solid rgba(255,255,255,.20);
+      border-radius:10px;
+      color:#ffe9f0;
+      padding:8px 10px;
+      outline:none;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus{
+      border-color:rgba(255,43,82,.55);
+      box-shadow:0 0 0 3px var(--glow);
+    }
+    .field textarea{width:100%;min-height:120px;resize:vertical}
+
+    .twocol{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width:900px){.twocol{grid-template-columns:1fr}}
+
+    .codebox{
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:12px;
+      padding:14px;
+      font-family:var(--mono);
+      white-space:pre-wrap;
+      word-break:break-word;
+    }
+
+    #output{
+      height:220px;
+      overflow:auto;
+    }
+
+    #preview{
+      min-height:360px;
+      padding:0;
+      overflow:hidden;
+    }
+    #preview .preview-header{
+      padding:10px 14px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.35);
+      position:sticky;
+      top:0;
+      z-index:1;
+    }
+    #preview-content{
+      padding:16px 18px;
+      font-size:1.35rem;
+      line-height:1.6;
+    }
+
+    #editor{
+      min-height:200px;
+      resize:vertical;
+      font-family:var(--mono);
+      letter-spacing:.15px;
+    }
+
+    .pill-note{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      color:rgba(255,255,255,.80);
+      font-size:.88rem;
+    }
+
+    .status{
+      min-height:20px;
+      color:#ffe0e8;
+      font-size:.92rem;
+      text-shadow:0 0 14px rgba(255,43,82,.15);
+    }
+
+    .preview-bar{
+      height:44px;
+      border-radius:12px;
+      border:1px solid rgba(0,0,0,.75);
+      box-shadow:0 0 0 1px rgba(255,255,255,.08) inset;
+      margin:6px 0;
+      background:#111;
+    }
+
+    .stops-wrap{
+      display:grid;
+      gap:8px;
+      width:min(720px, 100%);
+    }
+    .stop-row{
+      display:grid;
+      grid-template-columns: 110px 44px 1fr 78px auto;
+      gap:8px;
+      align-items:center;
+      padding:8px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+    }
+    @media (max-width:780px){
+      .stop-row{grid-template-columns:1fr 44px 1fr 78px auto}
+    }
+    .stop-row input[type="range"]{width:100%}
+    .stop-row .pos{
+      width:78px;
+      text-align:center;
+      font-family:var(--mono);
+      font-size:.9rem;
+      opacity:.92;
+    }
+    .stop-actions{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .preset-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:10px;
+    }
+    @media (max-width:1200px){.preset-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:700px){.preset-grid{grid-template-columns:1fr}}
+
+    .preset-card{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:12px;
+      padding:10px;
+      display:grid;
+      gap:8px;
+    }
+    .preset-name{
+      font-family:"Barlow",var(--sans);
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .preset-swatch{
+      height:32px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 0 0 1px rgba(0,0,0,.35) inset;
+    }
+    .preset-hex{
+      background:rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:12px;
+      padding:8px;
+      font-family:var(--mono);
+      font-size:.85rem;
+      color:#ffe6ee;
+      white-space:pre-wrap;
+    }
+    .preset-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+    .export-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width:900px){.export-grid{grid-template-columns:1fr}}
+
+    .export-card{
+      display:grid;
+      gap:8px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:12px;
+      padding:10px;
+    }
+
+    #icon-palette{
+      display:none;
+      max-height:240px;
+      overflow:auto;
+      margin:8px auto 0;
+      padding:10px;
+      border-radius:12px;
+      background:rgba(0,0,0,.78);
+      border:1px solid rgba(255,255,255,.14);
+      max-width:720px;
+      box-shadow:0 18px 46px rgba(0,0,0,.6);
+    }
+    #icon-palette.open{display:block}
+    #icon-grid{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+    .icon-btn{min-width:34px;padding:6px 8px;font-size:1.05rem;line-height:1}
+
+    #modal{
       position:fixed;
       inset:0;
       display:none;
@@ -94,1293 +509,1728 @@
       justify-content:center;
       z-index:9999;
     }
-    #about-modal.open{display:flex;}
-    #about-backdrop{
+    #modal.open{display:flex}
+    #modal-backdrop{
       position:absolute;
       inset:0;
-      background:rgba(0,0,0,.75);
+      background:rgba(0,0,0,.72);
     }
-    #about-dialog{
+    #modal-dialog{
       position:relative;
-      max-width:760px;
-      width:90%;
-      max-height:80vh;
+      max-width:820px;
+      width:92%;
+      max-height:82vh;
       overflow:auto;
-      background:rgba(8,8,12,.98);
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.2);
+      background:rgba(8,0,10,.96);
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.18);
       padding:18px 20px 16px;
-      box-shadow:0 18px 40px rgba(0,0,0,.85);
+      box-shadow:0 24px 60px rgba(0,0,0,.75);
       font-size:.95rem;
     }
-    #about-dialog h2{
+    #modal-dialog h2{
       margin:0 0 6px;
-      font-size:1.4rem;
-      text-align:left;
+      font-family:"Barlow",var(--sans);
+      font-size:1.35rem;
+      letter-spacing:.3px;
     }
-    #about-dialog p{
-      margin:4px 0;
-      color:#f0f4ff;
-    }
-    #about-dialog ul{
-      margin:6px 0 8px 18px;
-      padding:0;
-      color:#e0e6ff;
-    }
-    #about-dialog li{
-      margin:2px 0;
-    }
-    #about-close{
-      position:absolute;
-      top:8px;
-      right:10px;
-      font-size:.85rem;
-      padding:4px 8px;
-    }
-    #about-dialog code{
+    #modal-dialog p{margin:6px 0;color:#ffe8ef}
+    #modal-dialog ul{margin:6px 0 12px 18px;padding:0;color:#ffd7e3}
+    #modal-dialog code{
       background:rgba(255,255,255,.08);
       padding:1px 4px;
-      border-radius:4px;
-      font-size:.86em;
+      border-radius:6px;
+      font-size:.92em;
     }
-    #about-dialog strong{
-      color:#ffd35f;
-    }
-    .section-help-link{
-      display:block;
+    #modal-close{position:absolute;top:10px;right:10px}
+
+    footer{
+      position:fixed;
+      left:0;
+      bottom:0;
+      width:100%;
       text-align:center;
+      padding:12px;
+      background:linear-gradient(180deg, rgba(0,0,0,.62), rgba(0,0,0,.86));
+      border-top:1px solid rgba(255,255,255,.10);
       font-size:.9rem;
-      margin-top:4px;
-      color:#ffda7f;
+      color:rgba(255,255,255,.88);
     }
-    .section-help-link a{
-      color:#ffef9c;
-      text-decoration:underline;
-      cursor:pointer;
+
+    @media (prefers-reduced-motion: reduce){
+      .btn{transition:none}
     }
   </style>
 </head>
+
 <body>
- 
-<div id="about-modal">
-  <div id="about-backdrop"></div>
-  <div id="about-dialog">
-    <button class="btn small" id="about-close">Close</button>
-    <h2>About the Live Template Editor</h2>
-    <p>This tool helps you build styled Among Us templates with colors, gradients, fonts, and line breaks.</p>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-badge" aria-hidden="true"></div>
+        <div>
+          <h1>MAUL Live Template Editor</h1>
+          <small>Redline build • smooth gradients • clean exports</small>
+        </div>
+      </div>
 
-    <p><strong>Typing & Preview</strong></p>
-    <ul>
-      <li>Type your text in the editor on the left.</li>
-      <li>The live preview on the right shows colors, fonts, and alignment.</li>
-      <li>The “Output” box shows the exact markup that the game will use.</li>
-    </ul>
+      <nav class="nav" aria-label="Primary">
+        <a href="#editor-panel">Editor</a>
+        <a href="#presets-panel">Presets</a>
+        <a href="#exports-panel">Named Exports</a>
+        <a href="#" id="open-help-top">Help</a>
+      </nav>
 
-    <p><strong>Line breaks</strong></p>
-    <ul>
-      <li>Use the <strong>↵ \n</strong> button to insert a <code>\n</code> (real line break in-game).</li>
-      <li>Avoid pressing Enter for line breaks or you’ll get extra <code>\n</code> when exporting.</li>
-    </ul>
+      <div class="hamburger">
+        <button class="btn red pill menu-btn" id="menu-toggle" type="button" aria-expanded="false" aria-controls="drawer">
+          <span class="burger-lines" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          Menu
+        </button>
+      </div>
+    </div>
 
-    <p><strong>Styling text</strong></p>
-    <ul>
-      <li>Select text, then use <strong>B / I / U</strong> for bold, italic, underline.</li>
-      <li>Use <strong>Solid</strong> + <em>Apply</em> to set a single color.</li>
-      <li>Use gradient stops + <em>Apply gradient</em> for smooth colored text.</li>
-      <li>Font, size, and align wrap your selection in the proper tags.</li>
-    </ul>
-
-    <p><strong>Clean slate & lines</strong></p>
-    <ul>
-      <li><strong>Clean slate</strong> (recommended ON) closes color/size/align on <code>\n</code> and bridges colors correctly.</li>
-      <li><strong>Apply to whole line</strong> lets you style the entire current line at once.</li>
-      <li><strong>Reset line</strong> removes all styling tags from the current line only.</li>
-    </ul>
-
-    <p><strong>Exporting</strong></p>
-    <ul>
-      <li><strong>Copy markup</strong> copies the entire template as text with literal <code>\n</code>.</li>
-      <li><strong>Download .txt</strong> saves the same into <code>template.txt</code>.</li>
-      <li>Use the <strong>Named Exports</strong> section for <code>welcome</code>, <code>rules</code>, etc., then download them as <code>named.txt</code>.</li>
-    </ul>
-
-    <p>You can reopen this help anytime by clicking <strong>“HERE”</strong> under the Editor title.</p>
+    <div class="drawer" id="drawer">
+      <div class="drawer-inner">
+        <a href="#editor-panel" class="drawer-link">Editor</a>
+        <a href="#presets-panel" class="drawer-link">Presets</a>
+        <a href="#exports-panel" class="drawer-link">Named Exports</a>
+        <a href="#" id="open-help-drawer" class="drawer-link">Help</a>
+      </div>
+    </div>
   </div>
-</div>
 
-<header><h1>MAUL Live Template Editor</h1></header>
+  <div id="modal" role="dialog" aria-modal="true" aria-labelledby="help-title">
+    <div id="modal-backdrop" tabindex="-1"></div>
+    <div id="modal-dialog">
+      <button class="btn small" id="modal-close" type="button">Close</button>
+      <h2 id="help-title">About the Live Template Editor</h2>
 
-<main class="container">
-  <section class="panel">
-    <h2 class="section-title">
-      <u>Editor</u>
-    </h2>
-    <span class="section-help-link">
-      Learn how to use the generator
-      <a href="#" id="about-open-inline">(HERE)<p></p></a>
-    </span>
+      <p>This editor is now <strong>non-destructive</strong>: you type plain text, and we generate markup safely.</p>
 
-    <div class="grid">
-      <div class="row">
-        <div class="field">
-          <label>Font</label>
-          <select id="lte-font">
-            <option>OCRAXT SDF</option><option>BROOK SDF</option><option>VCR SDF</option>
-            <option>Barlow-Black SDF</option><option>Barlow-BoldItalic SDF</option>
-            <option>Barlow-Light SDF</option><option>CONSOLA SDF</option>
-            <option>DIGITAL-7 SDF</option><option>DIN_Pro_Bold_700 SDF</option>
-            <option>LiberationSans SDF</option><option>NotoSansJP-Regular SDF</option>
-            <option>OCRAEXT SDF</option>
-          </select>
-          <button class="btn" id="btn-font-wrap">Font wrap</button>
+      <p><strong>Typing &amp; Preview</strong></p>
+      <ul>
+        <li>Type your message in the Editor (left).</li>
+        <li>Preview shows web-font approximations for SDF fonts.</li>
+        <li>Output shows final Among Us markup (copy/download).</li>
+      </ul>
+
+      <p><strong>Line breaks</strong></p>
+      <ul>
+        <li>Use <strong>↵ \n</strong> to insert a literal <code>\n</code> (recommended).</li>
+        <li>If you press Enter, export will still convert newlines to <code>\n</code>.</li>
+      </ul>
+
+      <p><strong>Stops / Gradient</strong></p>
+      <ul>
+        <li>Stops have a <strong>position</strong> now (0–100%).</li>
+        <li><strong>Distribute</strong> spaces stop positions evenly.</li>
+        <li>Applying gradient assigns per-character colors (tokens and <code>\n</code> are skipped).</li>
+      </ul>
+
+      <p><strong>Editing fixes</strong></p>
+      <ul>
+        <li>Undo/redo tracks both text and styles together (no desync).</li>
+        <li>Typing, deleting, and pasting keep styles stable.</li>
+        <li><strong>Normalize output</strong> rebuilds minimal clean markup anytime.</li>
+      </ul>
+
+      <p><strong>Shortcuts</strong></p>
+      <ul>
+        <li><code>Ctrl/Cmd+B</code> bold, <code>Ctrl/Cmd+I</code> italic, <code>Ctrl/Cmd+U</code> underline</li>
+        <li><code>Ctrl/Cmd+Shift+G</code> apply gradient</li>
+        <li><code>Ctrl/Cmd+Shift+C</code> apply solid color</li>
+        <li><code>Ctrl/Cmd+Enter</code> insert literal <code>\n</code></li>
+        <li><code>Ctrl/Cmd+S</code> download template</li>
+      </ul>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="panel" id="editor-panel">
+      <div class="panel-header">
+        <div class="title-wrap">
+          <h2>Editor</h2>
+          <p class="subtitle">Plain text in • safe markup out • stable editing (no weird tag fights).</p>
         </div>
 
-        <div class="field">
-          <div style="display:flex;flex-direction:column;gap:4px">
-            <div class="row" style="gap:8px">
-              <label>Align</label>
-              <button class="btn" data-align="left">Left</button>
-              <button class="btn" data-align="center">Center</button>
-              <button class="btn" data-align="right">Right</button>
-            </div>
-            <small style="opacity:.75">Alignment replaces previous in selection only.</small>
-          </div>
+        <div class="section-help">
+          <span class="pill-note">Tip: turn on <strong>Clean slate</strong> for perfect lines.</span>
+          <button class="btn small ghost" id="open-help-inline" type="button">Open Help</button>
         </div>
-
-        <div class="field">
-          <label>Size %</label>
-          <input id="size-pct" type="number" min="50" max="300" step="5" value="100" style="width:90px">
-          <button class="btn" id="btn-apply-size">Apply</button>
-        </div>
-
-        <div class="field">
-          <label>Style</label>
-          <button class="btn" data-tag="b">B</button>
-          <button class="btn" data-tag="i">I</button>
-          <button class="btn" data-tag="u">U</button>
-          <button class="btn small" id="btn-size-close">&lt;/size&gt;</button>
-          <button class="btn small" id="btn-insert-nl">↵ \n</button>
-          <button class="btn small" id="btn-repeat">Repeat</button>
-          <button class="btn small" id="btn-undo">Undo</button>
-          <button class="btn small" id="btn-redo">Redo</button>
-        </div>
-
-        <div class="field">
-          <label>Solid</label>
-          <input id="lte-solid" type="color" value="#FFFFFF">
-          <button class="btn" id="lte-apply-solid">Apply</button>
-          <button class="btn small" id="btn-eyedrop">Pick</button>
-        </div>
-
-        <div class="field">
-          <label>Auto</label>
-          <select id="auto-token">
-            <option value="{{PlayerName}}">{{PlayerName}}</option>
-            <option value="{{HostName}}">{{HostName}}</option>
-            <option value="{{ModVersion}}">{{ModVersion}}</option>
-          </select>
-          <button class="btn" id="auto-insert">Insert</button>
-        </div>
-
-        <div class="field">
-          <div style="display:flex;flex-direction:column;gap:6px">
-            <div class="row" style="gap:8px">
-              <label>Stops</label>
-              <div class="gg-row" id="lte-stops"></div>
-            </div>
-            <div class="row" style="gap:8px">
-              <button class="btn" id="lte-add-stop">Add</button>
-              <button class="btn" id="lte-shuffle-stops">Randomize</button>
-              <button class="btn" id="lte-apply-gradient">Apply gradient</button>
-              <span class="btn small" id="stops-reverse">Reverse</span>
-              <span class="btn small" id="stops-distribute">Distribute</span>
-              <select id="preset-select"></select>
-              <button class="btn small" id="preset-apply">Load preset</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="field">
-          <label>Line</label>
-          <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" id="apply-line"> Apply to whole line</label>
-          <button class="btn small" id="btn-reset-line">Reset line</button>
-        </div>
-
-        <div class="field">
-          <label>New line</label>
-          <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" id="clean-slate" checked> Clean slate</label>
-          <small style="opacity:.75">When on: closes color/align/size on <code>\n</code> and bridges color.</small>
-        </div> 
-        <div class="field">
-          <label>Icons</label>
-          <button class="btn small" id="btn-icons">Pick icon</button>
-        </div>
-
-        <div class="field">
-          <label>Style preset</label>
-          <select id="style-preset-slot">
-            <option value="0">Preset 1</option>
-            <option value="1">Preset 2</option>
-            <option value="2">Preset 3</option>
-            <option value="3">Preset 4</option>
-            <option value="4">Preset 5</option>
-            <option value="5">Preset 6</option>
-            <option value="6">Preset 7</option>
-            <option value="7">Preset 8</option>
-            <option value="8">Preset 9</option>
-            <option value="9">Preset 10</option>
-          </select>
-          <button class="btn small" id="style-preset-save">Save</button>
-          <button class="btn small" id="style-preset-load">Load</button>
-        </div>
-
-      </div> 
-
-      <div id="icon-palette">
-        <div id="icon-grid"></div>
       </div>
 
-      <div id="lte-grad-preview" class="preview-bar" aria-label="Gradient preview"></div>
-
-      <div class="twocol">
-        <div class="grid">
-          <div class="field"><label><strong>Editor (markup auto-generated)</strong></label></div>
-          <textarea id="lte-editor" placeholder="Type here…"></textarea>
-          <div class="row">
-            <button class="btn" id="lte-copy">Copy markup</button>
-            <button class="btn" id="lte-download">Download .txt</button>
-            <span id="lte-status" aria-live="polite"></span>
+      <div class="grid">
+        <div class="toolbar">
+          <div class="field">
+            <label for="fontSel">Font</label>
+            <select id="fontSel">
+              <option>OCRAXT SDF</option><option>BROOK SDF</option><option>VCR SDF</option>
+              <option>Barlow-Black SDF</option><option>Barlow-BoldItalic SDF</option>
+              <option>Barlow-Light SDF</option><option>CONSOLA SDF</option>
+              <option>DIGITAL-7 SDF</option><option>DIN_Pro_Bold_700 SDF</option>
+              <option>LiberationSans SDF</option><option>NotoSansJP-Regular SDF</option>
+              <option>OCRAEXT SDF</option>
+            </select>
+            <button class="btn small" id="applyFont" type="button">Apply</button>
           </div>
-          <div class="codebox" id="lte-output"></div>
+
+          <div class="field">
+            <label>Align</label>
+            <button class="btn small" type="button" data-align="left">Left</button>
+            <button class="btn small" type="button" data-align="center">Center</button>
+            <button class="btn small" type="button" data-align="right">Right</button>
+          </div>
+
+          <div class="field">
+            <label for="sizePct">Size %</label>
+            <input id="sizePct" type="number" min="50" max="300" step="5" value="100" style="width:92px" />
+            <button class="btn small" id="applySize" type="button">Apply</button>
+          </div>
+
+          <div class="field">
+            <label>Style</label>
+            <button class="btn small" type="button" id="btnB"><strong>B</strong></button>
+            <button class="btn small" type="button" id="btnI"><em>I</em></button>
+            <button class="btn small" type="button" id="btnU"><u>U</u></button>
+            <button class="btn small" id="btnNL" type="button">↵ \n</button>
+            <button class="btn small" id="btnUndo" type="button">Undo</button>
+            <button class="btn small" id="btnRedo" type="button">Redo</button>
+          </div>
+
+          <div class="field">
+            <label for="solidColor">Solid</label>
+            <input id="solidColor" type="color" value="#FFFFFF" />
+            <button class="btn small" id="applySolid" type="button">Apply</button>
+            <button class="btn small" id="pickSolid" type="button">Pick</button>
+          </div>
+
+          <div class="field">
+            <label for="autoToken">Auto</label>
+            <select id="autoToken">
+              <option value="{{PlayerName}}">{{PlayerName}}</option>
+              <option value="{{HostName}}">{{HostName}}</option>
+              <option value="{{ModVersion}}">{{ModVersion}}</option>
+            </select>
+            <button class="btn small" id="insertToken" type="button">Insert</button>
+          </div>
+
+          <div class="field">
+            <label>Line</label>
+            <label style="display:flex;align-items:center;gap:6px">
+              <input type="checkbox" id="applyLine" />
+              <small>Apply to whole line</small>
+            </label>
+            <button class="btn small" id="resetLine" type="button">Reset line</button>
+          </div>
+
+          <div class="field">
+            <label>New line</label>
+            <label style="display:flex;align-items:center;gap:6px">
+              <input type="checkbox" id="cleanSlate" checked />
+              <small>Clean slate</small>
+            </label>
+          </div>
+
+          <div class="field">
+            <label>Brush</label>
+            <button class="btn small" id="pickBrush" type="button">Pick</button>
+            <button class="btn small" id="paintBrush" type="button">Paint</button>
+          </div>
+
+          <div class="field">
+            <label>Tools</label>
+            <button class="btn small" id="normalizeBtn" type="button">Normalize output</button>
+            <button class="btn small" id="clearStylesBtn" type="button">Clear selection</button>
+          </div>
+
+          <div class="field">
+            <label>Icons</label>
+            <button class="btn small" id="toggleIcons" type="button">Pick icon</button>
+            <label style="display:flex;align-items:center;gap:6px">
+              <input type="checkbox" id="safeIcons" checked />
+              <small>Safe only</small>
+            </label>
+          </div>
         </div>
 
-        <div class="grid">
-          <div id="lte-preview" class="codebox">
-            <header>Live Preview (renders fonts + colors)</header>
-            <div id="lte-preview-content"></div>
+        <div id="icon-palette" aria-label="Icon palette">
+          <div id="icon-grid"></div>
+        </div>
+
+        <div class="panel" style="padding:14px;border-radius:14px;background:rgba(255,255,255,.04)">
+          <div class="row" style="justify-content:space-between">
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+              <strong style="font-family:'Barlow',var(--sans);letter-spacing:.3px">Gradient stops</strong>
+              <span class="pill-note">Stops now have positions • Distribute works</span>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
+              <button class="btn small" id="addStop" type="button">Add</button>
+              <button class="btn small" id="randomizeStops" type="button">Randomize</button>
+              <button class="btn small" id="reverseStops" type="button">Reverse</button>
+              <button class="btn small" id="distributeStops" type="button">Distribute</button>
+              <button class="btn small red" id="applyGradient" type="button">Apply gradient</button>
+            </div>
           </div>
-          <div class="field"><small class="muted">SDF fonts are mapped to similar web fonts for preview only; markup uses the selected SDF font name.</small></div>
+
+          <div class="preview-bar" id="gradPreview" aria-label="Gradient preview"></div>
+
+          <div class="stops-wrap" id="stopsWrap"></div>
+
+          <div class="row" style="justify-content:flex-end">
+            <div class="field">
+              <label for="presetSelect">Preset</label>
+              <select id="presetSelect"></select>
+              <button class="btn small" id="loadPreset" type="button">Load</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="twocol">
+          <div class="grid">
+            <div class="field">
+              <label><strong>Editor (plain text)</strong></label>
+              <small>Export converts real newlines to <code>\n</code>.</small>
+            </div>
+
+            <textarea id="editor" placeholder="Type here…"></textarea>
+
+            <div class="row" style="justify-content:space-between">
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <button class="btn red" id="copyOut" type="button">Copy markup</button>
+                <button class="btn" id="downloadOut" type="button">Download .txt</button>
+              </div>
+              <div class="status" id="status" aria-live="polite"></div>
+            </div>
+
+            <div class="codebox" id="output" aria-label="Output markup"></div>
+          </div>
+
+          <div class="grid">
+            <div id="preview" class="codebox" aria-label="Live preview">
+              <div class="preview-header">Live Preview (web-font approximations)</div>
+              <div id="preview-content"></div>
+            </div>
+            <div class="field">
+              <small style="color:rgba(255,255,255,.72)">
+                SDF fonts are mapped to similar web fonts for preview only; output uses the selected SDF font name.
+              </small>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="panel">
-    <h2 class="section-title">Gradient Presets</h2>
-    <p class="section-subtitle">Pick a preset or load it from the dropdown.</p>
-    <div class="preset-grid" id="preset-grid"></div>
-  </section>
+    <section class="panel" id="presets-panel">
+      <div class="panel-header">
+        <div class="title-wrap">
+          <h2>Gradient Presets</h2>
+          <p class="subtitle">Use a preset card or load from dropdown above.</p>
+        </div>
+      </div>
+      <div class="preset-grid" id="presetGrid"></div>
+    </section>
 
-  <section class="panel" style="background:rgba(255,255,255,.06)">
-    <h3 class="section-title">Named Exports</h3>
-    <p class="section-subtitle" style="margin-top:-6px">Download emits <code>name:&lt;markup&gt;</code> per line.</p>
-    <div class="export-grid">
-      <div class="export-card"><div class="row" style="justify-content:space-between"><strong>welcome</strong><button class="btn small" data-export-set="welcome">Use current</button></div><textarea id="export-welcome"></textarea></div>
-      <div class="export-card"><div class="row" style="justify-content:space-between"><strong>onmeeting</strong><button class="btn small" data-export-set="onmeeting">Use current</button></div><textarea id="export-onmeeting"></textarea></div>
-      <div class="export-card"><div class="row" style="justify-content:space-between"><strong>rules</strong><button class="btn small" data-export-set="rules">Use current</button></div><textarea id="export-rules"></textarea></div>
-      <div class="export-card"><div class="row" style="justify-content:space-between"><strong>vip</strong><button class="btn small" data-export-set="vip">Use current</button></div><textarea id="export-vip"></textarea></div>
-    </div>
-    <div class="row" style="gap:10px;align-self:flex-end;margin-top:8px"><button class="btn" id="btn-export-download">Download named .txt</button></div>
-  </section>
-</main>
+    <section class="panel" id="exports-panel" style="background:rgba(255,255,255,.05)">
+      <div class="panel-header">
+        <div class="title-wrap">
+          <h2>Named Exports</h2>
+          <p class="subtitle">Download emits <code>name:&lt;markup&gt;</code> per line.</p>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+          <button class="btn red" id="downloadNamed" type="button">Download named .txt</button>
+          <button class="btn" id="copyNamed" type="button">Copy named</button>
+        </div>
+      </div>
 
-<footer>Made with ♥ by MAUL — template tools for hosts &amp; creators</footer>
+      <div class="export-grid">
+        <div class="export-card">
+          <div class="row" style="justify-content:space-between">
+            <strong>welcome</strong>
+            <button class="btn small" data-capture="welcome" type="button">Use current</button>
+          </div>
+          <textarea id="exp-welcome"></textarea>
+        </div>
 
-<script> 
-const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
-const normHex=(s,withHash=true)=>{
-  s=(s||'').trim();
-  if(!s)return withHash?'#FFFFFF':'FFFFFF';
-  s=s.replace(/^#/,'').replace(/[^0-9a-fA-F]/g,'').slice(0,6);
-  if(s.length===3)s=s.split('').map(c=>c+c).join('');
-  if(s.length<6)s=(s+'FFFFFF').slice(0,6);
-  return (withHash?'#':'')+s.toUpperCase();
-}
-const hexToRgb=h=>{
-  h=normHex(h,true).slice(1);
-  return{
-    r:parseInt(h.slice(0,2),16),
-    g:parseInt(h.slice(2,4),16),
-    b:parseInt(h.slice(4,6),16)
-  }
-}
-const rgbToHex=({r,g,b})=>'#'+[r,g,b].map(x=>Math.max(0,Math.min(255,x|0)).toString(16).padStart(2,'0')).join('').toUpperCase()
-const lerp=(a,b,t)=>a+(b-a)*t
-const lerpColor=(h1,h2,t)=>{
-  const c1=hexToRgb(h1),c2=hexToRgb(h2);
-  return rgbToHex({
-    r:lerp(c1.r,c2.r,t),
-    g:lerp(c1.g,c2.g,t),
-    b:lerp(c1.b,c2.b,t)
-  })
-}
-const saveLS=(k,v)=>localStorage.setItem(k,JSON.stringify(v))
-const loadLS=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch{return d}}
+        <div class="export-card">
+          <div class="row" style="justify-content:space-between">
+            <strong>onmeeting</strong>
+            <button class="btn small" data-capture="onmeeting" type="button">Use current</button>
+          </div>
+          <textarea id="exp-onmeeting"></textarea>
+        </div>
 
-const FONT_MAP={
-  'BROOK SDF':'"Barlow","Rajdhani",sans-serif',
-  'VCR SDF':'"VT323",monospace',
-  'Barlow-Black SDF':'"Barlow",sans-serif',
-  'Barlow-BoldItalic SDF':'"Barlow",sans-serif',
-  'Barlow-Light SDF':'"Barlow",sans-serif',
-  'CONSOLA SDF':'"Share Tech Mono","Roboto Mono",monospace',
-  'DIGITAL-7 SDF':'"Orbitron",monospace',
-  'DIN_Pro_Bold_700 SDF':'"Rajdhani",sans-serif',
-  'LiberationSans SDF':'"Barlow",sans-serif',
-  'NotoSansJP-Regular SDF':'"Noto Sans JP",sans-serif',
-  'OCRAEXT SDF':'"Press Start 2P","VT323",monospace',
-  'OCRAXT SDF':'"Press Start 2P","VT323",monospace'
-}; 
-const ed=document.getElementById('lte-editor');
-const out=document.getElementById('lte-output');
-const prevContent=document.getElementById('lte-preview-content');
-const fontSel=document.getElementById('lte-font');
-const statusEl=document.getElementById('lte-status');
-const solidPicker=document.getElementById('lte-solid');
-const btnSolid=document.getElementById('lte-apply-solid');
-const btnGradient=document.getElementById('lte-apply-gradient');
-const sizeInput=document.getElementById('size-pct');
-const btnApplySize=document.getElementById('btn-apply-size');
-const btnFontWrap=document.getElementById('btn-font-wrap');
-const stopsWrap=document.getElementById('lte-stops');
-const btnAddStop=document.getElementById('lte-add-stop');
-const btnShuffle=document.getElementById('lte-shuffle-stops');
-const gradPrev=document.getElementById('lte-grad-preview');
-const btnCopy=document.getElementById('lte-copy');
-const btnDL=document.getElementById('lte-download');
-const autoSel=document.getElementById('auto-token');
-const autoBtn=document.getElementById('auto-insert');
-const applyWholeLine=document.getElementById('apply-line');
-const btnResetLine=document.getElementById('btn-reset-line');
-const cleanSlateToggle=document.getElementById('clean-slate');
-const btnUndo=document.getElementById('btn-undo');
-const btnRedo=document.getElementById('btn-redo');
-const btnRepeat=document.getElementById('btn-repeat');
-const btnEye=document.getElementById('btn-eyedrop');
-const presetSelect=document.getElementById('preset-select');
-const presetApply=document.getElementById('preset-apply');
-const presetGrid=document.getElementById('preset-grid');
-const btnInsertNL=document.getElementById('btn-insert-nl');
-const btnSizeClose=document.getElementById('btn-size-close');
+        <div class="export-card">
+          <div class="row" style="justify-content:space-between">
+            <strong>rules</strong>
+            <button class="btn small" data-capture="rules" type="button">Use current</button>
+          </div>
+          <textarea id="exp-rules"></textarea>
+        </div>
 
-const btnIcons=document.getElementById('btn-icons');
-const iconPalette=document.getElementById('icon-palette');
-const iconGrid=document.getElementById('icon-grid');
+        <div class="export-card">
+          <div class="row" style="justify-content:space-between">
+            <strong>vip</strong>
+            <button class="btn small" data-capture="vip" type="button">Use current</button>
+          </div>
+          <textarea id="exp-vip"></textarea>
+        </div>
+      </div>
+    </section>
+  </main>
 
-const exportAreas={
-  welcome:document.getElementById('export-welcome'),
-  onmeeting:document.getElementById('export-onmeeting'),
-  rules:document.getElementById('export-rules'),
-  vip:document.getElementById('export-vip')
-};
+  <footer>Made with ♥ by MAUL — template tools for hosts &amp; creators</footer>
 
-const stylePresetSlot=document.getElementById('style-preset-slot');
-const stylePresetSave=document.getElementById('style-preset-save');
-const stylePresetLoad=document.getElementById('style-preset-load');
+  <script>
+    const FONT_MAP = {
+      "BROOK SDF": "\"Barlow\",\"Rajdhani\",sans-serif",
+      "VCR SDF": "\"VT323\",monospace",
+      "Barlow-Black SDF": "\"Barlow\",sans-serif",
+      "Barlow-BoldItalic SDF": "\"Barlow\",sans-serif",
+      "Barlow-Light SDF": "\"Barlow\",sans-serif",
+      "CONSOLA SDF": "\"Share Tech Mono\",\"Roboto Mono\",monospace",
+      "DIGITAL-7 SDF": "\"Orbitron\",monospace",
+      "DIN_Pro_Bold_700 SDF": "\"Rajdhani\",sans-serif",
+      "LiberationSans SDF": "\"Barlow\",sans-serif",
+      "NotoSansJP-Regular SDF": "\"Noto Sans JP\",sans-serif",
+      "OCRAEXT SDF": "\"Press Start 2P\",\"VT323\",monospace",
+      "OCRAXT SDF": "\"Press Start 2P\",\"VT323\",monospace"
+    };
 
-const aboutModal=document.getElementById('about-modal');
-const aboutBackdrop=document.getElementById('about-backdrop');
-const aboutClose=document.getElementById('about-close');
-const aboutOpenInline=document.getElementById('about-open-inline');
+    const $ = (id) => document.getElementById(id);
 
-function openAbout(){
-  aboutModal.classList.add('open');
-}
-function closeAbout(){
-  aboutModal.classList.remove('open');
-}
-aboutClose.addEventListener('click',closeAbout);
-aboutBackdrop.addEventListener('click',closeAbout);
-if(aboutOpenInline){
-  aboutOpenInline.addEventListener('click',e=>{
-    e.preventDefault();
-    openAbout();
-  });
-}
+    const menuToggle = $("menu-toggle");
+    const drawer = $("drawer");
+    const openHelpTop = $("open-help-top");
+    const openHelpDrawer = $("open-help-drawer");
+    const openHelpInline = $("open-help-inline");
 
-let STOPS=loadLS('stops',['#FF0033','#FF7219','#FFEB0C','#00EAF0','#0047FF','#7F00FF']);
-let markup='';
-let userStyled=false;
-let baseColor=normHex(loadLS('baseColor','#FFFFFF'),true);
-let undoStack=[];
-let redoStack=[];
-const MAX_HIST=50;
-let lastActionObj=null;
- 
-const status=m=>statusEl.textContent=m;
+    const modal = $("modal");
+    const modalBackdrop = $("modal-backdrop");
+    const modalClose = $("modal-close");
 
-function pushHistory(){
-  undoStack.push({markup,userStyled});
-  if(undoStack.length>MAX_HIST)undoStack.shift();
-  redoStack.length=0;
-}
-function undo(){
-  if(!undoStack.length)return;
-  const cur={markup,userStyled};
-  redoStack.push(cur);
-  const prev=undoStack.pop();
-  markup=prev.markup;
-  userStyled=prev.userStyled;
-  renderAll();
-}
-function redo(){
-  if(!redoStack.length)return;
-  undoStack.push({markup,userStyled});
-  const nxt=redoStack.pop();
-  markup=nxt.markup;
-  userStyled=nxt.userStyled;
-  renderAll();
-}
- 
-function getSel(){return{s:ed.selectionStart|0,e:ed.selectionEnd|0}}
-function hasSelection(){const {s,e}=getSel();return e>s}
-function getCurrentLineRange(){
-  const t=ed.value,{s,e}=getSel();
-  const b=t.lastIndexOf('\n',s-1);
-  const a2=b<0?0:b+1;
-  const a=t.indexOf('\n',e);
-  return{a:a2,b:a<0?t.length:a}
-}
+    const editor = $("editor");
+    const output = $("output");
+    const preview = $("preview-content");
+    const statusEl = $("status");
 
-function plainLenText(text){
-  let i=0,plain=0;
-  while(i<text.length){
-    if(text[i]=='\\'&&text[i+1]=='n'){i+=2;continue}
-    if(text[i]=='{'&&text[i+1]=='{'){
-      const k=text.indexOf('}}',i+2);
-      if(k!==-1){i=k+2;continue}
+    const fontSel = $("fontSel");
+    const applyFontBtn = $("applyFont");
+
+    const sizePct = $("sizePct");
+    const applySizeBtn = $("applySize");
+
+    const solidColor = $("solidColor");
+    const applySolidBtn = $("applySolid");
+    const pickSolidBtn = $("pickSolid");
+
+    const btnB = $("btnB");
+    const btnI = $("btnI");
+    const btnU = $("btnU");
+    const btnNL = $("btnNL");
+
+    const btnUndo = $("btnUndo");
+    const btnRedo = $("btnRedo");
+
+    const applyLine = $("applyLine");
+    const cleanSlate = $("cleanSlate");
+    const resetLineBtn = $("resetLine");
+
+    const pickBrushBtn = $("pickBrush");
+    const paintBrushBtn = $("paintBrush");
+
+    const normalizeBtn = $("normalizeBtn");
+    const clearStylesBtn = $("clearStylesBtn");
+
+    const copyOutBtn = $("copyOut");
+    const downloadOutBtn = $("downloadOut");
+
+    const autoToken = $("autoToken");
+    const insertTokenBtn = $("insertToken");
+
+    const toggleIconsBtn = $("toggleIcons");
+    const iconPalette = $("icon-palette");
+    const iconGrid = $("icon-grid");
+    const safeIconsToggle = $("safeIcons");
+
+    const stopsWrap = $("stopsWrap");
+    const gradPreview = $("gradPreview");
+    const addStopBtn = $("addStop");
+    const randomizeStopsBtn = $("randomizeStops");
+    const reverseStopsBtn = $("reverseStops");
+    const distributeStopsBtn = $("distributeStops");
+    const applyGradientBtn = $("applyGradient");
+
+    const presetSelect = $("presetSelect");
+    const loadPresetBtn = $("loadPreset");
+    const presetGrid = $("presetGrid");
+
+    const expAreas = {
+      welcome: $("exp-welcome"),
+      onmeeting: $("exp-onmeeting"),
+      rules: $("exp-rules"),
+      vip: $("exp-vip")
+    };
+    const downloadNamedBtn = $("downloadNamed");
+    const copyNamedBtn = $("copyNamed");
+
+    const clamp = (v,a,b)=>Math.min(b,Math.max(a,v));
+    const saveLS=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+    const loadLS=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch{return d}};
+
+    const normHex=(s,withHash=true)=>{
+      s=(s||"").trim();
+      if(!s) return withHash ? "#FFFFFF" : "FFFFFF";
+      s=s.replace(/^#/,"").replace(/[^0-9a-fA-F]/g,"").slice(0,6);
+      if(s.length===3) s=s.split("").map(c=>c+c).join("");
+      if(s.length<6) s=(s+"FFFFFF").slice(0,6);
+      return (withHash?"#":"")+s.toUpperCase();
+    };
+
+    const hexToRgb = (h)=>{
+      h=normHex(h,true).slice(1);
+      return { r:parseInt(h.slice(0,2),16), g:parseInt(h.slice(2,4),16), b:parseInt(h.slice(4,6),16) };
+    };
+    const rgbToHex = ({r,g,b}) => "#"+[r,g,b].map(x=>Math.max(0,Math.min(255, x|0)).toString(16).padStart(2,"0")).join("").toUpperCase();
+    const lerp=(a,b,t)=>a+(b-a)*t;
+    const lerpColor=(h1,h2,t)=>{
+      const c1=hexToRgb(h1), c2=hexToRgb(h2);
+      return rgbToHex({ r:lerp(c1.r,c2.r,t), g:lerp(c1.g,c2.g,t), b:lerp(c1.b,c2.b,t) });
+    };
+
+    async function copyToClipboard(text){
+      try{
+        if(navigator.clipboard && window.isSecureContext){
+          await navigator.clipboard.writeText(text);
+          return true;
+        }
+      }catch{}
+      const ta=document.createElement("textarea");
+      ta.value=text;
+      ta.style.position="fixed";
+      ta.style.left="-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      try{ document.execCommand("copy"); } finally { document.body.removeChild(ta); }
+      return true;
     }
-    plain++;i++;
-  }
-  return plain;
-}
-function indexOfPlainInText(text,plainIdx){
-  let i=0,seen=0;
-  while(i<text.length&&seen<plainIdx){
-    if(text[i]=='\\'&&text[i+1]=='n'){i+=2;continue}
-    if(text[i]=='{'&&text[i+1]=='{'){
-      const k=text.indexOf('}}',i+2);
-      if(k!==-1){i=k+2;continue}
+
+    function downloadText(filename, text){
+      const blob=new Blob([text],{type:"text/plain;charset=utf-8"});
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement("a");
+      a.href=url; a.download=filename;
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
     }
-    seen++;i++;
-  }
-  return i;
-}
-function buildIndexMap(mark){
-  const map=[];
-  const len=mark.length;
-  let iPlain=0,i=0;
-  while(i<len){
-    if(mark.startsWith('<color=',i)){
-      const k=mark.indexOf('>',i);
-      if(k===-1)break;i=k+1;continue;
+
+    const status = (m)=>{ statusEl.textContent = m || ""; };
+
+    function debounce(fn, ms){
+      let t=null;
+      return (...args)=>{
+        clearTimeout(t);
+        t=setTimeout(()=>fn(...args), ms);
+      };
     }
-    if(mark.startsWith('</color>',i)){i+=8;continue}
-    if(mark.startsWith('<font="',i)){
-      const k=mark.indexOf('>',i);
-      if(k===-1)break;i=k+1;continue;
+
+    function isTokenStart(str,i){ return str[i]==="{" && str[i+1]==="{"; }
+    function readToken(str,i){
+      const k=str.indexOf("}}", i+2);
+      return k===-1 ? null : { start:i, end:k+2 };
     }
-    if(mark.startsWith('</font>',i)){i+=7;continue}
-    if(mark.startsWith('<size=',i)){
-      const k=mark.indexOf('>',i);
-      if(k===-1)break;i=k+1;continue;
-    }
-    if(mark.startsWith('</size>',i)){i+=7;continue}
-    if(mark.startsWith('<align=',i)){
-      const k=mark.indexOf('>',i);
-      if(k===-1)break;i=k+1;continue;
-    }
-    if(mark.startsWith('</align>',i)){i+=8;continue}
-    if(mark.startsWith('<b>',i)||mark.startsWith('<i>',i)||mark.startsWith('<u>',i)){i+=3;continue}
-    if(mark.startsWith('</b>',i)||mark.startsWith('</i>',i)||mark.startsWith('</u>',i)){i+=4;continue}
-    if(mark[i]=='\\'&&mark[i+1]=='n'){i+=2;continue}
-    if(mark[i]=='{'&&mark[i+1]=='{'){
-      const k=mark.indexOf('}}',i+2);
-      if(k!==-1){i=k+2;continue}
-    }
-    map[iPlain++]=i;
-    i++;
-  }
-  map[iPlain]=i;
-  return map;
-}
-function getPlainSelectionRange(){
-  const {s,e}=getSel();
-  const text = ed.value;
-  const plainStart = plainLenText(text.slice(0,s));
-  const plainEnd   = plainLenText(text.slice(0,e));
-  return {plainStart, plainEnd};
-}
- 
-function toHTML(s){
-  let html=s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');  
-  html = html.replace(/&lt;font="([^"]+)"&gt;/g,(_,n)=>`<span style="font-family:${FONT_MAP[n.trim()]||'inherit'}">`)
-             .replace(/&lt;\/font&gt;/g,'</span>');
+    function isLiteralNL(str,i){ return str[i]==="\\" && str[i+1]==="n"; }
 
-  html = html.replace(/&lt;color=(#[0-9A-Fa-f]{6})&gt;/g,(_,h)=>`<span style="color:${h}">`)
-             .replace(/&lt;\/color&gt;/g,'</span>');
+    function buildVisibleMap(text){
+      const visToEdit=[];
+      const editToVis=new Int32Array(text.length+1);
+      let v=0;
+      let i=0;
+      while(i<text.length){
+        editToVis[i]=v;
 
-  html = html.replace(/&lt;size=(\d{1,3})%&gt;/g,(_,p)=>`<span style="font-size:${p}%">`)
-             .replace(/&lt;\/size&gt;/g,'</span>');
+        if(isLiteralNL(text,i)){ i+=2; continue; }
+        if(isTokenStart(text,i)){
+          const tok=readToken(text,i);
+          if(tok){ i=tok.end; continue; }
+        }
 
-  html = html.replace(/&lt;align=(left|center|right)&gt;/g,(_,pos)=>`<div style="text-align:${pos}">`)
-             .replace(/&lt;\/align&gt;/g,'</div>'); 
-  html = html.replace(/&lt;b&gt;/g,'<b>')
-             .replace(/&lt;\/b&gt;/g,'</b>')
-             .replace(/&lt;i&gt;/g,'<i>')
-             .replace(/&lt;\/i&gt;/g,'</i>')
-             .replace(/&lt;u&gt;/g,'<u>')
-             .replace(/&lt;\/u&gt;/g,'</u>'); 
-  html = html.replace(/\\n/g,'<br/>').replace(/\n/g,'<br/>');
-  return html;
-}
+        if(text[i]==="\n" || text[i]==="\r"){ i++; continue; }
 
-const cleanupSpam = m => m
-  .replace(/(?:<color=(#[0-9A-Fa-f]{6})>)+/g,'<color=$1>')
-  .replace(/(?:<\/color>)+/g,'</color>')
-  .replace(/(?:<size=\d{1,3}%>)+/g,x=>x.match(/<size=\d{1,3}%>/)[0])
-  .replace(/(?:<\/size>)+/g,'</size>')
-  .replace(/(?:<font="([^"]+)">)+/g,'<font="$1">')
-  .replace(/(?:<\/font>)+/g,'</font>')
-  .replace(/(?:<align=(left|center|right)>)+/g,'<align=$1>')
-  .replace(/(?:<\/align>)+/g,'</align>')
-  .replace(/(?:<b>)+/g,'<b>').replace(/(?:<\/b>)+/g,'</b>')
-  .replace(/(?:<i>)+/g,'<i>').replace(/(?:<\/i>)+/g,'</i>')
-  .replace(/(?:<u>)+/g,'<u>').replace(/(?:<\/u>)+/g,'</u>') 
-  .replace(/\\n((?:<\/(?:color|size|font|align|b|i|u)>)+)/g,(_,tags)=>`${tags}\\n`);
-
-function renderAll(){
-  markup=cleanupSpam(String(markup));
-  out.textContent=markup;
-  prevContent.innerHTML=toHTML(markup);
-  saveLS('baseColor',baseColor);
-  saveLS('stops',STOPS);
-}
-
-function autosizeTA(){
-  ed.style.height='auto';
-  ed.style.height=Math.min(ed.scrollHeight,600)+'px';
-}
-ed.addEventListener('input',()=>{syncSolid();autosizeTA();});
-document.addEventListener('DOMContentLoaded',()=>{autosizeTA();});
-
-function syncPreviewBaseFont(){
-  prevContent.style.fontFamily=FONT_MAP[fontSel.value]||'inherit';
-}
- 
-function buildSmoothGradient(str){
-  const stops=STOPS.length?STOPS:['#FFFFFF'];
-  const text=String(str||'');
-  let vis=0,i=0;
-  while(i<text.length){
-    if(text[i]=='<'){
-      const k=text.indexOf('>',i);
-      i=(k===-1?i+1:k+1);continue;
-    }
-    if(text[i]=='\\'&&text[i+1]=='n'){i+=2;continue}
-    if(text[i]=='{'&&text[i+1]=='{'){
-      const k=text.indexOf('}}',i+2);
-      if(k!==-1){i=k+2;continue}
-    }
-    vis++;i++;
-  }
-  const colorAt=idx=>{
-    if(vis<=1)return normHex(stops[0],true);
-    const t=idx/(vis-1);
-    const seg=(stops.length-1)*t;
-    const i0=Math.floor(seg),i1=Math.min(stops.length-1,i0+1);
-    const lt=seg-i0;
-    return normHex(lerpColor(stops[i0],stops[i1],lt),true);
-  };
-  let v=0; i=0; const outArr=[];
-  while(i<text.length){
-    if(text[i]=='<'){
-      const k=text.indexOf('>',i);
-      if(k===-1){outArr.push(text[i++]);continue}
-      outArr.push(text.slice(i,k+1));
-      i=k+1;continue;
-    }
-    if(text[i]=='\\'&&text[i+1]=='n'){outArr.push('\\n');i+=2;continue}
-    if(text[i]=='{'&&text[i+1]=='{'){
-      const k=text.indexOf('}}',i+2);
-      if(k!==-1){outArr.push(text.slice(i,k+2));i=k+2;continue}
-    }
-    outArr.push(`<color=${colorAt(v++)}>${text[i]}</color>`);i++;
-  }
-  return outArr.join('');
-}
-function renderStops(){
-  stopsWrap.innerHTML='';
-  STOPS.forEach((hex,idx)=>{
-    const row=document.createElement('div');
-    row.className='row';
-
-    const t=document.createElement('input');
-    t.type='text';
-    t.value=normHex(hex,true);
-    t.style.width='100px';
-
-    const c=document.createElement('input');
-    c.type='color';
-    c.className='color-chip';
-    c.value=normHex(hex,true);
-
-    const up=document.createElement('button');
-    up.className='btn small';
-    up.textContent='▲';
-
-    const dn=document.createElement('button');
-    dn.className='btn small';
-    dn.textContent='▼';
-
-    const rm=document.createElement('button');
-    rm.className='btn small';
-    rm.textContent='✕';
-
-    t.addEventListener('input',()=>{
-      const h=normHex(t.value,true);
-      t.value=h;c.value=h;STOPS[idx]=h;
-      renderGradPreview();renderAll();
-    });
-    c.addEventListener('input',()=>{
-      const h=normHex(c.value,true);
-      t.value=h;STOPS[idx]=h;
-      renderGradPreview();renderAll();
-    });
-    up.addEventListener('click',()=>{
-      if(idx>0){
-        [STOPS[idx-1],STOPS[idx]]=[STOPS[idx],STOPS[idx-1]];
-        renderStops();renderGradPreview();renderAll();
+        visToEdit.push(i);
+        v++;
+        i++;
       }
-    });
-    dn.addEventListener('click',()=>{
-      if(idx<STOPS.length-1){
-        [STOPS[idx+1],STOPS[idx]]=[STOPS[idx],STOPS[idx+1]];
-        renderStops();renderGradPreview();renderAll();
+      editToVis[text.length]=v;
+      return { visToEdit, editToVis, visLen:v };
+    }
+
+    const DEFAULTS = {
+      color:"#FFFFFF",
+      b:false, i:false, u:false,
+      size:100,
+      font:"OCRAXT SDF",
+      align:"left"
+    };
+
+    let TEXT = "";
+    let MAP = buildVisibleMap(""); 
+    let STYLE = {                
+      color:[],
+      b:[], i:[], u:[],
+      size:[],
+      font:[],
+      align:[]
+    };
+
+    function ensureStyleLength(n){
+      const keys=Object.keys(STYLE);
+      for(const k of keys){
+        if(STYLE[k].length<n){
+          const fill = (k==="color") ? DEFAULTS.color :
+                       (k==="b"||k==="i"||k==="u") ? false :
+                       (k==="size") ? DEFAULTS.size :
+                       (k==="font") ? DEFAULTS.font :
+                       (k==="align") ? DEFAULTS.align : null;
+          while(STYLE[k].length<n) STYLE[k].push(fill);
+        }else if(STYLE[k].length>n){
+          STYLE[k].length=n;
+        }
       }
-    });
-    rm.addEventListener('click',()=>{
-      if(STOPS.length>1){
-        STOPS.splice(idx,1);
-        renderStops();renderGradPreview();renderAll();
+    }
+
+    function getSelectionEditRange(){
+      let s=editor.selectionStart|0, e=editor.selectionEnd|0;
+      if(applyLine.checked){
+        const val=editor.value;
+        const lineStart = val.lastIndexOf("\n", s-1)+1;
+        const nextNL = val.indexOf("\n", e);
+        const lineEnd = nextNL===-1 ? val.length : nextNL;
+        s=lineStart; e=lineEnd;
+        editor.selectionStart=s;
+        editor.selectionEnd=e;
       }
-    });
-
-    row.append(t,c,up,dn,rm);
-    stopsWrap.appendChild(row);
-  });
-}
-function renderGradPreview(){
-  const parts=STOPS.map((c,i)=>`${normHex(c,true)} ${i*100/(Math.max(STOPS.length-1,1))}%`);
-  gradPrev.style.background=`linear-gradient(90deg, ${parts.join(', ')})`;
-}
-const randHex=()=>'#'+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0').toUpperCase();
- 
-const STYLE_PRESETS_KEY='stylePresetsV1';
-let STYLE_PRESETS=loadLS(STYLE_PRESETS_KEY,Array(10).fill(null));
-
-function captureCurrentStyle(){
-  return{
-    baseColor,
-    stops:[...STOPS],
-    size:parseInt(sizeInput.value||'100',10)
-  };
-}
-function applyStylePreset(p){
-  if(!p)return;
-  baseColor=normHex(p.baseColor||'#FFFFFF',true);
-  solidPicker.value=baseColor;
-  STOPS=(p.stops&&p.stops.length?p.stops:[baseColor]).map(c=>normHex(c,true));
-  sizeInput.value=p.size||100;
-  renderStops();
-  renderGradPreview();
-  renderAll();
-}
-stylePresetSave.addEventListener('click',()=>{
-  const idx=parseInt(stylePresetSlot.value,10)||0;
-  STYLE_PRESETS[idx]=captureCurrentStyle();
-  saveLS(STYLE_PRESETS_KEY,STYLE_PRESETS);
-  status(`Saved style preset ${idx+1}.`);
-});
-stylePresetLoad.addEventListener('click',()=>{
-  const idx=parseInt(stylePresetSlot.value,10)||0;
-  const preset=STYLE_PRESETS[idx];
-  if(!preset){
-    status('This preset slot is empty.');
-    return;
-  }
-  applyStylePreset(preset);
-  status(`Loaded style preset ${idx+1}.`);
-});
- 
-function requireSelection(btn,onOK,msg){
-  const {s,e}=getSel();
-  if(applyWholeLine.checked){
-    const r=getCurrentLineRange();
-    ed.selectionStart=r.a;
-    ed.selectionEnd=r.b;
-  }
-  if(!hasSelection()){
-    status(msg||'Select some text first.');
-    if(btn){
-      btn.classList.add('active');
-      setTimeout(()=>btn.classList.remove('active'),300)
+      return {s,e};
     }
-    return false;
-  }
-  pushHistory();
-  onOK();
-  return true;
-}
-function setLastAction(fn,args){lastActionObj={fn,args}}
-function repeatLast(){
-  if(!lastActionObj)return;
-  const {fn,args}=lastActionObj;
-  toolHandlers[fn]?.(args,true);
-}
- 
-function toggleTag(tag,silent){
-  requireSelection(null,()=>{
-    const {plainStart,plainEnd}=getPlainSelectionRange();
-    const map=buildIndexMap(markup);
-    let a=map[plainStart]??markup.length;
-    let b=map[plainEnd]??markup.length;
 
-    let seg=markup.slice(a,b);
-    const open=`<${tag}>`,close=`</${tag}>`;
-    seg=seg.replace(new RegExp(`(?:<${tag}>)+`,'g'),open)
-           .replace(new RegExp(`(?:<\/${tag}>)+`,'g'),close);
-    const wrapped=seg.startsWith(open)&&seg.endsWith(close)&&seg.slice(open.length,-close.length).indexOf(open)===-1;
-    seg = wrapped
-      ? seg.replace(new RegExp(`^<${tag}>`),'').replace(new RegExp(`</${tag}>$`),'')
-      : open+seg+close;
-
-    markup=markup.slice(0,a)+seg+markup.slice(b);
-    userStyled=true;
-    renderAll();
-    if(!silent)status(`<${tag}> ${wrapped?'removed':'applied'}.`);
-  },`Select text to toggle <${tag}>.`);
-}
-
-const toolHandlers={
-  'b':(_,s)=>{toggleTag('b',s);setLastAction('b')},
-  'i':(_,s)=>{toggleTag('i',s);setLastAction('i')},
-  'u':(_,s)=>{toggleTag('u',s);setLastAction('u')},
-
-  'solid':(_,s)=>{
-    const hex=normHex(solidPicker.value,true);
-    requireSelection(btnSolid,()=>{
-      const {plainStart,plainEnd}=getPlainSelectionRange();
-      const map=buildIndexMap(markup);
-      let a=map[plainStart]??markup.length;
-      let b=map[plainEnd]??markup.length;
-
-      const pre=markup.slice(0,a);
-      const m=pre.match(/<color=#[0-9A-Fa-f]{6}>$/);
-      if(m)a-=m[0].length;
-
-      let seg=markup.slice(a,b)
-        .replace(/<color=#[0-9A-Fa-f]{6}>/g,'')
-        .replace(/<\/color>/g,'');
-
-      markup=markup.slice(0,a)+`<color=${hex}>`+seg+`</color>`+markup.slice(b);
-      userStyled=true;
-      renderAll();
-      if(!s)status('Solid color applied.');
-    },'Select text to color.');
-    setLastAction('solid');
-  },
-
-  'gradient':(_,s)=>{
-    requireSelection(btnGradient,()=>{
-      const {plainStart,plainEnd}=getPlainSelectionRange();
-      const map=buildIndexMap(markup);
-      let a=map[plainStart]??markup.length;
-      let b=map[plainEnd]??markup.length;
-
-      const pre=markup.slice(0,a);
-      const m=pre.match(/<color=#[0-9A-Fa-f]{6}>$/);
-      if(m)a-=m[0].length;
-
-      let seg=markup.slice(a,b)
-        .replace(/<color=#[0-9A-Fa-f]{6}>/g,'')
-        .replace(/<\/color>/g,'');
-
-      seg=buildSmoothGradient(seg);
-      markup=markup.slice(0,a)+seg+markup.slice(b);
-      userStyled=true;
-      renderAll();
-      if(!s)status('Smooth gradient applied.');
-    },'Select text for gradient.');
-    setLastAction('gradient');
-  },
-
-  'align':({mode},s)=>{
-    const btn=document.querySelector(`[data-align="${mode}"]`);
-    requireSelection(btn,()=>{
-      const {plainStart,plainEnd}=getPlainSelectionRange();
-      const map=buildIndexMap(markup);
-      const a=map[plainStart]??markup.length;
-      const b=map[plainEnd]??markup.length;
- 
-      let seg=markup.slice(a,b)
-        .replace(/<align=(left|center|right)>/g,'')
-        .replace(/<\/align>/g,'');
-
-      markup=markup.slice(0,a)+`<align=${mode}>`+seg+`</align>`+markup.slice(b);
-      userStyled=true;
-      renderAll();
-      if(!s)status(`Alignment ${mode} applied.`);
-    },'Select text to align.');
-    setLastAction('align',{mode});
-  },
-
-  'size':({pct},s)=>{
-    pct=clamp(parseInt(pct||sizeInput.value||'100',10),50,300);
-    sizeInput.value=pct;
-    requireSelection(btnApplySize,()=>{
-      const {plainStart,plainEnd}=getPlainSelectionRange();
-      const map=buildIndexMap(markup);
-      const a=map[plainStart]??markup.length;
-      const b=map[plainEnd]??markup.length;
-
-      let inner=markup.slice(a,b)
-        .replace(/<size=\d{1,3}%>/g,'')
-        .replace(/<\/size>/g,'');
-
-      markup=markup.slice(0,a)+`<size=${pct}%>`+inner+`</size>`+markup.slice(b);
-      userStyled=true;
-      renderAll();
-      if(!s)status(`Size ${pct}% applied.`);
-    },'Select text to resize.');
-    setLastAction('size',{pct});
-  },
-
-  'font':({font},s)=>{
-    font=font||fontSel.value;  
-
-    requireSelection(btnFontWrap,()=>{
-      const {plainStart,plainEnd}=getPlainSelectionRange();
-      const map=buildIndexMap(markup);
-      const a=map[plainStart]??markup.length;
-      const b=map[plainEnd]??markup.length;
-
-      const inner=markup.slice(a,b)
-        .replace(/<font="[^"]+">/g,'')
-        .replace(/<\/font>/g,'');
- 
-      markup=markup.slice(0,a)+`<font="${font}">`+inner+`</font>`+markup.slice(b);
-      userStyled=true;
-      renderAll();
-      if(!s)status(`Font "${font}" applied.`);
-    },'Select text to apply font.');
-    setLastAction('font',{font});
-  }
-};
- 
-document.querySelectorAll('[data-tag]').forEach(b=>
-  b.addEventListener('click',()=>toolHandlers[b.getAttribute('data-tag')]())
-);
-document.querySelectorAll('[data-align]').forEach(b=>
-  b.addEventListener('click',()=>toolHandlers['align']({mode:b.getAttribute('data-align')}))
-);
-btnApplySize.addEventListener('click',()=>toolHandlers['size']({pct:sizeInput.value}));
-btnFontWrap.addEventListener('click',()=>toolHandlers['font']({font:fontSel.value}));
-btnSolid.addEventListener('click',()=>toolHandlers['solid']());
-btnGradient.addEventListener('click',()=>toolHandlers['gradient']());
-btnRepeat.addEventListener('click',repeatLast);
-btnUndo.addEventListener('click',undo);
-btnRedo.addEventListener('click',redo);
-btnEye.addEventListener('click',()=>solidPicker.showPicker?.());
-btnAddStop.addEventListener('click',()=>{STOPS.push(randHex());renderStops();renderGradPreview();});
-btnShuffle.addEventListener('click',()=>{STOPS.sort(()=>Math.random()-.5);renderStops();renderGradPreview();});
-document.getElementById('stops-reverse').addEventListener('click',()=>{STOPS.reverse();renderStops();renderGradPreview();});
-document.getElementById('stops-distribute').addEventListener('click',()=>{renderGradPreview();});
- 
-function insertLiteralNLAndBridge(){ 
-  const {s,e}=getSel();
-  const val=ed.value;
-  const ins='\\n';
-
-  ed.value=val.slice(0,s)+ins+val.slice(e);
-  ed.selectionStart=ed.selectionEnd=s+ins.length;
-
-  pushHistory();
-  syncSolid();  
-
-  if(userStyled && cleanSlateToggle.checked){
-    const caretPlain = plainLenText(ed.value.slice(0, ed.selectionStart));
-    const map  = buildIndexMap(markup);
-    let pos  = map[caretPlain] ?? markup.length;
- 
-    const beforeAlign = markup.slice(0,pos);
-    const lastAlignOpen = Math.max(
-      beforeAlign.lastIndexOf('<align=left>'),
-      beforeAlign.lastIndexOf('<align=center>'),
-      beforeAlign.lastIndexOf('<align=right>')
-    );
-    const lastAlignClose = beforeAlign.lastIndexOf('</align>');
-    if(lastAlignOpen>lastAlignClose){
-      markup = markup.slice(0,pos) + '</align>' + markup.slice(pos);
-      pos += '</align>'.length;
+    function getSelectionVisibleRange(){
+      const {s,e}=getSelectionEditRange();
+      const vs = MAP.editToVis[clamp(s,0,TEXT.length)];
+      const ve = MAP.editToVis[clamp(e,0,TEXT.length)];
+      return {vs, ve};
     }
- 
-    const beforeSize = markup.slice(0,pos);
-    const lastSizeOpen  = beforeSize.lastIndexOf('<size=');
-    const lastSizeClose = beforeSize.lastIndexOf('</size>');
-    if(lastSizeOpen>lastSizeClose){
-      markup = markup.slice(0,pos) + '</size>' + markup.slice(pos);
-      pos += '</size>'.length;
-    }
- 
-    const before    = markup.slice(0, pos);
-    const lastOpen  = before.lastIndexOf('<color=');
-    const lastClose = before.lastIndexOf('</color>');
-    const needsBridge = lastOpen>lastClose;
 
-    if(needsBridge){
-      markup = markup.slice(0,pos) + `</color>\\n<color=${baseColor}>` + markup.slice(pos);
+    function styleAtCaret(){
+      const caret = editor.selectionStart|0;
+      const v = MAP.editToVis[clamp(caret,0,TEXT.length)];
+      const idx = clamp(v, 0, Math.max(0, MAP.visLen-1));
+      if(MAP.visLen===0){
+        return {...DEFAULTS, font:fontSel.value, color:normHex(solidColor.value,true), size:parseInt(sizePct.value||"100",10) };
+      }
+      return {
+        color: STYLE.color[idx],
+        b: STYLE.b[idx],
+        i: STYLE.i[idx],
+        u: STYLE.u[idx],
+        size: STYLE.size[idx],
+        font: STYLE.font[idx],
+        align: STYLE.align[idx]
+      };
+    }
+
+    const MAX_HIST=60;
+    let undoStack=[], redoStack=[];
+
+    function snapshot(){
+      return {
+        text: TEXT,
+        style: {
+          color:[...STYLE.color],
+          b:[...STYLE.b], i:[...STYLE.i], u:[...STYLE.u],
+          size:[...STYLE.size],
+          font:[...STYLE.font],
+          align:[...STYLE.align]
+        },
+        stops: STOPS.map(s=>({...s})),
+        baseColor: normHex(solidColor.value,true),
+        fontSel: fontSel.value,
+        sizeCtl: parseInt(sizePct.value||"100",10),
+        safeIcons: !!safeIconsToggle.checked,
+        cleanSlate: !!cleanSlate.checked
+      };
+    }
+
+    function restore(snap){
+      TEXT = snap.text;
+      editor.value = TEXT;
+      MAP = buildVisibleMap(TEXT);
+      STYLE = snap.style;
+      ensureStyleLength(MAP.visLen);
+
+      STOPS = (snap.stops && snap.stops.length ? snap.stops : STOPS).map(s=>({
+        color:normHex(s.color,true),
+        pos:clamp(parseFloat(s.pos),0,100)
+      }));
+      sortStops();
+
+      solidColor.value = normHex(snap.baseColor || "#FFFFFF", true);
+      fontSel.value = snap.fontSel || fontSel.value;
+      sizePct.value = snap.sizeCtl || sizePct.value;
+      safeIconsToggle.checked = !!snap.safeIcons;
+      cleanSlate.checked = !!snap.cleanSlate;
+
+      syncPreviewBaseFont();
+      renderStopsUI();
+      renderGradientPreview();
       renderAll();
+      autosizeEditor();
+    }
+
+    function pushHistory(){
+      undoStack.push(snapshot());
+      if(undoStack.length>MAX_HIST) undoStack.shift();
+      redoStack.length=0;
+    }
+
+    function undo(){
+      if(!undoStack.length) return;
+      const cur = snapshot();
+      redoStack.push(cur);
+      const prev = undoStack.pop();
+      restore(prev);
+      status("Undone.");
+    }
+
+    function redo(){
+      if(!redoStack.length) return;
+      const cur = snapshot();
+      undoStack.push(cur);
+      const nxt = redoStack.pop();
+      restore(nxt);
+      status("Redone.");
+    }
+
+    let STOPS = loadLS("stopsPosV2", null);
+    if(!Array.isArray(STOPS) || !STOPS.length){
+      STOPS = [
+        {color:"#FF0033", pos:0},
+        {color:"#FF4D79", pos:18},
+        {color:"#FF7219", pos:38},
+        {color:"#FFEB0C", pos:58},
+        {color:"#00EAF0", pos:78},
+        {color:"#7F00FF", pos:100}
+      ];
     }else{
+      STOPS = STOPS.map(s=>({color:normHex(s.color,true), pos:clamp(parseFloat(s.pos),0,100)}));
+    }
+
+    function sortStops(){
+      STOPS.sort((a,b)=>a.pos-b.pos);
+    }
+
+    function distributeStops(){
+      if(STOPS.length<=2) return;
+      sortStops();
+      const n=STOPS.length;
+      for(let i=0;i<n;i++){
+        STOPS[i].pos = (i*100)/(n-1);
+      }
+    }
+
+    function randomizeStops(){
+      for(const s of STOPS) s.color = randHex();
+      distributeStops();
+    }
+
+    function reverseStops(){
+      sortStops();
+      const colors = STOPS.map(s=>s.color).reverse();
+      for(let i=0;i<STOPS.length;i++) STOPS[i].color = colors[i];
+    }
+
+    function randHex(){
+      return "#"+Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,"0").toUpperCase();
+    }
+
+    function colorAtT(t01){
+      sortStops();
+      const t = clamp(t01,0,1)*100;
+      if(STOPS.length===1) return STOPS[0].color;
+      if(t<=STOPS[0].pos) return STOPS[0].color;
+      if(t>=STOPS[STOPS.length-1].pos) return STOPS[STOPS.length-1].color;
+
+      for(let i=0;i<STOPS.length-1;i++){
+        const a=STOPS[i], b=STOPS[i+1];
+        if(t>=a.pos && t<=b.pos){
+          const span = (b.pos-a.pos)||1;
+          const lt = (t-a.pos)/span;
+          return normHex(lerpColor(a.color, b.color, lt), true);
+        }
+      }
+      return STOPS[STOPS.length-1].color;
+    }
+
+    function renderGradientPreview(){
+      sortStops();
+      const parts = STOPS.map(s=>`${normHex(s.color,true)} ${clamp(s.pos,0,100)}%`);
+      gradPreview.style.background = `linear-gradient(90deg, ${parts.join(", ")})`;
+      saveLS("stopsPosV2", STOPS);
+    }
+
+    function renderStopsUI(){
+      stopsWrap.innerHTML="";
+      sortStops();
+      STOPS.forEach((s, idx)=>{
+        const row=document.createElement("div");
+        row.className="stop-row";
+
+        const hex=document.createElement("input");
+        hex.type="text";
+        hex.value=normHex(s.color,true);
+        hex.setAttribute("aria-label", `Stop ${idx+1} hex`);
+
+        const col=document.createElement("input");
+        col.type="color";
+        col.value=normHex(s.color,true);
+        col.setAttribute("aria-label", `Stop ${idx+1} color`);
+
+        const range=document.createElement("input");
+        range.type="range";
+        range.min="0"; range.max="100"; range.step="1";
+        range.value=String(clamp(s.pos,0,100));
+        range.setAttribute("aria-label", `Stop ${idx+1} position`);
+
+        const pos=document.createElement("div");
+        pos.className="pos";
+        pos.textContent = `${Math.round(clamp(s.pos,0,100))}%`;
+
+        const actions=document.createElement("div");
+        actions.className="stop-actions";
+
+        const rm=document.createElement("button");
+        rm.className="btn small";
+        rm.type="button";
+        rm.textContent="✕";
+
+        const up=document.createElement("button");
+        up.className="btn small";
+        up.type="button";
+        up.textContent="▲";
+
+        const dn=document.createElement("button");
+        dn.className="btn small";
+        dn.type="button";
+        dn.textContent="▼";
+
+        const setIdx = ()=>{
+          const current = STOPS[idx];
+          return current ? idx : STOPS.findIndex(x=>x===s);
+        };
+
+        hex.addEventListener("input", ()=>{
+          const i=setIdx(); if(i<0) return;
+          STOPS[i].color = normHex(hex.value,true);
+          col.value = STOPS[i].color;
+          renderGradientPreview();
+        });
+
+        col.addEventListener("input", ()=>{
+          const i=setIdx(); if(i<0) return;
+          STOPS[i].color = normHex(col.value,true);
+          hex.value = STOPS[i].color;
+          renderGradientPreview();
+        });
+
+        range.addEventListener("input", ()=>{
+          const i=setIdx(); if(i<0) return;
+          STOPS[i].pos = clamp(parseFloat(range.value),0,100);
+          pos.textContent = `${Math.round(STOPS[i].pos)}%`;
+          renderGradientPreview();
+        });
+
+        rm.addEventListener("click", ()=>{
+          pushHistory();
+          if(STOPS.length<=1) return;
+          STOPS.splice(idx,1);
+          if(STOPS.length>1) distributeStops(); 
+          renderStopsUI();
+          renderGradientPreview();
+          status("Stop removed.");
+        });
+
+        up.addEventListener("click", ()=>{
+          if(idx<=0) return;
+          pushHistory();
+          const tmp=STOPS[idx-1]; STOPS[idx-1]=STOPS[idx]; STOPS[idx]=tmp;
+          renderStopsUI();
+          renderGradientPreview();
+        });
+
+        dn.addEventListener("click", ()=>{
+          if(idx>=STOPS.length-1) return;
+          pushHistory();
+          const tmp=STOPS[idx+1]; STOPS[idx+1]=STOPS[idx]; STOPS[idx]=tmp;
+          renderStopsUI();
+          renderGradientPreview();
+        });
+
+        actions.append(up,dn,rm);
+        row.append(hex,col,range,pos,actions);
+        stopsWrap.appendChild(row);
+      });
+    }
+
+    const PRESETS = {
+      "Rose Red":["590d22","800f2f","a4133c","c9184a","ff4d6d","ff758f","ff8fa3","ffb3c1","ffccd5","fff0f3"],
+      "True Red":["7a0000","b00016","d61c1c","ff3b3b","ff9a9a"],
+      "Crimson Fade":["430010","6e001b","9a0f2a","d43c4b","ff8a9a"],
+      "Golden Flame":["ff7b00","ff8800","ff9500","ffa200","ffaa00","ffb700","ffc300","ffd000","ffd933","ffe15c"],
+      "Ocean Blue":["03045e","023e8a","0077b6","0096c7","00b4d8","48cae4","90e0ef","ade8f4","caf0f8"],
+      "Royal Purple":["3a0ca3","5f0f40","9d0191","c200fb","e100ff","f72585","ff00a0","ff5ab3","ff85c1"],
+      "Monochrome Fade":["0b0b0b","2e2e2e","6b6b6b","b0b0b0","e5e5e5"],
+      "Rainbow Pulse":["ff0000","ff8700","ffd300","deff0a","a1ff0a","0aff99","0aefff","147df5","580aff","be0aff"],
+      "Sunset Glow":["c200fb","d704b2","e2068d","ec0868","f41c34","fc2f00","f45608","ec7d10","f69d0d","ffbc0a"],
+      "RGB Stripe":["ff0033","ffe500","00ff66","00eaff","0047ff","7f00ff"],
+      "Signal Glow":["ff00a0","ff0066","ff3d00","ffc400","8cff00"]
+    };
+
+    function buildPresetUI(){
+      presetSelect.innerHTML="";
+      Object.keys(PRESETS).forEach(name=>{
+        const o=document.createElement("option");
+        o.value=name; o.textContent=name;
+        presetSelect.appendChild(o);
+      });
+
+      presetGrid.innerHTML="";
+      const toQuoted = arr => arr.map(h=>`"#${h.toLowerCase()}"`).join(", ");
+
+      Object.entries(PRESETS).forEach(([name,arr])=>{
+        const card=document.createElement("div");
+        card.className="preset-card";
+
+        const nm=document.createElement("div");
+        nm.className="preset-name";
+        nm.textContent=name;
+
+        const sw=document.createElement("div");
+        sw.className="preset-swatch";
+        sw.style.background=`linear-gradient(90deg, ${arr.map((c,i)=>"#"+c+" "+(i*100/(arr.length-1))+"%").join(",")})`;
+
+        const hex=document.createElement("div");
+        hex.className="preset-hex";
+        hex.textContent=toQuoted(arr);
+
+        const actions=document.createElement("div");
+        actions.className="preset-actions";
+
+        const use=document.createElement("button");
+        use.className="btn small red";
+        use.type="button";
+        use.textContent="Use";
+        use.addEventListener("click", ()=>{
+          pushHistory();
+          STOPS = arr.map((c,i)=>({color:"#"+c.toUpperCase(), pos: (i*100)/(arr.length-1)}));
+          renderStopsUI();
+          renderGradientPreview();
+          status(`Preset "${name}" loaded.`);
+        });
+
+        const copy=document.createElement("button");
+        copy.className="btn small";
+        copy.type="button";
+        copy.textContent="Copy hex";
+        copy.addEventListener("click", async ()=>{
+          await copyToClipboard(toQuoted(arr));
+          status(`Copied ${name} hexes`);
+        });
+
+        actions.append(use,copy);
+        card.append(nm,sw,hex,actions);
+        presetGrid.appendChild(card);
+      });
+    }
+
+    function escapeHtml(s){
+      return String(s)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;");
+    }
+
+    function toPreviewHTML(markup){
+      let html = escapeHtml(markup);
+
+      // font
+      html = html
+        .replace(/&lt;font="([^"]+)"&gt;/g, (_,n)=>`<span style="font-family:${FONT_MAP[n.trim()]||"inherit"}">`)
+        .replace(/&lt;\/font&gt;/g, "</span>");
+
+      // color
+      html = html
+        .replace(/&lt;color=(#[0-9A-Fa-f]{6})&gt;/g, (_,h)=>`<span style="color:${h}">`)
+        .replace(/&lt;\/color&gt;/g, "</span>");
+
+      // size
+      html = html
+        .replace(/&lt;size=(\d{1,3})%&gt;/g, (_,p)=>`<span style="font-size:${p}%">`)
+        .replace(/&lt;\/size&gt;/g, "</span>");
+
+      // align
+      html = html
+        .replace(/&lt;align=(left|center|right)&gt;/g, (_,pos)=>`<div style="text-align:${pos}">`)
+        .replace(/&lt;\/align&gt;/g, "</div>");
+
+      // b/i/u
+      html = html
+        .replace(/&lt;b&gt;/g,"<b>").replace(/&lt;\/b&gt;/g,"</b>")
+        .replace(/&lt;i&gt;/g,"<i>").replace(/&lt;\/i&gt;/g,"</i>")
+        .replace(/&lt;u&gt;/g,"<u>").replace(/&lt;\/u&gt;/g,"</u>");
+
+      // line breaks
+      html = html.replace(/\\n/g,"<br/>").replace(/\n/g,"<br/>");
+      return html;
+    }
+
+    function normalizeOutput(){
+      sizePct.value = clamp(parseInt(sizePct.value||"100",10), 50, 300);
+      solidColor.value = normHex(solidColor.value,true);
+      renderAll();
+      status("Output normalized.");
+    }
+
+    function buildMarkup(){
+      const raw = TEXT.replace(/\r\n/g,"\n").replace(/\r/g,"\n");
+      const m = buildVisibleMap(raw);
+      const visLen = m.visLen;
+
+      ensureStyleLength(visLen);
+
+      const TAG_ORDER = ["align","font","size","color","b","i","u"];
+
+      let out = [];
+      let vIndex = 0;
+
+      let cur = {
+        align:null, font:null, size:null, color:null,
+        b:false, i:false, u:false
+      };
+
+      function closeTag(name){
+        if(name==="u" && cur.u){ out.push("</u>"); cur.u=false; }
+        if(name==="i" && cur.i){ out.push("</i>"); cur.i=false; }
+        if(name==="b" && cur.b){ out.push("</b>"); cur.b=false; }
+        if(name==="color" && cur.color){ out.push("</color>"); cur.color=null; }
+        if(name==="size" && cur.size!=null){ out.push("</size>"); cur.size=null; }
+        if(name==="font" && cur.font){ out.push("</font>"); cur.font=null; }
+        if(name==="align" && cur.align){ out.push("</align>"); cur.align=null; }
+      }
+
+      function openTag(name, val){
+        if(name==="align"){ out.push(`<align=${val}>`); cur.align=val; }
+        if(name==="font"){ out.push(`<font="${val}">`); cur.font=val; }
+        if(name==="size"){ out.push(`<size=${val}%>`); cur.size=val; }
+        if(name==="color"){ out.push(`<color=${val}>`); cur.color=val; }
+        if(name==="b"){ out.push("<b>"); cur.b=true; }
+        if(name==="i"){ out.push("<i>"); cur.i=true; }
+        if(name==="u"){ out.push("<u>"); cur.u=true; }
+      }
+
+      function resetAll(){
+        closeTag("u"); closeTag("i"); closeTag("b");
+        closeTag("color"); closeTag("size"); closeTag("font"); closeTag("align");
+      }
+
+      function applyStyleForVisibleChar(v){
+        const desired = {
+          align: STYLE.align[v] || DEFAULTS.align,
+          font:  STYLE.font[v]  || DEFAULTS.font,
+          size:  STYLE.size[v]  || DEFAULTS.size,
+          color: STYLE.color[v] || DEFAULTS.color,
+          b: !!STYLE.b[v], i: !!STYLE.i[v], u: !!STYLE.u[v]
+        };
+
+        function setAttr(name){
+          const val = desired[name];
+          if(cur[name] === val) return;
+          if(name==="align"){
+            closeTag("u"); closeTag("i"); closeTag("b"); closeTag("color"); closeTag("size"); closeTag("font"); closeTag("align");
+            openTag("align", val);
+            openTag("font", desired.font);
+            openTag("size", desired.size);
+            openTag("color", desired.color);
+            if(desired.b) openTag("b");
+            if(desired.i) openTag("i");
+            if(desired.u) openTag("u");
+            return;
+          }
+          if(name==="font"){
+            closeTag("u"); closeTag("i"); closeTag("b"); closeTag("color"); closeTag("size"); closeTag("font");
+            openTag("font", val);
+            openTag("size", desired.size);
+            openTag("color", desired.color);
+            if(desired.b) openTag("b");
+            if(desired.i) openTag("i");
+            if(desired.u) openTag("u");
+            return;
+          }
+          if(name==="size"){
+            closeTag("u"); closeTag("i"); closeTag("b"); closeTag("color"); closeTag("size");
+            openTag("size", val);
+            openTag("color", desired.color);
+            if(desired.b) openTag("b");
+            if(desired.i) openTag("i");
+            if(desired.u) openTag("u");
+            return;
+          }
+          if(name==="color"){
+            closeTag("u"); closeTag("i"); closeTag("b"); closeTag("color");
+            openTag("color", val);
+            if(desired.b) openTag("b");
+            if(desired.i) openTag("i");
+            if(desired.u) openTag("u");
+            return;
+          }
+        }
+
+        if(!cur.align){ openTag("align", desired.align); }
+        if(!cur.font){ openTag("font", desired.font); }
+        if(cur.size==null){ openTag("size", desired.size); }
+        if(!cur.color){ openTag("color", desired.color); }
+
+        setAttr("align");
+        setAttr("font");
+        setAttr("size");
+        setAttr("color");
+
+        if(cur.b !== desired.b){
+          if(cur.b) closeTag("b"); else openTag("b");
+        }
+        if(cur.i !== desired.i){
+          if(cur.i) closeTag("i"); else openTag("i");
+        }
+        if(cur.u !== desired.u){
+          if(cur.u) closeTag("u"); else openTag("u");
+        }
+      }
+
+      let i=0;
+      while(i<raw.length){
+        if(isLiteralNL(raw,i)){
+          if(cleanSlate.checked){
+            resetAll();
+          }
+          out.push("\\n");
+          i+=2;
+          continue;
+        }
+
+        if(raw[i]==="\n"){
+          if(cleanSlate.checked){
+            resetAll();
+          }
+          out.push("\\n");
+          i++;
+          continue;
+        }
+
+        if(isTokenStart(raw,i)){
+          const tok=readToken(raw,i);
+          if(tok){
+            out.push(raw.slice(tok.start, tok.end));
+            i=tok.end;
+            continue;
+          }
+        }
+
+        if(vIndex < visLen){
+          applyStyleForVisibleChar(vIndex);
+          out.push(raw[i]);
+          vIndex++;
+          i++;
+          continue;
+        }
+
+        out.push(raw[i]);
+        i++;
+      }
+
+      resetAll();
+      return out.join("");
+    }
+
+    function renderAll(){
+      MAP = buildVisibleMap(TEXT);
+      ensureStyleLength(MAP.visLen);
+
+      const markup = buildMarkup();
+      output.textContent = markup;
+      preview.innerHTML = toPreviewHTML(markup);
+      saveLS("baseColorV2", normHex(solidColor.value,true));
+      saveLS("fontSelV2", fontSel.value);
+      saveLS("sizeCtlV2", clamp(parseInt(sizePct.value||"100",10),50,300));
+    }
+
+    const renderAllDebounced = debounce(renderAll, 35);
+
+    function syncPreviewBaseFont(){
+      preview.style.fontFamily = FONT_MAP[fontSel.value] || "inherit";
+    }
+
+    function autosizeEditor(){
+      editor.style.height="auto";
+      editor.style.height = Math.min(editor.scrollHeight, 640) + "px";
+    }
+
+    let lastEditorValue = "";
+
+    function countVisibleInSlice(str, a, b){
+      let v=0, i=a;
+      while(i<b){
+        if(isLiteralNL(str,i)){ i+=2; continue; }
+        if(str[i]==="\n"||str[i]==="\r"){ i++; continue; }
+        if(isTokenStart(str,i)){
+          const tok=readToken(str,i);
+          if(tok && tok.end<=b){ i=tok.end; continue; }
+        }
+        v++; i++;
+      }
+      return v;
+    }
+
+    function onEditorInput(){
+      const newVal = editor.value;
+      const oldVal = lastEditorValue;
+
+      let p=0;
+      while(p<oldVal.length && p<newVal.length && oldVal[p]===newVal[p]) p++;
+
+      let os=oldVal.length-1, ns=newVal.length-1;
+      while(os>=p && ns>=p && oldVal[os]===newVal[ns]){ os--; ns--; }
+
+      const oldMidA = p;
+      const oldMidB = os+1;
+      const newMidA = p;
+      const newMidB = ns+1;
+
+      TEXT = newVal;
+      MAP = buildVisibleMap(TEXT);
+      const oldRemovedVis = countVisibleInSlice(oldVal, oldMidA, oldMidB);
+      const newInsertedVis = countVisibleInSlice(newVal, newMidA, newMidB);
+      const delta = newInsertedVis - oldRemovedVis;
+      const oldMap = buildVisibleMap(oldVal);
+      const vAtP = oldMap.editToVis[clamp(p,0,oldVal.length)];
+
+      for(const k of Object.keys(STYLE)){
+        STYLE[k].splice(vAtP, oldRemovedVis);
+      }
+
+      const fillStyle = (()=>{
+        const idx = clamp(vAtP-1, 0, Math.max(0, oldMap.visLen-1));
+        if(oldMap.visLen===0 || vAtP===0){
+          return {
+            color:normHex(solidColor.value,true),
+            b:false,i:false,u:false,
+            size:clamp(parseInt(sizePct.value||"100",10),50,300),
+            font:fontSel.value,
+            align:"left"
+          };
+        }
+        return {
+          color: STYLE.color[idx] || DEFAULTS.color,
+          b: !!STYLE.b[idx],
+          i: !!STYLE.i[idx],
+          u: !!STYLE.u[idx],
+          size: STYLE.size[idx] || DEFAULTS.size,
+          font: STYLE.font[idx] || DEFAULTS.font,
+          align: STYLE.align[idx] || DEFAULTS.align
+        };
+      })();
+
+      function pushFill(n){
+        for(let i=0;i<n;i++){
+          STYLE.color.splice(vAtP+i, 0, fillStyle.color);
+          STYLE.b.splice(vAtP+i, 0, fillStyle.b);
+          STYLE.i.splice(vAtP+i, 0, fillStyle.i);
+          STYLE.u.splice(vAtP+i, 0, fillStyle.u);
+          STYLE.size.splice(vAtP+i, 0, fillStyle.size);
+          STYLE.font.splice(vAtP+i, 0, fillStyle.font);
+          STYLE.align.splice(vAtP+i, 0, fillStyle.align);
+        }
+      }
+      if(newInsertedVis>0) pushFill(newInsertedVis);
+
+      ensureStyleLength(MAP.visLen);
+
+      lastEditorValue = newVal;
+      autosizeEditor();
+      renderAllDebounced();
+    }
+
+    function applyToVisibleRange(vs, ve, fn){
+      if(ve<=vs){
+        status("Select some text first.");
+        return false;
+      }
+      pushHistory();
+      for(let v=vs; v<ve; v++) fn(v);
+      renderAll();
+      return true;
+    }
+
+    function applySolid(){
+      const hex = normHex(solidColor.value,true);
+      const {vs,ve}=getSelectionVisibleRange();
+      return applyToVisibleRange(vs,ve, (v)=>{ STYLE.color[v]=hex; });
+    }
+
+    function applyGradient(){
+      const {vs,ve}=getSelectionVisibleRange();
+      if(ve<=vs){ status("Select text for gradient."); return; }
+      pushHistory();
+
+      const len = ve-vs;
+      if(len<=1){
+        STYLE.color[vs]=colorAtT(0);
+      }else{
+        for(let i=0;i<len;i++){
+          const t = i/(len-1);
+          STYLE.color[vs+i]=colorAtT(t);
+        }
+      }
+      renderAll();
+      status("Gradient applied.");
+    }
+
+    function toggleB(){
+      const {vs,ve}=getSelectionVisibleRange();
+      if(ve<=vs){ status("Select text first."); return; }
+      pushHistory();
+      let tr=0;
+      for(let v=vs; v<ve; v++) if(STYLE.b[v]) tr++;
+      const setTo = tr < (ve-vs)/2;
+      for(let v=vs; v<ve; v++) STYLE.b[v]=setTo;
+      renderAll();
+      status(setTo ? "Bold applied." : "Bold removed.");
+    }
+
+    function toggleI(){
+      const {vs,ve}=getSelectionVisibleRange();
+      if(ve<=vs){ status("Select text first."); return; }
+      pushHistory();
+      let tr=0;
+      for(let v=vs; v<ve; v++) if(STYLE.i[v]) tr++;
+      const setTo = tr < (ve-vs)/2;
+      for(let v=vs; v<ve; v++) STYLE.i[v]=setTo;
+      renderAll();
+      status(setTo ? "Italic applied." : "Italic removed.");
+    }
+
+    function toggleU(){
+      const {vs,ve}=getSelectionVisibleRange();
+      if(ve<=vs){ status("Select text first."); return; }
+      pushHistory();
+      let tr=0;
+      for(let v=vs; v<ve; v++) if(STYLE.u[v]) tr++;
+      const setTo = tr < (ve-vs)/2;
+      for(let v=vs; v<ve; v++) STYLE.u[v]=setTo;
+      renderAll();
+      status(setTo ? "Underline applied." : "Underline removed.");
+    }
+
+    function applySize(){
+      const pct = clamp(parseInt(sizePct.value||"100",10),50,300);
+      sizePct.value = pct;
+      const {vs,ve}=getSelectionVisibleRange();
+      return applyToVisibleRange(vs,ve,(v)=>{ STYLE.size[v]=pct; });
+    }
+
+    function applyFont(){
+      const f = fontSel.value;
+      const {vs,ve}=getSelectionVisibleRange();
+      return applyToVisibleRange(vs,ve,(v)=>{ STYLE.font[v]=f; });
+    }
+
+    function applyAlign(mode){
+      const {vs,ve}=getSelectionVisibleRange();
+      return applyToVisibleRange(vs,ve,(v)=>{ STYLE.align[v]=mode; });
+    }
+
+    function clearSelectionStyles(){
+      const {vs,ve}=getSelectionVisibleRange();
+      if(ve<=vs){ status("Select text first."); return; }
+      pushHistory();
+      for(let v=vs; v<ve; v++){
+        STYLE.color[v]=normHex(solidColor.value,true);
+        STYLE.b[v]=false; STYLE.i[v]=false; STYLE.u[v]=false;
+        STYLE.size[v]=clamp(parseInt(sizePct.value||"100",10),50,300);
+        STYLE.font[v]=fontSel.value;
+        STYLE.align[v]="left";
+      }
+      renderAll();
+      status("Selection cleared.");
+    }
+
+    function resetLine(){
+      const oldApplyLine = applyLine.checked;
+      applyLine.checked = true;
+      const {vs,ve}=getSelectionVisibleRange();
+      applyLine.checked = oldApplyLine;
+
+      if(ve<=vs){ status("Nothing on this line."); return; }
+      pushHistory();
+
+      for(let v=vs; v<ve; v++){
+        STYLE.color[v]=normHex(solidColor.value,true);
+        STYLE.b[v]=false; STYLE.i[v]=false; STYLE.u[v]=false;
+        STYLE.size[v]=clamp(parseInt(sizePct.value||"100",10),50,300);
+        STYLE.font[v]=fontSel.value;
+        STYLE.align[v]="left";
+      }
+      renderAll();
+      status("Line reset.");
+    }
+
+    let BRUSH = null;
+
+    function pickBrush(){
+      BRUSH = styleAtCaret();
+      status("Brush picked from caret.");
+    }
+
+    function paintBrush(){
+      if(!BRUSH){ status("Pick brush first."); return; }
+      const {vs,ve}=getSelectionVisibleRange();
+      if(ve<=vs){ status("Select text to paint."); return; }
+      pushHistory();
+      for(let v=vs; v<ve; v++){
+        STYLE.color[v]=BRUSH.color;
+        STYLE.b[v]=BRUSH.b;
+        STYLE.i[v]=BRUSH.i;
+        STYLE.u[v]=BRUSH.u;
+        STYLE.size[v]=BRUSH.size;
+        STYLE.font[v]=BRUSH.font;
+        STYLE.align[v]=BRUSH.align;
+      }
+      renderAll();
+      status("Brush painted.");
+    }
+
+    function insertAtCaret(text){
+      pushHistory();
+      const s=editor.selectionStart|0, e=editor.selectionEnd|0;
+      const val=editor.value;
+      const next = val.slice(0,s) + text + val.slice(e);
+      editor.value = next;
+      editor.selectionStart = editor.selectionEnd = s + text.length;
+      lastEditorValue = next; 
+      TEXT = next;
+      MAP = buildVisibleMap(TEXT);
+      ensureStyleLength(MAP.visLen);
+      autosizeEditor();
       renderAll();
     }
-  }
 
-  status('Inserted literal \\n');
-}
-btnInsertNL.addEventListener('click',insertLiteralNLAndBridge);
- 
-btnSizeClose.addEventListener('click',()=>{
-  pushHistory();
-  const caretPlain = plainLenText(ed.value.slice(0, ed.selectionStart));
-  const map=buildIndexMap(markup);
-  const pos=map[caretPlain]??markup.length;
-  markup=markup.slice(0,pos)+'</size>'+markup.slice(pos);
-  userStyled=true;
-  renderAll();
-  status('Inserted </size>.');
-});
- 
-btnResetLine.addEventListener('click',()=>{
-  const r=getCurrentLineRange();
-  if(r.a===r.b)return;
-  pushHistory();
-  const text=ed.value;
-  const plainA=plainLenText(text.slice(0,r.a));
-  const plainB=plainLenText(text.slice(0,r.b));
-  const map=buildIndexMap(markup);
-  const a=map[plainA]??markup.length;
-  const b=map[plainB]??markup.length;
-
-  let seg=markup.slice(a,b);
-  seg=seg
-    .replace(/<color=#[0-9A-Fa-f]{6}>/g,'')
-    .replace(/<\/color>/g,'')
-    .replace(/<size=\d{1,3}%>/g,'')
-    .replace(/<\/size>/g,'')
-    .replace(/<font="[^"]+">/g,'')
-    .replace(/<\/font>/g,'')
-    .replace(/<align=(left|center|right)>/g,'')
-    .replace(/<\/align>/g,'')
-    .replace(/<b>|<\/b>|<i>|<\/i>|<u>|<\/u>/g,'');
-
-  markup=markup.slice(0,a)+seg+markup.slice(b);
-  userStyled=true;
-  renderAll();
-  status('Line reset.');
-});
- 
-function syncSolid(){
-  baseColor=normHex(solidPicker.value,true);
-  saveLS('baseColor',baseColor);
-  const textNorm=ed.value;
-
-  if(!userStyled){
-    markup=textNorm;
-  }else{
-    const map=buildIndexMap(markup);
-    const plainLenMarkup=map.length?map.length-1:0;
-    const plainLenEditor=plainLenText(textNorm.replace(/\r/g,''));
-
-    if(plainLenEditor>plainLenMarkup){
-      const startIdx=indexOfPlainInText(textNorm,plainLenMarkup);
-      const toAdd=textNorm.slice(startIdx);
-      const insertAt=map[plainLenMarkup]??markup.length;
-      markup=markup.slice(0,insertAt)+toAdd+markup.slice(insertAt);
-    }else if(plainLenEditor<plainLenMarkup){
-      const cut=map[plainLenEditor]??markup.length;
-      markup=markup.slice(0,cut);
+    function insertLiteralNL(){
+      insertAtCaret("\\n");
+      status("Inserted literal \\n");
     }
-  }
-  renderAll();
-}
-solidPicker.addEventListener('input',syncSolid);
-fontSel.addEventListener('change',()=>{syncPreviewBaseFont();renderAll()});
- 
-function copyToClipboard(text){
-  if(navigator.clipboard&&window.isSecureContext)
-    return navigator.clipboard.writeText(text);
-  const ta=document.createElement('textarea');
-  ta.value=text;
-  ta.style.position='fixed';
-  ta.style.left='-9999px';
-  document.body.appendChild(ta);
-  ta.select();
-  try{document.execCommand('copy')}finally{document.body.removeChild(ta)}
-  return Promise.resolve();
-}
-btnCopy.addEventListener('click',()=>{
-  const exportText=markup.replace(/\r?\n/g,'\\n');
-  copyToClipboard(exportText);
-  status('Markup copied to clipboard.');
-});
-btnDL.addEventListener('click',()=>{
-  const exportText=markup.replace(/\r?\n/g,'\\n');
-  const blob=new Blob([exportText],{type:'text/plain;charset=utf-8'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;a.download='template.txt';
-  document.body.appendChild(a);a.click();a.remove();
-  URL.revokeObjectURL(url);
-  status('Downloaded template.txt.');
-});
- 
-autoBtn.addEventListener('click',()=>{
-  const {s,e}=getSel();
-  const val=ed.value;
-  const token=autoSel.value;
-  ed.value=val.slice(0,s)+token+val.slice(e);
-  ed.selectionStart=ed.selectionEnd=s+token.length;
-  syncSolid();
-  status(`Inserted ${token}`);
-});
- 
-const ICONS=[
-  '✿','❀','❖','⚽','⚾','♠','♣','♦','♥','♤','♧','♢','♡','☯','✚','⚠','†','∞','✓',
-  '☎','☏','☀','☁','☂','☃','☉','★','☆','⁂','✽','☝','☞','☟','☜','↑','↓','→','←','↔','↕',
-  '⌘','⌅','⌆','⌇','〶','⚙','⚛','⚜','⚓','⚡','⚕','⚒','⚖','♩','♪','♫','♬','♭','♮','♯',
-  '☕','☘','☄','☇','☈','〠','ヅ','ツ','㋡','웃','유','シ','ッ','㋛','◉','○','◎','●','⊗','⊙',
-  '◯','◇','◈','◍','◐','◑','◒','◓','◦','∅','⊕','⊖','⊘','⦿','▀','▁','▂','▃','▄','▅','▆','▇',
-  '▉','▋','█','░','▒','▓','▢','▣','▤','▥','▦','▧','▨','▩','▪','▫','◆','◣','◥','◤','◢',
-  '☠','☢','☣','⚰','⚱','♨','☮','✠','✡','™','〰','Ⓜ','♻','🆘','🅰','🅱','🅾','🆚'
-];
-function insertIconChar(ch){
-  const {s,e}=getSel();
-  const val=ed.value;
-  const before=val.slice(0,s);
-  const after=val.slice(e);
 
-  ed.value=before+ch+after;
-  ed.selectionStart=ed.selectionEnd=before.length+ch.length;
+    const ICONS_SAFE = [
+      "✿","❀","❖","★","☆","✓","∞","☯","⚠","♥","♡","♦","♣","♠","→","←","↑","↓","↔","↕",
+      "◉","○","◎","●","◯","◇","◆","◈","■","□","▪","▫","░","▒","▓","█"
+    ];
+    const ICONS_FULL = [
+      "✿","❀","❖","⚽","⚾","♠","♣","♦","♥","♤","♧","♢","♡","☯","✚","⚠","†","∞","✓",
+      "☎","☏","☀","☁","☂","☃","☉","★","☆","⁂","✽","☝","☞","☟","☜","↑","↓","→","←","↔","↕",
+      "⌘","⌅","⌆","⌇","〶","⚙","⚛","⚜","⚓","⚡","⚕","⚒","⚖","♩","♪","♫","♬","♭","♮","♯",
+      "☕","☘","☄","☇","☈","〠","ヅ","ツ","㋡","웃","유","シ","ッ","㋛","◉","○","◎","●","⊗","⊙",
+      "◯","◇","◈","◍","◐","◑","◒","◓","◦","∅","⊕","⊖","⊘","⦿","▀","▁","▂","▃","▄","▅","▆","▇",
+      "▉","▋","█","░","▒","▓","▢","▣","▤","▥","▦","▧","▨","▩","▪","▫","◆","◣","◥","◤","◢",
+      "☠","☢","☣","⚰","⚱","♨","☮","✠","✡","™","〰","Ⓜ","♻","🆘","🅰","🅱","🅾","🆚"
+    ];
 
-  pushHistory();
-
-  const plainIdxBefore=plainLenText(before);
-
-  if(!userStyled){
-    markup=ed.value;
-  }else{
-    const map=buildIndexMap(markup);
-    const insertPos=map[plainIdxBefore]??markup.length;
-    markup=markup.slice(0,insertPos)+ch+markup.slice(insertPos);
-  }
-  renderAll();
-}
-function buildIcons(){
-  iconGrid.innerHTML='';
-  ICONS.forEach(ch=>{
-    const btn=document.createElement('button');
-    btn.type='button';
-    btn.className='btn small icon-btn';
-    btn.textContent=ch;
-    btn.addEventListener('click',()=>{
-      insertIconChar(ch);
-      status(`Inserted icon ${ch}`);
+    function buildIcons(){
+      iconGrid.innerHTML="";
+      const src = safeIconsToggle.checked ? ICONS_SAFE : ICONS_FULL;
+      src.forEach(ch=>{
+        const b=document.createElement("button");
+        b.type="button";
+        b.className="btn small icon-btn";
+        b.textContent=ch;
+        b.addEventListener("click", ()=>{
+          insertAtCaret(ch);
+          status(`Inserted icon ${ch}`);
+        });
+        iconGrid.appendChild(b);
+      });
+    }
+    menuToggle.addEventListener("click", ()=>{
+      const open = !drawer.classList.contains("open");
+      drawer.classList.toggle("open", open);
+      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
-    iconGrid.appendChild(btn);
-  });
-}
-btnIcons.addEventListener('click',()=>{
-  const willOpen=!iconPalette.classList.contains('open');
-  iconPalette.classList.toggle('open');
-  if(willOpen && !iconGrid.childElementCount){
-    buildIcons();
-  }
-});
- 
-const PRESETS={ 
- "Rose Red":["590d22","800f2f","a4133c","c9184a","ff4d6d","ff758f","ff8fa3","ffb3c1","ffccd5","fff0f3"],
- "True Red":["7a0000","b00016","d61c1c","ff3b3b","ff9a9a"],
- "Crimson Fade":["430010","6e001b","9a0f2a","d43c4b","ff8a9a"],
- "Brick Ember":["521414","7a2320","9e362b","c95646","eaa19b"],
- "Candy Apple":["6f0000","a80000","e10019","ff3d38","ffb1ae"],
- "Golden Flame":["ff7b00","ff8800","ff9500","ffa200","ffaa00","ffb700","ffc300","ffd000","ffd933","ffe15c"],
- "Orange Crush":["7a2e00","b34a00","ff6d00","ffa042","ffd3a1"],
- "Tangelo":["552500","8a3a00","c25500","ff7e1a","ffbf80"],
- "Pumpkin Spice":["5c2d00","9a4e00","cc6b00","ff9722","ffd19e"],
- "Sunset Orange":["6b1b00","a33300","d74e00","ff7a30","ffc4a6"],
- "Lemon Zest":["6b5e00","9a8800","d4b400","ffe34d","fff3a3"],
- "Honey Glow":["4d3a00","7a5c00","b08900","e6b80a","ffe680"],
- "Gold Foil":["5b4a00","8f7400","caa100","f2cf33","fff0a6"],
- "Sand Light":["5f5527","8a7b39","b4a450","d9c978","f7edb8"],
- "Solar Flare":["6a4d00","a47300","d19a00","ffd54d","fff3cc"],
- "Forest Calm":["20331a","33512a","446c37","558745","66a253","7cb36b","94c186","abcea1","c3dcbc","dbead7"],
- "Mint Sky":["007f5f","2b9348","55a630","80b918","aacc00","bfd200","d4d700","dddf00","eeef20"],
- "Emerald Field":["064e3b","0f7a4b","1fa36b","4fd08a","a8f0c2"],
- "Lime Soda":["0b3d02","167a06","22b108","79d70f","d0ff72"],
- "Meadow Fresh":["1c3b1a","2f6b2a","3f8e37","61b357","a6e6a3"],
- "Teal Breeze":["0a2d27","13594e","1d8676","26b29d","30dfc4","59e5d0","83ecdc","acf2e7","d6f9f3"],
- "Aqua Tide":["005f5f","008c8c","00b3a6","32d1c0","a0efe6"],
- "Seafoam Drift":["0c3c35","13685d","1da28c","4fdcc7","b7f3e9"],
- "Glacier Shore":["07373a","0e6267","1a8d96","49bcc2","aee9ef"],
- "Tropical Surf":["004b4a","007a77","00a39f","27cfc7","90f7f1"],
- "Ocean Blue":["03045e","023e8a","0077b6","0096c7","00b4d8","48cae4","90e0ef","ade8f4","caf0f8"],
- "Azure Sky":["0b1e6b","143f9a","1f6ed4","4fa0ff","a8ceff"],
- "Deep Space":["0b132b","1c2541","3a506b","5bc0be","a6e3e9"],
- "Royal Night":["0a0f1f","111d4a","2a3c8b","4f6bd7","a3b5ff"],
- "Cyber Aqua":["001f3f","003f7f","0074d9","39cccc","7fdbff"],
- "Indigo Deep":["1a0b6b","2e169a","4931d4","7f73ff","c6c0ff"],
- "Midnight Indigo":["0b0f3a","152261","2645a1","4f7be0","a7c1ff"],
- "Twilight Indigo":["140a2b","2a1952","463188","7b6ed1","c4c0ff"],
- "Space Indigo":["0a0a2b","15154a","2d2d80","5555c4","bdbdf8"],
- "Royal Purple":["3a0ca3","5f0f40","9d0191","c200fb","e100ff","f72585","ff00a0","ff5ab3","ff85c1"],
- "Violet Bloom":["3b0a57","6a1b9a","8e3ecf","b07ae8","e1c7ff"],
- "Lavender Mist":["2b1e59","5a3ea6","8a6be8","b79cff","e6ddff"],
- "Amethyst Dream":["2a0b3a","4c1b6e","7a3eb0","b081e6","e6d6ff"],
- "Grape Soda":["3a0057","660099","8c33cc","b366ff","e0c2ff"],
- "Pink Candy":["6b0b3b","9a165a","d43a8b","ff73b4","ffd6e8"],
- "Berry Mix":["2d0a31","6a0572","ab26a9","ff70a6","ffd6e0"],
- "Rose Quartz":["4a0b26","7a1f47","b24778","e08db3","ffdcef"],
- "Blush Pop":["5e1232","9b2b5e","d84b8b","ff88be","ffd2e6"],
- "Flamingo":["6d1b3f","b1306d","e05c9a","ff9ccc","ffe3f2"],
- "Desert Dusk":["4a2c2a","8c5b3f","c0895e","e6b17e","ffe0b2"],
- "Cocoa Earth":["3e2723","5d4037","795548","a1887f","d7ccc8"],
- "Sandstone":["5a4634","8a6a4a","b8946d","d9b88f","f3e1c6"],
- "Clay Pot":["4b2a1f","7a4735","a96453","d78b74","f4c7b6"],
- "Rustic Wood":["3b2413","5e3a1f","7d512b","a37342","d6b189"],
- "Monochrome Fade":["0b0b0b","2e2e2e","6b6b6b","b0b0b0","e5e5e5"],
- "Steel to Sky":["202427","434a52","6f7a85","a8b5c3","dfe7ef"],
- "Foggy Morning":["111317","1c232b","2f3b46","556573","aab8c2"],
- "Charcoal":["000000","222222","555555","aaaaaa","ffffff"],
- "Graphite Glow":["1a1b1f","2b2e35","474c56","7b8390","c9d1db"],
- "Rainbow Pulse":["ff0000","ff8700","ffd300","deff0a","a1ff0a","0aff99","0aefff","147df5","580aff","be0aff"],
- "Sunset Glow":["c200fb","d704b2","e2068d","ec0868","f41c34","fc2f00","f45608","ec7d10","f69d0d","ffbc0a"],
- "Retro Neon":["ff00e5","8a2be2","4b6cff","00e1ff","00ffa3"],
- "Candy Corn":["2b0707","b30000","ff6b00","ffd000","fff3a3"],
- "Heat Map":["3b0a0a","7a1e1e","b23a1f","ff6f00","ffd180"],
- "Pastel Rainbow":["f8c8ff","fbc2ea","ffc9de","cde4ff","bfe7ff"],
- "Mint Cream":["dff7e1","eaf8f0","f8fff5","fff7ea","e8d0a6"],
- "Soft Sorbet":["ffd1d1","ffe9d1","fff3d6","d9f7f1","d9e3ff"],
- "Cloud Lilac":["ffe6f7","ead7ff","d7cbff","c6ddff","c6f2ff"],
- "Peach Milk":["ffd2d2","ffc9b8","ffdcbc","ffe9cf","ffeedd"],
- "Baby Rainbow":["ffe4ea","fff7b8","dbffd8","c7f4ff","e4d2ff"],
- "Hot Neon":["6900ff","8a00ff","b300ff","ff00c8","ff4da6"],
- "Heatwave":["f02a00","ff5a00","ff7a00","ff9a00","ffbf00"],
- "Lime Pop":["00d26a","9be000","ffd000","ff7a00","ff2c00"],
- "RGB Stripe":["ff0033","ffe500","00ff66","00eaff","0047ff","7f00ff"],
- "Tropic Pop":["ff3ab0","ff6a3a","ffd23f","00c2ff","6aff00"],
- "Signal Glow":["ff00a0","ff0066","ff3d00","ffc400","8cff00"]
-};
+    document.querySelectorAll(".drawer-link").forEach(a=>{
+      a.addEventListener("click", ()=>{
+        drawer.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded","false");
+      });
+    });
 
-function buildPresetUI(){
-  presetSelect.innerHTML='';
-  Object.keys(PRESETS).forEach(n=>{
-    const o=document.createElement('option');
-    o.value=n;o.textContent=n;
-    presetSelect.appendChild(o);
-  });
+    // Help modal
+    function openHelp(){
+      modal.classList.add("open");
+      modalClose.focus();
+    }
+    function closeHelp(){
+      modal.classList.remove("open");
+    }
+    openHelpTop.addEventListener("click", (e)=>{ e.preventDefault(); openHelp(); });
+    openHelpDrawer.addEventListener("click", (e)=>{ e.preventDefault(); openHelp(); });
+    openHelpInline.addEventListener("click", openHelp);
+    modalClose.addEventListener("click", closeHelp);
+    modalBackdrop.addEventListener("click", closeHelp);
 
-  presetGrid.innerHTML='';
-  const toQuoted = arr => arr.map(h=>`"#${h.toLowerCase()}"`).join(', ');
-  Object.entries(PRESETS).forEach(([name,arr])=>{
-    const card=document.createElement('div');
-    card.className='preset-card';
+    document.addEventListener("keydown", (e)=>{
+      if(e.key==="Escape" && modal.classList.contains("open")) closeHelp();
+    });
 
-    const h=document.createElement('div');
-    h.className='preset-header';
-    h.textContent=name;
+    // Editor input + shortcuts
+    editor.addEventListener("input", onEditorInput);
 
-    const sw=document.createElement('div');
-    sw.className='preset-swatch';
-    sw.style.background=`linear-gradient(90deg, ${arr.map((c,i)=>'#'+c+' '+(i*100/(arr.length-1))+'%').join(',')})`;
+    editor.addEventListener("keydown", (e)=>{
+      const mod = e.ctrlKey || e.metaKey;
 
-    const hexBox=document.createElement('div');
-    hexBox.className='preset-hex';
-    hexBox.textContent=toQuoted(arr);
+      // Ctrl/Cmd+S download
+      if(mod && e.key.toLowerCase()==="s"){
+        e.preventDefault();
+        downloadOutBtn.click();
+        return;
+      }
 
-    const actions=document.createElement('div');
-    actions.className='preset-actions';
+      // Ctrl/Cmd+Enter -> literal \n
+      if(mod && e.key==="Enter"){
+        e.preventDefault();
+        insertLiteralNL();
+        return;
+      }
 
-    const useBtn=document.createElement('button');
-    useBtn.className='btn small';
-    useBtn.textContent='Use';
-    useBtn.addEventListener('click',()=>{
-      STOPS=arr.map(c=>'#'+c.toUpperCase());
-      renderStops();renderGradPreview();
+      // Ctrl/Cmd+B/I/U
+      if(mod && !e.shiftKey && e.key.toLowerCase()==="b"){ e.preventDefault(); toggleB(); return; }
+      if(mod && !e.shiftKey && e.key.toLowerCase()==="i"){ e.preventDefault(); toggleI(); return; }
+      if(mod && !e.shiftKey && e.key.toLowerCase()==="u"){ e.preventDefault(); toggleU(); return; }
+
+      // Ctrl/Cmd+Shift+G gradient
+      if(mod && e.shiftKey && e.key.toLowerCase()==="g"){ e.preventDefault(); applyGradient(); return; }
+
+      // Ctrl/Cmd+Shift+C solid
+      if(mod && e.shiftKey && e.key.toLowerCase()==="c"){ e.preventDefault(); applySolid(); return; }
+
+      // Ctrl/Cmd+Z / Shift+Z / Y
+      if(mod && !e.shiftKey && e.key.toLowerCase()==="z"){ e.preventDefault(); undo(); return; }
+      if(mod && (e.key.toLowerCase()==="y" || (e.shiftKey && e.key.toLowerCase()==="z"))){
+        e.preventDefault(); redo(); return;
+      }
+    });
+
+    // Live preview base font
+    fontSel.addEventListener("change", ()=>{
+      syncPreviewBaseFont();
+      renderAll();
+    });
+
+    // Solid picker
+    pickSolidBtn.addEventListener("click", ()=>solidColor.showPicker?.());
+    solidColor.addEventListener("input", ()=>{
+      renderAllDebounced();
+    });
+
+    // Toolbar actions
+    applySolidBtn.addEventListener("click", ()=>{ if(applySolid()) status("Solid applied."); });
+    applyGradientBtn.addEventListener("click", applyGradient);
+
+    btnB.addEventListener("click", toggleB);
+    btnI.addEventListener("click", toggleI);
+    btnU.addEventListener("click", toggleU);
+
+    btnNL.addEventListener("click", insertLiteralNL);
+
+    applySizeBtn.addEventListener("click", ()=>{ if(applySize()) status("Size applied."); });
+    applyFontBtn.addEventListener("click", ()=>{ if(applyFont()) status("Font applied."); });
+
+    document.querySelectorAll("[data-align]").forEach(b=>{
+      b.addEventListener("click", ()=>{
+        const mode=b.getAttribute("data-align");
+        if(applyAlign(mode)) status(`Aligned ${mode}.`);
+      });
+    });
+
+    resetLineBtn.addEventListener("click", resetLine);
+
+    normalizeBtn.addEventListener("click", normalizeOutput);
+    clearStylesBtn.addEventListener("click", clearSelectionStyles);
+
+    btnUndo.addEventListener("click", undo);
+    btnRedo.addEventListener("click", redo);
+
+    // Brush
+    pickBrushBtn.addEventListener("click", pickBrush);
+    paintBrushBtn.addEventListener("click", paintBrush);
+
+    // Tokens
+    insertTokenBtn.addEventListener("click", ()=>{
+      insertAtCaret(autoToken.value);
+      status(`Inserted ${autoToken.value}`);
+    });
+
+    // Icons
+    toggleIconsBtn.addEventListener("click", ()=>{
+      const willOpen = !iconPalette.classList.contains("open");
+      iconPalette.classList.toggle("open", willOpen);
+      if(willOpen) buildIcons();
+    });
+    safeIconsToggle.addEventListener("change", ()=>{
+      if(iconPalette.classList.contains("open")) buildIcons();
+    });
+
+    // Stops
+    addStopBtn.addEventListener("click", ()=>{
+      pushHistory();
+      const last = STOPS.length ? STOPS[STOPS.length-1].pos : 100;
+      const pos = clamp(last + 5, 0, 100);
+      STOPS.push({color:randHex(), pos});
+      distributeStops();
+      renderStopsUI();
+      renderGradientPreview();
+      status("Stop added.");
+    });
+
+    randomizeStopsBtn.addEventListener("click", ()=>{
+      pushHistory();
+      randomizeStops();
+      renderStopsUI();
+      renderGradientPreview();
+      status("Stops randomized.");
+    });
+
+    reverseStopsBtn.addEventListener("click", ()=>{
+      pushHistory();
+      reverseStops();
+      renderStopsUI();
+      renderGradientPreview();
+      status("Stops reversed.");
+    });
+
+    distributeStopsBtn.addEventListener("click", ()=>{
+      pushHistory();
+      distributeStops();
+      renderStopsUI();
+      renderGradientPreview();
+      status("Stops distributed.");
+    });
+
+    loadPresetBtn.addEventListener("click", ()=>{
+      const name=presetSelect.value;
+      if(!name) return;
+      pushHistory();
+      const arr=PRESETS[name];
+      STOPS = arr.map((c,i)=>({color:"#"+c.toUpperCase(), pos:(i*100)/(arr.length-1)}));
+      renderStopsUI();
+      renderGradientPreview();
       status(`Preset "${name}" loaded.`);
     });
 
-    const copyBtn=document.createElement('button');
-    copyBtn.className='btn small';
-    copyBtn.textContent='Copy hex';
-    copyBtn.addEventListener('click',()=>{
-      copyToClipboard(toQuoted(arr));
-      status(`Copied ${name} hexes`);
+    copyOutBtn.addEventListener("click", async ()=>{
+      const text = buildMarkup(); 
+      await copyToClipboard(text);
+      status("Markup copied.");
     });
 
-    actions.append(useBtn,copyBtn);
-    card.append(h,sw,hexBox,actions);
-    presetGrid.appendChild(card);
-  });
-}
-presetApply.addEventListener('click',()=>{
-  const n=presetSelect.value;
-  if(!n)return;
-  STOPS=PRESETS[n].map(c=>'#'+c.toUpperCase());
-  renderStops();renderGradPreview();
-  status(`Preset "${n}" loaded.`);
-}); 
-document.querySelectorAll('[data-export-set]').forEach(b=>
-  b.addEventListener('click',()=>{
-    const k=b.getAttribute('data-export-set');
-    exportAreas[k].value=markup;
-    status(`Captured into "${k}".`);
-  })
-);
-document.getElementById('btn-export-download').addEventListener('click',()=>{
-  const parts=[];
-  for(const [name,ta] of Object.entries(exportAreas)){
-    const body=(ta.value||'').trim();
-    if(body)parts.push(`${name}:${body}`);
-  }
-  if(!parts.length){
-    status('Nothing to export.');
-    return;
-  }
-  const blob=new Blob([parts.join('\n')],{type:'text/plain;charset=utf-8'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;a.download='named.txt';
-  document.body.appendChild(a);a.click();a.remove();
-  URL.revokeObjectURL(url);
-  status('Downloaded named.txt');
-});
- 
-function boot(){
-  renderStops();
-  renderGradPreview();
-  buildPresetUI();
-  syncPreviewBaseFont();
+    downloadOutBtn.addEventListener("click", ()=>{
+      const text = buildMarkup();
+      downloadText("template.txt", text);
+      status("Downloaded template.txt");
+    });
 
-  prevContent.style.color='#FFFFFF';
-  ed.value='♡Welcome to my lobby♡\\n';
-  baseColor=normHex(solidPicker.value,true);
-  sizeInput.value='100';
-  userStyled=false;
-  syncSolid();
-  openAbout();
-}
-document.addEventListener('DOMContentLoaded',boot);
-</script>
+    document.querySelectorAll("[data-capture]").forEach(b=>{
+      b.addEventListener("click", ()=>{
+        const key=b.getAttribute("data-capture");
+        expAreas[key].value = buildMarkup();
+        status(`Captured into "${key}".`);
+      });
+    });
+
+    function buildNamedLines(){
+      const parts=[];
+      for(const [name,ta] of Object.entries(expAreas)){
+        const body=(ta.value||"").trim();
+        if(body) parts.push(`${name}:${body}`);
+      }
+      return parts;
+    }
+
+    downloadNamedBtn.addEventListener("click", ()=>{
+      const parts=buildNamedLines();
+      if(!parts.length){ status("Nothing to export."); return; }
+      downloadText("named.txt", parts.join("\n"));
+      status("Downloaded named.txt");
+    });
+
+    copyNamedBtn.addEventListener("click", async ()=>{
+      const parts=buildNamedLines();
+      if(!parts.length){ status("Nothing to copy."); return; }
+      await copyToClipboard(parts.join("\n"));
+      status("Copied named exports.");
+    });
+
+    function boot(){
+      const bc = loadLS("baseColorV2", "#FFFFFF");
+      const fs = loadLS("fontSelV2", "OCRAXT SDF");
+      const sz = loadLS("sizeCtlV2", 100);
+
+      solidColor.value = normHex(bc,true);
+      fontSel.value = fs;
+      sizePct.value = clamp(parseInt(sz||"100",10),50,300);
+
+      syncPreviewBaseFont();
+
+      TEXT = "♡Welcome to my lobby♡\\n";
+      editor.value = TEXT;
+      lastEditorValue = TEXT;
+
+      MAP = buildVisibleMap(TEXT);
+      ensureStyleLength(MAP.visLen);
+
+      const base = normHex(solidColor.value,true);
+      const size = clamp(parseInt(sizePct.value||"100",10),50,300);
+      const fnt = fontSel.value;
+
+      for(let v=0; v<MAP.visLen; v++){
+        STYLE.color[v]=base;
+        STYLE.size[v]=size;
+        STYLE.font[v]=fnt;
+        STYLE.align[v]="left";
+        STYLE.b[v]=false; STYLE.i[v]=false; STYLE.u[v]=false;
+      }
+
+      sortStops();
+      renderStopsUI();
+      renderGradientPreview();
+      buildPresetUI();
+
+      // Render
+      autosizeEditor();
+      renderAll();
+
+      const seen = loadLS("seenHelpV2", false);
+      if(!seen){
+        openHelp();
+        saveLS("seenHelpV2", true);
+      }
+    }
+
+    boot();
+  </script>
 </body>
 </html>
