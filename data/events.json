@@ -211,22 +211,28 @@
   "December 2025": {
     "1": [
       { "name": "December Shenanigans: Snowball Bot + Christmas Challenge", "status": "ended" },
-      { "name": "Mafia Monday", "status": "ended" }
+      { "name": "Mafia Monday · By Eminem", "status": "ended" }
     ],
     "8": [
-      { "name": "Mafia Monday", "status": "ended" }
+      { "name": "Mafia Monday · By Eminem", "status": "ended" }
     ],
     "14": [
       { "name": "Town of Salem 2 Community Event · By Zen", "status": "ended" }
     ],
     "15": [
-      { "name": "Mafia Monday", "status": "ended" }
+      { "name": "Mafia Monday · By Eminem", "status": "ended" }
     ],
      "21": [
       { "name": "Lary Games Debut · By Spyder", "status": "ended" }
     ],
      "24": [
       { "name": "Christmas Scribbl.io Extravaganza · By Spyder", "status": "upcoming" }
-    ]   
+    ],   
+     "25": [
+      { "name": "Mafia Monday · By Eminem", "status": "ended" }
+    ],
+     "31": [
+      { "name": "Jackbox · By Chris", "status": "ended" }
+    ] 
   }
 }
