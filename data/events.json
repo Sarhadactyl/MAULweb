@@ -225,8 +225,8 @@
      "21": [
       { "name": "Lary Games Debut · By Spyder", "status": "ended" }
     ],
-      "22": [
-      { "name": "Mafia Monday", "status": "ended" }
+     "22": [
+      { "name": "Mafia Monday · By Eminem", "status": "ended" }
     ],
      "23": [
       { "name": "New Year, New Story · By Sarha", "status": "active" }
@@ -235,7 +235,13 @@
       { "name": "Christmas Scribbl.io Extravaganza · By Spyder", "status": "ended" }
     ],
      "25": [
-      { "name": "Christmas Clash  · By Ghoul", "status": "active" }
-    ]   
+      { "name": "Christmas Clash  · By Ghoul", "status": "ended" }
+    ],
+      "29": [
+      { "name": "Mafia Monday · By Eminem", "status": "ended" }
+    ], 
+    "31": [
+      { "name": "Jackbox · By Chris", "status": "ended" }
+    ]
   }
 }
