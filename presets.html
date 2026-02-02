@@ -289,6 +289,17 @@
         margin: 0 auto;
       }
 
+      /* ✅ Featured grid uses the same layout as the main grid (keeps your existing styles intact) */
+      #featured-grid.grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        max-width: 900px;
+        margin: 0 auto;
+        justify-content: initial;
+      }
+
+
       .mods-section {
         max-width: 900px;
         margin: 0 auto 34px;
@@ -717,7 +728,7 @@
             <i class="fa-solid fa-star"></i>&nbsp; Community Pick
           </span>
         </div>
-        <div id="featured-grid"></div>
+        <div id="featured-grid" class="grid"></div>
       </section>
 
       <section class="mods-section">
@@ -793,7 +804,8 @@
                 notes: "To use: Unzip this file and put the folder into the BepInEx/config. May also rename to Preset#, where # is what slot the preset is in."
               }
             ]
-          },
+          }
+        ],
 
         mods: [
           {
