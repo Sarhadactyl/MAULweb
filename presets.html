@@ -758,99 +758,42 @@
       const DATA = {
         featured: [
           {
-            id: "EHR",
-            title: "Endless Host Roles",
-            image: "images/EHR_logo0.png",
-            blurb: "The largest Among Us mod, completely free, fully customizable and host only.",
-            repo: "https://github.com/Gurge44/EndlessHostRoles/releases/tag/v6.1.0",
+            id: "project-lotus",
+            title: "Project Lotus",
+            image: "images/Project lotus.jpg",
+            blurb: "Continuation of TOH:TOR with unique roles and functions.",
+            repo: "https://github.com/Lotus-AU/LotusContinued",
             presets: [
               {
-                host: "Sarha",
-                name: "Balanced Chaos",
-                description: "Same settings that were used within my TOHE preset with a few simple EHR roles added.",
-                file: "presets/sarhaOptions.json",
-                notes: "Settings are on Preset 1. Low kill cooldowns, high intensity."
+                host: "Citrion",
+                name: "Lotus (+Bloom): Cult Takeover",
+                description: "This focuses on the Cult faction that the Bloom add-on adds.",
+                file: "presets/Preset5.zip",
+                notes: "To use: Unzip this file and put the folder into the BepInEx/config. May also rename to Preset#, where # is what slot the preset is in."
               },
               {
-                host: "Wyzeris",
-                name: "Multiple intensity types",
-                description: "Preset 1 is chaotic.<br>Preset 4 is semi-chaotic.<br>Preset 2/3/6 are non-chaotic.",
-                file: "presets/wyzerisOptions.json",
-                notes: "Compatible on EHR 6.7.2.",
-                detailsHtml: `
-                  <h4>Core Setup</h4>
-                  <ul>
-                    <li><strong>Mod:</strong> Endless Host Roles 6.7.2</li>
-                    <li><strong>Main Preset:</strong> Preset 1 (chaotic preset but balanced quite a bit)</li>
-                    <li><strong>Role Count:</strong> 96 Roles, 23 Addons (2 Imps, 1 MM [DoubleAgent-guaranteed], 1 Neutral Killer, 1 Neutral Benign/Evil, 1 Coven depending on player counts)</li>
-                  </ul>
-
-                  <h4>Rules</h4>
-                  <ul>
-                    <li><strong>Guessing:</strong> All Killers + 2 Crewmates can guess (Addons cannot be guessed &amp; onbound is off)</li>
-                    <li><strong>Voting:</strong> Mayor &amp; Pickpocket are the only role with extra votes</li>
-                    <li><strong>Crewmate Venting:</strong> Mechanic is the only crewmate role that can vent</li>
-                  </ul>
-
-                  <h4>Rotation & Maps</h4>
-                  <ul>
-                    <li><strong>Rotation:</strong> 4 Standard Games → 1 Gamemode Game</li>
-                    <li><strong>Random Maps:</strong> Skeld 20%, MiraHQ 25%, Polus 35%, Airship 10%, Fungle 10%</li>
-                  </ul>
-
-                  <h4>Factions</h4>
-                  <ul>
-                    <li><strong>Recruiting roles:</strong> Off</li>
-                    <li><strong>Faction stability:</strong> Factions are the same and don’t change</li>
-                    <li><strong>Direct kill cap:</strong> Max of 3 killers that can kill directly (2 Imp, 1 NK) on 15+ players</li>
-                    <li><strong>Coven kill pacing:</strong> Coven can kill after 3 meetings</li>
-                  </ul>
-
-                  <h4>Tasks & Ability</h4>
-                  <ul>
-                    <li>Completing 2 Tasks grants 1 ability use</li>
-                    <li>Once all tasks are completed, gain 1 ability use every 25s</li>
-                    <li>Impostors gain 1 ability every 2 kills</li>
-                  </ul>
-
-                  <h4>Cooldowns & Vision</h4>
-                  <ul>
-                    <li><strong>Kill Cooldowns:</strong> Impostors 21s, Neutral Killers 18s (Some can be lower, e.g. “Serial Killer”), Coven 15s, Sheriff 21s</li>
-                    <li><strong>Ability Cooldown:</strong> 15s</li>
-                    <li><strong>Vision:</strong> Impostors are the only one with impostor vision. All other factions have crewmate vision (Neutral Killers, Coven, etc). 0.65x Crew, 1.5x Imps</li>
-                  </ul>
-
-                  <h4>Lobby Notes</h4>
-                  <ul>
-                    <li><strong>Whisper:</strong> Enabled</li>
-                    <li><strong>Target players:</strong> Mostly made for 10–15 players (and below can be gamemodes)</li>
-                    <li><strong>Other presets:</strong>
-                      Preset 2 Murder Mystery (a gamemode kind of preset),
-                      Preset 3 Town of us mira preset (balanced preset),
-                      Preset 4 the other roles preset (balanced preset),
-                      Preset 9 all roles on (chaotic preset)
-                    </li>
-                  </ul>
-
-                  <div class="pillrow">
-                    <span class="pill">10–15 players</span>
-                    <span class="pill">Whisper on</span>
-                    <span class="pill">3 direct killers cap</span>
-                    <span class="pill">Task-based abilities</span>
-                    <span class="pill">Map rotation</span>
-                  </div>
-                `
+                host: "Citrion",
+                name: "Low Players",
+                description: "This is the preset I use if I have 9 players or less.",
+                file: "presets/Preset4.zip",
+                notes: "To use: Unzip this file and put the folder into the BepInEx/config. May also rename to Preset#, where # is what slot the preset is in."
               },
               {
-                host: "GoldenWolf",
-                name: "Interesting roles only",
-                description: "Settings only on preset 1. Contains only roles with interesting abilities.",
-                file: "presets/Goldenwolf_EHR6.1.1Options.json",
-                notes: "Compatible on EHR 6.1.1."
+                host: "Citrion",
+                name: "Guess Galore",
+                description: "In this preset everyone is a guesser.",
+                file: "presets/Preset6.zip",
+                notes: "To use: Unzip this file and put the folder into the BepInEx/config. May also rename to Preset#, where # is what slot the preset is in."
+              },
+              {
+                host: "DashTheSus",
+                name: "Lotus (+Bloom): 15 Players",
+                description: "Varied roles that somewhat prioritize the Bloom roles. For lobbies with fewer players, lower NK, NP/MM and Impostor counts.",
+                file: "presets/Preset15.zip",
+                notes: "To use: Unzip this file and put the folder into the BepInEx/config. May also rename to Preset#, where # is what slot the preset is in."
               }
             ]
-          }
-        ],
+          },
 
         mods: [
           {
