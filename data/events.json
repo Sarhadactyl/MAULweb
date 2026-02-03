@@ -344,7 +344,7 @@
   "November 2025": {
     "3": [
       {
-        "name": "Mafia Monday",
+        "name": "Mafia Monday · By Eminem",
         "status": "ended"
       }
     ],
@@ -382,7 +382,7 @@
     ],
     "17": [
       {
-        "name": "Mafia Monday",
+        "name": "Mafia Monday · By Eminem",
         "status": "ended"
       }
     ],
@@ -398,7 +398,7 @@
     ],
     "24": [
       {
-        "name": "Mafia Monday",
+        "name": "Mafia Monday · By Eminem",
         "status": "ended"
       }
     ],
@@ -466,11 +466,21 @@
       {
         "name": "Christmas Scribbl.io Extravaganza · By Spyder",
         "status": "ended"
+      },
+      {
+        "name": "unknown · By Spyder",
+        "status": "ended"
       }
     ],
     "25": [
       {
         "name": "Christmas Clash  · By Ghoul",
+        "status": "ended"
+      }
+    ],
+    "26": [
+      {
+        "name": "Mafia Session · By Spyder",
         "status": "ended"
       }
     ],
@@ -498,15 +508,15 @@
       {
         "name": "Uno Championship Group Stage • by Spyder",
         "status": "ended"
+      },
+      {
+        "name": "Mafia Monday · By Eminem",
+        "status": "ended"
       }
     ],
     "9": [
       {
-        "name": "Mafia Night • By Tas",
-        "status": "ended"
-      },
-      {
-        "name": "Start of Mafia Night, every Friday • Tasdid",
+        "name": "Start of Mafia Night, every Friday • Tas",
         "status": "ended"
       }
     ],
@@ -519,6 +529,10 @@
     "11": [
       {
         "name": "Clash of Creations • Kira",
+        "status": "ended"
+      },
+      {
+        "name": "Valentine Sticker Contest · By Sarha",
         "status": "ended"
       }
     ],
@@ -550,6 +564,24 @@
         "status": "ended"
       }
     ],
+    "19": [
+      {
+        "name": "Mafia Monday · By Eminem",
+        "status": "ended"
+      }
+    ],
+    "21": [
+      {
+        "name": "Anonymous Alias · By Spyder",
+        "status": "ended"
+      }
+    ],
+    "23": [
+      {
+        "name": "Mafia Friday · By tas",
+        "status": "ended"
+      }
+    ],
     "24": [
       {
         "name": "skribbl • Ghoul",
@@ -561,48 +593,78 @@
         "name": "Movie Night (Across the Spider Verse) • JoJo",
         "status": "ended"
       }
+    ],
+    "28": [
+      {
+        "name": "Uno Grand Championship Concluded · By Spyder",
+        "status": "ended"
+      }
+    ],
+    "29": [
+      {
+        "name": "Maulentines · By Sarha",
+        "status": "ended"
+      }
+    ],
+    "31": [
+      {
+        "name": "Roblox Escape Room · By Mark",
+        "status": "ended"
+      }
     ]
   },
   "February 2026": {
+    "1": [
+      {
+        "name": "Valentine Voting · By Sarha",
+        "status": "ended"
+      }
+    ],
+    "2": [
+      {
+        "name": "Mafia Monday · By Eminem",
+        "status": "ended"
+      }
+    ],
     "6": [
       {
-        "name": "Hangry Games",
+        "name": "Hangry Games · By Spyder",
         "status": "upcoming"
       }
     ],
     "9": [
       {
-        "name": "Mafia Monday",
+        "name": "Mafia Monday · By Eminem",
         "status": "upcoming"
       }
     ],
     "13": [
       {
-        "name": "Hangry Games",
+        "name": "Hangry Games · By Spyder",
         "status": "upcoming"
       }
     ],
     "16": [
       {
-        "name": "Mafia Monday",
+        "name": "Mafia Monday · By Eminem",
         "status": "upcoming"
       }
     ],
     "20": [
       {
-        "name": "Hangry Games",
+        "name": "Hangry Games · By Spyder",
         "status": "upcoming"
       }
     ],
     "23": [
       {
-        "name": "Mafia Monday",
+        "name": "Mafia Monday · By Eminem",
         "status": "upcoming"
       }
     ],
     "27": [
       {
-        "name": "Hangry Games",
+        "name": "Hangry Games · By Spyder",
         "status": "upcoming"
       }
     ]
