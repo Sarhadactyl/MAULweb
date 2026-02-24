@@ -246,9 +246,9 @@
       }
 
       .featured-highlight {
-        max-width: 400px;
+        max-width: 360px;          
         margin: 26px auto 32px;
-        padding: 20px 22px 22px;
+        padding: 18px 18px 20px;  
         background-color: var(--bg-card);
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.35);
@@ -300,11 +300,12 @@
       }
 
       .featured-mod-image {
-        max-width: 250px;
+        max-width: 210px; 
         width: 100%;
         border-radius: 14px;
         overflow: hidden;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+        margin: 6px auto 6px;
+        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.9);
         border: 1px solid rgba(255, 255, 255, 0.25);
       }
 
@@ -314,21 +315,22 @@
         height: auto;
       }
 
-      .featured-mod-body h2 {
+      .featured-mod-body h3 {
         font-family: 'Poppins', sans-serif;
-        font-size: 1.6rem;
-        margin: 10px 0 6px;
-        color: #ffffff;
+        font-size: 1.35rem;
+        margin: 8px 0 6px;
         letter-spacing: 0.04em;
       }
 
       .featured-mod-body p {
-        font-size: 0.95rem;
-        line-height: 1.6;
+        font-size: 0.92rem;
+        line-height: 1.7;
         color: var(--text-muted);
-        max-width: 520px;
-        margin: 10 auto;
+        margin: 6px 0 12px;
       }
+      .featured-mod-body {
+        padding: 4px 12px 2px;
+      }      
 
       .btn-primary {
         display: inline-flex;
@@ -529,12 +531,17 @@
         </div>
 
         <div class="featured-mod-card">
+        
           <div class="featured-mod-image">
             <img src="images/Project lotus.jpg" alt="Project Lotus" />
+          </div>
+        
+          <div class="featured-mod-body">
             <h3>Project Lotus</h3>
             <p>
               A host only mod which focuses on quality over quantity and turning your game into an experience. This mod adds custom cosmetics, a variety of unique roles and features, and extensive customizability.
             </p>
+        
             <a class="btn-secondary"
                href="https://github.com/Lotus-AU/LotusContinued?dhc-id=80400832587108366"
                target="_blank"
@@ -542,6 +549,7 @@
               <i class="fa-brands fa-github"></i> Github
             </a>
           </div>
+        
         </div>
       </section>
 
