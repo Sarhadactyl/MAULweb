@@ -726,15 +726,13 @@
     ]
   },
   "March 2026": {
-    "1": [
-      {
-        "name": "Movie Night • by Jojo",
-        "status": "upcoming"
-      }
-    ],
     "2": [
       {
         "name": "Mafia Monday • by Eminem",
+        "status": "upcoming"
+      },
+      {
+        "name": "Movie Night • by Jojo",
         "status": "upcoming"
       }
     ],
