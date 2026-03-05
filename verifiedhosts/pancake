@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pancake · Verified Host · MAUL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:title" content="Pancake · Verified Host · MAUL" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/pancake.html" />
+    <meta property="og:image" content="https://moddedamong.us/images/verifiedhosts/pancake.webp" />
+    <meta
+      property="og:description"
+      content="Verified Host profile for Pancake — EU lobbies with EHR, Submerged, and the occasional TOU-Mira. Custom HnS + chill in-game vibes."
+    />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://moddedamong.us/pancake.html" />
+
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --accent: #800000;
+        --accent-soft: rgba(128, 0, 0, 0.25);
+        --accent-strong: #b00000;
+
+        --bg-card: rgba(30, 12, 12, 0.9);
+        --bg-soft: rgba(45, 18, 18, 0.9);
+
+        --text-main: #ffffff;
+        --text-muted: #dedee8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        color: var(--text-main);
+        overflow-x: hidden;
+      }
+
+      body {
+        background: #000 url("images/maulredbg.png") no-repeat top center fixed;
+        background-size: auto 100%;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(circle at top, rgba(128, 0, 0, 0.45), transparent 55%),
+          radial-gradient(circle at bottom, rgba(180, 0, 60, 0.25), transparent 55%);
+        mix-blend-mode: screen;
+        opacity: 0.7;
+        pointer-events: none;
+        z-index: -2;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
+        z-index: -1;
+      }
+
+      .dropdown {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 100;
+      }
+
+      .dropbtn {
+        background: rgba(35, 10, 10, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        cursor: pointer;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        padding: 10px 10px;
+        border-radius: 999px;
+        backdrop-filter: blur(10px);
+      }
+
+      .dropbtn:hover {
+        transform: translateY(-1px) scale(1.03);
+        background: rgba(50, 16, 16, 0.98);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      }
+
+      .hamburger {
+        width: 26px;
+        height: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .hamburger span {
+        display: block;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), #ff0040);
+        border-radius: 999px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        margin-top: 8px;
+        background-color: rgba(35, 10, 10, 0.96);
+        min-width: 220px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+        border-radius: 12px;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .dropdown-content a {
+        color: var(--text-main);
+        padding: 12px 18px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.95rem;
+        transition: background 0.25s, color 0.25s, padding-left 0.25s;
+      }
+
+      .dropdown-content a:hover {
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--accent);
+        padding-left: 22px;
+      }
+
+      .beta-glow {
+        color: #ff4d4d !important;
+        font-weight: 700;
+        text-shadow:
+          0 0 8px rgba(255, 0, 0, 0.75),
+          0 0 12px rgba(255, 0, 0, 0.55);
+        animation: betaPulse 1.6s ease-in-out infinite;
+      }
+
+      .beta-glow:hover {
+        background: rgba(255, 0, 0, 0.12) !important;
+        padding-left: 22px;
+        color: #ff8080 !important;
+        text-shadow:
+          0 0 10px rgba(255, 50, 50, 1),
+          0 0 16px rgba(255, 0, 0, 0.9);
+      }
+
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+
+      @keyframes betaPulse {
+        0% {
+          text-shadow:
+            0 0 6px rgba(255, 0, 0, 0.7),
+            0 0 12px rgba(255, 0, 0, 0.4);
+        }
+        50% {
+          text-shadow:
+            0 0 12px rgba(255, 60, 60, 1),
+            0 0 24px rgba(255, 0, 0, 0.9);
+        }
+        100% {
+          text-shadow:
+            0 0 6px rgba(255, 0, 0, 0.7),
+            0 0 12px rgba(255, 0, 0, 0.4);
+        }
+      }
+
+      .page-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 80px 20px 70px;
+      }
+
+      @media (max-width: 600px) {
+        .page-wrapper {
+          padding-top: 90px;
+        }
+      }
+
+      .page-header {
+        text-align: center;
+        padding: 32px 16px 10px;
+      }
+
+      .header-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: linear-gradient(120deg, rgba(128, 0, 0, 0.5), rgba(200, 0, 80, 0.35));
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: var(--text-muted);
+        margin-bottom: 16px;
+      }
+
+      .header-badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #00ff9c, #00b36b);
+        box-shadow: 0 0 12px rgba(0, 255, 156, 0.7);
+      }
+
+      .page-header h1 {
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(2.1rem, 3.4vw, 2.9rem);
+        margin: 0;
+        letter-spacing: 0.04em;
+        text-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+        text-transform: uppercase;
+      }
+
+      .page-header h1 span {
+        background: linear-gradient(120deg, #ffffff, var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .page-header-subtitle {
+        margin: 12px auto 0;
+        max-width: 720px;
+        font-size: 0.98rem;
+        line-height: 1.7;
+        color: var(--text-muted);
+      }
+      .hero {
+        margin: 26px auto 18px;
+        background: var(--bg-card);
+        border-radius: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(12px);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 55%);
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 22px;
+        padding: 22px;
+        position: relative;
+        z-index: 1;
+      }
+
+      @media (max-width: 850px) {
+        .hero-inner {
+          grid-template-columns: 1fr;
+          padding: 18px;
+        }
+      }
+
+      .avatar-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .avatar {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid rgba(255, 255, 255, 0.42);
+        background:
+          radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.22), transparent 55%),
+          rgba(20, 8, 8, 0.9);
+        box-shadow:
+          0 18px 45px rgba(0, 0, 0, 0.95),
+          0 0 0 10px rgba(128, 0, 0, 0.12);
+      }
+
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .hero-title-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .host-name {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.7rem;
+        letter-spacing: 0.03em;
+      }
+
+      .host-tagline {
+        margin: 8px 0 0;
+        color: var(--text-muted);
+        line-height: 1.7;
+        max-width: 720px;
+      }
+
+      .pill-row {
+        margin-top: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--text-muted);
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
+      }
+
+      .pill strong {
+        color: #fff;
+        font-weight: 700;
+      }
+
+      .pill.accent {
+        background: linear-gradient(135deg, rgba(128, 0, 0, 0.65), rgba(200, 0, 80, 0.38));
+        border-color: rgba(255, 255, 255, 0.16);
+        color: #fff;
+      }
+
+      .btn-row {
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease, background 0.18s ease;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.9);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #800000, #b00000);
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.95);
+        filter: brightness(1.05);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.04);
+        color: #fff;
+      }
+
+      .btn-secondary:hover {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 16px;
+        margin-top: 16px;
+      }
+
+      @media (max-width: 950px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        background: var(--bg-soft);
+        border-radius: 22px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 60%);
+        pointer-events: none;
+      }
+
+      .card-inner {
+        position: relative;
+        z-index: 1;
+        padding: 18px 18px 20px;
+      }
+
+      .card h2 {
+        margin: 0 0 10px;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.05rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .muted {
+        color: var(--text-muted);
+      }
+
+      .list {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--text-muted);
+        line-height: 1.8;
+      }
+
+      .kv {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 8px;
+      }
+
+      .kv-row {
+        padding: 12px 12px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .kv-key {
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(222, 222, 232, 0.85);
+      }
+
+      .kv-val {
+        margin-top: 6px;
+        font-size: 0.98rem;
+        color: #fff;
+        line-height: 1.6;
+      }
+
+      .badge-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      @media (max-width: 420px) {
+        .badge-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .badge {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 12px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .badge-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, rgba(128, 0, 0, 0.7), rgba(200, 0, 80, 0.35));
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.75);
+      }
+
+      .badge-title {
+        font-weight: 800;
+        font-size: 0.95rem;
+      }
+
+      .badge-sub {
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(222, 222, 232, 0.85);
+        margin-top: 2px;
+      }
+
+      .note {
+        margin-top: 10px;
+        font-size: 0.92rem;
+        line-height: 1.7;
+        color: var(--text-muted);
+      }
+
+      .footer-note {
+        margin: 26px auto 0;
+        text-align: center;
+        color: rgba(222, 222, 232, 0.85);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        max-width: 820px;
+      }
+
+      .footer-note a {
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      }
+
+      .footer-note a:hover {
+        color: #ff8080;
+        border-bottom-color: rgba(255, 128, 128, 0.6);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="dropdown">
+      <button class="dropbtn" type="button" aria-label="Open navigation menu">
+        <div class="hamburger">
+          <span></span><span></span><span></span>
+        </div>
+      </button>
+      <div class="dropdown-content">
+        <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
+        <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
+        <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
+        <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
+        <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
+        <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
+        <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
+        <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
+        <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
+        <a href="https://moddedamong.us/wrapped"><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a>
+        <a href="https://moddedamong.us/roletest"><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a>
+        <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
+      </div>
+    </div>
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        <div class="header-badge">
+          <span class="header-badge-dot"></span>
+          Verified Host Profile
+        </div>
+        <h1>Pancake <span>🥞</span></h1>
+        <p class="page-header-subtitle">
+          A little thank-you page for one of our verified hosts. Expect EU lobbies, comfy vibes, and chaos that’s actually playable.
+        </p>
+      </header>
+
+      <section class="hero" aria-label="Pancake profile overview">
+        <div class="hero-inner">
+          <div class="avatar-wrap">
+            <div class="avatar">
+              <img src="images/verifiedhosts/pancake.webp" alt="Pancake avatar" />
+            </div>
+          </div>
+
+          <div>
+            <div class="hero-title-row">
+              <div>
+                <h2 class="host-name">Pancake</h2>
+                <p class="host-tagline">
+                  “The game is fun, and I like chatting in-game too.” <span class="muted">— that’s the whole mood.</span>
+                </p>
+              </div>
+
+              <div class="pill-row">
+                <span class="pill accent"><i class="fa-solid fa-shield-heart"></i> Verified Host</span>
+                <span class="pill"><i class="fa-solid fa-earth-europe"></i> <strong>EU</strong> Region</span>
+                <span class="pill"><i class="fa-solid fa-calendar"></i> Hosting since <strong>Dec 2025</strong></span>
+              </div>
+            </div>
+
+            <div class="pill-row">
+              <span class="pill"><i class="fa-solid fa-layer-group"></i> Primary Mods: <strong>EHR</strong>, <strong>Submerged</strong>, <strong>TOU-Mira</strong> (sometimes)</span>
+              <span class="pill"><i class="fa-solid fa-thumbs-up"></i> Recommends: <strong>Submerged</strong> / <strong>EHR</strong></span>
+              <span class="pill"><i class="fa-solid fa-feather-pointed"></i> Favorite role: <strong>Goose</strong></span>
+            </div>
+
+            <div class="btn-row">
+              <!-- Replace # with Pancake’s Discord profile link if you want one -->
+              <a class="btn-primary" href="#" target="_blank" rel="noopener">
+                <i class="fa-brands fa-discord"></i> Discord Profile
+              </a>
+
+              <!-- Optional: link to a verified hosts directory page if you make one -->
+              <a class="btn-secondary" href="https://moddedamong.us/" rel="noopener">
+                <i class="fa-solid fa-arrow-left"></i> Back to MAUL
+              </a>
+            </div>
+
+            <p class="note">
+              <span class="muted"><i class="fa-solid fa-image"></i> Custom banner/background:</span> coming soon (Pancake will drop one later).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <!-- LEFT COLUMN -->
+        <div class="card">
+          <div class="card-inner">
+            <h2><i class="fa-solid fa-user"></i> About</h2>
+            <div class="kv">
+              <div class="kv-row">
+                <div class="kv-key">Bio / Motto</div>
+                <div class="kv-val">🥞</div>
+              </div>
+
+              <div class="kv-row">
+                <div class="kv-key">Why I Host</div>
+                <div class="kv-val">The game is fun, and I like chatting in-game too.</div>
+              </div>
+
+              <div class="kv-row">
+                <div class="kv-key">Custom Game Modes</div>
+                <div class="kv-val">
+                  <strong>Custom HnS</strong> — actively making more. <span class="muted">Ideas are welcome.</span>
+                </div>
+              </div>
+            </div>
+
+            <h2 style="margin-top: 18px;"><i class="fa-solid fa-gamepad"></i> Mods & Style</h2>
+            <ul class="list">
+              <li><strong>Primary mods hosted:</strong> EHR, Submerged, TOU-Mira (sometimes)</li>
+              <li><strong>Mods I recommend:</strong> Submerged / EHR</li>
+              <li><strong>Region:</strong> EU</li>
+              <li><strong>Vibe check:</strong> play the game, talk a little, don’t be weird</li>
+            </ul>
+
+            <p class="note">
+              <span class="muted"><i class="fa-solid fa-wand-magic-sparkles"></i> Coming soon:</span>
+              host upvotes & stats (so y’all can get credit outside of Cookies).
+            </p>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="card">
+          <div class="card-inner">
+            <h2><i class="fa-solid fa-award"></i> Badges</h2>
+            <p class="muted" style="margin: 0 0 10px; line-height: 1.7;">
+              Discord-style milestones. These are placeholders — you can wire them to real stats later.
+            </p>
+
+            <div class="badge-grid">
+              <div class="badge">
+                <div class="badge-icon"><i class="fa-solid fa-shield"></i></div>
+                <div>
+                  <div class="badge-title">Verified</div>
+                  <div class="badge-sub">Trusted Host</div>
+                </div>
+              </div>
+
+              <div class="badge">
+                <div class="badge-icon"><i class="fa-solid fa-fire"></i></div>
+                <div>
+                  <div class="badge-title">Streak</div>
+                  <div class="badge-sub">X days hosting</div>
+                </div>
+              </div>
+
+              <div class="badge">
+                <div class="badge-icon"><i class="fa-solid fa-people-group"></i></div>
+                <div>
+                  <div class="badge-title">Lobby Legend</div>
+                  <div class="badge-sub">X lobbies hosted</div>
+                </div>
+              </div>
+
+              <div class="badge">
+                <div class="badge-icon"><i class="fa-solid fa-star"></i></div>
+                <div>
+                  <div class="badge-title">Community Favorite</div>
+                  <div class="badge-sub">Upvoted host</div>
+                </div>
+              </div>
+            </div>
+
+            <h2 style="margin-top: 18px;"><i class="fa-solid fa-chart-simple"></i> Stats</h2>
+            <div class="kv">
+              <div class="kv-row">
+                <div class="kv-key">Total Lobbies Hosted</div>
+                <div class="kv-val muted">Coming soon</div>
+              </div>
+              <div class="kv-row">
+                <div class="kv-key">Host Upvotes</div>
+                <div class="kv-val muted">Coming soon (planned: /upvote host @user)</div>
+              </div>
+            </div>
+
+            <p class="note">
+              The goal: give hosts modern credit without relying on old Cookies data.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <div class="card-inner">
+            <h2><i class="fa-regular fa-calendar-check"></i> Events Hosted</h2>
+            <p class="muted" style="margin: 0 0 10px; line-height: 1.7;">
+              Add entries here when Pancake runs special nights / events.
+            </p>
+            <div class="kv">
+              <div class="kv-row">
+                <div class="kv-key">Event #1</div>
+                <div class="kv-val muted">TBA</div>
+              </div>
+              <div class="kv-row">
+                <div class="kv-key">Event #2</div>
+                <div class="kv-val muted">TBA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <h2><i class="fa-solid fa-message"></i> DMs & Expectations</h2>
+
+            <div class="kv">
+              <div class="kv-row">
+                <div class="kv-key">When to DM</div>
+                <div class="kv-val">Feel free to DM me.</div>
+              </div>
+
+              <div class="kv-row">
+                <div class="kv-key">When not to DM</div>
+                <div class="kv-val">If you can just ask it in Among Us (or the proper channel), do that instead.</div>
+              </div>
+
+              <div class="kv-row">
+                <div class="kv-key">If someone gets banned</div>
+                <div class="kv-val">
+                  Usually for saying inappropriate things or not listening to moderation.
+                  <span class="muted">Don’t argue in DMs — follow the process.</span>
+                </div>
+              </div>
+
+              <div class="kv-row">
+                <div class="kv-key">Appeals</div>
+                <div class="kv-val">
+                  <span class="muted">Optional:</span> add an appeal link here so people don’t DM the host about bans.
+                  <!-- Replace with a real appeal URL if you add one -->
+                  <div style="margin-top: 8px;">
+                    <a class="btn-secondary" href="#" target="_blank" rel="noopener">
+                      <i class="fa-solid fa-scale-balanced"></i> Appeal Link
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="note">
+              This page is a spotlight — not a replacement for staff moderation. Keep it cute, keep it playable.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <p class="footer-note">
+        Want a verified host profile of your own? Get verified, stay consistent, and keep your lobbies clean.
+        <br />
+        <a
+          href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904"
+          target="_blank"
+          rel="noopener"
+          >Open a ticket in our Discord</a
+        >
+        if you want to be considered.
+      </p>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector(".dropdown");
+        const button = document.querySelector(".dropbtn");
+
+        if (dropdown && button) {
+          button.addEventListener("click", (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle("open");
+          });
+
+          document.addEventListener("click", (e) => {
+            if (!dropdown.contains(e.target)) {
+              dropdown.classList.remove("open");
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
