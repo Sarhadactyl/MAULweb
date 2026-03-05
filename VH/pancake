@@ -58,7 +58,7 @@
       }
 
       body {
-        background: #000 url("images/maulredbg.png") no-repeat top center fixed;
+        background: #000 url("../images/maulredbg.png") no-repeat top center fixed;
         background-size: auto 100%;
         position: relative;
       }
