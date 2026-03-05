@@ -255,6 +255,7 @@
         line-height: 1.7;
         color: var(--text-muted);
       }
+
       .hero {
         margin: 26px auto 18px;
         background: var(--bg-card);
@@ -412,6 +413,7 @@
         transform: translateY(-1px);
         background: rgba(255, 255, 255, 0.06);
       }
+
       .grid {
         display: grid;
         grid-template-columns: 1.25fr 0.75fr;
@@ -530,6 +532,14 @@
         box-shadow: 0 10px 24px rgba(0, 0, 0, 0.75);
       }
 
+      .badge-icon img {
+        width: 22px;
+        height: 22px;
+        object-fit: contain;
+        display: block;
+        filter: drop-shadow(0 0 6px rgba(0, 255, 140, 0.35));
+      }
+
       .badge-title {
         font-weight: 800;
         font-size: 0.95rem;
@@ -604,7 +614,7 @@
         </div>
         <h1>Pancake <span>🥞</span></h1>
         <p class="page-header-subtitle">
-          A little thank-you page for one of our verified hosts. Expect EU lobbies, comfy vibes, and chaos that’s actually playable.
+          A little thank-you page for one of our verified hosts.
         </p>
       </header>
 
@@ -697,12 +707,13 @@
           <div class="card-inner">
             <h2><i class="fa-solid fa-award"></i> Badges</h2>
             <p class="muted" style="margin: 0 0 10px; line-height: 1.7;">
-              Badges acquried throughout Pancakes time in MAUL
+              Badges acquired throughout Pancake&#39;s time in MAUL
             </p>
 
+            <div class="badge-grid">
               <div class="badge">
                 <div class="badge-icon">
-                  <img src="../images/badges/verified.png" alt="Verified">
+                  <img src="../images/badges/verified.png" alt="Verified" />
                 </div>
                 <div>
                   <div class="badge-title">Verified</div>
@@ -800,7 +811,7 @@
               <div class="kv-row">
                 <div class="kv-key">Appeals</div>
                 <div class="kv-val">
-                  <span class="muted">Optional:</span> appeal link so people dont bother yall..... this is pending.
+                  <span class="muted">Optional:</span> appeal link so people don’t bother y’all… pending.
                   <div style="margin-top: 8px;">
                     <a class="btn-secondary" href="#" target="_blank" rel="noopener">
                       <i class="fa-solid fa-scale-balanced"></i> Appeal Link
@@ -824,6 +835,7 @@
           href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904"
           target="_blank"
           rel="noopener"
+        >
       </p>
     </div>
 
