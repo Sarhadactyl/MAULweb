@@ -319,13 +319,6 @@
         background: #000;
       }
 
-      .avatar img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
       .hero-title-row {
         display: flex;
         align-items: flex-start;
@@ -591,18 +584,42 @@
 
       .modes-wrap {
         margin-top: 10px;
-        padding: 12px 12px;
+        padding: 14px 14px;
         border-radius: 16px;
         background: rgba(255, 255, 255, 0.035);
         border: 1px solid rgba(255, 255, 255, 0.08);
       }
 
-      .modes-gradient {
+      .modes-title {
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-weight: 800;
+        font-size: 1.2rem;
+        letter-spacing: 0.06em;
+        margin: 2px 0 10px;
+        background: linear-gradient(90deg, #a6cb2c, #d7d430, #e2b435, #ee9139, #f96a3e);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .modes-list {
         margin: 0;
-        white-space: pre-wrap;
-        font-family: "din_pro_bold_700 sdf", "Roboto", sans-serif;
-        font-size: 0.98rem;
-        line-height: 1.55;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+      }
+
+      .modes-list li {
+        margin: 6px 0;
+        font-weight: 800;
+        font-size: 1.05rem;
+        letter-spacing: 0.01em;
+        text-shadow: 0 10px 24px rgba(0, 0, 0, 0.75);
+      }
+
+      .modes-cmd {
+        opacity: 0.95;
       }
     </style>
   </head>
@@ -654,13 +671,13 @@
               <div>
                 <h2 class="host-name">Wyzeris</h2>
                 <p class="host-tagline">
-                  Bio: <strong>“Hiya”</strong> <span class="muted"></span>
+                  Bio: <strong>“Hiya”</strong>
                 </p>
               </div>
 
               <div class="pill-row">
                 <span class="pill accent"><i class="fa-solid fa-shield-heart"></i> Verified Host</span>
-                <span class="pill"><i class="fa-solid fa-earth-americas"></i> <strong>Since 8·20·2025</strong></span>
+                <span class="pill"><i class="fa-solid fa-earth-americas"></i> <strong>North America</strong></span>
               </div>
             </div>
 
@@ -679,8 +696,7 @@
               </a>
             </div>
 
-            <p class="note">
-            </p>
+            <p class="note"></p>
           </div>
         </div>
       </section>
@@ -817,8 +833,7 @@
               </div>
             </div>
 
-            <p class="note">
-            </p>
+            <p class="note"></p>
           </div>
         </div>
 
@@ -835,8 +850,7 @@
               <div class="kv-row">
                 <div class="kv-key">Appeals</div>
                 <div class="kv-val">
-                  Not really a formal appeal I unban when i want depending on <strong>severity</strong>.
-                  <span class="muted"></span>
+                  Not really a formal appeal — I unban depending on <strong>severity</strong>.
                 </div>
               </div>
             </div>
@@ -853,28 +867,36 @@
           <div class="card-inner">
             <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Custom Modes</h2>
             <p class="muted" style="margin: 0 0 10px; line-height: 1.7;">
-              Wyzeris’ custom gamemodes list — copy/paste friendly (gradient style).
+              Wyzeris’ custom gamemodes list.
             </p>
 
             <div class="modes-wrap">
-              <pre class="modes-gradient">
-&lt;align=center&gt;&lt;font="din_pro_bold_700 sdf"&gt;&lt;size=120%&gt;&lt;#a6cb2c&gt;M&lt;/color&gt;&lt;#d7d430&gt;o&lt;/color&gt;&lt;#e2b435&gt;d&lt;/color&gt;&lt;#ee9139&gt;e&lt;/color&gt;&lt;#f96a3e&gt;s&lt;/color&gt;&lt;#000000&gt;:&lt;/color&gt;&lt;/size&gt;
-&lt;#5d39ec&gt;/t ddr | Deathrace Disaster Roulette&lt;/color&gt;
-&lt;#ff8c00&gt;/t hpr | Hot Potato Roulette&lt;/color&gt;
-&lt;#6b6580&gt;/t mm | &lt;/color&gt;&lt;#ff1919&gt;Murder&lt;/color&gt; &lt;#8cffff&gt;Mystery&lt;/color&gt;
-&lt;#00ff00&gt;/t bb | Boss Battle&lt;/color&gt;
-&lt;#777777&gt;/t is | Invisibility Seek&lt;/color&gt;
-&lt;#ff8080&gt;/t br | Battle Royale&lt;/color&gt;
-&lt;#f9ffb8&gt;/t dd | Drag Drag!&lt;/color&gt;
-&lt;#ec62a5&gt;/t jg | Jester Gamemode&lt;/color&gt;
-&lt;#c00000&gt;/t ao | Apocalypse Outbreak&lt;/color&gt;
-&lt;#ffb74d&gt;/t tj | Time Juggle&lt;/color&gt;
-&lt;#6a1b9a&gt;/t doomsdays | Doomsday&lt;/color&gt;
-&lt;#b2faff&gt;/t rc | Revival Chaos&lt;/color&gt;</pre>
+              <div class="modes-title">Modes:</div>
+
+              <ul class="modes-list">
+                <li style="color:#5d39ec;"><span class="modes-cmd">/t ddr</span> | Deathrace Disaster Roulette</li>
+                <li style="color:#ff8c00;"><span class="modes-cmd">/t hpr</span> | Hot Potato Roulette</li>
+                <li>
+                  <span style="color:#6b6580;" class="modes-cmd">/t mm</span>
+                  <span style="color:#6b6580;"> | </span>
+                  <span style="color:#ff1919;">Murder</span>
+                  <span style="color:#ffffff;"> </span>
+                  <span style="color:#8cffff;">Mystery</span>
+                </li>
+                <li style="color:#00ff00;"><span class="modes-cmd">/t bb</span> | Boss Battle</li>
+                <li style="color:#777777;"><span class="modes-cmd">/t is</span> | Invisibility Seek</li>
+                <li style="color:#ff8080;"><span class="modes-cmd">/t br</span> | Battle Royale</li>
+                <li style="color:#f9ffb8;"><span class="modes-cmd">/t dd</span> | Drag Drag!</li>
+                <li style="color:#ec62a5;"><span class="modes-cmd">/t jg</span> | Jester Gamemode</li>
+                <li style="color:#c00000;"><span class="modes-cmd">/t ao</span> | Apocalypse Outbreak</li>
+                <li style="color:#ffb74d;"><span class="modes-cmd">/t tj</span> | Time Juggle</li>
+                <li style="color:#6a1b9a;"><span class="modes-cmd">/t doomsdays</span> | Doomsday</li>
+                <li style="color:#b2faff;"><span class="modes-cmd">/t rc</span> | Revival Chaos</li>
+              </ul>
             </div>
 
             <p class="note">
-              If you’ve got mode ideas, Wyzeris is the one to ping. Just don’t be surprised if you end up in a test lobby.
+              If you’ve got mode ideas, Wyzeris is the one to ping.
             </p>
           </div>
         </div>
