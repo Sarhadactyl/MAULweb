@@ -9,10 +9,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moddedamong.us/VH/wyzeris.html" />
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-    <meta
-      property="og:description"
-      content="Verified Host profile for Wyzeris."
-    />
+    <meta property="og:description" content="Verified Host profile for Wyzeris." />
     <meta property="og:site_name" content="Modded Among Us Lobbies" />
     <meta property="og:locale" content="en_US" />
     <link rel="canonical" href="https://moddedamong.us/VH/wyzeris.html" />
@@ -35,20 +32,15 @@
         --accent: #800000;
         --accent-soft: rgba(128, 0, 0, 0.25);
         --accent-strong: #b00000;
-
         --bg-card: rgba(30, 12, 12, 0.9);
         --bg-soft: rgba(45, 18, 18, 0.9);
-
         --text-main: #ffffff;
         --text-muted: #dedee8;
       }
 
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
 
-      html,
-      body {
+      html, body {
         height: 100%;
         margin: 0;
         padding: 0;
@@ -96,7 +88,7 @@
         border: 1px solid rgba(255, 255, 255, 0.14);
         cursor: pointer;
         transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-        padding: 10px 10px;
+        padding: 10px;
         border-radius: 999px;
         backdrop-filter: blur(10px);
       }
@@ -170,25 +162,17 @@
           0 0 16px rgba(255, 0, 0, 0.9);
       }
 
-      .dropdown.open .dropdown-content {
-        display: block;
-      }
+      .dropdown.open .dropdown-content { display: block; }
 
       @keyframes betaPulse {
         0% {
-          text-shadow:
-            0 0 6px rgba(255, 0, 0, 0.7),
-            0 0 12px rgba(255, 0, 0, 0.4);
+          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7), 0 0 12px rgba(255, 0, 0, 0.4);
         }
         50% {
-          text-shadow:
-            0 0 12px rgba(255, 60, 60, 1),
-            0 0 24px rgba(255, 0, 0, 0.9);
+          text-shadow: 0 0 12px rgba(255, 60, 60, 1), 0 0 24px rgba(255, 0, 0, 0.9);
         }
         100% {
-          text-shadow:
-            0 0 6px rgba(255, 0, 0, 0.7),
-            0 0 12px rgba(255, 0, 0, 0.4);
+          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7), 0 0 12px rgba(255, 0, 0, 0.4);
         }
       }
 
@@ -199,9 +183,7 @@
       }
 
       @media (max-width: 600px) {
-        .page-wrapper {
-          padding-top: 90px;
-        }
+        .page-wrapper { padding-top: 90px; }
       }
 
       .page-header {
@@ -425,13 +407,15 @@
 
       .mini-badge {
         position: relative;
+        display: inline-flex;
+        border-radius: 8px;
       }
 
       .mini-badge img {
         width: 28px;
         height: 28px;
         object-fit: contain;
-        border-radius: 6px;
+        border-radius: 8px;
         background: rgba(255, 255, 255, 0.04);
         padding: 3px;
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -440,10 +424,10 @@
         cursor: pointer;
         display: block;
         position: relative;
-        z-index: 1;
+        z-index: 2;
       }
 
-      .mini-badge img:hover {
+      .mini-badge:hover img {
         transform: translateY(-2px) scale(1.08);
         box-shadow: 0 10px 22px rgba(0, 0, 0, 0.9);
       }
@@ -473,46 +457,40 @@
         transform: translateX(-50%) translateY(0);
       }
 
+      /* border-only shine */
       .mini-badge.flame::before {
         content: "";
         position: absolute;
-        top: 1px;
-        left: -14px;
-        width: 18px;
-        height: calc(100% - 2px);
+        inset: -1px;
+        border-radius: 9px;
+        padding: 1px;
         background: linear-gradient(
-          110deg,
-          transparent 0%,
-          transparent 35%,
-          rgba(255, 255, 255, 0.1) 45%,
-          rgba(255, 255, 255, 0.9) 50%,
-          rgba(255, 255, 255, 0.1) 55%,
-          transparent 65%,
-          transparent 100%
+          115deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0) 38%,
+          rgba(255, 255, 255, 0.12) 46%,
+          rgba(255, 255, 255, 0.98) 50%,
+          rgba(255, 255, 255, 0.12) 54%,
+          rgba(255, 255, 255, 0) 62%,
+          rgba(255, 255, 255, 0) 100%
         );
-        filter: blur(0.3px);
-        opacity: 0.95;
-        border-radius: 6px;
+        background-size: 250% 100%;
+        -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        mask-composite: exclude;
         pointer-events: none;
-        z-index: 2;
-        animation: badgeShine 2.4s linear infinite;
+        z-index: 1;
+        animation: badgeBorderShine 2.2s linear infinite;
       }
 
-      @keyframes badgeShine {
-        0% {
-          transform: translateX(0);
-          opacity: 0;
-        }
-        10% {
-          opacity: 0.9;
-        }
-        55% {
-          opacity: 1;
-        }
-        100% {
-          transform: translateX(52px);
-          opacity: 0;
-        }
+      @keyframes badgeBorderShine {
+        0% { background-position: 150% 0; }
+        100% { background-position: -150% 0; }
       }
 
       .grid {
@@ -523,9 +501,7 @@
       }
 
       @media (max-width: 950px) {
-        .grid {
-          grid-template-columns: 1fr;
-        }
+        .grid { grid-template-columns: 1fr; }
       }
 
       .card {
@@ -560,9 +536,7 @@
         text-transform: uppercase;
       }
 
-      .muted {
-        color: var(--text-muted);
-      }
+      .muted { color: var(--text-muted); }
 
       .list {
         margin: 0;
@@ -607,16 +581,14 @@
       }
 
       @media (max-width: 420px) {
-        .badge-grid {
-          grid-template-columns: 1fr;
-        }
+        .badge-grid { grid-template-columns: 1fr; }
       }
 
       .badge {
         display: flex;
         align-items: center;
         gap: 10px;
-        padding: 12px 12px;
+        padding: 12px;
         border-radius: 18px;
         background: rgba(255, 255, 255, 0.035);
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -684,7 +656,7 @@
 
       .modes-wrap {
         margin-top: 10px;
-        padding: 14px 14px;
+        padding: 14px;
         border-radius: 16px;
         background: rgba(255, 255, 255, 0.035);
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -718,9 +690,7 @@
         text-shadow: 0 10px 24px rgba(0, 0, 0, 0.75);
       }
 
-      .modes-cmd {
-        opacity: 0.95;
-      }
+      .modes-cmd { opacity: 0.95; }
 
       .gallery-card {
         position: relative;
@@ -798,19 +768,9 @@
       }
 
       @media (max-width: 700px) {
-        .gallery-card {
-          gap: 8px;
-        }
-
-        .gallery-arrow {
-          width: 40px;
-          height: 40px;
-        }
-
-        .gallery-frame,
-        .gallery-frame img {
-          min-height: 240px;
-        }
+        .gallery-card { gap: 8px; }
+        .gallery-arrow { width: 40px; height: 40px; }
+        .gallery-frame, .gallery-frame img { min-height: 240px; }
       }
     </style>
   </head>
@@ -861,9 +821,7 @@
             <div class="hero-title-row">
               <div>
                 <h2 class="host-name">Wyzeris</h2>
-                <p class="host-tagline">
-                  EHR <strong>contributor</strong>
-                </p>
+                <p class="host-tagline">EHR <strong>contributor</strong></p>
               </div>
 
               <div class="pill-row">
@@ -882,7 +840,6 @@
               <a class="btn-primary" href="https://discord.com/users/1266747433514434573" target="_blank" rel="noopener">
                 <i class="fa-brands fa-discord"></i> Discord Profile
               </a>
-
               <a class="btn-secondary" href="https://moddedamong.us/" rel="noopener">
                 <i class="fa-solid fa-arrow-left"></i> Back to MAUL
               </a>
@@ -892,25 +849,19 @@
               <div class="mini-badge" data-tooltip="Verified Host">
                 <img src="../images/badges/verified.png" alt="Verified Host badge" />
               </div>
-
               <div class="mini-badge" data-tooltip="Bug Hunter">
                 <img src="../images/badges/bug hunter.png" alt="Bug Hunter badge" />
               </div>
-
               <div class="mini-badge" data-tooltip="Contributor">
                 <img src="../images/badges/contributor.webp" alt="Contributor badge" />
               </div>
-
               <div class="mini-badge" data-tooltip="Consistent Host">
                 <img src="../images/badges/consistent.webp" alt="Consistent Host badge" />
               </div>
-
               <div class="mini-badge flame" data-tooltip="100+ Lobbies Hosted">
                 <img src="../images/badges/100 lobbies lime flame.gif" alt="100+ Lobbies Hosted badge" />
               </div>
             </div>
-
-            <p class="note"></p>
           </div>
         </div>
       </section>
@@ -924,19 +875,15 @@
                 <div class="kv-key">Bio / Motto</div>
                 <div class="kv-val">Hiya</div>
               </div>
-
               <div class="kv-row">
                 <div class="kv-key">Host Style</div>
                 <div class="kv-val">
-                  Somewhat fun — especially when testing. <span class="muted">If it breaks, we learn.</span>
+                  *Somewhat* fun — especially when testing. <span class="muted">If it breaks, we learn.</span>
                 </div>
               </div>
-
               <div class="kv-row">
                 <div class="kv-key">Mods I Especially Like</div>
-                <div class="kv-val">
-                  <strong>EHR</strong> and <strong>MGM</strong>. Also <strong>PL</strong>.
-                </div>
+                <div class="kv-val"><strong>EHR</strong> and <strong>MGM</strong>. Also <strong>PL</strong>.</div>
               </div>
             </div>
 
@@ -956,7 +903,7 @@
 
         <div class="card">
           <div class="card-inner">
-            <h2><i class="fa-solid fa-award"></i> Badges</h2>
+            <h2><i class="fa-solid fa-award"></i> Hosting Highlights</h2>
             <p class="muted" style="margin: 0 0 10px; line-height: 1.7;">
               Earned throughout Wyzeris’ time in MAUL.
             </p>
@@ -988,27 +935,17 @@
                 </div>
                 <div>
                   <div class="badge-title">Lobby Legend</div>
-                  <div class="badge-sub">100+ sessions</div>
+                  <div class="badge-sub">100+ Sessions</div>
                 </div>
               </div>
 
               <div class="badge">
                 <div class="badge-icon">
-                  <img src="../images/badges/contributor.webp" alt="Contributor" />
+                  <img src="../images/badges/loading.gif" alt="Community Favorite Loading" />
                 </div>
                 <div>
-                  <div class="badge-title">Contributor</div>
-                  <div class="badge-sub">Community support</div>
-                </div>
-              </div>
-
-              <div class="badge">
-                <div class="badge-icon">
-                  <img src="../images/badges/consistent.webp" alt="Consistent Host" />
-                </div>
-                <div>
-                  <div class="badge-title">Consistent Host</div>
-                  <div class="badge-sub">Reliable sessions</div>
+                  <div class="badge-title">Community Favorite</div>
+                  <div class="badge-sub">Upvotes (soon)</div>
                 </div>
               </div>
             </div>
@@ -1019,12 +956,10 @@
                 <div class="kv-key">Hosting Sessions</div>
                 <div class="kv-val muted">119</div>
               </div>
-
               <div class="kv-row">
                 <div class="kv-key">Total Hosting Time</div>
                 <div class="kv-val muted">336 hours (14+ days)</div>
               </div>
-
               <div class="kv-row">
                 <div class="kv-key">Host Upvotes</div>
                 <div class="kv-val muted">Coming soon</div>
@@ -1066,9 +1001,7 @@
 
             <div class="gallery-dots" id="wyzerisGalleryDots" aria-label="Gallery navigation"></div>
 
-            <p class="note">
-              Scroll through with the arrows to see more gallery images.
-            </p>
+            <p class="note">Scroll through with the arrows to see more gallery images.</p>
           </div>
         </div>
 
@@ -1090,9 +1023,7 @@
               </div>
             </div>
 
-            <p class="note">
-              This page is just a profile — staff rules still apply.
-            </p>
+            <p class="note">This page is just a profile — staff rules still apply.</p>
           </div>
         </div>
       </section>
@@ -1130,9 +1061,7 @@
               </ul>
             </div>
 
-            <p class="note">
-              If you’ve got mode ideas, Wyzeris is the one to ping.
-            </p>
+            <p class="note">If you’ve got mode ideas, Wyzeris is the one to ping.</p>
           </div>
         </div>
       </section>
@@ -1224,3 +1153,4 @@
     </script>
   </body>
 </html>
+
