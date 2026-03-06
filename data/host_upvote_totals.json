@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-06T18:57:32.740865+00:00",
+  "generated_at": "2026-03-06T18:57:56.758047+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -96,6 +96,22 @@
       "upvoted_by_users": 2,
       "upvoted_times": 2,
       "last_upvoted_at": "2026-03-06T17:51:46.526117+00:00"
+    },
+    "216404071253278720": {
+      "host_id": 216404071253278720,
+      "host_name": "!theta (\ud83d\udc00)",
+      "slug": "!theta-(\ud83d\udc00)",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-06T18:57:56.753704+00:00"
+    },
+    "!theta-(\ud83d\udc00)": {
+      "host_id": 216404071253278720,
+      "host_name": "!theta (\ud83d\udc00)",
+      "slug": "!theta-(\ud83d\udc00)",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-06T18:57:56.753704+00:00"
     },
     "1433131581509206171": {
       "host_id": 1433131581509206171,
