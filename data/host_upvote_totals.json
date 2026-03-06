@@ -1,4 +1,21 @@
 {
-  "generated_at": "2026-03-06T08:42:48.667774+00:00",
-  "hosts": {}
+  "generated_at": "2026-03-06T08:45:28.648097+00:00",
+  "hosts": {
+    "1148338311576961054": {
+      "host_id": 1148338311576961054,
+      "host_name": "battt",
+      "slug": "bat",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-06T08:45:28.644295+00:00"
+    },
+    "bat": {
+      "host_id": 1148338311576961054,
+      "host_name": "battt",
+      "slug": "bat",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-06T08:45:28.644295+00:00"
+    }
+  }
 }
