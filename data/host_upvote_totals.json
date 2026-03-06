@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-06T18:09:18.152605+00:00",
+  "generated_at": "2026-03-06T18:10:54.558817+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -128,6 +128,22 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-06T11:08:26.782517+00:00"
+    },
+    "883685072828497921": {
+      "host_id": 883685072828497921,
+      "host_name": "SpicyPoops \ud83c\udf36\ud83d\udca9",
+      "slug": "spicypoops-\ud83c\udf36\ud83d\udca9",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-06T18:10:54.555089+00:00"
+    },
+    "spicypoops-\ud83c\udf36\ud83d\udca9": {
+      "host_id": 883685072828497921,
+      "host_name": "SpicyPoops \ud83c\udf36\ud83d\udca9",
+      "slug": "spicypoops-\ud83c\udf36\ud83d\udca9",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-06T18:10:54.555089+00:00"
     },
     "766028172562006089": {
       "host_id": 766028172562006089,
