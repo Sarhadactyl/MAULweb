@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-06T19:36:05.313172+00:00",
+  "generated_at": "2026-03-06T20:05:56.824419+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -17,6 +17,22 @@
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-06T18:17:37.251185+00:00"
     },
+    "1266747433514434573": {
+      "host_id": 1266747433514434573,
+      "host_name": "Wyzeris",
+      "slug": "wyzeris",
+      "upvoted_by_users": 5,
+      "upvoted_times": 5,
+      "last_upvoted_at": "2026-03-06T20:05:56.820856+00:00"
+    },
+    "wyzeris": {
+      "host_id": 1266747433514434573,
+      "host_name": "Wyzeris",
+      "slug": "wyzeris",
+      "upvoted_by_users": 5,
+      "upvoted_times": 5,
+      "last_upvoted_at": "2026-03-06T20:05:56.820856+00:00"
+    },
     "472742355355697152": {
       "host_id": 472742355355697152,
       "host_name": "SilverwiththeReddishname",
@@ -32,22 +48,6 @@
       "upvoted_by_users": 4,
       "upvoted_times": 4,
       "last_upvoted_at": "2026-03-06T18:55:56.346953+00:00"
-    },
-    "1266747433514434573": {
-      "host_id": 1266747433514434573,
-      "host_name": "Wyzeris",
-      "slug": "wyzeris",
-      "upvoted_by_users": 4,
-      "upvoted_times": 4,
-      "last_upvoted_at": "2026-03-06T17:48:18.746360+00:00"
-    },
-    "wyzeris": {
-      "host_id": 1266747433514434573,
-      "host_name": "Wyzeris",
-      "slug": "wyzeris",
-      "upvoted_by_users": 4,
-      "upvoted_times": 4,
-      "last_upvoted_at": "2026-03-06T17:48:18.746360+00:00"
     },
     "703595051074191402": {
       "host_id": 703595051074191402,
