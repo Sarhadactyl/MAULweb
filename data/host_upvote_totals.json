@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-03-06T17:48:18.749855+00:00",
+  "generated_at": "2026-03-06T17:50:52.800027+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
       "host_name": "PanCaKe",
       "slug": "pancake",
-      "upvoted_by_users": 4,
-      "upvoted_times": 4,
-      "last_upvoted_at": "2026-03-06T17:46:16.625824+00:00"
+      "upvoted_by_users": 5,
+      "upvoted_times": 5,
+      "last_upvoted_at": "2026-03-06T17:50:52.796543+00:00"
     },
     "pancake": {
       "host_id": 1175886799227322463,
       "host_name": "PanCaKe",
       "slug": "pancake",
-      "upvoted_by_users": 4,
-      "upvoted_times": 4,
-      "last_upvoted_at": "2026-03-06T17:46:16.625824+00:00"
+      "upvoted_by_users": 5,
+      "upvoted_times": 5,
+      "last_upvoted_at": "2026-03-06T17:50:52.796543+00:00"
     },
     "1266747433514434573": {
       "host_id": 1266747433514434573,
