@@ -772,10 +772,50 @@
         .gallery-arrow { width: 40px; height: 40px; }
         .gallery-frame, .gallery-frame img { min-height: 240px; }
       }
+    
+      .messages-section {
+        margin-top: 16px;
+      }
+
+      .messages-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .message-card {
+        padding: 14px 14px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .message-meta {
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(222, 222, 232, 0.85);
+        margin-bottom: 8px;
+      }
+
+      .message-body {
+        color: #fff;
+        line-height: 1.7;
+      }
+
+      .empty-state {
+        padding: 14px 14px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
     </style>
   </head>
 
-  <body>
+  <body data-host-id="1266747433514434573" data-host-slug="wyzeris">
     <div class="dropdown">
       <button class="dropbtn" type="button" aria-label="Open navigation menu">
         <div class="hamburger">
@@ -948,7 +988,7 @@
                 </div>
                 <div>
                   <div class="badge-title">Community Favorite</div>
-                  <div class="badge-sub">Upvotes (soon)</div>
+                  <div class="badge-sub">Upvoted <span id="community-favorite-count">0</span> times</div>
                 </div>
               </div>
             </div>
@@ -965,7 +1005,7 @@
               </div>
               <div class="kv-row">
                 <div class="kv-key">Host Upvotes</div>
-                <div class="kv-val muted">Coming soon</div>
+                <div class="kv-val muted" id="host-upvotes-summary">0 upvotes - last upvoted never</div>
               </div>
             </div>
 
@@ -1069,6 +1109,24 @@
         </div>
       </section>
 
+
+      <section class="messages-section">
+        <div class="card">
+          <div class="card-inner">
+            <h2><i class="fa-solid fa-envelope-open-text"></i> Messages to Host</h2>
+            <p class="muted" style="margin: 0 0 10px; line-height: 1.7;">
+              Messages to Wyzeris
+            </p>
+
+            <div class="messages-list" id="messages-to-host-list">
+              <div class="empty-state" id="messages-to-host-empty">
+                No public messages yet use /upvote to send the host a message.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <p class="footer-note">
         Want a verified host profile of your own? Get verified, stay consistent, and keep your lobbies clean.
         <br />
@@ -1080,7 +1138,7 @@
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", async () => {
         const dropdown = document.querySelector(".dropdown");
         const button = document.querySelector(".dropbtn");
 
@@ -1152,8 +1210,89 @@
 
         renderDots();
         updateGallery();
+
+        const hostId = document.body.dataset.hostId;
+        const hostSlug = document.body.dataset.hostSlug;
+        const communityFavoriteCount = document.getElementById("community-favorite-count");
+        const hostUpvotesSummary = document.getElementById("host-upvotes-summary");
+        const messagesList = document.getElementById("messages-to-host-list");
+        const emptyState = document.getElementById("messages-to-host-empty");
+
+        function formatHoursAgo(isoDate) {
+          if (!isoDate) return "never";
+          const diffMs = Date.now() - new Date(isoDate).getTime();
+          if (Number.isNaN(diffMs) || diffMs < 0) return "recently";
+          const hours = Math.floor(diffMs / (1000 * 60 * 60));
+          if (hours < 1) return "less than 1 hour ago";
+          if (hours === 1) return "1 hour ago";
+          return `${hours} hours ago`;
+        }
+
+        try {
+          const totalsRes = await fetch("../data/host_upvote_totals.json", { cache: "no-store" });
+          if (totalsRes.ok) {
+            const totalsData = await totalsRes.json();
+            const hostData =
+              (totalsData.hosts && totalsData.hosts[hostId]) ||
+              (totalsData.hosts && totalsData.hosts[hostSlug]) ||
+              null;
+
+            if (hostData) {
+              const upvotedTimes = Number(hostData.upvoted_times || 0);
+              const lastUpvotedAt = hostData.last_upvoted_at || null;
+
+              if (communityFavoriteCount) {
+                communityFavoriteCount.textContent = String(upvotedTimes);
+              }
+
+              if (hostUpvotesSummary) {
+                const label = upvotedTimes === 1 ? "upvote" : "upvotes";
+                hostUpvotesSummary.textContent = `${upvotedTimes} ${label} - last upvoted ${formatHoursAgo(lastUpvotedAt)}`;
+              }
+            }
+          }
+        } catch (error) {
+          console.error("Failed to load host upvote totals:", error);
+        }
+
+        try {
+          const messagesRes = await fetch("../data/host_messages.json", { cache: "no-store" });
+          if (messagesRes.ok) {
+            const messagesData = await messagesRes.json();
+            const hostMessages =
+              (messagesData.hosts && messagesData.hosts[hostId]) ||
+              (messagesData.hosts && messagesData.hosts[hostSlug]) ||
+              [];
+
+            if (Array.isArray(hostMessages) && hostMessages.length > 0 && messagesList) {
+              if (emptyState) emptyState.remove();
+
+              hostMessages.forEach((entry) => {
+                const card = document.createElement("div");
+                card.className = "message-card";
+
+                const meta = document.createElement("div");
+                meta.className = "message-meta";
+                const author = entry.author || "Anonymous";
+                const created = entry.created_at ? new Date(entry.created_at).toLocaleDateString() : "Recently";
+                meta.textContent = `${author} • ${created}`;
+
+                const body = document.createElement("div");
+                body.className = "message-body";
+                body.textContent = entry.message || "";
+
+                card.appendChild(meta);
+                card.appendChild(body);
+                messagesList.appendChild(card);
+              });
+            }
+          }
+        } catch (error) {
+          console.error("Failed to load host messages:", error);
+        }
       });
     </script>
   </body>
 </html>
+
 
