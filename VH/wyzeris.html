@@ -415,6 +415,106 @@
         background: rgba(255, 255, 255, 0.06);
       }
 
+      .mini-badges {
+        margin-top: 14px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .mini-badge {
+        position: relative;
+      }
+
+      .mini-badge img {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 3px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        cursor: pointer;
+        display: block;
+        position: relative;
+        z-index: 1;
+      }
+
+      .mini-badge img:hover {
+        transform: translateY(-2px) scale(1.08);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.9);
+      }
+
+      .mini-badge::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 120%;
+        left: 50%;
+        transform: translateX(-50%) translateY(4px);
+        background: rgba(20, 8, 8, 0.96);
+        color: #fff;
+        font-size: 0.8rem;
+        padding: 6px 10px;
+        border-radius: 8px;
+        white-space: nowrap;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.15s ease, transform 0.15s ease;
+        z-index: 20;
+      }
+
+      .mini-badge:hover::after {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .mini-badge.flame::before {
+        content: "";
+        position: absolute;
+        top: 1px;
+        left: -14px;
+        width: 18px;
+        height: calc(100% - 2px);
+        background: linear-gradient(
+          110deg,
+          transparent 0%,
+          transparent 35%,
+          rgba(255, 255, 255, 0.1) 45%,
+          rgba(255, 255, 255, 0.9) 50%,
+          rgba(255, 255, 255, 0.1) 55%,
+          transparent 65%,
+          transparent 100%
+        );
+        filter: blur(0.3px);
+        opacity: 0.95;
+        border-radius: 6px;
+        pointer-events: none;
+        z-index: 2;
+        animation: badgeShine 2.4s linear infinite;
+      }
+
+      @keyframes badgeShine {
+        0% {
+          transform: translateX(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.9;
+        }
+        55% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(52px);
+          opacity: 0;
+        }
+      }
+
       .grid {
         display: grid;
         grid-template-columns: 1.25fr 0.75fr;
@@ -621,6 +721,97 @@
       .modes-cmd {
         opacity: 0.95;
       }
+
+      .gallery-card {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 8px;
+      }
+
+      .gallery-frame {
+        width: 100%;
+        min-height: 320px;
+        border-radius: 20px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+      }
+
+      .gallery-frame img {
+        width: 100%;
+        height: 100%;
+        min-height: 320px;
+        max-height: 520px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .gallery-arrow {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(35, 10, 10, 0.92);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.8);
+      }
+
+      .gallery-arrow:hover {
+        transform: translateY(-1px) scale(1.04);
+        background: linear-gradient(135deg, rgba(128, 0, 0, 0.95), rgba(176, 0, 0, 0.95));
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.9);
+      }
+
+      .gallery-dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .gallery-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+        transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+      }
+
+      .gallery-dot.active {
+        background: linear-gradient(135deg, #800000, #ff0040);
+        transform: scale(1.2);
+        box-shadow: 0 0 12px rgba(255, 0, 64, 0.5);
+      }
+
+      @media (max-width: 700px) {
+        .gallery-card {
+          gap: 8px;
+        }
+
+        .gallery-arrow {
+          width: 40px;
+          height: 40px;
+        }
+
+        .gallery-frame,
+        .gallery-frame img {
+          min-height: 240px;
+        }
+      }
     </style>
   </head>
 
@@ -697,6 +888,28 @@
               </a>
             </div>
 
+            <div class="mini-badges" aria-label="Wyzeris badges">
+              <div class="mini-badge" data-tooltip="Verified Host">
+                <img src="../images/badges/verified.png" alt="Verified Host badge" />
+              </div>
+
+              <div class="mini-badge" data-tooltip="Bug Hunter">
+                <img src="../images/badges/bug hunter.png" alt="Bug Hunter badge" />
+              </div>
+
+              <div class="mini-badge" data-tooltip="Contributor">
+                <img src="../images/badges/contributor.webp" alt="Contributor badge" />
+              </div>
+
+              <div class="mini-badge" data-tooltip="Consistent Host">
+                <img src="../images/badges/consistent.webp" alt="Consistent Host badge" />
+              </div>
+
+              <div class="mini-badge flame" data-tooltip="100+ Lobbies Hosted">
+                <img src="../images/badges/100 lobbies lime flame.gif" alt="100+ Lobbies Hosted badge" />
+              </div>
+            </div>
+
             <p class="note"></p>
           </div>
         </div>
@@ -715,7 +928,7 @@
               <div class="kv-row">
                 <div class="kv-key">Host Style</div>
                 <div class="kv-val">
-                  *Somewhat* fun — especially when testing. <span class="muted">If it breaks, we learn.</span>
+                  Somewhat fun — especially when testing. <span class="muted">If it breaks, we learn.</span>
                 </div>
               </div>
 
@@ -781,11 +994,21 @@
 
               <div class="badge">
                 <div class="badge-icon">
-                  <img src="../images/badges/loading.gif" alt="Community Favorite Loading" />
+                  <img src="../images/badges/contributor.webp" alt="Contributor" />
                 </div>
                 <div>
-                  <div class="badge-title">Community Favorite</div>
-                  <div class="badge-sub">Upvotes (soon)</div>
+                  <div class="badge-title">Contributor</div>
+                  <div class="badge-sub">Community support</div>
+                </div>
+              </div>
+
+              <div class="badge">
+                <div class="badge-icon">
+                  <img src="../images/badges/consistent.webp" alt="Consistent Host" />
+                </div>
+                <div>
+                  <div class="badge-title">Consistent Host</div>
+                  <div class="badge-sub">Reliable sessions</div>
                 </div>
               </div>
             </div>
@@ -818,12 +1041,34 @@
       <section class="grid">
         <div class="card">
           <div class="card-inner">
-            <h2><i class="fa-regular fa-calendar-check"></i> Events Hosted</h2>
-            <p class="muted" style="margin: 0 0 10px; line-height: 1.7;">
-              No events hosted currently — might do one eventually.
+            <h2><i class="fa-regular fa-images"></i> Gallery</h2>
+            <p class="muted" style="margin: 0 0 12px; line-height: 1.7;">
+              A few snapshots from Wyzeris’ testing chaos and custom mode moments.
             </p>
 
-            <p class="note"></p>
+            <div class="gallery-card">
+              <button class="gallery-arrow prev" type="button" aria-label="Previous image">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+
+              <div class="gallery-frame">
+                <img
+                  id="wyzerisGalleryImage"
+                  src="../images/verifiedhosts/gallery/wyzgal.webp"
+                  alt="Wyzeris gallery image 1"
+                />
+              </div>
+
+              <button class="gallery-arrow next" type="button" aria-label="Next image">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+
+            <div class="gallery-dots" id="wyzerisGalleryDots" aria-label="Gallery navigation"></div>
+
+            <p class="note">
+              Scroll through with the arrows to see more gallery images.
+            </p>
           </div>
         </div>
 
@@ -919,6 +1164,62 @@
             }
           });
         }
+
+        const galleryImages = [
+          "../images/verifiedhosts/gallery/wyzgal.webp",
+          "../images/verifiedhosts/gallery/wyzgal2.webp",
+          "../images/verifiedhosts/gallery/wyzgal3.webp",
+          "../images/verifiedhosts/gallery/wyzgal4.webp",
+          "../images/verifiedhosts/gallery/wyzgal5.webp"
+        ];
+
+        const galleryImage = document.getElementById("wyzerisGalleryImage");
+        const dotsWrap = document.getElementById("wyzerisGalleryDots");
+        const prevBtn = document.querySelector(".gallery-arrow.prev");
+        const nextBtn = document.querySelector(".gallery-arrow.next");
+
+        let currentIndex = 0;
+
+        function renderDots() {
+          if (!dotsWrap) return;
+          dotsWrap.innerHTML = "";
+
+          galleryImages.forEach((_, index) => {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = `gallery-dot${index === currentIndex ? " active" : ""}`;
+            dot.setAttribute("aria-label", `Go to image ${index + 1}`);
+            dot.addEventListener("click", () => {
+              currentIndex = index;
+              updateGallery();
+            });
+            dotsWrap.appendChild(dot);
+          });
+        }
+
+        function updateGallery() {
+          if (!galleryImage) return;
+          galleryImage.src = galleryImages[currentIndex];
+          galleryImage.alt = `Wyzeris gallery image ${currentIndex + 1}`;
+
+          const dots = dotsWrap?.querySelectorAll(".gallery-dot");
+          dots?.forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentIndex);
+          });
+        }
+
+        prevBtn?.addEventListener("click", () => {
+          currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+          updateGallery();
+        });
+
+        nextBtn?.addEventListener("click", () => {
+          currentIndex = (currentIndex + 1) % galleryImages.length;
+          updateGallery();
+        });
+
+        renderDots();
+        updateGallery();
       });
     </script>
   </body>
