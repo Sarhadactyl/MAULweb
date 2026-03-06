@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-06T18:07:30.854567+00:00",
+  "generated_at": "2026-03-06T18:09:18.152605+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -48,6 +48,22 @@
       "upvoted_by_users": 2,
       "upvoted_times": 2,
       "last_upvoted_at": "2026-03-06T18:07:30.851209+00:00"
+    },
+    "472742355355697152": {
+      "host_id": 472742355355697152,
+      "host_name": "SilverwiththeReddishname",
+      "slug": "silverwiththereddishname",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-03-06T18:09:18.148184+00:00"
+    },
+    "silverwiththereddishname": {
+      "host_id": 472742355355697152,
+      "host_name": "SilverwiththeReddishname",
+      "slug": "silverwiththereddishname",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-03-06T18:09:18.148184+00:00"
     },
     "1067220560972628058": {
       "host_id": 1067220560972628058,
@@ -112,22 +128,6 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-06T11:08:26.782517+00:00"
-    },
-    "472742355355697152": {
-      "host_id": 472742355355697152,
-      "host_name": "SilverwiththeReddishname",
-      "slug": "silverwiththereddishname",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-03-06T17:54:37.774055+00:00"
-    },
-    "silverwiththereddishname": {
-      "host_id": 472742355355697152,
-      "host_name": "SilverwiththeReddishname",
-      "slug": "silverwiththereddishname",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-03-06T17:54:37.774055+00:00"
     },
     "766028172562006089": {
       "host_id": 766028172562006089,
