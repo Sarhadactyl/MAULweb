@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-06T18:55:56.349654+00:00",
+  "generated_at": "2026-03-06T18:56:52.001038+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -128,6 +128,22 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-06T08:45:28.644295+00:00"
+    },
+    "828939727557492766": {
+      "host_id": 828939727557492766,
+      "host_name": "Modded Among Us Queue",
+      "slug": "modded-among-us-queue",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-06T18:56:51.997380+00:00"
+    },
+    "modded-among-us-queue": {
+      "host_id": 828939727557492766,
+      "host_name": "Modded Among Us Queue",
+      "slug": "modded-among-us-queue",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-06T18:56:51.997380+00:00"
     },
     "239631525350604801": {
       "host_id": 239631525350604801,
