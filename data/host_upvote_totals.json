@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-06T18:57:56.758047+00:00",
+  "generated_at": "2026-03-06T19:01:02.731469+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -64,6 +64,22 @@
       "upvoted_by_users": 3,
       "upvoted_times": 3,
       "last_upvoted_at": "2026-03-06T18:12:54.519434+00:00"
+    },
+    "828939727557492766": {
+      "host_id": 828939727557492766,
+      "host_name": "Modded Among Us Queue",
+      "slug": "modded-among-us-queue",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-03-06T19:01:02.727929+00:00"
+    },
+    "modded-among-us-queue": {
+      "host_id": 828939727557492766,
+      "host_name": "Modded Among Us Queue",
+      "slug": "modded-among-us-queue",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-03-06T19:01:02.727929+00:00"
     },
     "1447724056500502729": {
       "host_id": 1447724056500502729,
@@ -144,22 +160,6 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-06T08:45:28.644295+00:00"
-    },
-    "828939727557492766": {
-      "host_id": 828939727557492766,
-      "host_name": "Modded Among Us Queue",
-      "slug": "modded-among-us-queue",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-03-06T18:56:51.997380+00:00"
-    },
-    "modded-among-us-queue": {
-      "host_id": 828939727557492766,
-      "host_name": "Modded Among Us Queue",
-      "slug": "modded-among-us-queue",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-03-06T18:56:51.997380+00:00"
     },
     "239631525350604801": {
       "host_id": 239631525350604801,
