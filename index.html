@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
       :root {
         --accent: #800000;
@@ -29,6 +30,9 @@
         --bg-soft: rgba(45, 18, 18, 0.9);
         --text-main: #ffffff;
         --text-muted: #dedee8;
+        --menu-bg: rgba(35, 10, 10, 0.97);
+        --menu-border: rgba(255, 255, 255, 0.08);
+        --menu-shadow: 0 18px 40px rgba(0, 0, 0, 0.88);
       }
 
       * {
@@ -71,11 +75,12 @@
         z-index: -1;
       }
 
+
       .dropdown {
         position: fixed;
         top: 20px;
         left: 20px;
-        z-index: 100;
+        z-index: 1000;
       }
 
       .dropbtn {
@@ -109,81 +114,108 @@
         border-radius: 999px;
       }
 
-      .dropdown-content,
-      .submenu {
+      .mega-menu {
         display: none;
         position: absolute;
-        background-color: rgba(35, 10, 10, 0.97);
-        min-width: 250px;
-        box-shadow: 0 16px 40px rgba(0,0,0,0.85);
-        border-radius: 12px;
-        overflow: visible;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .dropdown-content {
-        top: calc(100% + 8px);
+        top: calc(100% + 10px);
         left: 0;
+        min-width: 280px;
+        background: var(--menu-bg);
+        border: 1px solid var(--menu-border);
+        border-radius: 18px;
+        box-shadow: var(--menu-shadow);
+        backdrop-filter: blur(12px);
+        overflow: visible;
       }
 
-      .dropdown.open > .dropdown-content {
+      .dropdown.open .mega-menu {
         display: block;
+      }
+
+      .menu-panel,
+      .submenu-panel {
+        padding: 8px 0;
       }
 
       .menu-item {
         position: relative;
       }
 
-      .dropdown-content a,
-      .dropdown-content button,
-      .submenu a,
-      .submenu button {
+      .menu-link,
+      .menu-button {
+        width: 100%;
+        background: transparent;
+        border: none;
         color: var(--text-main);
-        padding: 12px 18px;
         text-decoration: none;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 10px;
-        font-size: 0.95rem;
-        transition: background 0.25s, color 0.25s, padding-left 0.25s;
-        background: transparent;
-        border: none;
-        width: 100%;
+        gap: 14px;
+        padding: 14px 18px;
+        font-size: 0.98rem;
+        font-family: inherit;
         text-align: left;
         cursor: pointer;
-        font-family: inherit;
+        transition:
+          background 0.22s ease,
+          color 0.22s ease,
+          transform 0.22s ease,
+          box-shadow 0.22s ease;
       }
 
-      .dropdown-content a:hover,
-      .dropdown-content button:hover,
-      .submenu a:hover,
-      .submenu button:hover {
-        background: rgba(255, 255, 255, 0.04);
+      .menu-link:hover,
+      .menu-button:hover,
+      .menu-item.active > .menu-button,
+      .menu-item.active > .menu-link {
+        background: rgba(255, 255, 255, 0.045);
         color: var(--accent);
-        padding-left: 22px;
       }
 
-      .submenu {
-        top: 0;
-        left: calc(100% + 8px);
-      }
-
-      .menu-item:hover > .submenu,
-      .menu-item.open > .submenu {
-        display: block;
-      }
-
-      .menu-label {
+      .menu-left {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
       }
 
-      .submenu-arrow {
-        opacity: 0.85;
-        font-size: 0.85rem;
+      .menu-right {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: rgba(255,255,255,0.75);
+      }
+
+      .submenu-panel {
+        display: none;
+        position: absolute;
+        top: -1px;
+        left: calc(100% - 6px);
+        min-width: 260px;
+        background: var(--menu-bg);
+        border: 1px solid var(--menu-border);
+        border-radius: 18px;
+        box-shadow: var(--menu-shadow);
+        backdrop-filter: blur(12px);
+        opacity: 0;
+        transform: translateX(8px);
+        transition: opacity 0.18s ease, transform 0.18s ease;
+        z-index: 5;
+      }
+
+      .menu-item.active > .submenu-panel {
+        display: block;
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .submenu-title {
+        padding: 13px 18px 10px;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.62);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        margin-bottom: 4px;
       }
 
       .highlight-glow {
@@ -195,13 +227,36 @@
         animation: betaPulse 1.6s ease-in-out infinite;
       }
 
-      .highlight-glow:hover {
+      .highlight-glow:hover,
+      .menu-item.active > .highlight-glow {
         background: rgba(255, 0, 0, 0.12) !important;
         color: #ff8080 !important;
         text-shadow:
           0 0 10px rgba(255, 50, 50, 1),
           0 0 16px rgba(255, 0, 0, 0.9);
       }
+
+      .menu-divider {
+        height: 1px;
+        margin: 6px 14px;
+        background: rgba(255,255,255,0.07);
+      }
+
+      @keyframes betaPulse {
+        0% {
+          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
+                       0 0 12px rgba(255, 0, 0, 0.4);
+        }
+        50% {
+          text-shadow: 0 0 12px rgba(255, 60, 60, 1),
+                       0 0 24px rgba(255, 0, 0, 0.9);
+        }
+        100% {
+          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
+                       0 0 12px rgba(255, 0, 0, 0.4);
+        }
+      }
+
 
       .page-wrapper {
         max-width: 1100px;
@@ -563,44 +618,30 @@
         opacity: 0.9;
       }
 
-      .beta-glow {
-        color: #ff4d4d !important;
-        font-weight: 700;
-        text-shadow: 0 0 8px rgba(255, 0, 0, 0.75),
-                     0 0 12px rgba(255, 0, 0, 0.55);
-        animation: betaPulse 1.6s ease-in-out infinite;
-      }
-
-      .beta-glow:hover {
-        background: rgba(255, 0, 0, 0.12) !important;
-        padding-left: 22px;
-        color: #ff8080 !important;
-        text-shadow: 0 0 10px rgba(255, 50, 50, 1),
-                     0 0 16px rgba(255, 0, 0, 0.9);
-      }
-
-      @keyframes betaPulse {
-        0% {
-          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
-                       0 0 12px rgba(255, 0, 0, 0.4);
-        }
-        50% {
-          text-shadow: 0 0 12px rgba(255, 60, 60, 1),
-                       0 0 24px rgba(255, 0, 0, 0.9);
-        }
-        100% {
-          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
-                       0 0 12px rgba(255, 0, 0, 0.4);
-        }
-      }
-
       @media (max-width: 900px) {
-        .submenu {
-          left: calc(100% - 10px);
+        .mega-menu {
+          min-width: 250px;
+        }
+
+        .submenu-panel {
+          left: calc(100% - 18px);
+          min-width: 230px;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .submenu-panel {
+          left: 0;
+          top: calc(100% - 6px);
+        }
+
+        .menu-item.active > .submenu-panel {
+          transform: translateX(0);
         }
       }
     </style>
   </head>
+
   <body>
     <div class="dropdown">
       <button class="dropbtn" type="button" aria-label="Open menu">
@@ -611,104 +652,114 @@
         </div>
       </button>
 
-      <div class="dropdown-content">
-        <a href="https://moddedamong.us/">
-          <span class="menu-label"><i class="fa-solid fa-house"></i> Home</span>
-        </a>
+      <div class="mega-menu" id="megaMenu">
+        <div class="menu-panel">
 
-        <a href="https://moddedamong.us/art.html">
-          <span class="menu-label"><i class="fa-solid fa-paintbrush"></i> User Art</span>
-        </a>
+          <a class="menu-link" href="https://moddedamong.us/">
+            <span class="menu-left"><i class="fa-solid fa-house"></i> Home</span>
+          </a>
 
-        <div class="menu-item">
-          <button type="button">
-            <span class="menu-label"><i class="fa-regular fa-calendar"></i> Events</span>
-            <i class="fa-solid fa-chevron-right submenu-arrow"></i>
-          </button>
-          <div class="submenu">
-            <a href="https://moddedamong.us/calendar.html">
-              <span class="menu-label"><i class="fa-regular fa-calendar"></i> Event Calendar</span>
-            </a>
-            <a href="https://moddedamong.us/eventpics.html">
-              <span class="menu-label"><i class="fa-regular fa-images"></i> Past Events</span>
-            </a>
+          <div class="menu-item has-submenu">
+            <button class="menu-button" type="button">
+              <span class="menu-left"><i class="fa-solid fa-life-ring"></i> Lobby Help</span>
+              <span class="menu-right"><i class="fa-solid fa-chevron-right"></i></span>
+            </button>
+            <div class="submenu-panel">
+              <div class="submenu-title">Lobby Help</div>
+              <a class="menu-link" href="https://moddedamong.us/tags.html">
+                <span class="menu-left"><i class="fa-solid fa-ticket"></i> Tag Generator</span>
+              </a>
+              <a class="menu-link" href="https://moddedamong.us/lobbytemplates">
+                <span class="menu-left"><i class="fa-solid fa-list"></i> Lobby Templates</span>
+              </a>
+              <a class="menu-link" href="https://moddedamong.us/icons.html">
+                <span class="menu-left"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</span>
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div class="menu-item">
-          <button type="button">
-            <span class="menu-label"><i class="fa-solid fa-code-branch"></i> Mods</span>
-            <i class="fa-solid fa-chevron-right submenu-arrow"></i>
-          </button>
-          <div class="submenu">
-            <a href="https://moddedamong.us/mods.html">
-              <span class="menu-label"><i class="fa-solid fa-code-branch"></i> Featured Mods</span>
-            </a>
-            <a href="https://moddedamong.us/presets.html">
-              <span class="menu-label"><i class="fa-solid fa-sliders"></i> Presets</span>
-            </a>
+          <div class="menu-item has-submenu">
+            <button class="menu-button" type="button">
+              <span class="menu-left"><i class="fa-regular fa-calendar"></i> Events</span>
+              <span class="menu-right"><i class="fa-solid fa-chevron-right"></i></span>
+            </button>
+            <div class="submenu-panel">
+              <div class="submenu-title">Events</div>
+              <a class="menu-link" href="https://moddedamong.us/calendar.html">
+                <span class="menu-left"><i class="fa-regular fa-calendar"></i> Event Calendar</span>
+              </a>
+              <a class="menu-link" href="https://moddedamong.us/eventpics.html">
+                <span class="menu-left"><i class="fa-regular fa-images"></i> Past Events</span>
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div class="menu-item">
-          <button type="button">
-            <span class="menu-label"><i class="fa-solid fa-life-ring"></i> Lobby Help</span>
-            <i class="fa-solid fa-chevron-right submenu-arrow"></i>
-          </button>
-          <div class="submenu">
-            <a href="https://moddedamong.us/icons.html">
-              <span class="menu-label"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</span>
-            </a>
-            <a href="https://moddedamong.us/tags.html">
-              <span class="menu-label"><i class="fa-solid fa-ticket"></i> Tag Generator</span>
-            </a>
-            <a href="https://moddedamong.us/lobbytemplates">
-              <span class="menu-label"><i class="fa-solid fa-list"></i> Lobby Templates</span>
-            </a>
+          <div class="menu-item has-submenu">
+            <button class="menu-button" type="button">
+              <span class="menu-left"><i class="fa-solid fa-code-branch"></i> Mods</span>
+              <span class="menu-right"><i class="fa-solid fa-chevron-right"></i></span>
+            </button>
+            <div class="submenu-panel">
+              <div class="submenu-title">Mods</div>
+              <a class="menu-link" href="https://moddedamong.us/mods.html">
+                <span class="menu-left"><i class="fa-solid fa-code-branch"></i> Featured Mods</span>
+              </a>
+              <a class="menu-link" href="https://moddedamong.us/presets.html">
+                <span class="menu-left"><i class="fa-solid fa-sliders"></i> Presets</span>
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div class="menu-item">
-          <button type="button" class="highlight-glow">
-            <span class="menu-label"><i class="fa-solid fa-star"></i> Highlighted Users</span>
-            <i class="fa-solid fa-chevron-right submenu-arrow"></i>
-          </button>
-          <div class="submenu">
-            <div class="menu-item">
-              <button type="button">
-                <span class="menu-label"><i class="fa-solid fa-check-circle"></i> Verified Hosts</span>
-                <i class="fa-solid fa-chevron-right submenu-arrow"></i>
-              </button>
-              <div class="submenu">
-                <a href="https://moddedamong.us/bat.html">
-                  <span class="menu-label"><i class="fa-solid fa-user"></i> Bat</span>
-                </a>
-                <a href="https://moddedamong.us/wyzeris.html">
-                  <span class="menu-label"><i class="fa-solid fa-user"></i> Wyzeris</span>
-                </a>
-                <a href="https://moddedamong.us/pancake.html">
-                  <span class="menu-label"><i class="fa-solid fa-user"></i> Pancake</span>
-                </a>
+          <a class="menu-link" href="https://moddedamong.us/art.html">
+            <span class="menu-left"><i class="fa-solid fa-paintbrush"></i> User Art</span>
+          </a>
+
+          <a class="menu-link" href="https://moddedamong.us/wrapped">
+            <span class="menu-left"><i class="fa-solid fa-gift"></i> 2025 Wrapped</span>
+          </a>
+
+          <a class="menu-link" href="https://moddedamong.us/roletest">
+            <span class="menu-left"><i class="fa-solid fa-brain"></i> Personality Test</span>
+          </a>
+
+          <div class="menu-item has-submenu">
+            <button class="menu-button highlight-glow" type="button">
+              <span class="menu-left"><i class="fa-solid fa-star"></i> Highlighted Users</span>
+              <span class="menu-right"><i class="fa-solid fa-chevron-right"></i></span>
+            </button>
+            <div class="submenu-panel">
+              <div class="submenu-title">Highlighted Users</div>
+
+              <a class="menu-link" href="https://moddedamong.us/VH/">
+                <span class="menu-left"><i class="fa-solid fa-star"></i> Star Users</span>
+              </a>
+
+              <div class="menu-item has-submenu">
+                <button class="menu-button" type="button">
+                  <span class="menu-left"><i class="fa-solid fa-check-circle"></i> Verified Hosts</span>
+                  <span class="menu-right"><i class="fa-solid fa-chevron-right"></i></span>
+                </button>
+                <div class="submenu-panel">
+                  <div class="submenu-title">Verified Hosts</div>
+                  <a class="menu-link" href="https://moddedamong.us/bat.html">
+                    <span class="menu-left"><i class="fa-solid fa-user"></i> Bat</span>
+                  </a>
+                  <a class="menu-link" href="https://moddedamong.us/pancake.html">
+                    <span class="menu-left"><i class="fa-solid fa-user"></i> Pancake</span>
+                  </a>
+                  <a class="menu-link" href="https://moddedamong.us/wyzeris.html">
+                    <span class="menu-left"><i class="fa-solid fa-user"></i> Wyzeris</span>
+                  </a>
+                </div>
               </div>
             </div>
-
-            <a href="https://moddedamong.us/VH/">
-              <span class="menu-label"><i class="fa-solid fa-star"></i> Star Users</span>
-            </a>
           </div>
+
+          <a class="menu-link beta-glow" href="https://moddedamong.us/BETAtemplates">
+            <span class="menu-left"><i class="fa-solid fa-flask"></i> BETA Templates</span>
+          </a>
+
         </div>
-
-        <a href="https://moddedamong.us/wrapped">
-          <span class="menu-label"><i class="fa-solid fa-gift"></i> 2025 Wrapped</span>
-        </a>
-
-        <a href="https://moddedamong.us/roletest">
-          <span class="menu-label"><i class="fa-solid fa-brain"></i> Personality Test</span>
-        </a>
-
-        <a href="https://moddedamong.us/BETAtemplates" class="beta-glow">
-          <span class="menu-label"><i class="fa-solid fa-flask"></i> BETA Templates</span>
-        </a>
       </div>
     </div>
 
@@ -842,45 +893,69 @@
           document.getElementById("memberCount").textContent = "Error";
         });
 
-      document.addEventListener('DOMContentLoaded', () => {
-        const dropdown = document.querySelector('.dropdown');
-        const button = document.querySelector('.dropbtn');
-        const menuItems = document.querySelectorAll('.menu-item');
+      document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector(".dropdown");
+        const button = document.querySelector(".dropbtn");
+        const menuItems = document.querySelectorAll(".menu-item.has-submenu");
 
         if (!dropdown || !button) return;
 
-        button.addEventListener('click', (e) => {
+        const closeAllSubmenus = () => {
+          menuItems.forEach(item => item.classList.remove("active"));
+        };
+
+        const closeSiblingSubmenus = (item) => {
+          const siblings = Array.from(item.parentElement.children).filter(child =>
+            child !== item && child.classList && child.classList.contains("menu-item")
+          );
+          siblings.forEach(sibling => sibling.classList.remove("active"));
+        };
+
+        button.addEventListener("click", (e) => {
           e.stopPropagation();
-          dropdown.classList.toggle('open');
-          menuItems.forEach(item => item.classList.remove('open'));
+          dropdown.classList.toggle("open");
+          if (!dropdown.classList.contains("open")) {
+            closeAllSubmenus();
+          }
         });
 
         menuItems.forEach(item => {
-          const trigger = item.querySelector(':scope > button');
+          const trigger = item.querySelector(":scope > .menu-button");
+
           if (!trigger) return;
 
-          trigger.addEventListener('click', (e) => {
+          item.addEventListener("mouseenter", () => {
+            if (!dropdown.classList.contains("open")) return;
+            closeSiblingSubmenus(item);
+            item.classList.add("active");
+          });
+
+          trigger.addEventListener("click", (e) => {
+            e.preventDefault();
             e.stopPropagation();
 
-            const isOpen = item.classList.contains('open');
+            const isActive = item.classList.contains("active");
+            closeSiblingSubmenus(item);
 
-            const siblingItems = item.parentElement.querySelectorAll(':scope > .menu-item');
-            siblingItems.forEach(sibling => sibling.classList.remove('open'));
-
-            if (!isOpen) {
-              item.classList.add('open');
+            if (isActive) {
+              item.classList.remove("active");
+            } else {
+              item.classList.add("active");
             }
           });
         });
 
-        document.addEventListener('click', (e) => {
+        dropdown.addEventListener("mouseleave", () => {
+          closeAllSubmenus();
+        });
+
+        document.addEventListener("click", (e) => {
           if (!dropdown.contains(e.target)) {
-            dropdown.classList.remove('open');
-            menuItems.forEach(item => item.classList.remove('open'));
+            dropdown.classList.remove("open");
+            closeAllSubmenus();
           }
         });
       });
     </script>
   </body>
 </html>
-
