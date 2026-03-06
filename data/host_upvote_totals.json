@@ -1,6 +1,22 @@
 {
-  "generated_at": "2026-03-06T11:07:53.436853+00:00",
+  "generated_at": "2026-03-06T11:08:06.779153+00:00",
   "hosts": {
+    "1266747433514434573": {
+      "host_id": 1266747433514434573,
+      "host_name": "Wyzeris",
+      "slug": "wyzeris",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-03-06T11:08:06.774828+00:00"
+    },
+    "wyzeris": {
+      "host_id": 1266747433514434573,
+      "host_name": "Wyzeris",
+      "slug": "wyzeris",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-03-06T11:08:06.774828+00:00"
+    },
     "1148338311576961054": {
       "host_id": 1148338311576961054,
       "host_name": "battt",
@@ -16,22 +32,6 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-06T08:45:28.644295+00:00"
-    },
-    "1266747433514434573": {
-      "host_id": 1266747433514434573,
-      "host_name": "Wyzeris",
-      "slug": "wyzeris",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-03-06T09:03:54.145301+00:00"
-    },
-    "wyzeris": {
-      "host_id": 1266747433514434573,
-      "host_name": "Wyzeris",
-      "slug": "wyzeris",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-03-06T09:03:54.145301+00:00"
     },
     "1067220560972628058": {
       "host_id": 1067220560972628058,
