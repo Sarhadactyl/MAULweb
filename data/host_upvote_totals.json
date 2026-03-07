@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-07T07:47:23.963277+00:00",
+  "generated_at": "2026-03-07T07:47:29.585420+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -17,6 +17,22 @@
       "upvoted_times": 2,
       "last_upvoted_at": "2026-03-07T03:50:43.141199+00:00"
     },
+    "1266747433514434573": {
+      "host_id": 1266747433514434573,
+      "host_name": "Wyzeris",
+      "slug": "wyzeris",
+      "upvoted_by_users": 6,
+      "upvoted_times": 6,
+      "last_upvoted_at": "2026-03-07T07:47:29.581702+00:00"
+    },
+    "wyzeris": {
+      "host_id": 1266747433514434573,
+      "host_name": "Wyzeris",
+      "slug": "wyzeris",
+      "upvoted_by_users": 6,
+      "upvoted_times": 6,
+      "last_upvoted_at": "2026-03-07T07:47:29.581702+00:00"
+    },
     "1447724056500502729": {
       "host_id": 1447724056500502729,
       "host_name": "RoHodor",
@@ -32,22 +48,6 @@
       "upvoted_by_users": 5,
       "upvoted_times": 5,
       "last_upvoted_at": "2026-03-07T07:46:15.564809+00:00"
-    },
-    "1266747433514434573": {
-      "host_id": 1266747433514434573,
-      "host_name": "Wyzeris",
-      "slug": "wyzeris",
-      "upvoted_by_users": 5,
-      "upvoted_times": 5,
-      "last_upvoted_at": "2026-03-06T20:05:56.820856+00:00"
-    },
-    "wyzeris": {
-      "host_id": 1266747433514434573,
-      "host_name": "Wyzeris",
-      "slug": "wyzeris",
-      "upvoted_by_users": 5,
-      "upvoted_times": 5,
-      "last_upvoted_at": "2026-03-06T20:05:56.820856+00:00"
     },
     "1067220560972628058": {
       "host_id": 1067220560972628058,
