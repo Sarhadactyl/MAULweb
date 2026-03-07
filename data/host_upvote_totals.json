@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-07T07:43:38.800714+00:00",
+  "generated_at": "2026-03-07T07:44:04.453592+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -152,6 +152,22 @@
       "upvoted_by_users": 2,
       "upvoted_times": 2,
       "last_upvoted_at": "2026-03-07T07:39:37.240807+00:00"
+    },
+    "1072010786668548156": {
+      "host_id": 1072010786668548156,
+      "host_name": "\u2605 Giogio",
+      "slug": "\u2605-giogio",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-03-07T07:44:04.449905+00:00"
+    },
+    "\u2605-giogio": {
+      "host_id": 1072010786668548156,
+      "host_name": "\u2605 Giogio",
+      "slug": "\u2605-giogio",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-03-07T07:44:04.449905+00:00"
     },
     "216404071253278720": {
       "host_id": 216404071253278720,
@@ -312,22 +328,6 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-07T00:12:00.133823+00:00"
-    },
-    "1072010786668548156": {
-      "host_id": 1072010786668548156,
-      "host_name": "\u2605 Giogio",
-      "slug": "\u2605-giogio",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-03-07T00:11:25.700778+00:00"
-    },
-    "\u2605-giogio": {
-      "host_id": 1072010786668548156,
-      "host_name": "\u2605 Giogio",
-      "slug": "\u2605-giogio",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-03-07T00:11:25.700778+00:00"
     },
     "766028172562006089": {
       "host_id": 766028172562006089,
