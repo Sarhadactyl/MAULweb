@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-07T07:44:23.362680+00:00",
+  "generated_at": "2026-03-07T07:45:06.759824+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -96,6 +96,22 @@
       "upvoted_by_users": 4,
       "upvoted_times": 4,
       "last_upvoted_at": "2026-03-06T18:55:56.346953+00:00"
+    },
+    "1148338311576961054": {
+      "host_id": 1148338311576961054,
+      "host_name": "battt",
+      "slug": "bat",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-03-07T07:45:06.755595+00:00"
+    },
+    "bat": {
+      "host_id": 1148338311576961054,
+      "host_name": "battt",
+      "slug": "bat",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-03-07T07:45:06.755595+00:00"
     },
     "1204867588753203262": {
       "host_id": 1204867588753203262,
@@ -216,22 +232,6 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-07T00:10:49.381564+00:00"
-    },
-    "1148338311576961054": {
-      "host_id": 1148338311576961054,
-      "host_name": "battt",
-      "slug": "bat",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-03-06T08:45:28.644295+00:00"
-    },
-    "bat": {
-      "host_id": 1148338311576961054,
-      "host_name": "battt",
-      "slug": "bat",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-03-06T08:45:28.644295+00:00"
     },
     "1393991209520988261": {
       "host_id": 1393991209520988261,
