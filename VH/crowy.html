@@ -32,10 +32,13 @@
         --accent: #800000;
         --accent-soft: rgba(128, 0, 0, 0.25);
         --accent-strong: #b00000;
+
         --bg-card: rgba(30, 12, 12, 0.9);
         --bg-soft: rgba(45, 18, 18, 0.9);
+
         --text-main: #ffffff;
         --text-muted: #dedee8;
+
         --menu-bg: rgba(35, 10, 10, 0.97);
         --menu-border: rgba(255, 255, 255, 0.08);
         --menu-shadow: 0 18px 40px rgba(0, 0, 0, 0.88);
@@ -224,6 +227,7 @@
         margin-bottom: 4px;
       }
 
+      .beta-glow,
       .highlight-glow {
         color: #ff4d4d !important;
         font-weight: 700;
@@ -233,26 +237,9 @@
         animation: betaPulse 1.6s ease-in-out infinite;
       }
 
+      .beta-glow:hover,
       .highlight-glow:hover,
       .menu-item.active > .highlight-glow {
-        background: rgba(255, 0, 0, 0.12) !important;
-        color: #ff8080 !important;
-        text-shadow:
-          0 0 10px rgba(255, 50, 50, 1),
-          0 0 16px rgba(255, 0, 0, 0.9);
-      }
-
-      .beta-glow {
-        color: #ff4d4d !important;
-        font-weight: 700;
-        text-shadow:
-          0 0 8px rgba(255, 0, 0, 0.75),
-          0 0 12px rgba(255, 0, 0, 0.55);
-        animation: betaPulse 1.6s ease-in-out infinite;
-      }
-
-      .beta-glow:hover,
-      .menu-item.active > .beta-glow {
         background: rgba(255, 0, 0, 0.12) !important;
         color: #ff8080 !important;
         text-shadow:
@@ -288,28 +275,6 @@
         max-width: 1100px;
         margin: 0 auto;
         padding: 80px 20px 70px;
-      }
-
-      @media (max-width: 900px) {
-        .mega-menu {
-          min-width: 250px;
-        }
-
-        .submenu-panel {
-          left: calc(100% - 18px);
-          min-width: 230px;
-        }
-      }
-
-      @media (max-width: 700px) {
-        .submenu-panel {
-          left: 0;
-          top: calc(100% - 6px);
-        }
-
-        .menu-item.active > .submenu-panel {
-          transform: translateX(0);
-        }
       }
 
       @media (max-width: 600px) {
@@ -405,17 +370,16 @@
         }
       }
 
+      .hero-inner > div:last-child {
+        min-width: 0;
+      }
+
       .avatar-wrap {
         display: flex;
         align-items: center;
         justify-content: center;
       }
-      .avatar img{
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        display:block;
-      }
+
       .avatar {
         width: 220px;
         height: 220px;
@@ -428,14 +392,13 @@
         box-shadow:
           0 18px 45px rgba(0, 0, 0, 0.95),
           0 0 0 10px rgba(128, 0, 0, 0.12);
-        position: relative;
       }
 
-      .avatar.black::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: #000;
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
 
       .hero-title-row {
@@ -444,6 +407,20 @@
         justify-content: space-between;
         gap: 12px;
         flex-wrap: wrap;
+      }
+
+      .hero-title-row > div:first-child {
+        flex: 1 1 320px;
+      }
+
+      .hero-title-row .pill-row {
+        justify-content: flex-end;
+      }
+
+      @media (max-width: 850px) {
+        .hero-title-row .pill-row {
+          justify-content: flex-start;
+        }
       }
 
       .host-name {
@@ -734,7 +711,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        padding: 12px;
+        padding: 12px 12px;
         border-radius: 18px;
         background: rgba(255, 255, 255, 0.035);
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -749,7 +726,6 @@
         background: linear-gradient(135deg, rgba(128, 0, 0, 0.7), rgba(200, 0, 80, 0.35));
         border: 1px solid rgba(255, 255, 255, 0.16);
         box-shadow: 0 10px 24px rgba(0, 0, 0, 0.75);
-        overflow: hidden;
       }
 
       .badge-icon img {
@@ -837,6 +813,28 @@
         color: var(--text-muted);
         line-height: 1.7;
       }
+
+      @media (max-width: 900px) {
+        .mega-menu {
+          min-width: 250px;
+        }
+
+        .submenu-panel {
+          left: calc(100% - 18px);
+          min-width: 230px;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .submenu-panel {
+          left: 0;
+          top: calc(100% - 6px);
+        }
+
+        .menu-item.active > .submenu-panel {
+          transform: translateX(0);
+        }
+      }
     </style>
   </head>
 
@@ -852,7 +850,7 @@
 
       <div class="mega-menu" id="megaMenu">
         <div class="menu-panel">
-          <a class="menu-link" href="https://moddedamong.us/">
+          <a class="menu-link" href="../">
             <span class="menu-left"><i class="fa-solid fa-house"></i> Home</span>
           </a>
 
@@ -863,13 +861,13 @@
             </button>
             <div class="submenu-panel">
               <div class="submenu-title">Lobby Help</div>
-              <a class="menu-link" href="https://moddedamong.us/tags.html">
+              <a class="menu-link" href="../tags.html">
                 <span class="menu-left"><i class="fa-solid fa-ticket"></i> Tag Generator</span>
               </a>
-              <a class="menu-link" href="https://moddedamong.us/lobbytemplates">
+              <a class="menu-link" href="../lobbytemplates">
                 <span class="menu-left"><i class="fa-solid fa-list"></i> Lobby Templates</span>
               </a>
-              <a class="menu-link" href="https://moddedamong.us/icons.html">
+              <a class="menu-link" href="../icons.html">
                 <span class="menu-left"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</span>
               </a>
             </div>
@@ -882,10 +880,10 @@
             </button>
             <div class="submenu-panel">
               <div class="submenu-title">Events</div>
-              <a class="menu-link" href="https://moddedamong.us/calendar.html">
+              <a class="menu-link" href="../calendar.html">
                 <span class="menu-left"><i class="fa-regular fa-calendar"></i> Event Calendar</span>
               </a>
-              <a class="menu-link" href="https://moddedamong.us/eventpics.html">
+              <a class="menu-link" href="../eventpics.html">
                 <span class="menu-left"><i class="fa-regular fa-images"></i> Past Events</span>
               </a>
             </div>
@@ -898,24 +896,24 @@
             </button>
             <div class="submenu-panel">
               <div class="submenu-title">Mods</div>
-              <a class="menu-link" href="https://moddedamong.us/mods.html">
+              <a class="menu-link" href="../mods.html">
                 <span class="menu-left"><i class="fa-solid fa-code-branch"></i> Featured Mods</span>
               </a>
-              <a class="menu-link" href="https://moddedamong.us/presets.html">
+              <a class="menu-link" href="../presets.html">
                 <span class="menu-left"><i class="fa-solid fa-sliders"></i> Presets</span>
               </a>
             </div>
           </div>
 
-          <a class="menu-link" href="https://moddedamong.us/art.html">
+          <a class="menu-link" href="../art.html">
             <span class="menu-left"><i class="fa-solid fa-paintbrush"></i> User Art</span>
           </a>
 
-          <a class="menu-link" href="https://moddedamong.us/wrapped">
+          <a class="menu-link" href="../wrapped">
             <span class="menu-left"><i class="fa-solid fa-gift"></i> 2025 Wrapped</span>
           </a>
 
-          <a class="menu-link" href="https://moddedamong.us/roletest">
+          <a class="menu-link" href="../roletest">
             <span class="menu-left"><i class="fa-solid fa-brain"></i> Personality Test</span>
           </a>
 
@@ -927,7 +925,7 @@
             <div class="submenu-panel">
               <div class="submenu-title">Highlighted Users</div>
 
-              <a class="menu-link" href="https://moddedamong.us/VH/">
+              <a class="menu-link" href="../VH/">
                 <span class="menu-left"><i class="fa-solid fa-star"></i> Star Users</span>
               </a>
 
@@ -938,16 +936,16 @@
                 </button>
                 <div class="submenu-panel">
                   <div class="submenu-title">Verified Hosts</div>
-                  <a class="menu-link" href="https://moddedamong.us/bat.html">
+                  <a class="menu-link" href="bat.html">
                     <span class="menu-left"><i class="fa-solid fa-user"></i> Bat</span>
                   </a>
-                  <a class="menu-link" href="https://moddedamong.us/pancake.html">
+                  <a class="menu-link" href="pancake.html">
                     <span class="menu-left"><i class="fa-solid fa-user"></i> Pancake</span>
                   </a>
-                  <a class="menu-link" href="https://moddedamong.us/wyzeris.html">
+                  <a class="menu-link" href="wyzeris.html">
                     <span class="menu-left"><i class="fa-solid fa-user"></i> Wyzeris</span>
                   </a>
-                  <a class="menu-link" href="https://moddedamong.us/VH/crowy.html">
+                  <a class="menu-link" href="crowy.html">
                     <span class="menu-left"><i class="fa-solid fa-user"></i> Crowy</span>
                   </a>
                 </div>
@@ -955,7 +953,7 @@
             </div>
           </div>
 
-          <a class="menu-link beta-glow" href="https://moddedamong.us/BETAtemplates">
+          <a class="menu-link beta-glow" href="../BETAtemplates">
             <span class="menu-left"><i class="fa-solid fa-flask"></i> BETA Templates</span>
           </a>
         </div>
@@ -970,14 +968,15 @@
         </div>
         <h1>Crowy <span>🖤</span></h1>
         <p class="page-header-subtitle">
-          Occasional host, EHR main, and probably the most boring VH you’ll find here — unless you notice the hidden easter eggs.
+           A little thank-you page for one of our verified hosts..
         </p>
       </header>
 
       <section class="hero" aria-label="Crowy profile overview">
+        <div class="hero-inner">
           <div class="avatar-wrap">
             <div class="avatar">
-              <img src="../images/verifiedhosts/crowyy.webp" alt="Crowy profile image">
+              <img src="../images/verifiedhosts/crowyy.webp" alt="Crowy profile image" />
             </div>
           </div>
 
@@ -990,20 +989,19 @@
 
               <div class="pill-row">
                 <span class="pill accent"><i class="fa-solid fa-shield-heart"></i> Verified Host</span>
-                <span class="pill"><i class="fa-solid fa-robot"></i> <strong>Autohoster</strong></span>
+                <span class="pill"><i class="fa-solid fa-robot"></i> <strong>Jan 2026</strong></span>
               </div>
             </div>
 
             <div class="pill-row">
-              <span class="pill"><i class="fa-solid fa-layer-group"></i><strong>Primary Mod:</strong> EHR</span>
-              <span class="pill"><i class="fa-solid fa-earth-europe"></i><strong>Region:</strong> AS / EU / sometimes NA</span>
-              <span class="pill"><i class="fa-solid fa-clock"></i><strong>Active Hours:</strong> 4</span>
+              <span class="pill"><i class="fa-solid fa-layer-group"></i> <strong>Primary Mod:</strong> EHR</span>
             </div>
 
             <div class="btn-row">
               <a class="btn-primary" href="https://discord.com/users/978665815735959643" target="_blank" rel="noopener">
                 <i class="fa-brands fa-discord"></i> Discord Profile
               </a>
+
               <a class="btn-secondary" href="https://moddedamong.us/" rel="noopener">
                 <i class="fa-solid fa-arrow-left"></i> Back to MAUL
               </a>
@@ -1013,16 +1011,21 @@
               <div class="mini-badge" data-tooltip="Verified Host">
                 <img src="../images/badges/verified.png" alt="Verified Host badge" />
               </div>
+
               <div class="mini-badge" data-tooltip="1 Year Verified Host">
                 <img src="../images/badges/year 1.webp" alt="1 Year badge" />
               </div>
+
               <div class="mini-badge" data-tooltip="Active Chatter">
                 <img src="../images/badges/activechatter.webp" alt="Active Chatter badge" />
               </div>
+
               <div class="mini-badge" data-tooltip="Server Staff">
                 <img src="../images/badges/Server Staff.webp" alt="Server Staff badge" />
               </div>
             </div>
+
+            <p class="note"></p>
           </div>
         </div>
       </section>
@@ -1036,10 +1039,12 @@
                 <div class="kv-key">Bio / Motto</div>
                 <div class="kv-val">Most boring VH you’ll find here.</div>
               </div>
+
               <div class="kv-row">
                 <div class="kv-key">Recommended Mods</div>
                 <div class="kv-val"><strong>EHR</strong>, <strong>PL</strong>, <strong>TOUM</strong>, and the <strong>Submerged</strong> map.</div>
               </div>
+
               <div class="kv-row">
                 <div class="kv-key">Why They Host</div>
                 <div class="kv-val">Got bored. People want lobbies and I’m free.</div>
@@ -1064,43 +1069,43 @@
           <div class="card-inner">
             <h2><i class="fa-solid fa-award"></i> Hosting Highlights</h2>
             <p class="muted" style="margin: 0 0 10px; line-height: 1.7;">
-              A mix of o badges and hosting stats.
+              A mix of badges and hosting stats.
             </p>
 
             <div class="badge-grid">
               <div class="badge">
                 <div class="badge-icon">
-                  <img src="../images/badges/verified.png" alt="Verified" />
+                  <img src="../images/badges/verified.png" alt="Verified badge" />
                 </div>
                 <div>
                   <div class="badge-title">Verified</div>
-                  <div class="badge-sub">Verified Host</div>
+                  <div class="badge-sub">Trusted Host</div>
                 </div>
               </div>
 
               <div class="badge">
                 <div class="badge-icon">
-                  <img src="../images/badges/activechatter.webp" alt="Active Chatter" />
+                  <img src="../images/badges/year 1.webp" alt="1 Year badge" />
+                </div>
+                <div>
+                  <div class="badge-title">Year One</div>
+                  <div class="badge-sub">Longtime Host</div>
+                </div>
+              </div>
+
+              <div class="badge">
+                <div class="badge-icon">
+                  <img src="../images/badges/activechatter.webp" alt="Active Chatter badge" />
                 </div>
                 <div>
                   <div class="badge-title">Active Chatter</div>
-                  <div class="badge-sub">Community Presence</div>
+                  <div class="badge-sub">Community Regular</div>
                 </div>
               </div>
 
               <div class="badge">
                 <div class="badge-icon">
-                  <img src="../images/badges/Server Staff.webp" alt="Server Staff" />
-                </div>
-                <div>
-                  <div class="badge-title">Server Staff</div>
-                  <div class="badge-sub">Verification and International Mod team</div>
-                </div>
-              </div>
-
-              <div class="badge">
-                <div class="badge-icon">
-                  <img src="../images/badges/verified.png" alt="Community Favorite" />
+                  <img src="../images/badges/loading.gif" alt="Community Favorite badge" />
                 </div>
                 <div>
                   <div class="badge-title">Community Favorite</div>
@@ -1112,22 +1117,17 @@
             <h2 style="margin-top: 18px;"><i class="fa-solid fa-chart-simple"></i> Stats</h2>
             <div class="kv">
               <div class="kv-row">
-                <div class="kv-key">Active Hosting Time</div>
-                <div class="kv-val muted">4 active hosting hours</div>
-              </div>
-              <div class="kv-row">
-                <div class="kv-key">Host Type</div>
-                <div class="kv-val muted">Autohoster + occasional regular host</div>
-              </div>
-              <div class="kv-row">
                 <div class="kv-key">Host Upvotes</div>
                 <div class="kv-val muted" id="host-upvotes-summary">0 upvotes - last upvoted never</div>
               </div>
+
+              <div class="kv-row">
+                <div class="kv-key">Hosting Style</div>
+                <div class="kv-val muted">Rare host, template easter eggs, region-flexible when needed</div>
+              </div>
             </div>
 
-            <p class="note">
-              Live upvotes are pulled in automatically from Maul game bot. Use /upvote to show Crowy some love.
-            </p>
+            <p class="note"></p>
           </div>
         </div>
       </section>
@@ -1182,7 +1182,7 @@
             </div>
 
             <p class="note">
-              Crowy 
+              This page is just an overview, not a full rulebook.
             </p>
           </div>
         </div>
@@ -1198,7 +1198,7 @@
 
             <div class="messages-list" id="messages-to-host-list">
               <div class="empty-state" id="messages-to-host-empty">
-                o public messages yet use /upvote to send the host a message.
+                No public messages yet use /upvote to send the host a message.
               </div>
             </div>
           </div>
@@ -1208,7 +1208,11 @@
       <p class="footer-note">
         Want a verified host profile of your own? Get verified, stay consistent, and keep your lobbies clean.
         <br />
-        <a href="https://discord.com/channels/995954559044304896/1087479894147080212" target="_blank" rel="noopener">
+        <a
+          href="https://discord.com/channels/995954559044304896/1087479894147080212"
+          target="_blank"
+          rel="noopener"
+        >
           Check out Roles-101
         </a>
         if you have any questions on how to qualify.
@@ -1221,21 +1225,22 @@
         const button = document.querySelector(".dropbtn");
         const menuItems = document.querySelectorAll(".menu-item.has-submenu");
 
-        const closeAllSubmenus = () => {
-          menuItems.forEach((item) => item.classList.remove("active"));
-        };
-
-        const closeSiblingSubmenus = (item) => {
-          const siblings = Array.from(item.parentElement.children).filter(
-            (child) => child !== item && child.classList && child.classList.contains("menu-item")
-          );
-          siblings.forEach((sibling) => sibling.classList.remove("active"));
-        };
-
         if (dropdown && button) {
+          const closeAllSubmenus = () => {
+            menuItems.forEach((item) => item.classList.remove("active"));
+          };
+
+          const closeSiblingSubmenus = (item) => {
+            const siblings = Array.from(item.parentElement.children).filter(
+              (child) => child !== item && child.classList && child.classList.contains("menu-item")
+            );
+            siblings.forEach((sibling) => sibling.classList.remove("active"));
+          };
+
           button.addEventListener("click", (e) => {
             e.stopPropagation();
             dropdown.classList.toggle("open");
+
             if (!dropdown.classList.contains("open")) {
               closeAllSubmenus();
             }
@@ -1243,7 +1248,6 @@
 
           menuItems.forEach((item) => {
             const trigger = item.querySelector(":scope > .menu-button");
-
             if (!trigger) return;
 
             item.addEventListener("mouseenter", () => {
