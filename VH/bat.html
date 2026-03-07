@@ -9,10 +9,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moddedamong.us/VH/bat.html" />
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-    <meta
-      property="og:description"
-      content="Verified Host profile for Bat."
-    />
+    <meta property="og:description" content="Verified Host profile for Bat." />
     <meta property="og:site_name" content="Modded Among Us Lobbies" />
     <meta property="og:locale" content="en_US" />
     <link rel="canonical" href="https://moddedamong.us/VH/bat.html" />
@@ -88,7 +85,7 @@
         position: fixed;
         top: 20px;
         left: 20px;
-        z-index: 100;
+        z-index: 1000;
       }
 
       .dropbtn {
@@ -96,7 +93,7 @@
         border: 1px solid rgba(255, 255, 255, 0.14);
         cursor: pointer;
         transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-        padding: 10px 10px;
+        padding: 10px;
         border-radius: 999px;
         backdrop-filter: blur(10px);
       }
@@ -125,34 +122,93 @@
       .dropdown-content {
         display: none;
         position: absolute;
-        margin-top: 8px;
+        top: calc(100% + 8px);
+        left: 0;
         background-color: rgba(35, 10, 10, 0.96);
-        min-width: 220px;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
-        border-radius: 12px;
+        width: 350px;
+        max-width: calc(100vw - 32px);
+        max-height: calc(100vh - 40px);
         overflow: hidden;
-        backdrop-filter: blur(10px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+        border-radius: 20px;
+        backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.08);
       }
 
-      .dropdown-content a {
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+
+      .menu-view {
+        display: none;
+        padding: 8px 0;
+        max-height: calc(100vh - 56px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+
+      .menu-view.active {
+        display: block;
+      }
+
+      .dropdown-content a,
+      .menu-nav-btn,
+      .menu-back-btn {
+        width: 100%;
         color: var(--text-main);
-        padding: 12px 18px;
+        padding: 16px 22px;
         text-decoration: none;
         display: flex;
         align-items: center;
-        gap: 8px;
-        font-size: 0.95rem;
-        transition: background 0.25s, color 0.25s, padding-left 0.25s;
+        justify-content: flex-start;
+        gap: 10px;
+        font-size: 0.98rem;
+        transition: background 0.22s ease, color 0.22s ease, padding-left 0.22s ease;
+        background: transparent;
+        border: none;
+        font-family: inherit;
+        text-align: left;
+        cursor: pointer;
       }
 
-      .dropdown-content a:hover {
-        background: rgba(255, 255, 255, 0.04);
+      .dropdown-content a i:first-child,
+      .menu-nav-btn span,
+      .menu-back-btn span {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .menu-nav-btn .fa-chevron-right {
+        margin-left: auto;
+      }
+
+      .dropdown-content a:hover,
+      .menu-nav-btn:hover,
+      .menu-back-btn:hover {
+        background: rgba(255, 255, 255, 0.045);
         color: var(--accent);
-        padding-left: 22px;
+        padding-left: 26px;
       }
 
-      .beta-glow {
+      .menu-back-btn {
+        justify-content: flex-start;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 4px;
+      }
+
+      .submenu-title {
+        padding: 13px 22px 10px;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.62);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 4px;
+      }
+
+      .beta-glow,
+      .highlight-glow {
         color: #ff4d4d !important;
         font-weight: 700;
         text-shadow:
@@ -161,17 +217,13 @@
         animation: betaPulse 1.6s ease-in-out infinite;
       }
 
-      .beta-glow:hover {
+      .beta-glow:hover,
+      .highlight-glow:hover {
         background: rgba(255, 0, 0, 0.12) !important;
-        padding-left: 22px;
         color: #ff8080 !important;
         text-shadow:
           0 0 10px rgba(255, 50, 50, 1),
           0 0 16px rgba(255, 0, 0, 0.9);
-      }
-
-      .dropdown.open .dropdown-content {
-        display: block;
       }
 
       @keyframes betaPulse {
@@ -639,7 +691,7 @@
         color: #ff8080;
         border-bottom-color: rgba(255, 128, 128, 0.6);
       }
-    
+
       .messages-section {
         margin-top: 16px;
       }
@@ -679,6 +731,11 @@
         line-height: 1.7;
       }
 
+      @media (max-width: 480px) {
+        .dropdown-content {
+          width: min(350px, calc(100vw - 20px));
+        }
+      }
     </style>
   </head>
 
@@ -689,20 +746,82 @@
           <span></span><span></span><span></span>
         </div>
       </button>
-      <div class="dropdown-content">
-        <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
-        <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
-        <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
-        <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
-        <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
-        <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
-        <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
-        <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
-        <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
-        <a href="https://moddedamong.us/wrapped"><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a>
-        <a href="https://moddedamong.us/roletest"><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a>
-        <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
+
+      <div class="dropdown-content single-panel-menu" id="singlePanelMenu">
+        <div class="menu-view active" data-menu="root">
+          <a href="../"><i class="fa-solid fa-house"></i> Home</a>
+          <button type="button" class="menu-nav-btn" data-target="lobby-help">
+            <span><i class="fa-solid fa-life-ring"></i> Lobby Help</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <button type="button" class="menu-nav-btn" data-target="events">
+            <span><i class="fa-regular fa-calendar"></i> Events</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <button type="button" class="menu-nav-btn" data-target="mods">
+            <span><i class="fa-solid fa-code-branch"></i> Mods</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <a href="../art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
+          <a href="../wrapped"><i class="fa-solid fa-gift"></i> 2025 Wrapped</a>
+          <a href="../roletest"><i class="fa-solid fa-brain"></i> Personality Test</a>
+          <button type="button" class="menu-nav-btn highlight-glow" data-target="highlighted-users">
+            <span><i class="fa-solid fa-star"></i> Highlighted Users</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <a href="../BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
+        </div>
+
+        <div class="menu-view" data-menu="lobby-help">
+          <button type="button" class="menu-back-btn" data-back="root">
+            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
+          </button>
+          <div class="submenu-title">Lobby Help</div>
+          <a href="../tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
+          <a href="../lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
+          <a href="../icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
+        </div>
+
+        <div class="menu-view" data-menu="events">
+          <button type="button" class="menu-back-btn" data-back="root">
+            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
+          </button>
+          <div class="submenu-title">Events</div>
+          <a href="../calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
+          <a href="../eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
+        </div>
+
+        <div class="menu-view" data-menu="mods">
+          <button type="button" class="menu-back-btn" data-back="root">
+            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
+          </button>
+          <div class="submenu-title">Mods</div>
+          <a href="../mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
+          <a href="../presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
+        </div>
+
+        <div class="menu-view" data-menu="highlighted-users">
+          <button type="button" class="menu-back-btn" data-back="root">
+            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
+          </button>
+          <div class="submenu-title">Highlighted Users</div>
+          <a href="../VH/"><i class="fa-solid fa-star"></i> Star Users</a>
+          <button type="button" class="menu-nav-btn" data-target="verified-hosts">
+            <span><i class="fa-solid fa-check-circle"></i> Verified Hosts</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="menu-view" data-menu="verified-hosts">
+          <button type="button" class="menu-back-btn" data-back="highlighted-users">
+            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
+          </button>
+          <div class="submenu-title">Verified Hosts</div>
+          <a href="bat.html"><i class="fa-solid fa-user"></i> Bat</a>
+          <a href="pancake.html"><i class="fa-solid fa-user"></i> Pancake</a>
+          <a href="wyzeris.html"><i class="fa-solid fa-user"></i> Wyzeris</a>
+          <a href="crowy.html"><i class="fa-solid fa-user"></i> Crowy</a>
+        </div>
       </div>
     </div>
 
@@ -819,8 +938,7 @@
         <div class="card">
           <div class="card-inner">
             <h2><i class="fa-solid fa-award"></i> Hosting Highlights</h2>
-            <p class="muted" style="margin: 0 0 10px; line-height: 1.7;">
-            </p>
+            <p class="muted" style="margin: 0 0 10px; line-height: 1.7;"></p>
 
             <div class="badge-grid">
               <div class="badge">
@@ -855,7 +973,7 @@
 
               <div class="badge">
                 <div class="badge-icon">
-                  <img src="../images/badges/loading.gif" alt="Lobby legend" />
+                  <img src="../images/badges/loading.gif" alt="Community Favorite" />
                 </div>
                 <div>
                   <div class="badge-title">Community Favorite</div>
@@ -891,8 +1009,7 @@
         <div class="card">
           <div class="card-inner">
             <h2><i class="fa-regular fa-calendar-check"></i> Events Hosted</h2>
-            <p class="muted" style="margin: 0 0 10px; line-height: 1.7;">
-            </p>
+            <p class="muted" style="margin: 0 0 10px; line-height: 1.7;"></p>
 
             <div class="kv">
               <div class="kv-row">
@@ -934,13 +1051,12 @@
         </div>
       </section>
 
-
       <section class="messages-section">
         <div class="card">
           <div class="card-inner">
             <h2><i class="fa-solid fa-envelope-open-text"></i> Messages to Host</h2>
             <p class="muted" style="margin: 0 0 10px; line-height: 1.7;">
-              Messgaes to Bat. 
+              Messages to Bat.
             </p>
 
             <div class="messages-list" id="messages-to-host-list">
@@ -970,16 +1086,53 @@
       document.addEventListener("DOMContentLoaded", async () => {
         const dropdown = document.querySelector(".dropdown");
         const button = document.querySelector(".dropbtn");
+        const menu = document.getElementById("singlePanelMenu");
+        const menuViews = document.querySelectorAll(".menu-view");
+        const navButtons = document.querySelectorAll(".menu-nav-btn");
+        const backButtons = document.querySelectorAll(".menu-back-btn");
 
-        if (dropdown && button) {
+        function showMenuView(name) {
+          menuViews.forEach((view) => {
+            view.classList.toggle("active", view.dataset.menu === name);
+          });
+        }
+
+        function resetMenuView() {
+          showMenuView("root");
+        }
+
+        if (dropdown && button && menu) {
           button.addEventListener("click", (e) => {
             e.stopPropagation();
             dropdown.classList.toggle("open");
+
+            if (!dropdown.classList.contains("open")) {
+              resetMenuView();
+            }
+          });
+
+          navButtons.forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              const target = btn.dataset.target;
+              if (target) showMenuView(target);
+            });
+          });
+
+          backButtons.forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              const target = btn.dataset.back || "root";
+              showMenuView(target);
+            });
           });
 
           document.addEventListener("click", (e) => {
             if (!dropdown.contains(e.target)) {
               dropdown.classList.remove("open");
+              resetMenuView();
             }
           });
         }
