@@ -160,7 +160,7 @@
         text-decoration: none;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
         gap: 10px;
         font-size: 0.98rem;
         transition: background 0.22s ease, color 0.22s ease, padding-left 0.22s ease;
@@ -170,7 +170,7 @@
         text-align: left;
         cursor: pointer;
       }
-
+      
       .dropdown-content a i:first-child,
       .menu-nav-btn span,
       .menu-back-btn span {
@@ -178,18 +178,13 @@
         align-items: center;
         gap: 10px;
       }
-
-      .dropdown-content a:hover,
-      .menu-nav-btn:hover,
-      .menu-back-btn:hover {
-        background: rgba(255, 255, 255, 0.045);
-        color: var(--accent);
-        padding-left: 22px;
+      
+      .menu-nav-btn .fa-chevron-right {
+        margin-left: auto;
       }
-
+      
       .menu-back-btn {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        margin-bottom: 4px;
+        justify-content: flex-start;
       }
 
       .submenu-title {
