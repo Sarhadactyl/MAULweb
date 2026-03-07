@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Citrion · Verified Host · MAUL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:title" content="Citrion · Verified Host · MAUL" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/VH/citrion.html" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta property="og:description" content="Verified Host profile for Citrion." />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://moddedamong.us/VH/citrion.html" />
+
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --accent: #800000;
+        --accent-soft: rgba(128, 0, 0, 0.25);
+        --accent-strong: #b00000;
+
+        --bg-card: rgba(30, 12, 12, 0.9);
+        --bg-soft: rgba(45, 18, 18, 0.9);
+
+        --text-main: #ffffff;
+        --text-muted: #dedee8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        color: var(--text-main);
+        overflow-x: hidden;
+      }
+
+      body {
+        background: #000 url("../images/maulredbg.png") no-repeat top center fixed;
+        background-size: auto 100%;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(circle at top, rgba(128, 0, 0, 0.45), transparent 55%),
+          radial-gradient(circle at bottom, rgba(180, 0, 60, 0.25), transparent 55%);
+        mix-blend-mode: screen;
+        opacity: 0.7;
+        pointer-events: none;
+        z-index: -2;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
+        z-index: -1;
+      }
+
+      .dropdown {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+      }
+
+      .dropbtn {
+        background: rgba(35, 10, 10, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        cursor: pointer;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        padding: 10px;
+        border-radius: 999px;
+        backdrop-filter: blur(10px);
+      }
+
+      .dropbtn:hover {
+        transform: translateY(-1px) scale(1.03);
+        background: rgba(50, 16, 16, 0.98);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      }
+
+      .hamburger {
+        width: 26px;
+        height: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .hamburger span {
+        display: block;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), #ff0040);
+        border-radius: 999px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        background-color: rgba(35, 10, 10, 0.96);
+        width: 350px;
+        max-width: calc(100vw - 32px);
+        max-height: calc(100vh - 40px);
+        overflow: hidden;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+        border-radius: 20px;
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+
+      .menu-view {
+        display: none;
+        padding: 8px 0;
+        max-height: calc(100vh - 56px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+
+      .menu-view.active {
+        display: block;
+      }
+
+      .dropdown-content a,
+      .menu-nav-btn,
+      .menu-back-btn {
+        width: 100%;
+        color: var(--text-main);
+        padding: 16px 22px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        font-size: 0.98rem;
+        transition: background 0.22s ease, color 0.22s ease, padding-left 0.22s ease;
+        background: transparent;
+        border: none;
+        font-family: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .dropdown-content a i:first-child,
+      .menu-nav-btn span,
+      .menu-back-btn span {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .menu-nav-btn .fa-chevron-right {
+        margin-left: auto;
+      }
+
+      .dropdown-content a:hover,
+      .menu-nav-btn:hover,
+      .menu-back-btn:hover {
+        background: rgba(255, 255, 255, 0.045);
+        color: var(--accent);
+        padding-left: 26px;
+      }
+
+      .menu-back-btn {
+        justify-content: flex-start;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 4px;
+      }
+
+      .submenu-title {
+        padding: 13px 22px 10px;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.62);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 4px;
+      }
+
+      .beta-glow,
+      .highlight-glow {
+        color: #ff4d4d !important;
+        font-weight: 700;
+        text-shadow:
+          0 0 8px rgba(255, 0, 0, 0.75),
+          0 0 12px rgba(255, 0, 0, 0.55);
+        animation: betaPulse 1.6s ease-in-out infinite;
+      }
+
+      .beta-glow:hover,
+      .highlight-glow:hover {
+        background: rgba(255, 0, 0, 0.12) !important;
+        color: #ff8080 !important;
+        text-shadow:
+          0 0 10px rgba(255, 50, 50, 1),
+          0 0 16px rgba(255, 0, 0, 0.9);
+      }
+
+      @keyframes betaPulse {
+        0% {
+          text-shadow:
+            0 0 6px rgba(255, 0, 0, 0.7),
+            0 0 12px rgba(255, 0, 0, 0.4);
+        }
+        50% {
+          text-shadow:
+            0 0 12px rgba(255, 60, 60, 1),
+            0 0 24px rgba(255, 0, 0, 0.9);
+        }
+        100% {
+          text-shadow:
+            0 0 6px rgba(255, 0, 0, 0.7),
+            0 0 12px rgba(255, 0, 0, 0.4);
+        }
+      }
+
+      .page-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 80px 20px 70px;
+      }
+
+      @media (max-width: 600px) {
+        .page-wrapper {
+          padding-top: 90px;
+        }
+      }
+
+      .page-header {
+        text-align: center;
+        padding: 32px 16px 10px;
+      }
+
+      .header-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: linear-gradient(120deg, rgba(128, 0, 0, 0.5), rgba(200, 0, 80, 0.35));
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: var(--text-muted);
+        margin-bottom: 16px;
+      }
+
+      .header-badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #00ff9c, #00b36b);
+        box-shadow: 0 0 12px rgba(0, 255, 156, 0.7);
+      }
+
+      .page-header h1 {
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(2.1rem, 3.4vw, 2.9rem);
+        margin: 0;
+        letter-spacing: 0.04em;
+        text-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+        text-transform: uppercase;
+      }
+
+      .page-header h1 span {
+        background: linear-gradient(120deg, #ffffff, var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .page-header-subtitle {
+        margin: 12px auto 0;
+        max-width: 720px;
+        font-size: 0.98rem;
+        line-height: 1.7;
+        color: var(--text-muted);
+      }
+
+      .hero {
+        margin: 26px auto 18px;
+        background: var(--bg-card);
+        border-radius: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(12px);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 55%);
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 22px;
+        padding: 22px;
+        position: relative;
+        z-index: 1;
+      }
+
+      @media (max-width: 850px) {
+        .hero-inner {
+          grid-template-columns: 1fr;
+          padding: 18px;
+        }
+      }
+
+      .hero-inner > div:last-child {
+        min-width: 0;
+      }
+
+      .avatar-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .avatar {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid rgba(255, 255, 255, 0.42);
+        background:
+          radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.22), transparent 55%),
+          rgba(20, 8, 8, 0.9);
+        box-shadow:
+          0 18px 45px rgba(0, 0, 0, 0.95),
+          0 0 0 10px rgba(128, 0, 0, 0.12);
+      }
+
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .hero-title-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .hero-title-row > div:first-child {
+        flex: 1 1 320px;
+      }
+
+      .hero-title-row .pill-row {
+        justify-content: flex-end;
+      }
+
+      @media (max-width: 850px) {
+        .hero-title-row .pill-row {
+          justify-content: flex-start;
+        }
+      }
+
+      .host-name {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.7rem;
+        letter-spacing: 0.03em;
+      }
+
+      .host-tagline {
+        margin: 8px 0 0;
+        color: var(--text-muted);
+        line-height: 1.7;
+        max-width: 720px;
+      }
+
+      .pill-row {
+        margin-top: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--text-muted);
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
+      }
+
+      .pill strong {
+        color: #fff;
+        font-weight: 700;
+      }
+
+      .pill.accent {
+        background: linear-gradient(135deg, rgba(128, 0, 0, 0.65), rgba(200, 0, 80, 0.38));
+        border-color: rgba(255, 255, 255, 0.16);
+        color: #fff;
+      }
+
+      .btn-row {
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease, background 0.18s ease;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.9);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #800000, #b00000);
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.95);
+        filter: brightness(1.05);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.04);
+        color: #fff;
+      }
+
+      .btn-secondary:hover {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .mini-badges {
+        margin-top: 14px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .mini-badge {
+        position: relative;
+        display: inline-flex;
+        border-radius: 8px;
+      }
+
+      .mini-badge img {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 3px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        cursor: pointer;
+        display: block;
+        position: relative;
+        z-index: 2;
+      }
+
+      .mini-badge:hover img {
+        transform: translateY(-2px) scale(1.08);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.9);
+      }
+
+      .mini-badge::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: 120%;
+        left: 50%;
+        transform: translateX(-50%) translateY(4px);
+        background: rgba(20, 8, 8, 0.96);
+        color: #fff;
+        font-size: 0.8rem;
+        padding: 6px 10px;
+        border-radius: 8px;
+        white-space: nowrap;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.15s ease, transform 0.15s ease;
+        z-index: 20;
+      }
+
+      .mini-badge:hover::after {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .badge-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      @media (max-width: 420px) {
+        .badge-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .badge {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .badge-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, rgba(128, 0, 0, 0.7), rgba(200, 0, 80, 0.35));
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.75);
+      }
+
+      .badge-icon img {
+        width: 22px;
+        height: 22px;
+        object-fit: contain;
+        display: block;
+      }
+
+      .badge-title {
+        font-weight: 800;
+        font-size: 0.95rem;
+      }
+
+      .badge-sub {
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(222, 222, 232, 0.85);
+        margin-top: 2px;
+      }
+
+      .note {
+        margin-top: 10px;
+        font-size: 0.92rem;
+        line-height: 1.7;
+        color: var(--text-muted);
+      }
+
+      .footer-note {
+        margin: 26px auto 0;
+        text-align: center;
+        color: rgba(222, 222, 232, 0.85);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        max-width: 820px;
+      }
+
+      .footer-note a {
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      }
+
+      .footer-note a:hover {
+        color: #ff8080;
+        border-bottom-color: rgba(255, 128, 128, 0.6);
+      }
+
+      .messages-section {
+        margin-top: 16px;
+      }
+
+      .messages-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .message-card {
+        padding: 14px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .message-meta {
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(222, 222, 232, 0.85);
+        margin-bottom: 8px;
+      }
+
+      .message-body {
+        color: #fff;
+        line-height: 1.7;
+      }
+
+      .empty-state {
+        padding: 14px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      @media (max-width: 480px) {
+        .dropdown-content {
+          width: min(350px, calc(100vw - 20px));
+        }
+      }
+    </style>
+  </head>
+
+  <body data-host-id="1169070288328302724" data-host-slug="citrion">
+    <div class="dropdown">
+      <button class="dropbtn" type="button" aria-label="Open navigation menu">
+        <div class="hamburger">
+          <span></span><span></span><span></span>
+        </div>
+      </button>
+
+      <div class="dropdown-content single-panel-menu" id="singlePanelMenu">
+        <div class="menu-view active" data-menu="root">
+          <a href="../"><i class="fa-solid fa-house"></i> Home</a>
+          <button type="button" class="menu-nav-btn" data-target="lobby-help">
+            <span><i class="fa-solid fa-life-ring"></i> Lobby Help</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <button type="button" class="menu-nav-btn" data-target="events">
+            <span><i class="fa-regular fa-calendar"></i> Events</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <button type="button" class="menu-nav-btn" data-target="mods">
+            <span><i class="fa-solid fa-code-branch"></i> Mods</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <a href="../art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
+          <a href="../wrapped"><i class="fa-solid fa-gift"></i> 2025 Wrapped</a>
+          <a href="../roletest"><i class="fa-solid fa-brain"></i> Personality Test</a>
+          <button type="button" class="menu-nav-btn highlight-glow" data-target="highlighted-users">
+            <span><i class="fa-solid fa-star"></i> Highlighted Users</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <a href="../BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
+        </div>
+
+        <div class="menu-view" data-menu="lobby-help">
+          <button type="button" class="menu-back-btn" data-back="root">
+            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
+          </button>
+          <div class="submenu-title">Lobby Help</div>
+          <a href="../tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
+          <a href="../lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
+          <a href="../icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
+        </div>
+
+        <div class="menu-view" data-menu="events">
+          <button type="button" class="menu-back-btn" data-back="root">
+            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
+          </button>
+          <div class="submenu-title">Events</div>
+          <a href="../calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
+          <a href="../eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
+        </div>
+
+        <div class="menu-view" data-menu="mods">
+          <button type="button" class="menu-back-btn" data-back="root">
+            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
+          </button>
+          <div class="submenu-title">Mods</div>
+          <a href="../mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
+          <a href="../presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
+        </div>
+
+        <div class="menu-view" data-menu="highlighted-users">
+          <button type="button" class="menu-back-btn" data-back="root">
+            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
+          </button>
+          <div class="submenu-title">Highlighted Users</div>
+          <a href="../VH/"><i class="fa-solid fa-star"></i> Star Users</a>
+          <button type="button" class="menu-nav-btn" data-target="verified-hosts">
+            <span><i class="fa-solid fa-check-circle"></i> Verified Hosts</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="menu-view" data-menu="verified-hosts">
+          <button type="button" class="menu-back-btn" data-back="highlighted-users">
+            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
+          </button>
+          <div class="submenu-title">Verified Hosts</div>
+          <a href="bat.html"><i class="fa-solid fa-user"></i> Bat</a>
+          <a href="pancake.html"><i class="fa-solid fa-user"></i> Pancake</a>
+          <a href="wyzeris.html"><i class="fa-solid fa-user"></i> Wyzeris</a>
+          <a href="crowy.html"><i class="fa-solid fa-user"></i> Crowy</a>
+          <a href="citrion.html"><i class="fa-solid fa-user"></i> Citrion</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-wrapper">
+      <header class="page-header">
+        <div class="header-badge">
+          <span class="header-badge-dot"></span>
+          Verified Host Profile
+        </div>
+        <h1>Citrion <span>🍋</span></h1>
+        <p class="page-header-subtitle">
+          A little thank-you page for one of our verified hosts.
+        </p>
+      </header>
+
+      <section class="hero" aria-label="Citrion profile overview">
+        <div class="hero-inner">
+          <div class="avatar-wrap">
+            <div class="avatar">
+              <img src="../images/verifiedhosts/cit.png" alt="Citrion avatar" />
+            </div>
+          </div>
+
+          <div>
+            <div class="hero-title-row">
+              <div>
+                <h2 class="host-name">Citrion</h2>
+                <p class="host-tagline">Also goes by <strong>Cit</strong></p>
+              </div>
+
+              <div class="pill-row">
+                <span class="pill accent"><i class="fa-solid fa-shield-heart"></i> Verified Host</span>
+                <span class="pill"><i class="fa-solid fa-earth-americas"></i> <strong>Aug 2024</strong></span>
+              </div>
+            </div>
+
+            <div class="pill-row">
+              <span class="pill"><i class="fa-solid fa-code-branch"></i> <strong>Project Lotus</strong> + Bloom Addon</span>
+              <span class="pill"><i class="fa-solid fa-layer-group"></i> <strong>PL</strong></span>
+              <span class="pill"><i class="fa-solid fa-user-gear"></i> Tester &amp; Developer</span>
+            </div>
+
+            <div class="btn-row">
+              <a class="btn-primary" href="https://discord.com/users/726104020162314303" target="_blank" rel="noopener">
+                <i class="fa-brands fa-discord"></i> Discord Profile
+              </a>
+              <a class="btn-secondary" href="https://moddedamong.us/" rel="noopener">
+                <i class="fa-solid fa-arrow-left"></i> Back to MAUL
+              </a>
+            </div>
+
+            <div class="mini-badges" aria-label="Citrion badges">
+              <div class="mini-badge" data-tooltip="Verified Host">
+                <img src="../images/badges/verified.png" alt="Verified Host badge" />
+              </div>
+
+              <div class="mini-badge" data-tooltip="Year 2">
+                <img src="../images/badges/year 2.webp" alt="Year 2 badge" />
+              </div>
+
+              <div class="mini-badge" data-tooltip="50+ Lobbies Hosted">
+                <img src="../images/badges/50 lobbies white flame.gif" alt="50+ Lobbies Hosted badge" />
+              </div>
+
+              <div class="mini-badge" data-tooltip="Developer">
+                <img src="../images/badges/developer.webp" alt="Developer badge" />
+              </div>
+            </div>
+
+            <p class="note"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <div class="card-inner">
+            <h2><i class="fa-solid fa-user"></i> About</h2>
+            <div class="kv">
+              <div class="kv-row">
+                <div class="kv-key">Bio / Motto</div>
+                <div class="kv-val">Project Lotus Tester and Developer of Lotus Bloom Addon.</div>
+              </div>
+
+              <div class="kv-row">
+                <div class="kv-key">Why I Host</div>
+                <div class="kv-val">I host so I can play modded whenever I wanted.</div>
+              </div>
+
+              <div class="kv-row">
+                <div class="kv-key">When I Started Hosting</div>
+                <div class="kv-val">
+                  I don’t remember exactly — probably sometime between <strong>2020</strong> and <strong>2022</strong>.
+                </div>
+              </div>
+            </div>
+
+            <h2 style="margin-top: 18px;"><i class="fa-solid fa-gamepad"></i> Mods &amp; Style</h2>
+            <ul class="list">
+              <li><strong>Main project:</strong> Project Lotus (with Bloom addon)</li>
+              <li><strong>Also hosts:</strong> PL</li>
+              <li><strong>Region:</strong> NA</li>
+              <li><strong>Favorite role:</strong> Pickpocket</li>
+            </ul>
+
+            <p class="note">
+              <span class="muted"><i class="fa-solid fa-lightbulb"></i> Note:</span>
+              Pickpocket is probably my favorite role — I love having tons of votes.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <h2><i class="fa-solid fa-award"></i> Hosting Highlights</h2>
+            <p class="muted" style="margin: 0 0 10px; line-height: 1.7;">
+              A mix of badges and hosting stats.
+            </p>
+
+            <div class="badge-grid">
+              <div class="badge">
+                <div class="badge-icon">
+                  <img src="../images/badges/verified.png" alt="Verified badge" />
+                </div>
+                <div>
+                  <div class="badge-title">Verified</div>
+                  <div class="badge-sub">Verified Host</div>
+                </div>
+              </div>
+
+              <div class="badge">
+                <div class="badge-icon">
+                  <img src="../images/badges/year 2.webp" alt="Year 2 badge" />
+                </div>
+                <div>
+                  <div class="badge-title">Year 2</div>
+                  <div class="badge-sub">Longtime Host</div>
+                </div>
+              </div>
+
+              <div class="badge">
+                <div class="badge-icon">
+                  <img src="../images/badges/developer.webp" alt="Developer badge" />
+                </div>
+                <div>
+                  <div class="badge-title">Developer</div>
+                  <div class="badge-sub">Lotus Addon Dev</div>
+                </div>
+              </div>
+
+              <div class="badge">
+                <div class="badge-icon">
+                  <img src="../images/badges/loading.gif" alt="Community Favorite badge" />
+                </div>
+                <div>
+                  <div class="badge-title">Community Favorite</div>
+                  <div class="badge-sub">Upvoted <span id="community-favorite-count">0</span> times</div>
+                </div>
+              </div>
+            </div>
+
+            <h2 style="margin-top: 18px;"><i class="fa-solid fa-chart-simple"></i> Stats</h2>
+            <div class="kv">
+              <div class="kv-row">
+                <div class="kv-key">Total Hosting Time</div>
+                <div class="kv-val muted">70 total hosting hours</div>
+              </div>
+
+              <div class="kv-row">
+                <div class="kv-key">Host Upvotes</div>
+                <div class="kv-val muted" id="host-upvotes-summary">0 upvotes - last upvoted never</div>
+              </div>
+
+              <div class="kv-row">
+                <div class="kv-key">Hosting Style</div>
+                <div class="kv-val muted">Project Lotus focused.</div>
+              </div>
+            </div>
+
+            <p class="note"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <div class="card-inner">
+            <h2><i class="fa-solid fa-code"></i> Projects &amp; Focus</h2>
+
+            <div class="kv">
+              <div class="kv-row">
+                <div class="kv-key">About</div>
+                <div class="kv-val">Project Lotus <span class="muted">(with Bloom addon)</span></div>
+              </div>
+
+              <div class="kv-row">
+                <div class="kv-key">Role Preference</div>
+                <div class="kv-val">Pickpocket — because I love having tons of votes.</div>
+              </div>
+
+              <div class="kv-row">
+                <div class="kv-key">What I’m Known For</div>
+                <div class="kv-val">Project Lotus Tester and Developer of Lotus Bloom Addon.</div>
+              </div>
+            </div>
+
+            <p class="note"></p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <h2><i class="fa-solid fa-message"></i> DMs &amp; Appeals</h2>
+
+            <div class="kv">
+              <div class="kv-row">
+                <div class="kv-key">When to DM</div>
+                <div class="kv-val">
+                  Only DM if you have anything important.
+                  <span class="muted">Not that I check them much anyway.</span>
+                </div>
+              </div>
+
+              <div class="kv-row">
+                <div class="kv-key">If You Get Banned</div>
+                <div class="kv-val">
+                  I rarely ban people, so if you are banned it’s probably for a good reason.
+                </div>
+              </div>
+
+              <div class="kv-row">
+                <div class="kv-key">Appeals</div>
+                <div class="kv-val">You can try appealing though. DMs or the server, appeal link coming soon</div>
+              </div>
+            </div>
+
+            <p class="note">
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="messages-section">
+        <div class="card">
+          <div class="card-inner">
+            <h2><i class="fa-solid fa-envelope-open-text"></i> Messages to Host</h2>
+            <p class="muted" style="margin: 0 0 10px; line-height: 1.7;">
+              Messages to Citrion.
+            </p>
+
+            <div class="messages-list" id="messages-to-host-list">
+              <div class="empty-state" id="messages-to-host-empty">
+                No public messages yet use /upvote to send the host a message.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <p class="footer-note">
+        Want a verified host profile of your own? Get verified, stay consistent, and keep your lobbies clean.
+        <br />
+        <a
+          href="https://discord.com/channels/995954559044304896/1087479894147080212"
+          target="_blank"
+          rel="noopener"
+        >
+          Check out Roles-101
+        </a>
+        if you have any questions on how to qualify.
+      </p>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        const dropdown = document.querySelector(".dropdown");
+        const button = document.querySelector(".dropbtn");
+        const menu = document.getElementById("singlePanelMenu");
+        const menuViews = document.querySelectorAll(".menu-view");
+        const navButtons = document.querySelectorAll(".menu-nav-btn");
+        const backButtons = document.querySelectorAll(".menu-back-btn");
+
+        function showMenuView(name) {
+          menuViews.forEach((view) => {
+            view.classList.toggle("active", view.dataset.menu === name);
+          });
+        }
+
+        function resetMenuView() {
+          showMenuView("root");
+        }
+
+        if (dropdown && button && menu) {
+          button.addEventListener("click", (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle("open");
+
+            if (!dropdown.classList.contains("open")) {
+              resetMenuView();
+            }
+          });
+
+          navButtons.forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              const target = btn.dataset.target;
+              if (target) showMenuView(target);
+            });
+          });
+
+          backButtons.forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              const target = btn.dataset.back || "root";
+              showMenuView(target);
+            });
+          });
+
+          document.addEventListener("click", (e) => {
+            if (!dropdown.contains(e.target)) {
+              dropdown.classList.remove("open");
+              resetMenuView();
+            }
+          });
+        }
+
+        const hostId = document.body.dataset.hostId;
+        const hostSlug = document.body.dataset.hostSlug;
+        const communityFavoriteCount = document.getElementById("community-favorite-count");
+        const hostUpvotesSummary = document.getElementById("host-upvotes-summary");
+        const messagesList = document.getElementById("messages-to-host-list");
+        const emptyState = document.getElementById("messages-to-host-empty");
+
+        function formatHoursAgo(isoDate) {
+          if (!isoDate) return "never";
+          const diffMs = Date.now() - new Date(isoDate).getTime();
+          if (Number.isNaN(diffMs) || diffMs < 0) return "recently";
+          const hours = Math.floor(diffMs / (1000 * 60 * 60));
+          if (hours < 1) return "less than 1 hour ago";
+          if (hours === 1) return "1 hour ago";
+          return `${hours} hours ago`;
+        }
+
+        try {
+          const totalsRes = await fetch("../data/host_upvote_totals.json", { cache: "no-store" });
+          if (totalsRes.ok) {
+            const totalsData = await totalsRes.json();
+            const hostData =
+              (totalsData.hosts && totalsData.hosts[hostId]) ||
+              (totalsData.hosts && totalsData.hosts[hostSlug]) ||
+              null;
+
+            if (hostData) {
+              const upvotedTimes = Number(hostData.upvoted_times || 0);
+              const lastUpvotedAt = hostData.last_upvoted_at || null;
+
+              if (communityFavoriteCount) {
+                communityFavoriteCount.textContent = String(upvotedTimes);
+              }
+
+              if (hostUpvotesSummary) {
+                const label = upvotedTimes === 1 ? "upvote" : "upvotes";
+                hostUpvotesSummary.textContent = `${upvotedTimes} ${label} - last upvoted ${formatHoursAgo(lastUpvotedAt)}`;
+              }
+            }
+          }
+        } catch (error) {
+          console.error("Failed to load host upvote totals:", error);
+        }
+
+        try {
+          const messagesRes = await fetch("../data/host_messages.json", { cache: "no-store" });
+          if (messagesRes.ok) {
+            const messagesData = await messagesRes.json();
+            const hostMessages =
+              (messagesData.hosts && messagesData.hosts[hostId]) ||
+              (messagesData.hosts && messagesData.hosts[hostSlug]) ||
+              [];
+
+            if (Array.isArray(hostMessages) && hostMessages.length > 0 && messagesList) {
+              if (emptyState) emptyState.remove();
+
+              hostMessages.forEach((entry) => {
+                const card = document.createElement("div");
+                card.className = "message-card";
+
+                const meta = document.createElement("div");
+                meta.className = "message-meta";
+                const author = entry.author || "Anonymous";
+                const created = entry.created_at ? new Date(entry.created_at).toLocaleDateString() : "Recently";
+                meta.textContent = `${author} • ${created}`;
+
+                const body = document.createElement("div");
+                body.className = "message-body";
+                body.textContent = entry.message || "";
+
+                card.appendChild(meta);
+                card.appendChild(body);
+                messagesList.appendChild(card);
+              });
+            }
+          }
+        } catch (error) {
+          console.error("Failed to load host messages:", error);
+        }
+      });
+    </script>
+  </body>
+</html>
