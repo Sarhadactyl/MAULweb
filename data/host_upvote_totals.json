@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-07T00:11:37.189585+00:00",
+  "generated_at": "2026-03-07T00:12:00.137184+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -264,6 +264,22 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-06T19:28:38.108097+00:00"
+    },
+    "1072462136443404379": {
+      "host_id": 1072462136443404379,
+      "host_name": "\u00b8\u00b8\u266c\u00af\u00b7\u266b\u00b8\u00b8 The Fool '\u266b\u00b7\u00af\u00b7\u266a",
+      "slug": "\u00b8\u00b8\u266c\u00af\u00b7\u266b\u00b8\u00b8-the-fool-'\u266b\u00b7\u00af\u00b7\u266a",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-07T00:12:00.133823+00:00"
+    },
+    "\u00b8\u00b8\u266c\u00af\u00b7\u266b\u00b8\u00b8-the-fool-'\u266b\u00b7\u00af\u00b7\u266a": {
+      "host_id": 1072462136443404379,
+      "host_name": "\u00b8\u00b8\u266c\u00af\u00b7\u266b\u00b8\u00b8 The Fool '\u266b\u00b7\u00af\u00b7\u266a",
+      "slug": "\u00b8\u00b8\u266c\u00af\u00b7\u266b\u00b8\u00b8-the-fool-'\u266b\u00b7\u00af\u00b7\u266a",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-07T00:12:00.133823+00:00"
     },
     "1072010786668548156": {
       "host_id": 1072010786668548156,
