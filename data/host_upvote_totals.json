@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-07T07:45:27.519585+00:00",
+  "generated_at": "2026-03-07T07:46:15.568167+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -16,6 +16,22 @@
       "upvoted_by_users": 2,
       "upvoted_times": 2,
       "last_upvoted_at": "2026-03-07T03:50:43.141199+00:00"
+    },
+    "1447724056500502729": {
+      "host_id": 1447724056500502729,
+      "host_name": "RoHodor",
+      "slug": "rohodor",
+      "upvoted_by_users": 5,
+      "upvoted_times": 5,
+      "last_upvoted_at": "2026-03-07T07:46:15.564809+00:00"
+    },
+    "rohodor": {
+      "host_id": 1447724056500502729,
+      "host_name": "RoHodor",
+      "slug": "rohodor",
+      "upvoted_by_users": 5,
+      "upvoted_times": 5,
+      "last_upvoted_at": "2026-03-07T07:46:15.564809+00:00"
     },
     "1266747433514434573": {
       "host_id": 1266747433514434573,
@@ -64,22 +80,6 @@
       "upvoted_by_users": 4,
       "upvoted_times": 4,
       "last_upvoted_at": "2026-03-07T02:12:41.674469+00:00"
-    },
-    "1447724056500502729": {
-      "host_id": 1447724056500502729,
-      "host_name": "RoHodor",
-      "slug": "rohodor",
-      "upvoted_by_users": 4,
-      "upvoted_times": 4,
-      "last_upvoted_at": "2026-03-07T02:11:08.813004+00:00"
-    },
-    "rohodor": {
-      "host_id": 1447724056500502729,
-      "host_name": "RoHodor",
-      "slug": "rohodor",
-      "upvoted_by_users": 4,
-      "upvoted_times": 4,
-      "last_upvoted_at": "2026-03-07T02:11:08.813004+00:00"
     },
     "472742355355697152": {
       "host_id": 472742355355697152,
