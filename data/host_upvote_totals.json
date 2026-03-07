@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-07T07:45:06.759824+00:00",
+  "generated_at": "2026-03-07T07:45:27.519585+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -129,6 +129,22 @@
       "upvoted_times": 2,
       "last_upvoted_at": "2026-03-07T07:39:05.808312+00:00"
     },
+    "1291220895846760523": {
+      "host_id": 1291220895846760523,
+      "host_name": "Modded Among Us Games",
+      "slug": "modded-among-us-games",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-03-07T07:45:27.515200+00:00"
+    },
+    "modded-among-us-games": {
+      "host_id": 1291220895846760523,
+      "host_name": "Modded Among Us Games",
+      "slug": "modded-among-us-games",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-03-07T07:45:27.515200+00:00"
+    },
     "828939727557492766": {
       "host_id": 828939727557492766,
       "host_name": "Modded Among Us Queue",
@@ -248,22 +264,6 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-07T01:51:42.544300+00:00"
-    },
-    "1291220895846760523": {
-      "host_id": 1291220895846760523,
-      "host_name": "Modded Among Us Games",
-      "slug": "modded-among-us-games",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-03-06T19:17:12.410720+00:00"
-    },
-    "modded-among-us-games": {
-      "host_id": 1291220895846760523,
-      "host_name": "Modded Among Us Games",
-      "slug": "modded-among-us-games",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-03-06T19:17:12.410720+00:00"
     },
     "1374460522258235515": {
       "host_id": 1374460522258235515,
