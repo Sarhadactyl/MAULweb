@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-06T23:02:16.950574+00:00",
+  "generated_at": "2026-03-07T00:10:49.384918+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -144,6 +144,22 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-06T17:46:02.986538+00:00"
+    },
+    "1007798367369318482": {
+      "host_id": 1007798367369318482,
+      "host_name": "Archer",
+      "slug": "archer",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-07T00:10:49.381564+00:00"
+    },
+    "archer": {
+      "host_id": 1007798367369318482,
+      "host_name": "Archer",
+      "slug": "archer",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-07T00:10:49.381564+00:00"
     },
     "1148338311576961054": {
       "host_id": 1148338311576961054,
