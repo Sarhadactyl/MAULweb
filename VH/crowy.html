@@ -90,6 +90,7 @@
         top: 20px;
         left: 20px;
         z-index: 1000;
+        overflow: visible;
       }
 
       .dropbtn {
@@ -126,7 +127,7 @@
       .mega-menu {
         display: none;
         position: absolute;
-        top: calc(100% + 10px);
+        top: calc(100% + 6px);
         left: 0;
         min-width: 280px;
         background: var(--menu-bg);
@@ -135,6 +136,9 @@
         box-shadow: var(--menu-shadow);
         backdrop-filter: blur(12px);
         overflow: visible;
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
       }
 
       .dropdown.open .mega-menu {
@@ -148,6 +152,7 @@
 
       .menu-item {
         position: relative;
+        overflow: visible;
       }
 
       .menu-link,
@@ -209,12 +214,20 @@
         transform: translateX(8px);
         transition: opacity 0.18s ease, transform 0.18s ease;
         z-index: 5;
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
       }
 
       .menu-item.active > .submenu-panel {
         display: block;
         opacity: 1;
         transform: translateX(0);
+      }
+
+      .menu-item.flip-up > .submenu-panel {
+        top: auto;
+        bottom: -1px;
       }
 
       .submenu-title {
@@ -831,6 +844,11 @@
           top: calc(100% - 6px);
         }
 
+        .menu-item.flip-up > .submenu-panel {
+          top: auto;
+          bottom: calc(100% - 6px);
+        }
+
         .menu-item.active > .submenu-panel {
           transform: translateX(0);
         }
@@ -1225,14 +1243,39 @@
 
         if (dropdown && button) {
           const closeAllSubmenus = () => {
-            menuItems.forEach((item) => item.classList.remove("active"));
+            menuItems.forEach((item) => {
+              item.classList.remove("active");
+              item.classList.remove("flip-up");
+            });
           };
 
           const closeSiblingSubmenus = (item) => {
             const siblings = Array.from(item.parentElement.children).filter(
               (child) => child !== item && child.classList && child.classList.contains("menu-item")
             );
-            siblings.forEach((sibling) => sibling.classList.remove("active"));
+            siblings.forEach((sibling) => {
+              sibling.classList.remove("active");
+              sibling.classList.remove("flip-up");
+            });
+          };
+
+          const positionSubmenu = (item) => {
+            const submenu = item.querySelector(":scope > .submenu-panel");
+            if (!submenu) return;
+
+            item.classList.remove("flip-up");
+
+            submenu.style.visibility = "hidden";
+            submenu.style.display = "block";
+
+            const rect = submenu.getBoundingClientRect();
+
+            if (rect.bottom > window.innerHeight - 12) {
+              item.classList.add("flip-up");
+            }
+
+            submenu.style.display = "";
+            submenu.style.visibility = "";
           };
 
           button.addEventListener("click", (e) => {
@@ -1252,6 +1295,7 @@
               if (!dropdown.classList.contains("open")) return;
               closeSiblingSubmenus(item);
               item.classList.add("active");
+              positionSubmenu(item);
             });
 
             trigger.addEventListener("click", (e) => {
@@ -1263,14 +1307,20 @@
 
               if (isActive) {
                 item.classList.remove("active");
+                item.classList.remove("flip-up");
               } else {
                 item.classList.add("active");
+                positionSubmenu(item);
               }
             });
           });
 
           dropdown.addEventListener("mouseleave", () => {
             closeAllSubmenus();
+          });
+
+          window.addEventListener("resize", () => {
+            document.querySelectorAll(".menu-item.active").forEach(positionSubmenu);
           });
 
           document.addEventListener("click", (e) => {
