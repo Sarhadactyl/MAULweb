@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-09T03:00:50.229913+00:00",
+  "generated_at": "2026-03-09T03:01:26.883487+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -203,11 +203,11 @@
     },
     "1072010786668548156": {
       "host_id": 1072010786668548156,
-      "host_name": "\u2605 Giogio",
-      "slug": "\u2605-giogio",
-      "upvoted_by_users": 2,
-      "upvoted_times": 2,
-      "last_upvoted_at": "2026-03-07T07:44:04.449905+00:00"
+      "host_name": "\u2605 Jojo",
+      "slug": "\u2605-jojo",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-09T03:01:26.880228+00:00"
     },
     "\u2605-giogio": {
       "host_id": 1072010786668548156,
@@ -376,6 +376,14 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-07T00:12:00.133823+00:00"
+    },
+    "\u2605-jojo": {
+      "host_id": 1072010786668548156,
+      "host_name": "\u2605 Jojo",
+      "slug": "\u2605-jojo",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-09T03:01:26.880228+00:00"
     },
     "766028172562006089": {
       "host_id": 766028172562006089,
