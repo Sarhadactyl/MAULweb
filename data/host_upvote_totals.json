@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-10T12:13:43.822025+00:00",
+  "generated_at": "2026-03-10T12:31:05.388119+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -21,17 +21,17 @@
       "host_id": 1266747433514434573,
       "host_name": "Wyzeris",
       "slug": "wyzeris",
-      "upvoted_by_users": 8,
-      "upvoted_times": 8,
-      "last_upvoted_at": "2026-03-08T02:31:13.783493+00:00"
+      "upvoted_by_users": 9,
+      "upvoted_times": 9,
+      "last_upvoted_at": "2026-03-10T12:31:05.384259+00:00"
     },
     "wyzeris": {
       "host_id": 1266747433514434573,
       "host_name": "Wyzeris",
       "slug": "wyzeris",
-      "upvoted_by_users": 8,
-      "upvoted_times": 8,
-      "last_upvoted_at": "2026-03-08T02:31:13.783493+00:00"
+      "upvoted_by_users": 9,
+      "upvoted_times": 9,
+      "last_upvoted_at": "2026-03-10T12:31:05.384259+00:00"
     },
     "472742355355697152": {
       "host_id": 472742355355697152,
