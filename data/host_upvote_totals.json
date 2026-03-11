@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-11T18:05:05.962912+00:00",
+  "generated_at": "2026-03-11T19:01:45.756566+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -264,6 +264,22 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-07T00:10:49.381564+00:00"
+    },
+    "115385224119975941": {
+      "host_id": 115385224119975941,
+      "host_name": "DiscordServers",
+      "slug": "discordservers",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-11T19:01:45.753326+00:00"
+    },
+    "discordservers": {
+      "host_id": 115385224119975941,
+      "host_name": "DiscordServers",
+      "slug": "discordservers",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-11T19:01:45.753326+00:00"
     },
     "1393991209520988261": {
       "host_id": 1393991209520988261,
