@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-19T19:42:13.457385+00:00",
+  "generated_at": "2026-03-19T19:42:35.007758+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -185,6 +185,22 @@
       "upvoted_times": 2,
       "last_upvoted_at": "2026-03-06T19:01:02.727929+00:00"
     },
+    "802648654292058163": {
+      "host_id": 802648654292058163,
+      "host_name": "MV",
+      "slug": "mv",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-03-19T19:42:35.002836+00:00"
+    },
+    "mv": {
+      "host_id": 802648654292058163,
+      "host_name": "MV",
+      "slug": "mv",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-03-19T19:42:35.002836+00:00"
+    },
     "1101745950789218374": {
       "host_id": 1101745950789218374,
       "host_name": "summer \u1aa5\uaac2\u0fd4",
@@ -312,22 +328,6 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-07T01:51:42.544300+00:00"
-    },
-    "802648654292058163": {
-      "host_id": 802648654292058163,
-      "host_name": "MV",
-      "slug": "mv",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-03-19T19:42:13.453241+00:00"
-    },
-    "mv": {
-      "host_id": 802648654292058163,
-      "host_name": "MV",
-      "slug": "mv",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-03-19T19:42:13.453241+00:00"
     },
     "1374460522258235515": {
       "host_id": 1374460522258235515,
