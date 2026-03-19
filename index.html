@@ -618,93 +618,7 @@
   </head>
 
   <body>
-    <div class="dropdown">
-      <button class="dropbtn" type="button" aria-label="Open navigation menu">
-        <div class="hamburger">
-          <span></span><span></span><span></span>
-        </div>
-      </button>
-
-      <div class="dropdown-content single-panel-menu" id="singlePanelMenu">
-        <div class="menu-view active" data-menu="root">
-          <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
-          <button type="button" class="menu-nav-btn" data-target="lobby-help">
-            <span><i class="fa-solid fa-life-ring"></i> Lobby Help</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-          <button type="button" class="menu-nav-btn" data-target="events">
-            <span><i class="fa-regular fa-calendar"></i> Events</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-          <button type="button" class="menu-nav-btn" data-target="mods">
-            <span><i class="fa-solid fa-code-branch"></i> Mods</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-          <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
-          <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
-          <button type="button" class="menu-nav-btn" data-target="highlighted-users">
-            <span><i class="fa-solid fa-star"></i> Highlighted Users</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-          <a href="https://moddedamong.us/wrapped"><i class="fa-solid fa-gift"></i> 2025 Wrapped</a>
-          <a href="https://moddedamong.us/roletest"><i class="fa-solid fa-brain"></i> Personality Test</a>
-          <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
-        </div>
-
-        <div class="menu-view" data-menu="lobby-help">
-          <button type="button" class="menu-back-btn" data-back="root">
-            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
-          </button>
-          <div class="submenu-title">Lobby Help</div>
-          <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
-          <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
-          <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
-        </div>
-
-        <div class="menu-view" data-menu="events">
-          <button type="button" class="menu-back-btn" data-back="root">
-            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
-          </button>
-          <div class="submenu-title">Events</div>
-          <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
-          <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
-        </div>
-
-        <div class="menu-view" data-menu="mods">
-          <button type="button" class="menu-back-btn" data-back="root">
-            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
-          </button>
-          <div class="submenu-title">Mods</div>
-          <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
-          <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
-        </div>
-
-        <div class="menu-view" data-menu="highlighted-users">
-          <button type="button" class="menu-back-btn" data-back="root">
-            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
-          </button>
-          <div class="submenu-title">Highlighted Users</div>
-          <a href="https://moddedamong.us/featuredusers"><i class="fa-solid fa-user"></i> Featured User Info</a>
-          <a href="https://moddedamong.us/404.html"><i class="fa-solid fa-star"></i> Veteran Users</a>
-          <button type="button" class="menu-nav-btn highlight-glow" data-target="verified-hosts">
-            <span><i class="fa-solid fa-check-circle"></i> Verified Hosts</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-        </div>
-        
-        <div class="menu-view" data-menu="verified-hosts">
-          <button type="button" class="menu-back-btn" data-back="highlighted-users">
-            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
-          </button>
-          <div class="submenu-title">Verified Hosts</div>
-          <a href="https://moddedamong.us/featuredusers/bat.html"><i class="fa-solid fa-user"></i> Bat</a>
-          <a href="https://moddedamong.us/featuredusers/pancake.html"><i class="fa-solid fa-user"></i> Pancake</a>
-          <a href="https://moddedamong.us/featuredusers/wyzeris.html"><i class="fa-solid fa-user"></i> Wyzeris</a>
-          <a href="https://moddedamong.us/featuredusers/crowy.html"><i class="fa-solid fa-user"></i> Crowy</a>
-          <a href="https://moddedamong.us/featuredusers/citrion.html"><i class="fa-solid fa-user"></i> Citrion</a>
-        </div>
-      </div>
-    </div>
+    <div id="navbar"></div>
 
     <div class="page-wrapper">
       <div class="header">
@@ -831,61 +745,7 @@
           console.error("Error fetching Discord widget data:", error);
           document.getElementById("memberCount").textContent = "Error";
         });
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const dropdown = document.querySelector(".dropdown");
-        const button = document.querySelector(".dropbtn");
-        const menu = document.getElementById("singlePanelMenu");
-        const menuViews = document.querySelectorAll(".menu-view");
-        const navButtons = document.querySelectorAll(".menu-nav-btn");
-        const backButtons = document.querySelectorAll(".menu-back-btn");
-
-        function showMenuView(name) {
-          menuViews.forEach((view) => {
-            view.classList.toggle("active", view.dataset.menu === name);
-          });
-        }
-
-        function resetMenuView() {
-          showMenuView("root");
-        }
-
-        if (dropdown && button && menu) {
-          button.addEventListener("click", (e) => {
-            e.stopPropagation();
-            dropdown.classList.toggle("open");
-
-            if (!dropdown.classList.contains("open")) {
-              resetMenuView();
-            }
-          });
-
-          navButtons.forEach((btn) => {
-            btn.addEventListener("click", (e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              const target = btn.dataset.target;
-              if (target) showMenuView(target);
-            });
-          });
-
-          backButtons.forEach((btn) => {
-            btn.addEventListener("click", (e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              const target = btn.dataset.back || "root";
-              showMenuView(target);
-            });
-          });
-
-          document.addEventListener("click", (e) => {
-            if (!dropdown.contains(e.target)) {
-              dropdown.classList.remove("open");
-              resetMenuView();
-            }
-          });
-        }
-      });
     </script>
+    <script src="/scripts/navbar.js"></script>
   </body>
 </html>
