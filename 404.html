@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>404 · MAUL</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:title" content="404 · MAUL" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/404.html" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta property="og:description" content="Oops — that page drifted into space." />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --accent: #800000;
+        --accent-strong: #b00000;
+        --bg-card: rgba(30, 12, 12, 0.9);
+        --bg-soft: rgba(45, 18, 18, 0.92);
+        --text-main: #ffffff;
+        --text-muted: #d9d9e5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        font-family: "Roboto", sans-serif;
+        color: var(--text-main);
+        overflow-x: hidden;
+      }
+
+      body {
+        background: #000 url("images/maulredbg.png") no-repeat top center fixed;
+        background-size: auto 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(circle at top, rgba(128, 0, 0, 0.45), transparent 55%),
+          radial-gradient(circle at bottom, rgba(180, 0, 60, 0.22), transparent 55%);
+        mix-blend-mode: screen;
+        opacity: 0.75;
+        pointer-events: none;
+        z-index: -2;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(20, 0, 0, 0.72), rgba(5, 0, 0, 0.92));
+        z-index: -1;
+      }
+
+      .shell {
+        width: 100%;
+        max-width: 950px;
+      }
+
+      .error-card {
+        background: var(--bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 28px;
+        padding: 42px 34px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(12px);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .error-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at top left, rgba(160, 0, 0, 0.18), transparent 42%),
+          radial-gradient(circle at bottom right, rgba(255, 0, 64, 0.08), transparent 36%);
+        pointer-events: none;
+      }
+
+      .badge {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 14px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: linear-gradient(120deg, rgba(128, 0, 0, 0.55), rgba(200, 0, 80, 0.35));
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        color: var(--text-muted);
+      }
+
+      .badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #ff6b6b, #ff1f4d);
+        box-shadow: 0 0 10px rgba(255, 40, 80, 0.8);
+      }
+
+      .error-layout {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 24px;
+        align-items: center;
+        margin-top: 24px;
+      }
+
+      .error-number {
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(4.8rem, 14vw, 8.5rem);
+        line-height: 0.9;
+        margin: 0 0 12px;
+        letter-spacing: 0.04em;
+        text-shadow: 0 12px 34px rgba(0, 0, 0, 0.9);
+      }
+
+      .error-number span {
+        background: linear-gradient(120deg, #ffffff, #ff8a8a, var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      h1 {
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(1.8rem, 4vw, 2.7rem);
+        margin: 0 0 12px;
+        line-height: 1.1;
+      }
+
+      .subtitle {
+        margin: 0 0 18px;
+        color: var(--text-muted);
+        font-size: 1rem;
+        line-height: 1.75;
+        max-width: 560px;
+      }
+
+      .mini-panel {
+        background: var(--bg-soft);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 16px 18px;
+        color: var(--text-muted);
+        line-height: 1.7;
+        font-size: 0.94rem;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+      }
+
+      .mini-panel strong {
+        color: #fff;
+      }
+
+      .actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 22px;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        text-decoration: none;
+        border-radius: 999px;
+        padding: 11px 18px;
+        font-weight: 600;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+        color: #fff;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.9);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.95);
+      }
+
+      .btn-secondary {
+        color: var(--text-main);
+        background: rgba(55, 18, 18, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+      }
+
+      .btn-secondary:hover {
+        transform: translateY(-1px);
+        background: rgba(68, 22, 22, 0.98);
+      }
+
+      .astronaut-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .astronaut-card {
+        width: 100%;
+        max-width: 320px;
+        min-height: 330px;
+        border-radius: 26px;
+        background:
+          radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.08), transparent 22%),
+          linear-gradient(180deg, rgba(70, 14, 14, 0.98), rgba(28, 8, 8, 0.98));
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        position: relative;
+        box-shadow: 0 20px 46px rgba(0, 0, 0, 0.9);
+        overflow: hidden;
+      }
+
+      .stars {
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(circle at 12% 18%, rgba(255,255,255,0.95) 0 1.5px, transparent 2px),
+          radial-gradient(circle at 74% 14%, rgba(255,255,255,0.9) 0 1.2px, transparent 2px),
+          radial-gradient(circle at 86% 34%, rgba(255,255,255,0.85) 0 1.4px, transparent 2px),
+          radial-gradient(circle at 20% 62%, rgba(255,255,255,0.8) 0 1.2px, transparent 2px),
+          radial-gradient(circle at 66% 72%, rgba(255,255,255,0.85) 0 1.6px, transparent 2px),
+          radial-gradient(circle at 34% 86%, rgba(255,255,255,0.8) 0 1.2px, transparent 2px);
+        opacity: 0.9;
+      }
+
+      .planet {
+        position: absolute;
+        right: -18px;
+        top: -18px;
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 35% 35%, #ffb0b0, #8f1c1c 65%, #4e0808 100%);
+        box-shadow: 0 0 30px rgba(176, 0, 0, 0.28);
+      }
+
+      .planet::after {
+        content: "";
+        position: absolute;
+        inset: 40px -12px auto -12px;
+        height: 18px;
+        border-radius: 999px;
+        border: 3px solid rgba(255, 220, 220, 0.45);
+        transform: rotate(-14deg);
+      }
+
+      .bean {
+        position: absolute;
+        left: 50%;
+        top: 53%;
+        transform: translate(-50%, -50%);
+        width: 132px;
+        height: 170px;
+        background: linear-gradient(180deg, #c40000, #7a0000);
+        border-radius: 64px 64px 54px 54px;
+        box-shadow:
+          inset -10px -16px 0 rgba(0, 0, 0, 0.18),
+          0 18px 30px rgba(0, 0, 0, 0.45);
+      }
+
+      .bean::before {
+        content: "";
+        position: absolute;
+        top: 28px;
+        left: 22px;
+        width: 78px;
+        height: 48px;
+        background: linear-gradient(180deg, #dff7ff, #87c7df);
+        border-radius: 26px;
+        transform: rotate(-6deg);
+        box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.12);
+      }
+
+      .bean::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 18px;
+        width: 96px;
+        height: 34px;
+        background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.2));
+        border-radius: 0 0 28px 28px;
+      }
+
+      .floating-text {
+        position: absolute;
+        bottom: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255,255,255,0.8);
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .footer-text {
+        margin-top: 18px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.66);
+        font-size: 0.88rem;
+      }
+
+      @media (max-width: 820px) {
+        .error-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .astronaut-card {
+          max-width: 100%;
+          min-height: 280px;
+        }
+
+        .astronaut-wrap {
+          order: -1;
+        }
+
+        .error-card {
+          padding: 30px 22px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="shell">
+      <section class="error-card">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Lost in space
+        </div>
+
+        <div class="error-layout">
+          <div>
+            <p class="error-number"><span>404</span></p>
+            <h1>This page was ejected from the lobby.</h1>
+            <p class="subtitle">
+              The page you were looking for doesn’t exist, was moved, or never made it onto the dropship.
+              Try heading back home, browsing MAUL, or returning to the previous page.
+            </p>
+
+            <div class="mini-panel">
+              <strong>Possible reasons:</strong><br />
+              The link may be outdated, the page name may have changed, or the content may still be under construction.
+            </div>
+
+            <div class="actions">
+              <a href="https://moddedamong.us/" class="btn-primary">
+                <i class="fa-solid fa-house"></i>
+                Back to Home
+              </a>
+              <a href="https://discord.gg/maul" target="_blank" class="btn-secondary">
+                <i class="fa-brands fa-discord"></i>
+                Join MAUL
+              </a>
+              <a href="javascript:history.back()" class="btn-secondary">
+                <i class="fa-solid fa-arrow-left"></i>
+                Go Back
+              </a>
+            </div>
+          </div>
+
+          <div class="astronaut-wrap">
+            <div class="astronaut-card">
+              <div class="stars"></div>
+              <div class="planet"></div>
+              <div class="bean"></div>
+              <div class="floating-text">Page not found</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer-text">
+        Modded Among Us Lobbies · 404 Error
+      </div>
+    </main>
+  </body>
+</html>
