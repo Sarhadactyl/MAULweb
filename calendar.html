@@ -45,7 +45,7 @@
         height: 100%;
         margin: 0;
         padding: 0;
-        font-family: 'Roboto', sans-serif;
+        font-family: "Roboto", sans-serif;
         color: var(--text-main);
         overflow-x: hidden;
       }
@@ -81,7 +81,7 @@
         position: fixed;
         top: 20px;
         left: 20px;
-        z-index: 100;
+        z-index: 1000;
       }
 
       .dropbtn {
@@ -89,12 +89,9 @@
         border: 1px solid rgba(255, 255, 255, 0.14);
         cursor: pointer;
         transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-        padding: 10px 10px;
+        padding: 10px;
         border-radius: 999px;
         backdrop-filter: blur(10px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
       }
 
       .dropbtn:hover {
@@ -121,41 +118,127 @@
       .dropdown-content {
         display: none;
         position: absolute;
-        margin-top: 8px;
+        top: calc(100% + 8px);
+        left: 0;
         background-color: rgba(35, 10, 10, 0.96);
-        min-width: 220px;
-        box-shadow: 0 16px 40px rgba(0,0,0,0.85);
-        border-radius: 12px;
+        width: 350px;
+        max-width: calc(100vw - 32px);
+        max-height: calc(100vh - 40px);
         overflow: hidden;
-        backdrop-filter: blur(10px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+        border-radius: 20px;
+        backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.08);
       }
 
-      .dropdown-content a {
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+
+      .menu-view {
+        display: none;
+        padding: 8px 0;
+        max-height: calc(100vh - 56px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+
+      .menu-view.active {
+        display: block;
+      }
+
+      .dropdown-content a,
+      .menu-nav-btn,
+      .menu-back-btn {
+        width: 100%;
         color: var(--text-main);
-        padding: 12px 18px;
+        padding: 16px 22px;
         text-decoration: none;
         display: flex;
         align-items: center;
-        gap: 8px;
-        font-size: 0.95rem;
-        transition: background 0.25s, color 0.25s, padding-left 0.25s;
+        justify-content: flex-start;
+        gap: 10px;
+        font-size: 0.98rem;
+        transition: background 0.22s ease, color 0.22s ease, padding-left 0.22s ease;
+        background: transparent;
+        border: none;
+        font-family: inherit;
+        text-align: left;
+        cursor: pointer;
       }
 
-      .dropdown-content a:hover {
-        background: rgba(255, 255, 255, 0.04);
+      .dropdown-content a i:first-child,
+      .menu-nav-btn span,
+      .menu-back-btn span {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .menu-nav-btn .fa-chevron-right {
+        margin-left: auto;
+      }
+
+      .dropdown-content a:hover,
+      .menu-nav-btn:hover,
+      .menu-back-btn:hover {
+        background: rgba(255, 255, 255, 0.045);
         color: var(--accent);
-        padding-left: 22px;
+        padding-left: 26px;
       }
 
-      .beta-glow {
+      .menu-back-btn {
+        justify-content: flex-start;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 4px;
+      }
+
+      .submenu-title {
+        padding: 13px 22px 10px;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.62);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 4px;
+      }
+
+      .beta-glow,
+      .highlight-glow {
         color: #ff4d4d !important;
         font-weight: 700;
-        text-shadow: 0 0 8px rgba(255, 0, 0, 0.75),
-                     0 0 12px rgba(255, 0, 0, 0.55);
+        text-shadow:
+          0 0 8px rgba(255, 0, 0, 0.75),
+          0 0 12px rgba(255, 0, 0, 0.55);
+        animation: betaPulse 1.6s ease-in-out infinite;
       }
 
-      .dropdown.open .dropdown-content { display: block; }
+      .beta-glow:hover,
+      .highlight-glow:hover {
+        background: rgba(255, 0, 0, 0.12) !important;
+        color: #ff8080 !important;
+        text-shadow:
+          0 0 10px rgba(255, 50, 50, 1),
+          0 0 16px rgba(255, 0, 0, 0.9);
+      }
+
+      @keyframes betaPulse {
+        0% {
+          text-shadow:
+            0 0 6px rgba(255, 0, 0, 0.7),
+            0 0 12px rgba(255, 0, 0, 0.4);
+        }
+        50% {
+          text-shadow:
+            0 0 12px rgba(255, 60, 60, 1),
+            0 0 24px rgba(255, 0, 0, 0.9);
+        }
+        100% {
+          text-shadow:
+            0 0 6px rgba(255, 0, 0, 0.7),
+            0 0 12px rgba(255, 0, 0, 0.4);
+        }
+      }
 
       .page-wrapper {
         max-width: 1100px;
@@ -196,7 +279,7 @@
       }
 
       .page-header h1 {
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
         font-size: clamp(2.1rem, 3.4vw, 2.8rem);
         margin: 0;
         letter-spacing: 0.04em;
@@ -239,7 +322,7 @@
 
       .calendar-header h2 {
         margin: 0;
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
         letter-spacing: 0.12em;
         text-transform: uppercase;
         font-size: 1rem;
@@ -381,7 +464,7 @@
       }
 
       .event-details-title {
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
         font-size: 0.9rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
@@ -449,7 +532,7 @@
 
       .live-events-header h2 {
         margin: 0;
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
         font-size: 1rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
@@ -543,29 +626,7 @@
   </head>
 
   <body>
-    <div class="dropdown">
-      <button class="dropbtn" type="button" aria-label="Open navigation menu">
-        <div class="hamburger" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </div>
-      </button>
-
-      <div class="dropdown-content">
-        <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
-        <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
-        <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
-        <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
-        <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
-        <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
-        <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
-        <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
-        <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
-        <a href="https://moddedamong.us/wrapped"><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a>
-        <a href="https://moddedamong.us/roletest"><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a>
-        <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
-      </div>
-    </div>
+    <div id="navbar"></div>
 
     <div class="page-wrapper">
       <header class="page-header">
@@ -662,8 +723,6 @@
     </div>
 
     <script>
-
-
       let events = {};
       let monthNames = [];
       let currentMonthIndex = 0;
@@ -702,16 +761,16 @@
 
       function sortMonthLabels(labels) {
         return labels
-          .map(l => ({ label: l, ...parseMonthLabel(l) }))
-          .filter(x => Number.isFinite(x.sortKey))
+          .map((l) => ({ label: l, ...parseMonthLabel(l) }))
+          .filter((x) => Number.isFinite(x.sortKey))
           .sort((a, b) => a.sortKey - b.sortKey)
-          .map(x => x.label);
+          .map((x) => x.label);
       }
 
       function setupWeekdays() {
         const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         weekdayRowEl.innerHTML = "";
-        weekdays.forEach(day => {
+        weekdays.forEach((day) => {
           const div = document.createElement("div");
           div.className = "weekday";
           div.textContent = day;
@@ -728,15 +787,14 @@
 
       function getDayStatus(eventsForDay) {
         if (!eventsForDay || !eventsForDay.length) return null;
-        if (eventsForDay.some(e => e.status === "active")) return "active";
-        if (eventsForDay.some(e => e.status === "upcoming")) return "upcoming";
-        if (eventsForDay.some(e => e.status === "ended")) return "ended";
+        if (eventsForDay.some((e) => e.status === "active")) return "active";
+        if (eventsForDay.some((e) => e.status === "upcoming")) return "upcoming";
+        if (eventsForDay.some((e) => e.status === "ended")) return "ended";
         return null;
       }
 
       function normalizeMonthEvents(monthLabel) {
-        const monthEvents = events[monthLabel] || {};
-        return monthEvents;
+        return events[monthLabel] || {};
       }
 
       function renderCalendar() {
@@ -771,8 +829,8 @@
           div.className = "day";
 
           const eventsForDay = monthEvents[String(day)] || [];
-
           const status = getDayStatus(eventsForDay);
+
           if (status) {
             div.classList.add("day-has-event");
             if (status === "active") div.classList.add("badge-active");
@@ -793,7 +851,7 @@
             const dotRow = document.createElement("div");
             dotRow.className = "event-dot-row";
 
-            const types = new Set(eventsForDay.map(e => e.status));
+            const types = new Set(eventsForDay.map((e) => e.status));
             if (types.has("active")) {
               const d = document.createElement("span");
               d.className = "event-dot active";
@@ -809,11 +867,12 @@
               d.className = "event-dot ended";
               dotRow.appendChild(d);
             }
+
             div.appendChild(dotRow);
           }
 
           div.addEventListener("click", () => {
-            document.querySelectorAll(".day.selected").forEach(d => d.classList.remove("selected"));
+            document.querySelectorAll(".day.selected").forEach((d) => d.classList.remove("selected"));
             div.classList.add("selected");
             showEventDetails(monthLabel, day, eventsForDay);
           });
@@ -839,7 +898,7 @@
         eventList.style.display = "block";
         eventEmpty.style.display = "none";
 
-        eventsForDay.forEach(evt => {
+        eventsForDay.forEach((evt) => {
           const li = document.createElement("li");
 
           const nameSpan = document.createElement("span");
@@ -867,14 +926,15 @@
 
         const activeEntries = [];
 
-        monthNames.forEach(monthLabel => {
+        monthNames.forEach((monthLabel) => {
           const { year, monthIndex, monthText } = parseMonthLabel(monthLabel);
           const monthEvents = normalizeMonthEvents(monthLabel);
 
-          Object.keys(monthEvents).forEach(dayStr => {
+          Object.keys(monthEvents).forEach((dayStr) => {
             const day = parseInt(dayStr, 10);
             const list = monthEvents[dayStr] || [];
-            list.forEach(evt => {
+
+            list.forEach((evt) => {
               if ((evt.status || "").toLowerCase() === "active") {
                 activeEntries.push({
                   monthLabel,
@@ -897,7 +957,7 @@
 
         activeEntries.sort((a, b) => a.sortKey - b.sortKey);
 
-        activeEntries.forEach(item => {
+        activeEntries.forEach((item) => {
           const div = document.createElement("div");
           div.className = "active-event-display";
 
@@ -920,7 +980,7 @@
         const currentMonthStr =
           today.toLocaleString("default", { month: "long" }) + " " + today.getFullYear();
 
-        const exactIdx = monthNames.findIndex(m => m === currentMonthStr);
+        const exactIdx = monthNames.findIndex((m) => m === currentMonthStr);
         if (exactIdx !== -1) {
           currentMonthIndex = exactIdx;
           return;
@@ -938,22 +998,6 @@
         });
 
         currentMonthIndex = bestIdx;
-      }
-
-      function initDropdown() {
-        const dropdown = document.querySelector(".dropdown");
-        const button = document.querySelector(".dropbtn");
-
-        if (dropdown && button) {
-          button.addEventListener("click", (e) => {
-            e.stopPropagation();
-            dropdown.classList.toggle("open");
-          });
-
-          document.addEventListener("click", (e) => {
-            if (!dropdown.contains(e.target)) dropdown.classList.remove("open");
-          });
-        }
       }
 
       prevMonthBtn.addEventListener("click", () => {
@@ -986,7 +1030,6 @@
           setupWeekdays();
           autoSelectMonthNearToday();
           renderCalendar();
-          initDropdown();
         } catch (err) {
           showError(
             "Could not load event data. Make sure /data/events.json exists and is valid JSON.\n\n" +
@@ -995,11 +1038,11 @@
           setupWeekdays();
           monthNames = [];
           renderCalendar();
-          initDropdown();
         }
       }
 
       loadEvents();
     </script>
+    <script src="/scripts/navbar.js"></script>
   </body>
 </html>
