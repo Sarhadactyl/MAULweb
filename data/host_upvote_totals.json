@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-19T19:36:05.441059+00:00",
+  "generated_at": "2026-03-19T19:42:13.457385+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -312,6 +312,22 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-07T01:51:42.544300+00:00"
+    },
+    "802648654292058163": {
+      "host_id": 802648654292058163,
+      "host_name": "MV",
+      "slug": "mv",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-19T19:42:13.453241+00:00"
+    },
+    "mv": {
+      "host_id": 802648654292058163,
+      "host_name": "MV",
+      "slug": "mv",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-19T19:42:13.453241+00:00"
     },
     "1374460522258235515": {
       "host_id": 1374460522258235515,
