@@ -3,10 +3,11 @@ async function loadNavbar() {
   if (!navbarContainer) return;
 
   try {
-    const response = await fetch("/components/navbar.html", { cache: "no-store" });
+    const navbarPath = `${window.location.origin}/components/navbar.html`;
+    const response = await fetch(navbarPath, { cache: "no-store" });
 
     if (!response.ok) {
-      throw new Error(`Failed to load navbar: ${response.status}`);
+      throw new Error(`Failed to load navbar: ${response.status} at ${navbarPath}`);
     }
 
     const html = await response.text();
