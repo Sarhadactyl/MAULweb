@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-23T13:26:14.381345+00:00",
+  "generated_at": "2026-03-23T13:26:29.438504+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -344,6 +344,22 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-11T19:01:45.753326+00:00"
+    },
+    "1228004557850935300": {
+      "host_id": 1228004557850935300,
+      "host_name": "Fuzzybook",
+      "slug": "fuzzybook",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-23T13:26:29.433778+00:00"
+    },
+    "fuzzybook": {
+      "host_id": 1228004557850935300,
+      "host_name": "Fuzzybook",
+      "slug": "fuzzybook",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-03-23T13:26:29.433778+00:00"
     },
     "1393991209520988261": {
       "host_id": 1393991209520988261,
