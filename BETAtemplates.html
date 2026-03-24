@@ -796,7 +796,7 @@
             <div class="field">
               <label for="fontSel">Font</label>
               <select id="fontSel">
-                <option>OCRAXT SDF</option><option>BROOK SDF</option><option>VCR SDF</option>
+                <option>OCRAEXT SDF</option><option>BROOK SDF</option><option>VCR SDF</option>
                 <option>Barlow-Black SDF</option><option>Barlow-BoldItalic SDF</option>
                 <option>Barlow-Light SDF</option><option>CONSOLA SDF</option>
                 <option>DIGITAL-7 SDF</option><option>DIN_Pro_Bold_700 SDF</option>
@@ -1042,7 +1042,7 @@
       "LiberationSans SDF": "\"Barlow\",sans-serif",
       "NotoSansJP-Regular SDF": "\"Noto Sans JP\",sans-serif",
       "OCRAEXT SDF": "\"Press Start 2P\",\"VT323\",monospace",
-      "OCRAXT SDF": "\"Press Start 2P\",\"VT323\",monospace"
+      "OCRAEXT SDF": "\"Press Start 2P\",\"VT323\",monospace"
     };
 
     const $ = (id) => document.getElementById(id);
@@ -1214,7 +1214,7 @@
       color:"#FFFFFF",
       b:false, i:false, u:false,
       size:100,
-      font:"OCRAXT SDF",
+      font:"OCRAEXT SDF",
       align:"left"
     };
 
@@ -2297,7 +2297,7 @@
     // ============================================================
     function boot(){
       const bc = loadLS("baseColorV2", "#FFFFFF");
-      const fs = loadLS("fontSelV2", "OCRAXT SDF");
+      const fs = loadLS("fontSelV2", "OCRAEXT SDF");
       const sz = loadLS("sizeCtlV2", 100);
 
       solidColor.value = normHex(bc,true);
