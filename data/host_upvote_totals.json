@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-28T14:29:47.105958+00:00",
+  "generated_at": "2026-03-28T17:17:11.007552+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -77,17 +77,17 @@
       "host_id": 703595051074191402,
       "host_name": "Ned Lee",
       "slug": "ned-lee",
-      "upvoted_by_users": 6,
-      "upvoted_times": 6,
-      "last_upvoted_at": "2026-03-28T14:00:33.888174+00:00"
+      "upvoted_by_users": 7,
+      "upvoted_times": 7,
+      "last_upvoted_at": "2026-03-28T17:17:11.003050+00:00"
     },
     "ned-lee": {
       "host_id": 703595051074191402,
       "host_name": "Ned Lee",
       "slug": "ned-lee",
-      "upvoted_by_users": 6,
-      "upvoted_times": 6,
-      "last_upvoted_at": "2026-03-28T14:00:33.888174+00:00"
+      "upvoted_by_users": 7,
+      "upvoted_times": 7,
+      "last_upvoted_at": "2026-03-28T17:17:11.003050+00:00"
     },
     "1447724056500502729": {
       "host_id": 1447724056500502729,
