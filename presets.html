@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -9,7 +9,10 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moddedamong.us/presets.html" />
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-    <meta property="og:description" content="Browse curated Among Us mods and ready-to-play presets used in Modded Among Us Lobbies." />
+    <meta
+      property="og:description"
+      content="Browse curated Among Us mods and ready-to-play presets used in Modded Among Us Lobbies."
+    />
     <meta property="og:site_name" content="Modded Among Us Lobbies" />
     <meta property="og:locale" content="en_US" />
     <link rel="canonical" href="https://moddedamong.us/presets.html" />
@@ -26,6 +29,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="/styles/navbar.css" />
 
     <style>
       :root {
@@ -38,9 +42,12 @@
         --text-muted: #dedee8;
       }
 
-      * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
 
-      html, body {
+      html,
+      body {
         height: 100%;
         margin: 0;
         padding: 0;
@@ -76,110 +83,6 @@
         z-index: -1;
       }
 
-      .dropdown {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 100;
-      }
-
-      .dropbtn {
-        background: rgba(35, 10, 10, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        cursor: pointer;
-        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-        padding: 10px 10px;
-        border-radius: 999px;
-        backdrop-filter: blur(10px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .dropbtn:hover {
-        transform: translateY(-1px) scale(1.03);
-        background: rgba(50, 16, 16, 0.98);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
-      }
-
-      .hamburger {
-        width: 26px;
-        height: 18px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .hamburger span {
-        display: block;
-        height: 3px;
-        background: linear-gradient(90deg, var(--accent), #ff0040);
-        border-radius: 999px;
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        margin-top: 8px;
-        background-color: rgba(35, 10, 10, 0.96);
-        min-width: 220px;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
-        border-radius: 12px;
-        overflow: hidden;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .dropdown-content a {
-        color: var(--text-main);
-        padding: 12px 18px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.95rem;
-        transition: background 0.25s, color 0.25s, padding-left 0.25s;
-      }
-
-      .dropdown-content a:hover {
-        background: rgba(255, 255, 255, 0.04);
-        color: var(--accent);
-        padding-left: 22px;
-      }
-
-      .beta-glow {
-        color: #ff4d4d !important;
-        font-weight: 700;
-        text-shadow: 0 0 8px rgba(255, 0, 0, 0.75),
-                     0 0 12px rgba(255, 0, 0, 0.55);
-        animation: betaPulse 1.6s ease-in-out infinite;
-      }
-
-      .beta-glow:hover {
-        background: rgba(255, 0, 0, 0.12) !important;
-        padding-left: 22px;
-        color: #ff8080 !important;
-        text-shadow: 0 0 10px rgba(255, 50, 50, 1),
-                     0 0 16px rgba(255, 0, 0, 0.9);
-      }
-
-      .dropdown.open .dropdown-content { display: block; }
-
-      @keyframes betaPulse {
-        0% {
-          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
-                       0 0 12px rgba(255, 0, 0, 0.4);
-        }
-        50% {
-          text-shadow: 0 0 12px rgba(255, 60, 60, 1),
-                       0 0 24px rgba(255, 0, 0, 0.9);
-        }
-        100% {
-          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
-                       0 0 12px rgba(255, 0, 0, 0.4);
-        }
-      }
-
       .page-wrapper {
         max-width: 1100px;
         margin: 0 auto;
@@ -187,7 +90,9 @@
       }
 
       @media (max-width: 600px) {
-        .page-wrapper { padding-top: 90px; }
+        .page-wrapper {
+          padding-top: 90px;
+        }
       }
 
       .page-header {
@@ -282,23 +187,13 @@
         color: var(--accent);
       }
 
-      #featured-grid {
-        display: flex;
-        justify-content: center;
-        max-width: 460px;
-        margin: 0 auto;
-      }
-
-      /* ✅ Featured grid uses the same layout as the main grid (keeps your existing styles intact) */
       #featured-grid.grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 16px;
         max-width: 900px;
         margin: 0 auto;
-        justify-content: initial;
       }
-
 
       .mods-section {
         max-width: 900px;
@@ -569,16 +464,18 @@
         padding: 18px;
       }
 
-      .modal-backdrop.open { display: flex; }
+      .modal-backdrop.open {
+        display: flex;
+      }
 
       .modal {
         width: min(860px, 100%);
         max-height: min(78vh, 760px);
         overflow: auto;
         border-radius: 18px;
-        border: 1px solid rgba(255,255,255,0.14);
+        border: 1px solid rgba(255, 255, 255, 0.14);
         background: rgba(20, 6, 6, 0.92);
-        box-shadow: 0 30px 80px rgba(0,0,0,0.9);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
       }
 
       .modal-header {
@@ -591,7 +488,7 @@
         gap: 12px;
         padding: 14px 16px;
         background: linear-gradient(180deg, rgba(30, 12, 12, 0.98), rgba(20, 6, 6, 0.92));
-        border-bottom: 1px solid rgba(255,255,255,0.10);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.10);
         backdrop-filter: blur(10px);
       }
 
@@ -606,8 +503,8 @@
         width: 38px;
         height: 38px;
         border-radius: 999px;
-        border: 1px solid rgba(255,255,255,0.14);
-        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.06);
         color: #fff;
         display: inline-flex;
         align-items: center;
@@ -618,8 +515,8 @@
 
       .modal-close:hover {
         transform: translateY(-1px);
-        background: rgba(255,255,255,0.10);
-        border-color: rgba(255,255,255,0.22);
+        background: rgba(255, 255, 255, 0.10);
+        border-color: rgba(255, 255, 255, 0.22);
       }
 
       .modal-body {
@@ -655,8 +552,8 @@
         align-items: center;
         padding: 4px 10px;
         border-radius: 999px;
-        background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
         color: var(--text-muted);
         font-size: 0.75rem;
       }
@@ -673,6 +570,8 @@
   </head>
 
   <body>
+    <div id="navbar"></div>
+
     <div class="modal-backdrop" id="presetModal" aria-hidden="true">
       <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal-header">
@@ -682,29 +581,6 @@
           </button>
         </div>
         <div class="modal-body" id="modalBody"></div>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <button class="dropbtn" type="button" aria-label="Open navigation menu">
-        <div class="hamburger" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </div>
-      </button>
-      <div class="dropdown-content">
-        <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
-        <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
-        <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
-        <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
-        <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
-        <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
-        <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
-        <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
-        <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
-        <a href="https://moddedamong.us/wrapped"><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a>
-        <a href="https://moddedamong.us/roletest"><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a>
-        <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
       </div>
     </div>
 
@@ -747,19 +623,26 @@
           <li>Open the game, choose the preset in the mod’s settings, and play.</li>
         </ol>
         <p class="mini-note">
-          If you can’t see file extensions or the <code>*-DATA\SaveData</code> folder, click &ldquo;View&rdquo; then &ldquo;Show&rdquo; then &ldquo;Hidden items&rdquo;
-          in the file explorer settings.<br />
+          If you can’t see file extensions or the <code>*-DATA\SaveData</code> folder, click &ldquo;View&rdquo; then &ldquo;Show&rdquo; then &ldquo;Hidden items&rdquo; in the file explorer settings.<br />
           <strong>Please refer to the Lotus presets tab for instructions on how to add Lotus presets.</strong>
         </p>
       </section>
 
       <p class="presets-footer-note">
         Want your preset featured?
-        <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904" target="_blank" rel="noopener">
+        <a
+          href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904"
+          target="_blank"
+          rel="noopener"
+        >
           Open a ticket
         </a>
         or send in
-        <a href="https://discord.com/channels/995954559044304896/1410013572637130812" target="_blank" rel="noopener">
+        <a
+          href="https://discord.com/channels/995954559044304896/1410013572637130812"
+          target="_blank"
+          rel="noopener"
+        >
           mod presets
         </a>.
       </p>
@@ -768,6 +651,21 @@
     <script>
       const DATA = {
         featured: [
+          {
+            id: "tou-mira",
+            title: "TOU-Mira",
+            image: "images/tourmira.png",
+            blurb: "Town of Us: Reactivated rebuilt on MiraAPI with cleaner architecture, new improvements, and long-term maintainability.",
+            repo: "https://github.com/AU-Avengers/TOU-Mira",
+            presets: [
+              {
+                host: "MAUL",
+                name: "TOU-Mira Featured Preset",
+                description: "Featured TOU-Mira preset slot for community uploads.",
+                notes: "Add your TOU-Mira preset file here when ready."
+              }
+            ]
+          },
           {
             id: "project-lotus",
             title: "Project Lotus",
@@ -989,151 +887,183 @@
         ]
       };
 
-      const el = (tag, cls, html) => {
-        const n = document.createElement(tag);
-        if (cls) n.className = cls;
-        if (html !== undefined) n.innerHTML = html;
-        return n;
-      };
+      function escapeHtml(str = "") {
+        return String(str)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
+      }
 
-      const modalBackdrop = document.getElementById("presetModal");
-      const modalBody = document.getElementById("modalBody");
-      const modalTitle = document.getElementById("modalTitle");
-      const modalCloseBtn = document.getElementById("modalCloseBtn");
+      function presetDetailsHtml(preset) {
+        const bits = [];
+
+        if (preset.description) {
+          bits.push(`<p>${preset.description}</p>`);
+        }
+
+        if (preset.notes) {
+          bits.push(`<h4>Notes</h4><p>${preset.notes}</p>`);
+        }
+
+        if (preset.file) {
+          bits.push(
+            `<p><a class="btn" href="${preset.file}" target="_blank" rel="noopener">Download Preset</a></p>`
+          );
+        }
+
+        if (preset.detailsHtml) {
+          bits.push(preset.detailsHtml);
+        }
+
+        return bits.join("");
+      }
 
       function openModal(title, html) {
+        const modal = document.getElementById("presetModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalBody = document.getElementById("modalBody");
+
         modalTitle.textContent = title;
-        modalBody.innerHTML = html || "<p>No details provided.</p>";
-        modalBackdrop.classList.add("open");
-        modalBackdrop.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden";
+        modalBody.innerHTML = html;
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
       }
 
       function closeModal() {
-        modalBackdrop.classList.remove("open");
-        modalBackdrop.setAttribute("aria-hidden", "true");
-        modalBody.innerHTML = "";
-        document.body.style.overflow = "";
+        const modal = document.getElementById("presetModal");
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
       }
 
-      modalCloseBtn.addEventListener("click", closeModal);
-      modalBackdrop.addEventListener("click", (e) => {
-        if (e.target === modalBackdrop) closeModal();
+      function renderFeatured() {
+        const root = document.getElementById("featured-grid");
+        if (!root) return;
+
+        root.innerHTML = DATA.featured
+          .map((item) => {
+            const firstPreset = item.presets?.[0];
+            const downloadBtn = firstPreset?.file
+              ? `<a class="btn" href="${firstPreset.file}" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download</a>`
+              : "";
+
+            const detailsBtn = firstPreset
+              ? `<button class="btn secondary" type="button" data-featured-id="${item.id}">
+                  <i class="fa-regular fa-file-lines"></i> Details
+                </button>`
+              : "";
+
+            return `
+              <article class="card">
+                <img src="${item.image}" alt="${escapeHtml(item.title)}" class="thumb" />
+                <div class="card-body">
+                  <h3 class="title">${escapeHtml(item.title)}</h3>
+                  <p class="sub">${item.blurb}</p>
+                  <div class="preset-actions">
+                    <a class="btn" href="${item.repo}" target="_blank" rel="noopener">
+                      <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    ${downloadBtn}
+                    ${detailsBtn}
+                  </div>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+
+        root.querySelectorAll("[data-featured-id]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const item = DATA.featured.find((x) => x.id === btn.dataset.featuredId);
+            const preset = item?.presets?.[0];
+            if (!item || !preset) return;
+            openModal(`${item.title} — ${preset.name}`, presetDetailsHtml(preset));
+          });
+        });
+      }
+
+      function renderMods() {
+        const root = document.getElementById("mods-grid");
+        if (!root) return;
+
+        root.innerHTML = DATA.mods
+          .map((mod) => {
+            const presetItems = (mod.presets || [])
+              .map((preset, index) => {
+                const detailsButton = `
+                  <button class="btn secondary" type="button" data-mod-id="${mod.id}" data-preset-index="${index}">
+                    <i class="fa-regular fa-file-lines"></i> Details
+                  </button>
+                `;
+
+                const downloadButton = preset.file
+                  ? `<a class="btn" href="${preset.file}" target="_blank" rel="noopener">
+                      <i class="fa-solid fa-download"></i> Download
+                    </a>`
+                  : "";
+
+                return `
+                  <details>
+                    <summary>${escapeHtml(preset.name)} — ${escapeHtml(preset.host)}</summary>
+                    <div class="preset-meta">
+                      ${preset.description || ""}
+                    </div>
+                    <div class="preset-actions">
+                      ${downloadButton}
+                      ${detailsButton}
+                    </div>
+                  </details>
+                `;
+              })
+              .join("");
+
+            return `
+              <article class="card">
+                <img src="${mod.image}" alt="${escapeHtml(mod.title)}" class="thumb" />
+                <div class="card-body">
+                  <h3 class="title">${escapeHtml(mod.title)}</h3>
+                  <p class="sub">${mod.blurb}</p>
+
+                  <div class="preset-actions">
+                    <a class="btn" href="${mod.repo}" target="_blank" rel="noopener">
+                      <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                  </div>
+
+                  <div class="presets">
+                    <p class="sub">Available presets</p>
+                    ${presetItems || `<p class="sub">No presets added yet.</p>`}
+                  </div>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+
+        root.querySelectorAll("[data-mod-id][data-preset-index]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const mod = DATA.mods.find((x) => x.id === btn.dataset.modId);
+            const preset = mod?.presets?.[Number(btn.dataset.presetIndex)];
+            if (!mod || !preset) return;
+            openModal(`${mod.title} — ${preset.name}`, presetDetailsHtml(preset));
+          });
+        });
+      }
+
+      document.getElementById("modalCloseBtn")?.addEventListener("click", closeModal);
+      document.getElementById("presetModal")?.addEventListener("click", (e) => {
+        if (e.target.id === "presetModal") closeModal();
       });
+
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modalBackdrop.classList.contains("open")) closeModal();
+        if (e.key === "Escape") closeModal();
       });
 
-      function presetItem(p) {
-        const d = el("details");
-        const s = el("summary");
-        s.textContent = `${p.host} — ${p.name}`;
-        d.appendChild(s);
-
-        const meta = el("div", "preset-meta", p.description || "");
-        d.appendChild(meta);
-
-        const actions = el("div", "preset-actions");
-
-        if (p.detailsHtml) {
-          const detailsBtn = el("button", "btn secondary");
-          detailsBtn.type = "button";
-          detailsBtn.innerHTML = '<i class="fa-regular fa-circle-question"></i><span>Click here for details</span>';
-          detailsBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation(); // prevents toggling the <details> open/closed
-            openModal(`${p.host} — ${p.name}`, p.detailsHtml);
-          });
-          actions.appendChild(detailsBtn);
-        }
-
-        if (p.file && /\.\w{2,5}$/.test(p.file)) {
-          const dl = el("a", "btn");
-          dl.href = p.file;
-          dl.setAttribute("download", "");
-          dl.textContent = "Download Preset";
-          actions.appendChild(dl);
-        }
-
-        if (p.notes) {
-          const badge = el("span", "badge", p.notes);
-          actions.appendChild(badge);
-        }
-
-        d.appendChild(actions);
-        return d;
-      }
-
-      function modCard(mod) {
-        const card = el("article", "card");
-
-        const img = el("img", "thumb");
-        img.src = mod.image;
-        img.alt = mod.title;
-        img.loading = "lazy";
-        card.appendChild(img);
-
-        const body = el("div", "card-body");
-        body.appendChild(el("h3", "title", mod.title));
-        body.appendChild(el("p", "sub", mod.blurb || ""));
-
-        if (mod.repo) {
-          const actions = el("div", "preset-actions");
-          const repoBtn = el("a", "btn", '<i class="fa-brands fa-github"></i><span>GitHub</span>');
-          repoBtn.href = mod.repo;
-          repoBtn.target = "_blank";
-          repoBtn.rel = "noopener noreferrer";
-          actions.appendChild(repoBtn);
-          body.appendChild(actions);
-        }
-
-        if (Array.isArray(mod.presets) && mod.presets.length) {
-          const block = el("div", "presets");
-          const label = el("p", "sub", "<strong>Presets</strong>");
-          label.style.textAlign = "left";
-          block.appendChild(label);
-          mod.presets.forEach((p) => block.appendChild(presetItem(p)));
-          body.appendChild(block);
-        }
-
-        card.appendChild(body);
-        return card;
-      }
-
-      function renderSection(containerId, list) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-        container.innerHTML = "";
-        list.forEach((mod) => container.appendChild(modCard(mod)));
-      }
-
-      renderSection("featured-grid", DATA.featured);
-      renderSection("mods-grid", DATA.mods);
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const dropdown = document.querySelector(".dropdown");
-        const button = document.querySelector(".dropbtn");
-
-        if (dropdown && button) {
-          button.addEventListener("click", (e) => {
-            e.stopPropagation();
-            dropdown.classList.toggle("open");
-          });
-
-          document.addEventListener("click", (e) => {
-            if (!dropdown.contains(e.target)) {
-              dropdown.classList.remove("open");
-            }
-          });
-        }
-      });
+      renderFeatured();
+      renderMods();
     </script>
+
+    <script src="/scripts/navbar.js"></script>
   </body>
 </html>
-
-
-
-
-
-
-
