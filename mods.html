@@ -9,18 +9,26 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moddedamong.us/mods.html" />
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-    <meta property="og:description" content="A curated list of host-only and client-required mods used by the Modded Among Us Lobbies community." />
+    <meta
+      property="og:description"
+      content="A curated list of host-only and client-required mods used by the Modded Among Us Lobbies community."
+    />
     <meta property="og:site_name" content="Modded Among Us Lobbies" />
     <meta property="og:locale" content="en_US" />
     <link rel="canonical" href="https://moddedamong.us/mods.html" />
 
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-          integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <style>
       :root {
@@ -72,114 +80,6 @@
         inset: 0;
         background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
         z-index: -1;
-      }
-
-      .dropdown {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 100;
-      }
-
-      .dropbtn {
-        background: rgba(35, 10, 10, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        cursor: pointer;
-        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-        padding: 10px 10px;
-        border-radius: 999px;
-        backdrop-filter: blur(10px);
-      }
-
-      .dropbtn:hover {
-        transform: translateY(-1px) scale(1.03);
-        background: rgba(50, 16, 16, 0.98);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
-      }
-
-      .hamburger {
-        width: 26px;
-        height: 18px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .hamburger span {
-        display: block;
-        height: 3px;
-        background: linear-gradient(90deg, var(--accent), #ff0040);
-        border-radius: 999px;
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        margin-top: 8px;
-        background-color: rgba(35, 10, 10, 0.96);
-        min-width: 220px;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
-        border-radius: 12px;
-        overflow: hidden;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .dropdown-content a {
-        color: var(--text-main);
-        padding: 12px 18px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.95rem;
-        transition: background 0.25s, color 0.25s, padding-left 0.25s;
-      }
-
-      .dropdown-content a:hover {
-        background: rgba(255, 255, 255, 0.04);
-        color: var(--accent);
-        padding-left: 22px;
-      }
-
-      .beta-glow {
-        color: #ff4d4d !important;
-        font-weight: 700;
-        text-shadow:
-          0 0 8px rgba(255, 0, 0, 0.75),
-          0 0 12px rgba(255, 0, 0, 0.55);
-        animation: betaPulse 1.6s ease-in-out infinite;
-      }
-
-      .beta-glow:hover {
-        background: rgba(255, 0, 0, 0.12) !important;
-        padding-left: 22px;
-        color: #ff8080 !important;
-        text-shadow:
-          0 0 10px rgba(255, 50, 50, 1),
-          0 0 16px rgba(255, 0, 0, 0.9);
-      }
-
-      .dropdown.open .dropdown-content {
-        display: block;
-      }
-
-      @keyframes betaPulse {
-        0% {
-          text-shadow:
-            0 0 6px rgba(255, 0, 0, 0.7),
-            0 0 12px rgba(255, 0, 0, 0.4);
-        }
-        50% {
-          text-shadow:
-            0 0 12px rgba(255, 60, 60, 1),
-            0 0 24px rgba(255, 0, 0, 0.9);
-        }
-        100% {
-          text-shadow:
-            0 0 6px rgba(255, 0, 0, 0.7),
-            0 0 12px rgba(255, 0, 0, 0.4);
-        }
       }
 
       .page-wrapper {
@@ -246,9 +146,9 @@
       }
 
       .featured-highlight {
-        max-width: 360px;          
+        max-width: 360px;
         margin: 26px auto 32px;
-        padding: 18px 18px 20px;  
+        padding: 18px 18px 20px;
         background-color: var(--bg-card);
         border-radius: 20px;
         border: 1px solid rgba(255, 255, 255, 0.35);
@@ -300,7 +200,7 @@
       }
 
       .featured-mod-image {
-        max-width: 210px; 
+        max-width: 210px;
         width: 100%;
         border-radius: 14px;
         overflow: hidden;
@@ -328,9 +228,10 @@
         color: var(--text-muted);
         margin: 6px 0 12px;
       }
+
       .featured-mod-body {
         padding: 4px 12px 2px;
-      }      
+      }
 
       .btn-primary {
         display: inline-flex;
@@ -429,6 +330,7 @@
         color: var(--text-muted);
         line-height: 1.6;
       }
+
       .btn-secondary {
         align-self: flex-start;
         display: inline-flex;
@@ -482,32 +384,6 @@
     </style>
   </head>
   <body>
-    <div class="dropdown">
-      <button class="dropbtn" type="button" aria-label="Open navigation menu">
-        <div class="hamburger" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </button>
-      <div class="dropdown-content">
-      <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
-      <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
-      <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
-      <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
-      <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
-      <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
-      <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
-      <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
-      <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
-      <a href="https://moddedamong.us/wrapped"><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a>
-      <a href="https://moddedamong.us/roletest"><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a>
-      <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
-        </a>
-      </div>
-    </div>
-
     <div class="page-wrapper">
       <header class="page-header">
         <div class="header-badge">
@@ -531,25 +407,25 @@
         </div>
 
         <div class="featured-mod-card">
-        
           <div class="featured-mod-image">
-            <img src="images/Project lotus.jpg" alt="Project Lotus" />
+            <img src="images/tourmira.png" alt="TOU-Mira Mod" />
           </div>
-        
+
           <div class="featured-mod-body">
-            <h3>Project Lotus</h3>
+            <h3>TOU-Mira</h3>
             <p>
-              A host only mod which focuses on quality over quantity and turning your game into an experience. This mod adds custom cosmetics, a variety of unique roles and features, and extensive customizability.
+              Town of Us: Reactivated rebuilt on MiraAPI with cleaner architecture, new improvements, and long-term maintainability.
             </p>
-        
-            <a class="btn-secondary"
-               href="https://github.com/Lotus-AU/LotusContinued?dhc-id=80400832587108366"
-               target="_blank"
-               rel="noopener">
-              <i class="fa-brands fa-github"></i> Github
+
+            <a
+              class="btn-secondary"
+              href="https://github.com/AU-Avengers/TOU-Mira"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fa-brands fa-github"></i> GitHub
             </a>
           </div>
-        
         </div>
       </section>
 
@@ -566,38 +442,44 @@
             <p>
               A classic Among Us framework that many other role mods are built on. The host controls roles, rules, and balance.
             </p>
-            <a class="btn-secondary"
-               href="https://github.com/tukasa0001/TownOfHost?dhc-id=80397386291089414"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://github.com/tukasa0001/TownOfHost?dhc-id=80397386291089414"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-github"></i> GitHub
             </a>
           </article>
-          
+
           <article class="mod-card">
             <img src="images/Project lotus.jpg" alt="Project Lotus" />
             <h3>Project Lotus</h3>
             <p>
               A host only mod which focuses on quality over quantity and turning your game into an experience. This mod adds custom cosmetics, a variety of unique roles and features, and extensive customizability.
             </p>
-            <a class="btn-secondary"
-               href="https://github.com/Lotus-AU/LotusContinued?dhc-id=80400832587108366"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://github.com/Lotus-AU/LotusContinued?dhc-id=80400832587108366"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-github"></i> Github
             </a>
           </article>
-          
+
           <article class="mod-card">
             <img src="images/TOHY.jpg" alt="Town of Host: Y Mod" />
             <h3>Town of Host: Y</h3>
             <p>
               An expanded fork of Town of Host, adding even more roles and configuration options while keeping the host-only structure.
             </p>
-            <a class="btn-secondary"
-               href="https://github.com/Yumenopai/TownOfHost_Y?dhc-id=80399802046615554"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://github.com/Yumenopai/TownOfHost_Y?dhc-id=80399802046615554"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-github"></i> GitHub
             </a>
           </article>
@@ -608,10 +490,12 @@
             <p>
               Adds new gamemodes like Bomb Tag and Battle Royale, giving hosts more ways to mix up the pace of a lobby.
             </p>
-            <a class="btn-secondary"
-               href="https://github.com/Rabek009/MoreGamemodes?dhc-id=80407194301894658"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://github.com/Rabek009/MoreGamemodes?dhc-id=80407194301894658"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-github"></i> GitHub
             </a>
           </article>
@@ -622,10 +506,12 @@
             <p>
               A host-only mod by Gurge featuring 10+ game modes and 450+ roles.
             </p>
-            <a class="btn-secondary"
-               href="https://github.com/Gurge44/EndlessHostRoles?dhc-id=80403589163388934"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://github.com/Gurge44/EndlessHostRoles?dhc-id=80403589163388934"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-github"></i> GitHub
             </a>
           </article>
@@ -636,10 +522,12 @@
             <p>
               A host only mod with more game modes and features.
             </p>
-            <a class="btn-secondary"
-               href="https://github.com/0xDrMoe/TownofHost-Enhanced?dhc-id=80389830512480262"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://github.com/0xDrMoe/TownofHost-Enhanced?dhc-id=80389830512480262"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-github"></i> GitHub
             </a>
           </article>
@@ -651,39 +539,43 @@
         <p class="mods-section-subtitle">
           Everyone in the lobby installs these mods. Perfect for coordinated groups and community nights.
         </p>
-        
+
         <div class="mod-grid">
-          
           <article class="mod-card">
             <img src="images/snr.webp" alt="Super New Roles Mod" />
             <h3>Super New Roles</h3>
             <p>
-              A popular mod in Japan with over 150 roles and around 1,000 cosmetics. 
+              A popular mod in Japan with over 150 roles and around 1,000 cosmetics.
               It includes unique animated abilities like WaveCannon and TriggerHappy and works on both Android and Windows with English support.
               This mod is compatible with the starlight launcher.
             </p>
-            <a class="btn-secondary"
-               href="https://github.com/SuperNewRoles/SuperNewRoles"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://github.com/SuperNewRoles/SuperNewRoles"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-github"></i> GitHub
             </a>
-          
-            <a class="btn-secondary"
-               href="https://www.patreon.com/c/SuperNewRoles"
-               target="_blank"
-               rel="noopener">
+
+            <a
+              class="btn-secondary"
+              href="https://www.patreon.com/c/SuperNewRoles"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-solid fa-heart"></i> Support
             </a>
-          
-            <a class="btn-secondary"
-               href="https://wiki.supernewroles.com/"
-               target="_blank"
-               rel="noopener">
+
+            <a
+              class="btn-secondary"
+              href="https://wiki.supernewroles.com/"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-solid fa-book"></i> Wiki
             </a>
           </article>
-
 
           <article class="mod-card">
             <img src="images/TOR_logo.png" alt="The Other Roles Mod" />
@@ -691,10 +583,12 @@
             <p>
               A large role pack introducing tons of new crewmate and impostor roles, modifiers, and settings to keep every game fresh.
             </p>
-            <a class="btn-secondary"
-               href="https://github.com/TheOtherRolesAU/TheOtherRoles?dhc-id=80391619253112834"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://github.com/TheOtherRolesAU/TheOtherRoles?dhc-id=80391619253112834"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-github"></i> GitHub
             </a>
           </article>
@@ -705,10 +599,12 @@
             <p>
               A continuation of the classic Town of Us, bringing new roles, modifiers, and regular updates from an active dev team.
             </p>
-            <a class="btn-secondary"
-               href="https://github.com/eDonnes124/Town-Of-Us-R?dhc-id=86152801742229510"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://github.com/eDonnes124/Town-Of-Us-R?dhc-id=86152801742229510"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-github"></i> GitHub
             </a>
           </article>
@@ -719,14 +615,15 @@
             <p>
               A custom map mod with a fully original layout, new tasks, and mechanics that flip regular Among Us on its head.
             </p>
-            <a class="btn-secondary"
-               href="https://github.com/SubmergedAmongUs/Submerged?dhc-id=80414609793617924"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://github.com/SubmergedAmongUs/Submerged?dhc-id=80414609793617924"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-github"></i> GitHub
             </a>
           </article>
-
 
           <article class="mod-card">
             <img src="images/tourmira.png" alt="TOU-Mira Mod" />
@@ -734,10 +631,12 @@
             <p>
               Town of Us: Reactivated rebuilt on MiraAPI with cleaner architecture, new improvements, and long-term maintainability.
             </p>
-            <a class="btn-secondary"
-               href="https://github.com/AU-Avengers/TOU-Mira"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://github.com/AU-Avengers/TOU-Mira"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-github"></i> GitHub
             </a>
           </article>
@@ -748,10 +647,12 @@
             <p>
               A feature-rich mod adding roles, gamemodes, gradient colors, new voting types, and more quality-of-life upgrades.
             </p>
-            <a class="btn-secondary"
-               href="https://github.com/All-Of-Us-Mods/LaunchpadReloaded"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://github.com/All-Of-Us-Mods/LaunchpadReloaded"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-github"></i> GitHub
             </a>
           </article>
@@ -765,17 +666,18 @@
         </p>
 
         <div class="mod-grid">
-
           <article class="mod-card">
             <img src="images/auunlocker.png" alt="AUnlocker" />
             <h3>AUnlocker</h3>
             <p>
               A handy utility that has quality-of-life improvement.
             </p>
-            <a class="btn-secondary"
-               href="https://github.com/astra1dev/AUnlocker"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://github.com/astra1dev/AUnlocker"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-github"></i> GitHub
             </a>
           </article>
@@ -786,10 +688,12 @@
             <p>
               Proximity voice chat for Among Us, letting you hear crewmates based on distance and add tension to every meeting.
             </p>
-            <a class="btn-secondary"
-               href="https://github.com/OhMyGuus/BetterCrewLink?dhc-id=80412110655328258"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://github.com/OhMyGuus/BetterCrewLink?dhc-id=80412110655328258"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-github"></i> GitHub
             </a>
           </article>
@@ -800,10 +704,12 @@
             <p>
               Increases lobby player limits so you can host bigger games (great for community events).
             </p>
-            <a class="btn-secondary"
-               href="https://github.com/CrowdedMods/CrowdedMod?dhc-id=80413681531228162"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://github.com/CrowdedMods/CrowdedMod?dhc-id=80413681531228162"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-github"></i> GitHub
             </a>
           </article>
@@ -814,10 +720,12 @@
             <p>
               A client-side quality-of-life mod by D1GQ focused on vanilla lobbies, improving UI, accessibility, and general polish.
             </p>
-            <a class="btn-secondary"
-               href="https://github.com/D1GQ/BetterAmongUs-Public?dhc-id=80416967801966594"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://github.com/D1GQ/BetterAmongUs-Public?dhc-id=80416967801966594"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-brands fa-github"></i> GitHub
             </a>
           </article>
@@ -826,48 +734,31 @@
             <img src="images/niko.webp" alt="Niko's Region" />
             <h3>Niko&apos;s Region</h3>
             <p>
-              Nikos region is most widely used in the host only modded community, it has an elevated anti cheat and ability to expand the lobby past 15 players. 
+              Nikos region is most widely used in the host only modded community, it has an elevated anti cheat and ability to expand the lobby past 15 players.
             </p>
-            <a class="btn-secondary"
-               href="https://au.niko233.top/"
-               target="_blank"
-               rel="noopener">
+            <a
+              class="btn-secondary"
+              href="https://au.niko233.top/"
+              target="_blank"
+              rel="noopener"
+            >
               <i class="fa-solid fa-globe"></i> Website
             </a>
           </article>
-
         </div>
       </section>
 
       <p class="mods-footer-note">
         Want your mod featured here?
-        <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904"
-           target="_blank"
-           rel="noopener">
+        <a
+          href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904"
+          target="_blank"
+          rel="noopener"
+        >
           Open a ticket in our Discord
         </a>
         for more information.
       </p>
     </div>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const dropdown = document.querySelector('.dropdown');
-        const button = document.querySelector('.dropbtn');
-
-        if (dropdown && button) {
-          button.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdown.classList.toggle('open');
-          });
-
-          document.addEventListener('click', (e) => {
-            if (!dropdown.contains(e.target)) {
-              dropdown.classList.remove('open');
-            }
-          });
-        }
-      });
-    </script>
   </body>
 </html>
