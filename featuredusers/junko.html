@@ -32,13 +32,13 @@
 
     <style>
       :root {
-        --accent: #7fdc95;
-        --accent-strong: #4fc96e;
-        --accent-soft: rgba(127, 220, 149, 0.22);
-        --bg-card: rgba(16, 18, 16, 0.88);
-        --bg-soft: rgba(24, 28, 24, 0.9);
+        --accent: #8fe3a1;
+        --accent-strong: #61cf7c;
+        --accent-soft: rgba(143, 227, 161, 0.18);
+        --bg-card: rgba(8, 11, 8, 0.9);
+        --bg-soft: rgba(14, 18, 14, 0.92);
         --text-main: #ffffff;
-        --text-muted: #d8e1d8;
+        --text-muted: #d7e2d8;
       }
 
       * {
@@ -57,9 +57,9 @@
 
       body {
         background:
-          radial-gradient(circle at top, rgba(70, 140, 90, 0.18), transparent 52%),
-          radial-gradient(circle at bottom, rgba(120, 200, 150, 0.12), transparent 55%),
-          linear-gradient(180deg, #0a0d0a 0%, #101510 100%);
+          radial-gradient(circle at top, rgba(70, 130, 85, 0.08), transparent 34%),
+          radial-gradient(circle at bottom right, rgba(80, 150, 95, 0.05), transparent 28%),
+          linear-gradient(180deg, #040604 0%, #070a07 52%, #0b100b 100%);
         position: relative;
       }
 
@@ -68,8 +68,8 @@
         position: fixed;
         inset: 0;
         background:
-          radial-gradient(circle at top left, rgba(160, 255, 180, 0.08), transparent 30%),
-          radial-gradient(circle at bottom right, rgba(80, 180, 110, 0.08), transparent 30%);
+          radial-gradient(circle at top left, rgba(150, 255, 185, 0.03), transparent 20%),
+          radial-gradient(circle at bottom, rgba(100, 200, 120, 0.03), transparent 24%);
         pointer-events: none;
         z-index: -2;
       }
@@ -78,12 +78,11 @@
         content: "";
         position: fixed;
         inset: 0;
-        background: radial-gradient(circle at center, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.5));
+        background: rgba(0, 0, 0, 0.42);
         pointer-events: none;
         z-index: -1;
       }
 
-      /* global navbar support */
       .dropdown {
         position: fixed;
         top: 20px;
@@ -92,7 +91,7 @@
       }
 
       .dropbtn {
-        background: rgba(20, 24, 20, 0.9);
+        background: rgba(12, 16, 12, 0.9);
         border: 1px solid rgba(255, 255, 255, 0.14);
         cursor: pointer;
         transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
@@ -103,7 +102,7 @@
 
       .dropbtn:hover {
         transform: translateY(-1px) scale(1.03);
-        background: rgba(30, 35, 30, 0.96);
+        background: rgba(20, 25, 20, 0.96);
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
       }
 
@@ -118,7 +117,7 @@
       .hamburger span {
         display: block;
         height: 3px;
-        background: linear-gradient(90deg, var(--accent), #b6ffcb);
+        background: linear-gradient(90deg, var(--accent), #d3ffde);
         border-radius: 999px;
       }
 
@@ -127,7 +126,7 @@
         position: absolute;
         top: calc(100% + 8px);
         left: 0;
-        background-color: rgba(18, 22, 18, 0.96);
+        background-color: rgba(12, 16, 12, 0.96);
         width: 350px;
         max-width: calc(100vw - 32px);
         max-height: calc(100vh - 40px);
@@ -212,38 +211,38 @@
 
       .beta-glow,
       .highlight-glow {
-        color: #9cffb5 !important;
+        color: #b8ffca !important;
         font-weight: 700;
         text-shadow:
-          0 0 8px rgba(130, 255, 170, 0.65),
-          0 0 12px rgba(130, 255, 170, 0.35);
+          0 0 8px rgba(143, 227, 161, 0.55),
+          0 0 12px rgba(143, 227, 161, 0.28);
         animation: betaPulse 1.6s ease-in-out infinite;
       }
 
       .beta-glow:hover,
       .highlight-glow:hover {
-        background: rgba(127, 220, 149, 0.12) !important;
-        color: #d8ffe3 !important;
+        background: rgba(143, 227, 161, 0.1) !important;
+        color: #e5ffea !important;
         text-shadow:
-          0 0 10px rgba(130, 255, 170, 0.95),
-          0 0 16px rgba(130, 255, 170, 0.8);
+          0 0 10px rgba(143, 227, 161, 0.88),
+          0 0 16px rgba(143, 227, 161, 0.6);
       }
 
       @keyframes betaPulse {
         0% {
           text-shadow:
-            0 0 6px rgba(130, 255, 170, 0.55),
-            0 0 12px rgba(130, 255, 170, 0.25);
+            0 0 6px rgba(143, 227, 161, 0.45),
+            0 0 12px rgba(143, 227, 161, 0.2);
         }
         50% {
           text-shadow:
-            0 0 12px rgba(180, 255, 200, 0.95),
-            0 0 24px rgba(127, 220, 149, 0.65);
+            0 0 12px rgba(200, 255, 212, 0.85),
+            0 0 24px rgba(143, 227, 161, 0.5);
         }
         100% {
           text-shadow:
-            0 0 6px rgba(130, 255, 170, 0.55),
-            0 0 12px rgba(130, 255, 170, 0.25);
+            0 0 6px rgba(143, 227, 161, 0.45),
+            0 0 12px rgba(143, 227, 161, 0.2);
         }
       }
 
@@ -273,8 +272,8 @@
         font-size: 0.8rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        background: linear-gradient(120deg, rgba(70, 160, 95, 0.45), rgba(150, 255, 190, 0.18));
-        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: linear-gradient(120deg, rgba(70, 140, 85, 0.26), rgba(150, 255, 190, 0.1));
+        border: 1px solid rgba(255, 255, 255, 0.14);
         color: var(--text-muted);
         margin-bottom: 16px;
       }
@@ -283,8 +282,8 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: radial-gradient(circle, #c8ffd5, #6bdb89);
-        box-shadow: 0 0 12px rgba(140, 255, 175, 0.7);
+        background: radial-gradient(circle, #d9ffe4, #7fdd98);
+        box-shadow: 0 0 12px rgba(140, 255, 175, 0.55);
       }
 
       .page-header h1 {
@@ -292,11 +291,11 @@
         font-family: "Poppins", sans-serif;
         font-size: clamp(2rem, 3.5vw, 2.8rem);
         letter-spacing: 0.04em;
-        text-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+        text-shadow: 0 8px 30px rgba(0, 0, 0, 0.82);
       }
 
       .page-header h1 span {
-        background: linear-gradient(120deg, #ffffff, #baffcb, var(--accent));
+        background: linear-gradient(120deg, #ffffff, #d4ffe0, var(--accent));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -314,8 +313,8 @@
         margin: 28px auto 18px;
         background: var(--bg-card);
         border-radius: 28px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.88);
         backdrop-filter: blur(12px);
         overflow: hidden;
         position: relative;
@@ -325,9 +324,9 @@
         position: relative;
         min-height: 180px;
         background:
-          linear-gradient(180deg, rgba(7, 10, 7, 0.08), rgba(7, 10, 7, 0.7)),
+          linear-gradient(180deg, rgba(4, 6, 4, 0.2), rgba(4, 6, 4, 0.76)),
           url("../images/veteranusers/hearts-green.gif") center/cover no-repeat;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       }
 
       .hero-banner::after {
@@ -335,8 +334,8 @@
         position: absolute;
         inset: 0;
         background:
-          radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 28%),
-          radial-gradient(circle at bottom right, rgba(127,220,149,0.16), transparent 26%);
+          radial-gradient(circle at top left, rgba(255,255,255,0.08), transparent 28%),
+          radial-gradient(circle at bottom right, rgba(143,227,161,0.08), transparent 26%);
         pointer-events: none;
       }
 
@@ -370,11 +369,11 @@
         height: 200px;
         border-radius: 28px;
         overflow: hidden;
-        border: 2px solid rgba(255, 255, 255, 0.32);
-        background: rgba(18, 24, 18, 0.95);
+        border: 2px solid rgba(255, 255, 255, 0.26);
+        background: rgba(10, 14, 10, 0.95);
         box-shadow:
-          0 18px 45px rgba(0, 0, 0, 0.88),
-          0 0 0 10px rgba(127, 220, 149, 0.1);
+          0 18px 45px rgba(0, 0, 0, 0.92),
+          0 0 0 10px rgba(143, 227, 161, 0.06);
       }
 
       .avatar img {
@@ -416,10 +415,10 @@
         padding: 8px 12px;
         border-radius: 999px;
         font-size: 0.9rem;
-        background: rgba(255, 255, 255, 0.045);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
         color: var(--text-muted);
-        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.48);
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.52);
       }
 
       .pill strong {
@@ -427,7 +426,7 @@
       }
 
       .pill.accent {
-        background: linear-gradient(135deg, rgba(90, 180, 110, 0.55), rgba(170, 255, 195, 0.18));
+        background: linear-gradient(135deg, rgba(85, 170, 105, 0.48), rgba(170, 255, 195, 0.12));
         color: #fff;
       }
 
@@ -450,7 +449,7 @@
         font-size: 0.95rem;
         transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, filter 0.18s ease;
         border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.72);
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.76);
       }
 
       .btn-primary {
@@ -464,13 +463,13 @@
       }
 
       .btn-secondary {
-        background: rgba(255, 255, 255, 0.045);
+        background: rgba(255, 255, 255, 0.04);
         color: #fff;
       }
 
       .btn-secondary:hover {
         transform: translateY(-1px);
-        background: rgba(255, 255, 255, 0.065);
+        background: rgba(255, 255, 255, 0.06);
       }
 
       .mini-badges {
@@ -495,7 +494,7 @@
         background: rgba(255, 255, 255, 0.04);
         padding: 3px;
         border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.75);
         transition: transform 0.15s ease, box-shadow 0.15s ease;
         display: block;
         position: relative;
@@ -504,7 +503,7 @@
 
       .mini-badge:hover img {
         transform: translateY(-2px) scale(1.08);
-        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.9);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.92);
       }
 
       .mini-badge::after {
@@ -513,14 +512,14 @@
         bottom: 120%;
         left: 50%;
         transform: translateX(-50%) translateY(4px);
-        background: rgba(15, 20, 15, 0.96);
+        background: rgba(10, 14, 10, 0.98);
         color: #fff;
         font-size: 0.8rem;
         padding: 6px 10px;
         border-radius: 8px;
         white-space: nowrap;
         border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.84);
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.15s ease, transform 0.15s ease;
@@ -548,8 +547,8 @@
       .card {
         background: var(--bg-soft);
         border-radius: 22px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.84);
         backdrop-filter: blur(10px);
         overflow: hidden;
         position: relative;
@@ -559,7 +558,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at top, rgba(255, 255, 255, 0.04), transparent 60%);
+        background: radial-gradient(circle at top, rgba(255, 255, 255, 0.03), transparent 60%);
         pointer-events: none;
       }
 
@@ -590,8 +589,8 @@
       .kv-row {
         padding: 12px;
         border-radius: 16px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.07);
       }
 
       .kv-key {
@@ -627,8 +626,8 @@
         gap: 10px;
         padding: 12px;
         border-radius: 18px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.07);
       }
 
       .badge-icon {
@@ -637,9 +636,9 @@
         border-radius: 12px;
         display: grid;
         place-items: center;
-        background: linear-gradient(135deg, rgba(90, 180, 110, 0.65), rgba(180, 255, 200, 0.18));
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+        background: linear-gradient(135deg, rgba(85, 170, 105, 0.55), rgba(170, 255, 195, 0.14));
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.66);
         flex-shrink: 0;
       }
 
@@ -676,8 +675,8 @@
       .message-card {
         padding: 14px;
         border-radius: 16px;
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.07);
       }
 
       .message-meta {
@@ -696,8 +695,8 @@
       .empty-state {
         padding: 14px;
         border-radius: 16px;
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.07);
         color: var(--text-muted);
         line-height: 1.7;
       }
@@ -1012,7 +1011,8 @@
 
               if (hostUpvotesSummary) {
                 const label = upvotedTimes === 1 ? "upvote" : "upvotes";
-                hostUpvotesSummary.textContent = `${upvotedTimes} ${label} - last upvoted ${formatHoursAgo(lastUpvotedAt)}`;
+                hostUpvotesSummary.textContent =
+                  `${upvotedTimes} ${label} - last upvoted ${formatHoursAgo(lastUpvotedAt)}`;
               }
             }
           }
@@ -1039,7 +1039,9 @@
                 const meta = document.createElement("div");
                 meta.className = "message-meta";
                 const author = entry.author || "Anonymous";
-                const created = entry.created_at ? new Date(entry.created_at).toLocaleDateString() : "Recently";
+                const created = entry.created_at
+                  ? new Date(entry.created_at).toLocaleDateString()
+                  : "Recently";
                 meta.textContent = `${author} • ${created}`;
 
                 const body = document.createElement("div");
