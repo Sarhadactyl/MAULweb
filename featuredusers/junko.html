@@ -610,8 +610,15 @@
 
       .badge-grid {
         display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
         margin-top: 10px;
+      }
+
+      @media (max-width: 420px) {
+        .badge-grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       .badge {
@@ -625,8 +632,8 @@
       }
 
       .badge-icon {
-        width: 38px;
-        height: 38px;
+        width: 34px;
+        height: 34px;
         border-radius: 12px;
         display: grid;
         place-items: center;
@@ -637,8 +644,8 @@
       }
 
       .badge-icon img {
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
         object-fit: contain;
         display: block;
       }
@@ -756,10 +763,15 @@
               </div>
 
               <div class="btn-row">
-                <a class="btn-primary" href="https://discord.com/users/766028172562006089" target="_blank" rel="noopener noreferrer">
+                <a
+                  class="btn-primary"
+                  href="https://discord.com/users/766028172562006089"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i class="fa-brands fa-discord"></i> Discord Profile
                 </a>
-                <a class="btn-secondary" href="https://moddedamong.us/" rel="noopener noreferrer">
+                <a class="btn-secondary" href="https://moddedamong.us/">
                   <i class="fa-solid fa-house"></i> Back to MAUL
                 </a>
               </div>
@@ -794,7 +806,8 @@
               <div class="kv-row">
                 <div class="kv-key">About Me</div>
                 <div class="kv-val">
-                  I’m a wife and a mother. I’m British. I started playing Among Us back in 2021 after months of being pestered to play and never left.
+                  I’m a wife and a mother. I’m British. I started playing Among Us back in 2021 after months of being
+                  pestered to play and never left.
                 </div>
               </div>
 
@@ -807,13 +820,16 @@
 
               <div class="kv-row">
                 <div class="kv-key">Favourite Roles</div>
-                <div class="kv-val"><strong>Doomsayer</strong>, <strong>Detour</strong>, and <strong>Amalgamation</strong>.</div>
+                <div class="kv-val">
+                  <strong>Doomsayer</strong>, <strong>Detour</strong>, and <strong>Amalgamation</strong>.
+                </div>
               </div>
 
               <div class="kv-row">
                 <div class="kv-key">Little Extra</div>
                 <div class="kv-val">
-                  I’m a very sarcastic person, don’t take anything I say too seriously. I also collect Funko Pops and have about <strong>300</strong>.
+                  I’m a very sarcastic person, don’t take anything I say too seriously. I also collect Funko Pops and
+                  have about <strong>300</strong>.
                 </div>
               </div>
             </div>
@@ -860,7 +876,7 @@
 
               <div class="badge">
                 <div class="badge-icon">
-                  <img src="../images/badges/loading.gif" alt="Community favorite badge" />
+                  <img src="../images/badges/loading.gif" alt="Community Favorite Loading" />
                 </div>
                 <div>
                   <div class="badge-title">Community Favorite</div>
@@ -869,9 +885,10 @@
               </div>
             </div>
 
-            <div class="kv" style="margin-top: 16px;">
+            <h2 style="margin-top: 18px;"><i class="fa-solid fa-chart-simple"></i> Stats</h2>
+            <div class="kv">
               <div class="kv-row">
-                <div class="kv-key">User Upvotes</div>
+                <div class="kv-key">Host Upvotes</div>
                 <div class="kv-val muted" id="host-upvotes-summary">0 upvotes - last upvoted never</div>
               </div>
             </div>
@@ -919,7 +936,9 @@
 
               <div class="kv-row">
                 <div class="kv-key">Known For</div>
-                <div class="kv-val">Being active, helping out, chatting a lot, and bringing a distinct personality to the server.</div>
+                <div class="kv-val">
+                  Being active, helping out, chatting a lot, and bringing a distinct personality to the server.
+                </div>
               </div>
 
               <div class="kv-row">
@@ -934,14 +953,14 @@
       <section class="messages-section">
         <div class="card">
           <div class="card-inner">
-            <h2><i class="fa-solid fa-envelope-open-text"></i> Messages for Junko</h2>
+            <h2><i class="fa-solid fa-envelope-open-text"></i> Messages to Junko</h2>
             <p class="muted" style="margin: 0 0 10px; line-height: 1.7;">
-              Public messages and kind words sent through upvotes.
+              Messages to Junko.
             </p>
 
             <div class="messages-list" id="messages-to-host-list">
               <div class="empty-state" id="messages-to-host-empty">
-                No public messages yet — use /upvote to leave Junko a message.
+                No public messages yet use /upvote to send Junko a message.
               </div>
             </div>
           </div>
@@ -949,84 +968,94 @@
       </section>
 
       <p class="footer-note">
-        Featured user pages are here to spotlight memorable members of the MAUL community — the helpers, regulars, contributors, and familiar names that make the server feel alive.
+        Featured user pages are here to spotlight memorable members of the MAUL community — the helpers, regulars,
+        contributors, and familiar names that make the server feel alive.
       </p>
     </div>
 
     <script src="/scripts/navbar.js"></script>
     <script>
-      (function () {
+      document.addEventListener("DOMContentLoaded", async () => {
         const hostId = document.body.dataset.hostId;
         const hostSlug = document.body.dataset.hostSlug;
+        const communityFavoriteCount = document.getElementById("community-favorite-count");
+        const hostUpvotesSummary = document.getElementById("host-upvotes-summary");
+        const messagesList = document.getElementById("messages-to-host-list");
+        const emptyState = document.getElementById("messages-to-host-empty");
 
-        const favoriteCountEl = document.getElementById("community-favorite-count");
-        const upvoteSummaryEl = document.getElementById("host-upvotes-summary");
-        const messagesListEl = document.getElementById("messages-to-host-list");
-        const messagesEmptyEl = document.getElementById("messages-to-host-empty");
+        function formatHoursAgo(isoDate) {
+          if (!isoDate) return "never";
+          const diffMs = Date.now() - new Date(isoDate).getTime();
+          if (Number.isNaN(diffMs) || diffMs < 0) return "recently";
+          const hours = Math.floor(diffMs / (1000 * 60 * 60));
+          if (hours < 1) return "less than 1 hour ago";
+          if (hours === 1) return "1 hour ago";
+          return `${hours} hours ago`;
+        }
 
-        if (!hostId || !hostSlug) return;
-
-        async function loadProfileExtras() {
-          try {
-            const [totalsResponse, messagesResponse] = await Promise.all([
-              fetch("../data/host_upvote_totals.json", { cache: "no-store" }),
-              fetch("../data/host_messages.json", { cache: "no-store" })
-            ]);
-
-            if (!totalsResponse.ok || !messagesResponse.ok) {
-              throw new Error("Failed to load profile data");
-            }
-
-            const totalsData = await totalsResponse.json();
-            const messagesData = await messagesResponse.json();
-
+        try {
+          const totalsRes = await fetch("../data/host_upvote_totals.json", { cache: "no-store" });
+          if (totalsRes.ok) {
+            const totalsData = await totalsRes.json();
             const hostData =
               (totalsData.hosts && totalsData.hosts[hostId]) ||
               (totalsData.hosts && totalsData.hosts[hostSlug]) ||
               null;
 
+            if (hostData) {
+              const upvotedTimes = Number(hostData.upvoted_times || 0);
+              const lastUpvotedAt = hostData.last_upvoted_at || null;
+
+              if (communityFavoriteCount) {
+                communityFavoriteCount.textContent = String(upvotedTimes);
+              }
+
+              if (hostUpvotesSummary) {
+                const label = upvotedTimes === 1 ? "upvote" : "upvotes";
+                hostUpvotesSummary.textContent = `${upvotedTimes} ${label} - last upvoted ${formatHoursAgo(lastUpvotedAt)}`;
+              }
+            }
+          }
+        } catch (error) {
+          console.error("Failed to load host upvote totals:", error);
+        }
+
+        try {
+          const messagesRes = await fetch("../data/host_messages.json", { cache: "no-store" });
+          if (messagesRes.ok) {
+            const messagesData = await messagesRes.json();
             const hostMessages =
               (messagesData.hosts && messagesData.hosts[hostId]) ||
               (messagesData.hosts && messagesData.hosts[hostSlug]) ||
               [];
 
-            const upvotes = Number(hostData?.upvoted_times || 0);
-            const favoriteCount = upvotes;
-            const lastUpvoted = hostData?.last_upvoted_at || "never";
+            if (Array.isArray(hostMessages) && hostMessages.length > 0 && messagesList) {
+              if (emptyState) emptyState.remove();
 
-            if (favoriteCountEl) {
-              favoriteCountEl.textContent = favoriteCount;
+              hostMessages.forEach((entry) => {
+                const card = document.createElement("div");
+                card.className = "message-card";
+
+                const meta = document.createElement("div");
+                meta.className = "message-meta";
+                const author = entry.author || "Anonymous";
+                const created = entry.created_at ? new Date(entry.created_at).toLocaleDateString() : "Recently";
+                meta.textContent = `${author} • ${created}`;
+
+                const body = document.createElement("div");
+                body.className = "message-body";
+                body.textContent = entry.message || "";
+
+                card.appendChild(meta);
+                card.appendChild(body);
+                messagesList.appendChild(card);
+              });
             }
-
-            if (upvoteSummaryEl) {
-              upvoteSummaryEl.textContent = `${upvotes} upvotes - last upvoted ${lastUpvoted}`;
-            }
-
-            if (messagesListEl && hostMessages.length > 0) {
-              if (messagesEmptyEl) messagesEmptyEl.remove();
-
-              messagesListEl.innerHTML = hostMessages
-                .map((message) => {
-                  const author = message.author || "Anonymous";
-                  const date = message.date || "Unknown date";
-                  const body = message.body || "";
-
-                  return `
-                    <div class="message-card">
-                      <div class="message-meta">${author} • ${date}</div>
-                      <div class="message-body">${body}</div>
-                    </div>
-                  `;
-                })
-                .join("");
-            }
-          } catch (error) {
-            console.error("Failed to load featured user extras:", error);
           }
+        } catch (error) {
+          console.error("Failed to load host messages:", error);
         }
-
-        loadProfileExtras();
-      })();
+      });
     </script>
   </body>
 </html>
