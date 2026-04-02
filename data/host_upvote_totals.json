@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-02T16:09:30.375507+00:00",
+  "generated_at": "2026-04-02T16:11:11.119830+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -73,6 +73,22 @@
       "upvoted_times": 11,
       "last_upvoted_at": "2026-03-25T21:25:45.740158+00:00"
     },
+    "906424513137377280": {
+      "host_id": 906424513137377280,
+      "host_name": "sixiemeSM",
+      "slug": "sixiemesm",
+      "upvoted_by_users": 8,
+      "upvoted_times": 8,
+      "last_upvoted_at": "2026-04-02T16:11:11.115676+00:00"
+    },
+    "sixiemesm": {
+      "host_id": 906424513137377280,
+      "host_name": "sixiemeSM",
+      "slug": "sixiemesm",
+      "upvoted_by_users": 8,
+      "upvoted_times": 8,
+      "last_upvoted_at": "2026-04-02T16:11:11.115676+00:00"
+    },
     "472742355355697152": {
       "host_id": 472742355355697152,
       "host_name": "SilverwiththePinkishname",
@@ -88,22 +104,6 @@
       "upvoted_by_users": 6,
       "upvoted_times": 8,
       "last_upvoted_at": "2026-03-08T14:11:11.547629+00:00"
-    },
-    "906424513137377280": {
-      "host_id": 906424513137377280,
-      "host_name": "sixiemeSM",
-      "slug": "sixiemesm",
-      "upvoted_by_users": 7,
-      "upvoted_times": 7,
-      "last_upvoted_at": "2026-04-02T16:09:30.371396+00:00"
-    },
-    "sixiemesm": {
-      "host_id": 906424513137377280,
-      "host_name": "sixiemeSM",
-      "slug": "sixiemesm",
-      "upvoted_by_users": 7,
-      "upvoted_times": 7,
-      "last_upvoted_at": "2026-04-02T16:09:30.371396+00:00"
     },
     "1447724056500502729": {
       "host_id": 1447724056500502729,
