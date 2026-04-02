@@ -47,19 +47,15 @@
 
       html,
       body {
-        min-height: 100%;
-        margin: 0;
-        padding: 0;
-        font-family: "Roboto", sans-serif;
-        color: var(--text-main);
-        overflow-x: hidden;
-        background-color: #0d0f11;
+        background-color: #050705;
       }
       
       body {
         background:
-          linear-gradient(180deg, #101214 0%, #0c0e10 55%, #08090a 100%);
-        position: relative;
+          radial-gradient(circle at 50% -10%, rgba(60, 140, 90, 0.18), transparent 40%),
+          radial-gradient(circle at 100% 20%, rgba(40, 120, 70, 0.12), transparent 45%),
+          linear-gradient(180deg, #06110a 0%, #040706 55%, #020302 100%);
+        
         color-scheme: dark;
       }
       
@@ -78,7 +74,7 @@
         content: "";
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.38);
+        background: rgba(0, 0, 0, 0.45);
         pointer-events: none;
         z-index: -1;
       }
