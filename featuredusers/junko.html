@@ -83,7 +83,6 @@
         z-index: -1;
       }
 
-      /* global navbar support */
       .dropdown {
         position: fixed;
         top: 20px;
@@ -687,6 +686,45 @@
         margin-right: 8px;
       }
 
+      .messages-section {
+        margin-top: 16px;
+      }
+
+      .messages-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .message-card {
+        padding: 14px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .message-meta {
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(216, 225, 216, 0.85);
+        margin-bottom: 8px;
+      }
+
+      .message-body {
+        color: #fff;
+        line-height: 1.7;
+      }
+
+      .empty-state {
+        padding: 14px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
       .footer-note {
         margin: 28px auto 0;
         text-align: center;
@@ -720,7 +758,7 @@
     </style>
   </head>
 
-  <body>
+  <body data-host-id="PUT_JUNKOS_DISCORD_ID_HERE" data-host-slug="junko">
     <div id="navbar"></div>
 
     <div class="page-wrapper">
@@ -818,7 +856,7 @@
                 <div class="kv-key">In MAUL</div>
                 <div class="kv-val">
                   I’ve been a member of MAUL for about 2 years and mainly play <strong>EHR</strong> or
-                  <strong>Project Lotus</strong>.
+                  <strong>PL</strong>.
                 </div>
               </div>
 
@@ -884,10 +922,28 @@
                   <div class="badge-sub">5000 messages a month</div>
                 </div>
               </div>
+
+              <div class="badge">
+                <div class="badge-icon">
+                  <img src="../images/badges/loading.gif" alt="Community favorite badge" />
+                </div>
+                <div>
+                  <div class="badge-title">Community Favorite</div>
+                  <div class="badge-sub">Upvoted <span id="community-favorite-count">0</span> times</div>
+                </div>
+              </div>
+            </div>
+
+            <h2 style="margin-top: 18px;"><i class="fa-solid fa-chart-simple"></i> Community Stats</h2>
+            <div class="kv">
+              <div class="kv-row">
+                <div class="kv-key">User Upvotes</div>
+                <div class="kv-val muted" id="host-upvotes-summary">0 upvotes - last upvoted never</div>
+              </div>
             </div>
 
             <p class="muted" style="margin: 14px 0 0; line-height: 1.7;">
-              This page highlights Junko for being active and loved commmunity member. Thank you for everything you do Junko.
+              This page highlights Junko for being active in the community, not for hosting.
             </p>
           </div>
         </div>
@@ -944,12 +1000,96 @@
         </div>
       </section>
 
+      <section class="messages-section">
+        <div class="card">
+          <div class="card-inner">
+            <h2><i class="fa-solid fa-envelope-open-text"></i> Messages for Junko</h2>
+            <p class="muted" style="margin: 0 0 10px; line-height: 1.7;">
+              Public messages and kind words sent through upvotes.
+            </p>
+
+            <div class="messages-list" id="messages-to-host-list">
+              <div class="empty-state" id="messages-to-host-empty">
+                No public messages yet — use /upvote to leave Junko a message.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <p class="footer-note">
-        Featured user pages are here to spotlight memorable members of the MAUL community
+        Featured user pages are here to spotlight memorable members of the MAUL community —
         the helpers, regulars, contributors, and familiar names that make the server feel alive.
       </p>
     </div>
 
     <script src="/scripts/navbar.js"></script>
+    <script>
+      (function () {
+        const hostId = document.body.dataset.hostId;
+        const hostSlug = document.body.dataset.hostSlug;
+
+        const favoriteCountEl = document.getElementById("community-favorite-count");
+        const upvoteSummaryEl = document.getElementById("host-upvotes-summary");
+        const messagesListEl = document.getElementById("messages-to-host-list");
+        const messagesEmptyEl = document.getElementById("messages-to-host-empty");
+
+        if (!hostId || !hostSlug) return;
+
+        async function loadProfileExtras() {
+          try {
+            const response = await fetch(`/api/featuredusers/${hostSlug}.json`, {
+              cache: "no-store"
+            });
+
+            if (!response.ok) {
+              throw new Error(`HTTP ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            const upvotes = Number(data.upvotes || 0);
+            const favoriteCount = Number(data.communityFavoriteCount || upvotes || 0);
+            const lastUpvoted = data.lastUpvoted || "never";
+            const messages = Array.isArray(data.messages) ? data.messages : [];
+
+            if (favoriteCountEl) {
+              favoriteCountEl.textContent = favoriteCount;
+            }
+
+            if (upvoteSummaryEl) {
+              upvoteSummaryEl.textContent = `${upvotes} upvotes - last upvoted ${lastUpvoted}`;
+            }
+
+            if (messagesListEl) {
+              if (messages.length > 0) {
+                if (messagesEmptyEl) {
+                  messagesEmptyEl.remove();
+                }
+
+                messagesListEl.innerHTML = messages
+                  .map((message) => {
+                    const author = message.author || "Anonymous";
+                    const date = message.date || "Unknown date";
+                    const body = message.body || "";
+
+                    return `
+                      <div class="message-card">
+                        <div class="message-meta">${author} • ${date}</div>
+                        <div class="message-body">${body}</div>
+                      </div>
+                    `;
+                  })
+                  .join("");
+              }
+            }
+          } catch (error) {
+            console.error("Failed to load featured user extras:", error);
+          }
+        }
+
+        loadProfileExtras();
+      })();
+    </script>
   </body>
 </html>
