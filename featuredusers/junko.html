@@ -53,38 +53,35 @@
         font-family: "Roboto", sans-serif;
         color: var(--text-main);
         overflow-x: hidden;
-        background-color: #17191c;
+        background-color: #0d0f11;
       }
-
+      
       body {
         background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.04), transparent 34%),
-          radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.03), transparent 28%),
-          linear-gradient(180deg, #1a1c1f 0%, #141619 52%, #101214 100%);
+          linear-gradient(180deg, #101214 0%, #0c0e10 55%, #08090a 100%);
         position: relative;
         color-scheme: dark;
       }
-
+      
       body::before {
         content: "";
         position: fixed;
         inset: 0;
         background:
-          radial-gradient(circle at top left, rgba(255, 255, 255, 0.025), transparent 20%),
-          radial-gradient(circle at bottom, rgba(255, 255, 255, 0.02), transparent 24%);
+          radial-gradient(circle at top left, rgba(255, 255, 255, 0.015), transparent 22%),
+          radial-gradient(circle at bottom, rgba(255, 255, 255, 0.01), transparent 26%);
         pointer-events: none;
         z-index: -2;
       }
-
+      
       body::after {
         content: "";
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.28);
+        background: rgba(0, 0, 0, 0.38);
         pointer-events: none;
         z-index: -1;
       }
-
       .dropdown {
         position: fixed;
         top: 20px;
