@@ -49,16 +49,15 @@
       body {
         background-color: #050705;
       }
-      
+
       body {
         background:
           radial-gradient(circle at 50% -10%, rgba(60, 140, 90, 0.18), transparent 40%),
           radial-gradient(circle at 100% 20%, rgba(40, 120, 70, 0.12), transparent 45%),
           linear-gradient(180deg, #06110a 0%, #040706 55%, #020302 100%);
-        
         color-scheme: dark;
       }
-      
+
       body::before {
         content: "";
         position: fixed;
@@ -69,7 +68,7 @@
         pointer-events: none;
         z-index: -2;
       }
-      
+
       body::after {
         content: "";
         position: fixed;
@@ -78,6 +77,7 @@
         pointer-events: none;
         z-index: -1;
       }
+
       .dropdown {
         position: fixed;
         top: 20px;
@@ -287,6 +287,7 @@
         font-size: clamp(2rem, 3.5vw, 2.8rem);
         letter-spacing: 0.04em;
         text-shadow: 0 8px 30px rgba(0, 0, 0, 0.82);
+        color: #ffffff !important;
       }
 
       .page-header h1 span {
@@ -301,7 +302,7 @@
         max-width: 680px;
         font-size: 1rem;
         line-height: 1.7;
-        color: var(--text-muted);
+        color: var(--text-muted) !important;
       }
 
       .hero {
@@ -387,11 +388,13 @@
         font-family: "Poppins", sans-serif;
         font-size: 1.8rem;
         letter-spacing: 0.03em;
+        color: #ffffff !important;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
       }
 
       .profile-tagline {
         margin: 8px 0 0;
-        color: var(--text-muted);
+        color: var(--text-muted) !important;
         line-height: 1.7;
         max-width: 760px;
       }
@@ -569,10 +572,11 @@
         font-size: 1.05rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
+        color: #ffffff !important;
       }
 
       .muted {
-        color: var(--text-muted);
+        color: var(--text-muted) !important;
       }
 
       .kv {
@@ -592,13 +596,13 @@
         font-size: 0.78rem;
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        color: rgba(216, 225, 216, 0.86);
+        color: rgba(216, 225, 216, 0.86) !important;
       }
 
       .kv-val {
         margin-top: 6px;
         font-size: 0.98rem;
-        color: #fff;
+        color: #ffffff !important;
         line-height: 1.65;
       }
 
@@ -647,13 +651,14 @@
       .badge-title {
         font-weight: 800;
         font-size: 0.95rem;
+        color: #ffffff !important;
       }
 
       .badge-sub {
         font-size: 0.78rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: rgba(216, 225, 216, 0.8);
+        color: rgba(216, 225, 216, 0.8) !important;
         margin-top: 2px;
       }
 
@@ -678,12 +683,12 @@
         font-size: 0.78rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: rgba(216, 225, 216, 0.85);
+        color: rgba(216, 225, 216, 0.85) !important;
         margin-bottom: 8px;
       }
 
       .message-body {
-        color: #fff;
+        color: #ffffff !important;
         line-height: 1.7;
       }
 
@@ -692,14 +697,14 @@
         border-radius: 16px;
         background: rgba(255, 255, 255, 0.03);
         border: 1px solid rgba(255, 255, 255, 0.07);
-        color: var(--text-muted);
+        color: var(--text-muted) !important;
         line-height: 1.7;
       }
 
       .footer-note {
         margin: 28px auto 0;
         text-align: center;
-        color: rgba(216, 225, 216, 0.84);
+        color: rgba(216, 225, 216, 0.84) !important;
         font-size: 0.95rem;
         line-height: 1.7;
         max-width: 820px;
