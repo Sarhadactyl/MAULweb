@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Customize · MAUL</title>
+    <title>Customize Lobby Colors · MAUL</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta property="og:title" content="Customize · MAUL" />
+    <meta property="og:title" content="Customize Lobby Colors · MAUL" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moddedamong.us/customize.html" />
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
@@ -261,15 +261,16 @@
         color: #fff;
       }
 
-      .image-placeholder {
+      .step-img {
         margin-top: 12px;
-        padding: 12px 14px;
-        border: 1px dashed rgba(255, 255, 255, 0.16);
+        width: 100%;
+        max-width: 420px;
+        height: auto;
         border-radius: 12px;
-        background: rgba(255, 255, 255, 0.02);
-        color: #bcbccc;
-        font-family: Consolas, monospace;
-        font-size: 0.9rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .field-list {
@@ -372,33 +373,34 @@
             <div class="step">
               <strong>Step 1:</strong> Go to your
               <strong>Among Us (Mod)\Language</strong> folder.
-              <img src="images/language.png" class="step-img">
+              <img src="images/language.png" class="step-img" alt="Language folder location" />
             </div>
-          
+
             <div class="step">
               <strong>Step 2:</strong> Find <strong>template.dat</strong>.
-              <img src="images/rename.png" class="step-img">
+              <img src="images/rename.png" class="step-img" alt="Find template.dat file" />
             </div>
-          
+
             <div class="step">
               <strong>Step 3:</strong> Rename it to <strong>english.dat</strong>.
-              <img src="images/rename.png" class="step-img">
+              <img src="images/rename.png" class="step-img" alt="Rename template.dat to english.dat" />
             </div>
-          
+
             <div class="step">
               <strong>Step 4:</strong> Open the file in a text editor and fill in your values.
-              <img src="images/edit.png" class="step-img">
+              <img src="images/edit.png" class="step-img" alt="Edit english.dat in a text editor" />
             </div>
-          
+
             <div class="step">
               <strong>Step 5:</strong> Save the file and then press F5 + T.
-              <img src="images/reload.png" class="step-img">
+              <img src="images/reload.png" class="step-img" alt="Reload after saving changes" />
             </div>
           </div>
         </section>
 
         <aside class="card">
           <h2>What You Can Customize</h2>
+
           <div class="pill-row">
             <span class="pill">Host text</span>
             <span class="pill">Host color</span>
@@ -408,6 +410,7 @@
             <span class="pill">VIP tags</span>
             <span class="pill">Moderator tags</span>
             <span class="pill">Admin tags</span>
+            <span class="pill">Much more</span>
           </div>
 
           <div class="field-list">
@@ -437,7 +440,7 @@
             </div>
           </div>
 
-          <div class="image-placeholder">image/example.png</div>
+          <img src="images/example.png" class="step-img" alt="Customization example preview" />
         </aside>
       </div>
 
@@ -461,7 +464,7 @@
             <div class="code-block">HostColor:#3A86FF
 IconColor:#8338EC
 NameColor:#06D6A0</div>
-            <div class="image-placeholder">image/example.png</div>
+            <img src="images/example.png" class="step-img" alt="Solid color example" />
           </div>
 
           <div class="field-item">
@@ -471,7 +474,7 @@ NameColor:#06D6A0</div>
               This colors the whole word using one single color.
             </p>
             <div class="code-block">HostText:&lt;color=#3A86FF&gt;Host&lt;/color&gt;</div>
-            <div class="image-placeholder">image/example.png</div>
+            <img src="images/example.png" class="step-img" alt="Simple host text example" />
           </div>
 
           <div class="field-item">
@@ -483,7 +486,7 @@ NameColor:#06D6A0</div>
               <code>◆</code>, or <code>♣</code>.
             </p>
             <div class="code-block">Icon:★</div>
-            <div class="image-placeholder">image/example.png</div>
+            <img src="images/example.png" class="step-img" alt="Host icon example" />
           </div>
         </div>
       </section>
@@ -500,7 +503,7 @@ NameColor:#06D6A0</div>
               one solid color, or fully styled with multiple color tags.
             </p>
             <div class="code-block">HostText:&lt;color=#3A86FF&gt;Host&lt;/color&gt;</div>
-            <div class="image-placeholder">image/example.png</div>
+            <img src="images/example.png" class="step-img" alt="HostText example" />
           </div>
 
           <div class="field-item">
@@ -513,7 +516,7 @@ NameColor:#06D6A0</div>
             <div class="code-block">HostColor:#3A86FF
 IconColor:#8338EC
 NameColor:#06D6A0</div>
-            <div class="image-placeholder">image/example.png</div>
+            <img src="images/example.png" class="step-img" alt="Main color values example" />
           </div>
 
           <div class="field-item">
@@ -524,7 +527,7 @@ NameColor:#06D6A0</div>
               so it is easy to see whether your changes are working.
             </p>
             <div class="code-block">Icon:★</div>
-            <div class="image-placeholder">image/example.png</div>
+            <img src="images/example.png" class="step-img" alt="Host icon field example" />
           </div>
         </div>
       </section>
@@ -543,7 +546,7 @@ IconColor:#8338EC
 Icon:★
 NameColor:#06D6A0</div>
 
-        <div class="image-placeholder">image/example.png</div>
+        <img src="images/example.png" class="step-img" alt="Simple blue setup example" />
       </section>
 
       <section class="card">
@@ -566,7 +569,7 @@ NameColor:#06D6A0</div>
               Here each letter is given a slightly different color.
             </p>
             <div class="code-block">HostText:&lt;color=#3A86FF&gt;H&lt;/color&gt;&lt;color=#5F9CFF&gt;o&lt;/color&gt;&lt;color=#83B1FF&gt;s&lt;/color&gt;&lt;color=#A7C7FF&gt;t&lt;/color&gt;</div>
-            <div class="image-placeholder">image/example.png</div>
+            <img src="images/example.png" class="step-img" alt="Gradient host text example" />
           </div>
 
           <div class="field-item">
@@ -575,7 +578,7 @@ NameColor:#06D6A0</div>
               Tags like VIP can also use gradients the same way host text does.
             </p>
             <div class="code-block">VIPTag:&lt;font="Barlow-Light SDF"&gt;&lt;color=#8338EC&gt;V&lt;/color&gt;&lt;color=#9B5DE5&gt;I&lt;/color&gt;&lt;color=#C77DFF&gt;P&lt;/color&gt;&lt;/font&gt;</div>
-            <div class="image-placeholder">image/example.png</div>
+            <img src="images/example.png" class="step-img" alt="VIP tag example" />
           </div>
 
           <div class="field-item">
@@ -584,7 +587,7 @@ NameColor:#06D6A0</div>
               You can also build softer gradients using greens, blues, purples, or any palette you want.
             </p>
             <div class="code-block">ModeratorTag:&lt;font="Barlow-Light SDF"&gt;&lt;color=#06D6A0&gt;M&lt;/color&gt;&lt;color=#38E0B8&gt;o&lt;/color&gt;&lt;color=#72EFDD&gt;d&lt;/color&gt;&lt;color=#A8F5E5&gt;s&lt;/color&gt;&lt;/font&gt;</div>
-            <div class="image-placeholder">image/example.png</div>
+            <img src="images/example.png" class="step-img" alt="Moderator tag example" />
           </div>
 
           <div class="field-item">
@@ -594,7 +597,7 @@ NameColor:#06D6A0</div>
               around each character or symbol.
             </p>
             <div class="code-block">AdminTag:&lt;font="Barlow-Light SDF"&gt;&lt;color=#4D96FF&gt;C&lt;/color&gt;&lt;color=#6AA8FF&gt;o&lt;/color&gt;&lt;color=#8AB9FF&gt;-&lt;/color&gt;&lt;color=#A9CBFF&gt;H&lt;/color&gt;&lt;color=#8AB9FF&gt;o&lt;/color&gt;&lt;color=#6AA8FF&gt;s&lt;/color&gt;&lt;color=#4D96FF&gt;t&lt;/color&gt;&lt;/font&gt;</div>
-            <div class="image-placeholder">image/example.png</div>
+            <img src="images/example.png" class="step-img" alt="Admin tag example" />
           </div>
         </div>
       </section>
@@ -612,7 +615,7 @@ NameColor:#06D6A0</div>
               <li>Change your host text.</li>
               <li>Only then try gradients.</li>
             </ol>
-            <div class="image-placeholder">image/example.png</div>
+            <img src="images/example.png" class="step-img" alt="Best workflow example" />
           </div>
 
           <div class="field-item">
@@ -624,7 +627,7 @@ NameColor:#06D6A0</div>
               <li>Test one line at a time.</li>
               <li>Restart the game after saving.</li>
             </ul>
-            <div class="image-placeholder">image/example.png</div>
+            <img src="images/example.png" class="step-img" alt="Troubleshooting example" />
           </div>
         </div>
       </section>
@@ -633,14 +636,14 @@ NameColor:#06D6A0</div>
         <h2>Quick Tips</h2>
         <ul>
           <li>Use hex colors like <code>#3A86FF</code>, <code>#8338EC</code>, or <code>#06D6A0</code>.</li>
-          <li>Solid colors are easier to debug than gradients.</li>
+          <li>Solid colors are easier to create and debug than gradients.</li>
           <li>Wrap each letter in its own <code>&lt;color=...&gt;</code> tag for gradients.</li>
           <li>Keep a backup of both <strong>template.dat</strong> and <strong>english.dat</strong>.</li>
-          <li>If the game does not update right away, save the file and restart the game.</li>
+          <li>If the game does not update right away, save the file then click F5 + T.</li>
           <li>Copy working examples first, then change colors one step at a time.</li>
         </ul>
 
-        <div class="image-placeholder">image/example.png</div>
+        <img src="images/example.png" class="step-img" alt="Quick tips example" />
       </section>
 
       <p class="footer-note">
