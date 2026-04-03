@@ -273,6 +273,18 @@
         margin-right: auto;
       }
 
+      .customize-img {
+        margin-top: 14px;
+        width: 100%;
+        max-width: 260px;
+        height: auto;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
       .field-list {
         display: grid;
         gap: 12px;
@@ -440,13 +452,14 @@
             </div>
           </div>
 
-          <img src="images/example.png" class="step-img" alt="Customization example preview" />
+          <img src="images/example.png" class="customize-img" alt="Customization example preview" />
         </aside>
       </div>
 
       <section class="card">
         <div class="section-label">Beginner</div>
         <h2>Solid Colors First</h2>
+
         <p>
           If you are new to this, start here. Solid colors are the easiest to test
           because each line only uses one hex color code. Once this works, you can
@@ -458,35 +471,34 @@
             <div class="mini-title">Flat color values</div>
             <h3><code>HostColor:</code> / <code>IconColor:</code> / <code>NameColor:</code></h3>
             <p>
-              These use normal hex color codes. Examples:
+              These use normal hex color codes like
               <code>#3A86FF</code>, <code>#8338EC</code>, or <code>#06D6A0</code>.
             </p>
+
             <div class="code-block">HostColor:#3A86FF
 IconColor:#8338EC
 NameColor:#06D6A0</div>
-            <img src="images/example.png" class="step-img" alt="Solid color example" />
           </div>
 
           <div class="field-item">
             <div class="mini-title">Simple host text</div>
             <h3><code>HostText:</code></h3>
-            <p>
-              This colors the whole word using one single color.
-            </p>
+
+            <p>This colors the entire word using one color.</p>
+
             <div class="code-block">HostText:&lt;color=#3A86FF&gt;Host&lt;/color&gt;</div>
-            <img src="images/example.png" class="step-img" alt="Simple host text example" />
           </div>
 
           <div class="field-item">
-            <div class="mini-title">Host icon symbol</div>
+            <div class="mini-title">Host icon</div>
             <h3><code>Icon:</code></h3>
+
             <p>
-              This changes the symbol that appears next to the host name.
-              You can try symbols like <code>★</code>, <code>✿</code>,
-              <code>◆</code>, or <code>♣</code>.
+              Changes the symbol next to the host name.
+              Try symbols like ★ ✿ ◆ ♣
             </p>
+
             <div class="code-block">Icon:★</div>
-            <img src="images/example.png" class="step-img" alt="Host icon example" />
           </div>
         </div>
       </section>
@@ -496,47 +508,41 @@ NameColor:#06D6A0</div>
 
         <div class="field-list">
           <div class="field-item">
-            <div class="mini-title">Displayed host label</div>
             <h3><code>HostText:</code></h3>
             <p>
-              This is the text that gets shown for the host label. It can be plain,
-              one solid color, or fully styled with multiple color tags.
+              The text shown for the host label. Can be plain or styled with colors.
             </p>
+
             <div class="code-block">HostText:&lt;color=#3A86FF&gt;Host&lt;/color&gt;</div>
-            <img src="images/example.png" class="step-img" alt="HostText example" />
           </div>
 
           <div class="field-item">
-            <div class="mini-title">Main color values</div>
             <h3><code>HostColor:</code> / <code>IconColor:</code> / <code>NameColor:</code></h3>
             <p>
-              These lines are the easiest to change because they only need one hex code each.
-              If you are testing a new theme, start here first.
+              These are the main colors. Start here when testing changes.
             </p>
+
             <div class="code-block">HostColor:#3A86FF
 IconColor:#8338EC
 NameColor:#06D6A0</div>
-            <img src="images/example.png" class="step-img" alt="Main color values example" />
           </div>
 
           <div class="field-item">
-            <div class="mini-title">Host icon</div>
             <h3><code>Icon:</code></h3>
             <p>
-              This controls the symbol shown beside the host name. Keep it simple at first
-              so it is easy to see whether your changes are working.
+              Controls the symbol next to the host name.
             </p>
+
             <div class="code-block">Icon:★</div>
-            <img src="images/example.png" class="step-img" alt="Host icon field example" />
           </div>
         </div>
       </section>
 
       <section class="card">
-        <h2>Example: Simple Blue Setup</h2>
+        <h2>Example: Simple Setup</h2>
+
         <p>
-          This is a full easy example using solid colors only. It is meant to be
-          beginner-friendly and easy to copy, test, and adjust.
+          A basic solid-color setup that is easy to copy and test.
         </p>
 
         <div class="code-block">TextBelowVersionText:
@@ -545,59 +551,43 @@ HostColor:#3A86FF
 IconColor:#8338EC
 Icon:★
 NameColor:#06D6A0</div>
-
-        <img src="images/example.png" class="step-img" alt="Simple blue setup example" />
       </section>
 
       <section class="card">
         <div class="section-label">Advanced</div>
         <h2>Gradient Text and Tags</h2>
+
         <p>
-          Gradients are optional and a little harder to edit. Instead of using one color,
-          you wrap each character in its own <code>&lt;color=...&gt;</code> tag.
-          This lets you create fading or rainbow-style text.
+          Gradients are optional and more advanced. Each letter gets its own color.
         </p>
 
         <div class="note">
-          Do this only after your basic solid-color setup is already working.
+          Only try this after your solid colors work.
         </div>
 
         <div class="field-list">
           <div class="field-item">
             <h3>Gradient host text</h3>
-            <p>
-              Here each letter is given a slightly different color.
-            </p>
+
             <div class="code-block">HostText:&lt;color=#3A86FF&gt;H&lt;/color&gt;&lt;color=#5F9CFF&gt;o&lt;/color&gt;&lt;color=#83B1FF&gt;s&lt;/color&gt;&lt;color=#A7C7FF&gt;t&lt;/color&gt;</div>
-            <img src="images/example.png" class="step-img" alt="Gradient host text example" />
           </div>
 
           <div class="field-item">
-            <h3>VIP tag example</h3>
-            <p>
-              Tags like VIP can also use gradients the same way host text does.
-            </p>
+            <h3>VIP tag</h3>
+
             <div class="code-block">VIPTag:&lt;font="Barlow-Light SDF"&gt;&lt;color=#8338EC&gt;V&lt;/color&gt;&lt;color=#9B5DE5&gt;I&lt;/color&gt;&lt;color=#C77DFF&gt;P&lt;/color&gt;&lt;/font&gt;</div>
-            <img src="images/example.png" class="step-img" alt="VIP tag example" />
           </div>
 
           <div class="field-item">
-            <h3>Moderator tag example</h3>
-            <p>
-              You can also build softer gradients using greens, blues, purples, or any palette you want.
-            </p>
+            <h3>Moderator tag</h3>
+
             <div class="code-block">ModeratorTag:&lt;font="Barlow-Light SDF"&gt;&lt;color=#06D6A0&gt;M&lt;/color&gt;&lt;color=#38E0B8&gt;o&lt;/color&gt;&lt;color=#72EFDD&gt;d&lt;/color&gt;&lt;color=#A8F5E5&gt;s&lt;/color&gt;&lt;/font&gt;</div>
-            <img src="images/example.png" class="step-img" alt="Moderator tag example" />
           </div>
 
           <div class="field-item">
-            <h3>Admin tag example</h3>
-            <p>
-              Longer words or wrapped labels work the same way. Just keep adding color tags
-              around each character or symbol.
-            </p>
+            <h3>Admin tag</h3>
+
             <div class="code-block">AdminTag:&lt;font="Barlow-Light SDF"&gt;&lt;color=#4D96FF&gt;C&lt;/color&gt;&lt;color=#6AA8FF&gt;o&lt;/color&gt;&lt;color=#8AB9FF&gt;-&lt;/color&gt;&lt;color=#A9CBFF&gt;H&lt;/color&gt;&lt;color=#8AB9FF&gt;o&lt;/color&gt;&lt;color=#6AA8FF&gt;s&lt;/color&gt;&lt;color=#4D96FF&gt;t&lt;/color&gt;&lt;/font&gt;</div>
-            <img src="images/example.png" class="step-img" alt="Admin tag example" />
           </div>
         </div>
       </section>
@@ -615,7 +605,6 @@ NameColor:#06D6A0</div>
               <li>Change your host text.</li>
               <li>Only then try gradients.</li>
             </ol>
-            <img src="images/example.png" class="step-img" alt="Best workflow example" />
           </div>
 
           <div class="field-item">
@@ -627,7 +616,6 @@ NameColor:#06D6A0</div>
               <li>Test one line at a time.</li>
               <li>Restart the game after saving.</li>
             </ul>
-            <img src="images/example.png" class="step-img" alt="Troubleshooting example" />
           </div>
         </div>
       </section>
@@ -642,8 +630,6 @@ NameColor:#06D6A0</div>
           <li>If the game does not update right away, save the file then click F5 + T.</li>
           <li>Copy working examples first, then change colors one step at a time.</li>
         </ul>
-
-        <img src="images/example.png" class="step-img" alt="Quick tips example" />
       </section>
 
       <p class="footer-note">
