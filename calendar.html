@@ -27,6 +27,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="/styles/navbar.css" />
 
     <style>
       :root {
@@ -75,169 +76,6 @@
         inset: 0;
         background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
         z-index: -1;
-      }
-
-      .dropdown {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1000;
-      }
-
-      .dropbtn {
-        background: rgba(35, 10, 10, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        cursor: pointer;
-        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-        padding: 10px;
-        border-radius: 999px;
-        backdrop-filter: blur(10px);
-      }
-
-      .dropbtn:hover {
-        transform: translateY(-1px) scale(1.03);
-        background: rgba(50, 16, 16, 0.98);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
-      }
-
-      .hamburger {
-        width: 26px;
-        height: 18px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .hamburger span {
-        display: block;
-        height: 3px;
-        background: linear-gradient(90deg, var(--accent), #ff0040);
-        border-radius: 999px;
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        top: calc(100% + 8px);
-        left: 0;
-        background-color: rgba(35, 10, 10, 0.96);
-        width: 350px;
-        max-width: calc(100vw - 32px);
-        max-height: calc(100vh - 40px);
-        overflow: hidden;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
-        border-radius: 20px;
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .dropdown.open .dropdown-content {
-        display: block;
-      }
-
-      .menu-view {
-        display: none;
-        padding: 8px 0;
-        max-height: calc(100vh - 56px);
-        overflow-y: auto;
-        overscroll-behavior: contain;
-      }
-
-      .menu-view.active {
-        display: block;
-      }
-
-      .dropdown-content a,
-      .menu-nav-btn,
-      .menu-back-btn {
-        width: 100%;
-        color: var(--text-main);
-        padding: 16px 22px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 10px;
-        font-size: 0.98rem;
-        transition: background 0.22s ease, color 0.22s ease, padding-left 0.22s ease;
-        background: transparent;
-        border: none;
-        font-family: inherit;
-        text-align: left;
-        cursor: pointer;
-      }
-
-      .dropdown-content a i:first-child,
-      .menu-nav-btn span,
-      .menu-back-btn span {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .menu-nav-btn .fa-chevron-right {
-        margin-left: auto;
-      }
-
-      .dropdown-content a:hover,
-      .menu-nav-btn:hover,
-      .menu-back-btn:hover {
-        background: rgba(255, 255, 255, 0.045);
-        color: var(--accent);
-        padding-left: 26px;
-      }
-
-      .menu-back-btn {
-        justify-content: flex-start;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        margin-bottom: 4px;
-      }
-
-      .submenu-title {
-        padding: 13px 22px 10px;
-        font-size: 0.78rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.62);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        margin-bottom: 4px;
-      }
-
-      .beta-glow,
-      .highlight-glow {
-        color: #ff4d4d !important;
-        font-weight: 700;
-        text-shadow:
-          0 0 8px rgba(255, 0, 0, 0.75),
-          0 0 12px rgba(255, 0, 0, 0.55);
-        animation: betaPulse 1.6s ease-in-out infinite;
-      }
-
-      .beta-glow:hover,
-      .highlight-glow:hover {
-        background: rgba(255, 0, 0, 0.12) !important;
-        color: #ff8080 !important;
-        text-shadow:
-          0 0 10px rgba(255, 50, 50, 1),
-          0 0 16px rgba(255, 0, 0, 0.9);
-      }
-
-      @keyframes betaPulse {
-        0% {
-          text-shadow:
-            0 0 6px rgba(255, 0, 0, 0.7),
-            0 0 12px rgba(255, 0, 0, 0.4);
-        }
-        50% {
-          text-shadow:
-            0 0 12px rgba(255, 60, 60, 1),
-            0 0 24px rgba(255, 0, 0, 0.9);
-        }
-        100% {
-          text-shadow:
-            0 0 6px rgba(255, 0, 0, 0.7),
-            0 0 12px rgba(255, 0, 0, 0.4);
-        }
       }
 
       .page-wrapper {
@@ -310,6 +148,18 @@
         border: 1px solid rgba(255, 255, 255, 0.08);
         box-shadow: 0 18px 40px rgba(0,0,0,0.85);
         backdrop-filter: blur(12px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .calendar-card::before {
+        content: "";
+        position: absolute;
+        inset: -20% 12% auto;
+        height: 160px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 68%);
+        filter: blur(22px);
+        pointer-events: none;
       }
 
       .calendar-header {
@@ -318,6 +168,13 @@
         align-items: center;
         gap: 10px;
         margin-bottom: 16px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .calendar-header-copy {
+        display: grid;
+        gap: 6px;
       }
 
       .calendar-header h2 {
@@ -333,6 +190,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        flex-wrap: wrap;
       }
 
       .month-navigation button {
@@ -361,12 +219,51 @@
         cursor: default;
       }
 
+      .month-navigation button.today-btn {
+        background: linear-gradient(135deg, rgba(128, 0, 0, 0.95), rgba(176, 0, 0, 0.95));
+      }
+
       .month-title {
         font-size: 1.25rem;
         font-weight: 600;
       }
 
-      .calendar-grid { margin-top: 12px; }
+      .month-stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 8px;
+        margin-bottom: 16px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .month-stat {
+        padding: 12px 14px;
+        border-radius: 14px;
+        background: rgba(45, 18, 18, 0.78);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+      }
+
+      .month-stat-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .month-stat-value {
+        margin-top: 6px;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+
+      .calendar-grid {
+        margin-top: 12px;
+        position: relative;
+        z-index: 1;
+      }
 
       .weekday-row,
       .calendar {
@@ -386,10 +283,10 @@
 
       .day {
         background: rgba(45, 18, 18, 0.85);
-        padding: 8px 6px 10px;
-        border-radius: 10px;
+        padding: 8px 8px 10px;
+        border-radius: 14px;
         font-size: 0.95rem;
-        min-height: 54px;
+        min-height: 98px;
         position: relative;
         cursor: pointer;
         transition: background 0.22s, transform 0.18s, box-shadow 0.22s, border-color 0.22s;
@@ -405,13 +302,62 @@
       .day:hover {
         background: rgba(60, 22, 22, 0.9);
         box-shadow: 0 10px 26px rgba(0,0,0,0.8);
+        transform: translateY(-1px);
       }
 
-      .day-number { font-weight: 600; margin-bottom: 6px; }
+      .day.today {
+        border-color: rgba(255, 220, 220, 0.28);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      }
+
+      .day-top {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .day-number { font-weight: 700; margin-bottom: 6px; }
+
+      .today-pill {
+        font-size: 0.6rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #fff0f0;
+        padding: 3px 6px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+      }
 
       .day-label { font-size: 0.72rem; color: var(--text-muted); }
 
       .day-has-event .day-label { color: #ffffff; }
+
+      .day-preview-list {
+        width: 100%;
+        margin-top: 8px;
+        display: grid;
+        gap: 4px;
+      }
+
+      .day-preview-item,
+      .day-preview-more {
+        font-size: 0.7rem;
+        line-height: 1.35;
+        padding: 4px 6px;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.18);
+        color: rgba(255, 255, 255, 0.9);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .day-preview-more {
+        color: var(--text-muted);
+        font-style: italic;
+      }
 
       .day.selected {
         border-color: var(--accent-soft);
@@ -453,6 +399,16 @@
         border: 1px solid rgba(255, 255, 255, 0.08);
         padding: 14px 16px 12px;
         display: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .event-details::before {
+        content: "";
+        position: absolute;
+        inset: auto 14px 100% 14px;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.08);
       }
 
       .event-details-header {
@@ -485,11 +441,12 @@
       }
 
       .event-list li {
-        padding: 6px 0;
+        padding: 10px 0;
         display: flex;
         justify-content: space-between;
         gap: 12px;
         border-top: 1px solid rgba(255, 255, 255, 0.06);
+        align-items: center;
       }
 
       .event-list li:first-child { border-top: none; }
@@ -561,15 +518,14 @@
       }
 
       .active-events-list {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
+        display: grid;
+        gap: 10px;
         margin-top: 6px;
       }
 
       .active-event-display {
-        padding: 8px 10px;
-        border-radius: 10px;
+        padding: 12px 14px;
+        border-radius: 14px;
         font-size: 0.9rem;
         background: rgba(0, 100, 40, 0.95);
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -612,6 +568,10 @@
       @media (max-width: 700px) {
         .calendar-header { flex-direction: column; align-items: flex-start; }
         .calendar-card { padding: 18px 14px 14px; }
+        .month-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .day { min-height: 86px; }
+        .day-preview-item,
+        .day-preview-more { font-size: 0.66rem; }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -647,7 +607,7 @@
 
       <section class="calendar-card">
         <div class="calendar-header">
-          <div>
+          <div class="calendar-header-copy">
             <h2>Monthly Overview</h2>
             <div class="month-title" id="monthTitle">Loading…</div>
           </div>
@@ -661,8 +621,14 @@
               <span>Next</span>
               <i class="fa-solid fa-chevron-right"></i>
             </button>
+            <button id="jumpToday" class="today-btn">
+              <i class="fa-regular fa-calendar-check"></i>
+              <span>Today</span>
+            </button>
           </div>
         </div>
+
+        <div class="month-stats" id="monthStats"></div>
 
         <div class="calendar-grid">
           <div class="weekday-row" id="weekdayRow"></div>
@@ -732,6 +698,8 @@
       const calendarDaysEl = document.getElementById("calendarDays");
       const prevMonthBtn = document.getElementById("prevMonth");
       const nextMonthBtn = document.getElementById("nextMonth");
+      const jumpTodayBtn = document.getElementById("jumpToday");
+      const monthStatsEl = document.getElementById("monthStats");
 
       const eventDetails = document.getElementById("eventDetails");
       const eventDateLabel = document.getElementById("eventDateLabel");
@@ -741,6 +709,7 @@
       const activeEventsList = document.getElementById("active-events-list");
       const noActiveEventsEl = document.getElementById("no-active-events");
       const errorBox = document.getElementById("errorBox");
+      const selectedDayByMonth = {};
 
       function showError(msg) {
         errorBox.style.display = "block";
@@ -795,6 +764,99 @@
 
       function normalizeMonthEvents(monthLabel) {
         return events[monthLabel] || {};
+      }
+
+      function renderMonthStats(monthLabel, monthEvents) {
+        if (!monthStatsEl) return;
+
+        let totalEvents = 0;
+        let activeCount = 0;
+        let upcomingCount = 0;
+        let endedCount = 0;
+
+        Object.values(monthEvents).forEach((dayEvents) => {
+          (dayEvents || []).forEach((evt) => {
+            totalEvents++;
+            const status = (evt.status || "").toLowerCase();
+            if (status === "active") activeCount++;
+            else if (status === "upcoming") upcomingCount++;
+            else if (status === "ended") endedCount++;
+          });
+        });
+
+        const stats = [
+          { label: "Month", value: monthLabel.split(" ")[0] || "None" },
+          { label: "Total Events", value: String(totalEvents) },
+          { label: "Live Now", value: String(activeCount) },
+          { label: "Coming Up", value: String(upcomingCount || 0) }
+        ];
+
+        monthStatsEl.innerHTML = "";
+        stats.forEach((stat) => {
+          const card = document.createElement("div");
+          card.className = "month-stat";
+          card.innerHTML = `
+            <div class="month-stat-label">${stat.label}</div>
+            <div class="month-stat-value">${stat.value}</div>
+          `;
+          monthStatsEl.appendChild(card);
+        });
+
+        if (!totalEvents && endedCount) {
+          const valueEl = monthStatsEl.lastElementChild?.querySelector(".month-stat-value");
+          if (valueEl) valueEl.textContent = "0";
+        }
+      }
+
+      function buildDayPreview(eventsForDay) {
+        if (!eventsForDay.length) return null;
+
+        const container = document.createElement("div");
+        container.className = "day-preview-list";
+
+        eventsForDay.slice(0, 2).forEach((evt) => {
+          const item = document.createElement("div");
+          item.className = "day-preview-item";
+          item.textContent = evt.name || "Event";
+          container.appendChild(item);
+        });
+
+        if (eventsForDay.length > 2) {
+          const more = document.createElement("div");
+          more.className = "day-preview-more";
+          more.textContent = `+${eventsForDay.length - 2} more`;
+          container.appendChild(more);
+        }
+
+        return container;
+      }
+
+      function getPreferredSelectedDay(monthLabel, monthEvents) {
+        const savedDay = selectedDayByMonth[monthLabel];
+        if (savedDay && (monthEvents[String(savedDay)] || []).length) return savedDay;
+
+        const { year, monthIndex } = parseMonthLabel(monthLabel);
+        const today = new Date();
+        if (today.getFullYear() === year && today.getMonth() === monthIndex) {
+          return today.getDate();
+        }
+
+        const orderedDays = Object.keys(monthEvents)
+          .map((dayStr) => parseInt(dayStr, 10))
+          .filter((day) => Number.isFinite(day))
+          .sort((a, b) => a - b);
+
+        for (const day of orderedDays) {
+          const eventsForDay = monthEvents[String(day)] || [];
+          if (eventsForDay.some((evt) => (evt.status || "").toLowerCase() === "active")) return day;
+        }
+
+        for (const day of orderedDays) {
+          const eventsForDay = monthEvents[String(day)] || [];
+          if (eventsForDay.some((evt) => (evt.status || "").toLowerCase() === "upcoming")) return day;
+        }
+
+        return orderedDays[0] || null;
       }
 
       function renderCalendar() {
@@ -1046,3 +1108,4 @@
     <script src="/scripts/navbar.js"></script>
   </body>
 </html>
+
