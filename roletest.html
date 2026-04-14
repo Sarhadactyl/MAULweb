@@ -24,6 +24,7 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
+  <link rel="stylesheet" href="/styles/navbar.css" />
 
   <style>
     :root {
@@ -70,74 +71,6 @@
       inset: 0;
       background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
       z-index: -1;
-    }
-
-    .dropdown{
-      position: fixed;
-      top: 18px;
-      left: 18px;
-      z-index: 100;
-    }
-    .dropbtn{
-      background: rgba(35, 10, 10, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-      padding: 10px 10px;
-      border-radius: 999px;
-      backdrop-filter: blur(10px);
-    }
-    .dropbtn:hover{
-      transform: translateY(-1px) scale(1.03);
-      background: rgba(50, 16, 16, 0.98);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
-    }
-    .hamburger{
-      width: 26px;
-      height: 18px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .hamburger span{
-      display:block;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), #ff0040);
-      border-radius: 999px;
-    }
-    .dropdown-content{
-      display:none;
-      position:absolute;
-      margin-top: 8px;
-      background-color: rgba(35, 10, 10, 0.96);
-      min-width: 220px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
-      border-radius: 12px;
-      overflow:hidden;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-    .dropdown.open .dropdown-content{ display:block; }
-
-    .dropdown-content a{
-      color: var(--text-main);
-      padding: 12px 18px;
-      text-decoration:none;
-      display:flex;
-      align-items:center;
-      gap: 8px;
-      font-size: 0.95rem;
-      transition: background 0.25s, color 0.25s, padding-left 0.25s;
-    }
-    .dropdown-content a:hover{
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--accent);
-      padding-left: 22px;
-    }
-    .beta-glow{
-      color:#ff4d4d !important;
-      font-weight: 700;
-      text-shadow: 0 0 8px rgba(255, 0, 0, 0.75), 0 0 12px rgba(255, 0, 0, 0.55);
     }
 
     .wrap{
@@ -377,7 +310,6 @@
       box-shadow: 0 18px 40px rgba(0,0,0,0.85);
     }
     .answer:hover::before{ opacity:1; }
-
     .letter{
       width: 30px;
       height: 30px;
@@ -494,26 +426,7 @@
 </head>
 
 <body>
-  <div class="dropdown" id="navDropdown">
-    <button class="dropbtn" type="button" aria-label="Open navigation menu" id="navButton">
-      <div class="hamburger"><span></span><span></span><span></span></div>
-    </button>
-    <div class="dropdown-content" id="navMenu">
-      <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
-      <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
-      <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
-      <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
-      <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
-      <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
-      <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
-      <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
-      <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
-      <a href="https://moddedamong.us/wrapped"><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a>
-      <a href="https://moddedamong.us/roletest"><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a>
-      <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
-    </div>
-  </div>
+  <div id="navbar"></div>
 
   <div class="wrap">
     <section class="hero" id="hero">
@@ -623,22 +536,7 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const dropdown = document.getElementById("navDropdown");
-      const button = document.getElementById("navButton");
-      if (!dropdown || !button) return;
-
-      button.addEventListener("click", (e) => {
-        e.stopPropagation();
-        dropdown.classList.toggle("open");
-      });
-
-      document.addEventListener("click", (e) => {
-        if (!dropdown.contains(e.target)) dropdown.classList.remove("open");
-      });
-    });
-  </script>
+  <script src="/scripts/navbar.js"></script>
 
   <script>
     const TRAIT_KEYS = ["aggression","strategy","social","visibility","control","risk","loyalty","power"];
@@ -975,7 +873,6 @@
     function normalizeTraits(traits){
       const out={}; for(const k of TRAIT_KEYS) out[k]=clamp(traits[k]??0,-12,12); return out;
     }
-
     function pickArchetype(player){
       let best=null, bestD=Infinity;
       for(const a of archetypes){
@@ -1135,7 +1032,6 @@
       qSub.textContent = q.sub || "Pick what fits you best.";
       qIndexText.textContent = `Q ${state.idx+1} / ${questions.length}`;
 
-      // fixed: reaches 100% on last question
       const pct = Math.round(((state.idx + 1) / questions.length) * 100);
       progressBar.style.width = `${pct}%`;
 
@@ -1248,3 +1144,5 @@
   </script>
 </body>
 </html>
+
+
