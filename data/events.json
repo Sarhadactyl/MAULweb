@@ -1349,18 +1349,18 @@
     "28": [
       {
         "id": "1a7810fe-f0d5-42dd-a45e-b5ac47460c7f",
-        "name": "26k Members Mafia Special · By Bia)",
+        "name": "26k Members Mafia Special (Host: Bia)",
         "status": "ended",
-        "title": "26k Members Mafia Special · By Bia)",
+        "title": "26k Members Mafia Special (Host: Bia)",
         "host": ""
       }
     ],
     "29": [
       {
         "id": "53a7b6f0-ceef-4de7-a2c3-e897a3375bc5",
-        "name": "26k Members Mafia Special · By Tasdid)",
+        "name": "26k Members Mafia Special (Host:Tasdid)",
         "status": "ended",
-        "title": "26k Members Mafia Special · By Tasdid)",
+        "title": "26k Members Mafia Special (Host:Tasdid)",
         "host": ""
       },
       {
@@ -1382,85 +1382,13 @@
     ]
   },
   "April 2026": {
-    "4": [
+    "14": [
       {
-        "id": "65d1e6db-1ac6-4959-9883-a745b51d9e8b",
-        "name": "Coup Weekly Event Series • by Sherlock",
+        "id": "95271ebb-1f38-46b4-8e3b-736ad263f6cd",
+        "name": "Codenames • by Sixie",
         "status": "active",
-        "title": "Coup Weekly Event Series",
-        "host": "Sherlock"
-      }
-    ],
-    "10": [
-      {
-        "id": "6d5d1456-0430-4ece-a0f8-5934ac65af4e",
-        "name": "500% VC XP Boost • by Sarha",
-        "status": "ended",
-        "title": "500% VC XP Boost",
-        "host": "Sarha"
-      }
-    ],
-    "11": [
-      {
-        "id": "5f7360e4-9d5d-44a1-aeb3-7d360dba4f4d",
-        "name": "Coup Day 1 • by Kira",
-        "status": "ended",
-        "title": "Coup Day 1",
-        "host": "Sherlock"
-      },
-      {
-        "id": "6ff8d535-e8c2-4d22-b8fd-7ce4190579ea",
-        "name": "Last Man Standing VC Event • by Sarha",
-        "status": "ended",
-        "title": "Last Man Standing VC Event",
-        "host": "Sarha"
-      }
-    ],
-    "18": [
-      {
-        "id": "05c11143-ecef-49a7-98cf-90b94820b1ba",
-        "name": "Coup Day 2 • by Kira",
-        "status": "upcoming",
-        "title": "Coup Day 2",
-        "host": "Sherlock"
-      }
-    ],
-    "25": [
-      {
-        "id": "f7dbbecd-4318-4f35-b2a4-21030fa0f80d",
-        "name": "Coup Day 3 • by Kira",
-        "status": "upcoming",
-        "title": "Coup Day 3",
-        "host": "Sherlock"
-      }
-    ]
-  },
-  "May 2026": {
-    "2": [
-      {
-        "id": "f9001d9d-1280-452f-bd58-996d21efe942",
-        "name": "Coup Day 4 • by Kira",
-        "status": "ended",
-        "title": "Coup Day 4",
-        "host": "Sherlock"
-      }
-    ],
-    "9": [
-      {
-        "id": "01e3fc41-e1cf-44da-a4e4-f2b87f874f44",
-        "name": "Coup Day 5 • by Kira",
-        "status": "ended",
-        "title": "Coup Day 5",
-        "host": "Sherlock"
-      }
-    ],
-    "16": [
-      {
-        "id": "1f7d4e81-c64f-4427-b4b9-2ff33a96b44e",
-        "name": "Coup Day 6 • by Kira",
-        "status": "upcoming",
-        "title": "Coup Day 6",
-        "host": "Sherlock"
+        "title": "Codenames",
+        "host": "Sixie"
       }
     ]
   }
