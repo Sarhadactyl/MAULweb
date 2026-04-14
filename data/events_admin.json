@@ -1,0 +1,1586 @@
+{
+  "version": 2,
+  "updated_at": "2026-04-14T08:44:49Z",
+  "events": [
+    {
+      "id": "008b02d0-15c3-43db-8713-bc2fa25099c7",
+      "title": "Spring Scavenger Hunt · By Sarha",
+      "host": "",
+      "name": "Spring Scavenger Hunt · By Sarha",
+      "date": "2025-03-14",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "857ce960-f6ad-4c32-8e16-681d8bf750bd",
+      "title": "Mafia Night · By Cris",
+      "host": "",
+      "name": "Mafia Night · By Cris",
+      "date": "2025-03-15",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "995122ac-4049-45b6-bba9-aa40b5802bee",
+      "title": "Movie Event: Ponyo · By Sunny",
+      "host": "",
+      "name": "Movie Event: Ponyo · By Sunny",
+      "date": "2025-03-21",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "914165ca-0fcd-4da4-af23-61aabd691a51",
+      "title": "Movie Event: Peter Pan · By Sunny",
+      "host": "",
+      "name": "Movie Event: Peter Pan · By Sunny",
+      "date": "2025-03-22",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "3bde0024-0fbe-4119-8d8e-52417fbaa090",
+      "title": "Server Art Event · By Sarha",
+      "host": "",
+      "name": "Server Art Event · By Sarha",
+      "date": "2025-03-23",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "611d3d19-83e9-4447-9e20-f1e823a95e88",
+      "title": "Flash XP Event · By Sarha",
+      "host": "",
+      "name": "Flash XP Event · By Sarha",
+      "date": "2025-04-18",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "167b59f9-7968-469d-853d-e7c5fb974f2c",
+      "title": "Mafia Night · By Spyder",
+      "host": "",
+      "name": "Mafia Night · By Spyder",
+      "date": "2025-04-19",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "f6b96238-63b1-43a9-8436-dd14c37c7ed4",
+      "title": "Flash XP Event · By Sarha",
+      "host": "",
+      "name": "Flash XP Event · By Sarha",
+      "date": "2025-04-26",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "3dba869d-2619-4cba-86eb-81bde94a6141",
+      "title": "Minecraft Server Revamp · By Laikrai",
+      "host": "",
+      "name": "Minecraft Server Revamp · By Laikrai",
+      "date": "2025-04-28",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "af3ffd94-f92c-40eb-89e6-8727ab75c8e9",
+      "title": "Flash XP Event · By Sarha",
+      "host": "",
+      "name": "Flash XP Event · By Sarha",
+      "date": "2025-05-02",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "ac73aaba-5d5a-4270-a326-736a472f2b01",
+      "title": "Flash XP Event · By Sarha",
+      "host": "",
+      "name": "Flash XP Event · By Sarha",
+      "date": "2025-05-04",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "db1f67b8-df4a-4bd1-ba39-30639db1dd50",
+      "title": "Guess The Number · By Sarha",
+      "host": "",
+      "name": "Guess The Number · By Sarha",
+      "date": "2025-05-10",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "c71e72b0-e855-4553-8dfc-a4f047a78842",
+      "title": "Text XP Boost Event · By Sarha",
+      "host": "",
+      "name": "Text XP Boost Event · By Sarha",
+      "date": "2025-05-16",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "fb8e6d7c-aba7-41ac-8442-4f2f9f5eefaf",
+      "title": "Mafia Night · By Spyder",
+      "host": "",
+      "name": "Mafia Night · By Spyder",
+      "date": "2025-05-17",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "04cee470-1e50-47a6-b6b4-aea6fda7e1d5",
+      "title": "Clash of Creations · By Sarha",
+      "host": "",
+      "name": "Clash of Creations · By Sarha",
+      "date": "2025-05-18",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "0fa7251b-f1de-46fd-8b5a-5329cede1aa4",
+      "title": "Town of Us: Reactivated · By Northie",
+      "host": "",
+      "name": "Town of Us: Reactivated · By Northie",
+      "date": "2025-05-23",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "38ddff60-2538-4478-9640-d4604fd06994",
+      "title": "TOHE Mega Lobby · By GoldenWolf",
+      "host": "",
+      "name": "TOHE Mega Lobby · By GoldenWolf",
+      "date": "2025-05-25",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "b9454f71-1320-475e-98d5-b963bf96c03e",
+      "title": "Summer Banner Event · By Sarha",
+      "host": "",
+      "name": "Summer Banner Event · By Sarha",
+      "date": "2025-05-30",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "8857adb8-eb9a-476e-8792-e2126bdc5d7d",
+      "title": "500% VC XP Boost · By Sarha",
+      "host": "",
+      "name": "500% VC XP Boost · By Sarha",
+      "date": "2025-06-01",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "030c5e12-3bda-46d5-b308-59b9103e34c5",
+      "title": "Summer Banner Event · By Sarha",
+      "host": "",
+      "name": "Summer Banner Event · By Sarha",
+      "date": "2025-06-01",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "341d484f-8ee4-4271-8dfc-4d84a0ad48cd",
+      "title": "GGD · By Ghoul",
+      "host": "",
+      "name": "GGD · By Ghoul",
+      "date": "2025-06-10",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "906e25ff-6998-4bfb-a3e5-79a3eedd1c14",
+      "title": "Scribble.io · By Spyder",
+      "host": "",
+      "name": "Scribble.io · By Spyder",
+      "date": "2025-06-29",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "1d692623-6e11-4c7d-a0af-01fcfae4e630",
+      "title": "500% XP Boost · By Sarha",
+      "host": "",
+      "name": "500% XP Boost · By Sarha",
+      "date": "2025-07-12",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "f7563dbc-e790-4fb7-accb-379b65614cfe",
+      "title": "Mafia Night · By Ghoul",
+      "host": "",
+      "name": "Mafia Night · By Ghoul",
+      "date": "2025-07-13",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "fdc4f04e-1e60-43c4-91da-7ff7c41fcb68",
+      "title": "Mafia Night · By Ghoul",
+      "host": "",
+      "name": "Mafia Night · By Ghoul",
+      "date": "2025-07-20",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "08c57fc7-6799-48bb-ac26-f9112fe665c8",
+      "title": "Codenames · By Mark",
+      "host": "",
+      "name": "Codenames · By Mark",
+      "date": "2025-07-26",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "c37e33f0-6062-43c2-8d17-ce198e49b9c1",
+      "title": "Movie Night: How to Train Your Dragon · By Spyder",
+      "host": "",
+      "name": "Movie Night: How to Train Your Dragon · By Spyder",
+      "date": "2025-07-26",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "ac33c4bc-bbaf-4398-ac3f-df52f4a9aa4b",
+      "title": "500% Flash XP Event · By Sarha",
+      "host": "",
+      "name": "500% Flash XP Event · By Sarha",
+      "date": "2025-07-27",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "8e0a860b-705b-457d-948d-249432d81993",
+      "title": "Mafia Night · By Ghoul",
+      "host": "",
+      "name": "Mafia Night · By Ghoul",
+      "date": "2025-07-27",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "8a24468e-002f-4073-bbb1-b77f5ed4924f",
+      "title": "Codenames · By Mark",
+      "host": "",
+      "name": "Codenames · By Mark",
+      "date": "2025-07-31",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "ea9088d1-3f0a-4711-9857-c0fcb744f741",
+      "title": "Monthly Clan Wars Event",
+      "host": "",
+      "name": "Monthly Clan Wars Event",
+      "date": "2025-08-01",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "a4d8450f-f3d2-445b-b539-7b16d10aeb2b",
+      "title": "Code Names · By Mark",
+      "host": "",
+      "name": "Code Names · By Mark",
+      "date": "2025-08-02",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "f6618771-b40f-4218-8a48-ff9b9d20cf17",
+      "title": "Hangry Games · By Spyder",
+      "host": "",
+      "name": "Hangry Games · By Spyder",
+      "date": "2025-08-02",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "56b70cf2-f7a0-427c-be0e-b7b126194987",
+      "title": "Scribbl.io Night · By Spyder",
+      "host": "",
+      "name": "Scribbl.io Night · By Spyder",
+      "date": "2025-08-02",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "ac58931a-1832-4b6a-b8b0-42985ff3be2e",
+      "title": "Hangry Games · By Spyder",
+      "host": "",
+      "name": "Hangry Games · By Spyder",
+      "date": "2025-08-08",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "91542709-93a0-4434-bec4-166d3f1076f8",
+      "title": "Code Names · By Mark",
+      "host": "",
+      "name": "Code Names · By Mark",
+      "date": "2025-08-09",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "3ee45173-b4ef-4703-90ec-6b5ea5281348",
+      "title": "Mafia Night · By Ghoul",
+      "host": "",
+      "name": "Mafia Night · By Ghoul",
+      "date": "2025-08-10",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "1dfa8da3-86b0-440d-a8f2-618b2c74e507",
+      "title": "Hangry Games · By Spyder",
+      "host": "",
+      "name": "Hangry Games · By Spyder",
+      "date": "2025-08-16",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "09a49598-521d-4e0b-a2b3-48dd96bee496",
+      "title": "Mafia Night · By Ghoul",
+      "host": "",
+      "name": "Mafia Night · By Ghoul",
+      "date": "2025-08-17",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "1b40dfee-f343-4e5a-abda-0695c5ac12fc",
+      "title": "Clan Points Event · By Northie",
+      "host": "",
+      "name": "Clan Points Event · By Northie",
+      "date": "2025-08-23",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "57c19c92-778c-4e66-b456-49df37ed6375",
+      "title": "Codenames · By Ghoul",
+      "host": "",
+      "name": "Codenames · By Ghoul",
+      "date": "2025-08-23",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "e865c12f-1d43-462f-9f1c-d4d73a4bd7db",
+      "title": "Hangry Games · By Spyder",
+      "host": "",
+      "name": "Hangry Games · By Spyder",
+      "date": "2025-08-23",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "3c38a4be-a252-4359-8116-c50c47959a0c",
+      "title": "Clash Of Creations · By Strolgisticalated NPC",
+      "host": "",
+      "name": "Clash Of Creations · By Strolgisticalated NPC",
+      "date": "2025-08-24",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "05520393-ed8d-43cb-b7da-96c87ab1e013",
+      "title": "Crowded EHR Mini Games · Day 5",
+      "host": "",
+      "name": "Crowded EHR Mini Games · Day 5",
+      "date": "2025-08-24",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "a20c6389-8895-4d45-a9f9-5b05b206c555",
+      "title": "Flash Code Names · By Marker",
+      "host": "",
+      "name": "Flash Code Names · By Marker",
+      "date": "2025-08-30",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "fa824b1f-dd1a-4b5e-af6e-8b01e5d68dc7",
+      "title": "Hangry Games · By Spyder",
+      "host": "",
+      "name": "Hangry Games · By Spyder",
+      "date": "2025-08-30",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "fd1a0ca8-3a4c-446d-bc2d-8e4ea6a3a481",
+      "title": "Last Man Standing VC Event + 500% VC XP Boost · By Sarha",
+      "host": "",
+      "name": "Last Man Standing VC Event + 500% VC XP Boost · By Sarha",
+      "date": "2025-08-30",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "7b82e281-e9d1-4ab1-9ecb-52bc3cb0d2dc",
+      "title": "Weekend Movie Madness: SUPERMAN (2025)",
+      "host": "",
+      "name": "Weekend Movie Madness: SUPERMAN (2025)",
+      "date": "2025-09-06",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "455aef24-b9e7-42fd-bd29-8bad7e9875cd",
+      "title": "Fall Banner Contest (Submissions/Voting)",
+      "host": "",
+      "name": "Fall Banner Contest (Submissions/Voting)",
+      "date": "2025-09-07",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "398510c5-a2d2-4358-8e14-94da1bc7e87e",
+      "title": "Poets Among Us · Ghosty Theme",
+      "host": "",
+      "name": "Poets Among Us · Ghosty Theme",
+      "date": "2025-09-07",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "66e65440-b1be-469f-a2f9-b9fc0a3f8649",
+      "title": "Secret Sound Event",
+      "host": "",
+      "name": "Secret Sound Event",
+      "date": "2025-09-07",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "f21be077-a690-471a-8690-e047f20c32b4",
+      "title": "Weekend Movie Madness: MINECRAFT: THE MOVIE",
+      "host": "",
+      "name": "Weekend Movie Madness: MINECRAFT: THE MOVIE",
+      "date": "2025-09-07",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "fe6f7d19-2744-45df-8d84-a18b48480a0e",
+      "title": "Flash Codenames · By Ghoul",
+      "host": "",
+      "name": "Flash Codenames · By Ghoul",
+      "date": "2025-09-21",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "c251dbb1-d539-48aa-b6f7-0be0bb446b96",
+      "title": "Spooky Season Event · Ghost Hunt (Auto-reacts)",
+      "host": "",
+      "name": "Spooky Season Event · Ghost Hunt (Auto-reacts)",
+      "date": "2025-09-22",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "fc634de3-5bab-4b61-8c29-be2bd33a8433",
+      "title": "Codenames · By Ghoul",
+      "host": "",
+      "name": "Codenames · By Ghoul",
+      "date": "2025-10-04",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "99a91763-8972-49d9-bf4b-3088053b432c",
+      "title": "Spooky Themed Profiles",
+      "host": "",
+      "name": "Spooky Themed Profiles",
+      "date": "2025-10-04",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "cda14b21-271a-454d-a884-5a3be26bbce2",
+      "title": "Skribbl Showdown",
+      "host": "",
+      "name": "Skribbl Showdown",
+      "date": "2025-10-12",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "3cc4e37c-8117-4086-81f8-da84460bf763",
+      "title": "Killer Mystery Event",
+      "host": "",
+      "name": "Killer Mystery Event",
+      "date": "2025-10-17",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "030763ec-b74e-44ad-944d-81fd5d28accf",
+      "title": "Mafia Monday · By Eminem",
+      "host": "",
+      "name": "Mafia Monday · By Eminem",
+      "date": "2025-10-27",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "525ca225-5805-458a-837e-a509f98e93f7",
+      "title": "Mafia Monday · By Eminem",
+      "host": "",
+      "name": "Mafia Monday · By Eminem",
+      "date": "2025-11-03",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "20e0f0ed-8d65-422a-a8e0-c123cf4a3baa",
+      "title": "20K Members Giveaway + Event Week Begins",
+      "host": "",
+      "name": "20K Members Giveaway + Event Week Begins",
+      "date": "2025-11-08",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "f1279533-26c7-4fef-9f35-7b25493ff37f",
+      "title": "Day with a Dev (TONX - E) · Co-host NikoCat233",
+      "host": "",
+      "name": "Day with a Dev (TONX - E) · Co-host NikoCat233",
+      "date": "2025-11-09",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "ce54aacc-70a6-4c53-a00f-a23447ce144b",
+      "title": "Day with Dev TOU-Mira (Postponed)",
+      "host": "",
+      "name": "Day with Dev TOU-Mira (Postponed)",
+      "date": "2025-11-15",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "cd3bb5f4-aed6-42c8-8298-b98cdeb36aa1",
+      "title": "EHR Mega Lobby (51-player record attempt)",
+      "host": "",
+      "name": "EHR Mega Lobby (51-player record attempt)",
+      "date": "2025-11-15",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "2ab06d73-e5a7-4c4c-9745-50c64038a3da",
+      "title": "Last Man Standing VC & XP Boost",
+      "host": "",
+      "name": "Last Man Standing VC & XP Boost",
+      "date": "2025-11-16",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "959df232-f25a-4ef6-a558-39dd60d4906c",
+      "title": "Uno Tournament",
+      "host": "",
+      "name": "Uno Tournament",
+      "date": "2025-11-16",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "ac9eb7c8-886f-4382-baa2-ea18655b7c05",
+      "title": "Mafia Monday · By Eminem",
+      "host": "",
+      "name": "Mafia Monday · By Eminem",
+      "date": "2025-11-17",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "5c45bbf3-c160-4f6d-a814-0d67fdd69428",
+      "title": "Codenames · By Marker",
+      "host": "",
+      "name": "Codenames · By Marker",
+      "date": "2025-11-22",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "87d47aac-5175-40de-9f6e-b3465b2ce7d8",
+      "title": "Day with the Dev: Project Lotus (Cancelled)",
+      "host": "",
+      "name": "Day with the Dev: Project Lotus (Cancelled)",
+      "date": "2025-11-22",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "62afe5b1-386d-4dc8-bb2b-312a5710641c",
+      "title": "Mafia Monday · By Eminem",
+      "host": "",
+      "name": "Mafia Monday · By Eminem",
+      "date": "2025-11-24",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "445092fd-f00d-47ae-bd7e-4e83a8464a1a",
+      "title": "MAUL Tree Planted + Water Warrior Challenge",
+      "host": "",
+      "name": "MAUL Tree Planted + Water Warrior Challenge",
+      "date": "2025-11-27",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "faaa00ea-9236-4fdc-baf8-e5bd415713f9",
+      "title": "Minesweeper Tournament · By Ghoul",
+      "host": "",
+      "name": "Minesweeper Tournament · By Ghoul",
+      "date": "2025-11-28",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "2af1cf43-69e2-466f-acd8-83e235f51d1b",
+      "title": "December Shenanigans: Snowball Bot + Christmas Challenge",
+      "host": "",
+      "name": "December Shenanigans: Snowball Bot + Christmas Challenge",
+      "date": "2025-12-01",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "a9d159a1-fd7e-4f1a-9494-3789c871c22f",
+      "title": "Mafia Monday · By Eminem",
+      "host": "",
+      "name": "Mafia Monday · By Eminem",
+      "date": "2025-12-01",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "226266b0-ee10-43b3-b495-5b6fe2863c36",
+      "title": "Mafia Monday · By Eminem",
+      "host": "",
+      "name": "Mafia Monday · By Eminem",
+      "date": "2025-12-08",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "a61a33d8-810c-4844-9a78-13ceaa70eab3",
+      "title": "Town of Salem 2 Community Event · By Zen",
+      "host": "",
+      "name": "Town of Salem 2 Community Event · By Zen",
+      "date": "2025-12-14",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "9972ab16-febc-4768-9058-1c289c05eacc",
+      "title": "Mafia Monday · By Eminem",
+      "host": "",
+      "name": "Mafia Monday · By Eminem",
+      "date": "2025-12-15",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "9201bb8a-e3f9-48c5-8cdd-0fa2ee9fbeba",
+      "title": "Lary Games Debut · By Spyder",
+      "host": "",
+      "name": "Lary Games Debut · By Spyder",
+      "date": "2025-12-21",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "bad3bfb9-9b61-4c6b-be44-8573b3bcee06",
+      "title": "Mafia Monday · By Eminem",
+      "host": "",
+      "name": "Mafia Monday · By Eminem",
+      "date": "2025-12-22",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "db603a70-5137-49ee-8509-396457242f1b",
+      "title": "New Year, New Story · By Sarha",
+      "host": "",
+      "name": "New Year, New Story · By Sarha",
+      "date": "2025-12-23",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "eee96d82-dedd-40dc-96d2-466e8c6f834b",
+      "title": "Christmas Scribbl.io Extravaganza · By Spyder",
+      "host": "",
+      "name": "Christmas Scribbl.io Extravaganza · By Spyder",
+      "date": "2025-12-24",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "04371413-1988-4a18-9596-1ff4191116f3",
+      "title": "unknown · By Spyder",
+      "host": "",
+      "name": "unknown · By Spyder",
+      "date": "2025-12-24",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "197dfd50-83e3-4c46-b152-1192bf5230a3",
+      "title": "Christmas Clash · By Ghoul",
+      "host": "",
+      "name": "Christmas Clash · By Ghoul",
+      "date": "2025-12-25",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "e7ee42b5-55a8-4d0f-bb1e-2ee1e2222768",
+      "title": "Mafia Session · By Spyder",
+      "host": "",
+      "name": "Mafia Session · By Spyder",
+      "date": "2025-12-26",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "5bf5182f-abf9-49aa-969a-d556ee72c1ca",
+      "title": "Uno Championship Registrations",
+      "host": "Spyder",
+      "name": "Uno Championship Registrations • by Spyder",
+      "date": "2025-12-28",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "956a4896-a74d-478c-99f7-ab03bf18aab2",
+      "title": "Mafia Monday",
+      "host": "Eminem",
+      "name": "Mafia Monday • by Eminem",
+      "date": "2025-12-29",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "50e6d82a-2cab-4bd5-9925-b3b3a4494976",
+      "title": "Jackbox",
+      "host": "Chris",
+      "name": "Jackbox • by Chris",
+      "date": "2025-12-31",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "d83c1565-25f3-4449-bffc-fa6067d7d36d",
+      "title": "Mafia Monday · By Eminem",
+      "host": "",
+      "name": "Mafia Monday · By Eminem",
+      "date": "2026-01-05",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "a582fd15-7b41-4ab7-9723-73e44881b55f",
+      "title": "Uno Championship Group Stage",
+      "host": "Spyder",
+      "name": "Uno Championship Group Stage • by Spyder",
+      "date": "2026-01-05",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "f663101d-1bdd-4a85-99ce-d80265b243ce",
+      "title": "Start of Mafia Night, every Friday • Tas",
+      "host": "",
+      "name": "Start of Mafia Night, every Friday • Tas",
+      "date": "2026-01-09",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "420d2226-58e8-4156-a046-a5d288849595",
+      "title": "Movie Night (Howl’s Moving Castle) • JoJo",
+      "host": "",
+      "name": "Movie Night (Howl’s Moving Castle) • JoJo",
+      "date": "2026-01-10",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "eeb46a2e-b63b-4513-a46f-17458f9b8bbf",
+      "title": "Clash of Creations • Kira",
+      "host": "",
+      "name": "Clash of Creations • Kira",
+      "date": "2026-01-11",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "52134572-fc4a-419f-bc35-09fdabe0bf3f",
+      "title": "Valentine Sticker Contest · By Sarha",
+      "host": "",
+      "name": "Valentine Sticker Contest · By Sarha",
+      "date": "2026-01-11",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "23c4ebaa-32f9-4c42-8a50-3ab96b8b19cd",
+      "title": "Second Mafia Monday of 26 • Eminem",
+      "host": "",
+      "name": "Second Mafia Monday of 26 • Eminem",
+      "date": "2026-01-12",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "642ca3a6-6c42-411f-9d9c-23abba635a0e",
+      "title": "Roblox Game Night • ImNight",
+      "host": "",
+      "name": "Roblox Game Night • ImNight",
+      "date": "2026-01-16",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "996b1000-09c4-459a-87f3-8a3a03e75dd9",
+      "title": "guess the song by • Ghoul",
+      "host": "",
+      "name": "guess the song by • Ghoul",
+      "date": "2026-01-17",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "bbafd930-9073-4e6d-ba76-f2896a46d5d1",
+      "title": "Jolly Coup • Tasdid",
+      "host": "",
+      "name": "Jolly Coup • Tasdid",
+      "date": "2026-01-17",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "2830112f-a4d0-4ade-a6e8-8ba554393ce9",
+      "title": "Movie Night (Into the Spider Verse) • JoJo",
+      "host": "",
+      "name": "Movie Night (Into the Spider Verse) • JoJo",
+      "date": "2026-01-18",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "632c35f2-5c03-44cf-bdcd-4bbf17274aea",
+      "title": "Mafia Monday · By Eminem",
+      "host": "",
+      "name": "Mafia Monday · By Eminem",
+      "date": "2026-01-19",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "a7e34450-bff6-443b-a454-2afa0fa5b91c",
+      "title": "Anonymous Alias · By Spyder",
+      "host": "",
+      "name": "Anonymous Alias · By Spyder",
+      "date": "2026-01-21",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "b699160a-872a-4f6d-b93f-5b00bc7e1fdf",
+      "title": "Mafia Friday · By tas",
+      "host": "",
+      "name": "Mafia Friday · By tas",
+      "date": "2026-01-23",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "98d00f41-1093-4211-9b4c-adcc8ada7718",
+      "title": "skribbl • Ghoul",
+      "host": "",
+      "name": "skribbl • Ghoul",
+      "date": "2026-01-24",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "49200e6c-e13a-4e33-8675-a0b875ced686",
+      "title": "Movie Night (Across the Spider Verse) • JoJo",
+      "host": "",
+      "name": "Movie Night (Across the Spider Verse) • JoJo",
+      "date": "2026-01-25",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "e03fc3ca-0719-4e67-ad26-180f5063c395",
+      "title": "Uno Grand Championship Concluded · By Spyder",
+      "host": "",
+      "name": "Uno Grand Championship Concluded · By Spyder",
+      "date": "2026-01-28",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "dc92e4a1-b058-4ec6-b248-22197323b3d5",
+      "title": "Maulentines · By Sarha",
+      "host": "",
+      "name": "Maulentines · By Sarha",
+      "date": "2026-01-29",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "61e23112-ac02-47e0-9f8d-99798173eee0",
+      "title": "Roblox Escape Room · By Mark",
+      "host": "",
+      "name": "Roblox Escape Room · By Mark",
+      "date": "2026-01-31",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "233e1e7a-91cc-49e9-83fc-cc5b5dd7d0d0",
+      "title": "Valentine Voting · By Sarha",
+      "host": "",
+      "name": "Valentine Voting · By Sarha",
+      "date": "2026-02-01",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "f1e41332-8698-46cf-b414-a57727a6e2c9",
+      "title": "Mafia Monday · By Eminem",
+      "host": "",
+      "name": "Mafia Monday · By Eminem",
+      "date": "2026-02-02",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "5ca5d096-0555-45df-a634-88296d5f56f3",
+      "title": "Hangry Games · By Spyder",
+      "host": "",
+      "name": "Hangry Games · By Spyder",
+      "date": "2026-02-06",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "954b46f7-2dee-4972-b045-415e5209c899",
+      "title": "Codenames",
+      "host": "Ghoul",
+      "name": "Codenames • by Ghoul",
+      "date": "2026-02-07",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "18d53a52-df04-4874-8083-eba4d16c96c6",
+      "title": "Movie Night",
+      "host": "Jojo",
+      "name": "Movie Night • by Jojo",
+      "date": "2026-02-08",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "af7c0a44-f30f-47b2-9996-ecd15693730d",
+      "title": "Mafia Monday · By Eminem",
+      "host": "",
+      "name": "Mafia Monday · By Eminem",
+      "date": "2026-02-09",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "18eaf836-e71b-46b4-8e95-6178d761823b",
+      "title": "Clash of Creations",
+      "host": "Kira",
+      "name": "Clash of Creations • by Kira",
+      "date": "2026-02-12",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "1c0570ac-0a15-4755-9c11-8de06e60499a",
+      "title": "Hangry Games · By Spyder",
+      "host": "",
+      "name": "Hangry Games · By Spyder",
+      "date": "2026-02-13",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "beac98f5-edbd-4d8d-9d78-d2311271bde7",
+      "title": "Movie Night",
+      "host": "Jojo",
+      "name": "Movie Night • by Jojo",
+      "date": "2026-02-15",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "fd357352-0eeb-4b48-94c6-f3bc634675f2",
+      "title": "Mafia Monday · By Eminem",
+      "host": "",
+      "name": "Mafia Monday · By Eminem",
+      "date": "2026-02-16",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "52ce0f2b-10b8-4bb9-a576-9285365e8baf",
+      "title": "Clash of Creations",
+      "host": "Kira",
+      "name": "Clash of Creations • by Kira",
+      "date": "2026-02-19",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "aac50a4f-b20e-42e5-8559-24e88b3e79fe",
+      "title": "Hangry Games · By Spyder",
+      "host": "",
+      "name": "Hangry Games · By Spyder",
+      "date": "2026-02-20",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "7df0db24-a45d-4d7d-822e-e38ffc0b8ecf",
+      "title": "Mafia Friday",
+      "host": "Tasdid",
+      "name": "Mafia Friday • by Tasdid",
+      "date": "2026-02-20",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "1a040e9e-73b8-4749-a0a4-31272b0670d4",
+      "title": "Movie Night",
+      "host": "Jojo",
+      "name": "Movie Night • by Jojo",
+      "date": "2026-02-22",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "7cc22234-33ef-4a80-82b3-9c99cb58a750",
+      "title": "Mafia Monday · By Eminem",
+      "host": "",
+      "name": "Mafia Monday · By Eminem",
+      "date": "2026-02-23",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "94d68fa4-06c1-4e5b-aa8f-d8a3d205eaec",
+      "title": "Clash of Creations",
+      "host": "Kira",
+      "name": "Clash of Creations • by Kira",
+      "date": "2026-02-26",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "a9822ed2-b40f-4298-98ea-08b8894866a8",
+      "title": "Hangry Games · By Spyder",
+      "host": "",
+      "name": "Hangry Games · By Spyder",
+      "date": "2026-02-27",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "72c49fa1-7e74-44af-b9ab-5efd222a615a",
+      "title": "Mafia Friday",
+      "host": "Tasdid",
+      "name": "Mafia Friday • by Tasdid",
+      "date": "2026-02-27",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "910c9d2a-fd30-49e5-9857-6fae6a7d2999",
+      "title": "25k Mega Lobby",
+      "host": "Sarha",
+      "name": "25k Mega Lobby • by Sarha",
+      "date": "2026-02-28",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "a10aba30-a1e6-42e5-89ba-b8da1136d874",
+      "title": "Mafia Monday",
+      "host": "Eminem",
+      "name": "Mafia Monday • by Eminem",
+      "date": "2026-03-02",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "a95785e9-0de0-4946-8271-bf063995a497",
+      "title": "Movie Night",
+      "host": "Jojo",
+      "name": "Movie Night • by Jojo",
+      "date": "2026-03-02",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "1772035a-bb3b-4f23-969e-439a49297681",
+      "title": "Anonymous Alias with Teams",
+      "host": "Kira",
+      "name": "Anonymous Alias with Teams • by Kira",
+      "date": "2026-03-03",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "55003735-fe3c-40f6-8b1d-02762d4ad081",
+      "title": "Spring Banner Contest",
+      "host": "Sarha",
+      "name": "Spring Banner Contest • by Sarha",
+      "date": "2026-03-04",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "b8afdd2b-38b9-494a-8250-d5385afb65d9",
+      "title": "Spring Reaction Hunt & Exp Boost",
+      "host": "Sarha",
+      "name": "Spring Reaction Hunt & Exp Boost • by Sarha",
+      "date": "2026-03-04",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "924f0625-6cb9-4164-b408-13ccdaf238f6",
+      "title": "Clash of Creations",
+      "host": "Kira",
+      "name": "Clash of Creations • by Kira",
+      "date": "2026-03-05",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "3b25b54d-4dc6-4cf4-bab0-1889457d8758",
+      "title": "Hangry Games · By Spyder",
+      "host": "",
+      "name": "Hangry Games · By Spyder",
+      "date": "2026-03-06",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "1d63db3a-ee3e-4db7-a174-199d4ce65e3c",
+      "title": "Mafia Friday",
+      "host": "Tasdid",
+      "name": "Mafia Friday • by Tasdid",
+      "date": "2026-03-06",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "e1610c28-77a0-441a-8991-6748e36a83bb",
+      "title": "Jolly Coup",
+      "host": "Kira",
+      "name": "Jolly Coup • by Kira",
+      "date": "2026-03-07",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "aad227bf-135d-4bac-a062-4875aaa9f7c3",
+      "title": "Easter Egg Hunt",
+      "host": "Sarha",
+      "name": "Easter Egg Hunt • by Sarha",
+      "date": "2026-03-08",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "0fe1fd4f-f53b-40f1-a036-34676f260ade",
+      "title": "Mafia Monday",
+      "host": "Eminem",
+      "name": "Mafia Monday • by Eminem",
+      "date": "2026-03-09",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "befcfda4-bfb1-47dd-b099-890942513a1f",
+      "title": "Clash of Creations",
+      "host": "Kira",
+      "name": "Clash of Creations • by Kira",
+      "date": "2026-03-12",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "68229bb9-c786-4a8f-93da-d68a6e9b126e",
+      "title": "Hangry Games · By Spyder",
+      "host": "",
+      "name": "Hangry Games · By Spyder",
+      "date": "2026-03-13",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "500d4bcc-17d9-49b2-9330-f437e95e4571",
+      "title": "Mafia Friday",
+      "host": "Tasdid",
+      "name": "Mafia Friday • by Tasdid",
+      "date": "2026-03-13",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "eb876a43-9eea-48c2-8f7c-4b09fbb54ff0",
+      "title": "Movie Night",
+      "host": "Jojo",
+      "name": "Movie Night • by Jojo",
+      "date": "2026-03-15",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "66881af1-9aab-47d9-ae64-39e66fd8b757",
+      "title": "Mafia Monday",
+      "host": "Eminem",
+      "name": "Mafia Monday • by Eminem",
+      "date": "2026-03-16",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "2847ced5-58b1-414c-a254-dff237fc70a7",
+      "title": "Clash of Creations",
+      "host": "Kira",
+      "name": "Clash of Creations • by Kira",
+      "date": "2026-03-19",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "0a786ffc-924d-44fc-9e21-a342e6cd6339",
+      "title": "Hangry Games · By Spyder",
+      "host": "",
+      "name": "Hangry Games · By Spyder",
+      "date": "2026-03-20",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "c4a793e1-9964-418e-99c8-38f83e744bb9",
+      "title": "Mafia Friday",
+      "host": "Tasdid",
+      "name": "Mafia Friday • by Tasdid",
+      "date": "2026-03-20",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "1df2ea33-3534-4ba7-a66b-c1bc2c305e6f",
+      "title": "26k Members Mafia Special (Host: Ghoul)",
+      "host": "",
+      "name": "26k Members Mafia Special (Host: Ghoul)",
+      "date": "2026-03-21",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "55d37da0-1f06-4881-abe2-90c6acbd27d2",
+      "title": "26k Members Mafia Special (Host: Spyder)",
+      "host": "",
+      "name": "26k Members Mafia Special (Host: Spyder)",
+      "date": "2026-03-22",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "b30d23ba-4108-4f3c-9f16-e27c7a6c9321",
+      "title": "Movie Night",
+      "host": "Jojo",
+      "name": "Movie Night • by Jojo",
+      "date": "2026-03-22",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "b5f46d14-4706-43ab-97c2-6b14c03ac5aa",
+      "title": "26k Members Mafia Special (Host: Eminem)",
+      "host": "",
+      "name": "26k Members Mafia Special (Host: Eminem)",
+      "date": "2026-03-23",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "1bb736b3-8b48-41ed-bef6-c1fb7aeaf7ca",
+      "title": "Mafia Monday",
+      "host": "Eminem",
+      "name": "Mafia Monday • by Eminem",
+      "date": "2026-03-23",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "bbc142d9-293f-473b-a15a-a1569e9e61e0",
+      "title": "26k Members Mafia Special (Host: FuzzyGum)",
+      "host": "",
+      "name": "26k Members Mafia Special (Host: FuzzyGum)",
+      "date": "2026-03-24",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "cb07abce-298e-407e-8640-64c22e80d9aa",
+      "title": "26k Members Mafia Special (Host: Mrs S)",
+      "host": "",
+      "name": "26k Members Mafia Special (Host: Mrs S)",
+      "date": "2026-03-25",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "614c3057-0127-44d7-93c0-2e251b0111f9",
+      "title": "Clash of Creations",
+      "host": "Kira",
+      "name": "Clash of Creations • by Kira",
+      "date": "2026-03-26",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "1a0811ea-5fcf-4faf-ba11-dc9599424dc8",
+      "title": "Hangry Games · By Spyder",
+      "host": "",
+      "name": "Hangry Games · By Spyder",
+      "date": "2026-03-27",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "ee89f5db-6550-4f81-ac75-31c81a2912ee",
+      "title": "Mafia Friday",
+      "host": "Tasdid",
+      "name": "Mafia Friday • by Tasdid",
+      "date": "2026-03-27",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "1a7810fe-f0d5-42dd-a45e-b5ac47460c7f",
+      "title": "26k Members Mafia Special (Host: Bia)",
+      "host": "",
+      "name": "26k Members Mafia Special (Host: Bia)",
+      "date": "2026-03-28",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "53a7b6f0-ceef-4de7-a2c3-e897a3375bc5",
+      "title": "26k Members Mafia Special (Host:Tasdid)",
+      "host": "",
+      "name": "26k Members Mafia Special (Host:Tasdid)",
+      "date": "2026-03-29",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "a827ce0d-e06f-4be3-a8b2-dc76d6106786",
+      "title": "Movie Night",
+      "host": "Jojo",
+      "name": "Movie Night • by Jojo",
+      "date": "2026-03-29",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    },
+    {
+      "id": "847a561e-acfa-4b6d-aec2-fa82582feaa9",
+      "title": "Mafia Monday",
+      "host": "Eminem",
+      "name": "Mafia Monday • by Eminem",
+      "date": "2026-03-30",
+      "status": "ended",
+      "created_at": "2026-04-14T08:44:48Z",
+      "created_by": null
+    }
+  ]
+}
