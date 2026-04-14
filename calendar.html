@@ -763,6 +763,60 @@
         return labels;
       }
 
+      function formatMonthLabelFromDate(dateObj) {
+        return `${MONTHS[dateObj.getMonth()]} ${dateObj.getFullYear()}`;
+      }
+
+      function formatEventDisplayName(evt) {
+        if (evt?.name) return evt.name;
+        const title = (evt?.title || "").trim();
+        const host = (evt?.host || "").trim();
+        if (title && host) return `${title} • by ${host}`;
+        return title || host || "Event";
+      }
+
+      function groupEventsArray(items) {
+        const grouped = {};
+
+        (items || []).forEach((evt) => {
+          if (!evt || typeof evt !== "object" || !evt.date) return;
+
+          const parsedDate = new Date(`${evt.date}T00:00:00`);
+          if (Number.isNaN(parsedDate.getTime())) return;
+
+          const monthLabel = formatMonthLabelFromDate(parsedDate);
+          const dayKey = String(parsedDate.getDate());
+
+          grouped[monthLabel] ||= {};
+          grouped[monthLabel][dayKey] ||= [];
+          grouped[monthLabel][dayKey].push({
+            id: evt.id || null,
+            name: formatEventDisplayName(evt),
+            status: evt.status || "upcoming",
+            title: evt.title || "",
+            host: evt.host || ""
+          });
+        });
+
+        return grouped;
+      }
+
+      function normalizeEventPayload(rawData) {
+        if (!rawData || typeof rawData !== "object" || Array.isArray(rawData)) {
+          throw new Error("events.json is not an object");
+        }
+
+        if (rawData.months && typeof rawData.months === "object" && !Array.isArray(rawData.months)) {
+          return rawData.months;
+        }
+
+        if (Array.isArray(rawData.events)) {
+          return groupEventsArray(rawData.events);
+        }
+
+        return rawData;
+      }
+
       function setupWeekdays() {
         const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         weekdayRowEl.innerHTML = "";
@@ -1150,18 +1204,18 @@
         jumpToTodayMonth();
       });
 
-      async function loadEvents() {
-        hideError();
-        try {
-          const url = `/data/events.json?v=${Date.now()}`;
-          const res = await fetch(url, { cache: "no-store" });
-          if (!res.ok) throw new Error(`Could not load ${url} (HTTP ${res.status})`);
+        async function loadEvents() {
+          hideError();
+          try {
+            const url = `/data/events.json?v=${Date.now()}`;
+            const res = await fetch(url, { cache: "no-store" });
+            if (!res.ok) throw new Error(`Could not load ${url} (HTTP ${res.status})`);
 
-          const data = await res.json();
-          if (!data || typeof data !== "object") throw new Error("events.json is not an object");
+            const data = await res.json();
+            const normalizedData = normalizeEventPayload(data);
 
-          events = data;
-          monthNames = buildExpandedMonthLabels(events);
+            events = normalizedData;
+            monthNames = buildExpandedMonthLabels(events);
 
           setupWeekdays();
           autoSelectMonthNearToday();
