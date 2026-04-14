@@ -14,3 +14,7 @@ If you reuse, adapt, or build from this project, please give visible credit to:
 **MAUL / Modded Among Us Lobbies**  
 [moddedamong.us](https://moddedamong.us/)  
 [discord.gg/MAUL](https://discord.gg/MAUL)
+
+## 🙏 Acknowledgements
+
+- [@ZypherusKhan]([https://github.com/username](https://github.com/ZypherusKhan)) — guidance & ideas
