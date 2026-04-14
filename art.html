@@ -27,6 +27,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="/styles/navbar.css" />
 
     <style>
       :root {
@@ -78,169 +79,6 @@
         inset: 0;
         background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
         z-index: -1;
-      }
-
-      .dropdown {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1000;
-      }
-
-      .dropbtn {
-        background: rgba(35, 10, 10, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        cursor: pointer;
-        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-        padding: 10px;
-        border-radius: 999px;
-        backdrop-filter: blur(10px);
-      }
-
-      .dropbtn:hover {
-        transform: translateY(-1px) scale(1.03);
-        background: rgba(50, 16, 16, 0.98);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
-      }
-
-      .hamburger {
-        width: 26px;
-        height: 18px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .hamburger span {
-        display: block;
-        height: 3px;
-        background: linear-gradient(90deg, var(--accent), #ff0040);
-        border-radius: 999px;
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        top: calc(100% + 8px);
-        left: 0;
-        background-color: rgba(35, 10, 10, 0.96);
-        width: 350px;
-        max-width: calc(100vw - 32px);
-        max-height: calc(100vh - 40px);
-        overflow: hidden;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
-        border-radius: 20px;
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .dropdown.open .dropdown-content {
-        display: block;
-      }
-
-      .menu-view {
-        display: none;
-        padding: 8px 0;
-        max-height: calc(100vh - 56px);
-        overflow-y: auto;
-        overscroll-behavior: contain;
-      }
-
-      .menu-view.active {
-        display: block;
-      }
-
-      .dropdown-content a,
-      .menu-nav-btn,
-      .menu-back-btn {
-        width: 100%;
-        color: var(--text-main);
-        padding: 16px 22px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 10px;
-        font-size: 0.98rem;
-        transition: background 0.22s ease, color 0.22s ease, padding-left 0.22s ease;
-        background: transparent;
-        border: none;
-        font-family: inherit;
-        text-align: left;
-        cursor: pointer;
-      }
-
-      .dropdown-content a i:first-child,
-      .menu-nav-btn span,
-      .menu-back-btn span {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .menu-nav-btn .fa-chevron-right {
-        margin-left: auto;
-      }
-
-      .dropdown-content a:hover,
-      .menu-nav-btn:hover,
-      .menu-back-btn:hover {
-        background: rgba(255, 255, 255, 0.045);
-        color: var(--accent);
-        padding-left: 26px;
-      }
-
-      .menu-back-btn {
-        justify-content: flex-start;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        margin-bottom: 4px;
-      }
-
-      .submenu-title {
-        padding: 13px 22px 10px;
-        font-size: 0.78rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.62);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        margin-bottom: 4px;
-      }
-
-      .beta-glow,
-      .highlight-glow {
-        color: #ff4d4d !important;
-        font-weight: 700;
-        text-shadow:
-          0 0 8px rgba(255, 0, 0, 0.75),
-          0 0 12px rgba(255, 0, 0, 0.55);
-        animation: betaPulse 1.6s ease-in-out infinite;
-      }
-
-      .beta-glow:hover,
-      .highlight-glow:hover {
-        background: rgba(255, 0, 0, 0.12) !important;
-        color: #ff8080 !important;
-        text-shadow:
-          0 0 10px rgba(255, 50, 50, 1),
-          0 0 16px rgba(255, 0, 0, 0.9);
-      }
-
-      @keyframes betaPulse {
-        0% {
-          text-shadow:
-            0 0 6px rgba(255, 0, 0, 0.7),
-            0 0 12px rgba(255, 0, 0, 0.4);
-        }
-        50% {
-          text-shadow:
-            0 0 12px rgba(255, 60, 60, 1),
-            0 0 24px rgba(255, 0, 0, 0.9);
-        }
-        100% {
-          text-shadow:
-            0 0 6px rgba(255, 0, 0, 0.7),
-            0 0 12px rgba(255, 0, 0, 0.4);
-        }
       }
 
       .page-wrapper {
@@ -296,11 +134,38 @@
         position: relative;
         backdrop-filter: blur(10px);
         margin-bottom: 32px;
+        overflow: hidden;
+      }
+
+      .slideshow-card::before {
+        content: "";
+        position: absolute;
+        inset: -18% 12% 38%;
+        background:
+          radial-gradient(circle at center, rgba(255, 170, 210, 0.18), transparent 55%),
+          radial-gradient(circle at center, rgba(128, 0, 0, 0.26), transparent 68%);
+        filter: blur(32px);
+        opacity: 0.7;
+        pointer-events: none;
+        animation: galleryAura 9s ease-in-out infinite;
+      }
+
+      @keyframes galleryAura {
+        0%,
+        100% {
+          transform: scale(0.96);
+          opacity: 0.6;
+        }
+        50% {
+          transform: scale(1.04);
+          opacity: 0.9;
+        }
       }
 
       .slideshow-container {
         position: relative;
         width: 100%;
+        z-index: 1;
       }
 
       .slide {
@@ -308,6 +173,7 @@
         display: none;
         opacity: 0;
         transition: opacity 0.4s ease-in-out;
+        position: relative;
       }
 
       .slide.active {
@@ -315,16 +181,40 @@
         opacity: 1;
       }
 
-      .slide h2 {
-        margin: 4px 0 12px;
-        font-size: 1.2rem;
-        font-weight: 600;
-        padding: 6px 14px;
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 10% 12% 16%;
+        background: radial-gradient(circle at center, rgba(255, 90, 150, 0.16), transparent 60%);
+        filter: blur(26px);
+        opacity: 0;
+        transform: scale(0.94);
+        transition: opacity 0.45s ease, transform 0.45s ease;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .slide.active::before {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .artist-badge {
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        z-index: 2;
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 700;
+        padding: 10px 16px;
         border-radius: 999px;
-        background: rgba(60, 20, 20, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
-        text-align: center;
+        background: rgba(18, 5, 5, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.78);
+        backdrop-filter: blur(12px);
+        text-align: left;
+        letter-spacing: 0.04em;
       }
 
       .slide img {
@@ -337,6 +227,9 @@
         border-radius: 12px;
         border: 1px solid rgba(255, 255, 255, 0.2);
         background: rgba(0, 0, 0, 0.4);
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.72);
       }
 
       .prev,
@@ -380,6 +273,175 @@
         color: var(--text-muted);
       }
 
+      .slideshow-meta {
+        margin-top: 18px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .progress-track {
+        width: 100%;
+        height: 4px;
+        border-radius: 999px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+      }
+
+      .progress-bar {
+        width: 0;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #ff7f96, #ffd1dc, #ffffff);
+        box-shadow: 0 0 14px rgba(255, 160, 190, 0.55);
+      }
+
+      .progress-bar.is-running {
+        animation: slideTimer 5s linear forwards;
+      }
+
+      @keyframes slideTimer {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      .thumb-strip {
+        position: relative;
+        height: 120px;
+        overflow: hidden;
+        padding: 0;
+        border-radius: 18px;
+        background:
+          radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 58%),
+          rgba(10, 2, 2, 0.58);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow:
+          0 20px 36px rgba(0, 0, 0, 0.45),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        perspective: 1100px;
+        --cursor-x: 50%;
+        --cursor-opacity: 0;
+      }
+
+      .thumb-strip::before {
+        content: "";
+        position: absolute;
+        inset: auto 10% 12px;
+        height: 24px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.14), transparent 70%);
+        filter: blur(18px);
+        pointer-events: none;
+      }
+
+      .thumb-strip::after {
+        content: "";
+        position: absolute;
+        top: 18px;
+        left: 0;
+        width: 180px;
+        height: 74px;
+        transform: translateX(calc(var(--cursor-x) - 50%));
+        background: radial-gradient(circle, rgba(255, 186, 206, 0.22), rgba(255, 120, 170, 0.08) 45%, transparent 72%);
+        filter: blur(20px);
+        opacity: var(--cursor-opacity);
+        pointer-events: none;
+        transition: opacity 0.18s ease;
+      }
+
+      .thumb-strip::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .thumb-strip::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .thumb-strip::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+      }
+
+      .thumb-btn {
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(18, 6, 6, 0.9);
+        border-radius: 16px;
+        padding: 0;
+        overflow: hidden;
+        cursor: pointer;
+        width: 82px;
+        height: 82px;
+        aspect-ratio: 1;
+        position: absolute;
+        top: 14px;
+        left: 50%;
+        transform-style: preserve-3d;
+        transform:
+          translateX(calc(var(--thumb-offset, 0) * 74px - 50%))
+          translateX(var(--thumb-hover-shift, 0px))
+          translateY(calc(var(--thumb-depth, 0) * 8px + var(--thumb-hover-lift, 0px)))
+          rotateY(calc(var(--thumb-offset, 0) * -18deg + var(--thumb-hover-rotate, 0deg)))
+          scale(calc(var(--thumb-scale, 1) + var(--thumb-hover-scale, 0)));
+        transform-origin: center center;
+        transition: transform 0.35s ease, border-color 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease, filter 0.22s ease;
+        opacity: var(--thumb-opacity, 0);
+        filter: saturate(calc(0.75 + var(--thumb-scale, 1) * 0.35)) brightness(calc(1 + var(--thumb-hover-brightness, 0)));
+        z-index: var(--thumb-z, 1);
+        pointer-events: none;
+      }
+
+      .thumb-btn.is-visible {
+        pointer-events: auto;
+      }
+
+      .thumb-btn:hover,
+      .thumb-btn:focus-visible {
+        opacity: 1;
+        border-color: rgba(255, 255, 255, 0.28);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.55);
+        outline: none;
+      }
+
+      .thumb-btn.active {
+        opacity: 1;
+        border-color: rgba(255, 220, 230, 0.65);
+        box-shadow:
+          0 0 0 2px rgba(255, 220, 230, 0.14),
+          0 16px 30px rgba(0, 0, 0, 0.58);
+        filter: saturate(1.08) brightness(1.04);
+      }
+
+      .thumb-btn img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .thumb-btn::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0 0;
+        height: 40%;
+        background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.72));
+      }
+
+      .thumb-number {
+        position: absolute;
+        right: 8px;
+        bottom: 6px;
+        z-index: 1;
+        font-size: 0.66rem;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+      }
+
       footer {
         width: 100%;
         max-width: 900px;
@@ -414,6 +476,30 @@
         .next {
           font-size: 1.4em;
         }
+
+        .artist-badge {
+          top: 12px;
+          left: 12px;
+          right: 12px;
+          font-size: 0.82rem;
+          padding: 8px 12px;
+        }
+
+        .thumb-strip {
+          height: 98px;
+        }
+
+        .thumb-btn {
+          width: 64px;
+          height: 64px;
+          top: 14px;
+          transform:
+            translateX(calc(var(--thumb-offset, 0) * 56px - 50%))
+            translateX(var(--thumb-hover-shift, 0px))
+            translateY(calc(var(--thumb-depth, 0) * 7px + var(--thumb-hover-lift, 0px)))
+            rotateY(calc(var(--thumb-offset, 0) * -18deg + var(--thumb-hover-rotate, 0deg)))
+            scale(calc(var(--thumb-scale, 1) + var(--thumb-hover-scale, 0)));
+        }
       }
     </style>
   </head>
@@ -430,137 +516,143 @@
       <div class="slideshow-card">
         <div class="slideshow-container">
           <div class="slide active">
-            <h2>By: @Imnight</h2>
+            <div class="artist-badge">By: @Imnight</div>
             <img src="images/userart1.png" alt="User Art 1" />
           </div>
           <div class="slide">
-            <h2>By: @B_x</h2>
+            <div class="artist-badge">By: @B_x</div>
             <img src="images/userart2.png" alt="User Art 2" />
           </div>
           <div class="slide">
-            <h2>By: @Little Emo</h2>
+            <div class="artist-badge">By: @Little Emo</div>
             <img src="images/userart3.png" alt="User Art 3" />
           </div>
           <div class="slide">
-            <h2>By: @Dr. Zoidberg</h2>
+            <div class="artist-badge">By: @Dr. Zoidberg</div>
             <img src="images/userart4.jpg" alt="User Art 4" />
           </div>
           <div class="slide">
-            <h2>By: @Golden Wolf</h2>
+            <div class="artist-badge">By: @Golden Wolf</div>
             <img src="images/userart5.jpg" alt="User Art 5" />
           </div>
           <div class="slide">
-            <h2>By: @This Dude</h2>
+            <div class="artist-badge">By: @This Dude</div>
             <img src="images/userart6.png" alt="User Art 6" />
           </div>
           <div class="slide">
-            <h2>By: @Ody</h2>
+            <div class="artist-badge">By: @Ody</div>
             <img src="images/userart7.png" alt="User Art 7" />
           </div>
           <div class="slide">
-            <h2>By: @Sushi</h2>
+            <div class="artist-badge">By: @Sushi</div>
             <img src="images/userart8.png" alt="User Art 8" />
           </div>
           <div class="slide">
-            <h2>By: @Shannu</h2>
+            <div class="artist-badge">By: @Shannu</div>
             <img src="images/userart9.png" alt="User Art 9" />
           </div>
           <div class="slide">
-            <h2>By: @Kat</h2>
+            <div class="artist-badge">By: @Kat</div>
             <img src="images/userart10.png" alt="User Art 10" />
           </div>
           <div class="slide">
-            <h2>By: @Wastedfilms</h2>
+            <div class="artist-badge">By: @Wastedfilms</div>
             <img src="images/userart12.jpg" alt="User Art 12" />
           </div>
           <div class="slide">
-            <h2>By: @QMT13 - The Dark Knight</h2>
+            <div class="artist-badge">By: @QMT13 - The Dark Knight</div>
             <img src="images/artqmt.png" alt="User Art 13" />
           </div>
           <div class="slide">
-            <h2>By: @Cinna</h2>
+            <div class="artist-badge">By: @Cinna</div>
             <img src="images/artcinna.jpg" alt="User Art 14" />
           </div>
           <div class="slide">
-            <h2>By: @This Dude - Polus Overlook</h2>
+            <div class="artist-badge">By: @This Dude - Polus Overlook</div>
             <img src="images/artthisdude.png" alt="User Art 15" />
           </div>
           <div class="slide">
-            <h2>By: @R@ando - The Golden Cult</h2>
+            <div class="artist-badge">By: @R@ando - The Golden Cult</div>
             <img src="images/userart13.png" alt="User Art 16" />
           </div>
           <div class="slide">
-            <h2>By: @R@ando</h2>
+            <div class="artist-badge">By: @R@ando</div>
             <img src="images/art14.png" alt="User Art 17" />
           </div>
           <div class="slide">
-            <h2>By: @Fishking</h2>
+            <div class="artist-badge">By: @Fishking</div>
             <img src="images/art15.png" alt="User Art 18" />
           </div>
           <div class="slide">
-            <h2>By: @jinx</h2>
+            <div class="artist-badge">By: @jinx</div>
             <img src="images/jinx.webp" alt="User Art - jinx" />
           </div>
           <div class="slide">
-            <h2>By: @rando</h2>
+            <div class="artist-badge">By: @rando</div>
             <img src="images/rando.webp" alt="User Art - rando" />
           </div>
           <div class="slide">
-            <h2>By: @lara</h2>
+            <div class="artist-badge">By: @lara</div>
             <img src="images/lara.webp" alt="User Art - lara" />
           </div>
           <div class="slide">
-            <h2>By: @roro</h2>
+            <div class="artist-badge">By: @roro</div>
             <img src="images/roro.webp" alt="User Art - roro" />
           </div>
           <div class="slide">
-            <h2>By: @pancake</h2>
+            <div class="artist-badge">By: @pancake</div>
             <img src="images/pancake.webp" alt="User Art - pancake" />
           </div>
           <div class="slide">
-            <h2>By: @dash</h2>
+            <div class="artist-badge">By: @dash</div>
             <img src="images/dash.webp" alt="User Art - dash" />
           </div>
           <div class="slide">
-            <h2>By: @niru</h2>
+            <div class="artist-badge">By: @niru</div>
             <img src="images/niru.webp" alt="User Art - niru" />
           </div>
           <div class="slide">
-            <h2>By: @whimsy</h2>
+            <div class="artist-badge">By: @whimsy</div>
             <img src="images/whimsy.webp" alt="User Art - whimsy" />
           </div>
           <div class="slide">
-            <h2>By: @chris featuring @cris</h2>
+            <div class="artist-badge">By: @chris featuring @cris</div>
             <img src="images/chris%20featuring%20cris.webp" alt="User Art - chris featuring cris" />
           </div>
           <div class="slide">
-            <h2>By: @jinx featuring @grandpapi</h2>
+            <div class="artist-badge">By: @jinx featuring @grandpapi</div>
             <img src="images/jinx%20featuring%20grandpapi.webp" alt="User Art - jinx featuring grandpapi" />
           </div>
           <div class="slide">
-            <h2>By: @northie featuring @nuggs</h2>
+            <div class="artist-badge">By: @northie featuring @nuggs</div>
             <img src="images/northie%20featuring%20nuggs.webp" alt="User Art - northie featuring nuggs" />
           </div>
           <div class="slide">
-            <h2>By: @roro featuring @rise</h2>
+            <div class="artist-badge">By: @roro featuring @rise</div>
             <img src="images/roro%20featuring%20rise.webp" alt="User Art - roro featuring rise" />
           </div>
           <div class="slide">
-            <h2>By: @frosty featuring @red sus</h2>
+            <div class="artist-badge">By: @frosty featuring @red sus</div>
             <img src="images/frosty%20featuring%20red%20sus.webp" alt="User Art - frosty featuring red sus" />
           </div>
           <div class="slide">
-            <h2>By: @fuzzybunny featuring @ned lee</h2>
+            <div class="artist-badge">By: @fuzzybunny featuring @ned lee</div>
             <img src="images/fuzzybunny%20featuring%20ned%20lee.webp" alt="User Art - fuzzybunny featuring ned lee" />
           </div>
           <div class="slide">
-            <h2>By: @niru featuring @rosa</h2>
+            <div class="artist-badge">By: @niru featuring @rosa</div>
             <img src="images/niru%20featuring%20rosa.webp" alt="User Art - niru featuring rosa" />
           </div>
 
           <button class="prev">&#10094;</button>
           <button class="next">&#10095;</button>
           <div class="slide-counter" id="slideCounter"></div>
+        </div>
+        <div class="slideshow-meta">
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <div class="thumb-strip" id="thumbStrip" aria-label="Artwork thumbnails"></div>
         </div>
       </div>
 
@@ -579,8 +671,130 @@
       const prevBtn = document.querySelector(".prev");
       const nextBtn = document.querySelector(".next");
       const counter = document.getElementById("slideCounter");
+      const progressBar = document.getElementById("progressBar");
+      const thumbStrip = document.getElementById("thumbStrip");
+      const slideDelay = 5000;
       let currentIndex = 0;
-      let slideInterval = setInterval(nextSlide, 5000);
+      let slideInterval = setInterval(nextSlide, slideDelay);
+      let thumbPointerX = null;
+      let thumbPointerActive = false;
+
+      function restartProgress() {
+        if (!progressBar) return;
+        progressBar.classList.remove("is-running");
+        void progressBar.offsetWidth;
+        progressBar.classList.add("is-running");
+      }
+
+      function syncThumbs() {
+        if (!thumbStrip) return;
+        const total = slides.length;
+        const half = Math.floor(total / 2);
+        thumbStrip.querySelectorAll(".thumb-btn").forEach((button, index) => {
+          let offset = index - currentIndex;
+          if (offset > half) offset -= total;
+          if (offset < -half) offset += total;
+          const absOffset = Math.abs(offset);
+          const isActive = offset === 0;
+          const visible = absOffset <= 4;
+          const scale = Math.max(0.58, 1 - absOffset * 0.12);
+          const opacity = visible ? Math.max(0.18, 1 - absOffset * 0.18) : 0;
+          button.classList.toggle("active", isActive);
+          button.classList.toggle("is-visible", visible);
+          button.setAttribute("aria-current", isActive ? "true" : "false");
+          button.style.setProperty("--thumb-offset", String(offset));
+          button.style.setProperty("--thumb-depth", String(absOffset));
+          button.style.setProperty("--thumb-scale", String(scale));
+          button.style.setProperty("--thumb-opacity", String(opacity));
+          button.style.setProperty("--thumb-z", String(100 - absOffset));
+          button.style.setProperty("--thumb-hover-shift", "0px");
+          button.style.setProperty("--thumb-hover-lift", "0px");
+          button.style.setProperty("--thumb-hover-rotate", "0deg");
+          button.style.setProperty("--thumb-hover-scale", "0");
+          button.style.setProperty("--thumb-hover-brightness", "0");
+        });
+        if (thumbPointerActive && thumbPointerX !== null) {
+          applyThumbFlow(thumbPointerX);
+        }
+      }
+
+      function applyThumbFlow(clientX) {
+        if (!thumbStrip) return;
+        const stripRect = thumbStrip.getBoundingClientRect();
+        const localX = clientX - stripRect.left;
+        thumbStrip.style.setProperty("--cursor-x", `${localX}px`);
+        thumbStrip.style.setProperty("--cursor-opacity", "1");
+
+        thumbStrip.querySelectorAll(".thumb-btn.is-visible").forEach((button) => {
+          const rect = button.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const delta = clientX - centerX;
+          const distance = Math.abs(delta);
+          const influence = Math.max(0, 1 - distance / 170);
+          const shift = delta * 0.12 * influence;
+          const lift = -16 * influence;
+          const rotate = (-delta * 0.08) * influence;
+          const scaleBoost = 0.18 * influence;
+          const brightness = 0.12 * influence;
+
+          button.style.setProperty("--thumb-hover-shift", `${shift.toFixed(2)}px`);
+          button.style.setProperty("--thumb-hover-lift", `${lift.toFixed(2)}px`);
+          button.style.setProperty("--thumb-hover-rotate", `${rotate.toFixed(2)}deg`);
+          button.style.setProperty("--thumb-hover-scale", scaleBoost.toFixed(3));
+          button.style.setProperty("--thumb-hover-brightness", brightness.toFixed(3));
+        });
+      }
+
+      function clearThumbFlow() {
+        if (!thumbStrip) return;
+        thumbPointerActive = false;
+        thumbPointerX = null;
+        thumbStrip.style.setProperty("--cursor-opacity", "0");
+        thumbStrip.querySelectorAll(".thumb-btn").forEach((button) => {
+          button.style.setProperty("--thumb-hover-shift", "0px");
+          button.style.setProperty("--thumb-hover-lift", "0px");
+          button.style.setProperty("--thumb-hover-rotate", "0deg");
+          button.style.setProperty("--thumb-hover-scale", "0");
+          button.style.setProperty("--thumb-hover-brightness", "0");
+        });
+      }
+
+      function buildThumbs() {
+        if (!thumbStrip) return;
+        thumbStrip.innerHTML = "";
+        slides.forEach((slide, index) => {
+          const img = slide.querySelector("img");
+          const badge = slide.querySelector(".artist-badge");
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "thumb-btn";
+          button.setAttribute("aria-label", `View artwork ${index + 1}${badge ? ` by ${badge.textContent.replace(/^By:\s*/, "")}` : ""}`);
+          button.innerHTML = `
+            <img src="${img?.getAttribute("src") || ""}" alt="${img?.getAttribute("alt") || `Artwork ${index + 1}`}" loading="lazy" />
+            <span class="thumb-number">${index + 1}</span>
+          `;
+          button.addEventListener("click", () => {
+            clearInterval(slideInterval);
+            currentIndex = index;
+            showSlide(currentIndex);
+            slideInterval = setInterval(nextSlide, slideDelay);
+          });
+          thumbStrip.appendChild(button);
+        });
+        syncThumbs();
+      }
+
+      if (thumbStrip) {
+        thumbStrip.addEventListener("mousemove", (event) => {
+          thumbPointerActive = true;
+          thumbPointerX = event.clientX;
+          applyThumbFlow(event.clientX);
+        });
+
+        thumbStrip.addEventListener("mouseleave", () => {
+          clearThumbFlow();
+        });
+      }
 
       function updateCounter() {
         if (!counter) return;
@@ -592,6 +806,8 @@
           slide.classList.toggle("active", i === index);
         });
         updateCounter();
+        syncThumbs();
+        restartProgress();
       }
 
       function nextSlide() {
@@ -608,16 +824,17 @@
         nextBtn.addEventListener("click", () => {
           clearInterval(slideInterval);
           nextSlide();
-          slideInterval = setInterval(nextSlide, 5000);
+          slideInterval = setInterval(nextSlide, slideDelay);
         });
 
         prevBtn.addEventListener("click", () => {
           clearInterval(slideInterval);
           prevSlide();
-          slideInterval = setInterval(nextSlide, 5000);
+          slideInterval = setInterval(nextSlide, slideDelay);
         });
       }
 
+      buildThumbs();
       showSlide(currentIndex);
     </script>
     <script src="/scripts/navbar.js"></script>
