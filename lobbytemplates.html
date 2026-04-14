@@ -17,6 +17,7 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/styles/navbar.css" />
 
     <style>
       :root {
@@ -70,113 +71,15 @@
         z-index: -1;
       }
 
-      .dropdown {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 100;
-      }
-
-      .dropbtn {
-        background: rgba(35, 10, 10, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        cursor: pointer;
-        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-        padding: 10px 10px;
-        border-radius: 999px;
-        backdrop-filter: blur(10px);
-      }
-
-      .dropbtn:hover {
-        transform: translateY(-1px) scale(1.03);
-        background: rgba(50, 16, 16, 0.98);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
-      }
-
-      .hamburger {
-        width: 26px;
-        height: 18px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .hamburger span {
-        display: block;
-        height: 3px;
-        background: linear-gradient(90deg, var(--accent), #ff0040);
-        border-radius: 999px;
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        margin-top: 8px;
-        background-color: rgba(35, 10, 10, 0.96);
-        min-width: 220px;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
-        border-radius: 12px;
-        overflow: hidden;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .dropdown-content a {
-        color: var(--text-main);
-        padding: 12px 18px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.95rem;
-        transition: background 0.25s, color 0.25s, padding-left 0.25s;
-      }
-
-      .dropdown-content a:hover {
-        background: rgba(255, 255, 255, 0.04);
-        color: var(--accent);
-        padding-left: 22px;
-      }
-
-      .dropdown.open .dropdown-content {
-        display: block;
-      }
-
-      .beta-glow {
-        color: #ff4d4d !important;
-        font-weight: 700;
-        text-shadow: 0 0 8px rgba(255, 0, 0, 0.75),
-          0 0 12px rgba(255, 0, 0, 0.55);
-        animation: betaPulse 1.6s ease-in-out infinite;
-      }
-
-      .beta-glow:hover {
-        background: rgba(255, 0, 0, 0.12) !important;
-        padding-left: 22px;
-        color: #ff8080 !important;
-        text-shadow: 0 0 10px rgba(255, 50, 50, 1),
-          0 0 16px rgba(255, 0, 0, 0.9);
-      }
-
-      @keyframes betaPulse {
-        0% {
-          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
-            0 0 12px rgba(255, 0, 0, 0.4);
-        }
-        50% {
-          text-shadow: 0 0 12px rgba(255, 60, 60, 1),
-            0 0 24px rgba(255, 0, 0, 0.9);
-        }
-        100% {
-          text-shadow: 0 0 6px rgba(255, 0, 0, 0.7),
-            0 0 12px rgba(255, 0, 0, 0.4);
-        }
-      }
-
       .page-wrapper {
         max-width: 1100px;
         margin: 0 auto;
         padding: 80px 20px 40px;
+      }
+
+      .dropdown,
+      .dropdown-content {
+        display: none !important;
       }
 
       @media (max-width: 600px) {
@@ -676,6 +579,7 @@
     </style>
   </head>
   <body>
+    <div id="navbar"></div>
     <div class="dropdown">
       <button class="dropbtn" type="button">
         <div class="hamburger">
@@ -1351,24 +1255,6 @@
       renderTemplates(templates, 'templates-grid');
       renderTemplates(basicTemplates, 'basic-templates-grid');
 
-      document.addEventListener('DOMContentLoaded', () => {
-        const dropdown = document.querySelector('.dropdown');
-        const button = document.querySelector('.dropbtn');
-
-        if (!dropdown || !button) return;
-
-        button.addEventListener('click', (e) => {
-          e.stopPropagation();
-          dropdown.classList.toggle('open');
-        });
-
-        document.addEventListener('click', (e) => {
-          if (!dropdown.contains(e.target)) {
-            dropdown.classList.remove('open');
-          }
-        });
-      });
-
       (function () {
         const box = $('#lightbox');
         const closeBtn = box.querySelector('.lightbox-close');
@@ -1382,5 +1268,6 @@
         });
       })();
     </script>
+    <script src="/scripts/navbar.js"></script>
   </body>
 </html>
