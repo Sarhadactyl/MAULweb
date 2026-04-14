@@ -647,6 +647,46 @@ NameColor:#06D6A0</div>
       </section>
 
       <section class="card">
+        <div class="section-label">Intermediate</div>
+        <h2>Gradient Wrapping</h2>
+
+        <p>
+          Gradients work by wrapping each letter in its own
+          <code>&lt;color=...&gt;</code> tag and slowly changing the hex code from
+          one letter to the next. That is what gives the text a smooth fade instead
+          of one flat solid color.
+        </p>
+
+        <div class="field-list">
+          <div class="field-item">
+            <div class="mini-title">Basic idea</div>
+            <p>
+              Start with a short word first. Each letter gets its own color tag, and
+              the colors should move in a gentle order instead of jumping around.
+            </p>
+
+            <div class="code-block">HostText:&lt;color=#FF6B6B&gt;M&lt;/color&gt;&lt;color=#FF8E53&gt;A&lt;/color&gt;&lt;color=#FFD166&gt;U&lt;/color&gt;&lt;color=#22C55E&gt;L&lt;/color&gt;</div>
+          </div>
+
+          <div class="field-item">
+            <div class="mini-title">Wrapping tip</div>
+            <p>
+              Think of it like coloring one character at a time. If your word is
+              longer, repeat nearby shades so the gradient stays smooth and readable.
+            </p>
+
+            <div class="code-block">NameColor:&lt;color=#7B2CBF&gt;S&lt;/color&gt;&lt;color=#8B5CF6&gt;a&lt;/color&gt;&lt;color=#A855F7&gt;r&lt;/color&gt;&lt;color=#C084FC&gt;h&lt;/color&gt;&lt;color=#E879F9&gt;a&lt;/color&gt;</div>
+          </div>
+        </div>
+
+        <div class="warning">
+          If a gradient looks messy, reduce the number of colors and test a smaller
+          word first. Clean 3 to 5 color blends usually look better than using too
+          many random shades.
+        </div>
+      </section>
+
+      <section class="card">
         <h2>Quick Tips</h2>
         <ul>
           <li>Use hex colors like <code>#3A86FF</code>, <code>#8338EC</code>, or <code>#06D6A0</code>.</li>
