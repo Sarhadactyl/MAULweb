@@ -89,20 +89,17 @@
 
       .dropdown {
         position: fixed;
-        top: 18px;
-        left: 18px;
-        z-index: 100;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
       }
 
       .dropbtn {
         background: rgba(35, 10, 10, 0.9);
         border: 1px solid rgba(255, 255, 255, 0.14);
         cursor: pointer;
-        transition:
-          transform 0.25s ease,
-          box-shadow 0.25s ease,
-          background 0.25s ease;
-        padding: 10px 10px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        padding: 10px;
         border-radius: 999px;
         backdrop-filter: blur(10px);
       }
@@ -131,13 +128,16 @@
       .dropdown-content {
         display: none;
         position: absolute;
-        margin-top: 8px;
+        top: calc(100% + 8px);
+        left: 0;
         background-color: rgba(35, 10, 10, 0.96);
-        min-width: 220px;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
-        border-radius: 12px;
+        width: 350px;
+        max-width: calc(100vw - 32px);
+        max-height: calc(100vh - 40px);
         overflow: hidden;
-        backdrop-filter: blur(10px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+        border-radius: 20px;
+        backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.08);
       }
 
@@ -145,32 +145,109 @@
         display: block;
       }
 
-      .dropdown-content a {
+      .menu-view {
+        display: none;
+        padding: 8px 0;
+        max-height: calc(100vh - 56px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+
+      .menu-view.active {
+        display: block;
+      }
+
+      .dropdown-content a,
+      .menu-nav-btn,
+      .menu-back-btn {
+        width: 100%;
         color: var(--text-main);
-        padding: 12px 18px;
+        padding: 16px 22px;
         text-decoration: none;
         display: flex;
         align-items: center;
-        gap: 8px;
-        font-size: 0.95rem;
-        transition:
-          background 0.25s,
-          color 0.25s,
-          padding-left 0.25s;
+        justify-content: flex-start;
+        gap: 10px;
+        font-size: 0.98rem;
+        transition: background 0.22s ease, color 0.22s ease, padding-left 0.22s ease;
+        background: transparent;
+        border: none;
+        font-family: inherit;
+        text-align: left;
+        cursor: pointer;
       }
 
-      .dropdown-content a:hover {
-        background: rgba(255, 255, 255, 0.04);
+      .dropdown-content a i:first-child,
+      .menu-nav-btn span,
+      .menu-back-btn span {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .menu-nav-btn .fa-chevron-right {
+        margin-left: auto;
+      }
+
+      .dropdown-content a:hover,
+      .menu-nav-btn:hover,
+      .menu-back-btn:hover {
+        background: rgba(255, 255, 255, 0.045);
         color: var(--accent);
-        padding-left: 22px;
+        padding-left: 26px;
       }
 
-      .beta-glow {
+      .menu-back-btn {
+        justify-content: flex-start;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 4px;
+      }
+
+      .submenu-title {
+        padding: 13px 22px 10px;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.62);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 4px;
+      }
+
+      .beta-glow,
+      .highlight-glow {
         color: #ff4d4d !important;
         font-weight: 700;
         text-shadow:
           0 0 8px rgba(255, 0, 0, 0.75),
           0 0 12px rgba(255, 0, 0, 0.55);
+        animation: betaPulse 1.6s ease-in-out infinite;
+      }
+
+      .beta-glow:hover,
+      .highlight-glow:hover {
+        background: rgba(255, 0, 0, 0.12) !important;
+        color: #ff8080 !important;
+        text-shadow:
+          0 0 10px rgba(255, 50, 50, 1),
+          0 0 16px rgba(255, 0, 0, 0.9);
+      }
+
+      @keyframes betaPulse {
+        0% {
+          text-shadow:
+            0 0 6px rgba(255, 0, 0, 0.7),
+            0 0 12px rgba(255, 0, 0, 0.4);
+        }
+        50% {
+          text-shadow:
+            0 0 12px rgba(255, 60, 60, 1),
+            0 0 24px rgba(255, 0, 0, 0.9);
+        }
+        100% {
+          text-shadow:
+            0 0 6px rgba(255, 0, 0, 0.7),
+            0 0 12px rgba(255, 0, 0, 0.4);
+        }
       }
 
       .page-wrapper {
@@ -552,7 +629,7 @@
 
       .lotus-line {
         display: block;
-        font-size: 1.2em;
+        font-size: 1em;
         font-weight: 700;
         margin: 2px 0;
         padding: 0 0.15em;
@@ -561,7 +638,12 @@
       }
 
       .lotus-name-line {
-        font-size: 1.4em;
+        font-size: 1em;
+      }
+
+      .lotus-scale {
+        display: inline-block;
+        line-height: 1;
       }
 
       footer {
@@ -601,31 +683,7 @@
   </head>
 
   <body>
-    <div class="dropdown">
-      <button class="dropbtn" type="button" aria-label="Open navigation menu">
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </button>
-      <div class="dropdown-content">
-      <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
-      <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
-      <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
-      <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
-      <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
-      <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
-      <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
-      <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
-      <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
-      <a href="https://moddedamong.us/wrapped"><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a>
-      <a href="https://moddedamong.us/roletest"><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a>
-      <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
-        </a>
-      </div>
-    </div>
+    <div id="navbar"></div>
 
     <div class="page-wrapper">
       <div class="header">
@@ -1169,25 +1227,6 @@
         </div>
       </footer>
     </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const dropdown = document.querySelector(".dropdown");
-        const button = document.querySelector(".dropbtn");
-
-        if (!dropdown || !button) return;
-
-        button.addEventListener("click", (e) => {
-          e.stopPropagation();
-          dropdown.classList.toggle("open");
-        });
-
-        document.addEventListener("click", (e) => {
-          if (!dropdown.contains(e.target)) {
-            dropdown.classList.remove("open");
-          }
-        });
-      });
-    </script>
     <script>
       function copyToClipboard(text) {
         if (navigator.clipboard && window.isSecureContext) {
@@ -1793,6 +1832,22 @@
         });
       }
 
+      function lotusPreviewSize(rawValue, fallback = 2) {
+        const parsed = parseFloat(String(rawValue ?? "").trim());
+        return Number.isFinite(parsed) ? clamp(parsed, 0.5, 6) : fallback;
+      }
+
+      function wrapLotusScaledHtml(innerHtml, size) {
+        return `<span class="lotus-scale" style="font-size:${size}em">${innerHtml}</span>`;
+      }
+
+      function lotusSolidHtml(text, color, size) {
+        return wrapLotusScaledHtml(
+          `<span style="color:${color}">${escapeHtml(text)}</span>`,
+          size
+        );
+      }
+
       function syncLotusColor(hexInput, picker) {
         if (!hexInput || !picker) return;
         hexInput.addEventListener("input", () => {
@@ -1892,32 +1947,44 @@ LowerText:
         const nameCols = lotusGradStops.name;
         const lowerCols = lotusGradStops.lower;
 
+        const upperSize = lotusPreviewSize(lotusUpperSize.value, 2);
+        const nameSize = lotusPreviewSize(lotusNameSize.value, 2);
+        const lowerSize = lotusPreviewSize(lotusLowerSize.value, 2);
+
         const prefixText = sanitizeTagText(lotusPrefixText.value || "");
         const prefixColor = normHex(lotusPrefixColor.value || "#FF0000", true);
+        const prefixSize = lotusPreviewSize(lotusPrefixSize.value, nameSize);
         const prefixSpaced =
           [...lotusPrefixSpaceRadios].find((r) => r.checked)?.value === "true";
 
         const suffixText = sanitizeTagText(lotusSuffixText.value || "");
         const suffixColor = normHex(lotusSuffixColor.value || "#FF00FF", true);
+        const suffixSize = lotusPreviewSize(lotusSuffixSize.value, nameSize);
         const suffixSpaced =
           [...lotusSuffixSpaceRadios].find((r) => r.checked)?.value === "true";
 
         const prefixHtml = prefixText
-          ? `<span style="color:${prefixColor}">${escapeHtml(prefixText)}</span>`
+          ? lotusSolidHtml(prefixText, prefixColor, prefixSize)
           : "";
         const suffixHtml = suffixText
-          ? `<span style="color:${suffixColor}">${escapeHtml(suffixText)}</span>`
+          ? lotusSolidHtml(suffixText, suffixColor, suffixSize)
           : "";
 
         const prefixSpace = prefixHtml && prefixSpaced ? "&nbsp;" : "";
         const suffixSpace = suffixHtml && suffixSpaced ? "&nbsp;" : "";
 
-        lotusUpperLine.innerHTML = gradientTextHtml(upperText, upperCols);
-        lotusNameLine.innerHTML = `${prefixHtml}${prefixSpace}${gradientTextHtml(
-          nameText,
-          nameCols
+        lotusUpperLine.innerHTML = wrapLotusScaledHtml(
+          gradientTextHtml(upperText, upperCols),
+          upperSize
+        );
+        lotusNameLine.innerHTML = `${prefixHtml}${prefixSpace}${wrapLotusScaledHtml(
+          gradientTextHtml(nameText, nameCols),
+          nameSize
         )}${suffixSpace}${suffixHtml}`;
-        lotusLowerLine.innerHTML = gradientTextHtml(lowerText, lowerCols);
+        lotusLowerLine.innerHTML = wrapLotusScaledHtml(
+          gradientTextHtml(lowerText, lowerCols),
+          lowerSize
+        );
       }
 
       function buildOutputs() {
@@ -2098,5 +2165,7 @@ LowerText:
         render();
       })();
     </script>
+    <script src="/scripts/navbar.js"></script>
   </body>
 </html>
+
