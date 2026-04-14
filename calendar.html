@@ -736,6 +736,33 @@
           .map((x) => x.label);
       }
 
+      const CALENDAR_END_YEAR = 2027;
+
+      function buildExpandedMonthLabels(eventMap) {
+        const sortedEventMonths = sortMonthLabels(Object.keys(eventMap || {}));
+        const today = new Date();
+        let startDate = new Date(today.getFullYear(), today.getMonth(), 1);
+        let endDate = new Date(CALENDAR_END_YEAR, 11, 1);
+
+        if (sortedEventMonths.length) {
+          const first = parseMonthLabel(sortedEventMonths[0]);
+          const last = parseMonthLabel(sortedEventMonths[sortedEventMonths.length - 1]);
+          const firstDate = new Date(first.year, first.monthIndex, 1);
+          const lastDate = new Date(last.year, last.monthIndex, 1);
+
+          if (firstDate < startDate) startDate = firstDate;
+          if (lastDate > endDate) endDate = lastDate;
+        }
+
+        const labels = [];
+        const cursor = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
+        while (cursor <= endDate) {
+          labels.push(`${MONTHS[cursor.getMonth()]} ${cursor.getFullYear()}`);
+          cursor.setMonth(cursor.getMonth() + 1);
+        }
+        return labels;
+      }
+
       function setupWeekdays() {
         const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         weekdayRowEl.innerHTML = "";
@@ -863,6 +890,7 @@
         if (!monthNames.length) {
           monthTitleEl.textContent = "No months found";
           calendarDaysEl.innerHTML = "";
+          if (monthStatsEl) monthStatsEl.innerHTML = "";
           prevMonthBtn.classList.add("disabled");
           nextMonthBtn.classList.add("disabled");
           eventDetails.style.display = "none";
@@ -876,9 +904,18 @@
 
         const { firstDay, daysInMonth } = getMonthInfo(monthLabel);
         const monthEvents = normalizeMonthEvents(monthLabel);
+        const today = new Date();
+        const isCurrentMonth =
+          today.getFullYear() === parseMonthLabel(monthLabel).year &&
+          today.getMonth() === parseMonthLabel(monthLabel).monthIndex;
+
+        renderMonthStats(monthLabel, monthEvents);
 
         prevMonthBtn.classList.toggle("disabled", currentMonthIndex === 0);
         nextMonthBtn.classList.toggle("disabled", currentMonthIndex === monthNames.length - 1);
+
+        let selectedDayElement = null;
+        const preferredDay = getPreferredSelectedDay(monthLabel, monthEvents);
 
         for (let i = 0; i < firstDay; i++) {
           const div = document.createElement("div");
@@ -889,6 +926,9 @@
         for (let day = 1; day <= daysInMonth; day++) {
           const div = document.createElement("div");
           div.className = "day";
+          if (isCurrentMonth && day === today.getDate()) {
+            div.classList.add("today");
+          }
 
           const eventsForDay = monthEvents[String(day)] || [];
           const status = getDayStatus(eventsForDay);
@@ -905,7 +945,10 @@
             : "\u00A0";
 
           div.innerHTML = `
-            <div class="day-number">${day}</div>
+            <div class="day-top">
+              <div class="day-number">${day}</div>
+              ${isCurrentMonth && day === today.getDate() ? '<div class="today-pill">Today</div>' : ""}
+            </div>
             <div class="day-label">${labelText}</div>
           `;
 
@@ -933,22 +976,38 @@
             div.appendChild(dotRow);
           }
 
+          const previewList = buildDayPreview(eventsForDay);
+          if (previewList) {
+            div.appendChild(previewList);
+          }
+
           div.addEventListener("click", () => {
             document.querySelectorAll(".day.selected").forEach((d) => d.classList.remove("selected"));
             div.classList.add("selected");
+            selectedDayByMonth[monthLabel] = day;
             showEventDetails(monthLabel, day, eventsForDay);
           });
+
+          if (preferredDay === day) {
+            selectedDayElement = div;
+          }
 
           calendarDaysEl.appendChild(div);
         }
 
-        eventDetails.style.display = "none";
+        if (selectedDayElement) {
+          selectedDayElement.classList.add("selected");
+          showEventDetails(monthLabel, preferredDay, monthEvents[String(preferredDay)] || []);
+        } else {
+          eventDetails.style.display = "none";
+        }
         renderActiveEventsAllMonths();
       }
 
       function showEventDetails(monthLabel, day, eventsForDay) {
         eventDetails.style.display = "block";
         eventDateLabel.textContent = `${monthLabel} ${day}`;
+        selectedDayByMonth[monthLabel] = day;
 
         if (!eventsForDay.length) {
           eventList.style.display = "none";
@@ -1062,6 +1121,17 @@
         currentMonthIndex = bestIdx;
       }
 
+      function jumpToTodayMonth() {
+        const today = new Date();
+        const currentMonthStr =
+          today.toLocaleString("default", { month: "long" }) + " " + today.getFullYear();
+        const idx = monthNames.findIndex((m) => m === currentMonthStr);
+        if (idx !== -1) {
+          currentMonthIndex = idx;
+          renderCalendar();
+        }
+      }
+
       prevMonthBtn.addEventListener("click", () => {
         if (currentMonthIndex > 0) {
           currentMonthIndex--;
@@ -1076,6 +1146,10 @@
         }
       });
 
+      jumpTodayBtn?.addEventListener("click", () => {
+        jumpToTodayMonth();
+      });
+
       async function loadEvents() {
         hideError();
         try {
@@ -1087,7 +1161,7 @@
           if (!data || typeof data !== "object") throw new Error("events.json is not an object");
 
           events = data;
-          monthNames = sortMonthLabels(Object.keys(events));
+          monthNames = buildExpandedMonthLabels(events);
 
           setupWeekdays();
           autoSelectMonthNearToday();
@@ -1108,4 +1182,3 @@
     <script src="/scripts/navbar.js"></script>
   </body>
 </html>
-
