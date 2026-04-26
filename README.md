@@ -27,11 +27,14 @@ This project uses a **mixed-license setup** to keep things clear and fair:
 </p>
 
 ---
-
 ## 🌷 Acknowledgements
 
 <p align="center">
   With appreciation ✨<br><br>
+
+  <strong><a href="https://github.com/laikrai">@laikrai</a></strong><br>
+  for the time, patience, and steady support along the way, it’s meant a lot 💫<br><br>
+
   <strong><a href="https://github.com/ZypherusKhan">@ZypherusKhan</a></strong><br>
-  for thoughtful guidance, ideas, and direction 💫
+  for thoughtful guidance, ideas, and direction ✨
 </p>
