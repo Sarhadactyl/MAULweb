@@ -29,16 +29,12 @@ This project uses a **mixed-license setup** to keep things clear and fair:
 ---
 ## 🌷 Acknowledgements
 
-<p align="center">
-  With appreciation ✨
-</p>
+<div align="center">
+  ✨ With appreciation ✨<br><br>
 
-<p align="center">
   <strong><a href="https://github.com/laikrai">@laikrai</a></strong><br>
-  for the time, patience, and steady support along the way — it’s meant a lot 💫
-</p>
+  for the time, patience, and steady support along the way — it’s meant a lot 💫<br><br>
 
-<p align="center">
   <strong><a href="https://github.com/ZypherusKhan">@ZypherusKhan</a></strong><br>
   for thoughtful guidance, ideas, and direction ✨
-</p>
+</div>
