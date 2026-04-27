@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>EHR Templates · MAUL</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:title" content="EHR Templates · MAUL" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/ehrtemplates.html" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta
+      property="og:description"
+      content="A quick-reference guide for EHR template tags, properties, variables, placeholders, and delayed lobby messages."
+    />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      name="description"
+      content="Quick help for EHR templates covering tags, properties, variables, comments, placeholders, examples, and release notes."
+    />
+    <link rel="canonical" href="https://moddedamong.us/ehrtemplates.html" />
+    <link rel="icon" type="image/png" href="https://moddedamong.us/images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://moddedamong.us/styles/navbar.css" />
+
+    <style>
+      :root {
+        --accent: #800000;
+        --accent-soft: rgba(128, 0, 0, 0.25);
+        --accent-strong: #b00000;
+        --bg-card: rgba(30, 12, 12, 0.9);
+        --bg-soft: rgba(45, 18, 18, 0.9);
+        --text-main: #ffffff;
+        --text-muted: #dedee8;
+        --border-soft: rgba(255, 255, 255, 0.1);
+        --shadow-strong: 0 22px 50px rgba(0, 0, 0, 0.9);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        color: var(--text-main);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #000 url("https://moddedamong.us/images/maulredbg.png") no-repeat top center fixed;
+        background-size: auto 100%;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(circle at top, rgba(128, 0, 0, 0.45), transparent 55%),
+          radial-gradient(circle at bottom, rgba(180, 0, 60, 0.25), transparent 55%);
+        mix-blend-mode: screen;
+        opacity: 0.7;
+        pointer-events: none;
+        z-index: -2;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
+        z-index: -1;
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      a:hover {
+        color: var(--accent-strong);
+      }
+
+      .page-wrapper {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 88px 20px 64px;
+      }
+
+      @media (max-width: 600px) {
+        .page-wrapper {
+          padding-top: 96px;
+        }
+      }
+
+      .hero {
+        text-align: center;
+        padding: 28px 10px 18px;
+      }
+
+      .header-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: linear-gradient(120deg, rgba(128, 0, 0, 0.5), rgba(200, 0, 80, 0.35));
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: var(--text-muted);
+        margin-bottom: 16px;
+      }
+
+      .header-badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #00ff9c, #00b36b);
+        box-shadow: 0 0 12px rgba(0, 255, 156, 0.7);
+      }
+
+      .hero h1 {
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(2.4rem, 4vw, 3.25rem);
+        margin: 0;
+        letter-spacing: 0.04em;
+        text-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+      }
+
+      .hero h1 span {
+        background: linear-gradient(120deg, #ffffff, var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero-subtitle {
+        max-width: 760px;
+        margin: 14px auto 0;
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--text-muted);
+      }
+
+      .hero-actions {
+        margin-top: 24px;
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .cta-primary,
+      .cta-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      }
+
+      .cta-primary {
+        background: linear-gradient(135deg, #800000, #b00000);
+        color: #fff;
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.9);
+      }
+
+      .cta-primary:hover {
+        color: #fff;
+        transform: translateY(-1px);
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.95);
+      }
+
+      .cta-secondary {
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: rgba(40, 12, 12, 0.9);
+        color: var(--text-muted);
+      }
+
+      .cta-secondary:hover {
+        color: #fff;
+        background: rgba(55, 18, 18, 0.98);
+        transform: translateY(-1px);
+      }
+
+      .jump-links {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 24px auto 10px;
+        max-width: 900px;
+      }
+
+      .jump-links a {
+        text-decoration: none;
+        color: var(--text-main);
+        background: rgba(45, 18, 18, 0.95);
+        border: 1px solid var(--border-soft);
+        border-radius: 999px;
+        padding: 9px 14px;
+        font-size: 0.9rem;
+        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.75);
+        transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+      }
+
+      .jump-links a:hover {
+        transform: translateY(-1px);
+        background: rgba(62, 22, 22, 0.98);
+        border-color: var(--accent-soft);
+      }
+
+      .overview-grid,
+      .mini-grid,
+      .steps-grid,
+      .placeholder-grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .overview-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        margin: 28px 0 36px;
+      }
+
+      .steps-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .mini-grid,
+      .placeholder-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      @media (max-width: 980px) {
+        .overview-grid,
+        .steps-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 700px) {
+        .overview-grid,
+        .steps-grid,
+        .mini-grid,
+        .placeholder-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .overview-card,
+      .mini-card,
+      .step-card,
+      .placeholder-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-soft);
+        border-radius: 18px;
+        padding: 18px 18px 20px;
+        box-shadow: var(--shadow-strong);
+        backdrop-filter: blur(12px);
+      }
+
+      .overview-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .overview-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top left, rgba(128, 0, 0, 0.18), transparent 55%);
+        pointer-events: none;
+      }
+
+      .overview-card h2,
+      .mini-card h3,
+      .step-card h3,
+      .placeholder-card h3,
+      .faq-section h2 {
+        margin: 0 0 10px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .overview-card p,
+      .mini-card p,
+      .step-card p,
+      .placeholder-card p,
+      .faq-item-content p,
+      .faq-item-content li,
+      .section-intro {
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      .overview-card p,
+      .mini-card p,
+      .step-card p,
+      .placeholder-card p {
+        margin: 0;
+        font-size: 0.94rem;
+      }
+
+      .section-shell {
+        background: rgba(18, 6, 6, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 24px;
+        padding: 24px;
+        margin-top: 28px;
+        box-shadow: 0 24px 54px rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(10px);
+      }
+
+      .section-shell + .section-shell {
+        margin-top: 28px;
+      }
+
+      .faq-section h2 {
+        font-size: 1.8rem;
+        letter-spacing: 0.03em;
+      }
+
+      .section-intro {
+        margin: 0 0 18px;
+        font-size: 0.96rem;
+      }
+
+      .faq-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border-soft);
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: var(--shadow-strong);
+      }
+
+      .faq-item summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 18px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .faq-item summary::after {
+        content: "+";
+        font-size: 1.35rem;
+        color: var(--accent);
+        flex-shrink: 0;
+      }
+
+      .faq-item[open] summary::after {
+        content: "-";
+      }
+
+      .faq-item-content {
+        padding: 0 20px 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .faq-item-content p {
+        margin: 14px 0 0;
+      }
+
+      .faq-item-content ul,
+      .faq-item-content ol {
+        margin: 14px 0 0;
+        padding-left: 20px;
+      }
+
+      .faq-item-content code,
+      .step-card code,
+      .mini-card code,
+      .placeholder-card code,
+      .tip-pill code {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        padding: 2px 6px;
+        font-size: 0.92em;
+        overflow-wrap: anywhere;
+      }
+
+      pre {
+        margin: 14px 0 0;
+        padding: 16px;
+        overflow-x: auto;
+        border-radius: 14px;
+        background: rgba(10, 4, 4, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #f5f5f5;
+        font: 0.92rem/1.55 Consolas, "Courier New", monospace;
+      }
+
+      pre code {
+        background: transparent;
+        border: 0;
+        padding: 0;
+        font-size: inherit;
+      }
+
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #800000, #b00000);
+        font-weight: 700;
+        margin-bottom: 12px;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.65);
+      }
+
+      .tips-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .tip-pill {
+        background: rgba(45, 18, 18, 0.95);
+        border: 1px solid var(--border-soft);
+        border-radius: 14px;
+        padding: 12px 14px;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      .placeholder-card table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+
+      .placeholder-card th,
+      .placeholder-card td {
+        padding: 9px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .placeholder-card th {
+        width: 44%;
+        color: var(--text-main);
+        padding-right: 10px;
+      }
+
+      .placeholder-card td {
+        color: var(--text-muted);
+        line-height: 1.45;
+      }
+
+      .placeholder-card tr:last-child th,
+      .placeholder-card tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .footnote {
+        margin-top: 26px;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      .accent {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <div class="page-wrapper">
+      <header class="hero">
+        <div class="header-badge">
+          <span class="header-badge-dot"></span>
+          EHR Template How-To
+        </div>
+        <h1>How To Use <span>EHR Templates</span></h1>
+        <p class="hero-subtitle">
+          Set up automatic lobby messages one step at a time. Start with a simple welcome message, then add
+          timing, filters, variables, and placeholders when you need them.
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://moddedamong.us/" class="cta-primary">
+            <i class="fa-solid fa-house"></i>
+            Home
+          </a>
+          <a href="https://discord.gg/maul" target="_blank" rel="noopener" class="cta-secondary">
+            <i class="fa-brands fa-discord"></i>
+            Join Our Discord
+          </a>
+        </div>
+
+        <nav class="jump-links" aria-label="Template how-to sections">
+          <a href="#basics">Start Here</a>
+          <a href="#triggers">When It Sends</a>
+          <a href="#properties">Add Rules</a>
+          <a href="#variables">Reuse Text</a>
+          <a href="#examples">Copy Examples</a>
+          <a href="#full-example">Full Example</a>
+          <a href="#placeholders">Placeholders</a>
+          <a href="#help">Troubleshooting</a>
+        </nav>
+      </header>
+
+      <section class="overview-grid" aria-label="Quick overview">
+        <article class="overview-card">
+          <h2><i class="fa-solid fa-file-lines accent"></i> 1. Open The File</h2>
+          <p>Templates go in <code>template.txt</code>. Each message starts with a tag name.</p>
+        </article>
+        <article class="overview-card">
+          <h2><i class="fa-solid fa-message accent"></i> 2. Write A Message</h2>
+          <p>Use <code>welcome:Hello!</code> for your first test. That is all you need.</p>
+        </article>
+        <article class="overview-card">
+          <h2><i class="fa-solid fa-sliders accent"></i> 3. Add Rules</h2>
+          <p>Add brackets only when you want delay, map, role, rank, player count, or hidden behavior.</p>
+        </article>
+        <article class="overview-card">
+          <h2><i class="fa-solid fa-terminal accent"></i> 4. Test It</h2>
+          <p>Run <code>/template welcome</code> or <code>/t welcome</code> to check your message.</p>
+        </article>
+      </section>
+
+      <section id="basics" class="section-shell faq-section">
+        <h2>Start Here</h2>
+        <p class="section-intro">
+          If you have never made a template before, do this first. You can make more advanced templates later.
+        </p>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-number">1</div>
+            <h3>Open <code>template.txt</code></h3>
+            <p>This is where your lobby messages live. Each template starts on its own line with a tag.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-number">2</div>
+            <h3>Add a welcome</h3>
+            <p>Paste <code>welcome:Welcome to the lobby!</code>. The word before the colon is the trigger.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-number">3</div>
+            <h3>Save the file</h3>
+            <p>Save your changes, then trigger the tag in game or let the automatic event happen.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-number">4</div>
+            <h3>Test it</h3>
+            <p>Use <code>/template welcome</code> or <code>/t welcome</code> to send that template manually.</p>
+          </article>
+        </div>
+
+        <div class="tips-list">
+          <div class="tip-pill">The simplest format is <code>tag:message</code>. You do not need brackets unless you want extra control.</div>
+          <div class="tip-pill">Everything after the first colon is the message players will see.</div>
+          <div class="tip-pill">Use clear tag names like <code>welcome</code>, <code>rules</code>, <code>motd</code>, or <code>strategy</code>.</div>
+          <div class="tip-pill">Run <code>/template</code> with no arguments to list all available tags in the file.</div>
+          <div class="tip-pill">You can press Enter to write a message across multiple lines. You no longer need <code>\n</code>, though it still works if you prefer it.</div>
+        </div>
+      </section>
+
+      <section id="triggers" class="section-shell faq-section">
+        <h2>Choose When It Sends</h2>
+        <p class="section-intro">
+          Some tag names are automatic. Other tags are only sent when you run them manually.
+        </p>
+
+        <div class="tips-list">
+          <div class="tip-pill">Automatic system tags are triggered by the game. You do not call them yourself.</div>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>I want a message when someone joins</summary>
+            <div class="faq-item-content">
+              <p>Use the <code>welcome</code> tag.</p>
+              <pre><code>welcome:Welcome {{PlayerName}}! Code is {{RoomCode}}.</code></pre>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>I want a repeating lobby reminder</summary>
+            <div class="faq-item-content">
+              <p>Use the <code>notification</code> tag. The repeat timing comes from the auto-message settings.</p>
+              <ul>
+                <li><strong>Enable Auto-Message</strong> toggles the feature on or off.</li>
+                <li><strong>The Auto-Message Is Sent Every X seconds</strong> controls how often it fires.</li>
+              </ul>
+              <pre><code>OnFirstMeeting:This is the first meeting. Crewmates, use the /myrole command to see your role info.
+notification:{{PlayerCount}} players in lobby.</code></pre>
+              <p>That example sends one first-meeting reminder and one repeating lobby notification.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>I want a meeting message</summary>
+            <div class="faq-item-content">
+              <p>Use <code>OnMeeting</code> for every meeting, or <code>OnFirstMeeting</code> for only the first one.</p>
+              <pre><code>OnFirstMeeting:This is the first meeting. Use /myrole if you need your role info.
+OnMeeting[meeting=2]:Second meeting. Start narrowing it down.</code></pre>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>I want a message I can run myself</summary>
+            <div class="faq-item-content">
+              <p>Make your own tag name, then trigger it with <code>/template [tagname]</code>.</p>
+              <pre><code>rules:Please read the lobby rules before joining voice.</code></pre>
+              <p>To send it, run <code>/template rules</code> or <code>/t rules</code>.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section id="properties" class="section-shell faq-section">
+        <h2>Add Rules With Brackets</h2>
+        <p class="section-intro">
+          Brackets are optional. Use them when a message should only send in a specific situation.
+        </p>
+
+        <div class="tips-list">
+          <div class="tip-pill">Basic property syntax: <code>tag[property=value]:message</code>.</div>
+          <div class="tip-pill">Multiple properties are separated by commas: <code>tag[property=value, property=value]:message</code>.</div>
+          <div class="tip-pill">A template with no properties still works exactly as before. Properties are fully optional.</div>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>How do I delay a message?</summary>
+            <div class="faq-item-content">
+              <p>Add <code>delay=N</code>, where N is 1-30 seconds. Delayed messages always send.</p>
+              <pre><code>welcome:This sends right away.
+welcome[delay=5]:This sends 5 seconds later.
+welcome[delay=15]:This sends 15 seconds later.</code></pre>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do I pick one random message?</summary>
+            <div class="faq-item-content">
+              <p>Use the same tag more than once. Add <code>weight=N</code> if one should show more often.</p>
+              <pre><code>motd[weight=8]:Remember to vote every meeting.
+motd[weight=2]:Rare tip: check who is avoiding tasks.</code></pre>
+              <p>Weights can be 1-10. Higher weight means that entry gets picked more often.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do I send only on certain maps?</summary>
+            <div class="faq-item-content">
+              <p>Use <code>map=X</code>. Separate multiple maps with <code>|</code>.</p>
+              <p>Valid map values are <code>Skeld</code>, <code>MiraHQ</code>, <code>Polus</code>, <code>Airship</code>, <code>Fungle</code>, and <code>Dleks</code>.</p>
+              <pre><code>mapinfo[map=Skeld]:You are on Skeld!
+mapinfo[map=Polus|Fungle]:You are on Polus or Fungle.</code></pre>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do I send only to certain players?</summary>
+            <div class="faq-item-content">
+              <p>Use <code>role</code> for in-game roles or <code>rank</code> for Host, Admin, Mod, Moderator, or VIP.</p>
+              <pre><code>strategy[role=Jester]:Act suspicious, but survive long enough.
+strategy[role=!Impostor]:You are not an Impostor. Work together and find them.
+strategy:A generic tip for anyone else.
+
+access[rank=Mod|Admin|Host]:Welcome, prestigious member!</code></pre>
+              <p>You can add a fallback template with no role or rank condition for everyone else.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do I check lobby size, preset, or meeting number?</summary>
+            <div class="faq-item-content">
+              <p>Use <code>players</code>, <code>preset</code>, or <code>meeting</code>.</p>
+              <p>Player count supports <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>=</code>, and <code>!=</code>.</p>
+              <pre><code>lobbysize[players&gt;=15]:Big lobby! Starting soon.
+lobbysize[players&lt;6]:Still waiting for more players to join.
+welcome[preset=2|3]:This message appears on Preset 2 or 3.
+OnMeeting[meeting=3|4]:Meeting 3 or 4. Time is running out.</code></pre>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do I hide a tag from the list?</summary>
+            <div class="faq-item-content">
+              <p>Use <code>hidden</code>. The tag will not show in the <code>/template</code> listing, but it can still trigger.</p>
+              <pre><code>ping[hidden]:Just an unfinished hidden message.</code></pre>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section id="variables" class="section-shell faq-section">
+        <h2>Reuse Text With Variables</h2>
+        <p class="section-intro">
+          Variables are handy for links, lobby summaries, and repeated lines you do not want to type over and over.
+        </p>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>How do I make a variable?</summary>
+            <div class="faq-item-content">
+              <p>Put the variable on its own line, then use it later with <code>@name</code>.</p>
+              <pre><code>@discord = discord.gg/ehr
+@session = {{Date}} | {{Time}}
+@lobby = {{Map}} | {{PlayerCount}} players | Code: {{RoomCode}}
+
+welcome:
+@lobby
+Join our server at @discord!</code></pre>
+              <p>Placeholders inside variables are filled when the message sends.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What should I avoid?</summary>
+            <div class="faq-item-content">
+              <ul>
+                <li>Do not define variables in the middle of a message.</li>
+                <li>Do not put comments at the end of a template line.</li>
+                <li>Start comments on their own line with <code>#</code>. Comment lines are ignored entirely.</li>
+                <li>If a variable is not defined, it stays as-is in the final message.</li>
+              </ul>
+              <pre><code># This is a comment
+welcome: Greetings!</code></pre>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section id="examples" class="section-shell faq-section">
+        <h2>Copy-Friendly Examples</h2>
+        <p class="section-intro">
+          Start with one of these, then edit the message text for your lobby.
+        </p>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>A simple welcome setup</summary>
+            <div class="faq-item-content">
+              <pre><code>@discord = discord.gg/ehr
+@lobby = {{Map}} | {{PlayerCount}} players | Code: {{RoomCode}}
+
+welcome:
+Welcome {{PlayerName}}!
+@lobby
+Join our server at @discord!</code></pre>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>A first-meeting reminder</summary>
+            <div class="faq-item-content">
+              <pre><code>OnFirstMeeting:
+This is the first meeting.
+Use /myrole if you need your role info.
+Remember to vote before time runs out.</code></pre>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>A big-lobby reminder</summary>
+            <div class="faq-item-content">
+              <pre><code>lobbysize[players&gt;=15]:
+Big lobby! Starting soon.
+Please stay in lobby and avoid spam joining.</code></pre>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>A map-specific tip</summary>
+            <div class="faq-item-content">
+              <pre><code>mapinfo[map=Polus|Fungle]:
+This map has a lot of space.
+Pay attention to where bodies are found and who was nearby.</code></pre>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section id="full-example" class="section-shell faq-section">
+        <h2>Full Template File Example</h2>
+        <p class="section-intro">
+          This small <code>template.txt</code> example puts most features together in one place.
+        </p>
+
+        <pre><code>@discord = discord.gg/ehr
+
+# Welcome messages with weighted random pick
+welcome[weight=7]:Welcome to {{HostName}}'s lobby! Join our Discord: @discord
+welcome[weight=3]:Glad you joined! Find us at @discord
+
+# Send a message 10 seconds after the welcome fires
+welcome[delay=10]:Hope you have an unforgettable experience in my lobby!
+
+# Auto-message shown in lobby every X seconds
+notification:{{PlayerCount}} players | {{Map}} | Preset: {{Preset}}
+
+# First meeting reminder
+OnFirstMeeting:First meeting! Think before you vote.
+
+# Target a specific meeting
+OnMeeting[meeting=3]:Third meeting. Crewmates need to figure this out.
+
+# Only show on big lobbies
+OnMeeting[players&gt;=12]:Big game with {{PlayerCount}} players. Stay focused.
+
+# Role-specific tips
+strategy[role=Jester]:You are the Jester. Get voted out to win.
+strategy[role=!Impostor]:You are Crew. Find the Impostors!
+strategy:Play smart and have fun.
+
+# Rank-only template hidden from listing
+ping[rank=Mod|Admin|Host, hidden]:Lobby check | {{PlayerCount}} players | {{Map}} | {{Time}}</code></pre>
+      </section>
+
+      <section id="placeholders" class="section-shell faq-section">
+        <h2>Placeholders</h2>
+        <p class="section-intro">
+          Placeholders are wrapped in double braces and filled dynamically when a message is sent.
+        </p>
+
+        <div class="placeholder-grid">
+          <article class="placeholder-card">
+            <h3><i class="fa-solid fa-user-group accent"></i> Player And Lobby</h3>
+            <table>
+              <tbody>
+                <tr><th><code>{{PlayerName}}</code></th><td>Name of the receiving player</td></tr>
+                <tr><th><code>{{HostName}}</code></th><td>Name of the current host</td></tr>
+                <tr><th><code>{{RoomCode}}</code></th><td>Lobby join code</td></tr>
+                <tr><th><code>{{Map}}</code></th><td>Name of the current map</td></tr>
+                <tr><th><code>{{PlayerCount}}</code></th><td>Total players in the lobby</td></tr>
+                <tr><th><code>{{AlivePlayerCount}}</code></th><td>Number of players currently alive</td></tr>
+                <tr><th><code>{{DeadPlayerCount}}</code></th><td>Number of players currently dead</td></tr>
+                <tr><th><code>{{Players}}</code></th><td>Names of all players, comma separated</td></tr>
+                <tr><th><code>{{AlivePlayers}}</code></th><td>Names of alive players, comma separated</td></tr>
+                <tr><th><code>{{DeadPlayers}}</code></th><td>Names of dead players, comma separated</td></tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="placeholder-card">
+            <h3><i class="fa-solid fa-gear accent"></i> Game Settings</h3>
+            <table>
+              <tbody>
+                <tr><th><code>{{KillCooldown}}</code></th><td>Kill cooldown in seconds</td></tr>
+                <tr><th><code>{{DiscussionTime}}</code></th><td>Discussion time in seconds</td></tr>
+                <tr><th><code>{{VotingTime}}</code></th><td>Voting time in seconds</td></tr>
+                <tr><th><code>{{EmergencyCooldown}}</code></th><td>Emergency button cooldown in seconds</td></tr>
+                <tr><th><code>{{NumEmergencyMeetings}}</code></th><td>Emergency meetings allowed per player</td></tr>
+                <tr><th><code>{{PlayerSpeedMod}}</code></th><td>Player speed multiplier</td></tr>
+                <tr><th><code>{{CrewLightMod}}</code></th><td>Crewmate vision multiplier</td></tr>
+                <tr><th><code>{{ImpostorLightMod}}</code></th><td>Impostor vision multiplier</td></tr>
+                <tr><th><code>{{NumCommonTasks}}</code></th><td>Number of common tasks</td></tr>
+                <tr><th><code>{{NumLongTasks}}</code></th><td>Number of long tasks</td></tr>
+                <tr><th><code>{{NumShortTasks}}</code></th><td>Number of short tasks</td></tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="placeholder-card">
+            <h3><i class="fa-solid fa-heart-pulse accent"></i> Game State</h3>
+            <table>
+              <tbody>
+                <tr><th><code>{{MeetingCount}}</code></th><td>Number of meetings held so far</td></tr>
+                <tr><th><code>{{GameDuration}}</code></th><td>Elapsed game time as mm:ss</td></tr>
+                <tr><th><code>{{Preset}}</code></th><td>Name of the active preset, such as Preset 1</td></tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="placeholder-card">
+            <h3><i class="fa-solid fa-clock accent"></i> Version And Time</h3>
+            <table>
+              <tbody>
+                <tr><th><code>{{AmongUsVersion}}</code></th><td>Among Us version</td></tr>
+                <tr><th><code>{{InternalVersion}}</code></th><td>EHR internal version number</td></tr>
+                <tr><th><code>{{ModVersion}}</code></th><td>EHR display version</td></tr>
+                <tr><th><code>{{Date}}</code></th><td>Current date</td></tr>
+                <tr><th><code>{{Time}}</code></th><td>Current time</td></tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+      </section>
+
+      <section id="help" class="section-shell faq-section">
+        <h2>Troubleshooting</h2>
+        <p class="section-intro">
+          If a template does not send the way you expected, check these first.
+        </p>
+
+        <div class="mini-grid">
+          <article class="mini-card">
+            <h3><i class="fa-solid fa-list-check accent"></i> It does not show in /template</h3>
+            <p>
+              Make sure the tag is not marked <code>hidden</code>. Hidden templates can still trigger, but they do
+              not show in the list.
+            </p>
+          </article>
+          <article class="mini-card">
+            <h3><i class="fa-solid fa-filter-circle-xmark accent"></i> The message does not send</h3>
+            <p>Check the bracket rules. A map, role, rank, player count, preset, or meeting condition may not be met.</p>
+          </article>
+          <article class="mini-card">
+            <h3><i class="fa-solid fa-at accent"></i> A variable appears as text</h3>
+            <p>Make sure the variable is defined on its own line, like <code>@discord = discord.gg/maul</code>.</p>
+          </article>
+          <article class="mini-card">
+            <h3><i class="fa-solid fa-clock accent"></i> Delay feels different than expected</h3>
+            <p>Immediate entries go through weighted picks. Delayed entries always fire after their delay.</p>
+          </article>
+        </div>
+
+        <p class="footnote">
+          Made with reference to Zypherus` EHR template Guide and Code.
+        </p>
+      </section>
+    </div>
+
+    <script src="/scripts/navbar.js"></script>
+  </body>
+</html>
