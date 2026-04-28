@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-26T13:31:27.361931+00:00",
+  "generated_at": "2026-04-28T00:27:12.221148+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -344,6 +344,22 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-07T00:10:49.381564+00:00"
+    },
+    "1074343368152322098": {
+      "host_id": 1074343368152322098,
+      "host_name": "bread! \u30c4",
+      "slug": "bread!-\u30c4",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-04-28T00:27:12.217139+00:00"
+    },
+    "bread!-\u30c4": {
+      "host_id": 1074343368152322098,
+      "host_name": "bread! \u30c4",
+      "slug": "bread!-\u30c4",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-04-28T00:27:12.217139+00:00"
     },
     "1149978318448361623": {
       "host_id": 1149978318448361623,
