@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Spyder · Featured User · MAUL</title>
+    <title>Spyder - Featured User - MAUL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="og:title" content="Spyder - Featured User - MAUL" />
@@ -89,6 +89,169 @@
 
       a {
         color: inherit;
+      }
+
+      .dropdown {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+      }
+
+      .dropbtn {
+        background: rgba(12, 13, 17, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        cursor: pointer;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        padding: 10px;
+        border-radius: 999px;
+        backdrop-filter: blur(10px);
+      }
+
+      .dropbtn:hover {
+        transform: translateY(-1px) scale(1.03);
+        background: rgba(20, 22, 28, 0.96);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      }
+
+      .hamburger {
+        width: 26px;
+        height: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .hamburger span {
+        display: block;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), #ffffff);
+        border-radius: 999px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        background-color: rgba(12, 13, 17, 0.96);
+        width: 350px;
+        max-width: calc(100vw - 32px);
+        max-height: calc(100vh - 40px);
+        overflow: hidden;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+        border-radius: 20px;
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+
+      .menu-view {
+        display: none;
+        padding: 8px 0;
+        max-height: calc(100vh - 56px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+
+      .menu-view.active {
+        display: block;
+      }
+
+      .dropdown-content a,
+      .menu-nav-btn,
+      .menu-back-btn {
+        width: 100%;
+        color: var(--text-main);
+        padding: 16px 22px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        font-size: 0.98rem;
+        transition: background 0.22s ease, color 0.22s ease, padding-left 0.22s ease;
+        background: transparent;
+        border: none;
+        font-family: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .dropdown-content a i:first-child,
+      .menu-nav-btn span,
+      .menu-back-btn span {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .menu-nav-btn .fa-chevron-right {
+        margin-left: auto;
+      }
+
+      .dropdown-content a:hover,
+      .menu-nav-btn:hover,
+      .menu-back-btn:hover {
+        background: rgba(255, 255, 255, 0.045);
+        color: var(--accent);
+        padding-left: 26px;
+      }
+
+      .menu-back-btn {
+        justify-content: flex-start;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 4px;
+      }
+
+      .submenu-title {
+        padding: 13px 22px 10px;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.62);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 4px;
+      }
+
+      .beta-glow,
+      .highlight-glow {
+        color: #eef3fb !important;
+        font-weight: 700;
+        text-shadow:
+          0 0 8px rgba(228, 234, 244, 0.55),
+          0 0 12px rgba(228, 234, 244, 0.28);
+        animation: betaPulse 1.6s ease-in-out infinite;
+      }
+
+      .beta-glow:hover,
+      .highlight-glow:hover {
+        background: rgba(228, 234, 244, 0.1) !important;
+        color: #ffffff !important;
+        text-shadow:
+          0 0 10px rgba(255, 255, 255, 0.88),
+          0 0 16px rgba(228, 234, 244, 0.6);
+      }
+
+      @keyframes betaPulse {
+        0% {
+          text-shadow:
+            0 0 6px rgba(228, 234, 244, 0.45),
+            0 0 12px rgba(228, 234, 244, 0.2);
+        }
+        50% {
+          text-shadow:
+            0 0 12px rgba(255, 255, 255, 0.85),
+            0 0 24px rgba(228, 234, 244, 0.5);
+        }
+        100% {
+          text-shadow:
+            0 0 6px rgba(228, 234, 244, 0.45),
+            0 0 12px rgba(228, 234, 244, 0.2);
+        }
       }
 
       .page-wrapper {
@@ -763,7 +926,7 @@
 
               <div class="mini-badges" aria-label="Spyder badges">
                 <div class="mini-badge" data-tooltip="Server Staff">
-                  <img src="../images/badges/server staff.webp" alt="Server staff badge" />
+                  <img src="../images/badges/Server Staff.webp" alt="Server staff badge" />
                 </div>
                 <div class="mini-badge" data-tooltip="Event Director">
                   <img src="../images/badges/event.webp" alt="Event Director badge" />
@@ -843,7 +1006,7 @@
             <div class="badge-grid">
               <div class="badge">
                 <div class="badge-icon">
-                  <img src="../images/badges/server staff.webp" alt="Server staff badge" />
+                  <img src="../images/badges/Server Staff.webp" alt="Server staff badge" />
                 </div>
                 <div>
                   <div class="badge-title">Server Staff</div>
@@ -1062,8 +1225,7 @@
           "../images/spydergal6.png",
           "../images/spydergal4.png",
           "../images/spydergal3.jpg",
-          "../images/spydergal2.png",
-          "../images/spydergal1.jpg"
+          "../images/spydergal2.png"
         ];
 
         const galleryImage = document.getElementById("spyderGalleryImage");
