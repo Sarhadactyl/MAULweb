@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-03T01:12:35.955423+00:00",
+  "generated_at": "2026-05-03T01:15:27.359929+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -267,11 +267,11 @@
     },
     "802648654292058163": {
       "host_id": 802648654292058163,
-      "host_name": "MV",
-      "slug": "mv",
-      "upvoted_by_users": 2,
-      "upvoted_times": 2,
-      "last_upvoted_at": "2026-03-19T19:42:35.002836+00:00"
+      "host_name": "STMC",
+      "slug": "stmc",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-05-03T01:15:27.354546+00:00"
     },
     "mv": {
       "host_id": 802648654292058163,
@@ -584,6 +584,14 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-06T18:10:54.555089+00:00"
+    },
+    "stmc": {
+      "host_id": 802648654292058163,
+      "host_name": "STMC",
+      "slug": "stmc",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-05-03T01:15:27.354546+00:00"
     },
     "1183750631752732802": {
       "host_id": 1183750631752732802,
