@@ -791,9 +791,9 @@
       </div>
 
       <p class="info-paragraph">
-        Use this studio to generate <strong>tags</strong> for your modded Among Us lobbies.
+        Use this studio to generate <strong>custom tags</strong> for your modded Among Us lobbies.
         Configure name text, gradients, fonts, and permissions, then copy the output or download it as a file for your
-        configs or to send to a host. Project Lotus titles export as <strong>YAML</strong>, while EHR, TONE/TOHEN, and TOHO export as
+        configs or send to a host. Project Lotus titles export as <strong>YAML</strong>, while EHR, TONE/TOHEN, and TOHO export as
         <strong>JSON / text</strong>.
       </p>
 
@@ -2494,6 +2494,9 @@ LowerText:
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
+        if (mod === "toho" && !fcFile.toLowerCase().endsWith("-name")) {
+          fcFile += "-name";
+        }
         a.download = fcFile + ".txt";
         document.body.appendChild(a);
         a.click();
