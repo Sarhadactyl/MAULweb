@@ -575,6 +575,85 @@
         transform: scale(0.98);
       }
 
+      .preset-grid,
+      .icon-picker {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(42px, 1fr));
+        gap: 8px;
+      }
+
+      .icon-picker {
+        grid-template-columns: repeat(auto-fill, minmax(28px, 1fr));
+        gap: 4px;
+        max-height: 118px;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        padding: 6px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(0, 0, 0, 0.32);
+      }
+
+      .icon-picker-panel summary {
+        width: fit-content;
+        list-style: none;
+      }
+
+      .icon-picker-panel {
+        position: relative;
+      }
+
+      .icon-picker-panel[open] {
+        flex-basis: 100%;
+      }
+
+      .icon-picker-panel summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .preset-btn,
+      .icon-btn {
+        min-height: 38px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.07);
+        cursor: pointer;
+        font: inherit;
+        transition:
+          transform 0.02s,
+          border-color 0.2s,
+          filter 0.2s;
+      }
+
+      .preset-btn {
+        min-width: 92px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+      }
+
+      .preset-btn:hover,
+      .icon-btn:hover {
+        border-color: rgba(255, 255, 255, 0.34);
+        filter: brightness(1.08);
+      }
+
+      .preset-btn:active,
+      .icon-btn:active {
+        transform: scale(0.98);
+      }
+
+      .icon-btn {
+        min-height: 28px;
+        padding: 3px 4px;
+        font-family: "Segoe UI Symbol", "Noto Sans Symbols", "Noto Sans Symbols 2",
+          "DejaVu Sans", sans-serif;
+        font-size: 0.92rem;
+        font-variant-emoji: text;
+        line-height: 1;
+      }
+
       .gen-output {
         display: grid;
         gap: 8px;
@@ -696,7 +775,7 @@
         </h1>
         <p class="header-subtitle">
           Build <span class="header-highlight">custom lobby tags</span> with permissions, colors, fonts, and
-          mod-specific exports. Supports <strong>EHR</strong>, <strong>TONE / TOHEN</strong>, and
+          mod-specific exports. Supports <strong>EHR</strong>, <strong>TONE / TOHEN</strong>, <strong>TOHO</strong>, and
           <strong>Project Lotus</strong>.
         </p>
         <div class="header-actions">
@@ -704,17 +783,17 @@
             <i class="fa-solid fa-arrow-left"></i>
             Back to Home
           </a>
-          <a href="https://moddedamong.us/icons.html" class="cta-primary">
+          <a href="https://discord.gg/maul" class="cta-primary">
             <i class="fa-regular fa-face-smile"></i>
-            Icons & Fonts
+            Join Maul
           </a>
         </div>
       </div>
 
       <p class="info-paragraph">
-        Use this studio to generate <strong>ready-to-paste tags</strong> for your modded Among Us lobbies.
+        Use this studio to generate <strong>tags</strong> for your modded Among Us lobbies.
         Configure name text, gradients, fonts, and permissions, then copy the output or download it as a file for your
-        configs. Project Lotus titles export as <strong>YAML</strong>, while EHR and TONE/TOHEN export as
+        configs or to send to a host. Project Lotus titles export as <strong>YAML</strong>, while EHR, TONE/TOHEN, and TOHO export as
         <strong>JSON / text</strong>.
       </p>
 
@@ -723,7 +802,7 @@
           <h2 class="section-title"><u>Custom Tag Generator</u></h2>
           <p class="section-subtitle">
             Build Custom tags with permissions, colors, and fonts.<br />
-            The generator currently supports EHR, TONE, TOHEN, and Project Lotus.
+            The generator currently supports EHR, TONE, TOHEN, TOHO, and Project Lotus.
           </p>
 
           <div class="gen-wrap taggen2-wrap">
@@ -732,6 +811,7 @@
                 <strong>Mod</strong>
                 <label><input type="radio" name="ntg-mod" value="ehr" checked /> EHR</label>
                 <label><input type="radio" name="ntg-mod" value="tone" /> TONE/TOHE</label>
+                <label><input type="radio" name="ntg-mod" value="toho" /> TOHO</label>
                 <label><input type="radio" name="ntg-mod" value="lotus" /> Project Lotus</label>
               </div>
               <div class="field">
@@ -744,7 +824,15 @@
               <div class="gen-controls">
                 <div class="field" style="flex: 1">
                   <label for="ntg-name">Name / Icons (max 20, recommended 10)</label>
-                  <input id="ntg-name" type="text" value="♡Besties♡" maxlength="20" />
+                  <input
+                    id="ntg-name"
+                    type="text"
+                    value="♡Besties♡"
+                    maxlength="20"
+                    autocomplete="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                  />
                 </div>
                 <div class="field">
                   <strong>Color Mode</strong>
@@ -771,6 +859,21 @@
                     <option value="OCRAEXT SDF">OCRAEXT SDF</option>
                   </select>
                 </div>
+                <div class="field">
+                  <label for="ntg-size">Size</label>
+                  <select id="ntg-size">
+                    <option value="100%" selected>100%</option>
+                    <option value="90%">90%</option>
+                    <option value="80%">80%</option>
+                    <option value="70%">70%</option>
+                    <option value="60%">60%</option>
+                    <option value="50%">50%</option>
+                  </select>
+                </div>
+                <details class="icon-picker-panel">
+                  <summary class="copy-btn">Icons</summary>
+                  <div class="icon-picker" id="ntg-icon-picker"></div>
+                </details>
               </div>
 
               <div class="gen-stops" id="ntg-solid-wrap">
@@ -780,7 +883,14 @@
                 >
                   <div class="color">
                     <label>Solid color (#)</label>
-                    <input id="ntg-solid-hex" type="text" value="#FFB6C1" />
+                    <input
+                      id="ntg-solid-hex"
+                      type="text"
+                      value="#FFB6C1"
+                      autocomplete="off"
+                      autocapitalize="off"
+                      spellcheck="false"
+                    />
                   </div>
                   <div class="color">
                     <input id="ntg-solid-color" type="color" value="#FFB6C1" />
@@ -814,6 +924,10 @@
                   aria-label="Gradient preview"
                 ></div>
               </div>
+              <div class="gen-stops">
+                <h4>Gradient presets</h4>
+                <div class="preset-grid" id="ntg-gradient-presets"></div>
+              </div>
 
               <div id="ntg-ehr-perms">
                 <h4 style="margin-top: 20px">EHR Permissions</h4>
@@ -844,34 +958,6 @@
                   >
                 </div>
 
-                <h4 style="margin-top: 12px">Trailing open color (EHR)</h4>
-                <div class="gen-controls">
-                  <div class="field">
-                    <label
-                      ><input type="checkbox" id="ntg-trail-enabled" />Colored name?</label
-                    >
-                  </div>
-                  <div class="field">
-                    <label for="ntg-trail-hex">Name color</label>
-                    <input id="ntg-trail-hex" type="text" value="#98FB98" />
-                    <input id="ntg-trail-color" type="color" value="#98FB98" />
-                  </div>
-                </div>
-                <p
-                  style="
-                    font-size: 0.8em;
-                    opacity: 0.8;
-                    margin: 0 4px 4px;
-                  "
-                >
-                  Example EHR Tag:
-                  <code>
-                    {"Tag":
-                    "&lt;color=#FB98CA&gt;&lt;font=&quot;BROOK
-                    SDF&quot;&gt;♥ Sus but cute
-                    ♥&lt;/font&gt;&lt;/color&gt;&lt;color=#98FB98&gt;"}
-                  </code>
-                </p>
               </div>
 
               <div id="ntg-tone-perms" hidden>
@@ -940,6 +1026,38 @@
                     No</label
                   >
                 </div>
+              </div>
+
+              <div id="ntg-trail-wrap">
+                <h4 style="margin-top: 12px">Trailing open color</h4>
+                <div class="gen-controls">
+                  <div class="field">
+                    <label
+                      ><input type="checkbox" id="ntg-trail-enabled" />Colored name?</label
+                    >
+                  </div>
+                  <div class="field">
+                    <label for="ntg-trail-hex">Name color</label>
+                    <input
+                      id="ntg-trail-hex"
+                      type="text"
+                      value="#98FB98"
+                      autocomplete="off"
+                      autocapitalize="off"
+                      spellcheck="false"
+                    />
+                    <input id="ntg-trail-color" type="color" value="#98FB98" />
+                  </div>
+                </div>
+                <p
+                  style="
+                    font-size: 0.8em;
+                    opacity: 0.8;
+                    margin: 0 4px 4px;
+                  "
+                >
+                  Adds an open color tag after the visible tag, useful for coloring the player name.
+                </p>
               </div>
             </div>
 
@@ -1030,7 +1148,14 @@
                 </div>
                 <div class="field">
                   <label for="ntg-lotus-prefix-color">Color</label>
-                  <input id="ntg-lotus-prefix-color" type="text" value="#FF0000" />
+                  <input
+                    id="ntg-lotus-prefix-color"
+                    type="text"
+                    value="#FF0000"
+                    autocomplete="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                  />
                   <input
                     id="ntg-lotus-prefix-colorpick"
                     type="color"
@@ -1081,7 +1206,14 @@
                 </div>
                 <div class="field">
                   <label for="ntg-lotus-suffix-color">Color</label>
-                  <input id="ntg-lotus-suffix-color" type="text" value="#FF00FF" />
+                  <input
+                    id="ntg-lotus-suffix-color"
+                    type="text"
+                    value="#FF00FF"
+                    autocomplete="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                  />
                   <input
                     id="ntg-lotus-suffix-colorpick"
                     type="color"
@@ -1201,7 +1333,23 @@
               <h4>Tag text (what gets copied):</h4>
               <code id="ntg-out"></code>
 
-              <h4 style="margin-top: 10px">Visual preview:</h4>
+              <div class="gen-controls" style="margin-top: 10px">
+                <div class="field" style="flex: 1">
+                  <label for="ntg-player-name">In-game name preview</label>
+                  <input
+                    id="ntg-player-name"
+                    type="text"
+                    placeholder="Your in-game name"
+                    value="Sarhadactyl"
+                    maxlength="20"
+                    autocomplete="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                  />
+                </div>
+              </div>
+
+              <h4 style="margin-top: 10px">Full in-game preview:</h4>
               <div
                 id="ntg-visual"
                 style="font-size: 1.3em; line-height: 1.2"
@@ -1285,7 +1433,7 @@
         const out = [];
         for (const ch of str) {
           const cp = ch.codePointAt(0);
-          if (cp >= 0xfe00 && cp <= 0xfe0f) continue;
+          if (cp === 0xfe0f) continue;
           if (cp === 0x200d || cp === 0x200b || cp === 0x200c) continue;
 
           if (cp === 0x00a0) {
@@ -1296,6 +1444,18 @@
           out.push(ch);
         }
         return out.join("");
+      }
+
+      function splitTagGlyphs(str) {
+        const glyphs = [];
+        for (const ch of str || "") {
+          if (ch.codePointAt(0) === 0xfe0e && glyphs.length) {
+            glyphs[glyphs.length - 1] += ch;
+          } else {
+            glyphs.push(ch);
+          }
+        }
+        return glyphs;
       }
 
       const previewFontMap = {
@@ -1315,13 +1475,18 @@
       };
 
       const nameInput = document.getElementById("ntg-name");
+      const playerNameInput = document.getElementById("ntg-player-name");
       const modRadios = document.querySelectorAll('input[name="ntg-mod"]');
       const modeRadios = document.querySelectorAll('input[name="ntg-mode"]');
       const friendCode = document.getElementById("ntg-fc");
       const fontSelect = document.getElementById("ntg-font");
+      const sizeSelect = document.getElementById("ntg-size");
+      const iconPicker = document.getElementById("ntg-icon-picker");
+      const gradientPresetsEl = document.getElementById("ntg-gradient-presets");
 
       const ehrPerms = document.getElementById("ntg-ehr-perms");
       const tonePerms = document.getElementById("ntg-tone-perms");
+      const trailWrap = document.getElementById("ntg-trail-wrap");
 
       const mainConfig = document.getElementById("ntg-main-config");
       const lotusConfig = document.getElementById("ntg-lotus-config");
@@ -1402,6 +1567,7 @@
         const m = currentMod();
         ehrPerms.hidden = m !== "ehr";
         tonePerms.hidden = m !== "tone";
+        trailWrap.hidden = !(m === "ehr" || m === "toho");
         mainConfig.hidden = m === "lotus";
         lotusConfig.hidden = m !== "lotus";
         visEl.style.display = m === "lotus" ? "none" : "block";
@@ -1419,34 +1585,123 @@
       );
       syncVisibility();
 
-      solidHexIn.addEventListener("input", () => {
-        const h = normHex(solidHexIn.value, true);
-        solidHexIn.value = h;
-        solidColIn.value = h;
-        render();
-      });
-      solidColIn.addEventListener("input", () => {
-        const h = normHex(solidColIn.value, true);
-        solidHexIn.value = h;
-        render();
-      });
+      function cleanHexDraft(value) {
+        const raw = String(value || "").trim();
+        const cleaned = raw.replace(/^#/, "").replace(/[^0-9a-fA-F]/g, "").slice(0, 6);
+        return cleaned ? "#" + cleaned.toUpperCase() : "";
+      }
 
-      if (trailHexInput && trailColorInput) {
-        trailHexInput.addEventListener("input", () => {
-          const h = normHex(trailHexInput.value, true);
-          trailHexInput.value = h;
-          trailColorInput.value = h;
-          render();
+      function isCompleteHex(value) {
+        const cleaned = String(value || "").replace(/^#/, "").replace(/[^0-9a-fA-F]/g, "");
+        return cleaned.length === 3 || cleaned.length === 6;
+      }
+
+      function readHexValue(hexInput, picker, fallback = "#FFFFFF", withHash = true) {
+        const draft = hexInput ? hexInput.value : "";
+        const source = isCompleteHex(draft) ? draft : picker?.value || fallback;
+        return normHex(source, withHash);
+      }
+
+      function wireHexPair(hexInput, picker, fallback, onChange) {
+        if (!hexInput || !picker) return;
+        hexInput.setAttribute("autocomplete", "off");
+        hexInput.setAttribute("autocapitalize", "off");
+        hexInput.setAttribute("spellcheck", "false");
+        hexInput.addEventListener("input", () => {
+          hexInput.value = cleanHexDraft(hexInput.value);
+          if (isCompleteHex(hexInput.value)) picker.value = normHex(hexInput.value, true);
+          onChange?.();
         });
-        trailColorInput.addEventListener("input", () => {
-          const h = normHex(trailColorInput.value, true);
-          trailHexInput.value = h;
-          render();
+        hexInput.addEventListener("blur", () => {
+          const h = readHexValue(hexInput, picker, fallback, true);
+          hexInput.value = h;
+          picker.value = h;
+          onChange?.();
+        });
+        picker.addEventListener("input", () => {
+          const h = normHex(picker.value, true);
+          hexInput.value = h;
+          onChange?.();
         });
       }
+
+      function applySizeTag(inner, sizeValue) {
+        const size = String(sizeValue || "100%").trim();
+        return `<size=${size}>${inner}</size>`;
+      }
+
+      function setColorMode(mode) {
+        modeRadios.forEach((r) => (r.checked = r.value === mode));
+        solidWrap.hidden = mode !== "solid";
+        gradWrap.hidden = mode !== "grad";
+      }
+
+      wireHexPair(solidHexIn, solidColIn, "#FFB6C1", render);
+      wireHexPair(trailHexInput, trailColorInput, "#98FB98", render);
       trailEnabled?.addEventListener("change", render);
 
+      const iconChoices = ["✿","❀","❖","♨","乂","!?","¿","⚽","⚾","♠","♣","♦","♥","♤","♧","♢","♡","☯","✚","⚠","†","∞","✓","‡","☎","☏","℡","⌘","☖","☗","⌅","⌆","⌇","⌒","〶","★","☆","⁂","⁑","✽","☝","☞","☟","☜","↑","↓","→","←","↔","↕","⬆","↗","➡","↘","⬇","↙","⬅","↖","⤴","⤵","￩","￪","￫","￬","⇦","⇧","⇨","⇩","⇵","⇄","⇅","⇆","↹","•","○","◦","⦿","▲","▼","■","▢","▣","▤","▥","▦","▧","▨","▩","▪","▫","●","◐","◑","◒","◓","◯","◇","◈","▱","▶","◀","﹘","﹝","﹞","﹟","﹡","␣","⊠","╳","∇","♩","♪","♫","♬","♭","♮","♯","°","ø","≠","☀","☁","☂","☃","☉","♁","℃","℉","㎎","㎏","㎜","㎝","㎞","㎡","㏄","㏎","㏑","㏒","㏕","♀","♂","〠","ヅ","ツ","㋡","웃","유","ü","Ü","シ","ッ","㋛","〲","〴","◉","◍","◎","⊗","⊙","〇","∅","⊕","⊖","⊘","·","｡","▀","▁","▂","▃","▄","▅","▆","▇","▉","▊","▋","█","▌","▐","▍","▎","▏","░","▒","▓","▔","◆","│","┃","╽","╿","╏","║","╎","┇","︱","┊","︳","┋","┆","╵","〡","〢","╹","╻","╷","〣","≡","︴","﹏","﹌","﹋","╲","╱","︶","︵","〵","〳","〆","`","‐","◣","◥","◤","◢","△","▽","▷","∆","⊿","┐","└","┘","┌","├","┤","┬","┴","┼","╔","╗","╚","╝","╠","╣","╦","╩","╬","╭","╮","╯","╰","-","‒","–","—","―","‘","’","‚","“","”","„","‥","…","‧","′","″","‵","ʻ","ˇ","ˉ","ˊ","ˋ","˙","～","﹐","﹒","﹔","﹕","！","＃","＄","％","＆","＊","，","．","：","；","？","＠","、","。","〃","〝","〞","︰","θ","ð","ĩ","Ň","Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ","Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ","ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ","ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ","Ⅰ","Ⅱ","Ⅲ","Ⅳ","Ⅴ","Ⅵ","Ⅶ","Ⅷ","Ⅸ","Ⅹ","Ⅺ","Ⅻ","ⅰ","ⅱ","ⅲ","ⅳ","ⅴ","ⅵ","ⅶ","ⅷ","ⅸ","ⅹ","ⅺ","ⅻ","➀","➁","➂","➃","➄","➅","➆","➇","➈","➉","➊","➋","➌","➍","➎","➏","➐","➑","➒","➓","⓵","⓶","⓷","⓸","⓹","⓺","⓻","⓼","⓽","⓾","⓿","❶","❷","❸","❹","❺","❻","❼","❽","❾","❿","¹","²","³","⁴","⓪","①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮","⑯","⑰","⑱","⑲","⑳","⑴","⑵","⑶","⑷","⑸","⑹","⑺","⑻","⑼","⑽","⑾","⑿","⒀","⒁","⒂","⒃","⒄","⒅","⒆","⒇","⒈","⒉","⒊","⒋","⒌","⒍","⒎","⒏","⒐","⒑","⒒","⒓","⒔","⒕","⒖","⒗","⒘","⒙","⒚","⒛","㈠","㈡","㈢","㈣","㈤","㈥","㈦","㈧","㈨","㈩","㊀","㊁","㊂","㊃","㊄","㊅","㊆","㊇","㊈","㊉","０","１","２","３","４","５","６","７","８","９","¾","¼","%","℅","‰","π","Σ","√","∫","∬","∭","∀","∂","∃","∈","∉","∊","∋","∏","∑","−","∓","∕","∝","∟","∠","∣","∥","∦","∧","∨","∩","∪","∴","∵","∶","∷","∽","≃","≅","≈","≌","≒","≢","≤","≥","≦","≧","≪","≫","≮","≯","≲","≳","≶","≷","⊂","⊃","⊄","⊅","⊆","⊇","⊊","⊋","⊥","⋚","⋛","⋯","﹢","﹣","＋","－","／","＝","÷","±","™","〰","🆗","🆕","🆙","🆒","🆓","🆖","🅿","🆑","🆘","🆚","🅰","🅱","🆎","🅾","♻","🆔"];
+
       let gradStops = ["#B625F1", "#2970F8", "#00CFFF"];
+      const gradientPresets = [
+        { name: "Candy", colors: ["#FF9DF2", "#FFD66B", "#FF75A0"] },
+        { name: "Ocean", colors: ["#4EF3FF", "#2970F8", "#6A5CFF"] },
+        { name: "Mint", colors: ["#9BFFD0", "#DFF7E1", "#6BD3FF"] },
+        { name: "Fire", colors: ["#F02A00", "#FF7A00", "#FFBF00"] },
+        { name: "RGB", colors: ["#FF0033", "#FFE500", "#00FF66", "#00EAFF", "#7F00FF"] },
+        { name: "Soft", colors: ["#FFE4EA", "#FFF7B8", "#DBFFD8", "#C7F4FF", "#E4D2FF"] }
+      ];
+
+      function renderGradientPresets() {
+        if (!gradientPresetsEl) return;
+        gradientPresetsEl.innerHTML = "";
+        gradientPresets.forEach((preset, idx) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "preset-btn";
+          btn.dataset.preset = String(idx);
+          btn.textContent = preset.name;
+          btn.style.background = `linear-gradient(90deg, ${preset.colors.join(", ")})`;
+          gradientPresetsEl.appendChild(btn);
+        });
+      }
+
+      function iconNeedsTextPresentation(ch) {
+        const cp = ch.codePointAt(0);
+        return (
+          (cp >= 0x2190 && cp <= 0x21ff) ||
+          (cp >= 0x2300 && cp <= 0x23ff) ||
+          (cp >= 0x2460 && cp <= 0x24ff) ||
+          (cp >= 0x25a0 && cp <= 0x27bf) ||
+          (cp >= 0x2b00 && cp <= 0x2bff) ||
+          (cp >= 0x1f100 && cp <= 0x1f1ff)
+        );
+      }
+
+      function textStyleIcon(icon) {
+        return [...String(icon || "")]
+          .map((ch) => {
+            const cp = ch.codePointAt(0);
+            if (cp === 0xfe0e || cp === 0xfe0f) return "";
+            return iconNeedsTextPresentation(ch) ? ch + "\uFE0E" : ch;
+          })
+          .join("");
+      }
+
+      function renderIconPicker() {
+        if (!iconPicker) return;
+        iconPicker.innerHTML = "";
+        iconChoices.forEach((icon) => {
+          const textIcon = textStyleIcon(icon);
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "icon-btn";
+          btn.dataset.icon = textIcon;
+          btn.textContent = textIcon;
+          btn.title = "Add icon";
+          iconPicker.appendChild(btn);
+        });
+      }
 
       function renderStopRows() {
         stopsEl.innerHTML = "";
@@ -1462,7 +1717,7 @@
               <input type="text" value="${normHex(
                 hex,
                 true
-              )}" aria-label="Hex stop ${idx + 1}">
+              )}" aria-label="Hex stop ${idx + 1}" autocomplete="off" autocapitalize="off" spellcheck="false">
               <input type="color" value="${normHex(
                 hex,
                 true
@@ -1497,15 +1752,31 @@
         const idx = [...stopsEl.children].indexOf(row);
         const [hexInput, colorInput] = row.querySelectorAll("input");
         if (e.target === hexInput) {
-          const h = normHex(hexInput.value, true);
-          hexInput.value = h;
-          colorInput.value = h;
-          gradStops[idx] = h;
+          hexInput.value = cleanHexDraft(hexInput.value);
+          if (isCompleteHex(hexInput.value)) {
+            const h = normHex(hexInput.value, true);
+            colorInput.value = h;
+            gradStops[idx] = h;
+          }
         } else if (e.target === colorInput) {
           const h = normHex(colorInput.value, true);
           hexInput.value = h;
           gradStops[idx] = h;
         }
+        updateGradPreview();
+        render();
+      });
+
+      stopsEl.addEventListener("focusout", (e) => {
+        if (!e.target.matches('input[type="text"]')) return;
+        const row = e.target.closest(".gen-stop");
+        if (!row) return;
+        const idx = [...stopsEl.children].indexOf(row);
+        const [hexInput, colorInput] = row.querySelectorAll("input");
+        const h = readHexValue(hexInput, colorInput, gradStops[idx], true);
+        hexInput.value = h;
+        colorInput.value = h;
+        gradStops[idx] = h;
         updateGradPreview();
         render();
       });
@@ -1573,18 +1844,50 @@
         render();
       });
 
+      gradientPresetsEl?.addEventListener("click", (e) => {
+        const btn = e.target.closest(".preset-btn");
+        if (!btn) return;
+        const preset = gradientPresets[parseInt(btn.dataset.preset, 10)];
+        if (!preset) return;
+        gradStops = preset.colors.slice();
+        stopCount.value = String(gradStops.length);
+        setColorMode("grad");
+        renderStopRows();
+        render();
+      });
+
       modeRadios.forEach((r) =>
         r.addEventListener("change", () => {
           const m = currentMode();
-          solidWrap.hidden = m !== "solid";
-          gradWrap.hidden = m !== "grad";
+          setColorMode(m);
           render();
         })
       );
 
       friendCode.addEventListener("input", render);
       nameInput.addEventListener("input", render);
+      playerNameInput.addEventListener("input", render);
       fontSelect.addEventListener("change", render);
+      sizeSelect.addEventListener("change", render);
+
+      function insertTextAtCursor(input, value) {
+        if (!input || !value) return;
+        const max = input.maxLength > 0 ? input.maxLength : Infinity;
+        const start = input.selectionStart ?? input.value.length;
+        const end = input.selectionEnd ?? input.value.length;
+        const next = input.value.slice(0, start) + value + input.value.slice(end);
+        input.value = [...next].slice(0, max).join("");
+        const pos = Math.min(start + [...value].length, [...input.value].length);
+        input.focus();
+        input.setSelectionRange(pos, pos);
+        render();
+      }
+
+      iconPicker?.addEventListener("click", (e) => {
+        const btn = e.target.closest(".icon-btn");
+        if (!btn) return;
+        insertTextAtCursor(nameInput, btn.dataset.icon || btn.textContent || "");
+      });
 
       let lotusGradStops = {
         upper: ["#4EF3FF", "#FF9DF2", "#FFD66B"],
@@ -1615,7 +1918,7 @@
               <input type="text" value="${normHex(
                 hex,
                 true
-              )}" aria-label="Lotus hex stop ${idx + 1}">
+              )}" aria-label="Lotus hex stop ${idx + 1}" autocomplete="off" autocapitalize="off" spellcheck="false">
               <input type="color" value="${normHex(
                 hex,
                 true
@@ -1653,15 +1956,33 @@
         const [hexInput, colorInput] = row.querySelectorAll("input");
         const arr = getLotusStops().slice();
         if (e.target === hexInput) {
-          const h = normHex(hexInput.value, true);
-          hexInput.value = h;
-          colorInput.value = h;
-          arr[idx] = h;
+          hexInput.value = cleanHexDraft(hexInput.value);
+          if (isCompleteHex(hexInput.value)) {
+            const h = normHex(hexInput.value, true);
+            colorInput.value = h;
+            arr[idx] = h;
+          }
         } else if (e.target === colorInput) {
           const h = normHex(colorInput.value, true);
           hexInput.value = h;
           arr[idx] = h;
         }
+        setLotusStops(arr);
+        updateLotusGradPreview();
+        render();
+      });
+
+      lotusStopsEl.addEventListener("focusout", (e) => {
+        if (!e.target.matches('input[type="text"]')) return;
+        const row = e.target.closest(".gen-stop");
+        if (!row) return;
+        const idx = [...lotusStopsEl.children].indexOf(row);
+        const [hexInput, colorInput] = row.querySelectorAll("input");
+        const arr = getLotusStops().slice();
+        const h = readHexValue(hexInput, colorInput, arr[idx], true);
+        hexInput.value = h;
+        colorInput.value = h;
+        arr[idx] = h;
         setLotusStops(arr);
         updateLotusGradPreview();
         render();
@@ -1753,7 +2074,7 @@
 
       function gradientTextHtml(text, stops) {
         text = sanitizeTagText(text || "");
-        const chars = [...text];
+        const chars = splitTagGlyphs(text);
         if (!chars.length) return "";
 
         const cols = (stops || []).map((c) => normHex(c, true));
@@ -1785,7 +2106,7 @@
 
       function buildPerCharTags(text, colors) {
         text = sanitizeTagText(text || "");
-        const chars = [...text];
+        const chars = splitTagGlyphs(text);
         if (!chars.length) return "";
         let perCharColors = [];
         if (Array.isArray(colors)) {
@@ -1849,18 +2170,7 @@
       }
 
       function syncLotusColor(hexInput, picker) {
-        if (!hexInput || !picker) return;
-        hexInput.addEventListener("input", () => {
-          const h = normHex(hexInput.value, true);
-          hexInput.value = h;
-          picker.value = h;
-          render();
-        });
-        picker.addEventListener("input", () => {
-          const h = normHex(picker.value, true);
-          hexInput.value = h;
-          render();
-        });
+        wireHexPair(hexInput, picker, "#FFFFFF", render);
       }
       syncLotusColor(lotusPrefixColor, lotusPrefixColorPick);
       syncLotusColor(lotusSuffixColor, lotusSuffixColorPick);
@@ -1890,7 +2200,12 @@
 
         const prefixTextRaw = lotusPrefixText?.value || "";
         const prefixText = sanitizeTagText(prefixTextRaw);
-        const prefixColor = normHex(lotusPrefixColor?.value || "#FFFFFF", true);
+        const prefixColor = readHexValue(
+          lotusPrefixColor,
+          lotusPrefixColorPick,
+          "#FFFFFF",
+          true
+        );
         const prefixSpaced =
           [...lotusPrefixSpaceRadios].find((r) => r.checked)?.value === "true";
         const prefixSizeRaw = (lotusPrefixSize?.value || "").trim();
@@ -1898,7 +2213,12 @@
 
         const suffixTextRaw = lotusSuffixText?.value || "";
         const suffixText = sanitizeTagText(suffixTextRaw);
-        const suffixColor = normHex(lotusSuffixColor?.value || "#FFFFFF", true);
+        const suffixColor = readHexValue(
+          lotusSuffixColor,
+          lotusSuffixColorPick,
+          "#FFFFFF",
+          true
+        );
         const suffixSpaced =
           [...lotusSuffixSpaceRadios].find((r) => r.checked)?.value === "true";
         const suffixSizeRaw = (lotusSuffixSize?.value || "").trim();
@@ -1952,13 +2272,23 @@ LowerText:
         const lowerSize = lotusPreviewSize(lotusLowerSize.value, 2);
 
         const prefixText = sanitizeTagText(lotusPrefixText.value || "");
-        const prefixColor = normHex(lotusPrefixColor.value || "#FF0000", true);
+        const prefixColor = readHexValue(
+          lotusPrefixColor,
+          lotusPrefixColorPick,
+          "#FF0000",
+          true
+        );
         const prefixSize = lotusPreviewSize(lotusPrefixSize.value, nameSize);
         const prefixSpaced =
           [...lotusPrefixSpaceRadios].find((r) => r.checked)?.value === "true";
 
         const suffixText = sanitizeTagText(lotusSuffixText.value || "");
-        const suffixColor = normHex(lotusSuffixColor.value || "#FF00FF", true);
+        const suffixColor = readHexValue(
+          lotusSuffixColor,
+          lotusSuffixColorPick,
+          "#FF00FF",
+          true
+        );
         const suffixSize = lotusPreviewSize(lotusSuffixSize.value, nameSize);
         const suffixSpaced =
           [...lotusSuffixSpaceRadios].find((r) => r.checked)?.value === "true";
@@ -1987,10 +2317,40 @@ LowerText:
         );
       }
 
+      function tagTextToPreviewHtml(tagText) {
+        return tagText
+          .replace(
+            /<color=#[0-9A-Fa-f]{6}>(.*?)<\/color>/g,
+            (m, inner) => {
+              const hex =
+                (m.match(/<color=(#[0-9A-Fa-f]{6})>/) || [])[1] || "#FFFFFF";
+              return `<span style="color:${hex}">${inner}</span>`;
+            }
+          )
+          .replace(/<color=#[0-9A-Fa-f]{6}>/g, "")
+          .replace(/<\/color>/g, "")
+          .replace(/<font=".*?">/g, "")
+          .replace(/<\/font>/g, "")
+          .replace(/<size=\d+%>/g, "")
+          .replace(/<\/size>/g, "");
+      }
+
+      function playerNamePreviewHtml(mod) {
+        const playerName = sanitizeTagText(playerNameInput.value || "YourName");
+        const playerColor =
+          (mod === "ehr" || mod === "toho") && trailEnabled?.checked
+            ? readHexValue(trailHexInput, trailColorInput, "#98FB98", true)
+            : "#FFFFFF";
+        return `<span style="color:${playerColor}; font-family:&quot;Roboto&quot;, sans-serif">${escapeHtml(
+          playerName
+        )}</span>`;
+      }
+
       function buildOutputs() {
         const mod = currentMod();
         const mode = currentMode();
         const fontName = fontSelect.value || "";
+        const tagSize = sizeSelect.value || "100%";
 
         const rawText = nameInput.value || "";
         const text = sanitizeTagText(rawText);
@@ -2007,17 +2367,23 @@ LowerText:
         if (mode === "solid") {
           let inner = text;
           inner = applyFontTag(inner, fontName);
-          baseTagText = `<color=${normHex(solidHexIn.value, true)}>${inner}</color>`;
+          baseTagText = `<color=${readHexValue(
+            solidHexIn,
+            solidColIn,
+            "#FFB6C1",
+            true
+          )}>${inner}</color>`;
         } else {
           let colored = buildPerCharTags(text, gradStops.slice());
           colored = applyFontTag(colored, fontName);
           baseTagText = colored;
         }
 
+        baseTagText = applySizeTag(baseTagText, tagSize);
         exportTagText = baseTagText;
 
-        if (mod === "ehr" && trailEnabled && trailEnabled.checked) {
-          const tHex = normHex(trailHexInput.value, true);
+        if ((mod === "ehr" || mod === "toho") && trailEnabled && trailEnabled.checked) {
+          const tHex = readHexValue(trailHexInput, trailColorInput, "#98FB98", true);
           exportTagText += `<color=${tHex}>`;
         }
 
@@ -2064,7 +2430,7 @@ LowerText:
           const tagNameLine = `TagName: ${baseTagText}`;
           const tagColorLine =
             mode === "solid"
-              ? `TagColor: ${normHex(solidHexIn.value, false)}`
+              ? `TagColor: ${readHexValue(solidHexIn, solidColIn, "#FFB6C1", false)}`
               : `TagColor:`;
 
           payload = [
@@ -2076,6 +2442,8 @@ LowerText:
             `ExecuteCommandAccess: ${exec}`,
             `AssignGameMaster: ${gm}`
           ].join("\n");
+        } else if (mod === "toho") {
+          payload = exportTagText;
         }
 
         return { baseTagText, exportTagText, payload };
@@ -2091,25 +2459,16 @@ LowerText:
           renderLotusPreview();
         } else {
           outEl.textContent = exportTagText;
-
-          const html = baseTagText
-            .replace(
-              /<color=#[0-9A-Fa-f]{6}>(.*?)<\/color>/g,
-              (m, inner) => {
-                const hex =
-                  (m.match(/<color=(#[0-9A-Fa-f]{6})>/) || [])[1] || "#FFFFFF";
-                return `<span style="color:${hex}">${inner}</span>`;
-              }
-            )
-            .replace(/<color=#[0-9A-Fa-f]{6}>/g, "")
-            .replace(/<\/color>/g, "")
-            .replace(/<font=".*?">/g, "")
-            .replace(/<\/font>/g, "");
-
-          visEl.innerHTML = html;
           const selectedFontName = fontSelect.value || "";
           const previewFont = previewFontMap[selectedFontName] || "";
-          visEl.style.fontFamily = previewFont;
+          const previewScale = clamp(parseInt(sizeSelect.value || "100", 10), 50, 100) / 100;
+          const tagHtml = tagTextToPreviewHtml(baseTagText);
+          const playerHtml = playerNamePreviewHtml(mod);
+          const tagFontStyle = previewFont ? `font-family:${previewFont};` : "";
+
+          visEl.style.fontFamily = "";
+          visEl.style.fontSize = "1.3em";
+          visEl.innerHTML = `<span style="${tagFontStyle} font-size:${previewScale}em">${tagHtml}</span><span style="opacity:0.75"> </span>${playerHtml}`;
 
           updateGradPreview();
         }
@@ -2160,6 +2519,8 @@ LowerText:
 
       (function init() {
         solidHexIn.dispatchEvent(new Event("input"));
+        renderIconPicker();
+        renderGradientPresets();
         renderStopRows();
         renderLotusStopRows();
         render();
