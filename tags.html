@@ -791,9 +791,9 @@
       </div>
 
       <p class="info-paragraph">
-        Use this studio to generate <strong>custom tags</strong> for your modded Among Us lobbies.
+        Use this studio to generate <strong>Custom tags</strong> for your modded Among Us lobbies.
         Configure name text, gradients, fonts, and permissions, then copy the output or download it as a file for your
-        configs or send to a host. Project Lotus titles export as <strong>YAML</strong>, while EHR, TONE/TOHEN, and TOHO export as
+        configs or to send to a host. Project Lotus titles export as <strong>YAML</strong>, while EHR, TONE/TOHEN, and TOHO export as
         <strong>JSON / text</strong>.
       </p>
 
@@ -1364,6 +1364,23 @@
                 <summary>Full output (JSON / config / YAML)</summary>
                 <code id="ntg-payload"></code>
               </details>
+              <div
+                id="ntg-toho-instructions"
+                style="
+                  margin-top: 10px;
+                  padding: 10px 12px;
+                  border-radius: 10px;
+                  border: 1px solid rgba(255, 255, 255, 0.16);
+                  background: rgba(0, 0, 0, 0.28);
+                  color: var(--text-muted);
+                  line-height: 1.45;
+                "
+                hidden
+              >
+                <strong style="color: #ffffff">Instructions for hosts:</strong>
+                To add a tag to the game open your mod folder, navigate to
+                <strong>TOHO-DATA &gt; VIP_TAGS</strong> or <strong>MOD_TAGS</strong>.
+              </div>
             </div>
           </div>
         </section>
@@ -1511,6 +1528,7 @@
       const lotusLowerLine = document.getElementById("ntg-lotus-lower-line");
 
       const payloadEl = document.getElementById("ntg-payload");
+      const tohoInstructions = document.getElementById("ntg-toho-instructions");
       const copyBtn = document.getElementById("ntg-copy");
       const dlBtn = document.getElementById("ntg-download");
       const lotusDlBtn = document.getElementById("ntg-lotus-download");
@@ -1568,6 +1586,7 @@
         ehrPerms.hidden = m !== "ehr";
         tonePerms.hidden = m !== "tone";
         trailWrap.hidden = !(m === "ehr" || m === "toho");
+        tohoInstructions.hidden = m !== "toho";
         mainConfig.hidden = m === "lotus";
         lotusConfig.hidden = m !== "lotus";
         visEl.style.display = m === "lotus" ? "none" : "block";
@@ -2504,32 +2523,4 @@ LowerText:
         URL.revokeObjectURL(url);
       });
 
-      lotusDlBtn.addEventListener("click", () => {
-        const yaml = buildLotusYaml();
-        let fcRaw = friendCode.value || "title";
-        let fcFile = fcRaw.replace(/[\/\\:*?"<>|]/g, "").slice(0, 32) || "title";
-
-        const blob = new Blob([yaml], { type: "text/plain;charset=utf-8" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = fcFile + ".yaml";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(url);
-      });
-
-      (function init() {
-        solidHexIn.dispatchEvent(new Event("input"));
-        renderIconPicker();
-        renderGradientPresets();
-        renderStopRows();
-        renderLotusStopRows();
-        render();
-      })();
-    </script>
-    <script src="/scripts/navbar.js"></script>
-  </body>
-</html>
-
+      lotusDlBtn.addEventListener("click"
