@@ -1454,7 +1454,7 @@
         const out = [];
         for (const ch of str) {
           const cp = ch.codePointAt(0);
-          if (cp === 0xfe0f) continue;
+          if (cp === 0xfe0e || cp === 0xfe0f) continue;
           if (cp === 0x200d || cp === 0x200b || cp === 0x200c) continue;
 
           if (cp === 0x00a0) {
@@ -1651,6 +1651,7 @@
 
       function applySizeTag(inner, sizeValue) {
         const size = String(sizeValue || "100%").trim();
+        if (size === "100%" || size === "100") return inner;
         return `<size=${size}>${inner}</size>`;
       }
 
@@ -1721,7 +1722,7 @@
           const btn = document.createElement("button");
           btn.type = "button";
           btn.className = "icon-btn";
-          btn.dataset.icon = textIcon;
+          btn.dataset.icon = icon;
           btn.textContent = textIcon;
           btn.title = "Add icon";
           iconPicker.appendChild(btn);
