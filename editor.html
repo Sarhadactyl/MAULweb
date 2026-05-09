@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MAUL • BETA Live Template Editor</title>
+  <title>MAUL • Template Editor</title>
 
-  <link rel="canonical" href="https://moddedamong.us/templates.html" />
+  <link rel="canonical" href="https://moddedamong.us/editor.html" />
   <meta name="description" content="Type, color, and export Among Us templates with smooth gradients in real time." />
 
   <meta property="og:title" content="MAUL • Live Template Editor" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://moddedamong.us/templates.html" />
+  <meta property="og:url" content="https://moddedamong.us/editor.html" />
   <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
   <meta property="og:description" content="Type, color, and export Among Us templates with smooth gradients in real time." />
   <meta property="og:site_name" content="Modded Among Us Lobbies" />
@@ -172,7 +172,94 @@
       padding-left: 22px;
     }
 
+    .dropdown-content {
+      top: calc(100% + 8px);
+      left: 0;
+      width: 350px;
+      max-width: calc(100vw - 32px);
+      max-height: calc(100vh - 40px);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    .menu-view {
+      display: none;
+      padding: 8px 0;
+      max-height: calc(100vh - 56px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+
+    .menu-view.active {
+      display: block;
+    }
+
+    .dropdown-content a,
+    .menu-nav-btn,
+    .menu-back-btn {
+      width: 100%;
+      color: var(--text-main);
+      padding: 16px 22px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      font-size: 0.98rem;
+      transition: background 0.22s ease, color 0.22s ease, padding-left 0.22s ease;
+      background: transparent;
+      border: none;
+      font-family: inherit;
+      text-align: left;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .dropdown-content a i:first-child,
+    .menu-nav-btn span,
+    .menu-back-btn span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .menu-nav-btn .fa-chevron-right {
+      margin-left: auto;
+    }
+
+    .dropdown-content a:hover,
+    .menu-nav-btn:hover,
+    .menu-back-btn:hover {
+      background: rgba(255, 255, 255, 0.045);
+      color: var(--accent);
+      padding-left: 26px;
+    }
+
+    .menu-back-btn {
+      justify-content: flex-start;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 4px;
+    }
+
+    .submenu-title {
+      padding: 13px 22px 10px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.62);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 4px;
+    }
+
     .beta-glow {
+      color: #ff4d4d !important;
+      font-weight: 700;
+      text-shadow:
+        0 0 8px rgba(255, 0, 0, 0.75),
+        0 0 12px rgba(255, 0, 0, 0.55);
+    }
+
+    .highlight-glow {
       color: #ff4d4d !important;
       font-weight: 700;
       text-shadow:
@@ -434,6 +521,9 @@
     #output{
       height:220px;
       overflow:auto;
+      width:100%;
+      resize:vertical;
+      color:#ffe9f0;
     }
 
     #preview{
@@ -473,46 +563,60 @@
     }
 
     .preview-bar{
-      height:44px;
-      border-radius:12px;
+      height:28px;
+      border-radius:9px;
       border:1px solid rgba(0,0,0,.75);
       box-shadow:0 0 0 1px rgba(255,255,255,.08) inset;
-      margin:6px 0;
+      margin:4px 0;
       background:#111;
     }
 
     .stops-wrap{
       display:grid;
-      gap:8px;
-      width:min(720px, 100%);
+      gap:5px;
+      width:min(840px, 100%);
       margin: 0 auto;
+      max-height:156px;
+      overflow:auto;
+      padding-right:4px;
     }
     .stop-row{
       display:grid;
-      grid-template-columns: 110px 44px 1fr 78px auto;
-      gap:8px;
+      grid-template-columns: 92px 36px minmax(120px, 1fr) 48px auto;
+      gap:6px;
       align-items:center;
-      padding:8px;
-      border-radius:12px;
+      padding:5px 6px;
+      border-radius:9px;
       border:1px solid rgba(255,255,255,.14);
       background:rgba(255,255,255,.04);
     }
     @media (max-width:780px){
-      .stop-row{grid-template-columns:1fr 44px 1fr 78px auto}
+      .stop-row{grid-template-columns:78px 32px 1fr 42px auto}
     }
+    .stop-row input[type="text"]{height:28px;padding:4px 6px;font-size:.82rem}
+    .stop-row input[type="color"]{width:36px;height:28px;padding:2px}
     .stop-row input[type="range"]{width:100%}
     .stop-row .pos{
-      width:78px;
+      width:48px;
       text-align:center;
       font-family:var(--mono);
-      font-size:.9rem;
+      font-size:.82rem;
       opacity:.92;
     }
     .stop-actions{
       display:flex;
-      gap:6px;
+      gap:4px;
       flex-wrap:wrap;
       justify-content:flex-end;
+    }
+    .stop-actions .btn.small{
+      width:28px;
+      height:28px;
+      padding:0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      line-height:1;
     }
 
     .preset-grid{
@@ -575,6 +679,56 @@
       resize: vertical;
       font-family: var(--mono);
       border-radius: 14px;
+    }
+    .export-meta{
+      display:grid;
+      grid-template-columns:minmax(130px, 180px) 1fr auto;
+      gap:8px;
+      align-items:center;
+    }
+    @media (max-width:760px){.export-meta{grid-template-columns:1fr}}
+    .export-meta input{
+      width:100%;
+      background:rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.20);
+      border-radius:10px;
+      color:#ffe9f0;
+      padding:8px 10px;
+      outline:none;
+      font-family: var(--mono);
+    }
+    .prop-helper{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:10px 0 0;
+    }
+    .template-vars{
+      width:100%;
+      min-height:72px;
+      resize:vertical;
+      font-family:var(--mono);
+    }
+    .compact-gradient{
+      padding:10px 12px !important;
+      border-radius:12px !important;
+      background:rgba(255,255,255,.04) !important;
+    }
+    .compact-gradient .row{
+      gap:6px;
+    }
+    .compact-gradient .btn.small{
+      padding:6px 9px;
+      font-size:.84rem;
+    }
+    .compact-gradient .field{
+      padding:6px 8px;
+    }
+    .compact-gradient.gradient-collapsed .gradient-controls,
+    .compact-gradient.gradient-collapsed .preview-bar,
+    .compact-gradient.gradient-collapsed .stops-wrap,
+    .compact-gradient.gradient-collapsed > .row:last-child{
+      display:none !important;
     }
 
     #icon-palette{
@@ -680,32 +834,7 @@
 </head>
 
 <body>
-  <div class="dropdown">
-    <button class="dropbtn" type="button" aria-label="Open navigation menu">
-      <div class="hamburger">
-        <span></span><span></span><span></span>
-      </div>
-    </button>
-    <div class="dropdown-content">
-      <a href="https://moddedamong.us/"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="https://moddedamong.us/art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
-      <a href="https://moddedamong.us/ourstaff.html"><i class="fa-solid fa-users-gear"></i> Our Staff</a>
-      <a href="https://moddedamong.us/eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
-      <a href="https://moddedamong.us/calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
-      <a href="https://moddedamong.us/mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
-      <a href="https://moddedamong.us/presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
-      <a href="https://moddedamong.us/tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
-      <a href="https://moddedamong.us/icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
-      <a href="https://moddedamong.us/lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
-      <a href="https://moddedamong.us/wrapped"><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a>
-      <a href="https://moddedamong.us/roletest"><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a>
-      <a href="https://moddedamong.us/BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
-      <a href="#editor-panel"><i class="fa-solid fa-pen"></i> Editor</a>
-      <a href="#presets-panel"><i class="fa-solid fa-swatchbook"></i> Presets</a>
-      <a href="#exports-panel"><i class="fa-solid fa-file-export"></i> Named Exports</a>
-      <a href="#" id="open-help-menu"><i class="fa-solid fa-circle-question"></i> Help</a>
-    </div>
-  </div>
+  <div id="navbar"></div>
 
   <div class="page-wrapper">
     <div class="header">
@@ -713,7 +842,7 @@
         <span class="header-badge-dot"></span>
         Template tools for MAUL lobbies
       </div>
-      <h1><span>BETA Live Template Editor</span></h1>
+      <h1><span>Live Template Editor</span></h1>
       <p class="header-subtitle">
         Type plain text, style safely, and export clean modded Among Us templates. 
         Easy to use tool for new, existing, and returning hosts. 
@@ -750,6 +879,14 @@
           <li>If you press Enter, export will still convert newlines to <code>\n</code>.</li>
         </ul>
 
+        <p><strong>EHR template manager</strong></p>
+        <ul>
+          <li>Named exports now emit <code>tag[properties]:message</code> lines.</li>
+          <li>Supported properties include <code>weight</code>, <code>delay</code>, <code>hidden</code>, <code>map</code>, <code>meeting</code>, <code>role</code>, <code>rank</code>, <code>players</code>, and <code>preset</code>.</li>
+          <li>User variables export as <code>@name = value</code> lines and can be reused as <code>@name</code>.</li>
+          <li>The Auto menu includes every <code>{{Placeholder}}</code> currently supported by <code>TemplateManager.cs</code>.</li>
+        </ul>
+
         <p><strong>Stops / Gradient</strong></p>
         <ul>
           <li>Stops have a <strong>position</strong> now (0–100%).</li>
@@ -776,7 +913,6 @@
     </div>
 
     <main class="container">
-      <!-- EDITOR -->
       <section class="panel" id="editor-panel">
         <div class="panel-header">
           <div class="title-wrap">
@@ -791,17 +927,16 @@
         </div>
 
         <div class="grid">
-          <!-- TOOLBAR -->
           <div class="toolbar">
             <div class="field">
               <label for="fontSel">Font</label>
               <select id="fontSel">
+                <option value="">None</option>
                 <option>OCRAEXT SDF</option><option>BROOK SDF</option><option>VCR SDF</option>
                 <option>Barlow-Black SDF</option><option>Barlow-BoldItalic SDF</option>
                 <option>Barlow-Light SDF</option><option>CONSOLA SDF</option>
                 <option>DIGITAL-7 SDF</option><option>DIN_Pro_Bold_700 SDF</option>
                 <option>LiberationSans SDF</option><option>NotoSansJP-Regular SDF</option>
-                <option>OCRAEXT SDF</option>
               </select>
               <button class="btn small" id="applyFont" type="button">Apply</button>
             </div>
@@ -839,9 +974,35 @@
             <div class="field">
               <label for="autoToken">Auto</label>
               <select id="autoToken">
+                <option value="{{RoomCode}}">{{RoomCode}}</option>
+                <option value="{{AmongUsVersion}}">{{AmongUsVersion}}</option>
+                <option value="{{InternalVersion}}">{{InternalVersion}}</option>
+                <option value="{{ModVersion}}">{{ModVersion}}</option>
                 <option value="{{PlayerName}}">{{PlayerName}}</option>
                 <option value="{{HostName}}">{{HostName}}</option>
-                <option value="{{ModVersion}}">{{ModVersion}}</option>
+                <option value="{{Players}}">{{Players}}</option>
+                <option value="{{AlivePlayers}}">{{AlivePlayers}}</option>
+                <option value="{{DeadPlayers}}">{{DeadPlayers}}</option>
+                <option value="{{PlayerCount}}">{{PlayerCount}}</option>
+                <option value="{{AlivePlayerCount}}">{{AlivePlayerCount}}</option>
+                <option value="{{DeadPlayerCount}}">{{DeadPlayerCount}}</option>
+                <option value="{{Map}}">{{Map}}</option>
+                <option value="{{KillCooldown}}">{{KillCooldown}}</option>
+                <option value="{{DiscussionTime}}">{{DiscussionTime}}</option>
+                <option value="{{VotingTime}}">{{VotingTime}}</option>
+                <option value="{{EmergencyCooldown}}">{{EmergencyCooldown}}</option>
+                <option value="{{MeetingCount}}">{{MeetingCount}}</option>
+                <option value="{{NumEmergencyMeetings}}">{{NumEmergencyMeetings}}</option>
+                <option value="{{PlayerSpeedMod}}">{{PlayerSpeedMod}}</option>
+                <option value="{{CrewLightMod}}">{{CrewLightMod}}</option>
+                <option value="{{ImpostorLightMod}}">{{ImpostorLightMod}}</option>
+                <option value="{{NumCommonTasks}}">{{NumCommonTasks}}</option>
+                <option value="{{NumLongTasks}}">{{NumLongTasks}}</option>
+                <option value="{{NumShortTasks}}">{{NumShortTasks}}</option>
+                <option value="{{GameDuration}}">{{GameDuration}}</option>
+                <option value="{{Date}}">{{Date}}</option>
+                <option value="{{Time}}">{{Time}}</option>
+                <option value="{{Preset}}">{{Preset}}</option>
               </select>
               <button class="btn small" id="insertToken" type="button">Insert</button>
             </div>
@@ -872,31 +1033,29 @@
             <div class="field">
               <label>Tools</label>
               <button class="btn small" id="normalizeBtn" type="button">Normalize output</button>
+              <button class="btn small" id="applyOutput" type="button">Apply output</button>
               <button class="btn small" id="clearStylesBtn" type="button">Clear selection</button>
             </div>
 
             <div class="field">
               <label>Icons</label>
               <button class="btn small" id="toggleIcons" type="button">Pick icon</button>
-              <label style="display:flex;align-items:center;gap:6px">
-                <input type="checkbox" id="safeIcons" checked />
-                <small>Safe only</small>
-              </label>
+              <input type="checkbox" id="safeIcons" checked hidden />
+              <small>Icons page</small>
             </div>
           </div>
 
-          <!-- ICON PALETTE -->
           <div id="icon-palette" aria-label="Icon palette">
             <div id="icon-grid"></div>
           </div>
 
-          <!-- GRADIENT STOPS -->
-          <div class="panel" style="padding:14px;border-radius:14px;background:rgba(255,255,255,.04)">
+          <div class="panel compact-gradient gradient-collapsed">
             <div class="row" style="justify-content:space-between">
               <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
                 <strong style="font-family:'Barlow',var(--sans);letter-spacing:.3px;text-transform:uppercase">Gradient stops</strong>
+                <button class="btn small ghost" id="toggleGradient" type="button">Show</button>
               </div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
+              <div class="gradient-controls" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
                 <button class="btn small" id="addStop" type="button">Add</button>
                 <button class="btn small" id="randomizeStops" type="button">Randomize</button>
                 <button class="btn small" id="reverseStops" type="button">Reverse</button>
@@ -922,14 +1081,14 @@
               <textarea id="editor" placeholder="Type here…"></textarea>
 
               <div class="row" style="justify-content:space-between">
-                <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
                   <button class="btn red" id="copyOut" type="button">Copy markup</button>
                   <button class="btn" id="downloadOut" type="button">Download .txt</button>
                 </div>
                 <div class="status" id="status" aria-live="polite"></div>
               </div>
 
-              <div class="codebox" id="output" aria-label="Output markup"></div>
+              <textarea class="codebox" id="output" aria-label="Output markup" spellcheck="false"></textarea>
             </div>
 
             <div class="grid">
@@ -961,46 +1120,37 @@
         <div class="panel-header">
           <div class="title-wrap">
             <h2>Named Exports</h2>
-            <p class="subtitle">Download emits <code>name:&lt;markup&gt;</code> per line.</p>
+            <p class="subtitle">Download emits user variables plus <code>tag[properties]:&lt;markup&gt;</code> lines that match EHR's template parser.</p>
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end">
-            <button class="btn red" id="downloadNamed" type="button">Download named .txt</button>
+            <button class="btn" id="addTemplate" type="button">Add template</button>
+            <button class="btn red" id="downloadNamed" type="button">Download template.txt</button>
             <button class="btn" id="copyNamed" type="button">Copy named</button>
           </div>
         </div>
 
-        <div class="export-grid">
-          <div class="export-card">
-            <div class="row" style="justify-content:space-between">
-              <strong>welcome</strong>
-              <button class="btn small" data-capture="welcome" type="button">Use current</button>
-            </div>
-            <textarea id="exp-welcome"></textarea>
+        <div class="grid">
+          <div class="field" style="border-radius:14px;display:grid;align-items:start">
+            <label for="templateVars">User variables</label>
+            <textarea id="templateVars" class="template-vars" placeholder="@discord = discord . gg / maul"></textarea>
+            <small>One per line. Example: <code>@discord = discord . gg / maul</code>, then use <code>@discord</code> in templates.</small>
           </div>
 
-          <div class="export-card">
-            <div class="row" style="justify-content:space-between">
-              <strong>onmeeting</strong>
-              <button class="btn small" data-capture="onmeeting" type="button">Use current</button>
+          <div>
+            <div class="prop-helper" aria-label="Property helpers">
+              <button class="btn small" type="button" data-prop="weight=2">weight</button>
+              <button class="btn small" type="button" data-prop="delay=5">delay</button>
+              <button class="btn small" type="button" data-prop="hidden">hidden</button>
+              <button class="btn small" type="button" data-prop="map=Skeld|MiraHQ|Polus|Airship|Fungle">map</button>
+              <button class="btn small" type="button" data-prop="meeting=1">meeting</button>
+              <button class="btn small" type="button" data-prop="role=Sheriff|!Impostor">role</button>
+              <button class="btn small" type="button" data-prop="rank=host|admin|mod|vip">rank</button>
+              <button class="btn small" type="button" data-prop="players>=10">players</button>
+              <button class="btn small" type="button" data-prop="preset=1|2">preset</button>
             </div>
-            <textarea id="exp-onmeeting"></textarea>
           </div>
 
-          <div class="export-card">
-            <div class="row" style="justify-content:space-between">
-              <strong>rules</strong>
-              <button class="btn small" data-capture="rules" type="button">Use current</button>
-            </div>
-            <textarea id="exp-rules"></textarea>
-          </div>
-
-          <div class="export-card">
-            <div class="row" style="justify-content:space-between">
-              <strong>vip</strong>
-              <button class="btn small" data-capture="vip" type="button">Use current</button>
-            </div>
-            <textarea id="exp-vip"></textarea>
-          </div>
+          <div class="export-grid" id="exportGrid"></div>
         </div>
       </section>
     </main>
@@ -1011,23 +1161,6 @@
       </div>
     </footer>
   </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const dropdown = document.querySelector(".dropdown");
-      const button = document.querySelector(".dropbtn");
-      if (!dropdown || !button) return;
-
-      button.addEventListener("click", (e) => {
-        e.stopPropagation();
-        dropdown.classList.toggle("open");
-      });
-
-      document.addEventListener("click", (e) => {
-        if (!dropdown.contains(e.target)) dropdown.classList.remove("open");
-      });
-    });
-  </script>
 
   <script>
     const FONT_MAP = {
@@ -1041,7 +1174,6 @@
       "DIN_Pro_Bold_700 SDF": "\"Rajdhani\",sans-serif",
       "LiberationSans SDF": "\"Barlow\",sans-serif",
       "NotoSansJP-Regular SDF": "\"Noto Sans JP\",sans-serif",
-      "OCRAEXT SDF": "\"Press Start 2P\",\"VT323\",monospace",
       "OCRAEXT SDF": "\"Press Start 2P\",\"VT323\",monospace"
     };
 
@@ -1049,7 +1181,6 @@
 
     const openHelpTop = $("open-help-top");
     const openHelpInline = $("open-help-inline");
-    const openHelpMenu = $("open-help-menu");
 
     const modal = $("modal");
     const modalBackdrop = $("modal-backdrop");
@@ -1086,10 +1217,13 @@
     const paintBrushBtn = $("paintBrush");
 
     const normalizeBtn = $("normalizeBtn");
+    const applyOutputBtn = $("applyOutput");
     const clearStylesBtn = $("clearStylesBtn");
 
     const copyOutBtn = $("copyOut");
     const downloadOutBtn = $("downloadOut");
+    const toggleGradientBtn = $("toggleGradient");
+    const compactGradient = document.querySelector(".compact-gradient");
 
     const autoToken = $("autoToken");
     const insertTokenBtn = $("insertToken");
@@ -1111,18 +1245,37 @@
     const loadPresetBtn = $("loadPreset");
     const presetGrid = $("presetGrid");
 
-    const expAreas = {
-      welcome: $("exp-welcome"),
-      onmeeting: $("exp-onmeeting"),
-      rules: $("exp-rules"),
-      vip: $("exp-vip")
-    };
+    const templateVars = $("templateVars");
+    const addTemplateBtn = $("addTemplate");
+    const exportGrid = $("exportGrid");
+    let exportEntries = [];
     const downloadNamedBtn = $("downloadNamed");
     const copyNamedBtn = $("copyNamed");
 
     const clamp = (v,a,b)=>Math.min(b,Math.max(a,v));
     const saveLS=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
     const loadLS=(k,d)=>{try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch{return d}};
+
+    const DEFAULT_EXPORTS = [
+      {
+        name: "welcome",
+        props: "",
+        body: "<b>Welcome!</b>\\n<size=80%>This is a <color=red>Modded</color> Lobby.\\nYou're playing <b><color=blue>Endless Host Roles</color> <color=purple>(EHR)</color> <color=orange>v{{ModVersion}}</b></color>.\\nThe mod was made by <color=yellow>Gurge44</color>.\\n<color=grey>@discord</color>\\n\\n<b>/r</b> -> Show all active roles\\n<b>/r <color=red>[role name]</color></b> -> Show description & settings for that role"
+      },
+      {
+        name: "OnMeeting",
+        props: "",
+        body: "<size=70%><b>/m</b> -> See what your role does\\n<b>/r</b> -> Show all active roles\\n<b>/r <color=#ff0000>[role name]</color></b> -> Show description & settings for that role\\n<b>/bt <color=#0000ff>[ID]</color> <color=#ff0000>[role name]</color></b> -> Guess that player's role</size>"
+      },
+      {
+        name: "help",
+        props: "",
+        body: "<size=110%><b><color=#ffc0cb>ENDLESS HOST ROLES</color>\\nQUICK GUIDE</b>\\n<size=80%>Use <b>/m</b> during meetings to see your role, <b>/r</b> to list active roles, and <b>/r [role name]</b> to read a role description. Use <b>/id</b> before guessing so you have the player's number, then use <b>/bt [ID] [role]</b> if guessing is enabled.</size>"
+      }
+    ];
+
+    const DEFAULT_TEMPLATE_VARS = "@discord = discord . gg / maul";
+    const OLD_DEFAULT_TEMPLATE_VARS = "@discord = discord . gg / ehr";
 
     const normHex=(s,withHash=true)=>{
       s=(s||"").trim();
@@ -1214,7 +1367,7 @@
       color:"#FFFFFF",
       b:false, i:false, u:false,
       size:100,
-      font:"OCRAEXT SDF",
+      font:"",
       align:"left"
     };
 
@@ -1630,8 +1783,20 @@
     function normalizeOutput(){
       sizePct.value = clamp(parseInt(sizePct.value||"100",10), 50, 300);
       solidColor.value = normHex(solidColor.value,true);
-      renderAll();
+      output.value = cleanMarkup(output.value || buildMarkup());
+      preview.innerHTML = toPreviewHTML(output.value);
       status("Output normalized.");
+    }
+
+    function cleanMarkup(markup){
+      let next = String(markup);
+      let prev = "";
+      while(next !== prev){
+        prev = next;
+        next = next.replace(/<size=100%>([\s\S]*?)<\/size>/gi, "$1");
+        next = next.replace(/<font="">([\s\S]*?)<\/font>/gi, "$1");
+      }
+      return next.replace(/<size=100%>/gi, "").replace(/<font="">/gi, "");
     }
 
     function buildMarkup(){
@@ -1654,15 +1819,15 @@
         if(name==="i" && cur.i){ out.push("</i>"); cur.i=false; }
         if(name==="b" && cur.b){ out.push("</b>"); cur.b=false; }
         if(name==="color" && cur.color){ out.push("</color>"); cur.color=null; }
-        if(name==="size" && cur.size!=null){ out.push("</size>"); cur.size=null; }
+        if(name==="size" && cur.size!=null){ if(cur.size !== 100) out.push("</size>"); cur.size=null; }
         if(name==="font" && cur.font){ out.push("</font>"); cur.font=null; }
         if(name==="align" && cur.align){ out.push("</align>"); cur.align=null; }
       }
 
       function openTag(name, val){
         if(name==="align"){ out.push(`<align=${val}>`); cur.align=val; }
-        if(name==="font"){ out.push(`<font="${val}">`); cur.font=val; }
-        if(name==="size"){ out.push(`<size=${val}%>`); cur.size=val; }
+        if(name==="font"){ if(val) out.push(`<font="${val}">`); cur.font=val; }
+        if(name==="size"){ if(val !== 100) out.push(`<size=${val}%>`); cur.size=val; }
         if(name==="color"){ out.push(`<color=${val}>`); cur.color=val; }
         if(name==="b"){ out.push("<b>"); cur.b=true; }
         if(name==="i"){ out.push("<i>"); cur.i=true; }
@@ -1670,8 +1835,8 @@
       }
 
       function resetAll(){
-        closeTag("u"); closeTag("i"); closeTag("b");
-        closeTag("color"); closeTag("size"); closeTag("font"); closeTag("align");
+        closeTag("color"); closeTag("u"); closeTag("i"); closeTag("b");
+        closeTag("size"); closeTag("font"); closeTag("align");
       }
 
       function applyStyleForVisibleChar(v){
@@ -1683,69 +1848,82 @@
           b: !!STYLE.b[v], i: !!STYLE.i[v], u: !!STYLE.u[v]
         };
 
+        function closeDecorations(){
+          closeTag("color"); closeTag("u"); closeTag("i"); closeTag("b");
+        }
+
+        function openDecorations(){
+          if(desired.b) openTag("b");
+          if(desired.i) openTag("i");
+          if(desired.u) openTag("u");
+          openTag("color", desired.color);
+        }
+
         function setAttr(name){
           const val = desired[name];
           if(cur[name] === val) return;
 
           if(name==="align"){
-            closeTag("u"); closeTag("i"); closeTag("b"); closeTag("color"); closeTag("size"); closeTag("font"); closeTag("align");
+            closeDecorations(); closeTag("size"); closeTag("font"); closeTag("align");
             openTag("align", val);
             openTag("font", desired.font);
             openTag("size", desired.size);
-            openTag("color", desired.color);
-            if(desired.b) openTag("b");
-            if(desired.i) openTag("i");
-            if(desired.u) openTag("u");
+            openDecorations();
             return;
           }
           if(name==="font"){
-            closeTag("u"); closeTag("i"); closeTag("b"); closeTag("color"); closeTag("size"); closeTag("font");
+            closeDecorations(); closeTag("size"); closeTag("font");
             openTag("font", val);
             openTag("size", desired.size);
-            openTag("color", desired.color);
-            if(desired.b) openTag("b");
-            if(desired.i) openTag("i");
-            if(desired.u) openTag("u");
+            openDecorations();
             return;
           }
           if(name==="size"){
-            closeTag("u"); closeTag("i"); closeTag("b"); closeTag("color"); closeTag("size");
+            closeDecorations(); closeTag("size");
             openTag("size", val);
-            openTag("color", desired.color);
+            openDecorations();
+            return;
+          }
+          if(name==="b"){
+            closeDecorations();
             if(desired.b) openTag("b");
             if(desired.i) openTag("i");
             if(desired.u) openTag("u");
+            openTag("color", desired.color);
+            return;
+          }
+          if(name==="i"){
+            closeTag("color"); closeTag("u"); closeTag("i");
+            if(desired.i) openTag("i");
+            if(desired.u) openTag("u");
+            openTag("color", desired.color);
+            return;
+          }
+          if(name==="u"){
+            closeTag("color"); closeTag("u");
+            if(desired.u) openTag("u");
+            openTag("color", desired.color);
             return;
           }
           if(name==="color"){
-            closeTag("u"); closeTag("i"); closeTag("b"); closeTag("color");
+            closeTag("color");
             openTag("color", val);
-            if(desired.b) openTag("b");
-            if(desired.i) openTag("i");
-            if(desired.u) openTag("u");
             return;
           }
         }
 
         if(!cur.align){ openTag("align", desired.align); }
-        if(!cur.font){ openTag("font", desired.font); }
+        if(cur.font === null){ openTag("font", desired.font); }
         if(cur.size==null){ openTag("size", desired.size); }
-        if(!cur.color){ openTag("color", desired.color); }
 
         setAttr("align");
         setAttr("font");
         setAttr("size");
+        setAttr("b");
+        setAttr("i");
+        setAttr("u");
+        if(!cur.color){ openTag("color", desired.color); }
         setAttr("color");
-
-        if(cur.b !== desired.b){
-          if(cur.b) closeTag("b"); else openTag("b");
-        }
-        if(cur.i !== desired.i){
-          if(cur.i) closeTag("i"); else openTag("i");
-        }
-        if(cur.u !== desired.u){
-          if(cur.u) closeTag("u"); else openTag("u");
-        }
       }
 
       let i=0;
@@ -1786,7 +1964,122 @@
       }
 
       resetAll();
-      return out.join("");
+      return cleanMarkup(out.join(""));
+    }
+
+    function colorNameToHex(value){
+      const raw = String(value || "").trim();
+      if(/^#[0-9a-fA-F]{6}$/.test(raw)) return normHex(raw, true);
+
+      const named = {
+        white:"#FFFFFF", black:"#000000", red:"#FF0000", blue:"#0000FF",
+        green:"#00FF00", yellow:"#FFFF00", orange:"#FFA500", purple:"#800080",
+        pink:"#FFC0CB", grey:"#808080", gray:"#808080", cyan:"#00FFFF"
+      };
+      return named[raw.toLowerCase()] || DEFAULTS.color;
+    }
+
+    function parseMarkupToEditor(markup){
+      const state = {
+        color:DEFAULTS.color,
+        b:false, i:false, u:false,
+        size:DEFAULTS.size,
+        font:DEFAULTS.font,
+        align:DEFAULTS.align
+      };
+
+      const textParts = [];
+      const parsedStyle = {
+        color:[], b:[], i:[], u:[], size:[], font:[], align:[]
+      };
+
+      function pushVisibleChar(ch){
+        textParts.push(ch);
+        parsedStyle.color.push(state.color);
+        parsedStyle.b.push(state.b);
+        parsedStyle.i.push(state.i);
+        parsedStyle.u.push(state.u);
+        parsedStyle.size.push(state.size);
+        parsedStyle.font.push(state.font);
+        parsedStyle.align.push(state.align);
+      }
+
+      function pushText(text){
+        for(let i=0; i<text.length;){
+          if(text[i]==="\\" && text[i+1]==="n"){
+            textParts.push("\\n");
+            i += 2;
+            continue;
+          }
+
+          if(text[i]==="{" && text[i+1]==="{"){
+            const end = text.indexOf("}}", i + 2);
+            if(end !== -1){
+              textParts.push(text.slice(i, end + 2));
+              i = end + 2;
+              continue;
+            }
+          }
+
+          if(text[i]==="\n" || text[i]==="\r"){
+            textParts.push("\\n");
+            i++;
+            continue;
+          }
+
+          pushVisibleChar(text[i]);
+          i++;
+        }
+      }
+
+      const tokenRe = /<\/?(?:align|font|size|color|b|i|u)(?:=(?:"[^"]*"|[^>]*))?>/gi;
+      let last = 0;
+      let match;
+
+      while((match = tokenRe.exec(markup))){
+        pushText(markup.slice(last, match.index));
+
+        const tag = match[0];
+        const lower = tag.toLowerCase();
+
+        if(lower === "<b>") state.b = true;
+        else if(lower === "</b>") state.b = false;
+        else if(lower === "<i>") state.i = true;
+        else if(lower === "</i>") state.i = false;
+        else if(lower === "<u>") state.u = true;
+        else if(lower === "</u>") state.u = false;
+        else if(lower.startsWith("<align=")) state.align = (tag.match(/<align=([^>]+)>/i)?.[1] || DEFAULTS.align).trim().toLowerCase();
+        else if(lower === "</align>") state.align = DEFAULTS.align;
+        else if(lower.startsWith("<font=")) state.font = (tag.match(/<font="?([^">]*)"?>/i)?.[1] || "").trim();
+        else if(lower === "</font>") state.font = DEFAULTS.font;
+        else if(lower.startsWith("<size=")) state.size = clamp(parseInt(tag.match(/<size=(\d{1,3})%>/i)?.[1] || "100", 10), 50, 300);
+        else if(lower === "</size>") state.size = DEFAULTS.size;
+        else if(lower.startsWith("<color=")) state.color = colorNameToHex(tag.match(/<color=([^>]+)>/i)?.[1]);
+        else if(lower === "</color>") state.color = DEFAULTS.color;
+
+        last = tokenRe.lastIndex;
+      }
+
+      pushText(markup.slice(last));
+
+      return {
+        text: textParts.join(""),
+        style: parsedStyle
+      };
+    }
+
+    function applyOutputToEditor(){
+      pushHistory();
+      const parsed = parseMarkupToEditor(cleanMarkup(output.value || ""));
+      TEXT = parsed.text;
+      STYLE = parsed.style;
+      editor.value = TEXT;
+      lastEditorValue = TEXT;
+      MAP = buildVisibleMap(TEXT);
+      ensureStyleLength(MAP.visLen);
+      autosizeEditor();
+      renderAll();
+      status("Output applied to editor.");
     }
 
     function renderAll(){
@@ -1794,7 +2087,7 @@
       ensureStyleLength(MAP.visLen);
 
       const markup = buildMarkup();
-      output.textContent = markup;
+      if(document.activeElement !== output) output.value = markup;
       preview.innerHTML = toPreviewHTML(markup);
 
       saveLS("baseColorV2", normHex(solidColor.value,true));
@@ -2047,10 +2340,6 @@
       renderAll();
       status("Brush painted.");
     }
-
-    // ============================================================
-    // 11) Insert helpers (tokens, icons, literal \n)
-    // ============================================================
     function insertAtCaret(text){
       pushHistory();
       const s=editor.selectionStart|0, e=editor.selectionEnd|0;
@@ -2071,23 +2360,65 @@
       status("Inserted literal \\n");
     }
 
-    const ICONS_SAFE = [
-      "✿","❀","❖","★","☆","✓","∞","☯","⚠","♥","♡","♦","♣","♠","→","←","↑","↓","↔","↕",
-      "◉","○","◎","●","◯","◇","◆","◈","■","□","▪","▫","░","▒","▓","█"
+    const ICONS_SOURCE = [
+      "✿","❀","❖","♨","乂","!?","¿","⚽","⚾","♠","♣","♦",
+      "♥","♤","♧","♢","♡","☯","✚","⚠","†","∞","✓","‡",
+      "☎","☏","℡","⌘","☖","☗","⌅","⌆","⌇","⌒","〶","★",
+      "☆","⁂","⁑","✽","☝ ","☞","☟","☜","↑","↓","→","←",
+      "↔","↕","⬆","↗","➡","↘","⬇","↙","⬅","↖","⤴","⤵",
+      "￩","￪","￫","￬","⇦","⇧","⇨","⇩","⇵","⇄","⇅","⇆",
+      "↹","•","○","◦","⦿","▲","▼","■","▢","▣","▤","▥",
+      "▦","▧","▨","▩","▪","▫","●","◐","◑","◒","◓","◯",
+      "◇","◈","▱","▶","◀","﹘","﹝","﹞","﹟","﹡","␣","⊠",
+      "╳","∇","♩","♪","♫","♬","♭","♮","♯","°","ø","≠",
+      "☀","☁","☂","☃","☉","♁","℃","℉","㎎","㎏","㎜","㎝",
+      "㎞","㎡","㏄","㏎","㏑","㏒","㏕","♀","♂","〠","ヅ","ツ",
+      "㋡","웃","유","ü","Ü","シ","ッ","㋛","〲","〴","◉","◍",
+      "◎","⊗","⊙","〇","∅","⊕","⊖","⊘","·","｡","▀","▁",
+      "▂","▃","▄","▅","▆","▇","▉","▊","▋","█","▌","▐",
+      "▍","▎","▏","░","▒","▓","▔","◆","│","┃","╽","╿",
+      "╏","║","╎","┇","︱","┊","︳","┋","┆","╵","〡","〢",
+      "╹","╻","╷","〣","≡","︴","﹏","﹌","﹋","╲","╱","︶",
+      "︵","〵","〳","〆","`","‐","◣","◥","◤","◢","△","▽",
+      "▷","∆","⊿","┐","└","┘","┌","├","┤","┬","┴","┼",
+      "╔","╗","╚","╝","╠","╣","╦","╩","╬","╭","╮","╯",
+      "╰","-","‒","–","—","―","‘","’","‚","“","”","„",
+      "‥","…","‧","′","″","‵","ʻ","ˇ","ˉ","ˊ","ˋ","˙",
+      "～","﹐","﹒","﹔","﹕","！","＃","＄","％","＆","＊","，",
+      "．","：","；","？","＠","、","。","〃","〝","〞","︰","θ",
+      "ð","ĩ","Ň","Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ",
+      "Ⓙ","Ⓚ","Ⓛ","Ⓜ","Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ",
+      "Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ","ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ",
+      "ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ","ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ",
+      "ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ","Ⅰ","Ⅱ","Ⅲ","Ⅳ","Ⅴ",
+      "Ⅵ","Ⅶ","Ⅷ","Ⅸ","Ⅹ","Ⅺ","Ⅻ","ⅰ","ⅱ","ⅲ","ⅳ","ⅴ",
+      "ⅵ","ⅶ","ⅷ","ⅸ","ⅹ","ⅺ","ⅻ","➀","➁","➂","➃","➄",
+      "➅","➆","➇","➈","➉","➊","➋","➌","➍","➎","➏","➐",
+      "➑","➒","➓","⓵","⓶","⓷","⓸","⓹","⓺","⓻","⓼","⓽",
+      "⓾","⓿","❶","❷","❸","❹","❺","❻","❼","❽","❾","❿",
+      "¹","²","³","⁴","⓪","①","②","③","④","⑤","⑥","⑦",
+      "⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮","⑯","⑰","⑱","⑲",
+      "⑳","⑴","⑵","⑶","⑷","⑸","⑹","⑺","⑻","⑼","⑽","⑾",
+      "⑿","⒀","⒁","⒂","⒃","⒄","⒅","⒆","⒇","⒈","⒉","⒊",
+      "⒋","⒌","⒍","⒎","⒏","⒐","⒑","⒒","⒓","⒔","⒕","⒖",
+      "⒗","⒘","⒙","⒚","⒛","㈠","㈡","㈢","㈣","㈤","㈥","㈦",
+      "㈧","㈨","㈩","㊀","㊁","㊂","㊃","㊄","㊅","㊆","㊇","㊈",
+      "㊉","０","１","２","３","４","５","６","７","８","９","¾",
+      "¼","%","℅","‰","π","Σ","√","∫","∬","∭","∀","∂",
+      "∃","∈","∉","∊","∋","∏","∑","−","∓","∕","∝","∟",
+      "∠","∣","∥","∦","∧","∨","∩","∪","∴","∵","∶","∷",
+      "∽","≃","≅","≈","≌","≒","≢","≤","≥","≦","≧","≪",
+      "≫","≮","≯","≲","≳","≶","≷","⊂","⊃","⊄","⊅","⊆",
+      "⊇","⊊","⊋","⊥","⋚","⋛","⋯","﹢","﹣","＋","－","／",
+      "＝","÷","±","™","〰","🆗","🆕","🆙","🆒","🆓","🆖","🅿",
+      "🆑","🆘","🆚","🅰","🅱","🆎","🅾","♻","🆔"
     ];
-    const ICONS_FULL = [
-      "✿","❀","❖","⚽","⚾","♠","♣","♦","♥","♤","♧","♢","♡","☯","✚","⚠","†","∞","✓",
-      "☎","☏","☀","☁","☂","☃","☉","★","☆","⁂","✽","☝","☞","☟","☜","↑","↓","→","←","↔","↕",
-      "⌘","⌅","⌆","⌇","〶","⚙","⚛","⚜","⚓","⚡","⚕","⚒","⚖","♩","♪","♫","♬","♭","♮","♯",
-      "☕","☘","☄","☇","☈","〠","ヅ","ツ","㋡","웃","유","シ","ッ","㋛","◉","○","◎","●","⊗","⊙",
-      "◯","◇","◈","◍","◐","◑","◒","◓","◦","∅","⊕","⊖","⊘","⦿","▀","▁","▂","▃","▄","▅","▆","▇",
-      "▉","▋","█","░","▒","▓","▢","▣","▤","▥","▦","▧","▨","▩","▪","▫","◆","◣","◥","◤","◢",
-      "☠","☢","☣","⚰","⚱","♨","☮","✠","✡","™","〰","Ⓜ","♻","🆘","🅰","🅱","🅾","🆚"
-    ];
+    const ICONS_SAFE = ICONS_SOURCE;
+    const ICONS_FULL = ICONS_SOURCE;
 
     function buildIcons(){
       iconGrid.innerHTML="";
-      const src = safeIconsToggle.checked ? ICONS_SAFE : ICONS_FULL;
+      const src = ICONS_SOURCE;
       src.forEach(ch=>{
         const b=document.createElement("button");
         b.type="button";
@@ -2101,9 +2432,6 @@
       });
     }
 
-    // ============================================================
-    // 12) Buttons + events
-    // ============================================================
     function openHelp(){
       modal.classList.add("open");
       modalClose.focus();
@@ -2114,7 +2442,6 @@
 
     openHelpTop?.addEventListener("click", (e)=>{ e.preventDefault(); openHelp(); });
     openHelpInline?.addEventListener("click", openHelp);
-    openHelpMenu?.addEventListener("click", (e)=>{ e.preventDefault(); openHelp(); });
 
     modalClose.addEventListener("click", closeHelp);
     modalBackdrop.addEventListener("click", closeHelp);
@@ -2181,7 +2508,18 @@
     resetLineBtn.addEventListener("click", resetLine);
 
     normalizeBtn.addEventListener("click", normalizeOutput);
+    applyOutputBtn.addEventListener("click", applyOutputToEditor);
     clearStylesBtn.addEventListener("click", clearSelectionStyles);
+
+    output.addEventListener("input", ()=>{
+      preview.innerHTML = toPreviewHTML(output.value);
+    });
+
+    toggleGradientBtn.addEventListener("click", ()=>{
+      const collapsed = compactGradient.classList.toggle("gradient-collapsed");
+      toggleGradientBtn.textContent = collapsed ? "Show" : "Hide";
+      saveLS("gradientCollapsedV1", collapsed);
+    });
 
     btnUndo.addEventListener("click", undo);
     btnRedo.addEventListener("click", redo);
@@ -2250,30 +2588,141 @@
     });
 
     copyOutBtn.addEventListener("click", async ()=>{
-      const text = buildMarkup();
+      const text = output.value || buildMarkup();
       await copyToClipboard(text);
       status("Markup copied.");
     });
 
     downloadOutBtn.addEventListener("click", ()=>{
-      const text = buildMarkup();
+      const text = output.value || buildMarkup();
       downloadText("template.txt", text);
       status("Downloaded template.txt");
     });
 
-    document.querySelectorAll("[data-capture]").forEach(b=>{
-      b.addEventListener("click", ()=>{
-        const key=b.getAttribute("data-capture");
-        expAreas[key].value = buildMarkup();
-        status(`Captured into "${key}".`);
+    function cleanTagName(name){
+      return (name || "template").trim().replace(/[^a-zA-Z0-9_]/g, "") || "template";
+    }
+
+    function addPropToFocused(prop){
+      const active = document.activeElement;
+      const target = active?.classList?.contains("template-props")
+        ? active
+        : exportGrid.querySelector(".template-props");
+
+      if(!target){ status("Add a template first."); return; }
+
+      const val = target.value.trim();
+      target.value = val ? `${val}, ${prop}` : prop;
+      target.focus();
+      saveExports();
+    }
+
+    function saveExports(){
+      const data = getExportEntriesFromDom();
+      saveLS("namedExportsV3", data);
+      saveLS("templateVarsV3", templateVars.value || "");
+    }
+
+    function getExportEntriesFromDom(){
+      return Array.from(exportGrid.querySelectorAll(".export-card")).map(card=>({
+        name: cleanTagName(card.querySelector(".template-name")?.value),
+        props: (card.querySelector(".template-props")?.value || "").trim(),
+        body: card.querySelector(".template-body")?.value || ""
+      })).filter(entry=>entry.name || entry.body.trim());
+    }
+
+    function renderExportEntries(entries){
+      exportGrid.innerHTML = "";
+      exportEntries = entries.map(entry=>({
+        name: cleanTagName(entry.name),
+        props: entry.props || "",
+        body: entry.body || ""
+      }));
+
+      exportEntries.forEach((entry, idx)=>{
+        const card = document.createElement("div");
+        card.className = "export-card";
+
+        const meta = document.createElement("div");
+        meta.className = "export-meta";
+
+        const name = document.createElement("input");
+        name.className = "template-name";
+        name.placeholder = "tag";
+        name.value = entry.name;
+        name.setAttribute("aria-label", "Template tag");
+
+        const props = document.createElement("input");
+        props.className = "template-props";
+        props.placeholder = "optional props: weight=2, rank=host, players>=10";
+        props.value = entry.props;
+        props.setAttribute("aria-label", "Template properties");
+
+        const actions = document.createElement("div");
+        actions.style.display = "flex";
+        actions.style.gap = "8px";
+        actions.style.flexWrap = "wrap";
+        actions.style.justifyContent = "flex-end";
+
+        const use = document.createElement("button");
+        use.className = "btn small";
+        use.type = "button";
+        use.textContent = "Use current";
+        use.addEventListener("click", ()=>{
+          body.value = output.value || buildMarkup();
+          saveExports();
+          status(`Captured into "${name.value}".`);
+        });
+
+        const remove = document.createElement("button");
+        remove.className = "btn small ghost";
+        remove.type = "button";
+        remove.textContent = "Remove";
+        remove.addEventListener("click", ()=>{
+          card.remove();
+          saveExports();
+          status("Template removed.");
+        });
+
+        actions.append(use, remove);
+        meta.append(name, props, actions);
+
+        const body = document.createElement("textarea");
+        body.className = "template-body";
+        body.value = entry.body;
+        body.placeholder = idx === 0 ? "Template markup goes here..." : "";
+
+        [name, props, body].forEach(el=>el.addEventListener("input", saveExports));
+
+        card.append(meta, body);
+        exportGrid.appendChild(card);
       });
+    }
+
+    document.querySelectorAll("[data-prop]").forEach(b=>{
+      b.addEventListener("click", ()=>addPropToFocused(b.getAttribute("data-prop")));
     });
 
+    addTemplateBtn.addEventListener("click", ()=>{
+      const entries = getExportEntriesFromDom();
+      entries.push({ name: `template${entries.length + 1}`, props: "", body: output.value || buildMarkup() });
+      renderExportEntries(entries);
+      saveExports();
+      status("Template added.");
+    });
+    templateVars.addEventListener("input", saveExports);
+
     function buildNamedLines(){
-      const parts=[];
-      for(const [name,ta] of Object.entries(expAreas)){
-        const body=(ta.value||"").trim();
-        if(body) parts.push(`${name}:${body}`);
+      const parts = [];
+      const vars = (templateVars.value || "").split(/\r?\n/).map(line=>line.trim()).filter(Boolean);
+      parts.push(...vars);
+
+      for(const entry of getExportEntriesFromDom()){
+        const body = (entry.body || "").trim();
+        if(!body) continue;
+
+        const props = entry.props ? `[${entry.props}]` : "";
+        parts.push(`${cleanTagName(entry.name)}${props}:${body}`);
       }
       return parts;
     }
@@ -2281,8 +2730,8 @@
     downloadNamedBtn.addEventListener("click", ()=>{
       const parts=buildNamedLines();
       if(!parts.length){ status("Nothing to export."); return; }
-      downloadText("named.txt", parts.join("\n"));
-      status("Downloaded named.txt");
+      downloadText("template.txt", parts.join("\n"));
+      status("Downloaded template.txt");
     });
 
     copyNamedBtn.addEventListener("click", async ()=>{
@@ -2292,17 +2741,17 @@
       status("Copied named exports.");
     });
 
-    // ============================================================
-    // 13) Boot
-    // ============================================================
     function boot(){
       const bc = loadLS("baseColorV2", "#FFFFFF");
-      const fs = loadLS("fontSelV2", "OCRAEXT SDF");
+      const fs = loadLS("fontSelV2", "");
       const sz = loadLS("sizeCtlV2", 100);
 
       solidColor.value = normHex(bc,true);
       fontSel.value = fs;
       sizePct.value = clamp(parseInt(sz||"100",10),50,300);
+      const gradientCollapsed = loadLS("gradientCollapsedV1", true);
+      compactGradient.classList.toggle("gradient-collapsed", gradientCollapsed);
+      toggleGradientBtn.textContent = gradientCollapsed ? "Show" : "Hide";
 
       syncPreviewBaseFont();
 
@@ -2330,6 +2779,10 @@
       renderGradientPreview();
       buildPresetUI();
 
+      const savedTemplateVars = loadLS("templateVarsV3", DEFAULT_TEMPLATE_VARS);
+      templateVars.value = savedTemplateVars === OLD_DEFAULT_TEMPLATE_VARS ? DEFAULT_TEMPLATE_VARS : savedTemplateVars;
+      renderExportEntries(loadLS("namedExportsV3", DEFAULT_EXPORTS));
+
       autosizeEditor();
       renderAll();
 
@@ -2342,5 +2795,6 @@
 
     boot();
   </script>
+  <script src="/scripts/navbar.js"></script>
 </body>
 </html>
