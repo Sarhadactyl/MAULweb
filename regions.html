@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Modded regions • MAUL</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:title" content="Modded Regions" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/regions.html" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta property="og:description" content="Custom Among Us server regions for modded lobbies." />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://moddedamong.us/regions.html" />
+
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --accent: #800000;
+        --accent-soft: rgba(128, 0, 0, 0.25);
+        --accent-strong: #b00000;
+        --discord: #5865f2;
+        --bg-card: rgba(30, 12, 12, 0.9);
+        --bg-soft: rgba(45, 18, 18, 0.9);
+        --text-main: #ffffff;
+        --text-muted: #dedee8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        color: var(--text-main);
+        overflow-x: hidden;
+      }
+
+      body {
+        background: #000 url("images/maulredbg.png") no-repeat top center fixed;
+        background-size: auto 100%;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(circle at top, rgba(128, 0, 0, 0.45), transparent 55%),
+          radial-gradient(circle at bottom, rgba(180, 0, 60, 0.25), transparent 55%);
+        mix-blend-mode: screen;
+        opacity: 0.7;
+        pointer-events: none;
+        z-index: -2;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
+        z-index: -1;
+      }
+
+      .page-wrapper {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 76px 20px 58px;
+      }
+
+      .header {
+        position: relative;
+        text-align: center;
+        padding: 26px 20px 26px;
+        overflow: hidden;
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: -48px;
+        width: min(330px, 72vw);
+        aspect-ratio: 1;
+        background: url("images/maul.png") no-repeat center / contain;
+        opacity: 0.16;
+        transform: translateX(-50%);
+        filter: drop-shadow(0 18px 34px rgba(0, 0, 0, 0.9));
+        pointer-events: none;
+      }
+
+      .header-badge {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: linear-gradient(120deg, rgba(128, 0, 0, 0.5), rgba(200, 0, 80, 0.35));
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: var(--text-muted);
+        margin-bottom: 16px;
+      }
+
+      .header-badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #00ff9c, #00b36b);
+        box-shadow: 0 0 12px rgba(0, 255, 156, 0.7);
+      }
+
+      .header h1 {
+        position: relative;
+        z-index: 1;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(3.2rem, 7vw, 5rem);
+        margin: 0;
+        text-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+        letter-spacing: 0.04em;
+        animation: fadeIn 0.9s ease-out;
+      }
+
+      .header h1 span {
+        background: linear-gradient(120deg, #ffffff, var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .content-panel {
+        position: relative;
+        margin: 30px auto 0;
+        padding: 26px;
+        border: 1px solid rgba(255, 255, 255, 0.11);
+        background:
+          linear-gradient(145deg, rgba(55, 18, 18, 0.96), rgba(18, 4, 4, 0.92)),
+          var(--bg-card);
+        border-radius: 20px;
+        box-shadow:
+          0 24px 60px rgba(0, 0, 0, 0.92),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        overflow: hidden;
+        animation: slideIn 0.9s ease-out;
+      }
+
+      .content-panel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent 28%),
+          radial-gradient(circle at top right, rgba(176, 0, 0, 0.2), transparent 42%);
+        pointer-events: none;
+      }
+
+      .windows-panel {
+        max-width: 520px;
+      }
+
+      .region-panel {
+        margin-top: 24px;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .top-actions {
+        margin: 24px auto 0;
+        max-width: 850px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .action-row {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .action-button,
+      .region-link {
+        text-decoration: none;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85);
+        transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+      }
+
+      .action-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 48px;
+        min-width: 164px;
+        padding: 12px 24px;
+        border-radius: 999px;
+        background: rgba(45, 16, 16, 0.86);
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        box-shadow:
+          0 10px 24px rgba(0, 0, 0, 0.72),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .primary-action {
+        background: linear-gradient(135deg, #9d0000, #c40000);
+        border-color: rgba(255, 255, 255, 0.16);
+      }
+
+      .action-button:hover,
+      .region-link:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.95);
+        filter: brightness(1.06);
+      }
+
+      .action-button i,
+      .region-link i {
+        color: #ff4d4d;
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.65);
+      }
+
+      .join-button i {
+        color: #9da6ff;
+        text-shadow: 0 0 12px rgba(88, 101, 242, 0.72);
+      }
+
+      .disclaimer {
+        max-width: 770px;
+        margin: 18px auto 0;
+        padding: 0;
+        color: #ffffff;
+        font-size: 0.98rem;
+        font-style: italic;
+        line-height: 1.55;
+        text-align: center;
+      }
+
+      .server-section {
+        position: relative;
+        z-index: 1;
+      }
+
+      .server-section + .server-section {
+        margin-top: 26px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .server-section h2 {
+        margin: 0 0 14px;
+        font-size: 1.12rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: #ffffff;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .region-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .single-action-grid {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      .region-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 78px;
+        padding: 16px;
+        border-radius: 14px;
+        background:
+          linear-gradient(145deg, rgba(70, 24, 24, 0.94), rgba(34, 8, 8, 0.96)),
+          rgba(45, 16, 16, 0.96);
+        font-family: "Poppins", sans-serif;
+        font-size: 1.05rem;
+        font-weight: 700;
+        box-shadow:
+          0 12px 28px rgba(0, 0, 0, 0.72),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .region-link:hover {
+        background: rgba(60, 20, 20, 0.98);
+        border-color: var(--accent-soft);
+      }
+
+      .mobile-steps {
+        position: relative;
+        z-index: 1;
+        margin-top: 26px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .mobile-steps ol {
+        margin: 0;
+        padding-left: 24px;
+        color: var(--text-muted);
+        font-size: 0.96rem;
+        line-height: 1.7;
+      }
+
+      .mobile-steps li::marker {
+        color: #ff4d4d;
+        font-weight: 700;
+      }
+
+      .mobile-label {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 18px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(128, 0, 0, 0.28);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: var(--text-muted);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .mobile-label i {
+        color: #ff4d4d;
+      }
+
+      .mobile-layout {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+        gap: 22px;
+        align-items: center;
+      }
+
+      .mobile-image {
+        width: 100%;
+        max-height: 260px;
+        object-fit: contain;
+        filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.7));
+      }
+
+      .mobile-note {
+        margin: 12px 0 0;
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 0.9rem;
+        line-height: 1.55;
+      }
+
+      .help-link {
+        margin: 18px auto 0;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.9rem;
+      }
+
+      .help-link a {
+        color: #ff8080;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .help-link a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+
+      .footer-note {
+        margin: 16px auto 0;
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 0.86rem;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      @media (max-width: 750px) {
+        .region-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .action-button {
+          min-width: min(100%, 260px);
+        }
+
+        .mobile-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .mobile-image {
+          max-height: 220px;
+          order: -1;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .page-wrapper {
+          padding: 90px 16px 48px;
+        }
+
+        .header {
+          padding: 30px 8px 20px;
+        }
+
+        .content-panel {
+          padding: 20px 16px 22px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <div class="page-wrapper">
+      <header class="header">
+        <div class="header-badge">
+          <span class="header-badge-dot"></span>
+          Custom Among Us Regions
+        </div>
+        <h1>Modded <span>Regions</span></h1>
+
+        <div class="top-actions">
+          <div class="action-row">
+            <a class="action-button" href="index.html">
+              Back to Home <i class="fa-solid fa-house"></i>
+            </a>
+            <a class="action-button primary-action join-button" href="https://discord.gg/maul" target="_blank" rel="noopener">
+              Join MAUL <i class="fa-brands fa-discord"></i>
+            </a>
+          </div>
+
+          <p class="disclaimer">
+            Disclaimer: The .bat file is provided for convenience. MAUL does not maintain it and is not responsible for
+            its content or any effects it may have on your system. Use it at your own risk.
+          </p>
+        </div>
+      </header>
+
+      <main class="content-panel windows-panel">
+        <section class="server-section">
+          <h2>Windows Installer</h2>
+          <div class="region-grid single-action-grid">
+            <a
+              class="region-link"
+              href="https://au.niko233.top/Setup_Custom_Server.bat"
+              download="CustomServerSetup.bat"
+            >
+              <i class="fa-brands fa-windows"></i> Windows
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <main class="content-panel region-panel">
+        <div class="mobile-label"><i class="fa-solid fa-mobile-screen-button"></i> Phone / Mobile</div>
+
+        <section class="server-section">
+          <h2>Modded Regions</h2>
+          <div class="region-grid">
+            <a
+              class="region-link"
+              href="amongus://init?servername=Modded_NA&serverport=443&serverip=https%3A%2F%2Faumods.org&usedtls=false"
+            >
+              <i class="fa-solid fa-globe"></i> Modded NA
+            </a>
+            <a
+              class="region-link"
+              href="amongus://init?servername=Modded_EU&serverport=443&serverip=https%3A%2F%2Fau-eu.duikbo.at&usedtls=false"
+            >
+              <i class="fa-solid fa-globe"></i> Modded EU
+            </a>
+            <a
+              class="region-link"
+              href="amongus://init?servername=Modded_AS&serverport=443&serverip=https%3A%2F%2Fau-as.duikbo.at&usedtls=false"
+            >
+              <i class="fa-solid fa-globe"></i> Modded Asia
+            </a>
+          </div>
+        </section>
+
+        <section class="server-section">
+          <h2>NikoCat Regions</h2>
+          <div class="region-grid">
+            <a
+              class="region-link"
+              href="amongus://init?servername=Niko233(NA)&serverport=443&serverip=https%3A%2F%2Fau-us.niko233.top&usedtls=false"
+            >
+              <i class="fa-solid fa-globe"></i> NikoCat NA
+            </a>
+            <a
+              class="region-link"
+              href="amongus://init?servername=Niko233(EU)&serverport=443&serverip=https%3A%2F%2Fau-eu.niko233.top&usedtls=false"
+            >
+              <i class="fa-solid fa-globe"></i> NikoCat EU
+            </a>
+            <a
+              class="region-link"
+              href="amongus://init?servername=Niko233(AS)&serverport=443&serverip=https%3A%2F%2Fau-as.niko233.top&usedtls=false"
+            >
+              <i class="fa-solid fa-globe"></i> NikoCat AS
+            </a>
+          </div>
+        </section>
+
+        <section class="mobile-steps">
+          <h2>Mobile Steps</h2>
+          <div class="mobile-layout">
+            <div>
+              <ol>
+                <li>Open Among Us.</li>
+                <li>Click the region you would like to use.</li>
+                <li>Change your region in the Among Us region selector to the region you are trying to join.</li>
+              </ol>
+              <p class="mobile-note">If nothing opens, make sure Among Us is installed and open first.</p>
+            </div>
+            <img class="mobile-image" src="images/mobile.webp" alt="Among Us mobile region selector" />
+          </div>
+        </section>
+      </main>
+
+      <p class="footer-note">These servers may include AntiCheat for host-only mods.</p>
+      <p class="help-link">Need help? <a href="https://discord.gg/maul" target="_blank" rel="noopener">Join MAUL</a>.</p>
+    </div>
+
+    <script src="/scripts/navbar.js"></script>
+  </body>
+</html>
