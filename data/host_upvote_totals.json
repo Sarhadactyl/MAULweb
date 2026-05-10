@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-10T08:20:02.661868+00:00",
+  "generated_at": "2026-05-10T13:14:01.840059+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -281,6 +281,22 @@
       "upvoted_times": 2,
       "last_upvoted_at": "2026-03-19T19:42:35.002836+00:00"
     },
+    "715357982853955689": {
+      "host_id": 715357982853955689,
+      "host_name": "nl25",
+      "slug": "nl25",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-05-10T13:14:01.834421+00:00"
+    },
+    "nl25": {
+      "host_id": 715357982853955689,
+      "host_name": "nl25",
+      "slug": "nl25",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-05-10T13:14:01.834421+00:00"
+    },
     "1101745950789218374": {
       "host_id": 1101745950789218374,
       "host_name": "summer \u1aa5\uaac2\u0fd4",
@@ -528,22 +544,6 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-07T01:51:51.269065+00:00"
-    },
-    "715357982853955689": {
-      "host_id": 715357982853955689,
-      "host_name": "nl25",
-      "slug": "nl25",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-05-09T00:10:07.651491+00:00"
-    },
-    "nl25": {
-      "host_id": 715357982853955689,
-      "host_name": "nl25",
-      "slug": "nl25",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-05-09T00:10:07.651491+00:00"
     },
     "1100728124225888287": {
       "host_id": 1100728124225888287,
