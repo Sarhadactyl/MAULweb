@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-12T02:44:53.841920+00:00",
+  "generated_at": "2026-05-14T22:09:46.457670+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -137,6 +137,22 @@
       "upvoted_times": 4,
       "last_upvoted_at": "2026-03-20T17:49:30.436769+00:00"
     },
+    "988926958777806939": {
+      "host_id": 988926958777806939,
+      "host_name": "\u22c6 \u02da\uff61\u22c6\u0b68\u0b67\u02da\ud835\udc35\ud835\udcc7\ud835\udcbe\ud835\udcc9\ud835\udcc3\ud835\udc52\ud835\udcce\u02da \u0b68\u0b67\u22c6\uff61\u02da \u22c6",
+      "slug": "\u22c6-\u02da\uff61\u22c6\u0b68\u0b67\u02da\ud835\udc35\ud835\udcc7\ud835\udcbe\ud835\udcc9\ud835\udcc3\ud835\udc52\ud835\udcce\u02da-\u0b68\u0b67\u22c6\uff61\u02da-\u22c6",
+      "upvoted_by_users": 4,
+      "upvoted_times": 4,
+      "last_upvoted_at": "2026-05-14T22:09:46.453883+00:00"
+    },
+    "\u22c6-\u02da\uff61\u22c6\u0b68\u0b67\u02da\ud835\udc35\ud835\udcc7\ud835\udcbe\ud835\udcc9\ud835\udcc3\ud835\udc52\ud835\udcce\u02da-\u0b68\u0b67\u22c6\uff61\u02da-\u22c6": {
+      "host_id": 988926958777806939,
+      "host_name": "\u22c6 \u02da\uff61\u22c6\u0b68\u0b67\u02da\ud835\udc35\ud835\udcc7\ud835\udcbe\ud835\udcc9\ud835\udcc3\ud835\udc52\ud835\udcce\u02da \u0b68\u0b67\u22c6\uff61\u02da \u22c6",
+      "slug": "\u22c6-\u02da\uff61\u22c6\u0b68\u0b67\u02da\ud835\udc35\ud835\udcc7\ud835\udcbe\ud835\udcc9\ud835\udcc3\ud835\udc52\ud835\udcce\u02da-\u0b68\u0b67\u22c6\uff61\u02da-\u22c6",
+      "upvoted_by_users": 4,
+      "upvoted_times": 4,
+      "last_upvoted_at": "2026-05-14T22:09:46.453883+00:00"
+    },
     "978665815735959643": {
       "host_id": 978665815735959643,
       "host_name": "\ud835\ude80\ud835\ude9e\ud835\ude8a\ud835\ude8c\ud835\ude94\ud835\udea2\ud835\ude8d\ud835\ude8a\ud835\ude8c\ud835\ude9d\ud835\ude95\ud835\udea2\u22c6\uff61\u02da \u2740",
@@ -168,22 +184,6 @@
       "upvoted_by_users": 3,
       "upvoted_times": 3,
       "last_upvoted_at": "2026-05-09T17:10:10.148707+00:00"
-    },
-    "988926958777806939": {
-      "host_id": 988926958777806939,
-      "host_name": "\u22c6 \u02da\uff61\u22c6\u0b68\u0b67\u02da\ud835\udc35\ud835\udcc7\ud835\udcbe\ud835\udcc9\ud835\udcc3\ud835\udc52\ud835\udcce\u02da \u0b68\u0b67\u22c6\uff61\u02da \u22c6",
-      "slug": "\u22c6-\u02da\uff61\u22c6\u0b68\u0b67\u02da\ud835\udc35\ud835\udcc7\ud835\udcbe\ud835\udcc9\ud835\udcc3\ud835\udc52\ud835\udcce\u02da-\u0b68\u0b67\u22c6\uff61\u02da-\u22c6",
-      "upvoted_by_users": 3,
-      "upvoted_times": 3,
-      "last_upvoted_at": "2026-05-03T01:09:19.696020+00:00"
-    },
-    "\u22c6-\u02da\uff61\u22c6\u0b68\u0b67\u02da\ud835\udc35\ud835\udcc7\ud835\udcbe\ud835\udcc9\ud835\udcc3\ud835\udc52\ud835\udcce\u02da-\u0b68\u0b67\u22c6\uff61\u02da-\u22c6": {
-      "host_id": 988926958777806939,
-      "host_name": "\u22c6 \u02da\uff61\u22c6\u0b68\u0b67\u02da\ud835\udc35\ud835\udcc7\ud835\udcbe\ud835\udcc9\ud835\udcc3\ud835\udc52\ud835\udcce\u02da \u0b68\u0b67\u22c6\uff61\u02da \u22c6",
-      "slug": "\u22c6-\u02da\uff61\u22c6\u0b68\u0b67\u02da\ud835\udc35\ud835\udcc7\ud835\udcbe\ud835\udcc9\ud835\udcc3\ud835\udc52\ud835\udcce\u02da-\u0b68\u0b67\u22c6\uff61\u02da-\u22c6",
-      "upvoted_by_users": 3,
-      "upvoted_times": 3,
-      "last_upvoted_at": "2026-05-03T01:09:19.696020+00:00"
     },
     "1223480609498992723": {
       "host_id": 1223480609498992723,
