@@ -241,8 +241,9 @@
         color: var(--accent-strong);
       }
 
+
       .content-grid {
-        max-width: 1100px;
+        max-width: 1180px;
         width: 100%;
         margin: 0 auto 40px;
         padding: 0 20px 10px;
@@ -251,19 +252,20 @@
       }
 
       .panel {
-        background: var(--bg-card);
-        border-radius: 20px;
+        background:
+          linear-gradient(180deg, rgba(42, 14, 18, 0.92), rgba(20, 7, 9, 0.94));
+        border-radius: 16px;
         padding: 22px 22px 24px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.78);
         backdrop-filter: blur(14px);
       }
 
       .section-title {
-        font-size: 1.7rem;
+        font-size: 1.55rem;
         margin: 0 0 6px;
         text-align: center;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
       }
 
@@ -274,58 +276,199 @@
         font-size: 0.9rem;
       }
 
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .icon-search-wrap {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 12px;
+        margin: 0 0 18px;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        background: rgba(0, 0, 0, 0.28);
+      }
+
+      .icon-search-box {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 42px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.06);
+        padding: 0 12px;
+      }
+
+      .icon-search-box span {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.05rem;
+      }
+
+      #icon-search {
+        width: 100%;
+        border: 0;
+        background: transparent;
+        color: var(--text-main);
+        padding: 10px 0;
+        font: inherit;
+        outline: none;
+      }
+
+      .icon-search-box:focus-within {
+        border-color: rgba(255, 255, 255, 0.4);
+        box-shadow: 0 0 0 3px rgba(176, 0, 0, 0.22);
+      }
+
+      #icon-search::placeholder {
+        color: rgba(255, 255, 255, 0.58);
+      }
+
+      #icon-search-count {
+        color: var(--text-muted);
+        font-size: 0.82rem;
+        white-space: nowrap;
+      }
+
+      .icon-card-wide {
+        grid-column: 1 / -1;
+      }
+
+      .language-icon-section {
+        margin-top: 22px;
+      }
+
+      .language-group {
+        margin-top: 10px;
+        background: rgba(12, 6, 7, 0.62);
+        border: 1px solid rgba(255, 255, 255, 0.11);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .language-group summary {
+        cursor: pointer;
+        padding: 13px 16px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.045);
+        list-style: none;
+      }
+
+      .language-group summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .language-group summary::after {
+        content: "+";
+        float: right;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .language-group[open] summary::after {
+        content: "-";
+      }
+
+      .language-icon-grid {
+        padding: 14px;
+      }
+
       .icon-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 12px;
       }
 
       .icon-card {
-        background: var(--bg-soft);
-        border-radius: 14px;
-        padding: 14px 16px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.9);
+        background:
+          linear-gradient(180deg, rgba(62, 24, 28, 0.72), rgba(28, 10, 12, 0.88));
+        border-radius: 8px;
+        padding: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.62);
         position: relative;
         overflow: hidden;
-        transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease,
-          background 0.22s ease;
-      }
-
-      .icon-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at top left, rgba(128, 0, 0, 0.18), transparent 55%);
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.25s ease;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease,
+          background 0.18s ease;
       }
 
       .icon-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.95);
-        border-color: var(--accent-soft);
-        background: rgba(60, 22, 22, 0.98);
+        transform: translateY(-1px);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.76);
+        border-color: rgba(255, 255, 255, 0.2);
+        background:
+          linear-gradient(180deg, rgba(75, 28, 34, 0.78), rgba(30, 10, 12, 0.94));
       }
 
-      .icon-card:hover::before {
-        opacity: 1;
+      .icon-card-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 8px;
       }
 
       .icon-card h3 {
-        margin: 0 0 6px;
-        font-size: 1.02rem;
-        letter-spacing: 0.04em;
+        margin: 0;
+        font-size: 0.82rem;
+        letter-spacing: 0.06em;
+        line-height: 1.25;
       }
+
+      .icon-count {
+        flex: 0 0 auto;
+        min-width: 28px;
+        border-radius: 999px;
+        padding: 2px 7px;
+        text-align: center;
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.78);
+        background: rgba(255, 255, 255, 0.09);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+
 
       .icon-card .icon-line {
         color: #ffffff;
-        line-height: 1.7;
+        line-height: 1.75;
         word-break: break-word;
+        font-size: 1.05rem;
         font-variant-emoji: text;
         font-family: "Segoe UI Symbol", "Noto Sans Symbols", "Noto Sans", "DejaVu Sans",
           sans-serif;
+        padding: 9px 10px;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.24);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+      }
+
+      @media (max-width: 640px) {
+        .icon-search-wrap {
+          grid-template-columns: 1fr;
+        }
+
+        #icon-search-count {
+          white-space: normal;
+        }
+
+        .icon-grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       .fonts-grid {
@@ -347,12 +490,9 @@
         margin-bottom: 4px;
       }
 
-      .copy-small {
-        margin-top: 8px;
-      }
 
-      .copy-btn-sm,
-      .copy-btn {
+      .action-btn-sm,
+      .action-btn {
         background: rgba(255, 255, 255, 0.06);
         border: 1px solid rgba(255, 255, 255, 0.22);
         color: #f3e8e8;
@@ -364,15 +504,15 @@
         font-weight: 500;
       }
 
-      .copy-btn-sm:hover,
-      .copy-btn:hover {
+      .action-btn-sm:hover,
+      .action-btn:hover {
         background: rgba(255, 255, 255, 0.12);
         border-color: rgba(255, 255, 255, 0.3);
         box-shadow: 0 8px 18px rgba(0, 0, 0, 0.8);
       }
 
-      .copy-btn-sm:active,
-      .copy-btn:active {
+      .action-btn-sm:active,
+      .action-btn:active {
         transform: scale(0.97);
       }
 
@@ -461,11 +601,6 @@
         word-break: break-all;
       }
 
-      .copy-row {
-        display: flex;
-        gap: 8px;
-        margin-top: 8px;
-      }
 
       .note-box {
         background: rgba(255, 255, 255, 0.04);
@@ -690,7 +825,7 @@
         </h1>
         <p class="header-subtitle">
           Browse all <span class="header-highlight">known-working symbols, fonts, and gradients</span> that play nicely
-          with your modded Among Us templates. Copy-and-paste ready.
+          with your modded Among Us templates. Ready to use.
         </p>
         <div class="header-actions">
           <a href="https://moddedamong.us/" class="cta-secondary">
@@ -710,8 +845,7 @@
 
       <p class="info-paragraph">
         This page lists <strong>all compatible icons, fonts, and pre-made gradients</strong> for MAUL templates.
-        Every symbol line, font tag, and hex value below is tested and ready to use in your presets, banners, and lobby
-        graphics. Use the <strong>copy buttons</strong> to quickly grab tags or color strings for your layouts.
+        Every symbol line, font tag, and hex value below is tested and ready to use in your presets, banners, and lobby graphics.
       </p>
 
       <main class="content-grid">
@@ -721,209 +855,407 @@
             All symbols below are known-working compatible icons.
           </p>
 
+
+          <div class="icon-search-wrap">
+            <label class="sr-only" for="icon-search">Search icons</label>
+            <div class="icon-search-box">
+              <span aria-hidden="true">⌕</span>
+              <input
+                id="icon-search"
+                type="search"
+                placeholder="Search by category, style, language, or symbol"
+                autocomplete="off"
+                spellcheck="false"
+              />
+            </div>
+            <span id="icon-search-count" aria-live="polite"></span>
+          </div>
+
           <div class="icon-grid">
-            <div class="icon-card">
-              <h3>FLOWERS</h3>
+            <div class="icon-card" data-search="flowers floral decor">
+              <div class="icon-card-head">
+                <h3>FLOWERS</h3>
+                <span class="icon-count">3</span>
+              </div>
               <div class="icon-line">✿ ❀ ❖</div>
             </div>
-            <div class="icon-card">
-              <h3>DECORATIVE / MISC</h3>
-              <div class="icon-line">♨ 乂 !? ¿</div>
+            <div class="icon-card" data-search="decorative misc symbols">
+              <div class="icon-card-head">
+                <h3>DECORATIVE / MISC</h3>
+                <span class="icon-count">28</span>
+              </div>
+              <div class="icon-line">♨ 乂 !? ¿ ※ 々 〆 〻 〄 〠 〶 〷 〽 ♲ ♳ ♴ ♵ ♶ ♷ ♸ ♹ ♺ ♼ ♽ 〱 卍 卐 〒</div> <!-- Thanks Gurge for these icons https://github.com/Gurge44/EndlessHostRoles/blob/9154898af82822eae93dd3152b38ac6b5c4ad1cf/Modules/Utils.cs#L37 -->
+
             </div>
-            <div class="icon-card">
-              <h3>SPORTS</h3>
+            <div class="icon-card" data-search="sports ball">
+              <div class="icon-card-head">
+                <h3>SPORTS</h3>
+                <span class="icon-count">2</span>
+              </div>
               <div class="icon-line">⚽ ⚾</div>
             </div>
-            <div class="icon-card">
-              <h3>CARD SUITS</h3>
+            <div class="icon-card" data-search="card suits playing cards">
+              <div class="icon-card-head">
+                <h3>CARD SUITS</h3>
+                <span class="icon-count">8</span>
+              </div>
               <div class="icon-line">♠ ♣ ♦ ♥ ♤ ♧ ♢ ♡</div>
             </div>
-            <div class="icon-card">
-              <h3>SYMBOLIC / STATUS</h3>
-              <div class="icon-line">☯ ✚ ⚠ † ∞ ✓ ‡</div>
+            <div class="icon-card" data-search="symbolic status warning check gender planet">
+              <div class="icon-card-head">
+                <h3>SYMBOLIC / STATUS</h3>
+                <span class="icon-count">19</span>
+              </div>
+              <div class="icon-line">☯ ✚ ⚠ † ∞ ✓ ‡ ☉ ♀ ♂ Ω ℧ ℮ ℵ © ® № ℀ Θ</div>
             </div>
-            <div class="icon-card">
-              <h3>COMMUNICATION</h3>
-              <div class="icon-line">☎ ☏ ℡ ⌘</div>
+            <div class="icon-card" data-search="communication phone command enter">
+              <div class="icon-card-head">
+                <h3>COMMUNICATION</h3>
+                <span class="icon-count">5</span>
+              </div>
+              <div class="icon-line">☎ ☏ ℡ ⌘ ⏎</div>
             </div>
-            <div class="icon-card">
-              <h3>BOARD / MARKER</h3>
+            <div class="icon-card" data-search="board marker">
+              <div class="icon-card-head">
+                <h3>BOARD / MARKER</h3>
+                <span class="icon-count">2</span>
+              </div>
               <div class="icon-line">☖ ☗</div>
             </div>
-            <div class="icon-card">
-              <h3>TECHNICAL / COMMAND</h3>
-              <div class="icon-line">⌅ ⌆ ⌇ ⌒ ⌘ 〶</div>
+            <div class="icon-card" data-search="technical command keys controls">
+              <div class="icon-card-head">
+                <h3>TECHNICAL / COMMAND</h3>
+                <span class="icon-count">6</span>
+              </div>
+              <div class="icon-line">⌅ ⌆ ⌇ ⌒ 〈 〉</div>
             </div>
-            <div class="icon-card">
-              <h3>STARS / DECOR</h3>
+            <div class="icon-card" data-search="stars decor sparkle asterisk">
+              <div class="icon-card-head">
+                <h3>STARS / DECOR</h3>
+                <span class="icon-count">5</span>
+              </div>
               <div class="icon-line">★ ☆ ⁂ ⁑ ✽</div>
             </div>
-            <div class="icon-card">
-              <h3>ARROWS</h3>
-              <div class="icon-line">
-                ☝ ☞ ☟ ☜ ↑ ↓ → ← ↔ ↕ ⬆ ↗ ➡ ↘ ⬇ ↙ ⬅ ↖ ↕ ↔ ⤴ ⤵ ￩ ￪ ￫ ￬ ⇦ ⇧ ⇨ ⇩ ⇵ ⇄ ⇅ ⇆ ↹
+            <div class="icon-card" data-search="arrows direction pointer swap">
+              <div class="icon-card-head">
+                <h3>ARROWS</h3>
+                <span class="icon-count">39</span>
               </div>
+              <div class="icon-line">☝ ☞ ☟ ☜ ↑ ↓ → ← ↔ ↕ ⬆ ↗ ➡ ↘ ⬇ ↙ ⬅ ↖ ⤴ ⤵ ￩ ￪ ￫ ￬ ⇦ ⇧ ⇨ ⇩ ⇵ ⇄ ⇅ ⇆ ↹ ↸ ⇐ ⇒ ⇔ ⇋ ⇌</div>
             </div>
-            <div class="icon-card">
-              <h3>SHAPES</h3>
-              <div class="icon-line">
-                • ○ ◦ ⦿ ▲ ▼ ♠ ♥ ♣ ♦ ♤ ♡ ♧ ♢ ■ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ● ◐ ◑ ◒ ◓ ◯ ◇ ◈ ▱ ▶ ◀
+            <div class="icon-card" data-search="bullets dots small round points">
+              <div class="icon-card-head">
+                <h3>BULLETS / DOTS</h3>
+                <span class="icon-count">4</span>
               </div>
+              <div class="icon-line">• ◦ · ｡</div>
             </div>
-            <div class="icon-card">
-              <h3>SYMBOLS / OBJECTS</h3>
-              <div class="icon-line"> ⌆ ⌇ ⌒  ⌘ ﹘ ﹝ ﹞ ﹟ ﹡ 〶 ␣ ⊠ ╳ ∇</div>
+            <div class="icon-card" data-search="circles round target rings enclosed">
+              <div class="icon-card-head">
+                <h3>CIRCLES</h3>
+                <span class="icon-count">19</span>
+              </div>
+              <div class="icon-line">○ ◌ ◎ ● ◐ ◑ ◒ ◓ ◯ ◉ ◍ ⦿ ⊙ ⊗ 〇 ∅ ⊕ ⊖ ⊘</div>
             </div>
-            <div class="icon-card">
-              <h3>MUSICAL</h3>
+            <div class="icon-card" data-search="squares blocks shade pixel bars">
+              <div class="icon-card-head">
+                <h3>SQUARES / BLOCKS</h3>
+                <span class="icon-count">44</span>
+              </div>
+              <div class="icon-line">■ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▱ ▀ ▁ ▂ ▃ ▄ ▅ ▆ ▇ ▉ ▊ ▋ █ ▌ ▐ ▍ ▎ ▏ ░ ▒ ▓ ▔ ▕ ▖ ▗ ▘ ▙ ▚ ▛ ▜ ▝ ▞ ▟</div>
+            </div>
+            <div class="icon-card" data-search="triangles arrows geometric">
+              <div class="icon-card-head">
+                <h3>TRIANGLES</h3>
+                <span class="icon-count">15</span>
+              </div>
+              <div class="icon-line">▲ ▼ ▶ ◀ △ ▽ ◁ ◣ ◥ ◤ ◢ ▷ ∆ ∇ ⊿</div>
+            </div>
+            <div class="icon-card" data-search="diamonds geometric rhombus">
+              <div class="icon-card-head">
+                <h3>DIAMONDS</h3>
+                <span class="icon-count">4</span>
+              </div>
+              <div class="icon-line">◇ ◈ ◆ ◊</div>
+            </div>
+            <div class="icon-card" data-search="symbols objects space marker warning">
+              <div class="icon-card-head">
+                <h3>SYMBOLS / OBJECTS</h3>
+                <span class="icon-count">10</span>
+              </div>
+              <div class="icon-line">﹘ ﹝ ﹞ ﹟ ﹡ ␣ ⊠ ╳ ✂ 〓</div>
+            </div>
+            <div class="icon-card" data-search="music musical notes sound">
+              <div class="icon-card-head">
+                <h3>MUSICAL</h3>
+                <span class="icon-count">10</span>
+              </div>
               <div class="icon-line">♩ ♪ ♫ ♬ ♭ ♮ ♯ ° ø ≠</div>
             </div>
-            <div class="icon-card">
-              <h3>ELEMENTS / OBJECTS</h3>
-              <div class="icon-line">
-                ♨ ☀ ☁ ☂ ☃ ☉ ♁ ♨ ° ℃ ℉ ☀ ☁ ☂ ☉ ♁ ♨ ㎎ ㎏ ㎜ ㎝ ㎞ ㎡ ㏄ ㏎ ㏑ ㏒ ㏕
+            <div class="icon-card" data-search="elements objects weather units temperature measurement currency">
+              <div class="icon-card-head">
+                <h3>ELEMENTS / OBJECTS</h3>
+                <span class="icon-count">63</span>
               </div>
+              <div class="icon-line">☀ ☁ ☂ ☃ ♁ ℃ ℉ ㎎ ㎏ ㎜ ㎝ ㎞ ㎡ ㏄ ㏎ ㏑ ㏒ ㏕ ㍊ ㍋ ㍌ ㍎ ㍏ ㍐ ㍿ ㏂ ㏘ ㌀ ㌁ ㌂ ㌃ ㌄ ㌅ ㌆ ㌇ ㌈ ㌉ ㌊ ㌋ ㌌ ㌍ ㌎ ㌏ ㍉ ㌔ ㌢ ㍍ ㌘ ㌧ ㌶ ㍑ ㍗ ㌦ ㌣ ㌫ ¢ £ ¥ ₩ ₫ € ƒ ￥</div>
             </div>
-            <div class="icon-card">
-              <h3>GENDER / FACES</h3>
-              <div class="icon-line">♀ ♂ 〠 ヅ ツ ㋡ 웃 유 ü Ü シ ッ ㋛ ☃ 〲 〴</div>
-            </div>
-            <div class="icon-card">
-              <h3>CIRCLES</h3>
-              <div class="icon-line">
-                ◉ ○ ◍ ◎ ● ◐ ◑ ◒ ◓ ⊗ ⊙ ◯ 〇 ◦ ∅ ⊕ ⊖ ⊘ ⦿ ° · ｡
+            <div class="icon-card" data-search="gender faces smile emoticon">
+              <div class="icon-card-head">
+                <h3>GENDER / FACES</h3>
+                <span class="icon-count">12</span>
               </div>
+              <div class="icon-line">ヅ ツ ㋡ 웃 유 ü Ü シ ッ ㋛ 〲 〴</div>
             </div>
-            <div class="icon-card">
-              <h3>SQUARES / BLOCKS</h3>
-              <div class="icon-line">
-                ▀ ▁ ▂ ▃ ▄ ▅ ▆ ▇ ▉ ▊ ▋ █ ▌ ▐ ▍ ▎ ▏ ░ ▒ ▓ ▔ ▢ ▣ ▤ ▥ ▦ ▧ ▨ ▩ ▪ ▫ ▱ ■ ◈ ◇ ◆
+            <div class="icon-card" data-search="lines dashes vertical horizontal segments">
+              <div class="icon-card-head">
+                <h3>LINES</h3>
+                <span class="icon-count">47</span>
               </div>
+              <div class="icon-line">│ ┃ ╽ ╿ ╏ ║ ╎ ┇ ︱ ┊ ︳ ┋ ┆ ╵ 〡 〢 ╹ ╻ ╷ 〣 ≡ ︴ ﹏ ﹌ ﹋ ╲ ╱ ︶ ︵ 〵 〳 ` ‐ ┄ ┅ ┈ ┉ ╍ ╴ ╶ ╸ ╺ ╼ ╾ ━ ─ ═</div>
             </div>
-            <div class="icon-card">
-              <h3>LINES</h3>
-              <div class="icon-line">
-                │ ┃ ╽ ╿ ╏ ║ ╎ ┇ ︱ ┊ ︳ ┋ ┆ ╵ 〡 〢 ╹ ╻ ╷ 〣 ≡ ︴ ﹏ ﹌ ﹋ ╳ ╲ ╱ ︶ ︵ 〵 〴 〳 〆 ` ‐
+            <div class="icon-card" data-search="box corner frame drawing border double rounded">
+              <div class="icon-card-head">
+                <h3>BOX / CORNER DRAWING</h3>
+                <span class="icon-count">95</span>
               </div>
+              <div class="icon-line">┐ └ ┘ ┌ ├ ┤ ┬ ┴ ┼ ╔ ╗ ╚ ╝ ╠ ╣ ╦ ╩ ╬ ╭ ╮ ╯ ╰ ╒ ╓ ╕ ╖ ╘ ╙ ╛ ╜ ╞ ╟ ╡ ╢ ╤ ╥ ╧ ╨ ╪ ╫ ┏ ┓ ┗ ┛ ┣ ┫ ┳ ┻ ╋ ┍ ┎ ┑ ┒ ┕ ┖ ┙ ┚ ┝ ┞ ┟ ┠ ┡ ┢ ┥ ┦ ┧ ┨ ┩ ┪ ┭ ┮ ┯ ┰ ┱ ┲ ┵ ┶ ┷ ┸ ┹ ┺ ┽ ┾ ┿ ╀ ╁ ╂ ╃ ╄ ╅ ╆ ╇ ╈ ╉ ╊</div>
             </div>
-            <div class="icon-card">
-              <h3>TRIANGLES</h3>
-              <div class="icon-line">▲ ▼ ◀ ◣ ◥ ◤ ◢ ▶ △ ▽ ▷ ∆ ∇ ⊿</div>
-            </div>
-            <div class="icon-card">
-              <h3>BOX / CORNER DRAWING</h3>
-              <div class="icon-line">┐ └ ┘ ┌ ├ ┤ ┬ ┴ ┼ ╔ ╗ ╚ ╝ ╠ ╣ ╦ ╩ ╬ ╭ ╮ ╯ ╰ ╳ ╲ ╱</div>
-            </div>
-            <div class="icon-card">
-              <h3>PUNCTUATION</h3>
-              <div class="icon-line">
-                · - ‒ – — ― ‘ ’ ‚ “ ” „  •  ‥ … ‧ ′ ″ ‵ ʻ ˇ ˉ ˊ ˋ ˙ ～ ¿ ﹐ ﹒ ﹔ ﹕ ！ ＃ ＄ ％ ＆ ＊ ， ． ： ； ？ ＠ 、 。 〃 〝 〞 ︰
+            <div class="icon-card" data-search="brackets quotes containers decorative frames">
+              <div class="icon-card-head">
+                <h3>BRACKETS / DECORATIVE FRAMES</h3>
+                <span class="icon-count">42</span>
               </div>
+              <div class="icon-line">﹁ ﹂ ﹃ ﹄ ︽ ︾ ︿ ﹀ ﹇ ﹈ ︰ ︲ ︷ ︸ ︹ ︺ ︻ ︼ 〖 〗 〘 〙 〚 〛 〈 〉 《 》 「 」 『 』 【 】 〔 〕 ﹙ ﹚ ﹛ ﹜ ﹤ ﹥</div>
             </div>
-            <div class="icon-card">
-              <h3>LETTERS</h3>
-              <div class="icon-line">
-                θ ð ĩ Ň Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ ⓐ ⓑ ⓒ ⓓ ⓔ ⓕ ⓖ ⓗ ⓘ ⓙ ⓚ ⓛ ⓜ ⓝ ⓞ ⓟ ⓠ ⓡ ⓢ ⓣ ⓤ ⓥ ⓦ ⓧ ⓨ ⓩ
+            <div class="icon-card" data-search="punctuation quote dash marks exclamation question">
+              <div class="icon-card-head">
+                <h3>PUNCTUATION</h3>
+                <span class="icon-count">68</span>
               </div>
+              <div class="icon-line">- ‒ – — ― ‘ ’ ‚ “ ” „ ‥ … ‧ ′ ″ ‵ ʻ ˇ ˉ ˊ ˋ ˙ ～ ﹐ ﹒ ﹔ ﹕ ！ ＃ ＄ ％ ＆ ＊ ， ． ： ； ？ ＠ 、 。 〃 〝 〞 ⁇ ⁈ ⁉ ‼ § ¶ ¦ ¨ ¬ ¯ ´ ¸ ¡ « » ‹ › ¤ ª º ‑ ‖ ‰</div>
             </div>
-            <div class="icon-card">
-              <h3>NUMBERS</h3>
-              <div class="icon-line">
-                Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ Ⅺ Ⅻ ⅰ ⅱ ⅲ ⅳ ⅴ ⅵ ⅶ ⅷ ⅸ ⅹ ⅺ ⅻ ➀ ➁ ➂ ➃ ➄ ➅ ➆ ➇ ➈ ➉ ➊ ➋ ➌ ➍ ➎ ➏ ➐ ➑ ➒ ➓ ⓵ ⓶ ⓷ ⓸ ⓹ ⓺ ⓻ ⓼ ⓽ ⓾ ⓿ ❶ ❷ ❸ ❹ ❺ ❻ ❼ ❽ ❾ ❿  ¹ ² ³ ⁴ ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ⑴ ⑵ ⑶ ⑷ ⑸ ⑹ ⑺ ⑻ ⑼ ⑽ ⑾ ⑿ ⒀ ⒁ ⒂ ⒃ ⒄ ⒅ ⒆ ⒇ ⒈ ⒉ ⒊ ⒋ ⒌ ⒍ ⒎ ⒏ ⒐ ⒑ ⒒ ⒓ ⒔ ⒕ ⒖ ⒗ ⒘ ⒙ ⒚ ⒛ ㈠ ㈡ ㈢ ㈣ ㈤ ㈥ ㈦ ㈧ ㈨ ㈩ ㊀ ㊁ ㊂ ㊃ ㊄ ㊅ ㊆ ㊇ ㊈ ㊉ ０ １ ２ ３ ４ ５ ６ ７ ８ ９
+            <div class="icon-card" data-search="letters latin circled enclosed fullwidth variants">
+              <div class="icon-card-head">
+                <h3>LETTERS</h3>
+                <span class="icon-count">117</span>
               </div>
+              <div class="icon-line">θ ð ĩ Ň Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ ⓐ ⓑ ⓒ ⓓ ⓔ ⓕ ⓖ ⓗ ⓘ ⓙ ⓚ ⓛ ⓜ ⓝ ⓞ ⓟ ⓠ ⓡ ⓢ ⓣ ⓤ ⓥ ⓦ ⓧ ⓨ ⓩ ⒜ ⒝ ⒞ ⒟ ⒠ ⒡ ⒢ ⒣ ⒤ ⒥ ⒦ ⒧ ⒨ ⒩ ⒪ ⒫ ⒬ ⒭ ⒮ ⒯ ⒰ ⒱ ⒲ ⒳ ⒴ ⒵ Ā ā Ă ă Đ đ Ē ē Ě ě Ĩ Ī ī Ń ń ň Ō ō Ŏ ŏ Ũ ũ Ū ū Ç ç Æ æ Ð Þ þ Œ œ ɑ ɡ</div>
             </div>
-            <div class="icon-card">
-              <h3>MATH</h3>
-              <div class="icon-line">
-                ¾ ¼ % ℅ ‰ π ∞ Σ √  ∫ ∬ ∭ ∀  ∂ ∃  ∅ ∆ ∇ ∈ ∉ ∊ ∋ ∏  ∑ − ∓  ∕ ∝ ∟ ∠  ∣ ∥ ∦ ∧ ∨ ∩ ∪ ∴ ∵ ∶ ∷ ∽ ≃ ≅ ≈ ≌ ≒ ≠ ≡ ≢ ≤ ≥ ≦ ≧ ≪ ≫ ≮ ≯ ≲ ≳ ≶ ≷ ⊂ ⊃ ⊄ ⊅ ⊆ ⊇ ⊊ ⊋ ⊕ ⊖ ⊗ ⊘ ⊙ ⊠ ⊥ ⊿ ⋚ ⋛ ⋯ ﹢ ﹣ ＋ － ／ ＝ ÷ ±
+            <div class="icon-card" data-search="numbers roman circled enclosed fullwidth fraction superscript">
+              <div class="icon-card-head">
+                <h3>NUMBERS</h3>
+                <span class="icon-count">185</span>
               </div>
+              <div class="icon-line">Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ Ⅺ Ⅻ ⅰ ⅱ ⅲ ⅳ ⅴ ⅵ ⅶ ⅷ ⅸ ⅹ ⅺ ⅻ ➀ ➁ ➂ ➃ ➄ ➅ ➆ ➇ ➈ ➉ ➊ ➋ ➌ ➍ ➎ ➏ ➐ ➑ ➒ ➓ ⓵ ⓶ ⓷ ⓸ ⓹ ⓺ ⓻ ⓼ ⓽ ⓾ ⓿ ❶ ❷ ❸ ❹ ❺ ❻ ❼ ❽ ❾ ❿ ¹ ² ³ ⁴ ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ㉑ ㉒ ㉓ ㉔ ㉕ ㉖ ㉗ ㉘ ㉙ ㉚ ㉛ ㉜ ㉝ ㉞ ㉟ ㊱ ㊲ ㊳ ㊴ ㊵ ⑴ ⑵ ⑶ ⑷ ⑸ ⑹ ⑺ ⑻ ⑼ ⑽ ⑾ ⑿ ⒀ ⒁ ⒂ ⒃ ⒄ ⒅ ⒆ ⒇ ⒈ ⒉ ⒊ ⒋ ⒌ ⒍ ⒎ ⒏ ⒐ ⒑ ⒒ ⒓ ⒔ ⒕ ⒖ ⒗ ⒘ ⒙ ⒚ ⒛ ㈠ ㈡ ㈢ ㈣ ㈤ ㈥ ㈦ ㈧ ㈨ ㈩ ㊀ ㊁ ㊂ ㊃ ㊄ ㊅ ㊆ ㊇ ㊈ ㊉ ０ １ ２ ３ ４ ５ ６ ７ ８ ９ ¾ ¼ ½ % ℅</div>
             </div>
-            <div class="icon-card">
-              <h3>SYMBOLS / BADGES</h3>
-              <div class="icon-line"> ™ 〰 🆗 🆕 🆙 🆒 🆓 🆖 🅿 Ⓜ 🆑 🆘 🆚 ⚠ 🅰 🅱 🆎 🅾 ♻ 🆔</div>
+            <div class="icon-card" data-search="math relations logic operators calculus">
+              <div class="icon-card-head">
+                <h3>MATH</h3>
+                <span class="icon-count">73</span>
+              </div>
+              <div class="icon-line">π Σ √ ∫ ∬ ∭ ∮ ∀ ∂ ∃ ∈ ∉ ∊ ∋ ∏ ∑ − ∓ ∕ ∝ ∟ ∠ ∣ ∥ ∦ ∧ ∨ ∩ ∪ ∴ ∵ ∶ ∷ ∽ ≃ ≅ ≈ ≌ ≒ ≢ ≤ ≥ ≦ ≧ ≪ ≫ ≮ ≯ ≲ ≳ ≶ ≷ ⊂ ⊃ ⊄ ⊅ ⊆ ⊇ ⊊ ⊋ ⊥ ⋚ ⋛ ⋯ ⋮ ﹢ ﹣ ＋ － ／ ＝ ÷ ±</div>
             </div>
+            <div class="icon-card" data-search="symbols badges enclosed labels status">
+              <div class="icon-card-head">
+                <h3>SYMBOLS / BADGES</h3>
+                <span class="icon-count">18</span>
+              </div>
+              <div class="icon-line">™ 〰 🆗 🆕 🆙 🆒 🆓 🆖 🅿 🆑 🆘 🆚 🅰 🅱 🆎 🅾 ♻ 🆔</div>
+            </div>
+          </div>
+
+          <div class="language-icon-section">
+            <h3 class="family-title">Language Icons</h3>
+            <p class="section-subtitle">Language-heavy working symbols are grouped below by script.</p>
+            <details class="language-group" data-search="language japanese hiragana katakana kana kanji marks">
+              <summary><span>Japanese</span></summary>
+              <div class="icon-grid language-icon-grid">
+            <div class="icon-card" data-search="japanese hiragana language">
+              <div class="icon-card-head">
+                <h3>HIRAGANA</h3>
+                <span class="icon-count">80</span>
+              </div>
+              <div class="icon-line">あ い う え お か き く け こ さ し す せ そ た ち つ て と な に ぬ ね の は ひ ふ へ ほ ま み む め も や ゆ よ ら り る れ ろ わ を ん っ ゃ ゅ ょ ぁ ぃ ぅ ぇ ぉ が ぎ ぐ げ ご ざ じ ず ぜ ぞ だ ぢ づ で ど ば び ぶ べ ぼ ぱ ぴ ぷ ぺ ぽ</div>
+            </div>
+            <div class="icon-card" data-search="japanese katakana language fullwidth halfwidth kana">
+              <div class="icon-card-head">
+                <h3>KATAKANA</h3>
+                <span class="icon-count">126</span>
+              </div>
+              <div class="icon-line">ア イ ウ エ オ カ キ ク ケ コ サ ス セ ソ タ チ テ ト ナ ニ ヌ ネ ノ ハ ヒ フ ヘ ホ マ ミ ム メ モ ヤ ユ ヨ ラ リ ル レ ロ ワ ヲ ン ャ ュ ョ ァ ィ ゥ ェ ォ ガ ギ グ ゲ ゴ ザ ジ ズ ゼ ゾ ダ ヂ デ ド バ ビ ブ ベ ボ パ ピ プ ペ ポ ｱ ｲ ｳ ｴ ｵ ｶ ｷ ｸ ｹ ｺ ｻ ｼ ｽ ｾ ｿ ﾀ ﾁ ﾂ ﾃ ﾄ ﾅ ﾆ ﾇ ﾈ ﾉ ﾊ ﾋ ﾌ ﾍ ﾎ ﾏ ﾐ ﾑ ﾒ ﾓ ﾔ ﾕ ﾖ ﾗ ﾘ ﾙ ﾚ ﾛ ﾜ ｦ ﾝ ｯ ｬ ｭ ｮ</div>
+            </div>
+            <div class="icon-card" data-search="japanese marks enclosed days months kana compatibility">
+              <div class="icon-card-head">
+                <h3>JAPANESE MARKS / ENCLOSED</h3>
+                <span class="icon-count">79</span>
+              </div>
+              <div class="icon-line">ー ゝ ゞ ヽ ヾ 〤 〥 〦 〧 〨 〩 ㊊ ㊋ ㊌ ㊍ ㊎ ㊏ ㊐ ㈪ ㈫ ㈬ ㈭ ㈮ ㈯ ㈰ ㊤ ㊥ ㊦ ㊧ ㊨ ㊙ ㊚ ㊛ ㊣ ㊝ ㊞ ㊟ ㊠ ㊑ ㊒ ㊓ ㊔ ㊕ ㊖ ㊗ ㊘ ㊜ ㋐ ㋑ ㋒ ㋓ ㋔ ㋕ ㋖ ㋗ ㋘ ㋙ ㋚ ㋜ ㋝ ㋞ ㋠ ㋢ ㋣ ㋤ ㋥ ㋦ ㋧ ㋨ ㋩ ㋪ ㋫ ㋬ ㋭ ㋮ ㋯ ㋰ ㋱ ㋲</div>
+            </div>
+            <div class="icon-card" data-search="japanese kanji cjk words nature elements seasons">
+              <div class="icon-card-head">
+                <h3>KANJI WORDS</h3>
+                <span class="icon-count">77</span>
+              </div>
+              <div class="icon-line">天 地 空 海 風 雲 雪 雨 星 光 闇 白 黒 赤 青 緑 黄 紫 花 草 森 林 石 砂 音 声 夢 愛 心 神 鬼 龍 力 勇 友 和 命 喜 善 悪 真 美 新 古 強 弱 高 低 長 短 明 暗 春 夏 秋 冬 朝 夜 刀 剣 盾 城 村 町 道 門 家 室 船 車 兵 王 玉 宝 雷 電 波</div>
+            </div>
+              </div>
+            </details>
+            <details class="language-group" data-search="language chinese cjk han radicals kanji hanzi">
+              <summary><span>Chinese / CJK</span></summary>
+              <div class="icon-grid language-icon-grid">
+            <div class="icon-card" data-search="chinese cjk radical han component stroke">
+              <div class="icon-card-head">
+                <h3>CJK RADICALS I</h3>
+                <span class="icon-count">90</span>
+              </div>
+              <div class="icon-line">一 丨 丶 丿 乙 亅 二 亠 人 儿 入 八 冂 冖 冫 几 凵 勹 匕 匚 匸 十 卜 卩 厂 厶 又 口 囗 土 士 夂 夕 大 女 子 宀 寸 小 尢 尸 屮 山 巛 工 己 巾 干 幺 广 廴 廾 弋 弓 彐 彡 彳 戈 戶 手 支 攴 文 斗 斤 方 无 日 曰 月 木 欠 止 歹 殳 毋 比 毛 氏 气 水 火 爪 父 爻 爿 片 牙 牛 犬</div>
+            </div>
+            <div class="icon-card" data-search="chinese cjk radical han component">
+              <div class="icon-card-head">
+                <h3>CJK RADICALS II</h3>
+                <span class="icon-count">71</span>
+              </div>
+              <div class="icon-line">玄 瓜 瓦 甘 生 用 田 疋 疒 癶 皮 皿 目 矛 矢 示 禸 禾 穴 立 竹 米 糸 缶 网 羊 羽 老 而 耒 耳 聿 肉 臣 自 至 臼 舌 舛 舟 艮 色 艸 虍 虫 血 行 衣 襾 見 角 言 谷 豆 豕 豸 貝 走 足 身 辛 辰 辵 邑 酉 釆 里 金 阜 隶 隹</div>
+            </div>
+            <div class="icon-card" data-search="chinese cjk radical han animal old">
+              <div class="icon-card-head">
+                <h3>CJK RADICALS III</h3>
+                <span class="icon-count">30</span>
+              </div>
+              <div class="icon-line">忄 扌 氵 灬 犭 礻 糹 艹 衤 訁 辶 阝 飠 馬 魚 鳥 鹿 麦 麻 黍 黹 黽 鼎 鼓 鼠 鼻 齊 齒 龜 龠</div>
+            </div>
+            <div class="icon-card" data-search="chinese cjk common direction time elements people">
+              <div class="icon-card-head">
+                <h3>CJK COMMON</h3>
+                <span class="icon-count">35</span>
+              </div>
+              <div class="icon-line">中 上 下 左 右 前 後 東 西 南 北 円 年 時 分 秒 川 㐂 㐄 㐅 㐆 㐌 㐖 㐜 㐡 㐤 㐬 㐮 㐱 㐲 㐳 㐴 㐵 㐶 㐷</div>
+            </div>
+              </div>
+            </details>
+            <details class="language-group" data-search="language korean hangul jamo">
+              <summary><span>Korean</span></summary>
+              <div class="icon-grid language-icon-grid">
+            <div class="icon-card" data-search="korean hangul consonant jamo">
+              <div class="icon-card-head">
+                <h3>HANGUL CONSONANTS</h3>
+                <span class="icon-count">30</span>
+              </div>
+              <div class="icon-line">ㄱ ㄲ ㄳ ㄴ ㄵ ㄶ ㄷ ㄸ ㄹ ㄺ ㄻ ㄼ ㄽ ㄾ ㄿ ㅀ ㅁ ㅂ ㅃ ㅄ ㅅ ㅆ ㅇ ㅈ ㅉ ㅊ ㅋ ㅌ ㅍ ㅎ</div>
+            </div>
+            <div class="icon-card" data-search="korean hangul vowel jamo">
+              <div class="icon-card-head">
+                <h3>HANGUL VOWELS</h3>
+                <span class="icon-count">21</span>
+              </div>
+              <div class="icon-line">ㅏ ㅐ ㅑ ㅒ ㅓ ㅔ ㅕ ㅖ ㅗ ㅘ ㅙ ㅚ ㅛ ㅜ ㅝ ㅞ ㅟ ㅠ ㅡ ㅢ ㅣ</div>
+            </div>
+              </div>
+            </details>
+            <details class="language-group" data-search="language bopomofo zhuyin chinese phonetic">
+              <summary><span>Bopomofo</span></summary>
+              <div class="icon-grid language-icon-grid">
+            <div class="icon-card" data-search="bopomofo zhuyin chinese phonetic">
+              <div class="icon-card-head">
+                <h3>BOPOMOFO</h3>
+                <span class="icon-count">37</span>
+              </div>
+              <div class="icon-line">ㄅ ㄆ ㄇ ㄈ ㄉ ㄊ ㄋ ㄌ ㄍ ㄎ ㄏ ㄐ ㄑ ㄒ ㄓ ㄔ ㄕ ㄖ ㄗ ㄘ ㄙ ㄚ ㄛ ㄜ ㄝ ㄞ ㄟ ㄠ ㄡ ㄢ ㄣ ㄤ ㄥ ㄦ ㄧ ㄨ ㄩ</div>
+            </div>
+              </div>
+            </details>
+            <details class="language-group" data-search="language greek alphabet math">
+              <summary><span>Greek</span></summary>
+              <div class="icon-grid language-icon-grid">
+            <div class="icon-card" data-search="greek alphabet math language">
+              <div class="icon-card-head">
+                <h3>GREEK</h3>
+                <span class="icon-count">40</span>
+              </div>
+              <div class="icon-line">Α Β Γ Ε Ζ Η Ι Κ Μ Ν Ο Ρ Τ Υ Χ α β γ δ ε ζ η ι κ λ μ ν ξ ο ρ σ τ φ χ ψ ω Ω Δ Λ Ψ</div>
+            </div>
+              </div>
+            </details>
+            <details class="language-group" data-search="language cyrillic russian alphabet">
+              <summary><span>Cyrillic</span></summary>
+              <div class="icon-grid language-icon-grid">
+            <div class="icon-card" data-search="cyrillic russian alphabet language">
+              <div class="icon-card-head">
+                <h3>CYRILLIC</h3>
+                <span class="icon-count">66</span>
+              </div>
+              <div class="icon-line">А Б В Г Д Е Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я а б в г д е ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я Ё ё</div>
+            </div>
+              </div>
+            </details>
+            <details class="language-group" data-search="language latin fullwidth accent alphabet letter variants">
+              <summary><span>Latin / Fullwidth</span></summary>
+              <div class="icon-grid language-icon-grid">
+            <div class="icon-card" data-search="latin fullwidth alphabet letters punctuation">
+              <div class="icon-card-head">
+                <h3>FULLWIDTH LATIN</h3>
+                <span class="icon-count">52</span>
+              </div>
+              <div class="icon-line">Ａ Ｂ Ｃ Ｄ Ｅ Ｆ Ｇ Ｈ Ｉ Ｊ Ｋ Ｌ Ｍ Ｎ Ｏ Ｐ Ｑ Ｒ Ｓ Ｔ Ｕ Ｖ Ｗ Ｘ Ｙ Ｚ ａ ｂ ｃ ｄ ｅ ｆ ｇ ｈ ｉ ｊ ｋ ｌ ｍ ｎ ｏ ｐ ｑ ｒ ｓ ｔ ｕ ｖ ｗ ｘ ｙ ｚ</div>
+            </div>
+            <div class="icon-card" data-search="latin fullwidth numbers punctuation">
+              <div class="icon-card-head">
+                <h3>FULLWIDTH PUNCTUATION</h3>
+                <span class="icon-count">14</span>
+              </div>
+              <div class="icon-line">（ ） ［ ］ ｛ ｝ ＜ ＞ ＼ ｜ ＿ ￣ ＾ ｀</div>
+            </div>
+              </div>
+            </details>
           </div>
         </section>
         <section class="panel">
           <h2 class="section-title"><u>Working Fonts</u></h2>
-          <p class="section-subtitle">Click to copy a ready-to-paste tag.</p>
+          <p class="section-subtitle">Known working font tag names.</p>
 
           <div class="fonts-grid">
             <div class="font-card" data-font="VCR SDF">
               <div class="font-name">VCR SDF</div>
-              <div class="copy-small">
-                <button class="copy-btn-sm" data-role="copy-font-format">Copy format</button>
-              </div>
             </div>
 
             <div class="font-card" data-font="Barlow-Black SDF">
               <div class="font-name">Barlow-Black SDF</div>
-              <div class="copy-small">
-                <button class="copy-btn-sm" data-role="copy-font-format">Copy format</button>
-              </div>
             </div>
 
             <div class="font-card" data-font="Barlow-BoldItalic SDF">
               <div class="font-name">Barlow-BoldItalic SDF</div>
-              <div class="copy-small">
-                <button class="copy-btn-sm" data-role="copy-font-format">Copy format</button>
-              </div>
             </div>
 
             <div class="font-card" data-font="Barlow-Light SDF">
               <div class="font-name">Barlow-Light SDF</div>
-              <div class="copy-small">
-                <button class="copy-btn-sm" data-role="copy-font-format">Copy format</button>
-              </div>
             </div>
 
             <div class="font-card" data-font="BROOK SDF">
               <div class="font-name">BROOK SDF</div>
-              <div class="copy-small">
-                <button class="copy-btn-sm" data-role="copy-font-format">Copy format</button>
-              </div>
             </div>
 
             <div class="font-card" data-font="CONSOLA SDF">
               <div class="font-name">CONSOLA SDF</div>
-              <div class="copy-small">
-                <button class="copy-btn-sm" data-role="copy-font-format">Copy format</button>
-              </div>
             </div>
 
             <div class="font-card" data-font="DIGITAL-7 SDF">
               <div class="font-name">DIGITAL-7 SDF</div>
-              <div class="copy-small">
-                <button class="copy-btn-sm" data-role="copy-font-format">Copy format</button>
-              </div>
             </div>
 
             <div class="font-card" data-font="DIN_Pro_Bold_700 SDF">
               <div class="font-name">DIN_Pro_Bold_700 SDF</div>
-              <div class="copy-small">
-                <button class="copy-btn-sm" data-role="copy-font-format">Copy format</button>
-              </div>
             </div>
 
             <div class="font-card" data-font="LiberationSans SDF">
               <div class="font-name">LiberationSans SDF</div>
-              <div class="copy-small">
-                <button class="copy-btn-sm" data-role="copy-font-format">Copy format</button>
-              </div>
             </div>
 
             <div class="font-card" data-font="NotoSansJP-Regular SDF">
               <div class="font-name">NotoSansJP-Regular SDF</div>
-              <div class="copy-small">
-                <button class="copy-btn-sm" data-role="copy-font-format">Copy format</button>
-              </div>
             </div>
 
             <div class="font-card" data-font="OCRAEXT SDF">
               <div class="font-name">OCRAEXT SDF</div>
-              <div class="copy-small">
-                <button class="copy-btn-sm" data-role="copy-font-format">Copy format</button>
-              </div>
             </div>
           </div>
 
@@ -951,10 +1283,10 @@
               </div>
 
               <div class="gen-actions">
-                <button class="copy-btn" id="gen-add">Add stop</button>
-                <button class="copy-btn" id="gen-equal">Equal spacing</button>
-                <button class="copy-btn" id="gen-reverse">Reverse</button>
-                <button class="copy-btn" id="gen-random">Randomize</button>
+                <button class="action-btn" id="gen-add">Add stop</button>
+                <button class="action-btn" id="gen-equal">Equal spacing</button>
+                <button class="action-btn" id="gen-reverse">Reverse</button>
+                <button class="action-btn" id="gen-random">Randomize</button>
               </div>
 
               <div class="field" style="margin-left: auto;">
@@ -969,9 +1301,6 @@
             <div class="gen-preview" id="gen-preview"></div>
 
             <div class="gen-output">
-              <div class="copy-row">
-                <button class="copy-btn" id="gen-copy">Copy</button>
-              </div>
               <code id="gen-out"></code>
             </div>
           </div>
@@ -979,7 +1308,7 @@
 
         <section class="panel">
           <h2 class="section-title"><u>Helpful Gradients</u></h2>
-          <p class="section-subtitle">Click “Copy hex” to copy: #hex, #hex, #hex</p>
+          <p class="section-subtitle">Gradient rows show: #hex, #hex, #hex</p>
           <h3 class="family-title">Reds</h3>
           <div class="gradient-grid">
             <div class="gradient-card">
@@ -991,9 +1320,6 @@
               <div class="hex-row">
                 "590d22","800f2f","a4133c","c9184a","ff4d6d","ff758f","ff8fa3","ffb3c1","ffccd5","fff0f3"
               </div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1003,9 +1329,6 @@
                 style="background:linear-gradient(90deg,#7a0000,#b00016,#d61c1c,#ff3b3b,#ff9a9a)"
               ></div>
               <div class="hex-row">"7a0000","b00016","d61c1c","ff3b3b","ff9a9a"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1015,9 +1338,6 @@
                 style="background:linear-gradient(90deg,#430010,#6e001b,#9a0f2a,#d43c4b,#ff8a9a)"
               ></div>
               <div class="hex-row">"430010","6e001b","9a0f2a","d43c4b","ff8a9a"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1027,9 +1347,6 @@
                 style="background:linear-gradient(90deg,#521414,#7a2320,#9e362b,#c95646,#eaa19b)"
               ></div>
               <div class="hex-row">"521414","7a2320","9e362b","c95646","eaa19b"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1039,9 +1356,6 @@
                 style="background:linear-gradient(90deg,#6f0000,#a80000,#e10019,#ff3d38,#ffb1ae)"
               ></div>
               <div class="hex-row">"6f0000","a80000","e10019","ff3d38","ffb1ae"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
           </div>
           <h3 class="family-title">Oranges</h3>
@@ -1055,9 +1369,6 @@
               <div class="hex-row">
                 "ff7b00","ff8800","ff9500","ffa200","ffaa00","ffb700","ffc300","ffd000","ffd933","ffe15c"
               </div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1067,9 +1378,6 @@
                 style="background:linear-gradient(90deg,#7a2e00,#b34a00,#ff6d00,#ffa042,#ffd3a1)"
               ></div>
               <div class="hex-row">"7a2e00","b34a00","ff6d00","ffa042","ffd3a1"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1079,9 +1387,6 @@
                 style="background:linear-gradient(90deg,#552500,#8a3a00,#c25500,#ff7e1a,#ffbf80)"
               ></div>
               <div class="hex-row">"552500","8a3a00","c25500","ff7e1a","ffbf80"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1091,9 +1396,6 @@
                 style="background:linear-gradient(90deg,#5c2d00,#9a4e00,#cc6b00,#ff9722,#ffd19e)"
               ></div>
               <div class="hex-row">"5c2d00","9a4e00","cc6b00","ff9722","ffd19e"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1103,9 +1405,6 @@
                 style="background:linear-gradient(90deg,#6b1b00,#a33300,#d74e00,#ff7a30,#ffc4a6)"
               ></div>
               <div class="hex-row">"6b1b00","a33300","d74e00","ff7a30","ffc4a6"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
           </div>
           <h3 class="family-title">Yellows</h3>
@@ -1117,9 +1416,6 @@
                 style="background:linear-gradient(90deg,#6b5e00,#9a8800,#d4b400,#ffe34d,#fff3a3)"
               ></div>
               <div class="hex-row">"6b5e00","9a8800","d4b400","ffe34d","fff3a3"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1129,9 +1425,6 @@
                 style="background:linear-gradient(90deg,#4d3a00,#7a5c00,#b08900,#e6b80a,#ffe680)"
               ></div>
               <div class="hex-row">"4d3a00","7a5c00","b08900","e6b80a","ffe680"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1141,9 +1434,6 @@
                 style="background:linear-gradient(90deg,#5b4a00,#8f7400,#caa100,#f2cf33,#fff0a6)"
               ></div>
               <div class="hex-row">"5b4a00","8f7400","caa100","f2cf33","fff0a6"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1153,9 +1443,6 @@
                 style="background:linear-gradient(90deg,#5f5527,#8a7b39,#b4a450,#d9c978,#f7edb8)"
               ></div>
               <div class="hex-row">"5f5527","8a7b39","b4a450","d9c978","f7edb8"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1165,9 +1452,6 @@
                 style="background:linear-gradient(90deg,#6a4d00,#a47300,#d19a00,#ffd54d,#fff3cc)"
               ></div>
               <div class="hex-row">"6a4d00","a47300","d19a00","ffd54d","fff3cc"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
           </div>
           <h3 class="family-title">Greens</h3>
@@ -1181,9 +1465,6 @@
               <div class="hex-row">
                 "20331a","33512a","446c37","558745","66a253","7cb36b","94c186","abcea1","c3dcbc","dbead7"
               </div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1195,9 +1476,6 @@
               <div class="hex-row">
                 "007f5f","2b9348","55a630","80b918","aacc00","bfd200","d4d700","dddf00","eeef20"
               </div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1207,9 +1485,6 @@
                 style="background:linear-gradient(90deg,#064e3b,#0f7a4b,#1fa36b,#4fd08a,#a8f0c2)"
               ></div>
               <div class="hex-row">"064e3b","0f7a4b","1fa36b","4fd08a","a8f0c2"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1219,9 +1494,6 @@
                 style="background:linear-gradient(90deg,#0b3d02,#167a06,#22b108,#79d70f,#d0ff72)"
               ></div>
               <div class="hex-row">"0b3d02","167a06","22b108","79d70f","d0ff72"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1231,9 +1503,6 @@
                 style="background:linear-gradient(90deg,#1c3b1a,#2f6b2a,#3f8e37,#61b357,#a6e6a3)"
               ></div>
               <div class="hex-row">"1c3b1a","2f6b2a","3f8e37","61b357","a6e6a3"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
           </div>
           <h3 class="family-title">Teals</h3>
@@ -1247,9 +1516,6 @@
               <div class="hex-row">
                 "0a2d27","13594e","1d8676","26b29d","30dfc4","59e5d0","83ecdc","acf2e7","d6f9f3"
               </div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1259,9 +1525,6 @@
                 style="background:linear-gradient(90deg,#005f5f,#008c8c,#00b3a6,#32d1c0,#a0efe6)"
               ></div>
               <div class="hex-row">"005f5f","008c8c","00b3a6","32d1c0","a0efe6"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1271,9 +1534,6 @@
                 style="background:linear-gradient(90deg,#0c3c35,#13685d,#1da28c,#4fdcc7,#b7f3e9)"
               ></div>
               <div class="hex-row">"0c3c35","13685d","1da28c","4fdcc7","b7f3e9"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1283,9 +1543,6 @@
                 style="background:linear-gradient(90deg,#07373a,#0e6267,#1a8d96,#49bcc2,#aee9ef)"
               ></div>
               <div class="hex-row">"07373a","0e6267","1a8d96","49bcc2","aee9ef"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1295,9 +1552,6 @@
                 style="background:linear-gradient(90deg,#004b4a,#007a77,#00a39f,#27cfc7,#90f7f1)"
               ></div>
               <div class="hex-row">"004b4a","007a77","00a39f","27cfc7","90f7f1"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
           </div>
           <h3 class="family-title">Blues</h3>
@@ -1311,9 +1565,6 @@
               <div class="hex-row">
                 "03045e","023e8a","0077b6","0096c7","00b4d8","48cae4","90e0ef","ade8f4","caf0f8"
               </div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1323,9 +1574,6 @@
                 style="background:linear-gradient(90deg,#0b1e6b,#143f9a,#1f6ed4,#4fa0ff,#a8ceff)"
               ></div>
               <div class="hex-row">"0b1e6b","143f9a","1f6ed4","4fa0ff","a8ceff"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1335,9 +1583,6 @@
                 style="background:linear-gradient(90deg,#0b132b,#1c2541,#3a506b,#5bc0be,#a6e3e9)"
               ></div>
               <div class="hex-row">"0b132b","1c2541","3a506b","5bc0be","a6e3e9"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1347,9 +1592,6 @@
                 style="background:linear-gradient(90deg,#0a0f1f,#111d4a,#2a3c8b,#4f6bd7,#a3b5ff)"
               ></div>
               <div class="hex-row">"0a0f1f","111d4a","2a3c8b","4f6bd7","a3b5ff"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1359,9 +1601,6 @@
                 style="background:linear-gradient(90deg,#001f3f,#003f7f,#0074d9,#39cccc,#7fdbff)"
               ></div>
               <div class="hex-row">"001f3f","003f7f","0074d9","39cccc","7fdbff"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
           </div>
           <h3 class="family-title">Indigos</h3>
@@ -1373,9 +1612,6 @@
                 style="background:linear-gradient(90deg,#1a0b6b,#2e169a,#4931d4,#7f73ff,#c6c0ff)"
               ></div>
               <div class="hex-row">"1a0b6b","2e169a","4931d4","7f73ff","c6c0ff"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1385,9 +1621,6 @@
                 style="background:linear-gradient(90deg,#0b0f3a,#152261,#2645a1,#4f7be0,#a7c1ff)"
               ></div>
               <div class="hex-row">"0b0f3a","152261","2645a1","4f7be0","a7c1ff"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1397,9 +1630,6 @@
                 style="background:linear-gradient(90deg,#140a2b,#2a1952,#463188,#7b6ed1,#c4c0ff)"
               ></div>
               <div class="hex-row">"140a2b","2a1952","463188","7b6ed1","c4c0ff"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1409,9 +1639,6 @@
                 style="background:linear-gradient(90deg,#0a0a2b,#15154a,#2d2d80,#5555c4,#bdbdf8)"
               ></div>
               <div class="hex-row">"0a0a2b","15154a","2d2d80","5555c4","bdbdf8"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
           </div>
           <h3 class="family-title">Purples</h3>
@@ -1425,9 +1652,6 @@
               <div class="hex-row">
                 "3a0ca3","5f0f40","9d0191","c200fb","e100ff","f72585","ff00a0","ff5ab3","ff85c1"
               </div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1437,9 +1661,6 @@
                 style="background:linear-gradient(90deg,#3b0a57,#6a1b9a,#8e3ecf,#b07ae8,#e1c7ff)"
               ></div>
               <div class="hex-row">"3b0a57","6a1b9a","8e3ecf","b07ae8","e1c7ff"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1449,9 +1670,6 @@
                 style="background:linear-gradient(90deg,#2b1e59,#5a3ea6,#8a6be8,#b79cff,#e6ddff)"
               ></div>
               <div class="hex-row">"2b1e59","5a3ea6","8a6be8","b79cff","e6ddff"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1461,9 +1679,6 @@
                 style="background:linear-gradient(90deg,#2a0b3a,#4c1b6e,#7a3eb0,#b081e6,#e6d6ff)"
               ></div>
               <div class="hex-row">"2a0b3a","4c1b6e","7a3eb0","b081e6","e6d6ff"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1473,9 +1688,6 @@
                 style="background:linear-gradient(90deg,#3a0057,#660099,#8c33cc,#b366ff,#e0c2ff)"
               ></div>
               <div class="hex-row">"3a0057","660099","8c33cc","b366ff","e0c2ff"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
           </div>
           <h3 class="family-title">Pinks</h3>
@@ -1487,9 +1699,6 @@
                 style="background:linear-gradient(90deg,#6b0b3b,#9a165a,#d43a8b,#ff73b4,#ffd6e8)"
               ></div>
               <div class="hex-row">"6b0b3b","9a165a","d43a8b","ff73b4","ffd6e8"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1499,9 +1708,6 @@
                 style="background:linear-gradient(90deg,#2d0a31,#6a0572,#ab26a9,#ff70a6,#ffd6e0)"
               ></div>
               <div class="hex-row">"2d0a31","6a0572","ab26a9","ff70a6","ffd6e0"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1511,9 +1717,6 @@
                 style="background:linear-gradient(90deg,#4a0b26,#7a1f47,#b24778,#e08db3,#ffdcef)"
               ></div>
               <div class="hex-row">"4a0b26","7a1f47","b24778","e08db3","ffdcef"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1523,9 +1726,6 @@
                 style="background:linear-gradient(90deg,#5e1232,#9b2b5e,#d84b8b,#ff88be,#ffd2e6)"
               ></div>
               <div class="hex-row">"5e1232","9b2b5e","d84b8b","ff88be","ffd2e6"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1535,9 +1735,6 @@
                 style="background:linear-gradient(90deg,#6d1b3f,#b1306d,#e05c9a,#ff9ccc,#ffe3f2)"
               ></div>
               <div class="hex-row">"6d1b3f","b1306d","e05c9a","ff9ccc","ffe3f2"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
           </div>
           <h3 class="family-title">Browns / Earth</h3>
@@ -1549,9 +1746,6 @@
                 style="background:linear-gradient(90deg,#4a2c2a,#8c5b3f,#c0895e,#e6b17e,#ffe0b2)"
               ></div>
               <div class="hex-row">"4a2c2a","8c5b3f","c0895e","e6b17e","ffe0b2"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1561,9 +1755,6 @@
                 style="background:linear-gradient(90deg,#3e2723,#5d4037,#795548,#a1887f,#d7ccc8)"
               ></div>
               <div class="hex-row">"3e2723","5d4037","795548","a1887f","d7ccc8"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1573,9 +1764,6 @@
                 style="background:linear-gradient(90deg,#5a4634,#8a6a4a,#b8946d,#d9b88f,#f3e1c6)"
               ></div>
               <div class="hex-row">"5a4634","8a6a4a","b8946d","d9b88f","f3e1c6"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1585,9 +1773,6 @@
                 style="background:linear-gradient(90deg,#4b2a1f,#7a4735,#a96453,#d78b74,#f4c7b6)"
               ></div>
               <div class="hex-row">"4b2a1f","7a4735","a96453","d78b74","f4c7b6"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1597,9 +1782,6 @@
                 style="background:linear-gradient(90deg,#3b2413,#5e3a1f,#7d512b,#a37342,#d6b189)"
               ></div>
               <div class="hex-row">"3b2413","5e3a1f","7d512b","a37342","d6b189"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
           </div>
           <h3 class="family-title">Neutrals / Greys</h3>
@@ -1611,9 +1793,6 @@
                 style="background:linear-gradient(90deg,#0b0b0b,#2e2e2e,#6b6b6b,#b0b0b0,#e5e5e5)"
               ></div>
               <div class="hex-row">"0b0b0b","2e2e2e","6b6b6b","b0b0b0","e5e5e5"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1623,9 +1802,6 @@
                 style="background:linear-gradient(90deg,#202427,#434a52,#6f7a85,#a8b5c3,#dfe7ef)"
               ></div>
               <div class="hex-row">"202427","434a52","6f7a85","a8b5c3","dfe7ef"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1635,9 +1811,6 @@
                 style="background:linear-gradient(90deg,#111317,#1c232b,#2f3b46,#556573,#aab8c2)"
               ></div>
               <div class="hex-row">"111317","1c232b","2f3b46","556573","aab8c2"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1647,9 +1820,6 @@
                 style="background:linear-gradient(90deg,#000000,#222222,#555555,#aaaaaa,#ffffff)"
               ></div>
               <div class="hex-row">"000000","222222","555555","aaaaaa","ffffff"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1659,9 +1829,6 @@
                 style="background:linear-gradient(90deg,#1a1b1f,#2b2e35,#474c56,#7b8390,#c9d1db)"
               ></div>
               <div class="hex-row">"1a1b1f","2b2e35","474c56","7b8390","c9d1db"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
           </div>
           <h3 class="family-title">Multicolor</h3>
@@ -1675,9 +1842,6 @@
               <div class="hex-row">
                 "ff0000","ff8700","ffd300","deff0a","a1ff0a","0aff99","0aefff","147df5","580aff","be0aff"
               </div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1689,9 +1853,6 @@
               <div class="hex-row">
                 "c200fb","d704b2","e2068d","ec0868","f41c34","fc2f00","f45608","ec7d10","f69d0d","ffbc0a"
               </div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1701,9 +1862,6 @@
                 style="background:linear-gradient(90deg,#ff00e5,#8a2be2,#4b6cff,#00e1ff,#00ffa3)"
               ></div>
               <div class="hex-row">"ff00e5","8a2be2","4b6cff","00e1ff","00ffa3"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1713,9 +1871,6 @@
                 style="background:linear-gradient(90deg,#2b0707,#b30000,#ff6b00,#ffd000,#fff3a3)"
               ></div>
               <div class="hex-row">"2b0707","b30000","ff6b00","ffd000","fff3a3"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1725,9 +1880,6 @@
                 style="background:linear-gradient(90deg,#3b0a0a,#7a1e1e,#b23a1f,#ff6f00,#ffd180)"
               ></div>
               <div class="hex-row">"3b0a0a","7a1e1e","b23a1f","ff6f00","ffd180"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
           </div>
           <h3 class="family-title">Pastels</h3>
@@ -1739,9 +1891,6 @@
                 style="background:linear-gradient(90deg,#f8c8ff,#fbc2ea,#ffc9de,#cde4ff,#bfe7ff)"
               ></div>
               <div class="hex-row">"f8c8ff","fbc2ea","ffc9de","cde4ff","bfe7ff"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1751,9 +1900,6 @@
                 style="background:linear-gradient(90deg,#dff7e1,#eaf8f0,#f8fff5,#fff7ea,#e8d0a6)"
               ></div>
               <div class="hex-row">"dff7e1","eaf8f0","f8fff5","fff7ea","e8d0a6"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1763,9 +1909,6 @@
                 style="background:linear-gradient(90deg,#ffd1d1,#ffe9d1,#fff3d6,#d9f7f1,#d9e3ff)"
               ></div>
               <div class="hex-row">"ffd1d1","ffe9d1","fff3d6","d9f7f1","d9e3ff"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1775,9 +1918,6 @@
                 style="background:linear-gradient(90deg,#ffe6f7,#ead7ff,#d7cbff,#c6ddff,#c6f2ff)"
               ></div>
               <div class="hex-row">"ffe6f7","ead7ff","d7cbff","c6ddff","c6f2ff"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1787,9 +1927,6 @@
                 style="background:linear-gradient(90deg,#ffd2d2,#ffc9b8,#ffdcbc,#ffe9cf,#ffeedd)"
               ></div>
               <div class="hex-row">"ffd2d2","ffc9b8","ffdcbc","ffe9cf","ffeedd"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1799,9 +1936,6 @@
                 style="background:linear-gradient(90deg,#ffe4ea,#fff7b8,#dbffd8,#c7f4ff,#e4d2ff)"
               ></div>
               <div class="hex-row">"ffe4ea","fff7b8","dbffd8","c7f4ff","e4d2ff"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
           </div>
           <h3 class="family-title">Vibrant</h3>
@@ -1813,9 +1947,6 @@
                 style="background:linear-gradient(90deg,#6900ff,#8a00ff,#b300ff,#ff00c8,#ff4da6)"
               ></div>
               <div class="hex-row">"6900ff","8a00ff","b300ff","ff00c8","ff4da6"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1825,9 +1956,6 @@
                 style="background:linear-gradient(90deg,#f02a00,#ff5a00,#ff7a00,#ff9a00,#ffbf00)"
               ></div>
               <div class="hex-row">"f02a00","ff5a00","ff7a00","ff9a00","ffbf00"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1837,9 +1965,6 @@
                 style="background:linear-gradient(90deg,#00d26a,#9be000,#ffd000,#ff7a00,#ff2c00)"
               ></div>
               <div class="hex-row">"00d26a","9be000","ffd000","ff7a00","ff2c00"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1849,9 +1974,6 @@
                 style="background:linear-gradient(90deg,#ff0033,#ffe500,#00ff66,#00eaff,#0047ff,#7f00ff)"
               ></div>
               <div class="hex-row">"ff0033","ffe500","00ff66","00eaff","0047ff","7f00ff"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1861,9 +1983,6 @@
                 style="background:linear-gradient(90deg,#ff3ab0,#ff6a3a,#ffd23f,#00c2ff,#6aff00)"
               ></div>
               <div class="hex-row">"ff3ab0","ff6a3a","ffd23f","00c2ff","6aff00"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1873,9 +1992,6 @@
                 style="background:linear-gradient(90deg,#ff00a0,#ff0066,#ff3d00,#ffc400,#8cff00)"
               ></div>
               <div class="hex-row">"ff00a0","ff0066","ff3d00","ffc400","8cff00"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
           </div>
           <h3 class="family-title">Dark</h3>
@@ -1887,9 +2003,6 @@
                 style="background:linear-gradient(90deg,#070b16,#0d1122,#151c35,#23324f,#3e5773)"
               ></div>
               <div class="hex-row">"070b16","0d1122","151c35","23324f","3e5773"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1899,9 +2012,6 @@
                 style="background:linear-gradient(90deg,#14002a,#1d003a,#2e0059,#4b007a,#6e0b7a)"
               ></div>
               <div class="hex-row">"14002a","1d003a","2e0059","4b007a","6e0b7a"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1911,9 +2021,6 @@
                 style="background:linear-gradient(90deg,#0a0b0c,#121417,#1b1f24,#2a3036,#434b55)"
               ></div>
               <div class="hex-row">"0a0b0c","121417","1b1f24","2a3036","434b55"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1923,9 +2030,6 @@
                 style="background:linear-gradient(90deg,#4a0b12,#7a1520,#b21e2a,#00150d,#002018)"
               ></div>
               <div class="hex-row">"4a0b12","7a1520","b21e2a","00150d","002018"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1935,9 +2039,6 @@
                 style="background:linear-gradient(90deg,#0a271f,#0f3d32,#135246,#1a6a5b,#1f7f6e)"
               ></div>
               <div class="hex-row">"0a271f","0f3d32","135246","1a6a5b","1f7f6e"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
 
             <div class="gradient-card">
@@ -1947,9 +2048,6 @@
                 style="background:linear-gradient(90deg,#0c0e12,#07151d,#07232a,#0b3540,#174f5a)"
               ></div>
               <div class="hex-row">"0c0e12","07151d","07232a","0b3540","174f5a"</div>
-              <div class="copy-row">
-                <button class="copy-btn" data-role="copy-hex">Copy hex</button>
-              </div>
             </div>
           </div>
         </section>
@@ -1962,6 +2060,59 @@
         </footer>
 
     <script>
+
+      (function () {
+        const input = document.getElementById("icon-search");
+        const count = document.getElementById("icon-search-count");
+        if (!input) return;
+
+        const cards = Array.from(document.querySelectorAll(".icon-card"));
+        const groups = Array.from(document.querySelectorAll(".language-group"));
+        const originalOpen = new Map(groups.map((group) => [group, group.open]));
+
+        function searchableText(el) {
+          return ((el.dataset.search || "") + " " + (el.textContent || "")).toLowerCase();
+        }
+
+        function renderSearch() {
+          const query = input.value.trim().toLowerCase();
+          let visibleCards = 0;
+          let visibleGroups = 0;
+
+          cards.forEach((card) => {
+            const visible = !query || searchableText(card).includes(query);
+            card.hidden = !visible;
+            if (visible) visibleCards += 1;
+          });
+
+          groups.forEach((group) => {
+            const groupCards = Array.from(group.querySelectorAll(".icon-card"));
+            const groupOwnMatch = query && searchableText(group).includes(query);
+            let groupHasVisibleCard = false;
+
+            groupCards.forEach((card) => {
+              const visible = !query || groupOwnMatch || searchableText(card).includes(query);
+              card.hidden = !visible;
+              if (visible) groupHasVisibleCard = true;
+            });
+
+            const visible = !query || groupOwnMatch || groupHasVisibleCard;
+            group.hidden = !visible;
+            group.open = query ? visible : originalOpen.get(group);
+            if (visible) visibleGroups += 1;
+          });
+
+          if (count) {
+            count.textContent = query
+              ? visibleCards + " matches in " + visibleGroups + " groups"
+              : cards.length + " icon groups";
+          }
+        }
+
+        input.addEventListener("input", renderSearch);
+        renderSearch();
+      })();
+
       function formatAsCommaSeparatedHex(hexRowText) {
         const items = hexRowText
           .replace(/"/g, "")
@@ -1972,46 +2123,6 @@
         return items.join(", ");
       }
 
-      function copyToClipboard(text) {
-        if (navigator.clipboard && window.isSecureContext) {
-          return navigator.clipboard.writeText(text);
-        }
-        const ta = document.createElement("textarea");
-        ta.value = text;
-        ta.style.position = "fixed";
-        ta.style.left = "-9999px";
-        document.body.appendChild(ta);
-        ta.select();
-        try { document.execCommand("copy"); } finally { document.body.removeChild(ta); }
-        return Promise.resolve();
-      }
-
-      document.addEventListener("click", function (e) {
-        const hexBtn = e.target.closest('.copy-btn[data-role="copy-hex"]');
-        if (hexBtn) {
-          const card = hexBtn.closest(".gradient-card");
-          const hexRow = card.querySelector(".hex-row");
-          const payload = formatAsCommaSeparatedHex(hexRow.textContent || "");
-          const original = hexBtn.textContent;
-          copyToClipboard(payload).then(() => {
-            hexBtn.textContent = "Copied!";
-            setTimeout(() => { hexBtn.textContent = original; }, 1200);
-          });
-          return;
-        }
-
-        const fontBtn = e.target.closest('.copy-btn-sm[data-role="copy-font-format"]');
-        if (fontBtn) {
-          const card = fontBtn.closest(".font-card");
-          const name = card.getAttribute("data-font") || "";
-          const payload = `<font=”${name}”> </font>`;
-          const original = fontBtn.textContent;
-          copyToClipboard(payload).then(() => {
-            fontBtn.textContent = "Copied!";
-            setTimeout(() => { fontBtn.textContent = original; }, 1200);
-          });
-        }
-      });
       (function () {
         const MAX = 10;
 
@@ -2024,7 +2135,6 @@
         const btnReverse = document.getElementById("gen-reverse");
         const btnRandom  = document.getElementById("gen-random");
         const outEl      = document.getElementById("gen-out");
-        const copyOutBtn = document.getElementById("gen-copy");
         const modeRadios = document.querySelectorAll('input[name="gen-mode"]');
 
         if (!stopsEl || !angleEl || !countEl || !previewEl) return;
@@ -2059,9 +2169,9 @@
               <input type="range" min="0" max="100" step="1" value="${clamp(Math.round(pos), 0, 100)}" id="${id}">
             </div>
             <div class="row-btns">
-              <button class="copy-btn gen-up" title="Move up">▲</button>
-              <button class="copy-btn gen-down" title="Move down">▼</button>
-              <button class="copy-btn gen-remove" title="Remove">✕</button>
+              <button class="action-btn gen-up" title="Move up">▲</button>
+              <button class="action-btn gen-down" title="Move down">▼</button>
+              <button class="action-btn gen-remove" title="Remove">✕</button>
             </div>
           `;
           return wrap;
@@ -2174,14 +2284,6 @@
           }
         });
 
-        if (copyOutBtn && outEl) {
-          copyOutBtn.addEventListener("click", () =>
-            copyToClipboard(outEl.textContent).then(() => {
-              copyOutBtn.textContent = "Copied!";
-              setTimeout(() => (copyOutBtn.textContent = "Copy"), 1200);
-            })
-          );
-        }
       })();
     </script>
     <script src="/scripts/navbar.js"></script>
