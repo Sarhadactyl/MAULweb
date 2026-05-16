@@ -37,4 +37,7 @@ This project uses a **mixed-license setup** to keep things clear and fair:
 
   <strong><a href="https://github.com/ZypherusKhan">@ZypherusKhan</a></strong><br>
   for thoughtful guidance, ideas, and direction ✨
+
+  <strong><a href="https://github.com/Gurge44">@Gurge44</a></strong><br>
+  Some icons were provided by the EHR codebase, check out my favorite mod <a href="https://ehr.gurge44.eu">here</a></strong><br>
 </div>
