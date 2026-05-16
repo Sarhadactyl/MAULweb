@@ -579,23 +579,135 @@
         transform: scale(0.98);
       }
 
-      .preset-grid,
-      .icon-picker {
+      .download-glow {
+        border-color: rgba(255, 74, 94, 0.92);
+        color: #ffffff;
+        background:
+          radial-gradient(circle at 50% 0%, rgba(255, 120, 138, 0.34), transparent 64%),
+          linear-gradient(135deg, rgba(160, 0, 18, 0.9), rgba(72, 0, 8, 0.96));
+        box-shadow:
+          0 0 0 1px rgba(255, 96, 116, 0.32),
+          0 0 18px rgba(255, 0, 45, 0.62),
+          0 10px 24px rgba(0, 0, 0, 0.82);
+      }
+
+      .download-glow:hover {
+        border-color: rgba(255, 170, 180, 0.98);
+        background:
+          radial-gradient(circle at 50% 0%, rgba(255, 170, 184, 0.42), transparent 64%),
+          linear-gradient(135deg, rgba(205, 0, 34, 0.95), rgba(95, 0, 12, 0.98));
+        box-shadow:
+          0 0 0 1px rgba(255, 130, 145, 0.42),
+          0 0 26px rgba(255, 0, 45, 0.82),
+          0 12px 26px rgba(0, 0, 0, 0.86);
+      }
+
+      .preset-grid {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x proximity;
+        -webkit-overflow-scrolling: touch;
+        padding: 4px 2px 10px;
+      }
+
+      .preset-grid::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .preset-grid::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+      }
+
+      .preset-grid::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.28);
+        border-radius: 999px;
+      }
+
+      .icon-picker-menu {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(42px, 1fr));
         gap: 8px;
+        width: min(760px, calc(100vw - 40px));
+        max-width: 100%;
+        margin-top: 8px;
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(10, 4, 5, 0.72);
+        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.38);
+      }
+
+      .icon-search {
+        width: 100%;
+        min-height: 36px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.08);
+        color: #ffffff;
+        padding: 8px 10px;
+        font: inherit;
+        outline: none;
+      }
+
+      .icon-search:focus {
+        border-color: rgba(255, 214, 221, 0.58);
+        box-shadow: 0 0 0 2px rgba(255, 182, 193, 0.12);
       }
 
       .icon-picker {
-        grid-template-columns: repeat(auto-fill, minmax(28px, 1fr));
-        gap: 4px;
-        max-height: 118px;
+        display: grid;
+        gap: 10px;
+        max-height: 260px;
         overflow-y: auto;
         overscroll-behavior: contain;
-        padding: 6px;
+        padding-right: 4px;
+      }
+
+      .icon-group {
+        display: grid;
+        gap: 6px;
+        padding: 8px;
         border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        background: rgba(0, 0, 0, 0.32);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.045);
+      }
+
+      .icon-group-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .icon-group-count {
+        flex: 0 0 auto;
+        min-width: 26px;
+        border-radius: 999px;
+        padding: 2px 7px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.64);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .icon-group-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(32px, 1fr));
+        gap: 5px;
+      }
+
+      .icon-empty {
+        margin: 0;
+        padding: 4px 2px;
+        color: rgba(255, 255, 255, 0.58);
+        font-size: 0.82rem;
       }
 
       .icon-picker-panel summary {
@@ -631,9 +743,18 @@
       }
 
       .preset-btn {
-        min-width: 92px;
+        flex: 0 0 142px;
+        min-width: 142px;
+        max-width: 142px;
         font-size: 0.78rem;
         font-weight: 700;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        scroll-snap-align: start;
+        white-space: normal;
+        text-align: left;
+        padding: 8px 9px;
         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
       }
 
@@ -796,7 +917,7 @@
 
       <p class="info-paragraph">
         Use this studio to generate <strong>ready-to-paste tags</strong> for your modded Among Us lobbies.
-        Configure name text, gradients, fonts, and permissions, then copy the output or download it as a file for your
+        Configure name text, gradients, fonts, and permissions, then download the output as a file for your
         configs. Project Lotus titles export as <strong>YAML</strong>, while EHR, TONE/TOHEN, and TOHO export as
         <strong>JSON / text</strong>.
       </p>
@@ -876,7 +997,18 @@
                 </div>
                 <details class="icon-picker-panel">
                   <summary class="copy-btn">Icons</summary>
-                  <div class="icon-picker" id="ntg-icon-picker"></div>
+                  <div class="icon-picker-menu">
+                    <input
+                      id="ntg-icon-search"
+                      class="icon-search"
+                      type="search"
+                      placeholder="Search icons, combos, arrows..."
+                      autocomplete="off"
+                      spellcheck="false"
+                    />
+                    <div class="icon-picker" id="ntg-icon-picker"></div>
+                    <p class="icon-empty" id="ntg-icon-empty" hidden>No matching icons.</p>
+                  </div>
                 </details>
               </div>
 
@@ -910,7 +1042,7 @@
                       id="ntg-stopcount"
                       type="number"
                       min="2"
-                      max="5"
+                      max="10"
                       step="1"
                       value="3"
                     />
@@ -1319,12 +1451,11 @@
                 style="justify-content: space-between"
               >
                 <div class="gen-actions">
-                  <button class="copy-btn" id="ntg-copy" type="button">Copy text</button>
-                  <button class="copy-btn" id="ntg-download" type="button">
+                  <button class="copy-btn download-glow" id="ntg-download" type="button">
                     Download .txt
                   </button>
                   <button
-                    class="copy-btn"
+                    class="copy-btn download-glow"
                     id="ntg-lotus-download"
                     type="button"
                     style="display: none"
@@ -1334,7 +1465,7 @@
                 </div>
               </div>
 
-              <h4>Tag text (what gets copied):</h4>
+              <h4>Generated tag text:</h4>
               <code id="ntg-out"></code>
 
               <div class="gen-controls" style="margin-top: 10px">
@@ -1397,24 +1528,6 @@
       </footer>
     </div>
     <script>
-      function copyToClipboard(text) {
-        if (navigator.clipboard && window.isSecureContext) {
-          return navigator.clipboard.writeText(text);
-        }
-        const ta = document.createElement("textarea");
-        ta.value = text;
-        ta.style.position = "fixed";
-        ta.style.left = "-9999px";
-        document.body.appendChild(ta);
-        ta.select();
-        try {
-          document.execCommand("copy");
-        } finally {
-          document.body.removeChild(ta);
-        }
-        return Promise.resolve();
-      }
-
       const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
       const normHex = (s, withHash = true) => {
         s = (s || "").trim();
@@ -1454,7 +1567,13 @@
         const out = [];
         for (const ch of str) {
           const cp = ch.codePointAt(0);
-          if (cp === 0xfe0e || cp === 0xfe0f) continue;
+          if (cp === 0xfe0e) {
+            if (out.length && !out[out.length - 1].endsWith(ch)) {
+              out[out.length - 1] += ch;
+            }
+            continue;
+          }
+          if (cp === 0xfe0f) continue;
           if (cp === 0x200d || cp === 0x200b || cp === 0x200c) continue;
 
           if (cp === 0x00a0) {
@@ -1503,6 +1622,8 @@
       const fontSelect = document.getElementById("ntg-font");
       const sizeSelect = document.getElementById("ntg-size");
       const iconPicker = document.getElementById("ntg-icon-picker");
+      const iconSearch = document.getElementById("ntg-icon-search");
+      const iconEmpty = document.getElementById("ntg-icon-empty");
       const gradientPresetWrap = document.getElementById("ntg-gradient-preset-wrap");
       const gradientPresetsEl = document.getElementById("ntg-gradient-presets");
 
@@ -1534,7 +1655,6 @@
 
       const payloadEl = document.getElementById("ntg-payload");
       const tohoInstructions = document.getElementById("ntg-toho-instructions");
-      const copyBtn = document.getElementById("ntg-copy");
       const dlBtn = document.getElementById("ntg-download");
       const lotusDlBtn = document.getElementById("ntg-lotus-download");
 
@@ -1596,7 +1716,6 @@
         lotusConfig.hidden = m !== "lotus";
         visEl.style.display = m === "lotus" ? "none" : "block";
         lotusVis.style.display = m === "lotus" ? "block" : "none";
-        copyBtn.style.display = m === "lotus" ? "none" : "inline-block";
         dlBtn.style.display = m === "lotus" ? "none" : "inline-block";
         lotusDlBtn.style.display = m === "lotus" ? "inline-block" : "none";
       }
@@ -1666,16 +1785,809 @@
       wireHexPair(trailHexInput, trailColorInput, "#98FB98", render);
       trailEnabled?.addEventListener("change", render);
 
-      const iconChoices = ["✿","❀","❖","♨","乂","!?","¿","⚽","⚾","♠","♣","♦","♥","♤","♧","♢","♡","☯","✚","⚠","†","∞","✓","‡","☎","☏","℡","⌘","☖","☗","⌅","⌆","⌇","⌒","〶","★","☆","⁂","⁑","✽","☝","☞","☟","☜","↑","↓","→","←","↔","↕","⬆","↗","➡","↘","⬇","↙","⬅","↖","⤴","⤵","￩","￪","￫","￬","⇦","⇧","⇨","⇩","⇵","⇄","⇅","⇆","↹","•","○","◦","⦿","▲","▼","■","▢","▣","▤","▥","▦","▧","▨","▩","▪","▫","●","◐","◑","◒","◓","◯","◇","◈","▱","▶","◀","﹘","﹝","﹞","﹟","﹡","␣","⊠","╳","∇","♩","♪","♫","♬","♭","♮","♯","°","ø","≠","☀","☁","☂","☃","☉","♁","℃","℉","㎎","㎏","㎜","㎝","㎞","㎡","㏄","㏎","㏑","㏒","㏕","♀","♂","〠","ヅ","ツ","㋡","웃","유","ü","Ü","シ","ッ","㋛","〲","〴","◉","◍","◎","⊗","⊙","〇","∅","⊕","⊖","⊘","·","｡","▀","▁","▂","▃","▄","▅","▆","▇","▉","▊","▋","█","▌","▐","▍","▎","▏","░","▒","▓","▔","◆","│","┃","╽","╿","╏","║","╎","┇","︱","┊","︳","┋","┆","╵","〡","〢","╹","╻","╷","〣","≡","︴","﹏","﹌","﹋","╲","╱","︶","︵","〵","〳","〆","`","‐","◣","◥","◤","◢","△","▽","▷","∆","⊿","┐","└","┘","┌","├","┤","┬","┴","┼","╔","╗","╚","╝","╠","╣","╦","╩","╬","╭","╮","╯","╰","-","‒","–","—","―","‘","’","‚","“","”","„","‥","…","‧","′","″","‵","ʻ","ˇ","ˉ","ˊ","ˋ","˙","～","﹐","﹒","﹔","﹕","！","＃","＄","％","＆","＊","，","．","：","；","？","＠","、","。","〃","〝","〞","︰","θ","ð","ĩ","Ň","Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ","Ⓜ","Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ","ⓐ","ⓑ","ⓒ","ⓓ","ⓔ","ⓕ","ⓖ","ⓗ","ⓘ","ⓙ","ⓚ","ⓛ","ⓜ","ⓝ","ⓞ","ⓟ","ⓠ","ⓡ","ⓢ","ⓣ","ⓤ","ⓥ","ⓦ","ⓧ","ⓨ","ⓩ","Ⅰ","Ⅱ","Ⅲ","Ⅳ","Ⅴ","Ⅵ","Ⅶ","Ⅷ","Ⅸ","Ⅹ","Ⅺ","Ⅻ","ⅰ","ⅱ","ⅲ","ⅳ","ⅴ","ⅵ","ⅶ","ⅷ","ⅸ","ⅹ","ⅺ","ⅻ","➀","➁","➂","➃","➄","➅","➆","➇","➈","➉","➊","➋","➌","➍","➎","➏","➐","➑","➒","➓","⓵","⓶","⓷","⓸","⓹","⓺","⓻","⓼","⓽","⓾","⓿","❶","❷","❸","❹","❺","❻","❼","❽","❾","❿","¹","²","³","⁴","⓪","①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮","⑯","⑰","⑱","⑲","⑳","⑴","⑵","⑶","⑷","⑸","⑹","⑺","⑻","⑼","⑽","⑾","⑿","⒀","⒁","⒂","⒃","⒄","⒅","⒆","⒇","⒈","⒉","⒊","⒋","⒌","⒍","⒎","⒏","⒐","⒑","⒒","⒓","⒔","⒕","⒖","⒗","⒘","⒙","⒚","⒛","㈠","㈡","㈢","㈣","㈤","㈥","㈦","㈧","㈨","㈩","㊀","㊁","㊂","㊃","㊄","㊅","㊆","㊇","㊈","㊉","０","１","２","３","４","５","６","７","８","９","¾","¼","%","℅","‰","π","Σ","√","∫","∬","∭","∀","∂","∃","∈","∉","∊","∋","∏","∑","−","∓","∕","∝","∟","∠","∣","∥","∦","∧","∨","∩","∪","∴","∵","∶","∷","∽","≃","≅","≈","≌","≒","≢","≤","≥","≦","≧","≪","≫","≮","≯","≲","≳","≶","≷","⊂","⊃","⊄","⊅","⊆","⊇","⊊","⊋","⊥","⋚","⋛","⋯","﹢","﹣","＋","－","／","＝","÷","±","™","〰","🆗","🆕","🆙","🆒","🆓","🆖","🅿","🆑","🆘","🆚","🅰","🅱","🆎","🅾","♻","🆔"];
+      const iconGroups = [
+        {
+                "name": "Combo Frames",
+                "icons": [
+                        "︻※︼",
+                        "︽※︾",
+                        "〈※〉",
+                        "《※》",
+                        "「※」",
+                        "『※』",
+                        "【※】",
+                        "〔※〕",
+                        "〘※〙",
+                        "〚※〛"
+                ]
+        },
+        {
+                "name": "Stars / Decor",
+                "icons": [
+                        "✿",
+                        "❀",
+                        "❖",
+                        "♨",
+                        "乂",
+                        "!?",
+                        "¿",
+                        "〶",
+                        "★",
+                        "☆",
+                        "⁂",
+                        "⁑",
+                        "✽",
+                        "〠",
+                        "〆",
+                        "♲",
+                        "♳",
+                        "♴",
+                        "♵",
+                        "♶",
+                        "♷",
+                        "♸",
+                        "♹",
+                        "♺",
+                        "♼",
+                        "♽",
+                        "〱",
+                        "〒"
+                ]
+        },
+        {
+                "name": "Cards / Sports",
+                "icons": [
+                        "⚽",
+                        "⚾",
+                        "♠",
+                        "♣",
+                        "♦",
+                        "♥",
+                        "♤",
+                        "♧",
+                        "♢",
+                        "♡"
+                ]
+        },
+        {
+                "name": "Status / Symbols",
+                "icons": [
+                        "☯",
+                        "✚",
+                        "⚠",
+                        "†",
+                        "∞",
+                        "✓",
+                        "‡",
+                        "☎",
+                        "☏",
+                        "℡",
+                        "⌘",
+                        "☖",
+                        "☗",
+                        "⌅",
+                        "⌆",
+                        "⌇",
+                        "⌒",
+                        "©",
+                        "ƒ",
+                        "Θ",
+                        "®",
+                        "№",
+                        "℀",
+                        "￥",
+                        "〓",
+                        "∮"
+                ]
+        },
+        {
+                "name": "Arrows",
+                "icons": [
+                        "☝",
+                        "☞",
+                        "☟",
+                        "☜",
+                        "↑",
+                        "↓",
+                        "→",
+                        "←",
+                        "↔",
+                        "↕",
+                        "⬆",
+                        "↗",
+                        "➡",
+                        "↘",
+                        "⬇",
+                        "↙",
+                        "⬅",
+                        "↖",
+                        "⤴",
+                        "⤵",
+                        "￩",
+                        "￪",
+                        "￫",
+                        "￬",
+                        "⇦",
+                        "⇧",
+                        "⇨",
+                        "⇩",
+                        "⇵",
+                        "⇄",
+                        "⇅",
+                        "⇆",
+                        "↹"
+                ]
+        },
+        {
+                "name": "Shapes",
+                "icons": [
+                        "•",
+                        "○",
+                        "◦",
+                        "⦿",
+                        "▲",
+                        "▼",
+                        "■",
+                        "▢",
+                        "▣",
+                        "▤",
+                        "▥",
+                        "▦",
+                        "▧",
+                        "▨",
+                        "▩",
+                        "▪",
+                        "▫",
+                        "●",
+                        "◐",
+                        "◑",
+                        "◒",
+                        "◓",
+                        "◯",
+                        "◇",
+                        "◈",
+                        "▱",
+                        "▶",
+                        "◀",
+                        "◉",
+                        "◍",
+                        "◎",
+                        "⊗",
+                        "⊙",
+                        "〇",
+                        "∅",
+                        "⊕",
+                        "⊖",
+                        "⊘",
+                        "·",
+                        "｡",
+                        "▀",
+                        "▁",
+                        "▂",
+                        "▃",
+                        "▄",
+                        "▅",
+                        "▆",
+                        "▇",
+                        "▉",
+                        "▊",
+                        "▋",
+                        "█",
+                        "▌",
+                        "▐",
+                        "▍",
+                        "▎",
+                        "▏",
+                        "░",
+                        "▒",
+                        "▓",
+                        "▔",
+                        "◆",
+                        "◣",
+                        "◥",
+                        "◤",
+                        "◢",
+                        "△",
+                        "▽",
+                        "▷",
+                        "∆",
+                        "⊿"
+                ]
+        },
+        {
+                "name": "Lines / Corners",
+                "icons": [
+                        "│",
+                        "┃",
+                        "╽",
+                        "╿",
+                        "╏",
+                        "║",
+                        "╎",
+                        "┇",
+                        "︱",
+                        "┊",
+                        "︳",
+                        "┋",
+                        "┆",
+                        "╵",
+                        "〡",
+                        "〢",
+                        "╹",
+                        "╻",
+                        "╷",
+                        "〣",
+                        "≡",
+                        "︴",
+                        "﹏",
+                        "﹌",
+                        "﹋",
+                        "╲",
+                        "╱",
+                        "︶",
+                        "︵",
+                        "〵",
+                        "〳",
+                        "`",
+                        "‐",
+                        "┐",
+                        "└",
+                        "┘",
+                        "┌",
+                        "├",
+                        "┤",
+                        "┬",
+                        "┴",
+                        "┼",
+                        "╔",
+                        "╗",
+                        "╚",
+                        "╝",
+                        "╠",
+                        "╣",
+                        "╦",
+                        "╩",
+                        "╬",
+                        "╭",
+                        "╮",
+                        "╯",
+                        "╰",
+                        "─",
+                        "═"
+                ]
+        },
+        {
+                "name": "Brackets / Punctuation",
+                "icons": [
+                        "-",
+                        "‒",
+                        "–",
+                        "—",
+                        "―",
+                        "‘",
+                        "’",
+                        "‚",
+                        "“",
+                        "”",
+                        "„",
+                        "‥",
+                        "…",
+                        "‧",
+                        "′",
+                        "″",
+                        "‵",
+                        "ʻ",
+                        "ˇ",
+                        "ˉ",
+                        "ˊ",
+                        "ˋ",
+                        "˙",
+                        "～",
+                        "﹐",
+                        "﹒",
+                        "﹔",
+                        "﹕",
+                        "！",
+                        "＃",
+                        "＄",
+                        "％",
+                        "＆",
+                        "＊",
+                        "，",
+                        "．",
+                        "：",
+                        "；",
+                        "？",
+                        "＠",
+                        "、",
+                        "。",
+                        "〃",
+                        "〝",
+                        "〞",
+                        "︰",
+                        "‰",
+                        "﹤",
+                        "﹥"
+                ]
+        },
+        {
+                "name": "Music / Weather",
+                "icons": [
+                        "♩",
+                        "♪",
+                        "♫",
+                        "♬",
+                        "♭",
+                        "♮",
+                        "♯",
+                        "°",
+                        "ø",
+                        "≠",
+                        "☀",
+                        "☁",
+                        "☂",
+                        "☃",
+                        "☉",
+                        "♁",
+                        "℃",
+                        "℉",
+                        "㎎",
+                        "㎏",
+                        "㎜",
+                        "㎝",
+                        "㎞",
+                        "㎡",
+                        "㏄",
+                        "㏎",
+                        "㏑",
+                        "㏒",
+                        "㏕",
+                        "♀",
+                        "♂"
+                ]
+        },
+        {
+                "name": "Faces / Kana",
+                "icons": [
+                        "ヅ",
+                        "ツ",
+                        "㋡",
+                        "웃",
+                        "유",
+                        "ü",
+                        "Ü",
+                        "シ",
+                        "ッ",
+                        "㋛",
+                        "〲",
+                        "〴"
+                ]
+        },
+        {
+                "name": "Letters",
+                "icons": [
+                        "θ",
+                        "ð",
+                        "ĩ",
+                        "Ň",
+                        "Ⓐ",
+                        "Ⓑ",
+                        "Ⓒ",
+                        "Ⓓ",
+                        "Ⓔ",
+                        "Ⓕ",
+                        "Ⓖ",
+                        "Ⓗ",
+                        "Ⓘ",
+                        "Ⓙ",
+                        "Ⓚ",
+                        "Ⓛ",
+                        "Ⓜ",
+                        "Ⓝ",
+                        "Ⓞ",
+                        "Ⓟ",
+                        "Ⓠ",
+                        "Ⓡ",
+                        "Ⓢ",
+                        "Ⓣ",
+                        "Ⓤ",
+                        "Ⓥ",
+                        "Ⓦ",
+                        "Ⓧ",
+                        "Ⓨ",
+                        "Ⓩ",
+                        "ⓐ",
+                        "ⓑ",
+                        "ⓒ",
+                        "ⓓ",
+                        "ⓔ",
+                        "ⓕ",
+                        "ⓖ",
+                        "ⓗ",
+                        "ⓘ",
+                        "ⓙ",
+                        "ⓚ",
+                        "ⓛ",
+                        "ⓜ",
+                        "ⓝ",
+                        "ⓞ",
+                        "ⓟ",
+                        "ⓠ",
+                        "ⓡ",
+                        "ⓢ",
+                        "ⓣ",
+                        "ⓤ",
+                        "ⓥ",
+                        "ⓦ",
+                        "ⓧ",
+                        "ⓨ",
+                        "ⓩ"
+                ]
+        },
+        {
+                "name": "Numbers",
+                "icons": [
+                        "Ⅰ",
+                        "Ⅱ",
+                        "Ⅲ",
+                        "Ⅳ",
+                        "Ⅴ",
+                        "Ⅵ",
+                        "Ⅶ",
+                        "Ⅷ",
+                        "Ⅸ",
+                        "Ⅹ",
+                        "Ⅺ",
+                        "Ⅻ",
+                        "ⅰ",
+                        "ⅱ",
+                        "ⅲ",
+                        "ⅳ",
+                        "ⅴ",
+                        "ⅵ",
+                        "ⅶ",
+                        "ⅷ",
+                        "ⅸ",
+                        "ⅹ",
+                        "ⅺ",
+                        "ⅻ",
+                        "➀",
+                        "➁",
+                        "➂",
+                        "➃",
+                        "➄",
+                        "➅",
+                        "➆",
+                        "➇",
+                        "➈",
+                        "➉",
+                        "➊",
+                        "➋",
+                        "➌",
+                        "➍",
+                        "➎",
+                        "➏",
+                        "➐",
+                        "➑",
+                        "➒",
+                        "➓",
+                        "⓵",
+                        "⓶",
+                        "⓷",
+                        "⓸",
+                        "⓹",
+                        "⓺",
+                        "⓻",
+                        "⓼",
+                        "⓽",
+                        "⓾",
+                        "⓿",
+                        "❶",
+                        "❷",
+                        "❸",
+                        "❹",
+                        "❺",
+                        "❻",
+                        "❼",
+                        "❽",
+                        "❾",
+                        "❿",
+                        "¹",
+                        "²",
+                        "³",
+                        "⁴",
+                        "⓪",
+                        "①",
+                        "②",
+                        "③",
+                        "④",
+                        "⑤",
+                        "⑥",
+                        "⑦",
+                        "⑧",
+                        "⑨",
+                        "⑩",
+                        "⑪",
+                        "⑫",
+                        "⑬",
+                        "⑭",
+                        "⑮",
+                        "⑯",
+                        "⑰",
+                        "⑱",
+                        "⑲",
+                        "⑳",
+                        "⑴",
+                        "⑵",
+                        "⑶",
+                        "⑷",
+                        "⑸",
+                        "⑹",
+                        "⑺",
+                        "⑻",
+                        "⑼",
+                        "⑽",
+                        "⑾",
+                        "⑿",
+                        "⒀",
+                        "⒁",
+                        "⒂",
+                        "⒃",
+                        "⒄",
+                        "⒅",
+                        "⒆",
+                        "⒇",
+                        "⒈",
+                        "⒉",
+                        "⒊",
+                        "⒋",
+                        "⒌",
+                        "⒍",
+                        "⒎",
+                        "⒏",
+                        "⒐",
+                        "⒑",
+                        "⒒",
+                        "⒓",
+                        "⒔",
+                        "⒕",
+                        "⒖",
+                        "⒗",
+                        "⒘",
+                        "⒙",
+                        "⒚",
+                        "⒛",
+                        "㈠",
+                        "㈡",
+                        "㈢",
+                        "㈣",
+                        "㈤",
+                        "㈥",
+                        "㈦",
+                        "㈧",
+                        "㈨",
+                        "㈩",
+                        "㊀",
+                        "㊁",
+                        "㊂",
+                        "㊃",
+                        "㊄",
+                        "㊅",
+                        "㊆",
+                        "㊇",
+                        "㊈",
+                        "㊉",
+                        "０",
+                        "１",
+                        "２",
+                        "３",
+                        "４",
+                        "５",
+                        "６",
+                        "７",
+                        "８",
+                        "９",
+                        "¾",
+                        "¼",
+                        "%",
+                        "℅"
+                ]
+        },
+        {
+                "name": "Math",
+                "icons": [
+                        "π",
+                        "Σ",
+                        "√",
+                        "∫",
+                        "∬",
+                        "∭",
+                        "∀",
+                        "∂",
+                        "∃",
+                        "∈",
+                        "∉",
+                        "∊",
+                        "∋",
+                        "∏",
+                        "∑",
+                        "−",
+                        "∓",
+                        "∕",
+                        "∝",
+                        "∟",
+                        "∠",
+                        "∣",
+                        "∥",
+                        "∦",
+                        "∧",
+                        "∨",
+                        "∩",
+                        "∪",
+                        "∴",
+                        "∵",
+                        "∶",
+                        "∷",
+                        "∽",
+                        "≃",
+                        "≅",
+                        "≈",
+                        "≌",
+                        "≒",
+                        "≢",
+                        "≤",
+                        "≥",
+                        "≦",
+                        "≧",
+                        "≪",
+                        "≫",
+                        "≮",
+                        "≯",
+                        "≲",
+                        "≳",
+                        "≶",
+                        "≷",
+                        "⊂",
+                        "⊃",
+                        "⊄",
+                        "⊅",
+                        "⊆",
+                        "⊇",
+                        "⊊",
+                        "⊋",
+                        "⊥",
+                        "⋚",
+                        "⋛",
+                        "⋯",
+                        "﹢",
+                        "﹣",
+                        "＋",
+                        "－",
+                        "／",
+                        "＝",
+                        "÷",
+                        "±"
+                ]
+        },
+        {
+                "name": "Badges / Emoji",
+                "icons": [
+                        "™",
+                        "〰",
+                        "🆗",
+                        "🆕",
+                        "🆙",
+                        "🆒",
+                        "🆓",
+                        "🆖",
+                        "🅿",
+                        "🆑",
+                        "🆘",
+                        "🆚",
+                        "🅰",
+                        "🅱",
+                        "🆎",
+                        "🅾",
+                        "♻",
+                        "🆔"
+                ]
+        },
+        {
+                "name": "Other Working",
+                "icons": [
+                        "﹘",
+                        "﹝",
+                        "﹞",
+                        "﹟",
+                        "﹡",
+                        "␣",
+                        "⊠",
+                        "╳",
+                        "∇"
+                ]
+        }
+];
+      const iconChoices = iconGroups.flatMap((group) => group.icons);
 
       let gradStops = ["#B625F1", "#2970F8", "#00CFFF"];
       const gradientPresets = [
-        { name: "Candy", colors: ["#FF9DF2", "#FFD66B", "#FF75A0"] },
-        { name: "Ocean", colors: ["#4EF3FF", "#2970F8", "#6A5CFF"] },
-        { name: "Mint", colors: ["#9BFFD0", "#DFF7E1", "#6BD3FF"] },
-        { name: "Fire", colors: ["#F02A00", "#FF7A00", "#FFBF00"] },
-        { name: "RGB", colors: ["#FF0033", "#FFE500", "#00FF66", "#00EAFF", "#7F00FF"] },
-        { name: "Soft", colors: ["#FFE4EA", "#FFF7B8", "#DBFFD8", "#C7F4FF", "#E4D2FF"] }
+        { name: "Rose Red", colors: ["#590D22", "#800F2F", "#A4133C", "#C9184A", "#FF4D6D", "#FF758F", "#FF8FA3", "#FFB3C1", "#FFCCD5", "#FFF0F3"] },
+        { name: "True Red", colors: ["#7A0000", "#B00016", "#D61C1C", "#FF3B3B", "#FF9A9A"] },
+        { name: "Crimson Fade", colors: ["#430010", "#6E001B", "#9A0F2A", "#D43C4B", "#FF8A9A"] },
+        { name: "Brick Ember", colors: ["#521414", "#7A2320", "#9E362B", "#C95646", "#EAA19B"] },
+        { name: "Candy Apple", colors: ["#6F0000", "#A80000", "#E10019", "#FF3D38", "#FFB1AE"] },
+        { name: "Golden Flame", colors: ["#FF7B00", "#FF8800", "#FF9500", "#FFA200", "#FFAA00", "#FFB700", "#FFC300", "#FFD000", "#FFD933", "#FFE15C"] },
+        { name: "Orange Crush", colors: ["#7A2E00", "#B34A00", "#FF6D00", "#FFA042", "#FFD3A1"] },
+        { name: "Tangelo", colors: ["#552500", "#8A3A00", "#C25500", "#FF7E1A", "#FFBF80"] },
+        { name: "Pumpkin Spice", colors: ["#5C2D00", "#9A4E00", "#CC6B00", "#FF9722", "#FFD19E"] },
+        { name: "Sunset Orange", colors: ["#6B1B00", "#A33300", "#D74E00", "#FF7A30", "#FFC4A6"] },
+        { name: "Lemon Zest", colors: ["#6B5E00", "#9A8800", "#D4B400", "#FFE34D", "#FFF3A3"] },
+        { name: "Honey Glow", colors: ["#4D3A00", "#7A5C00", "#B08900", "#E6B80A", "#FFE680"] },
+        { name: "Gold Foil", colors: ["#5B4A00", "#8F7400", "#CAA100", "#F2CF33", "#FFF0A6"] },
+        { name: "Sand Light", colors: ["#5F5527", "#8A7B39", "#B4A450", "#D9C978", "#F7EDB8"] },
+        { name: "Solar Flare", colors: ["#6A4D00", "#A47300", "#D19A00", "#FFD54D", "#FFF3CC"] },
+        { name: "Forest Calm", colors: ["#20331A", "#33512A", "#446C37", "#558745", "#66A253", "#7CB36B", "#94C186", "#ABCEA1", "#C3DCBC", "#DBEAD7"] },
+        { name: "Mint Sky", colors: ["#007F5F", "#2B9348", "#55A630", "#80B918", "#AACC00", "#BFD200", "#D4D700", "#DDDF00", "#EEEF20"] },
+        { name: "Emerald Field", colors: ["#064E3B", "#0F7A4B", "#1FA36B", "#4FD08A", "#A8F0C2"] },
+        { name: "Lime Soda", colors: ["#0B3D02", "#167A06", "#22B108", "#79D70F", "#D0FF72"] },
+        { name: "Meadow Fresh", colors: ["#1C3B1A", "#2F6B2A", "#3F8E37", "#61B357", "#A6E6A3"] },
+        { name: "Teal Breeze", colors: ["#0A2D27", "#13594E", "#1D8676", "#26B29D", "#30DFC4", "#59E5D0", "#83ECDC", "#ACF2E7", "#D6F9F3"] },
+        { name: "Aqua Tide", colors: ["#005F5F", "#008C8C", "#00B3A6", "#32D1C0", "#A0EFE6"] },
+        { name: "Seafoam Drift", colors: ["#0C3C35", "#13685D", "#1DA28C", "#4FDCC7", "#B7F3E9"] },
+        { name: "Glacier Shore", colors: ["#07373A", "#0E6267", "#1A8D96", "#49BCC2", "#AEE9EF"] },
+        { name: "Tropical Surf", colors: ["#004B4A", "#007A77", "#00A39F", "#27CFC7", "#90F7F1"] },
+        { name: "Ocean Blue", colors: ["#03045E", "#023E8A", "#0077B6", "#0096C7", "#00B4D8", "#48CAE4", "#90E0EF", "#ADE8F4", "#CAF0F8"] },
+        { name: "Azure Sky", colors: ["#0B1E6B", "#143F9A", "#1F6ED4", "#4FA0FF", "#A8CEFF"] },
+        { name: "Deep Space", colors: ["#0B132B", "#1C2541", "#3A506B", "#5BC0BE", "#A6E3E9"] },
+        { name: "Royal Night", colors: ["#0A0F1F", "#111D4A", "#2A3C8B", "#4F6BD7", "#A3B5FF"] },
+        { name: "Cyber Aqua", colors: ["#001F3F", "#003F7F", "#0074D9", "#39CCCC", "#7FDBFF"] },
+        { name: "Indigo Deep", colors: ["#1A0B6B", "#2E169A", "#4931D4", "#7F73FF", "#C6C0FF"] },
+        { name: "Midnight Indigo", colors: ["#0B0F3A", "#152261", "#2645A1", "#4F7BE0", "#A7C1FF"] },
+        { name: "Twilight Indigo", colors: ["#140A2B", "#2A1952", "#463188", "#7B6ED1", "#C4C0FF"] },
+        { name: "Space Indigo", colors: ["#0A0A2B", "#15154A", "#2D2D80", "#5555C4", "#BDBDF8"] },
+        { name: "Royal Purple", colors: ["#3A0CA3", "#5F0F40", "#9D0191", "#C200FB", "#E100FF", "#F72585", "#FF00A0", "#FF5AB3", "#FF85C1"] },
+        { name: "Violet Bloom", colors: ["#3B0A57", "#6A1B9A", "#8E3ECF", "#B07AE8", "#E1C7FF"] },
+        { name: "Lavender Mist", colors: ["#2B1E59", "#5A3EA6", "#8A6BE8", "#B79CFF", "#E6DDFF"] },
+        { name: "Amethyst Dream", colors: ["#2A0B3A", "#4C1B6E", "#7A3EB0", "#B081E6", "#E6D6FF"] },
+        { name: "Grape Soda", colors: ["#3A0057", "#660099", "#8C33CC", "#B366FF", "#E0C2FF"] },
+        { name: "Pink Candy", colors: ["#6B0B3B", "#9A165A", "#D43A8B", "#FF73B4", "#FFD6E8"] },
+        { name: "Berry Mix", colors: ["#2D0A31", "#6A0572", "#AB26A9", "#FF70A6", "#FFD6E0"] },
+        { name: "Rose Quartz", colors: ["#4A0B26", "#7A1F47", "#B24778", "#E08DB3", "#FFDCEF"] },
+        { name: "Blush Pop", colors: ["#5E1232", "#9B2B5E", "#D84B8B", "#FF88BE", "#FFD2E6"] },
+        { name: "Flamingo", colors: ["#6D1B3F", "#B1306D", "#E05C9A", "#FF9CCC", "#FFE3F2"] },
+        { name: "Desert Dusk", colors: ["#4A2C2A", "#8C5B3F", "#C0895E", "#E6B17E", "#FFE0B2"] },
+        { name: "Cocoa Earth", colors: ["#3E2723", "#5D4037", "#795548", "#A1887F", "#D7CCC8"] },
+        { name: "Sandstone", colors: ["#5A4634", "#8A6A4A", "#B8946D", "#D9B88F", "#F3E1C6"] },
+        { name: "Clay Pot", colors: ["#4B2A1F", "#7A4735", "#A96453", "#D78B74", "#F4C7B6"] },
+        { name: "Rustic Wood", colors: ["#3B2413", "#5E3A1F", "#7D512B", "#A37342", "#D6B189"] },
+        { name: "Monochrome Fade", colors: ["#0B0B0B", "#2E2E2E", "#6B6B6B", "#B0B0B0", "#E5E5E5"] },
+        { name: "Steel to Sky", colors: ["#202427", "#434A52", "#6F7A85", "#A8B5C3", "#DFE7EF"] },
+        { name: "Foggy Morning", colors: ["#111317", "#1C232B", "#2F3B46", "#556573", "#AAB8C2"] },
+        { name: "Charcoal", colors: ["#000000", "#222222", "#555555", "#AAAAAA", "#FFFFFF"] },
+        { name: "Graphite Glow", colors: ["#1A1B1F", "#2B2E35", "#474C56", "#7B8390", "#C9D1DB"] },
+        { name: "Rainbow Pulse", colors: ["#FF0000", "#FF8700", "#FFD300", "#DEFF0A", "#A1FF0A", "#0AFF99", "#0AEFFF", "#147DF5", "#580AFF", "#BE0AFF"] },
+        { name: "Sunset Glow", colors: ["#C200FB", "#D704B2", "#E2068D", "#EC0868", "#F41C34", "#FC2F00", "#F45608", "#EC7D10", "#F69D0D", "#FFBC0A"] },
+        { name: "Retro Neon", colors: ["#FF00E5", "#8A2BE2", "#4B6CFF", "#00E1FF", "#00FFA3"] },
+        { name: "Candy Corn", colors: ["#2B0707", "#B30000", "#FF6B00", "#FFD000", "#FFF3A3"] },
+        { name: "Heat Map", colors: ["#3B0A0A", "#7A1E1E", "#B23A1F", "#FF6F00", "#FFD180"] },
+        { name: "Pastel Rainbow", colors: ["#F8C8FF", "#FBC2EA", "#FFC9DE", "#CDE4FF", "#BFE7FF"] },
+        { name: "Mint Cream", colors: ["#DFF7E1", "#EAF8F0", "#F8FFF5", "#FFF7EA", "#E8D0A6"] },
+        { name: "Soft Sorbet", colors: ["#FFD1D1", "#FFE9D1", "#FFF3D6", "#D9F7F1", "#D9E3FF"] },
+        { name: "Cloud Lilac", colors: ["#FFE6F7", "#EAD7FF", "#D7CBFF", "#C6DDFF", "#C6F2FF"] },
+        { name: "Peach Milk", colors: ["#FFD2D2", "#FFC9B8", "#FFDCBC", "#FFE9CF", "#FFEEDD"] },
+        { name: "Baby Rainbow", colors: ["#FFE4EA", "#FFF7B8", "#DBFFD8", "#C7F4FF", "#E4D2FF"] },
+        { name: "Hot Neon", colors: ["#6900FF", "#8A00FF", "#B300FF", "#FF00C8", "#FF4DA6"] },
+        { name: "Heatwave", colors: ["#F02A00", "#FF5A00", "#FF7A00", "#FF9A00", "#FFBF00"] },
+        { name: "Lime Pop", colors: ["#00D26A", "#9BE000", "#FFD000", "#FF7A00", "#FF2C00"] },
+        { name: "RGB Stripe", colors: ["#FF0033", "#FFE500", "#00FF66", "#00EAFF", "#0047FF", "#7F00FF"] },
+        { name: "Tropic Pop", colors: ["#FF3AB0", "#FF6A3A", "#FFD23F", "#00C2FF", "#6AFF00"] },
+        { name: "Signal Glow", colors: ["#FF00A0", "#FF0066", "#FF3D00", "#FFC400", "#8CFF00"] },
+        { name: "Deep Navy", colors: ["#070B16", "#0D1122", "#151C35", "#23324F", "#3E5773"] },
+        { name: "Plum Night", colors: ["#14002A", "#1D003A", "#2E0059", "#4B007A", "#6E0B7A"] },
+        { name: "Charcoal Steel", colors: ["#0A0B0C", "#121417", "#1B1F24", "#2A3036", "#434B55"] },
+        { name: "Red to Black", colors: ["#4A0B12", "#7A1520", "#B21E2A", "#00150D", "#002018"] },
+        { name: "Emerald Noir", colors: ["#0A271F", "#0F3D32", "#135246", "#1A6A5B", "#1F7F6E"] },
+        { name: "Night Teal", colors: ["#0C0E12", "#07151D", "#07232A", "#0B3540", "#174F5A"] }
       ];
 
       function renderGradientPresets() {
@@ -1716,17 +2628,50 @@
 
       function renderIconPicker() {
         if (!iconPicker) return;
+        const query = (iconSearch?.value || "").trim().toLowerCase();
         iconPicker.innerHTML = "";
-        iconChoices.forEach((icon) => {
-          const textIcon = textStyleIcon(icon);
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "icon-btn";
-          btn.dataset.icon = icon;
-          btn.textContent = textIcon;
-          btn.title = "Add icon";
-          iconPicker.appendChild(btn);
+        let visibleGroups = 0;
+
+        iconGroups.forEach((group) => {
+          const groupMatch = group.name.toLowerCase().includes(query);
+          const visibleIcons = group.icons.filter((icon) => {
+            const textIcon = textStyleIcon(icon);
+            return !query || groupMatch || icon.toLowerCase().includes(query) || textIcon.toLowerCase().includes(query);
+          });
+          if (!visibleIcons.length) return;
+
+          visibleGroups += 1;
+          const section = document.createElement("section");
+          section.className = "icon-group";
+          section.dataset.group = group.name;
+
+          const head = document.createElement("div");
+          head.className = "icon-group-head";
+          const title = document.createElement("span");
+          title.textContent = group.name;
+          const count = document.createElement("span");
+          count.className = "icon-group-count";
+          count.textContent = String(visibleIcons.length);
+          head.append(title, count);
+
+          const grid = document.createElement("div");
+          grid.className = "icon-group-grid";
+          visibleIcons.forEach((icon) => {
+            const textIcon = textStyleIcon(icon);
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "icon-btn";
+            btn.dataset.icon = textIcon;
+            btn.textContent = textIcon;
+            btn.title = "Add " + icon;
+            grid.appendChild(btn);
+          });
+
+          section.append(head, grid);
+          iconPicker.appendChild(section);
         });
+
+        if (iconEmpty) iconEmpty.hidden = visibleGroups !== 0;
       }
 
       function renderStopRows() {
@@ -1824,7 +2769,7 @@
       });
 
       btnAdd.addEventListener("click", () => {
-        if (gradStops.length >= 5) return;
+        if (gradStops.length >= 10) return;
         gradStops.push(
           "#" +
             Array.from(
@@ -1856,7 +2801,7 @@
         render();
       });
       stopCount.addEventListener("change", () => {
-        let n = clamp(parseInt(stopCount.value || "3", 10), 2, 5);
+        let n = clamp(parseInt(stopCount.value || "3", 10), 2, 10);
         while (gradStops.length < n)
           gradStops.push(
             "#" +
@@ -1902,12 +2847,14 @@
         const start = input.selectionStart ?? input.value.length;
         const end = input.selectionEnd ?? input.value.length;
         const next = input.value.slice(0, start) + value + input.value.slice(end);
-        input.value = [...next].slice(0, max).join("");
-        const pos = Math.min(start + [...value].length, [...input.value].length);
+        input.value = max === Infinity ? next : splitTagGlyphs(next).slice(0, max).join("");
+        const pos = Math.min(start + value.length, input.value.length);
         input.focus();
         input.setSelectionRange(pos, pos);
         render();
       }
+
+      iconSearch?.addEventListener("input", renderIconPicker);
 
       iconPicker?.addEventListener("click", (e) => {
         const btn = e.target.closest(".icon-btn");
@@ -2501,13 +3448,6 @@ LowerText:
 
         payloadEl.textContent = payload;
       }
-
-      copyBtn.addEventListener("click", () => {
-        copyToClipboard(outEl.textContent).then(() => {
-          copyBtn.textContent = "Copied!";
-          setTimeout(() => (copyBtn.textContent = "Copy text"), 1200);
-        });
-      });
 
       dlBtn.addEventListener("click", () => {
         const mod = currentMod();
