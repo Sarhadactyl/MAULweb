@@ -908,9 +908,9 @@
             <i class="fa-solid fa-arrow-left"></i>
             Back to Home
           </a>
-          <a href="https://discord.gg/maul" class="cta-primary">
+          <a href="https://moddedamong.us/icons.html" class="cta-primary">
             <i class="fa-regular fa-face-smile"></i>
-            Join Maul
+            Icons & Fonts
           </a>
         </div>
       </div>
@@ -1567,13 +1567,7 @@
         const out = [];
         for (const ch of str) {
           const cp = ch.codePointAt(0);
-          if (cp === 0xfe0e) {
-            if (out.length && !out[out.length - 1].endsWith(ch)) {
-              out[out.length - 1] += ch;
-            }
-            continue;
-          }
-          if (cp === 0xfe0f) continue;
+          if (cp === 0xfe0e || cp === 0xfe0f) continue;
           if (cp === 0x200d || cp === 0x200b || cp === 0x200c) continue;
 
           if (cp === 0x00a0) {
@@ -1596,6 +1590,10 @@
           }
         }
         return glyphs;
+      }
+
+      function isTagSpaceGlyph(glyph) {
+        return /^\s+$/.test(glyph || "");
       }
 
       const previewFontMap = {
@@ -2661,7 +2659,7 @@
             const btn = document.createElement("button");
             btn.type = "button";
             btn.className = "icon-btn";
-            btn.dataset.icon = textIcon;
+            btn.dataset.icon = sanitizeTagText(icon);
             btn.textContent = textIcon;
             btn.title = "Add " + icon;
             grid.appendChild(btn);
@@ -2842,6 +2840,7 @@
       sizeSelect.addEventListener("change", render);
 
       function insertTextAtCursor(input, value) {
+        value = sanitizeTagText(value);
         if (!input || !value) return;
         const max = input.maxLength > 0 ? input.maxLength : Infinity;
         const start = input.selectionStart ?? input.value.length;
@@ -3081,9 +3080,11 @@
         text = sanitizeTagText(text || "");
         const chars = splitTagGlyphs(text);
         if (!chars.length) return "";
+        const colorableChars = chars.filter((c) => !isTagSpaceGlyph(c));
+        if (!colorableChars.length) return chars.join("");
         let perCharColors = [];
         if (Array.isArray(colors)) {
-          const L = chars.length;
+          const L = colorableChars.length;
           if (L === 1) {
             perCharColors = [normHex(colors[0], true)];
           } else {
@@ -3099,10 +3100,15 @@
           }
         } else {
           const h = normHex(colors, true);
-          perCharColors = Array(chars.length).fill(h);
+          perCharColors = Array(colorableChars.length).fill(h);
         }
+        let colorIndex = 0;
         return chars
-          .map((c, i) => `<color=${perCharColors[i]}>${c}</color>`)
+          .map((c) => {
+            if (isTagSpaceGlyph(c)) return c;
+            const color = perCharColors[colorIndex++] || perCharColors[perCharColors.length - 1];
+            return `<color=${color}>${c}</color>`;
+          })
           .join("");
       }
 
