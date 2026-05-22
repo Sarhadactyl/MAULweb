@@ -508,6 +508,33 @@
         resize: vertical;
       }
 
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 143, 171, 0.72) rgba(255, 255, 255, 0.07);
+      }
+
+      *::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+
+      *::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.07);
+        border-radius: 999px;
+      }
+
+      *::-webkit-scrollbar-thumb {
+        background:
+          linear-gradient(180deg, rgba(255, 184, 198, 0.92), rgba(255, 95, 126, 0.72));
+        border: 2px solid rgba(36, 9, 13, 0.95);
+        border-radius: 999px;
+      }
+
+      *::-webkit-scrollbar-thumb:hover {
+        background:
+          linear-gradient(180deg, rgba(255, 214, 221, 0.98), rgba(255, 95, 126, 0.9));
+      }
+
       .gen-stops {
         display: grid;
         gap: 8px;
@@ -719,6 +746,10 @@
         position: relative;
       }
 
+      .advanced-picker-panel {
+        flex-basis: 100%;
+      }
+
       .icon-picker-panel[open] {
         flex-basis: 100%;
       }
@@ -799,6 +830,563 @@
 
       #ntg-visual span {
         display: inline-block;
+      }
+
+      #ntg-visual {
+        min-height: 34px;
+        padding: 7px 0;
+        overflow-wrap: anywhere;
+      }
+
+      .settings-preview-row {
+        display: grid;
+        grid-template-columns: minmax(280px, 560px) minmax(300px, 1fr);
+        gap: 18px;
+        align-items: start;
+        margin-top: 16px;
+      }
+
+      .settings-stack {
+        display: grid;
+        gap: 12px;
+      }
+
+      .inline-preview-panel {
+        align-self: stretch;
+        display: grid;
+        align-content: start;
+        gap: 10px;
+        min-height: 180px;
+        max-height: 420px;
+        padding: 14px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.035);
+        overflow: auto;
+        resize: vertical;
+      }
+
+      .inline-preview-panel h4 {
+        margin-top: 0;
+      }
+
+      .inline-preview-panel > summary {
+        display: none;
+      }
+
+      .preview-panel-body {
+        display: grid;
+        align-content: start;
+        gap: 10px;
+      }
+
+      .preview-name-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .preview-name-row input {
+        min-width: 180px;
+        min-height: 30px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(0, 0, 0, 0.58);
+        color: #ffffff;
+        padding: 4px 7px;
+        font: inherit;
+      }
+
+      @media (max-width: 880px) {
+        .settings-preview-row {
+          grid-template-columns: 1fr;
+        }
+
+        .inline-preview-panel {
+          min-height: 0;
+          resize: none;
+          padding: 0;
+        }
+
+        .inline-preview-panel > summary {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+          padding: 12px 14px;
+          cursor: pointer;
+          font-weight: 800;
+          color: #ffd8e0;
+          list-style: none;
+        }
+
+        .inline-preview-panel > summary::-webkit-details-marker {
+          display: none;
+        }
+
+        .inline-preview-panel > summary::after {
+          content: "Show";
+          border-radius: 999px;
+          background: rgba(255, 95, 126, 0.22);
+          padding: 3px 8px;
+          color: #ffffff;
+          font-size: 0.72rem;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+        }
+
+        .inline-preview-panel[open] > summary::after {
+          content: "Hide";
+        }
+
+        .preview-panel-body {
+          padding: 0 14px 14px;
+        }
+      }
+
+      .tmp-preview-tag {
+        display: inline-block;
+        line-height: 1.25;
+        text-shadow:
+          -1px -1px 0 rgba(0, 0, 0, 0.85),
+          1px -1px 0 rgba(0, 0, 0, 0.85),
+          -1px 1px 0 rgba(0, 0, 0, 0.85),
+          1px 1px 0 rgba(0, 0, 0, 0.85),
+          0 2px 4px rgba(0, 0, 0, 0.65);
+        transform-origin: center;
+      }
+
+      .advanced-panel {
+        display: grid;
+        gap: 12px;
+        width: min(760px, calc(100vw - 40px));
+        max-height: min(68vh, 620px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+
+      .advanced-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .advanced-head h3 {
+        margin: 0;
+        font-size: 1rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .advanced-head p,
+      .advanced-tool-note,
+      .advanced-apply-note {
+        margin: 4px 0 0;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.78rem;
+        line-height: 1.42;
+      }
+
+      .advanced-section {
+        display: grid;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .advanced-section h4 {
+        margin: 0;
+        color: #ffd6dd;
+        font-size: 0.78rem;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .advanced-tool {
+        display: grid;
+        gap: 8px;
+        padding: 10px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.055);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .advanced-toggle-list {
+        display: grid;
+        gap: 8px;
+      }
+
+      .advanced-toolbar {
+        display: grid;
+        gap: 12px;
+      }
+
+      .advanced-button-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+
+      .advanced-tool-btn {
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.075);
+        color: #ffffff;
+        cursor: pointer;
+        padding: 6px 10px;
+        font: inherit;
+        font-size: 0.78rem;
+      }
+
+      .advanced-tool-btn:hover,
+      .advanced-tool-btn.active {
+        border-color: rgba(255, 182, 193, 0.46);
+        background: rgba(255, 143, 171, 0.16);
+      }
+
+      .advanced-selection-note {
+        padding: 8px 10px;
+        border-radius: 12px;
+        background: rgba(0, 0, 0, 0.28);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 0.78rem;
+        line-height: 1.4;
+      }
+
+      .advanced-warning {
+        padding: 8px 10px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 72, 96, 0.55);
+        background: rgba(140, 0, 18, 0.3);
+        color: #ff9aaa;
+        font-size: 0.8rem;
+        font-weight: 800;
+        line-height: 1.35;
+      }
+
+      .advanced-adjustments {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 8px;
+      }
+
+      .advanced-adjustment {
+        display: grid;
+        gap: 5px;
+        padding: 8px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.055);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .advanced-adjustment label {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .advanced-adjustment input {
+        width: 100%;
+        min-width: 0;
+        min-height: 32px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(0, 0, 0, 0.45);
+        color: #ffffff;
+        padding: 5px 7px;
+        font: inherit;
+        font-size: 0.82rem;
+      }
+
+      .advanced-adjustment input[type="color"] {
+        padding: 2px;
+      }
+
+      .advanced-color-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 40px;
+        gap: 6px;
+      }
+
+      .advanced-toggle {
+        display: grid;
+        gap: 7px;
+        padding: 10px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.055);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .advanced-toggle-main {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #ffffff;
+        font-size: 0.88rem;
+        font-weight: 700;
+      }
+
+      .advanced-toggle-main input {
+        accent-color: #ff8fab;
+      }
+
+      .advanced-toggle-settings {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        padding-left: 24px;
+      }
+
+      .advanced-toggle-settings select {
+        min-width: 120px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(0, 0, 0, 0.5);
+        color: #ffffff;
+        padding: 5px 7px;
+        font: inherit;
+        font-size: 0.8rem;
+      }
+
+      .advanced-toggle-settings label,
+      .advanced-toggle-desc {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.78rem;
+        line-height: 1.35;
+      }
+
+      .advanced-tool strong {
+        color: #ffffff;
+        font-size: 0.88rem;
+      }
+
+      .advanced-control-row {
+        display: grid;
+        grid-template-columns: minmax(86px, 0.52fr) minmax(0, 1fr);
+        gap: 8px;
+        align-items: center;
+      }
+
+      .advanced-control-row label {
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 0.78rem;
+      }
+
+      .advanced-control-row input,
+      .advanced-control-row select,
+      .advanced-control-row textarea {
+        width: 100%;
+        min-width: 0;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(0, 0, 0, 0.5);
+        color: #ffffff;
+        padding: 6px 7px;
+        font: inherit;
+        font-size: 0.8rem;
+      }
+
+      .advanced-control-row textarea {
+        min-height: 46px;
+        resize: vertical;
+      }
+
+      .advanced-code {
+        display: block;
+        max-height: 110px;
+        overflow: auto;
+        padding: 8px;
+        border-radius: 9px;
+        color: #f4fbff;
+        background: rgba(0, 0, 0, 0.58);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+          monospace;
+        font-size: 0.72rem;
+        line-height: 1.35;
+        word-break: break-word;
+        white-space: normal;
+      }
+
+      .advanced-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .advanced-actions .copy-btn {
+        font-size: 0.78rem;
+        padding: 5px 9px;
+      }
+
+      .advanced-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .advanced-pill {
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.07);
+        color: #fff;
+        cursor: pointer;
+        padding: 5px 9px;
+        font-size: 0.75rem;
+      }
+
+      .advanced-pill:hover {
+        border-color: rgba(255, 214, 221, 0.44);
+        background: rgba(255, 255, 255, 0.11);
+      }
+
+      .default-presets {
+        margin-top: 14px;
+        padding: 0;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.055);
+        overflow: hidden;
+      }
+
+      .default-presets p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.82rem;
+        line-height: 1.4;
+      }
+
+      .default-presets > summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 12px;
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .default-presets > summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .default-presets > summary::after {
+        content: "Open";
+        flex: 0 0 auto;
+        border-radius: 999px;
+        background: rgba(255, 95, 126, 0.2);
+        padding: 3px 8px;
+        color: #ffd8e0;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .default-presets[open] > summary::after {
+        content: "Close";
+      }
+
+      .default-preset-summary-title {
+        font-weight: 900;
+      }
+
+      .default-preset-body {
+        display: grid;
+        gap: 10px;
+        padding: 0 12px 12px;
+      }
+
+      .default-preset-grid,
+      .default-color-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+        gap: 8px;
+      }
+
+      .default-preset-btn,
+      .default-color-btn {
+        min-height: 46px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.07);
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-align: left;
+        padding: 8px 9px;
+      }
+
+      .default-preset-btn:hover,
+      .default-color-btn:hover {
+        border-color: rgba(255, 214, 221, 0.44);
+        filter: brightness(1.08);
+      }
+
+      .default-preset-btn.selected,
+      .default-color-btn.selected {
+        border-color: rgba(255, 143, 171, 0.95);
+        box-shadow:
+          0 0 0 2px rgba(255, 95, 126, 0.22),
+          0 0 18px rgba(255, 95, 126, 0.28);
+      }
+
+      .default-preset-selected {
+        display: inline-block;
+        margin-top: 6px;
+        padding: 2px 6px;
+        border-radius: 999px;
+        background: rgba(255, 95, 126, 0.22);
+        color: #ffd8e0;
+        font-size: 0.68rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .default-preset-preview {
+        display: block;
+        margin-top: 4px;
+        color: rgba(255, 214, 221, 0.92);
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .default-color-btn {
+        display: flex;
+        align-items: flex-end;
+        min-height: 54px;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.82);
+      }
+
+      .default-custom-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+      }
+
+      .default-preset-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .default-custom-row input {
+        min-width: 0;
+        min-height: 38px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(0, 0, 0, 0.45);
+        color: #ffffff;
+        padding: 7px 9px;
+        font: inherit;
       }
 
       #ntg-stops {
@@ -908,9 +1496,9 @@
             <i class="fa-solid fa-arrow-left"></i>
             Back to Home
           </a>
-          <a href="https://moddedamong.us/icons.html" class="cta-primary">
-            <i class="fa-regular fa-face-smile"></i>
-            Icons & Fonts
+          <a href="https://discord.gg/maul" class="cta-primary">
+            <i class="fa-brands fa-discord"></i>
+            Join Maul
           </a>
         </div>
       </div>
@@ -958,6 +1546,11 @@
                     autocapitalize="off"
                     spellcheck="false"
                   />
+                  <div class="gen-actions" style="margin-top: 8px">
+                    <button class="copy-btn" id="ntg-name-reset" type="button">
+                      Reset Name / Icons
+                    </button>
+                  </div>
                 </div>
                 <div class="field">
                   <strong>Color Mode</strong>
@@ -985,6 +1578,13 @@
                   </select>
                 </div>
                 <div class="field">
+                  <label for="ntg-material">Material</label>
+                  <select id="ntg-material">
+                    <option value="">None</option>
+                    <option value="VCR Black Outline">VCR Black Outline</option>
+                  </select>
+                </div>
+                <div class="field">
                   <label for="ntg-size">Size</label>
                   <select id="ntg-size">
                     <option value="100%" selected>100%</option>
@@ -995,6 +1595,107 @@
                     <option value="50%">50%</option>
                   </select>
                 </div>
+                <details class="icon-picker-panel advanced-picker-panel">
+                  <summary class="copy-btn">Advanced</summary>
+                  <div
+                    class="icon-picker-menu advanced-panel"
+                    id="ntg-advanced-panel"
+                    aria-label="Advanced tag tools"
+                  >
+                    <div class="advanced-head">
+                      <div>
+                        <h3>Advanced Tags</h3>
+                        <p>Apply advanced TMP effects to the current tag text.</p>
+                      </div>
+                    </div>
+                    <div class="advanced-tool">
+                      <strong>Selection tools</strong>
+                      <p class="advanced-tool-note">
+                        Select text in Name / Icons, then click a tool.
+                      </p>
+                      <p class="advanced-tool-note">
+                        Preview may not be exact because Among Us renders TMP fonts/effects differently than your browser.
+                      </p>
+                      <div class="advanced-warning">
+                        Experimental: some advanced effects may render differently in game.
+                      </div>
+                      <div class="advanced-selection-note" id="ntg-advanced-selection-note">
+                        No selection uses the whole tag.
+                      </div>
+                      <div class="advanced-adjustments">
+                        <div class="advanced-adjustment">
+                          <label for="ntg-advanced-highlight-hex">Highlight</label>
+                          <div class="advanced-color-row">
+                            <input
+                              id="ntg-advanced-highlight-hex"
+                              type="text"
+                              value="#FF5F7E"
+                              autocomplete="off"
+                              autocapitalize="off"
+                              spellcheck="false"
+                            />
+                            <input
+                              id="ntg-advanced-highlight-color"
+                              type="color"
+                              value="#FF5F7E"
+                            />
+                          </div>
+                        </div>
+                        <div class="advanced-adjustment">
+                          <label for="ntg-advanced-highlight-alpha">Highlight opacity %</label>
+                          <input id="ntg-advanced-highlight-alpha" type="number" min="0" max="100" step="1" value="53" />
+                        </div>
+                        <div class="advanced-adjustment">
+                          <label for="ntg-advanced-soft-alpha">Soft opacity %</label>
+                          <input id="ntg-advanced-soft-alpha" type="number" min="0" max="100" step="1" value="67" />
+                        </div>
+                        <div class="advanced-adjustment">
+                          <label for="ntg-advanced-offset">Raise / lower em</label>
+                          <input id="ntg-advanced-offset" type="number" min="0" max="2" step="0.05" value="0.25" />
+                        </div>
+                        <div class="advanced-adjustment">
+                          <label for="ntg-advanced-size">Selection size %</label>
+                          <input id="ntg-advanced-size" type="number" min="10" max="300" step="5" value="100" />
+                        </div>
+                        <div class="advanced-adjustment">
+                          <label for="ntg-advanced-rotate">Tilt degrees</label>
+                          <input id="ntg-advanced-rotate" type="number" min="0" max="45" step="1" value="8" />
+                        </div>
+                        <div class="advanced-adjustment">
+                          <label for="ntg-advanced-cspace">Letter spacing</label>
+                          <input id="ntg-advanced-cspace" type="number" min="0" max="1.5" step="0.01" value="0.25" />
+                        </div>
+                        <div class="advanced-adjustment">
+                          <label for="ntg-advanced-mspace">Fixed spacing em</label>
+                          <input id="ntg-advanced-mspace" type="number" min="0" max="3" step="0.05" value="0.8" />
+                        </div>
+                        <div class="advanced-adjustment">
+                          <label for="ntg-advanced-stretch">Stretch %</label>
+                          <input id="ntg-advanced-stretch" type="number" min="10" max="300" step="5" value="120" />
+                        </div>
+                        <div class="advanced-adjustment">
+                          <label for="ntg-advanced-squash">Squash %</label>
+                          <input id="ntg-advanced-squash" type="number" min="10" max="300" step="5" value="80" />
+                        </div>
+                      </div>
+                      <div class="advanced-toolbar" id="ntg-advanced-list"></div>
+                      <div class="advanced-actions">
+                        <button class="copy-btn" id="ntg-advanced-wrap-copy" type="button">
+                          Copy generated tag
+                        </button>
+                        <button class="copy-btn" id="ntg-advanced-clear" type="button">
+                          Clear selection
+                        </button>
+                        <button class="copy-btn" id="ntg-advanced-clear-all" type="button">
+                          Clear all
+                        </button>
+                      </div>
+                      <p class="advanced-apply-note">
+                        These work like the editor: select, click, preview updates.
+                      </p>
+                    </div>
+                  </div>
+                </details>
                 <details class="icon-picker-panel">
                   <summary class="copy-btn">Icons</summary>
                   <div class="icon-picker-menu">
@@ -1065,8 +1766,10 @@
                 <div class="preset-grid" id="ntg-gradient-presets"></div>
               </div>
 
+              <div class="settings-preview-row">
+                <div class="settings-stack">
               <div id="ntg-ehr-perms">
-                <h4 style="margin-top: 20px">EHR Permissions</h4>
+                <h4 style="margin-top: 0">EHR Permissions</h4>
                 <div class="gen-controls">
                   <label><input type="radio" name="ntg-vip" value="true" checked /> VIP</label>
                   <label><input type="radio" name="ntg-vip" value="false" /> No VIP</label>
@@ -1097,7 +1800,7 @@
               </div>
 
               <div id="ntg-tone-perms" hidden>
-                <h4 style="margin-top: 20px">TONE/TOHE Permissions</h4>
+                <h4 style="margin-top: 0">TONE/TOHE Permissions</h4>
                 <div class="gen-controls">
                   <label>Permission Level (0–5)</label>
                   <input
@@ -1165,7 +1868,7 @@
               </div>
 
               <div id="ntg-trail-wrap">
-                <h4 style="margin-top: 12px">Trailing open color</h4>
+                <h4 style="margin-top: 0">Trailing open color</h4>
                 <div class="gen-controls">
                   <div class="field">
                     <label
@@ -1194,6 +1897,38 @@
                 >
                   Adds an open color tag after the visible tag, useful for coloring the player name.
                 </p>
+              </div>
+                </div>
+
+                <details class="inline-preview-panel" aria-label="Full in-game preview" open>
+                  <summary>Preview</summary>
+                  <div class="preview-panel-body">
+                    <div class="preview-name-row">
+                      <label for="ntg-player-name">In-game name preview</label>
+                      <input
+                        id="ntg-player-name"
+                        type="text"
+                        placeholder="Your in-game name"
+                        value="Sarhadactyl"
+                        maxlength="20"
+                        autocomplete="off"
+                        autocapitalize="off"
+                        spellcheck="false"
+                      />
+                    </div>
+
+                    <h4>Full in-game preview:</h4>
+                    <div
+                      id="ntg-visual"
+                      style="font-size: 1.3em; line-height: 1.2"
+                    ></div>
+                    <div id="ntg-lotus-visual" style="display: none">
+                      <div id="ntg-lotus-upper-line" class="lotus-line"></div>
+                      <div id="ntg-lotus-name-line" class="lotus-line lotus-name-line"></div>
+                      <div id="ntg-lotus-lower-line" class="lotus-line"></div>
+                    </div>
+                  </div>
+                </details>
               </div>
             </div>
 
@@ -1468,36 +2203,45 @@
               <h4>Generated tag text:</h4>
               <code id="ntg-out"></code>
 
-              <div class="gen-controls" style="margin-top: 10px">
-                <div class="field" style="flex: 1">
-                  <label for="ntg-player-name">In-game name preview</label>
-                  <input
-                    id="ntg-player-name"
-                    type="text"
-                    placeholder="Your in-game name"
-                    value="Sarhadactyl"
-                    maxlength="20"
-                    autocomplete="off"
-                    autocapitalize="off"
-                    spellcheck="false"
-                  />
-                </div>
-              </div>
-
-              <h4 style="margin-top: 10px">Full in-game preview:</h4>
-              <div
-                id="ntg-visual"
-                style="font-size: 1.3em; line-height: 1.2"
-              ></div>
-              <div id="ntg-lotus-visual" style="display: none">
-                <div id="ntg-lotus-upper-line" class="lotus-line"></div>
-                <div id="ntg-lotus-name-line" class="lotus-line lotus-name-line"></div>
-                <div id="ntg-lotus-lower-line" class="lotus-line"></div>
-              </div>
-
               <details style="margin-top: 10px">
                 <summary>Full output (JSON / config / YAML)</summary>
                 <code id="ntg-payload"></code>
+              </details>
+              <details class="default-presets" aria-label="Starter tag presets">
+                <summary>
+                  <span class="default-preset-summary-title">Starter presets</span>
+                </summary>
+                <div class="default-preset-body">
+                  <p>Pick a tag shape, make your own short phrase, then pick a color palette. You can still edit everything afterward.</p>
+                  <div class="default-custom-row">
+                    <input
+                      id="ntg-custom-preset-text"
+                      type="text"
+                      maxlength="30"
+                      placeholder="Custom phrase"
+                      autocomplete="off"
+                      autocapitalize="off"
+                      spellcheck="false"
+                    />
+                    <button class="copy-btn" id="ntg-custom-preset-add" type="button">
+                      Make preset
+                    </button>
+                  </div>
+                  <div class="default-preset-actions">
+                    <button class="copy-btn" id="ntg-preset-use-text" type="button">
+                      Use preset text
+                    </button>
+                    <button class="copy-btn" id="ntg-preset-style-current" type="button">
+                      Style my current text
+                    </button>
+                    <button class="copy-btn" id="ntg-preset-randomize" type="button">
+                      Randomize
+                    </button>
+                  </div>
+                  <div class="default-preset-grid" id="ntg-default-tag-presets"></div>
+                  <h4>Preset colors</h4>
+                  <div class="default-color-grid" id="ntg-default-color-presets"></div>
+                </div>
               </details>
               <div
                 id="ntg-toho-instructions"
@@ -1580,6 +2324,17 @@
         return out.join("");
       }
 
+      function stripTmpMarkup(str) {
+        return String(str || "")
+          .replace(/<br\s*\/?>/gi, " ")
+          .replace(/<space\s*=\s*[^>]+>/gi, " ")
+          .replace(/<pos\s*=\s*[^>]+>/gi, "")
+          .replace(
+            /<\/?(?:align|allcaps|b|color|cspace|font|i|indent|line-height|link|lowercase|margin|mark|mspace|nobr|rotate|s|size|smallcaps|sub|sup|u|uppercase|voffset|width)(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^>]+))?>/gi,
+            ""
+          );
+      }
+
       function splitTagGlyphs(str) {
         const glyphs = [];
         for (const ch of str || "") {
@@ -1598,19 +2353,71 @@
 
       const previewFontMap = {
         "": "",
-        "VCR SDF": '"VT323", monospace',
-        "Barlow-Black SDF": '"Barlow", sans-serif',
-        "Barlow-BoldItalic SDF": '"Barlow", sans-serif',
-        "Barlow-Light SDF": '"Barlow", sans-serif',
-        BROOK: '"Rajdhani", sans-serif',
-        "BROOK SDF": '"Rajdhani", sans-serif',
-        "CONSOLA SDF": '"Roboto Mono", monospace',
-        "DIGITAL-7 SDF": '"Orbitron", monospace',
-        "DIN_Pro_Bold_700 SDF": '"Rajdhani", sans-serif',
-        "LiberationSans SDF": '"Roboto", sans-serif',
-        "NotoSansJP-Regular SDF": '"Noto Sans JP", sans-serif',
-        "OCRAEXT SDF": '"Share Tech Mono", monospace'
+        "BROOK SDF": 'Impact, "Arial Black", system-ui, sans-serif',
+        BROOK: 'Impact, "Arial Black", system-ui, sans-serif',
+        "VCR SDF": '"Courier New", "Lucida Console", monospace',
+        "Barlow-Black SDF": '"Arial Black", Arial, system-ui, sans-serif',
+        "Barlow-BoldItalic SDF": 'Arial, system-ui, sans-serif',
+        "Barlow-Light SDF": '"Segoe UI Light", "Segoe UI", Arial, system-ui, sans-serif',
+        "CONSOLA SDF": 'Consolas, "Courier New", monospace',
+        "DIGITAL-7 SDF": '"Lucida Console", "Courier New", monospace',
+        "DIN_Pro_Bold_700 SDF": '"Arial Narrow", Arial, system-ui, sans-serif',
+        "LiberationSans SDF": '"Liberation Sans", Arial, system-ui, sans-serif',
+        "NotoSansJP-Regular SDF": '"Noto Sans JP", "Yu Gothic", Meiryo, system-ui, sans-serif',
+        "OCRAEXT SDF": '"OCR A Extended", Consolas, "Courier New", monospace'
       };
+
+      function previewFontCss(fontName) {
+        const family = previewFontMap[fontName] || "";
+        if (!family) return "";
+        let css = `font-family:${family};`;
+        switch (fontName) {
+          case "VCR SDF":
+            css += "font-size:1.08em;letter-spacing:0.08em;font-weight:700;font-variant:small-caps;";
+            break;
+          case "Barlow-Black SDF":
+            css += "font-weight:900;letter-spacing:0.01em;transform:scaleX(1.08);text-transform:uppercase;";
+            break;
+          case "Barlow-BoldItalic SDF":
+            css += "font-weight:800;font-style:italic;letter-spacing:0.03em;transform:skewX(-9deg);";
+            break;
+          case "Barlow-Light SDF":
+            css += "font-weight:300;letter-spacing:0.1em;opacity:0.92;";
+            break;
+          case "BROOK SDF":
+          case "BROOK":
+            css += "font-weight:900;letter-spacing:0.08em;text-transform:uppercase;";
+            break;
+          case "CONSOLA SDF":
+            css += "font-weight:700;letter-spacing:0.02em;";
+            break;
+          case "DIGITAL-7 SDF":
+            css += "font-weight:700;letter-spacing:0.12em;transform:scaleX(0.76);";
+            break;
+          case "DIN_Pro_Bold_700 SDF":
+            css += "font-weight:800;letter-spacing:0.04em;transform:scaleX(0.82);";
+            break;
+          case "LiberationSans SDF":
+            css += "font-weight:500;letter-spacing:0;";
+            break;
+          case "NotoSansJP-Regular SDF":
+            css += "font-weight:700;letter-spacing:0.01em;";
+            break;
+          case "OCRAEXT SDF":
+            css += "font-size:0.78em;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;transform:scaleX(1.08);";
+            break;
+          default:
+            break;
+        }
+        return css;
+      }
+
+      function previewMaterialCss(materialName) {
+        if (materialName !== "VCR Black Outline") return "";
+        return [
+          "text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000,0 2px 3px rgba(0,0,0,0.8);"
+        ].join("");
+      }
 
       const nameInput = document.getElementById("ntg-name");
       const playerNameInput = document.getElementById("ntg-player-name");
@@ -1618,12 +2425,29 @@
       const modeRadios = document.querySelectorAll('input[name="ntg-mode"]');
       const friendCode = document.getElementById("ntg-fc");
       const fontSelect = document.getElementById("ntg-font");
+      const materialSelect = document.getElementById("ntg-material");
       const sizeSelect = document.getElementById("ntg-size");
       const iconPicker = document.getElementById("ntg-icon-picker");
       const iconSearch = document.getElementById("ntg-icon-search");
       const iconEmpty = document.getElementById("ntg-icon-empty");
       const gradientPresetWrap = document.getElementById("ntg-gradient-preset-wrap");
       const gradientPresetsEl = document.getElementById("ntg-gradient-presets");
+      const advancedList = document.getElementById("ntg-advanced-list");
+      const advancedSelectionNote = document.getElementById("ntg-advanced-selection-note");
+      const advancedWrapCopy = document.getElementById("ntg-advanced-wrap-copy");
+      const advancedClear = document.getElementById("ntg-advanced-clear");
+      const advancedClearAll = document.getElementById("ntg-advanced-clear-all");
+      const advancedHighlightHex = document.getElementById("ntg-advanced-highlight-hex");
+      const advancedHighlightColor = document.getElementById("ntg-advanced-highlight-color");
+      const advancedHighlightAlpha = document.getElementById("ntg-advanced-highlight-alpha");
+      const advancedSoftAlpha = document.getElementById("ntg-advanced-soft-alpha");
+      const advancedOffset = document.getElementById("ntg-advanced-offset");
+      const advancedSize = document.getElementById("ntg-advanced-size");
+      const advancedRotate = document.getElementById("ntg-advanced-rotate");
+      const advancedCspace = document.getElementById("ntg-advanced-cspace");
+      const advancedMspace = document.getElementById("ntg-advanced-mspace");
+      const advancedStretch = document.getElementById("ntg-advanced-stretch");
+      const advancedSquash = document.getElementById("ntg-advanced-squash");
 
       const ehrPerms = document.getElementById("ntg-ehr-perms");
       const tonePerms = document.getElementById("ntg-tone-perms");
@@ -1655,6 +2479,14 @@
       const tohoInstructions = document.getElementById("ntg-toho-instructions");
       const dlBtn = document.getElementById("ntg-download");
       const lotusDlBtn = document.getElementById("ntg-lotus-download");
+      const defaultTagPresetList = document.getElementById("ntg-default-tag-presets");
+      const defaultColorPresetList = document.getElementById("ntg-default-color-presets");
+      const customPresetText = document.getElementById("ntg-custom-preset-text");
+      const customPresetAdd = document.getElementById("ntg-custom-preset-add");
+      const presetUseTextBtn = document.getElementById("ntg-preset-use-text");
+      const presetStyleCurrentBtn = document.getElementById("ntg-preset-style-current");
+      const presetRandomizeBtn = document.getElementById("ntg-preset-randomize");
+      const nameResetBtn = document.getElementById("ntg-name-reset");
 
       const trailEnabled = document.getElementById("ntg-trail-enabled");
       const trailHexInput = document.getElementById("ntg-trail-hex");
@@ -1779,8 +2611,69 @@
         gradientPresetWrap.hidden = mode !== "grad";
       }
 
+      function syncMaterialControl(autoDefault = false) {
+        if (!materialSelect) return "";
+        const supportsMaterial = fontSelect.value === "VCR SDF";
+        materialSelect.disabled = !supportsMaterial;
+        if (supportsMaterial && autoDefault && !materialSelect.value) {
+          materialSelect.value = "VCR Black Outline";
+        }
+        if (!supportsMaterial) {
+          materialSelect.value = "";
+        }
+        return materialSelect.value || "";
+      }
+
+      const advancedTools = [
+        { group: "Style", id: "italic", label: "I", key: "italic", mode: "toggle" },
+        { group: "Style", id: "underline", label: "U", key: "underline", mode: "toggle" },
+        { group: "Style", id: "sub", label: "Sub", key: "baseline", value: "sub", mode: "choice" },
+        { group: "Style", id: "sup", label: "Sup", key: "baseline", value: "sup", mode: "choice" },
+        { group: "Style", id: "selection-size", label: "Size", key: "size", value: "100%", mode: "value" },
+        { group: "Case", id: "lowercase", label: "lower", key: "case", value: "lowercase", mode: "choice" },
+        { group: "Case", id: "allcaps", label: "CAPS", key: "case", value: "allcaps", mode: "choice" },
+        { group: "Motion", id: "raise", label: "Raise", key: "voffset", value: "0.25em", mode: "value" },
+        { group: "Motion", id: "lower", label: "Lower", key: "voffset", value: "-0.25em", mode: "value" },
+        { group: "Motion", id: "tilt-left", label: "Tilt -", key: "rotate", value: "-8", mode: "value" },
+        { group: "Motion", id: "tilt-right", label: "Tilt +", key: "rotate", value: "8", mode: "value" },
+        { group: "Spacing", id: "wide", label: "Wide", key: "cspace", value: "0.25", mode: "value" },
+        { group: "Spacing", id: "tight", label: "Tight", key: "cspace", value: "-0.1", mode: "value" },
+        { group: "Spacing", id: "fixed", label: "Fixed", key: "mspace", value: "0.8em", mode: "value" },
+        { group: "Spacing", id: "stretch", label: "Stretch", key: "width", value: "120%", mode: "value" },
+        { group: "Spacing", id: "squash", label: "Squash", key: "width", value: "80%", mode: "value" },
+        { group: "Decor", id: "highlight", label: "Highlight", key: "mark", value: "#FF5F7E88", mode: "value" },
+        { group: "Decor", id: "soft", label: "Soft", key: "alpha", value: "AA", mode: "value" },
+        { group: "Layout", id: "nobr", label: "No wrap", key: "nobr", mode: "toggle" },
+        { group: "Layout", id: "left", label: "Left", key: "align", value: "left", mode: "value" },
+        { group: "Layout", id: "center", label: "Center", key: "align", value: "center", mode: "value" },
+        { group: "Layout", id: "right", label: "Right", key: "align", value: "right", mode: "value" }
+      ];
+
+      const ADV_DEFAULTS = {
+        italic: false,
+        underline: false,
+        baseline: "",
+        size: "",
+        case: "",
+        voffset: "",
+        rotate: "",
+        cspace: "",
+        mspace: "",
+        width: "",
+        mark: "",
+        alpha: "",
+        nobr: false,
+        align: ""
+      };
+
+      let advancedStyle = {};
+      Object.keys(ADV_DEFAULTS).forEach((key) => {
+        advancedStyle[key] = [];
+      });
+
       wireHexPair(solidHexIn, solidColIn, "#FFB6C1", render);
       wireHexPair(trailHexInput, trailColorInput, "#98FB98", render);
+      wireHexPair(advancedHighlightHex, advancedHighlightColor, "#FF5F7E", render);
       trailEnabled?.addEventListener("change", render);
 
       const iconGroups = [
@@ -2508,6 +3401,130 @@
       const iconChoices = iconGroups.flatMap((group) => group.icons);
 
       let gradStops = ["#B625F1", "#2970F8", "#00CFFF"];
+      const defaultTagPresets = [
+        {
+          name: "Sussy Hearts",
+          preview: "\u2665\u2022Sussy\u2665",
+          text: "\u2665\u2022Sussy\u2665",
+          font: "BROOK SDF",
+          material: "",
+          size: "100%",
+          style(glyphs) {
+            glyphs.forEach((glyph, idx) => {
+              if (glyph === "\u2665") {
+                applyPresetIndexStyle(idx, { size: "58%", voffset: idx === 0 ? "0.44em" : "-0.28em" });
+              } else if (glyph === "\u2022") {
+                applyPresetIndexStyle(idx, { size: "34%", voffset: "0.25em" });
+              } else if (!isTagSpaceGlyph(glyph)) {
+                applyPresetIndexStyle(idx, { italic: true });
+              }
+            });
+          }
+        },
+        {
+          name: "Star Lover",
+          preview: "\u2726Lover\u2726",
+          text: "\u2726Lover\u2726",
+          font: "VCR SDF",
+          material: "VCR Black Outline",
+          size: "110%",
+          style(glyphs) {
+            glyphs.forEach((glyph, idx) => {
+              if (glyph === "\u2726") {
+                applyPresetIndexStyle(idx, { size: "65%", voffset: idx === 0 ? "0.26em" : "-0.18em", rotate: idx === 0 ? "-10" : "10" });
+              } else if (!isTagSpaceGlyph(glyph)) {
+                applyPresetIndexStyle(idx, { cspace: "0.1", underline: true });
+              }
+            });
+          }
+        },
+        {
+          name: "Flower Bait",
+          preview: "\u273fBait\u273f",
+          text: "\u273fBait\u273f",
+          font: "BROOK SDF",
+          material: "",
+          size: "100%",
+          style(glyphs) {
+            glyphs.forEach((glyph, idx) => {
+              if (glyph === "\u273f") {
+                applyPresetIndexStyle(idx, { size: "64%", voffset: idx === 0 ? "0.3em" : "-0.24em", rotate: idx === 0 ? "-8" : "8" });
+              } else if (!isTagSpaceGlyph(glyph)) {
+                applyPresetIndexStyle(idx, {
+                  italic: true,
+                  rotate: idx % 2 ? "4" : "-4",
+                  voffset: idx % 2 ? "0.06em" : "-0.04em"
+                });
+              }
+            });
+          }
+        },
+        {
+          name: "Free Kill",
+          preview: "\u2661Free Kill",
+          text: "\u2661Free Kill",
+          font: "VCR SDF",
+          material: "VCR Black Outline",
+          size: "100%",
+          style(glyphs) {
+            applyPresetIndexStyle(0, { size: "58%", voffset: "0.26em" });
+            applyPresetRangeStyle(1, glyphs.length, { underline: true, cspace: "0.06" });
+            applyPresetRangeStyle(6, glyphs.length, { size: "82%" });
+          }
+        },
+        {
+          name: "Moon Sussy",
+          preview: "\u263e Sussy \u2606",
+          text: "\u263e Sussy \u2606",
+          font: "Barlow-Black SDF",
+          material: "",
+          size: "100%",
+          style(glyphs) {
+            glyphs.forEach((glyph, idx) => {
+              if (glyph === "\u263e" || glyph === "\u2606") {
+                applyPresetIndexStyle(idx, { size: "72%", voffset: "0.18em", rotate: glyph === "\u263e" ? "-12" : "12" });
+              } else if (!isTagSpaceGlyph(glyph)) {
+                applyPresetIndexStyle(idx, { cspace: "0.12" });
+              }
+            });
+          }
+        },
+        {
+          name: "Bloom Lover",
+          preview: "\u273fLover\u2661",
+          text: "\u273fLover\u2661",
+          font: "OCRAEXT SDF",
+          material: "",
+          size: "90%",
+          style(glyphs) {
+            glyphs.forEach((glyph, idx) => {
+              if (glyph === "\u273f") {
+                applyPresetIndexStyle(idx, { size: "55%", voffset: "0.32em", rotate: "-8" });
+              } else if (glyph === "\u2661") {
+                applyPresetIndexStyle(idx, { size: "62%", voffset: "-0.2em", rotate: "8" });
+              } else if (!isTagSpaceGlyph(glyph)) {
+                applyPresetIndexStyle(idx, { cspace: "0.14" });
+              }
+            });
+          }
+        }
+      ];
+
+      const defaultColorPresets = [
+        { name: "Darker Rose", colors: ["#8E2748", "#B43B60", "#D95776", "#E890A1", "#F2B8AA"] },
+        { name: "Peach Ribbon", colors: ["#B05245", "#D56B62", "#F08D83", "#FFB2A1", "#FFD6C8"] },
+        { name: "Berry Pop", colors: ["#5F0F40", "#9D174D", "#D6336C", "#F06595", "#FFB3C6"] },
+        { name: "Lavender Glow", colors: ["#4C1D95", "#7E22CE", "#A855F7", "#D8B4FE", "#F5D0FE"] },
+        { name: "Mint Aqua", colors: ["#064E3B", "#0F766E", "#14B8A6", "#5EEAD4", "#CCFBF1"] },
+        { name: "Neon Sunset", colors: ["#C200FB", "#F72585", "#FF5A5F", "#FF9F1C", "#FFE66D"] },
+        { name: "Silver Pink", colors: ["#3A3138", "#6B5661", "#A68493", "#D7B6C2", "#F4D9E3"] }
+      ];
+
+      let customPresetCount = 0;
+      let selectedTagPresetIndex = 0;
+      let selectedColorPresetIndex = -1;
+      let activeTagPreset = null;
+
       const gradientPresets = [
         { name: "Rose Red", colors: ["#590D22", "#800F2F", "#A4133C", "#C9184A", "#FF4D6D", "#FF758F", "#FF8FA3", "#FFB3C1", "#FFCCD5", "#FFF0F3"] },
         { name: "True Red", colors: ["#7A0000", "#B00016", "#D61C1C", "#FF3B3B", "#FF9A9A"] },
@@ -2601,6 +3618,510 @@
           gradientPresetsEl.appendChild(btn);
         });
       }
+
+      function renderDefaultPresets() {
+        if (defaultTagPresetList) {
+          defaultTagPresetList.innerHTML = "";
+          defaultTagPresets.forEach((preset, idx) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "default-preset-btn";
+            btn.classList.toggle("selected", idx === selectedTagPresetIndex);
+            btn.dataset.defaultTagPreset = String(idx);
+            const label = document.createElement("span");
+            label.textContent = preset.name;
+            const preview = document.createElement("span");
+            preview.className = "default-preset-preview";
+            preview.textContent = preset.preview;
+            btn.appendChild(label);
+            btn.appendChild(preview);
+            if (idx === selectedTagPresetIndex) {
+              const selected = document.createElement("span");
+              selected.className = "default-preset-selected";
+              selected.textContent = "Selected";
+              btn.appendChild(selected);
+            }
+            defaultTagPresetList.appendChild(btn);
+          });
+        }
+
+        if (defaultColorPresetList) {
+          defaultColorPresetList.innerHTML = "";
+          defaultColorPresets.forEach((preset, idx) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "default-color-btn";
+            btn.classList.toggle("selected", idx === selectedColorPresetIndex);
+            btn.dataset.defaultColorPreset = String(idx);
+            btn.textContent = idx === selectedColorPresetIndex ? `${preset.name} - Selected` : preset.name;
+            btn.style.background = `linear-gradient(90deg, ${preset.colors.join(", ")})`;
+            defaultColorPresetList.appendChild(btn);
+          });
+        }
+      }
+
+      function ensureAdvancedStyleLength(len) {
+        Object.entries(ADV_DEFAULTS).forEach(([key, fallback]) => {
+          if (!advancedStyle[key]) advancedStyle[key] = [];
+          while (advancedStyle[key].length < len) advancedStyle[key].push(fallback);
+          if (advancedStyle[key].length > len) advancedStyle[key].length = len;
+        });
+      }
+
+      function resetAdvancedStyleRange(start, end) {
+        Object.entries(ADV_DEFAULTS).forEach(([key, fallback]) => {
+          for (let i = start; i < end; i++) advancedStyle[key][i] = fallback;
+        });
+      }
+
+      function applyPresetIndexStyle(index, patch) {
+        if (index < 0) return;
+        Object.entries(patch).forEach(([key, value]) => {
+          if (advancedStyle[key] && index < advancedStyle[key].length) {
+            advancedStyle[key][index] = value;
+          }
+        });
+      }
+
+      function applyPresetRangeStyle(start, end, patch) {
+        for (let i = Math.max(0, start); i < Math.max(start, end); i++) {
+          applyPresetIndexStyle(i, patch);
+        }
+      }
+
+      function applyPresetStyleToCurrentName(preset) {
+        const glyphs = splitTagGlyphs(sanitizeTagText(stripTmpMarkup(nameInput.value || "")));
+        ensureAdvancedStyleLength(glyphs.length);
+        resetAdvancedStyleRange(0, glyphs.length);
+        preset?.style?.(glyphs);
+      }
+
+      function restoreScrollPosition(x, y) {
+        requestAnimationFrame(() => window.scrollTo(x, y));
+      }
+
+      function applyDefaultTagPreset(preset, usePresetText = true) {
+        const scrollX = window.scrollX;
+        const scrollY = window.scrollY;
+        if (usePresetText) {
+          const text = sanitizeTagText(preset.text || "AutoHost");
+          nameInput.value = splitTagGlyphs(text).slice(0, 20).join("");
+        } else {
+          const text = sanitizeTagText(stripTmpMarkup(nameInput.value || "")) || sanitizeTagText(preset.text || "Custom");
+          nameInput.value = splitTagGlyphs(text).slice(0, 20).join("");
+        }
+        fontSelect.value = preset.font || "";
+        if (materialSelect) materialSelect.value = preset.material || "";
+        syncMaterialControl(Boolean(preset.material));
+        sizeSelect.value = preset.size || "100%";
+
+        activeTagPreset = preset;
+        applyPresetStyleToCurrentName(preset);
+        render();
+        restoreScrollPosition(scrollX, scrollY);
+      }
+
+      function selectedTagPreset() {
+        return defaultTagPresets[selectedTagPresetIndex] || defaultTagPresets[0] || null;
+      }
+
+      function customPhraseValue() {
+        return sanitizeTagText(stripTmpMarkup(customPresetText?.value || ""))
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function customPhrasePresetOrSelected() {
+        const phrase = customPhraseValue();
+        return phrase ? makeCustomPresetFromPhrase(phrase) : selectedTagPreset();
+      }
+
+      function selectDefaultTagPreset(index) {
+        const preset = defaultTagPresets[index];
+        if (!preset) return;
+        selectedTagPresetIndex = index;
+        renderDefaultPresets();
+        applyDefaultTagPreset(preset, true);
+      }
+
+      function applyDefaultColorPreset(preset) {
+        const scrollX = window.scrollX;
+        const scrollY = window.scrollY;
+        const idx = defaultColorPresets.indexOf(preset);
+        if (idx >= 0) selectedColorPresetIndex = idx;
+        gradStops = preset.colors.map((color) => normHex(color, true));
+        stopCount.value = String(gradStops.length);
+        setColorMode("grad");
+        renderStopRows();
+        renderDefaultPresets();
+        updateGradPreview();
+        render();
+        restoreScrollPosition(scrollX, scrollY);
+      }
+
+      function makeCustomPresetFromPhrase(rawPhrase) {
+        let phrase = sanitizeTagText(stripTmpMarkup(rawPhrase || ""))
+          .replace(/\s+/g, " ")
+          .trim();
+        if (!phrase) phrase = "Custom";
+        phrase = splitTagGlyphs(phrase).slice(0, 30).join("");
+
+        const patterns = [
+          { name: "Heart Star", left: "\u2665", right: "\u2606", font: "BROOK SDF", size: "100%" },
+          { name: "Flower Heart", left: "\u273f", right: "\u2661", font: "VCR SDF", size: "100%", material: "VCR Black Outline" },
+          { name: "Star Flower", left: "\u2726", right: "\u273f", font: "OCRAEXT SDF", size: "90%" },
+          { name: "Moon Star", left: "\u263e", right: "\u2606", font: "Barlow-Black SDF", size: "100%" }
+        ];
+        const pattern = patterns[customPresetCount % patterns.length];
+        customPresetCount += 1;
+        const tiltForward = customPresetCount % 2 === 1;
+
+        const text = splitTagGlyphs(`${pattern.left}${phrase}${pattern.right}`).slice(0, 20).join("");
+        return {
+          name: `${pattern.name}: ${phrase}`,
+          preview: text,
+          text,
+          font: pattern.font,
+          material: pattern.material || "",
+          size: pattern.size,
+          style(glyphs) {
+            glyphs.forEach((glyph, idx) => {
+              if (glyph === pattern.left) {
+                applyPresetIndexStyle(idx, {
+                  size: "62%",
+                  voffset: "0.28em",
+                  rotate: tiltForward ? "-8" : "8"
+                });
+              } else if (glyph === pattern.right) {
+                applyPresetIndexStyle(idx, {
+                  size: "62%",
+                  voffset: "-0.22em",
+                  rotate: tiltForward ? "8" : "-8"
+                });
+              } else if (!isTagSpaceGlyph(glyph)) {
+                applyPresetIndexStyle(idx, {
+                  cspace: pattern.font === "OCRAEXT SDF" ? "0.12" : "0.08",
+                  italic: pattern.font === "BROOK SDF"
+                });
+              }
+            });
+          }
+        };
+      }
+
+      function addCustomPreset() {
+        const preset = makeCustomPresetFromPhrase(customPhraseValue());
+        defaultTagPresets.push(preset);
+        selectedTagPresetIndex = defaultTagPresets.length - 1;
+        renderDefaultPresets();
+        applyDefaultTagPreset(preset, true);
+      }
+
+      function randomizeDefaultPreset() {
+        const phrases = [
+          "Sussy",
+          "Lover",
+          "Free Kill",
+          "Bait",
+          "Besties",
+          "Vented",
+          "Crewmate",
+          "Sus Babe",
+          "No Alibi",
+          "Vote Me"
+        ];
+        const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+        const preset = makeCustomPresetFromPhrase(phrase);
+        defaultTagPresets.push(preset);
+        selectedTagPresetIndex = defaultTagPresets.length - 1;
+        renderDefaultPresets();
+        applyDefaultTagPreset(preset, true);
+        const color = defaultColorPresets[Math.floor(Math.random() * defaultColorPresets.length)];
+        if (color) applyDefaultColorPreset(color);
+      }
+
+      function glyphIndexFromCodeUnit(text, pos) {
+        const glyphs = splitTagGlyphs(text);
+        let offset = 0;
+        for (let i = 0; i < glyphs.length; i++) {
+          if (offset >= pos) return i;
+          offset += glyphs[i].length;
+          if (offset >= pos) return i + 1;
+        }
+        return glyphs.length;
+      }
+
+      function getAdvancedSelectionRange() {
+        const text = sanitizeTagText(stripTmpMarkup(nameInput.value || ""));
+        const glyphs = splitTagGlyphs(text);
+        ensureAdvancedStyleLength(glyphs.length);
+        let start = glyphIndexFromCodeUnit(text, nameInput.selectionStart ?? 0);
+        let end = glyphIndexFromCodeUnit(text, nameInput.selectionEnd ?? text.length);
+        if (end <= start) {
+          start = 0;
+          end = glyphs.length;
+        }
+        return { text, glyphs, start, end };
+      }
+
+      function updateAdvancedSelectionNote() {
+        if (!advancedSelectionNote) return;
+        const { glyphs, start, end } = getAdvancedSelectionRange();
+        if (!glyphs.length) {
+          advancedSelectionNote.textContent = "Type a tag, then select text to style.";
+          return;
+        }
+        const hasSelection = (nameInput.selectionEnd ?? 0) > (nameInput.selectionStart ?? 0);
+        advancedSelectionNote.textContent = hasSelection
+          ? `Styling ${end - start} selected letter${end - start === 1 ? "" : "s"}.`
+          : "No selection uses the whole tag.";
+      }
+
+      function advancedStyleAt(index) {
+        const style = {};
+        Object.keys(ADV_DEFAULTS).forEach((key) => {
+          style[key] = advancedStyle[key]?.[index] ?? ADV_DEFAULTS[key];
+        });
+        return style;
+      }
+
+      function advancedStyleSignature(style) {
+        return Object.keys(ADV_DEFAULTS).map((key) => `${key}:${style[key]}`).join("|");
+      }
+
+      function applyAdvancedWrapper(inner, style) {
+        let out = inner;
+        if (style.alpha) out = out.replace(/<color=(#[0-9A-Fa-f]{6})(>)/g, `<color=$1${style.alpha}$2`);
+        if (style.underline) out = `<color=#FF8FAB><u>${out}</u></color>`;
+        if (style.italic) out = `<i>${out}</i>`;
+        if (style.baseline === "sub") out = `<sub>${out}</sub>`;
+        if (style.baseline === "sup") out = `<sup>${out}</sup>`;
+        if (style.size) out = `<size=${style.size}>${out}</size>`;
+        if (style.case === "lowercase") out = `<lowercase>${out}</lowercase>`;
+        if (style.case === "allcaps") out = `<allcaps>${out}</allcaps>`;
+        if (style.mark) out = `<mark=${style.mark}>${out}</mark>`;
+        if (style.width) out = `<width=${style.width}>${out}</width>`;
+        if (style.mspace) out = `<mspace=${style.mspace}>${out}</mspace>`;
+        if (style.cspace) out = `<cspace=${style.cspace}>${out}</cspace>`;
+        if (style.rotate) out = `<rotate=${style.rotate}>${out}</rotate>`;
+        if (style.voffset) out = `<voffset=${style.voffset}>${out}</voffset>`;
+        if (style.nobr) out = `<nobr>${out}</nobr>`;
+        if (style.align) out = `<align="${style.align}">${out}</align>`;
+        return out;
+      }
+
+      function colorForGlyphs(text, mode) {
+        const glyphs = splitTagGlyphs(text);
+        const colors = Array(glyphs.length).fill("");
+        const colorableIndexes = glyphs
+          .map((glyph, idx) => (isTagSpaceGlyph(glyph) ? -1 : idx))
+          .filter((idx) => idx >= 0);
+
+        if (!colorableIndexes.length) return colors;
+
+        if (mode === "solid") {
+          const color = readHexValue(solidHexIn, solidColIn, "#FFB6C1", true);
+          colorableIndexes.forEach((idx) => (colors[idx] = color));
+          return colors;
+        }
+
+        const stops = gradStops.slice().map((c) => normHex(c, true));
+        colorableIndexes.forEach((idx, order) => {
+          if (colorableIndexes.length === 1) {
+            colors[idx] = stops[Math.floor((stops.length - 1) / 2)];
+          } else {
+            const t = order / (colorableIndexes.length - 1);
+            const seg = (stops.length - 1) * t;
+            const i0 = Math.floor(seg);
+            const i1 = Math.min(stops.length - 1, i0 + 1);
+            colors[idx] = lerpColor(stops[i0], stops[i1], seg - i0);
+          }
+        });
+
+        return colors;
+      }
+
+      function buildAdvancedTagText(text, mode, fontName, materialName, tagSize) {
+        const glyphs = splitTagGlyphs(text);
+        ensureAdvancedStyleLength(glyphs.length);
+        const colors = colorForGlyphs(text, mode);
+        const segments = [];
+        const solidColor = mode === "solid"
+          ? readHexValue(solidHexIn, solidColIn, "#FFB6C1", true)
+          : "";
+
+        for (let i = 0; i < glyphs.length; i++) {
+          const style = advancedStyleAt(i);
+          const signature = advancedStyleSignature(style);
+          const glyph = glyphs[i];
+          const piece = mode === "solid"
+            ? glyph
+            : isTagSpaceGlyph(glyph) || !colors[i]
+            ? glyph
+            : `<color=${colors[i]}>${glyph}`;
+          const hasColor = !isTagSpaceGlyph(glyph) && Boolean(colors[i] || solidColor);
+          const last = segments[segments.length - 1];
+          if (last && last.signature === signature) {
+            last.inner += piece;
+            last.hasColor = last.hasColor || hasColor;
+          } else {
+            segments.push({ signature, style, inner: piece, hasColor });
+          }
+        }
+
+        let out = segments
+          .map((segment) => {
+            let inner = segment.inner;
+            if (mode === "solid" && segment.hasColor) {
+              inner = `<color=${solidColor}>${inner}</color>`;
+            } else if (mode === "grad" && segment.hasColor) {
+              inner = `${inner}</color>`;
+            }
+            return applyAdvancedWrapper(inner, segment.style);
+          })
+          .join("");
+        out = applyFontTag(out, fontName, materialName);
+        out = applySizeTag(out, tagSize);
+        return out;
+      }
+
+      function readAdvancedNumber(input, fallback, min, max) {
+        const parsed = parseFloat(input?.value ?? "");
+        const safe = Number.isFinite(parsed) ? parsed : fallback;
+        return clamp(safe, min, max);
+      }
+
+      function formatAdvancedNumber(value) {
+        return String(Math.round(value * 1000) / 1000);
+      }
+
+      function percentToAlphaHex(value) {
+        const percent = clamp(Number.isFinite(value) ? value : 100, 0, 100);
+        return Math.round((percent / 100) * 255)
+          .toString(16)
+          .padStart(2, "0")
+          .toUpperCase();
+      }
+
+      function resolveAdvancedToolValue(tool) {
+        switch (tool.id) {
+          case "selection-size":
+            return `${formatAdvancedNumber(readAdvancedNumber(advancedSize, 100, 10, 300))}%`;
+          case "raise":
+            return `${formatAdvancedNumber(readAdvancedNumber(advancedOffset, 0.25, 0, 2))}em`;
+          case "lower":
+            return `-${formatAdvancedNumber(readAdvancedNumber(advancedOffset, 0.25, 0, 2))}em`;
+          case "tilt-left":
+            return `-${formatAdvancedNumber(readAdvancedNumber(advancedRotate, 8, 0, 45))}`;
+          case "tilt-right":
+            return formatAdvancedNumber(readAdvancedNumber(advancedRotate, 8, 0, 45));
+          case "wide":
+            return formatAdvancedNumber(readAdvancedNumber(advancedCspace, 0.25, 0, 1.5));
+          case "tight":
+            return `-${formatAdvancedNumber(readAdvancedNumber(advancedCspace, 0.25, 0, 1.5))}`;
+          case "fixed":
+            return `${formatAdvancedNumber(readAdvancedNumber(advancedMspace, 0.8, 0, 3))}em`;
+          case "stretch":
+            return `${formatAdvancedNumber(readAdvancedNumber(advancedStretch, 120, 10, 300))}%`;
+          case "squash":
+            return `${formatAdvancedNumber(readAdvancedNumber(advancedSquash, 80, 10, 300))}%`;
+          case "highlight": {
+            const color = readHexValue(
+              advancedHighlightHex,
+              advancedHighlightColor,
+              "#FF5F7E",
+              true
+            );
+            const alpha = percentToAlphaHex(readAdvancedNumber(advancedHighlightAlpha, 53, 0, 100));
+            return `${color}${alpha}`;
+          }
+          case "soft":
+            return percentToAlphaHex(readAdvancedNumber(advancedSoftAlpha, 67, 0, 100));
+          default:
+            return tool.value;
+        }
+      }
+
+      function applyAdvancedTool(tool) {
+        const { glyphs, start, end } = getAdvancedSelectionRange();
+        if (!glyphs.length) return;
+        const toolValue = resolveAdvancedToolValue(tool);
+        if (tool.mode === "toggle") {
+          let active = 0;
+          for (let i = start; i < end; i++) if (advancedStyle[tool.key][i]) active++;
+          const next = active < (end - start) / 2;
+          for (let i = start; i < end; i++) advancedStyle[tool.key][i] = next;
+        } else if (tool.mode === "choice") {
+          let active = 0;
+          for (let i = start; i < end; i++) if (advancedStyle[tool.key][i] === toolValue) active++;
+          const next = active < (end - start) / 2 ? toolValue : "";
+          for (let i = start; i < end; i++) advancedStyle[tool.key][i] = next;
+        } else {
+          let active = 0;
+          for (let i = start; i < end; i++) if (advancedStyle[tool.key][i] === toolValue) active++;
+          const next = active < (end - start) / 2 ? toolValue : "";
+          for (let i = start; i < end; i++) advancedStyle[tool.key][i] = next;
+        }
+        render();
+      }
+
+      function renderAdvancedList() {
+        if (!advancedList) return;
+        advancedList.innerHTML = "";
+
+        const grouped = advancedTools.reduce((acc, tool) => {
+          const group = tool.group || "Other";
+          if (!acc[group]) acc[group] = [];
+          acc[group].push(tool);
+          return acc;
+        }, {});
+
+        Object.entries(grouped).forEach(([groupName, tools]) => {
+          const section = document.createElement("section");
+          section.className = "advanced-section";
+          const title = document.createElement("h4");
+          title.textContent = groupName;
+          section.appendChild(title);
+
+          const grid = document.createElement("div");
+          grid.className = "advanced-button-grid";
+          tools.forEach((tool) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "advanced-tool-btn";
+            btn.dataset.advancedTool = tool.id;
+            btn.textContent = tool.label;
+            grid.appendChild(btn);
+          });
+          section.appendChild(grid);
+
+          advancedList.appendChild(section);
+        });
+      }
+
+      async function copyAdvancedCode(code, btn) {
+        try {
+          await navigator.clipboard.writeText(code);
+        } catch (err) {
+          const ta = document.createElement("textarea");
+          ta.value = code;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          ta.remove();
+        }
+        if (btn) {
+          const old = btn.textContent;
+          btn.textContent = "Copied";
+          setTimeout(() => {
+            btn.textContent = old;
+          }, 900);
+        }
+      }
+
 
       function iconNeedsTextPresentation(ch) {
         const cp = ch.codePointAt(0);
@@ -2834,10 +4355,55 @@
       );
 
       friendCode.addEventListener("input", render);
-      nameInput.addEventListener("input", render);
+      nameInput.addEventListener("input", () => {
+        const clean = sanitizeTagText(stripTmpMarkup(nameInput.value || ""));
+        if (clean !== nameInput.value) nameInput.value = clean;
+        if (activeTagPreset) {
+          applyPresetStyleToCurrentName(activeTagPreset);
+        } else {
+          ensureAdvancedStyleLength(splitTagGlyphs(clean).length);
+        }
+        render();
+      });
+      nameResetBtn?.addEventListener("click", () => {
+        if (!confirm("Reset Name / Icons and clear its advanced styling?")) return;
+        activeTagPreset = null;
+        nameInput.value = "";
+        ensureAdvancedStyleLength(0);
+        render();
+        nameInput.focus();
+      });
+      ["select", "click", "keyup", "mouseup"].forEach((eventName) => {
+        nameInput.addEventListener(eventName, updateAdvancedSelectionNote);
+      });
       playerNameInput.addEventListener("input", render);
-      fontSelect.addEventListener("change", render);
+      fontSelect.addEventListener("change", () => {
+        syncMaterialControl(true);
+        render();
+      });
+      materialSelect?.addEventListener("change", render);
       sizeSelect.addEventListener("change", render);
+      advancedWrapCopy?.addEventListener("click", (e) => {
+        copyAdvancedCode(buildOutputs().exportTagText, e.currentTarget);
+      });
+      advancedClear?.addEventListener("click", () => {
+        const { start, end } = getAdvancedSelectionRange();
+        resetAdvancedStyleRange(start, end);
+        render();
+      });
+      advancedClearAll?.addEventListener("click", () => {
+        const len = splitTagGlyphs(sanitizeTagText(stripTmpMarkup(nameInput.value || ""))).length;
+        ensureAdvancedStyleLength(len);
+        resetAdvancedStyleRange(0, len);
+        render();
+      });
+      advancedList?.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-advanced-tool]");
+        if (!btn) return;
+        const tool = advancedTools.find((item) => item.id === btn.dataset.advancedTool);
+        if (!tool) return;
+        applyAdvancedTool(tool);
+      });
 
       function insertTextAtCursor(input, value) {
         value = sanitizeTagText(value);
@@ -2860,6 +4426,38 @@
         if (!btn) return;
         insertTextAtCursor(nameInput, btn.dataset.icon || btn.textContent || "");
       });
+
+      defaultTagPresetList?.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-default-tag-preset]");
+        if (!btn) return;
+        selectDefaultTagPreset(parseInt(btn.dataset.defaultTagPreset, 10));
+      });
+
+      defaultColorPresetList?.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-default-color-preset]");
+        if (!btn) return;
+        const preset = defaultColorPresets[parseInt(btn.dataset.defaultColorPreset, 10)];
+        if (!preset) return;
+        applyDefaultColorPreset(preset);
+      });
+
+      customPresetAdd?.addEventListener("click", addCustomPreset);
+      customPresetText?.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter") return;
+        e.preventDefault();
+        addCustomPreset();
+      });
+      presetUseTextBtn?.addEventListener("click", () => {
+        const preset = customPhrasePresetOrSelected();
+        if (!preset) return;
+        applyDefaultTagPreset(preset, true);
+      });
+      presetStyleCurrentBtn?.addEventListener("click", () => {
+        const preset = customPhrasePresetOrSelected();
+        if (!preset) return;
+        applyDefaultTagPreset(preset, false);
+      });
+      presetRandomizeBtn?.addEventListener("click", randomizeDefaultPreset);
 
       let lotusGradStops = {
         upper: ["#4EF3FF", "#FF9DF2", "#FFD66B"],
@@ -3103,18 +4701,20 @@
           perCharColors = Array(colorableChars.length).fill(h);
         }
         let colorIndex = 0;
-        return chars
+        const out = chars
           .map((c) => {
             if (isTagSpaceGlyph(c)) return c;
             const color = perCharColors[colorIndex++] || perCharColors[perCharColors.length - 1];
-            return `<color=${color}>${c}</color>`;
+            return `<color=${color}>${c}`;
           })
           .join("");
+        return colorIndex ? `${out}</color>` : out;
       }
 
-      function applyFontTag(inner, fontName) {
+      function applyFontTag(inner, fontName, materialName = "") {
         if (!fontName) return inner;
-        return `<font="${fontName}">${inner}</font>`;
+        const material = materialName ? ` material="${materialName}"` : "";
+        return `<font="${fontName}"${material}>${inner}</font>`;
       }
 
       function escapeYamlString(str) {
@@ -3296,22 +4896,309 @@ LowerText:
         );
       }
 
+      function tmpColorToCss(raw) {
+        const named = {
+          black: "#000000",
+          blue: "#0000FF",
+          green: "#008000",
+          orange: "#FFA500",
+          purple: "#800080",
+          red: "#FF0000",
+          white: "#FFFFFF",
+          yellow: "#FFFF00",
+          grey: "#808080",
+          gray: "#808080",
+          cyan: "#00FFFF",
+          magenta: "#FF00FF",
+          lime: "#00FF00",
+          teal: "#008080",
+          navy: "#000080",
+          maroon: "#800000",
+          olive: "#808000",
+          silver: "#C0C0C0",
+          aqua: "#00FFFF",
+          fuchsia: "#FF00FF",
+          brown: "#A52A2A"
+        };
+        let value = String(raw || "").trim().replace(/^['"]|['"]$/g, "");
+        if (!value) return "#FFFFFF";
+        if (named[value.toLowerCase()]) value = named[value.toLowerCase()];
+        const hex = value.replace(/^#/, "");
+        if (/^[0-9a-fA-F]{8}$/.test(hex)) {
+          const r = parseInt(hex.slice(0, 2), 16);
+          const g = parseInt(hex.slice(2, 4), 16);
+          const b = parseInt(hex.slice(4, 6), 16);
+          const a = Math.round((parseInt(hex.slice(6, 8), 16) / 255) * 1000) / 1000;
+          return `rgba(${r}, ${g}, ${b}, ${a})`;
+        }
+        if (/^[0-9a-fA-F]{6}$/.test(hex)) return `#${hex.toUpperCase()}`;
+        if (/^[a-zA-Z]+$/.test(value)) return value.toLowerCase();
+        return "#FFFFFF";
+      }
+
+      function tmpLengthToCss(raw, fallback = "0em") {
+        const value = String(raw || "").trim().replace(/^['"]|['"]$/g, "");
+        if (!value) return fallback;
+        if (/^-?\d*\.?\d+(em|px|%)$/i.test(value)) return value;
+        if (/^-?\d*\.?\d+$/.test(value)) return `${value}em`;
+        return fallback;
+      }
+
+      function tmpOffsetTop(raw) {
+        const value = String(raw || "").trim().replace(/^['"]|['"]$/g, "");
+        const match = value.match(/^(-?\d*\.?\d+)(em|px|%)?$/i);
+        if (!match) return "0em";
+        const amount = -parseFloat(match[1]);
+        const unit = match[2] || "em";
+        return `${amount}${unit}`;
+      }
+
+      function tmpStyleSpan(style) {
+        return `<span class="tmp-preview-tag" style="${escapeHtml(style)}">`;
+      }
+
+      function tmpTagName(content) {
+        const normalized = content.trim().toLowerCase();
+        if (normalized.startsWith("font=")) return "font";
+        if (normalized.startsWith("color=")) return "color";
+        if (normalized.startsWith("mark=")) return "mark";
+        const match = normalized.match(/^\/?([a-z0-9-]+)/);
+        return match ? match[1] : "";
+      }
+
+      function tmpTagValue(content) {
+        const eq = content.indexOf("=");
+        if (eq === -1) return "";
+        return content.slice(eq + 1).trim().replace(/^['"]|['"]$/g, "");
+      }
+
+      function tmpFontStyle(content) {
+        const match = content.match(/font\s*=\s*"([^"]+)"/i);
+        const materialMatch = content.match(/material\s*=\s*"([^"]+)"/i);
+        const fontName = match ? match[1] : tmpTagValue(content);
+        const materialName = materialMatch ? materialMatch[1] : "";
+        return previewFontCss(fontName) + previewMaterialCss(materialName);
+      }
+
       function tagTextToPreviewHtml(tagText) {
-        return tagText
-          .replace(
-            /<color=#[0-9A-Fa-f]{6}>(.*?)<\/color>/g,
-            (m, inner) => {
-              const hex =
-                (m.match(/<color=(#[0-9A-Fa-f]{6})>/) || [])[1] || "#FFFFFF";
-              return `<span style="color:${hex}">${inner}</span>`;
+        const input = String(tagText || "");
+        const closeable = new Set([
+          "align",
+          "allcaps",
+          "b",
+          "color",
+          "cspace",
+          "font",
+          "i",
+          "indent",
+          "line-height",
+          "link",
+          "lowercase",
+          "margin",
+          "mark",
+          "mspace",
+          "nobr",
+          "rotate",
+          "s",
+          "size",
+          "smallcaps",
+          "sub",
+          "sup",
+          "u",
+          "uppercase",
+          "voffset",
+          "width"
+        ]);
+        const optionalCloseOnly = new Set(["pos", "space", "br", "page"]);
+        const tagRe = /<[^>]+>/g;
+        const stack = [];
+        const textTransformStack = [];
+        const ignoredCloseStack = [];
+        let out = "";
+        let idx = 0;
+        let match;
+
+        while ((match = tagRe.exec(input))) {
+          const raw = match[0];
+          const content = raw.slice(1, -1).trim();
+          const name = tmpTagName(content);
+          out += escapeHtml(input.slice(idx, match.index));
+
+          if (!content) {
+            out += escapeHtml(raw);
+            idx = tagRe.lastIndex;
+            continue;
+          }
+
+          if (!content.startsWith("/") && name === "noparse") {
+            const closeText = "</noparse>";
+            const closeIndex = input.toLowerCase().indexOf(closeText, tagRe.lastIndex);
+            if (closeIndex >= 0) {
+              out += escapeHtml(input.slice(tagRe.lastIndex, closeIndex));
+              tagRe.lastIndex = closeIndex + closeText.length;
+              idx = tagRe.lastIndex;
+              continue;
             }
-          )
-          .replace(/<color=#[0-9A-Fa-f]{6}>/g, "")
-          .replace(/<\/color>/g, "")
-          .replace(/<font=".*?">/g, "")
-          .replace(/<\/font>/g, "")
-          .replace(/<size=\d+%>/g, "")
-          .replace(/<\/size>/g, "");
+          }
+
+          if (content.startsWith("/")) {
+            const closeName = tmpTagName(content.slice(1));
+            if (optionalCloseOnly.has(closeName)) {
+              idx = tagRe.lastIndex;
+              continue;
+            }
+            if (ignoredCloseStack[ignoredCloseStack.length - 1] === closeName) {
+              ignoredCloseStack.pop();
+              idx = tagRe.lastIndex;
+              continue;
+            }
+            if (closeable.has(closeName) && stack.length) {
+              out += "</span>";
+              const openedName = stack.pop();
+              if (openedName === "uppercase" || openedName === "allcaps" || openedName === "lowercase") {
+                textTransformStack.pop();
+              }
+            } else {
+              out += escapeHtml(raw);
+            }
+            idx = tagRe.lastIndex;
+            continue;
+          }
+
+          const value = tmpTagValue(content);
+          let html = "";
+
+          switch (name) {
+            case "b":
+              html = tmpStyleSpan("font-weight:700;");
+              break;
+            case "i":
+              html = tmpStyleSpan("font-style:italic;");
+              break;
+            case "u":
+              html = tmpStyleSpan(
+                "text-decoration-line:underline;text-decoration-color:currentColor;text-decoration-thickness:0.08em;text-underline-offset:0.13em;"
+              );
+              break;
+            case "s":
+              html = tmpStyleSpan(
+                "text-decoration-line:line-through;text-decoration-color:currentColor;text-decoration-thickness:0.08em;"
+              );
+              break;
+            case "color":
+              html = tmpStyleSpan(`color:${tmpColorToCss(value)};`);
+              break;
+            case "mark":
+              html = tmpStyleSpan(`background:${tmpColorToCss(value)};padding:0 0.06em;`);
+              break;
+            case "font":
+              html = tmpStyleSpan(tmpFontStyle(content));
+              break;
+            case "size":
+              html = tmpStyleSpan(`font-size:${tmpLengthToCss(value, "100%")};`);
+              break;
+            case "voffset":
+              html = tmpStyleSpan(`position:relative;top:${tmpOffsetTop(value)};`);
+              break;
+            case "rotate":
+              html = tmpStyleSpan(`transform:rotate(${parseFloat(value) || 0}deg);`);
+              break;
+            case "width": {
+              const rawWidth = String(value || "").trim();
+              const scale = rawWidth.endsWith("%")
+                ? (parseFloat(rawWidth) || 100) / 100
+                : parseFloat(rawWidth) || 1;
+              html = tmpStyleSpan(`transform:scaleX(${scale});transform-origin:left center;`);
+              break;
+            }
+            case "cspace":
+              html = tmpStyleSpan(`letter-spacing:${tmpLengthToCss(value, "0em")};`);
+              break;
+            case "mspace":
+              html = tmpStyleSpan(
+                `font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;letter-spacing:${tmpLengthToCss(value, "0em")};`
+              );
+              break;
+            case "line-height":
+              html = tmpStyleSpan(`line-height:${tmpLengthToCss(value, "1em")};`);
+              break;
+            case "indent":
+              html = tmpStyleSpan(`display:inline-block;padding-left:${tmpLengthToCss(value, "0em")};`);
+              break;
+            case "margin":
+              html = tmpStyleSpan(`display:inline-block;margin-inline:${tmpLengthToCss(value, "0em")};`);
+              break;
+            case "align": {
+              const align = /^(left|right|center|justified)$/i.test(value)
+                ? value.toLowerCase().replace("justified", "justify")
+                : "left";
+              html = tmpStyleSpan(`display:block;text-align:${align};`);
+              break;
+            }
+            case "nobr":
+              html = tmpStyleSpan("white-space:nowrap;");
+              break;
+            case "sub":
+              html = tmpStyleSpan("font-size:65%;position:relative;top:0.32em;");
+              break;
+            case "sup":
+              html = tmpStyleSpan("font-size:65%;position:relative;top:-0.45em;");
+              break;
+            case "uppercase":
+            case "allcaps":
+              if (textTransformStack.length) {
+                ignoredCloseStack.push(name);
+                idx = tagRe.lastIndex;
+                continue;
+              }
+              textTransformStack.push("uppercase");
+              html = tmpStyleSpan("text-transform:uppercase;");
+              break;
+            case "lowercase":
+              if (textTransformStack.length) {
+                ignoredCloseStack.push(name);
+                idx = tagRe.lastIndex;
+                continue;
+              }
+              textTransformStack.push("lowercase");
+              html = tmpStyleSpan("text-transform:lowercase;");
+              break;
+            case "smallcaps":
+              html = tmpStyleSpan("font-variant:small-caps;");
+              break;
+            case "link":
+              html = tmpStyleSpan("");
+              break;
+            case "space":
+              out += `<span style="display:inline-block;width:${tmpLengthToCss(value, "0.5em")}"></span>`;
+              idx = tagRe.lastIndex;
+              continue;
+            case "pos":
+              out += `<span style="display:inline-block;width:${tmpLengthToCss(value, "0em")}"></span>`;
+              idx = tagRe.lastIndex;
+              continue;
+            case "br":
+            case "page":
+              out += "<br>";
+              idx = tagRe.lastIndex;
+              continue;
+            default:
+              out += escapeHtml(raw);
+              idx = tagRe.lastIndex;
+              continue;
+          }
+
+          out += html;
+          stack.push(name);
+          idx = tagRe.lastIndex;
+        }
+
+        out += escapeHtml(input.slice(idx));
+        while (stack.length) {
+          out += "</span>";
+          stack.pop();
+        }
+        return out;
       }
 
       function playerNamePreviewHtml(mod) {
@@ -3329,10 +5216,11 @@ LowerText:
         const mod = currentMod();
         const mode = currentMode();
         const fontName = fontSelect.value || "";
+        const materialName = syncMaterialControl();
         const tagSize = sizeSelect.value || "100%";
 
         const rawText = nameInput.value || "";
-        const text = sanitizeTagText(rawText);
+        const text = sanitizeTagText(stripTmpMarkup(rawText));
 
         let baseTagText = "";
         let exportTagText = "";
@@ -3343,22 +5231,7 @@ LowerText:
           return { baseTagText: "", exportTagText: "", payload };
         }
 
-        if (mode === "solid") {
-          let inner = text;
-          inner = applyFontTag(inner, fontName);
-          baseTagText = `<color=${readHexValue(
-            solidHexIn,
-            solidColIn,
-            "#FFB6C1",
-            true
-          )}>${inner}</color>`;
-        } else {
-          let colored = buildPerCharTags(text, gradStops.slice());
-          colored = applyFontTag(colored, fontName);
-          baseTagText = colored;
-        }
-
-        baseTagText = applySizeTag(baseTagText, tagSize);
+        baseTagText = buildAdvancedTagText(text, mode, fontName, materialName, tagSize);
         exportTagText = baseTagText;
 
         if ((mod === "ehr" || mod === "toho") && trailEnabled && trailEnabled.checked) {
@@ -3439,20 +5312,21 @@ LowerText:
         } else {
           outEl.textContent = exportTagText;
           const selectedFontName = fontSelect.value || "";
-          const previewFont = previewFontMap[selectedFontName] || "";
+          const selectedMaterialName = materialSelect?.value || "";
           const previewScale = clamp(parseInt(sizeSelect.value || "100", 10), 50, 100) / 100;
           const tagHtml = tagTextToPreviewHtml(baseTagText);
           const playerHtml = playerNamePreviewHtml(mod);
-          const tagFontStyle = previewFont ? `font-family:${previewFont};` : "";
+          const tagFontStyle = previewFontCss(selectedFontName) + previewMaterialCss(selectedMaterialName);
 
           visEl.style.fontFamily = "";
           visEl.style.fontSize = "1.3em";
-          visEl.innerHTML = `<span style="${tagFontStyle} font-size:${previewScale}em">${tagHtml}</span><span style="opacity:0.75"> </span>${playerHtml}`;
+          visEl.innerHTML = `<span class="tmp-preview-tag" style="${escapeHtml(tagFontStyle)} font-size:${previewScale}em">${tagHtml}</span><span style="opacity:0.75"> </span>${playerHtml}`;
 
           updateGradPreview();
         }
 
         payloadEl.textContent = payload;
+        updateAdvancedSelectionNote();
       }
 
       dlBtn.addEventListener("click", () => {
@@ -3494,9 +5368,12 @@ LowerText:
 
       (function init() {
         solidHexIn.dispatchEvent(new Event("input"));
+        syncMaterialControl(true);
         setColorMode(currentMode());
         renderIconPicker();
         renderGradientPresets();
+        renderDefaultPresets();
+        renderAdvancedList();
         renderStopRows();
         renderLotusStopRows();
         render();
