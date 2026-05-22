@@ -1246,7 +1246,7 @@
         background: rgba(255, 255, 255, 0.11);
       }
 
-      .default-presets {
+      .collapsible-card {
         margin-top: 14px;
         padding: 0;
         border-radius: 12px;
@@ -1262,7 +1262,7 @@
         line-height: 1.4;
       }
 
-      .default-presets > summary {
+      .collapsible-card > summary {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -1272,11 +1272,11 @@
         list-style: none;
       }
 
-      .default-presets > summary::-webkit-details-marker {
+      .collapsible-card > summary::-webkit-details-marker {
         display: none;
       }
 
-      .default-presets > summary::after {
+      .collapsible-card > summary::after {
         content: "Open";
         flex: 0 0 auto;
         border-radius: 999px;
@@ -1289,15 +1289,15 @@
         text-transform: uppercase;
       }
 
-      .default-presets[open] > summary::after {
+      .collapsible-card[open] > summary::after {
         content: "Close";
       }
 
-      .default-preset-summary-title {
+      .collapsible-title {
         font-weight: 900;
       }
 
-      .default-preset-body {
+      .collapsible-body {
         display: grid;
         gap: 10px;
         padding: 0 12px 12px;
@@ -1771,8 +1771,8 @@
               <div id="ntg-ehr-perms">
                 <h4 style="margin-top: 0">EHR Permissions</h4>
                 <div class="gen-controls">
-                  <label><input type="radio" name="ntg-vip" value="true" checked /> VIP</label>
-                  <label><input type="radio" name="ntg-vip" value="false" /> No VIP</label>
+                  <label><input type="radio" name="ntg-vip" value="true" /> VIP</label>
+                  <label><input type="radio" name="ntg-vip" value="false" checked /> No VIP</label>
                 </div>
                 <div class="gen-controls">
                   <label
@@ -2200,18 +2200,11 @@
                 </div>
               </div>
 
-              <h4>Generated tag text:</h4>
-              <code id="ntg-out"></code>
-
-              <details style="margin-top: 10px">
-                <summary>Full output (JSON / config / YAML)</summary>
-                <code id="ntg-payload"></code>
-              </details>
-              <details class="default-presets" aria-label="Starter tag presets">
+              <details class="collapsible-card default-presets" aria-label="Starter tag presets">
                 <summary>
-                  <span class="default-preset-summary-title">Starter presets</span>
+                  <span class="collapsible-title">Starter presets</span>
                 </summary>
-                <div class="default-preset-body">
+                <div class="collapsible-body">
                   <p>Pick a tag shape, make your own short phrase, then pick a color palette. You can still edit everything afterward.</p>
                   <div class="default-custom-row">
                     <input
@@ -2241,6 +2234,24 @@
                   <div class="default-preset-grid" id="ntg-default-tag-presets"></div>
                   <h4>Preset colors</h4>
                   <div class="default-color-grid" id="ntg-default-color-presets"></div>
+                </div>
+              </details>
+
+              <details class="collapsible-card generated-tag-card" aria-label="Generated tag text">
+                <summary>
+                  <span class="collapsible-title">Generated tag text</span>
+                </summary>
+                <div class="collapsible-body">
+                  <code id="ntg-out"></code>
+                </div>
+              </details>
+
+              <details class="collapsible-card full-output-card" aria-label="Full output">
+                <summary>
+                  <span class="collapsible-title">Full output (JSON / config / YAML)</span>
+                </summary>
+                <div class="collapsible-body">
+                  <code id="ntg-payload"></code>
                 </div>
               </details>
               <div
