@@ -1922,11 +1922,6 @@
                       id="ntg-visual"
                       style="font-size: 1.3em; line-height: 1.2"
                     ></div>
-                    <div id="ntg-lotus-visual" style="display: none">
-                      <div id="ntg-lotus-upper-line" class="lotus-line"></div>
-                      <div id="ntg-lotus-name-line" class="lotus-line lotus-name-line"></div>
-                      <div id="ntg-lotus-lower-line" class="lotus-line"></div>
-                    </div>
                   </div>
                 </details>
               </div>
@@ -2197,6 +2192,15 @@
                   >
                     Download Lotus YAML
                   </button>
+                </div>
+              </div>
+
+              <div id="ntg-lotus-preview-wrap" style="display: none">
+                <h4 style="margin-top: 10px">Lotus preview:</h4>
+                <div id="ntg-lotus-visual">
+                  <div id="ntg-lotus-upper-line" class="lotus-line"></div>
+                  <div id="ntg-lotus-name-line" class="lotus-line lotus-name-line"></div>
+                  <div id="ntg-lotus-lower-line" class="lotus-line"></div>
                 </div>
               </div>
 
@@ -2481,6 +2485,8 @@
 
       const outEl = document.getElementById("ntg-out");
       const visEl = document.getElementById("ntg-visual");
+      const lotusPreviewWrap = document.getElementById("ntg-lotus-preview-wrap");
+      const defaultPresetsPanel = document.querySelector(".default-presets");
       const lotusVis = document.getElementById("ntg-lotus-visual");
       const lotusUpperLine = document.getElementById("ntg-lotus-upper-line");
       const lotusNameLine = document.getElementById("ntg-lotus-name-line");
@@ -2555,7 +2561,9 @@
         tohoInstructions.hidden = m !== "toho";
         mainConfig.hidden = m === "lotus";
         lotusConfig.hidden = m !== "lotus";
+        if (defaultPresetsPanel) defaultPresetsPanel.hidden = m === "lotus";
         visEl.style.display = m === "lotus" ? "none" : "block";
+        lotusPreviewWrap.style.display = m === "lotus" ? "block" : "none";
         lotusVis.style.display = m === "lotus" ? "block" : "none";
         dlBtn.style.display = m === "lotus" ? "none" : "inline-block";
         lotusDlBtn.style.display = m === "lotus" ? "inline-block" : "none";
