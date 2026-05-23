@@ -1752,8 +1752,12 @@
         .replace(/>/g,"&gt;");
     }
 
+    function normalizeColorShorthand(markup){
+      return String(markup).replace(/<#([0-9a-fA-F]{6})>/g, "<color=#$1>");
+    }
+
     function toPreviewHTML(markup){
-      let html = escapeHtml(markup);
+      let html = escapeHtml(normalizeColorShorthand(markup));
 
       html = html
         .replace(/&lt;font="([^"]+)"&gt;/g, (_,n)=>`<span style="font-family:${FONT_MAP[n.trim()]||"inherit"}">`)
@@ -1789,7 +1793,7 @@
     }
 
     function cleanMarkup(markup){
-      let next = String(markup);
+      let next = normalizeColorShorthand(markup);
       let prev = "";
       while(next !== prev){
         prev = next;
@@ -1818,7 +1822,7 @@
         if(name==="u" && cur.u){ out.push("</u>"); cur.u=false; }
         if(name==="i" && cur.i){ out.push("</i>"); cur.i=false; }
         if(name==="b" && cur.b){ out.push("</b>"); cur.b=false; }
-        if(name==="color" && cur.color){ out.push("</color>"); cur.color=null; }
+        if(name==="color" && cur.color){ cur.color=null; }
         if(name==="size" && cur.size!=null){ if(cur.size !== 100) out.push("</size>"); cur.size=null; }
         if(name==="font" && cur.font){ out.push("</font>"); cur.font=null; }
         if(name==="align" && cur.align){ out.push("</align>"); cur.align=null; }
@@ -1980,6 +1984,7 @@
     }
 
     function parseMarkupToEditor(markup){
+      markup = normalizeColorShorthand(markup);
       const state = {
         color:DEFAULTS.color,
         b:false, i:false, u:false,
