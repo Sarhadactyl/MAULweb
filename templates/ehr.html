@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>EHR Templates · MAUL</title>
+    <title>EHR Templates • MAUL</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -17,7 +17,7 @@
     <meta property="og:locale" content="en_US" />
     <meta
       name="description"
-      content="Quick help for EHR templates covering tags, properties, variables, comments, placeholders, examples, and release notes."
+      content="Quick help for EHR templates covering tags, properties, regex triggers, variables, comments, placeholders, examples, and release notes."
     />
     <link rel="canonical" href="https://moddedamong.us/ehrtemplates.html" />
     <link rel="icon" type="image/png" href="https://moddedamong.us/images/favicon.png" />
@@ -280,7 +280,8 @@
       .overview-grid,
       .mini-grid,
       .steps-grid,
-      .placeholder-grid {
+      .placeholder-grid,
+      .helper-grid {
         display: grid;
         gap: 16px;
       }
@@ -299,6 +300,12 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .helper-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 16px;
+      }
+
       @media (max-width: 980px) {
         .overview-grid,
         .steps-grid {
@@ -310,7 +317,8 @@
         .overview-grid,
         .steps-grid,
         .mini-grid,
-        .placeholder-grid {
+        .placeholder-grid,
+        .helper-grid {
           grid-template-columns: 1fr;
         }
       }
@@ -520,6 +528,82 @@
         line-height: 1.6;
       }
 
+      .regex-helper {
+        display: grid;
+        gap: 16px;
+      }
+
+      .helper-field {
+        display: grid;
+        gap: 7px;
+      }
+
+      .helper-field.full {
+        grid-column: 1 / -1;
+      }
+
+      .helper-field label,
+      .helper-toggle {
+        color: var(--text-main);
+        font-weight: 700;
+      }
+
+      .helper-field input,
+      .helper-field select,
+      .helper-field textarea {
+        width: 100%;
+        min-height: 44px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        background: rgba(10, 4, 4, 0.74);
+        color: var(--text-main);
+        padding: 10px 12px;
+        font: inherit;
+        outline: none;
+      }
+
+      .helper-field textarea {
+        min-height: 96px;
+        resize: vertical;
+      }
+
+      .helper-field input:focus,
+      .helper-field select:focus,
+      .helper-field textarea:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px var(--accent-soft);
+      }
+
+      .helper-hint,
+      .helper-explain {
+        color: var(--text-soft);
+        font-size: 0.88rem;
+        line-height: 1.55;
+      }
+
+      .helper-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 4px;
+      }
+
+      .helper-toggle input {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--accent);
+      }
+
+      .helper-result {
+        margin-top: 4px;
+      }
+
+      .helper-result h3 {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+      }
+
       .code-block {
         position: relative;
       }
@@ -647,7 +731,7 @@
             <input
               id="template-search"
               type="search"
-              placeholder="Search welcome, delay, map, role, meeting, variable..."
+              placeholder="Search welcome, delay, map, role, meeting, regex, variable..."
               autocomplete="off"
             />
           </div>
@@ -658,6 +742,7 @@
           <a href="#basics">Start Here</a>
           <a href="#triggers">When It Sends</a>
           <a href="#properties">Add Rules</a>
+          <a href="#regex">Regex</a>
           <a href="#variables">Reuse Text</a>
           <a href="#examples">Copy Examples</a>
           <a href="#full-example">Full Example</a>
@@ -870,6 +955,190 @@ OnMeeting[meeting=3|4]:Meeting 3 or 4. Time is running out.</code></pre>
         </div>
       </section>
 
+      <section id="regex" class="section-shell faq-section">
+        <h2>Regex Message Triggers</h2>
+        <p class="section-intro">
+          Regex is a search pattern. In templates, it lets a message send automatically when a player's chat message
+          matches words, commands, numbers, or phrases you choose.
+        </p>
+
+        <div class="tips-list">
+          <div class="tip-pill">Template syntax: <code>tag[regex="pattern"]:message</code>.</div>
+          <div class="tip-pill">Regex checks the raw chat message and is not case-sensitive.</div>
+          <div class="tip-pill">Use <code>^</code> and <code>$</code> when you want an exact full-message match.</div>
+          <div class="tip-pill">Backslashes should be doubled in template files, like <code>\\b</code> or <code>\\d+</code>.</div>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>Build an autoresponder</summary>
+            <div class="faq-item-content regex-helper">
+              <p>
+                Fill this out to make a template that watches chat and answers automatically. The generated line can
+                go directly into <code>template.txt</code>.
+              </p>
+
+              <div class="helper-grid">
+                <div class="helper-field">
+                  <label for="regex-helper-tag">Template name</label>
+                  <input id="regex-helper-tag" type="text" value="discord" autocomplete="off" />
+                  <div class="helper-hint">This is the tag name. Use letters, numbers, or underscores.</div>
+                </div>
+
+                <div class="helper-field">
+                  <label for="regex-helper-trigger">Trigger word or phrase</label>
+                  <input id="regex-helper-trigger" type="text" value="discord" autocomplete="off" />
+                  <div class="helper-hint">This is what a player types in chat.</div>
+                </div>
+
+                <div class="helper-field">
+                  <label for="regex-helper-mode">When should it trigger?</label>
+                  <select id="regex-helper-mode">
+                    <option value="exact" selected>Only when the whole message matches</option>
+                    <option value="contains">When the message contains this text</option>
+                    <option value="word">When this appears as its own word</option>
+                    <option value="command">When someone types it as a !command</option>
+                    <option value="starts">When the message starts with this text</option>
+                  </select>
+                  <div class="helper-hint" id="regex-helper-mode-hint"></div>
+                </div>
+
+                <div class="helper-field">
+                  <label class="helper-toggle" for="regex-helper-hidden">
+                    <input id="regex-helper-hidden" type="checkbox" checked />
+                    Hide from /template list
+                  </label>
+                  <div class="helper-hint">Useful for autoresponders because players trigger them by chat.</div>
+                </div>
+
+                <div class="helper-field full">
+                  <label for="regex-helper-response">What should EHR say back?</label>
+                  <textarea id="regex-helper-response">discord.gg/maul</textarea>
+                  <div class="helper-hint">This is the response EHR sends when the trigger matches.</div>
+                </div>
+              </div>
+
+              <div class="helper-result">
+                <h3>Generated template</h3>
+                <pre><code id="regex-helper-output"></code></pre>
+                <div class="helper-explain" id="regex-helper-explain"></div>
+              </div>
+            </div>
+          </details>
+
+          <details class="faq-item" open>
+            <summary>What is regex?</summary>
+            <div class="faq-item-content">
+              <p>
+                Regex, short for regular expression, is a compact way to describe text you want to find. Instead of
+                checking one exact sentence, you can check a pattern such as "starts with !rules", "contains body",
+                or "has any number in it."
+              </p>
+              <p>
+                For EHR templates, the pattern goes inside <code>regex="..."</code>. When someone sends chat, EHR tests
+                that chat against the pattern. If it matches, the template sends.
+              </p>
+              <pre><code>rules[regex="^!rules$"]:Please read the lobby rules before the game starts.</code></pre>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Regex for dummies</summary>
+            <div class="faq-item-content">
+              <p>Start with normal words, then add symbols only when you need them.</p>
+              <table>
+                <tbody>
+                  <tr>
+                    <td><code>body</code></td>
+                    <td>Matches any message containing body, including "where is body?"</td>
+                  </tr>
+                  <tr>
+                    <td><code>^!rules$</code></td>
+                    <td>Matches exactly !rules and nothing else.</td>
+                  </tr>
+                  <tr>
+                    <td><code>body|report</code></td>
+                    <td>Matches body or report.</td>
+                  </tr>
+                  <tr>
+                    <td><code>\\bbody\\b</code></td>
+                    <td>Matches body as its own word.</td>
+                  </tr>
+                  <tr>
+                    <td><code>\\d+</code></td>
+                    <td>Matches one or more numbers.</td>
+                  </tr>
+                  <tr>
+                    <td><code>.*</code></td>
+                    <td>Matches anything. Use carefully because it is very broad.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How does EHR use it?</summary>
+            <div class="faq-item-content">
+              <p>
+                EHR reads every template with a <code>regex</code> property, compiles that pattern, then checks incoming
+                chat with it. If the pattern matches and any other bracket rules also pass, EHR sends the template.
+              </p>
+              <pre><code>help[regex="^!help$"]:Available commands: !rules, !discord, !settings
+
+discord[regex="^!discord$"]:Join the Discord: discord.gg/maul
+
+bodyhelp[regex="\\b(body|report|dead)\\b"]:
+If you found a body, say where it was and who was nearby.</code></pre>
+              <p>
+                In practice, a player typing <code>!discord</code> triggers the Discord line. A player typing
+                <code>where was body?</code> triggers the body help line.
+              </p>
+              <p>
+                If you want the simplest autoresponder, make the word people type the regex and make the text after
+                the colon the answer.
+              </p>
+              <pre><code>discord[regex="^discord$"]:discordlink</code></pre>
+              <p>
+                That means: if someone says exactly <code>discord</code>, EHR replies with <code>discordlink</code>.
+                Replace <code>discordlink</code> with the real invite when you are ready.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do I combine regex with other rules?</summary>
+            <div class="faq-item-content">
+              <p>
+                Regex can sit next to other bracket rules. Separate properties with commas. This example only responds
+                to <code>!settings</code> on Preset 2 or 3.
+              </p>
+              <pre><code>settings[regex="^!settings$", preset=2|3]:
+Current setup: {{Map}} | {{PlayerCount}} players | Preset {{Preset}}</code></pre>
+              <p>
+                You can also hide regex-triggered templates so they do not appear in the manual
+                <code>/template</code> list.
+              </p>
+              <pre><code>rules[regex="^!rules$", hidden]:
+No slurs, no teaming, no stream sniping, and keep meetings readable.</code></pre>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Common mistakes</summary>
+            <div class="faq-item-content">
+              <ul>
+                <li>Use quotes around the regex value: <code>regex="^!rules$"</code>.</li>
+                <li>Double backslashes in regex shortcuts: write <code>\\d+</code>, not <code>\d+</code>.</li>
+                <li>Use <code>^</code> and <code>$</code> for commands so random sentences do not trigger them.</li>
+                <li>Use <code>|</code> for "or", such as <code>body|report|dead</code>.</li>
+                <li>Keep broad patterns like <code>.*</code> rare because they match almost everything.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </section>
+
       <section id="variables" class="section-shell faq-section">
         <h2>Reuse Text With Variables</h2>
         <p class="section-intro">
@@ -955,6 +1224,20 @@ This map has a lot of space.
 Pay attention to where bodies are found and who was nearby.</code></pre>
             </div>
           </details>
+
+          <details class="faq-item">
+            <summary>A chat command that answers itself</summary>
+            <div class="faq-item-content">
+              <pre><code>rules[regex="^!rules$", hidden]:
+Rules: no slurs, no teaming, no stream sniping, and keep meetings readable.
+
+discord[regex="^!discord$", hidden]:
+Join the lobby Discord: discord.gg/maul</code></pre>
+              <p>Players can type <code>!rules</code> or <code>!discord</code> in chat and EHR will answer automatically.</p>
+              <pre><code>discord[regex="^discord$", hidden]:discord.gg/maul</code></pre>
+              <p>This version answers when someone types <code>discord</code> without the exclamation mark.</p>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -975,6 +1258,10 @@ welcome[delay=10]:Hope you have an unforgettable experience in my lobby!
 
 # Auto-message shown in lobby every X seconds
 notification:{{PlayerCount}} players | {{Map}} | Preset: {{Preset}}
+
+# Chat command auto-responses
+rules[regex="^!rules$", hidden]:No slurs, no teaming, no stream sniping, and keep meetings readable.
+discord[regex="^!discord$", hidden]:Join the lobby Discord: @discord
 
 # First meeting reminder
 OnFirstMeeting:First meeting! Think before you vote.
@@ -1084,7 +1371,7 @@ ping[rank=Mod|Admin|Host, hidden]:Lobby check | {{PlayerCount}} players | {{Map}
           </article>
           <article class="mini-card">
             <h3><i class="fa-solid fa-at accent"></i> A variable appears as text</h3>
-            <p>Make sure the variable is defined on its own line, like <code>@discord = discord.gg/maul</code>.</p>
+            <p>Make sure the variable is defined on its own line, like <code>@discord = discord.gg/ehr</code>.</p>
           </article>
           <article class="mini-card">
             <h3><i class="fa-solid fa-clock accent"></i> Delay feels different than expected</h3>
@@ -1129,6 +1416,104 @@ ping[rank=Mod|Admin|Host, hidden]:Lobby check | {{PlayerCount}} players | {{Map}
           }
         });
       });
+
+      const regexHelper = {
+        tag: document.querySelector("#regex-helper-tag"),
+        trigger: document.querySelector("#regex-helper-trigger"),
+        mode: document.querySelector("#regex-helper-mode"),
+        hidden: document.querySelector("#regex-helper-hidden"),
+        response: document.querySelector("#regex-helper-response"),
+        output: document.querySelector("#regex-helper-output"),
+        explain: document.querySelector("#regex-helper-explain"),
+        modeHint: document.querySelector("#regex-helper-mode-hint")
+      };
+
+      const regexModeHints = {
+        exact: "Best for simple autoresponders. Example: discord only triggers on exactly discord.",
+        contains: "Broader match. Example: discord triggers on can I get the discord?",
+        word: "Good for normal words. Example: body matches body, but not somebody.",
+        command: "Good for commands. Example: discord becomes !discord.",
+        starts: "Good for prefixes. Example: rules please triggers if the trigger is rules."
+      };
+
+      function escapeRegexLiteral(value) {
+        return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      }
+
+      function escapeTemplateRegex(value) {
+        return value.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+      }
+
+      function buildRegexPattern(trigger, mode) {
+        const cleanTrigger = trigger.trim();
+        const escaped = escapeRegexLiteral(cleanTrigger);
+
+        if (!cleanTrigger) return "";
+
+        switch (mode) {
+          case "contains":
+            return escaped;
+          case "word":
+            return `\\b${escaped}\\b`;
+          case "command": {
+            const commandText = cleanTrigger.startsWith("!") ? cleanTrigger.slice(1) : cleanTrigger;
+            return `^!${escapeRegexLiteral(commandText)}$`;
+          }
+          case "starts":
+            return `^${escaped}`;
+          case "exact":
+          default:
+            return `^${escaped}$`;
+        }
+      }
+
+      function describeRegexHelper(trigger, mode, response) {
+        const cleanTrigger = trigger.trim() || "your trigger";
+        const cleanResponse = response.trim() || "your response";
+
+        switch (mode) {
+          case "contains":
+            return `If a chat message contains "${cleanTrigger}", EHR replies with "${cleanResponse}".`;
+          case "word":
+            return `If a chat message says "${cleanTrigger}" as its own word, EHR replies with "${cleanResponse}".`;
+          case "command":
+            return `If someone types "!${cleanTrigger.replace(/^!/, "")}", EHR replies with "${cleanResponse}".`;
+          case "starts":
+            return `If a chat message starts with "${cleanTrigger}", EHR replies with "${cleanResponse}".`;
+          case "exact":
+          default:
+            return `If someone types exactly "${cleanTrigger}", EHR replies with "${cleanResponse}".`;
+        }
+      }
+
+      function updateRegexHelper() {
+        if (!regexHelper.output) return;
+
+        const tag = (regexHelper.tag.value.trim() || "autoresponse").replace(/\W+/g, "_");
+        const trigger = regexHelper.trigger.value;
+        const response = regexHelper.response.value.trim() || "Your response here";
+        const mode = regexHelper.mode.value;
+        const pattern = buildRegexPattern(trigger, mode);
+        const templatePattern = escapeTemplateRegex(pattern || "^trigger$");
+        const properties = [`regex="${templatePattern}"`];
+
+        if (regexHelper.hidden.checked) properties.push("hidden");
+
+        regexHelper.output.textContent = response.includes("\n")
+          ? `${tag}[${properties.join(", ")}]:\n${response}`
+          : `${tag}[${properties.join(", ")}]:${response}`;
+
+        regexHelper.modeHint.textContent = regexModeHints[mode] || "";
+        regexHelper.explain.textContent = describeRegexHelper(trigger, mode, response);
+      }
+
+      Object.values(regexHelper).forEach((field) => {
+        if (!field || field === regexHelper.output || field === regexHelper.explain || field === regexHelper.modeHint) return;
+        field.addEventListener("input", updateRegexHelper);
+        field.addEventListener("change", updateRegexHelper);
+      });
+
+      updateRegexHelper();
 
       function filterGuide() {
         const query = searchInput.value.trim().toLowerCase();
