@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T16:08:55.039815+00:00",
+  "generated_at": "2026-05-26T16:12:03.763502+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -297,6 +297,14 @@
       "upvoted_times": 2,
       "last_upvoted_at": "2026-03-19T19:42:35.002836+00:00"
     },
+    "silver": {
+      "host_id": 472742355355697152,
+      "host_name": "Silver",
+      "slug": "silver",
+      "upvoted_by_users": 2,
+      "upvoted_times": 2,
+      "last_upvoted_at": "2026-05-26T16:12:03.758789+00:00"
+    },
     "1101745950789218374": {
       "host_id": 1101745950789218374,
       "host_name": "summer \u1aa5\uaac2\u0fd4",
@@ -568,14 +576,6 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-17T15:17:15.332496+00:00"
-    },
-    "silver": {
-      "host_id": 472742355355697152,
-      "host_name": "Silver",
-      "slug": "silver",
-      "upvoted_by_users": 1,
-      "upvoted_times": 1,
-      "last_upvoted_at": "2026-05-26T16:08:55.035786+00:00"
     },
     "silverwiththepinkishname": {
       "host_id": 472742355355697152,
