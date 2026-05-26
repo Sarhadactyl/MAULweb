@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T16:01:07.382125+00:00",
+  "generated_at": "2026-05-26T16:08:55.039815+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -568,6 +568,14 @@
       "upvoted_by_users": 1,
       "upvoted_times": 1,
       "last_upvoted_at": "2026-03-17T15:17:15.332496+00:00"
+    },
+    "silver": {
+      "host_id": 472742355355697152,
+      "host_name": "Silver",
+      "slug": "silver",
+      "upvoted_by_users": 1,
+      "upvoted_times": 1,
+      "last_upvoted_at": "2026-05-26T16:08:55.035786+00:00"
     },
     "silverwiththepinkishname": {
       "host_id": 472742355355697152,
