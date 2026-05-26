@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>EHR Templates • MAUL</title>
+    <title>EHR Templates · MAUL</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -731,7 +731,7 @@
             <input
               id="template-search"
               type="search"
-              placeholder="Search welcome, delay, map, role, meeting, regex, variable..."
+              placeholder="Search welcome, tag, delay, map, role, meeting, regex, variable..."
               autocomplete="off"
             />
           </div>
@@ -740,6 +740,7 @@
 
         <nav class="jump-links" aria-label="Template how-to sections">
           <a href="#basics">Start Here</a>
+          <a href="#words">Template Words</a>
           <a href="#triggers">When It Sends</a>
           <a href="#properties">Add Rules</a>
           <a href="#regex">Regex</a>
@@ -801,7 +802,7 @@
           <article class="step-card">
             <div class="step-number">2</div>
             <h3>Add a welcome</h3>
-            <p>Paste <code>welcome:Welcome to the lobby!</code>. The word before the colon is the trigger.</p>
+            <p>Paste <code>welcome:Welcome to the lobby!</code>. The word before the colon is the tag.</p>
           </article>
           <article class="step-card">
             <div class="step-number">3</div>
@@ -821,6 +822,193 @@
           <div class="tip-pill">Use clear tag names like <code>welcome</code>, <code>rules</code>, <code>motd</code>, or <code>strategy</code>.</div>
           <div class="tip-pill">Run <code>/template</code> with no arguments to list all available tags in the file.</div>
           <div class="tip-pill">You can press Enter to write a message across multiple lines. You no longer need <code>\n</code>, though it still works if you prefer it.</div>
+        </div>
+      </section>
+
+      <section id="words" class="section-shell faq-section">
+        <h2>Template Words</h2>
+        <p class="section-intro">
+          These are the words people use when talking about templates. Once these click, the rest of the guide is much
+          easier to read.
+        </p>
+
+        <div class="mini-grid">
+          <article class="mini-card">
+            <h3><i class="fa-solid fa-file-lines accent"></i> Template File</h3>
+            <p>The <code>template.txt</code> file is where every template entry lives. Save the file and EHR picks up the change next time it needs a template.</p>
+          </article>
+          <article class="mini-card">
+            <h3><i class="fa-solid fa-tag accent"></i> Tag</h3>
+            <p>The tag is the name before the colon, like <code>welcome</code> or <code>rules</code>. Tags can use letters, numbers, and underscores.</p>
+          </article>
+          <article class="mini-card">
+            <h3><i class="fa-solid fa-layer-group accent"></i> Entry</h3>
+            <p>An entry is one complete template block: the tag, optional bracket rules, the colon, and the message content.</p>
+          </article>
+          <article class="mini-card">
+            <h3><i class="fa-solid fa-heading accent"></i> Header</h3>
+            <p>The header is the first line, shaped like <code>tag[properties]: content</code>. The brackets are optional.</p>
+          </article>
+          <article class="mini-card">
+            <h3><i class="fa-solid fa-message accent"></i> Content</h3>
+            <p>Content is the message EHR sends. It can be on the same line after the colon or on the lines below it.</p>
+          </article>
+          <article class="mini-card">
+            <h3><i class="fa-solid fa-sliders accent"></i> Properties</h3>
+            <p>Properties are bracket rules like <code>map=Skeld</code>, <code>delay=5</code>, <code>hidden</code>, or <code>regex="^discord$"</code>.</p>
+          </article>
+          <article class="mini-card">
+            <h3><i class="fa-solid fa-code accent"></i> Placeholder</h3>
+            <p>A placeholder like <code>{{PlayerName}}</code> or <code>{{RoomCode}}</code> gets replaced with live game info when the message sends.</p>
+          </article>
+          <article class="mini-card">
+            <h3><i class="fa-solid fa-at accent"></i> User Variable</h3>
+            <p>A user variable is your own shortcut, like <code>@discord = discord.gg/ehr</code>. Use <code>@discord</code> later instead of typing the link again.</p>
+          </article>
+        </div>
+
+        <div class="tips-list">
+          <div class="tip-pill">One tag can have multiple entries. That is how you make random choices, fallbacks, or different messages for different situations.</div>
+          <div class="tip-pill">A <code>hidden</code> entry still works normally. It just does not show in the public <code>/template</code> list.</div>
+          <div class="tip-pill">A regex trigger is different from a tag: the tag names the entry, while <code>regex</code> watches chat for text that should fire it.</div>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>What is the template file?</summary>
+            <div class="faq-item-content">
+              <p>
+                The <code>template.txt</code> file is the single text file where all your template data lives. This is
+                the file you edit to add or change any behavior.
+              </p>
+              <pre><code>&lt;ModFolder&gt;/EHR_DATA/template.txt</code></pre>
+              <p>
+                When you save changes, EHR picks them up the next time a matching event occurs. You usually do not need
+                to restart the game just because you changed a template.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What is the difference between a tag, entry, and template?</summary>
+            <div class="faq-item-content">
+              <p>
+                A tag is the name you give to a piece of content so EHR knows how to find and send it. Tags appear at
+                the start of a line, before the square brackets and colon.
+              </p>
+              <pre><code>greet[hidden]: Hello!
+^^^^^
+tag</code></pre>
+              <p>
+                An entry is one complete block of content in the template file. It starts with a tag and colon, and its
+                content is everything that follows until the next header appears.
+              </p>
+              <p>
+                Template is the general word people use for the whole system, or loosely for one entry or a group of
+                entries. When someone says "write a template for X", they usually mean "write an entry, or set of
+                entries, under a tag that handles X."
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What are headers, content, and properties?</summary>
+            <div class="faq-item-content">
+              <p>
+                The header is the first line of an entry. It contains the tag, any properties, and optionally the start
+                of the content.
+              </p>
+              <pre><code>tag[properties]: content</code></pre>
+              <p>
+                Content is the actual message that gets sent when an entry is triggered. It is everything after the
+                colon on the header line, plus any extra lines below it until the next header.
+              </p>
+              <p>
+                Properties are optional conditions written inside square brackets. They control when and how an entry
+                behaves, like which map it applies to, how likely it is to be picked, whether it is hidden, or whether
+                it requires a chat message to match a regex pattern.
+              </p>
+              <pre><code>greet[map=Skeld, weight=3, hidden]: Hello from the Skeld!</code></pre>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Supported properties in plain English</summary>
+            <div class="faq-item-content">
+              <p>
+                Properties are optional conditions written inside the square brackets of a header. They control when and
+                how an entry behaves, things like which map it applies to, how likely it is to be picked, or whether it
+                requires a specific role.
+              </p>
+              <table>
+                <tbody>
+                  <tr><td><code>map=</code></td><td>Only send this entry on specific maps. Separate multiple maps with <code>|</code>, like <code>map=Skeld|Polus</code>.</td></tr>
+                  <tr><td><code>meeting=</code></td><td>Only send during a specific meeting number. Example: <code>meeting=1</code> for the first meeting only.</td></tr>
+                  <tr><td><code>role=</code></td><td>Only send to players with a specific role. Prefix with <code>!</code> to exclude a role, like <code>role=!Impostor</code>.</td></tr>
+                  <tr><td><code>rank=</code></td><td>Only send to players with a specific rank, such as Host, Admin, Mod, Moderator, or VIP.</td></tr>
+                  <tr><td><code>players=</code></td><td>Only send when the player count meets a condition, like <code>players&gt;=8</code> or <code>players&lt;=5</code>.</td></tr>
+                  <tr><td><code>preset=</code></td><td>Only send when a specific game preset is active. Separate multiple presets with <code>|</code>.</td></tr>
+                  <tr><td><code>weight=</code></td><td>How likely this entry is to be picked when multiple entries share the same tag. Higher means more likely.</td></tr>
+                  <tr><td><code>delay=</code></td><td>Send this entry after a delay in seconds instead of immediately.</td></tr>
+                  <tr><td><code>hidden</code></td><td>Hide this tag from the public tag list. The entry still works normally.</td></tr>
+                  <tr><td><code>regex=</code></td><td>Only fire this entry when an incoming chat message matches the given pattern.</td></tr>
+                </tbody>
+              </table>
+              <p>
+                Multiple properties are separated by commas. Some properties are <code>key=value</code> pairs, while
+                <code>hidden</code> is just a key by itself. Its presence alone is enough to activate it.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What are placeholders, variables, and comments?</summary>
+            <div class="faq-item-content">
+              <p>
+                A placeholder is a special token written inside the content that gets replaced with a live value when
+                the message is sent.
+              </p>
+              <pre><code>announce: There are currently {{PlayerCount}} players in the lobby!</code></pre>
+              <p>
+                A user variable is a custom shorthand you define yourself with <code>@name = value</code>. Once defined,
+                you can write <code>@name</code> anywhere in your content and it gets substituted with the value you set.
+              </p>
+              <pre><code>@server = Endless Host Roles Official
+
+welcome: Welcome to @server!</code></pre>
+              <p>
+                A comment is a line EHR ignores. Start the line with <code>#</code> when you want to leave yourself a
+                note or organize the file.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What are weighted picks, delayed entries, and cache?</summary>
+            <div class="faq-item-content">
+              <p>
+                When multiple entries share the same tag and at least one of them has <code>weight=</code>, EHR uses a
+                weighted pick to randomly choose one entry to send instead of sending all of them. Higher weight means
+                more likely to be chosen.
+              </p>
+              <pre><code>tip[weight=3]:Common tip.
+tip[weight=1]:Rare tip.</code></pre>
+              <p>
+                A delayed entry is an entry with <code>delay=</code>. Instead of sending immediately, it waits the
+                specified number of seconds before the content is sent.
+              </p>
+              <pre><code>welcome:This sends right away.
+welcome[delay=10]:This sends 10 seconds later.</code></pre>
+              <p>
+                Cache means EHR keeps a parsed copy of the template file in memory so it does not re-read and re-parse
+                the file on every single message. When the file changes, that parsed copy is rebuilt.
+              </p>
+              <p>
+                You do not usually need to think about cache. Just save your file and EHR will pick up the changes on
+                the next relevant event.
+              </p>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -958,14 +1146,15 @@ OnMeeting[meeting=3|4]:Meeting 3 or 4. Time is running out.</code></pre>
       <section id="regex" class="section-shell faq-section">
         <h2>Regex Message Triggers</h2>
         <p class="section-intro">
-          Regex is a search pattern. In templates, it lets a message send automatically when a player's chat message
-          matches words, commands, numbers, or phrases you choose.
+          The <code>regex</code> property watches incoming chat messages and fires a template entry automatically when
+          the message matches. It is just a way to describe what a chat message should look like.
         </p>
 
         <div class="tips-list">
           <div class="tip-pill">Template syntax: <code>tag[regex="pattern"]:message</code>.</div>
-          <div class="tip-pill">Regex checks the raw chat message and is not case-sensitive.</div>
-          <div class="tip-pill">Use <code>^</code> and <code>$</code> when you want an exact full-message match.</div>
+          <div class="tip-pill">A plain word works. <code>regex="hello"</code> matches messages that contain hello.</div>
+          <div class="tip-pill">EHR checks the raw chat message and ignores uppercase/lowercase differences.</div>
+          <div class="tip-pill">Use <code>^</code> and <code>$</code> when you want the whole message to match exactly.</div>
           <div class="tip-pill">Backslashes should be doubled in template files, like <code>\\b</code> or <code>\\d+</code>.</div>
         </div>
 
@@ -1030,9 +1219,9 @@ OnMeeting[meeting=3|4]:Meeting 3 or 4. Time is running out.</code></pre>
             <summary>What is regex?</summary>
             <div class="faq-item-content">
               <p>
-                Regex, short for regular expression, is a compact way to describe text you want to find. Instead of
-                checking one exact sentence, you can check a pattern such as "starts with !rules", "contains body",
-                or "has any number in it."
+                Regex, short for regular expression, is a compact way to describe text. Instead of checking only one
+                exact sentence, you can describe patterns like "contains hello", "starts with !rules", "has a number",
+                or "says body as its own word."
               </p>
               <p>
                 For EHR templates, the pattern goes inside <code>regex="..."</code>. When someone sends chat, EHR tests
@@ -1045,32 +1234,52 @@ OnMeeting[meeting=3|4]:Meeting 3 or 4. Time is running out.</code></pre>
           <details class="faq-item">
             <summary>Regex for dummies</summary>
             <div class="faq-item-content">
-              <p>Start with normal words, then add symbols only when you need them.</p>
+              <p>Start with normal words, then add symbols only when you need more control.</p>
               <table>
                 <tbody>
                   <tr>
-                    <td><code>body</code></td>
-                    <td>Matches any message containing body, including "where is body?"</td>
+                    <td><code>hello</code></td>
+                    <td>Matches any message containing hello.</td>
                   </tr>
                   <tr>
                     <td><code>^!rules$</code></td>
                     <td>Matches exactly !rules and nothing else.</td>
                   </tr>
                   <tr>
+                    <td><code>^!settings</code></td>
+                    <td>Matches messages that start with !settings.</td>
+                  </tr>
+                  <tr>
+                    <td><code>thanks$</code></td>
+                    <td>Matches messages that end with thanks.</td>
+                  </tr>
+                  <tr>
                     <td><code>body|report</code></td>
-                    <td>Matches body or report.</td>
+                    <td>Matches body or report anywhere in the message.</td>
+                  </tr>
+                  <tr>
+                    <td><code>^(hi|hello)$</code></td>
+                    <td>Matches exactly hi or exactly hello.</td>
+                  </tr>
+                  <tr>
+                    <td><code>what.*role</code></td>
+                    <td>Matches what, then anything, then role.</td>
+                  </tr>
+                  <tr>
+                    <td><code>colou?r</code></td>
+                    <td>Matches color or colour.</td>
                   </tr>
                   <tr>
                     <td><code>\\bbody\\b</code></td>
-                    <td>Matches body as its own word.</td>
+                    <td>Matches body as its own word, not somebody.</td>
                   </tr>
                   <tr>
                     <td><code>\\d+</code></td>
                     <td>Matches one or more numbers.</td>
                   </tr>
                   <tr>
-                    <td><code>.*</code></td>
-                    <td>Matches anything. Use carefully because it is very broad.</td>
+                    <td><code>v1\\.0</code></td>
+                    <td>Matches a literal dot, like v1.0.</td>
                   </tr>
                 </tbody>
               </table>
@@ -1107,6 +1316,180 @@ If you found a body, say where it was and who was nearby.</code></pre>
           </details>
 
           <details class="faq-item">
+            <summary>Literal text and simple matches</summary>
+            <div class="faq-item-content">
+              <p>
+                The simplest pattern is just a word or phrase written out plainly. Spaces and punctuation are matched
+                literally unless they have a special meaning in regex.
+              </p>
+              <pre><code>rulecheck[regex="what are the rules"]:The rules are posted in the Discord!</code></pre>
+              <p>
+                By default, a pattern can match anywhere inside the message. So <code>regex="hello"</code> matches
+                <code>hello</code>, <code>say hello to me</code>, and <code>hello everyone</code>.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Quantifiers: how many times?</summary>
+            <div class="faq-item-content">
+              <p>
+                Quantifiers go right after whatever they apply to and control how many times it repeats. They are how
+                you say "optional", "one or more", or "exactly this many".
+              </p>
+              <table>
+                <tbody>
+                  <tr><td><code>*</code></td><td>Zero or more times. <code>hel*o</code> matches <code>heo</code>, <code>helo</code>, and <code>hello</code>.</td></tr>
+                  <tr><td><code>+</code></td><td>One or more times. <code>hel+o</code> matches <code>helo</code> and <code>hello</code>, but not <code>heo</code>.</td></tr>
+                  <tr><td><code>?</code></td><td>Zero or one time. <code>colou?r</code> matches both <code>color</code> and <code>colour</code>.</td></tr>
+                  <tr><td><code>{4}</code></td><td>Exactly 4 times. <code>\\d{4}</code> matches exactly 4 digits.</td></tr>
+                  <tr><td><code>{2,8}</code></td><td>Between 2 and 8 times.</td></tr>
+                  <tr><td><code>{3,}</code></td><td>3 or more times.</td></tr>
+                </tbody>
+              </table>
+              <p>
+                The combination <code>.*</code> is extremely common. It means "anything at all in between".
+              </p>
+              <pre><code>roleinfo[regex="what.*role"]:Check the role list with /roles!</code></pre>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Anchors: start and end of a message</summary>
+            <div class="faq-item-content">
+              <p>
+                Anchors pin a pattern to a specific position. Use them when you want to avoid accidental matches.
+              </p>
+              <table>
+                <tbody>
+                  <tr><td><code>^</code></td><td>Match must be at the very start of the message.</td></tr>
+                  <tr><td><code>$</code></td><td>Match must be at the very end of the message.</td></tr>
+                </tbody>
+              </table>
+              <pre><code>help[regex="^!help$"]:Here is the help menu.
+settings[regex="^!settings"]:This fires when the message starts with !settings.
+thanks[regex="thanks$"]:You are welcome!</code></pre>
+              <p>
+                Without anchors, <code>regex="yes"</code> can also fire on words like <code>yesterday</code> and
+                <code>yessir</code>. Anchors give you control.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Character sets: one of these characters</summary>
+            <div class="faq-item-content">
+              <p>
+                Square brackets define a set of acceptable characters at one position. The pattern matches if any one
+                character from the set is found there.
+              </p>
+              <table>
+                <tbody>
+                  <tr><td><code>[aeiou]</code></td><td>Any one vowel.</td></tr>
+                  <tr><td><code>[a-z]</code></td><td>Any lowercase letter.</td></tr>
+                  <tr><td><code>[A-Z]</code></td><td>Any uppercase letter.</td></tr>
+                  <tr><td><code>[0-9]</code></td><td>Any digit.</td></tr>
+                  <tr><td><code>[a-zA-Z]</code></td><td>Any letter, either case.</td></tr>
+                  <tr><td><code>[a-zA-Z0-9_]</code></td><td>Any letter, digit, or underscore.</td></tr>
+                </tbody>
+              </table>
+              <pre><code>gray[regex="gr[ae]y"]:Gray and grey both work.
+code[regex="^[A-Za-z]{6}$"]:That looks like a 6-letter room code.</code></pre>
+              <p>
+                Put <code>^</code> as the first character inside the brackets to flip the meaning. For example,
+                <code>[^0-9]</code> means "anything except a digit".
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>OR, groups, and repeated text</summary>
+            <div class="faq-item-content">
+              <p>
+                Use <code>|</code> to say "this or that". Parentheses group parts of a pattern together so the choices
+                share the same anchors or repeat as one unit.
+              </p>
+              <pre><code>greet[regex="\\b(hi|hello|hey|sup|yo)\\b"]:Welcome to the lobby!</code></pre>
+              <p>
+                This catches any of those greeting words. Grouping matters: <code>^hi|hello$</code> means "starts with
+                hi OR ends with hello". Use <code>^(hi|hello)$</code> when you mean the entire message is exactly
+                <code>hi</code> or exactly <code>hello</code>.
+              </p>
+              <pre><code>laugh[regex="(ha)+"]:That is a lot of laughing.
+good[regex="(very )*good"]:Glad to hear it.</code></pre>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Dots, numbers, words, and shortcuts</summary>
+            <div class="faq-item-content">
+              <p>
+                A dot <code>.</code> matches any single character: a letter, digit, symbol, space, anything. Shortcuts
+                describe common kinds of characters.
+              </p>
+              <table>
+                <tbody>
+                  <tr><td><code>.</code></td><td>Any single character.</td></tr>
+                  <tr><td><code>.*</code></td><td>Anything at all in between.</td></tr>
+                  <tr><td><code>\\d</code></td><td>Any digit, same as <code>[0-9]</code>.</td></tr>
+                  <tr><td><code>\\w</code></td><td>Any word character: letters, digits, or underscore.</td></tr>
+                  <tr><td><code>\\s</code></td><td>Any whitespace, like a space or tab.</td></tr>
+                  <tr><td><code>\\b</code></td><td>A word boundary, useful for matching a word by itself.</td></tr>
+                </tbody>
+              </table>
+              <pre><code>roleinfo[regex="what.*role"]:Check the role list with /roles!
+pin[regex="^\\d{4}$"]:That looks like a 4 digit PIN.
+mention[regex="@\\w+"]:That looks like a player tag.</code></pre>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Inline flags</summary>
+            <div class="faq-item-content">
+              <p>
+                Flags go at the very start of your pattern inside <code>(?...)</code> and change how the pattern
+                behaves. EHR already ignores uppercase/lowercase differences, but these flags are useful to recognize
+                when testing or sharing patterns.
+              </p>
+              <table>
+                <tbody>
+                  <tr><td><code>(?i)</code></td><td>Case-insensitive. <code>hello</code> matches <code>Hello</code>, <code>HELLO</code>, and <code>HeLLo</code>.</td></tr>
+                  <tr><td><code>(?m)</code></td><td>Multiline. <code>^</code> and <code>$</code> match the start and end of each line.</td></tr>
+                  <tr><td><code>(?s)</code></td><td>Dot-all. <code>.</code> can also match newline characters.</td></tr>
+                  <tr><td><code>(?x)</code></td><td>Extended. Spaces in the pattern are ignored and <code>#</code> starts a regex comment.</td></tr>
+                </tbody>
+              </table>
+              <pre><code>greet[regex="(?i)^\\b(hi|hey|hello|sup)\\b"]:Welcome to the lobby!</code></pre>
+              <p>
+                You can combine flags freely, like <code>(?im)</code>. Most EHR templates will not need flags, but
+                knowing what they are makes examples from regex tools easier to read.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Escaping special characters</summary>
+            <div class="faq-item-content">
+              <p>
+                Some characters have special meaning in regex: <code>. * + ? ^ $ { } [ ] | ( ) \</code>. If you want
+                to match one of them literally, put a backslash in front of it.
+              </p>
+              <table>
+                <tbody>
+                  <tr><td>A literal dot</td><td><code>\\.</code></td></tr>
+                  <tr><td>A literal question mark</td><td><code>\\?</code></td></tr>
+                  <tr><td>Literal parentheses</td><td><code>\\(sus\\)</code></td></tr>
+                  <tr><td>Three dots</td><td><code>\\.\\.\\.</code></td></tr>
+                </tbody>
+              </table>
+              <p>
+                This is one of the most common mistakes: <code>v1.0</code> means <code>v1</code>, then any character,
+                then <code>0</code>. Use <code>v1\\.0</code> when you mean the real dot in <code>v1.0</code>.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
             <summary>How do I combine regex with other rules?</summary>
             <div class="faq-item-content">
               <p>
@@ -1125,15 +1508,90 @@ No slurs, no teaming, no stream sniping, and keep meetings readable.</code></pre
           </details>
 
           <details class="faq-item">
+            <summary>Useful real examples</summary>
+            <div class="faq-item-content">
+              <p>These are ready to copy and adjust.</p>
+              <pre><code># Respond to greetings
+greet[regex="\\b(hi|hello|hey|sup|yo)\\b"]:Hey! Welcome to the lobby!
+
+# Answer role questions
+roleinfo[regex="what.*(role|roles)"]:Check the role list with /roles in chat!
+
+# Share the room code when asked
+roomcode[regex="(room ?code|what.s the code|how (do i|to) join)"]:The room code is {{RoomCode}}!
+
+# Catch a message that is only 6 letters, like an Among Us room code
+SelfPromo[regex="^[A-Za-z]{6}$"]:DO NOT ADVERTISE YOUR LOBBY HERE!
+
+# Reply when someone types only a number
+countdown[regex="^\\d+$"]:Numbers are not votes. Use the meeting buttons.</code></pre>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Quick regex reference</summary>
+            <div class="faq-item-content">
+              <p>Use this when you remember what you want, but not the symbol for it.</p>
+              <table>
+                <tbody>
+                  <tr><td><code>hello</code></td><td>The word hello anywhere in the message.</td></tr>
+                  <tr><td><code>^hello</code></td><td>Message starts with hello.</td></tr>
+                  <tr><td><code>hello$</code></td><td>Message ends with hello.</td></tr>
+                  <tr><td><code>^hello$</code></td><td>Entire message is exactly hello.</td></tr>
+                  <tr><td><code>.</code></td><td>Any single character.</td></tr>
+                  <tr><td><code>\\.</code></td><td>A literal dot.</td></tr>
+                  <tr><td><code>\\w</code></td><td>Any letter, digit, or underscore.</td></tr>
+                  <tr><td><code>\\d</code></td><td>Any digit 0-9.</td></tr>
+                  <tr><td><code>\\s</code></td><td>Any whitespace.</td></tr>
+                  <tr><td><code>\\b</code></td><td>Word boundary.</td></tr>
+                  <tr><td><code>*</code></td><td>Zero or more of the previous thing.</td></tr>
+                  <tr><td><code>+</code></td><td>One or more of the previous thing.</td></tr>
+                  <tr><td><code>?</code></td><td>Zero or one of the previous thing.</td></tr>
+                  <tr><td><code>{4}</code></td><td>Exactly 4 of the previous thing.</td></tr>
+                  <tr><td><code>[a-z]</code></td><td>Any lowercase letter.</td></tr>
+                  <tr><td><code>[^0-9]</code></td><td>Anything except a digit.</td></tr>
+                  <tr><td><code>a|b</code></td><td>a or b.</td></tr>
+                  <tr><td><code>(abc)</code></td><td>Group.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <details class="faq-item">
             <summary>Common mistakes</summary>
             <div class="faq-item-content">
               <ul>
                 <li>Use quotes around the regex value: <code>regex="^!rules$"</code>.</li>
                 <li>Double backslashes in regex shortcuts: write <code>\\d+</code>, not <code>\d+</code>.</li>
+                <li>Escape dots when you mean a real dot: write <code>v1\\.0</code>, not <code>v1.0</code>.</li>
                 <li>Use <code>^</code> and <code>$</code> for commands so random sentences do not trigger them.</li>
+                <li>Group shared choices with parentheses: use <code>^(hi|hello)$</code>, not <code>^hi|hello$</code>.</li>
                 <li>Use <code>|</code> for "or", such as <code>body|report|dead</code>.</li>
                 <li>Keep broad patterns like <code>.*</code> rare because they match almost everything.</li>
               </ul>
+              <p>
+                Testing tip: regex101.com is useful if you set the flavor to .NET. Remember to double backslashes again
+                when you paste the final pattern into <code>template.txt</code>.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Testing your patterns</summary>
+            <div class="faq-item-content">
+              <p>
+                Before adding a pattern to your template file, test it at regex101.com and set the flavor to .NET.
+                Paste in sample messages to see what matches and what does not. The site also explains what each part
+                of your pattern does, which is great for learning.
+              </p>
+              <p>
+                One EHR-specific reminder: this template parser stores doubled backslashes. If regex101 shows
+                <code>\bdiscord\b</code>, write <code>\\bdiscord\\b</code> in <code>template.txt</code>.
+              </p>
+              <p>
+                No matter how careful you are, broad patterns can still catch messages you did not expect. Test with
+                examples that should match and examples that should not match.
+              </p>
             </div>
           </details>
         </div>
