@@ -3442,14 +3442,14 @@
         },
         {
           name: "Star Lover",
-          preview: "\u2726Lover\u2726",
-          text: "\u2726Lover\u2726",
+          preview: "\u2661Lover\u2661",
+          text: "\u2661Lover\u2661",
           font: "VCR SDF",
           material: "VCR Black Outline",
           size: "110%",
           style(glyphs) {
             glyphs.forEach((glyph, idx) => {
-              if (glyph === "\u2726") {
+              if (glyph === "\u2661") {
                 applyPresetIndexStyle(idx, { size: "65%", voffset: idx === 0 ? "0.26em" : "-0.18em", rotate: idx === 0 ? "-10" : "10" });
               } else if (!isTagSpaceGlyph(glyph)) {
                 applyPresetIndexStyle(idx, { cspace: "0.1", underline: true });
@@ -3493,15 +3493,15 @@
         },
         {
           name: "Moon Sussy",
-          preview: "\u263e Sussy \u2606",
-          text: "\u263e Sussy \u2606",
+          preview: "\u2600 Sussy \u2606",
+          text: "\u2600 Sussy \u2606",
           font: "Barlow-Black SDF",
           material: "",
           size: "100%",
           style(glyphs) {
             glyphs.forEach((glyph, idx) => {
-              if (glyph === "\u263e" || glyph === "\u2606") {
-                applyPresetIndexStyle(idx, { size: "72%", voffset: "0.18em", rotate: glyph === "\u263e" ? "-12" : "12" });
+              if (glyph === "\u2600" || glyph === "\u2606") {
+                applyPresetIndexStyle(idx, { size: "72%", voffset: "0.18em", rotate: glyph === "\u2600" ? "-12" : "12" });
               } else if (!isTagSpaceGlyph(glyph)) {
                 applyPresetIndexStyle(idx, { cspace: "0.12" });
               }
@@ -3788,8 +3788,8 @@
         const patterns = [
           { name: "Heart Star", left: "\u2665", right: "\u2606", font: "BROOK SDF", size: "100%" },
           { name: "Flower Heart", left: "\u273f", right: "\u2661", font: "VCR SDF", size: "100%", material: "VCR Black Outline" },
-          { name: "Star Flower", left: "\u2726", right: "\u273f", font: "OCRAEXT SDF", size: "90%" },
-          { name: "Moon Star", left: "\u263e", right: "\u2606", font: "Barlow-Black SDF", size: "100%" }
+          { name: "Star Flower", left: "\u2661", right: "\u273f", font: "OCRAEXT SDF", size: "90%" },
+          { name: "Moon Star", left: "\u2600", right: "\u2606", font: "Barlow-Black SDF", size: "100%" }
         ];
         const pattern = patterns[customPresetCount % patterns.length];
         customPresetCount += 1;
