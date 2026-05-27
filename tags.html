@@ -3766,23 +3766,6 @@
           }
         },
         {
-          name: "Pink Bean",
-          preview: "\u273FPink Bean\u273F",
-          text: "\u273FPink Bean\u273F",
-          font: "BROOK SDF",
-          material: "",
-          size: "100%",
-          style(glyphs) {
-            glyphs.forEach((glyph, idx) => {
-              if (glyph === "\u273F") {
-                applyPresetIndexStyle(idx, { size: "58%", voffset: idx === 0 ? "0.38em" : "-0.24em" });
-              } else if (!isTagSpaceGlyph(glyph)) {
-                applyPresetIndexStyle(idx, { italic: true });
-              }
-            });
-          }
-        },
-        {
           name: "Vote Me",
           preview: "\u266AVote Me\u266B",
           text: "\u266AVote Me\u266B",
@@ -3895,23 +3878,6 @@
             glyphs.forEach((glyph, idx) => {
               if (glyph === "\u266A" || glyph === "\u266B") {
                 applyPresetIndexStyle(idx, { size: "60%", voffset: idx === 0 ? "0.38em" : "-0.24em" });
-              } else if (!isTagSpaceGlyph(glyph)) {
-                applyPresetIndexStyle(idx, { italic: true });
-              }
-            });
-          }
-        },
-        {
-          name: "Cam Watcher",
-          preview: "\u2600Cam Watcher\u2600",
-          text: "\u2600Cam Watcher\u2600",
-          font: "BROOK SDF",
-          material: "",
-          size: "100%",
-          style(glyphs) {
-            glyphs.forEach((glyph, idx) => {
-              if (glyph === "\u2600") {
-                applyPresetIndexStyle(idx, { size: "62%", voffset: idx === 0 ? "0.38em" : "-0.24em" });
               } else if (!isTagSpaceGlyph(glyph)) {
                 applyPresetIndexStyle(idx, { italic: true });
               }
