@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T13:27:03.722846+00:00",
+  "generated_at": "2026-05-29T13:45:20.951945+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -21,17 +21,17 @@
       "host_id": 715357982853955689,
       "host_name": "nl25",
       "slug": "nl25",
-      "upvoted_by_users": 10,
-      "upvoted_times": 22,
-      "last_upvoted_at": "2026-05-28T17:00:30.488173+00:00"
+      "upvoted_by_users": 11,
+      "upvoted_times": 23,
+      "last_upvoted_at": "2026-05-29T13:45:20.947570+00:00"
     },
     "nl25": {
       "host_id": 715357982853955689,
       "host_name": "nl25",
       "slug": "nl25",
-      "upvoted_by_users": 10,
-      "upvoted_times": 22,
-      "last_upvoted_at": "2026-05-28T17:00:30.488173+00:00"
+      "upvoted_by_users": 11,
+      "upvoted_times": 23,
+      "last_upvoted_at": "2026-05-29T13:45:20.947570+00:00"
     },
     "239631525350604801": {
       "host_id": 239631525350604801,
