@@ -1471,6 +1471,496 @@
         color: #ff0000;
         text-decoration: underline;
       }
+      /* MAUL studio refresh */
+      :root {
+        --accent: #ff384d;
+        --accent-soft: rgba(255, 56, 77, 0.22);
+        --accent-strong: #ff6b54;
+        --gold: #ffd37a;
+        --ink: rgba(5, 3, 5, 0.9);
+        --bg-card: rgba(18, 10, 12, 0.78);
+        --bg-soft: rgba(35, 18, 20, 0.72);
+        --line: rgba(255, 255, 255, 0.13);
+        --line-strong: rgba(255, 255, 255, 0.22);
+        --text-main: #fff8ef;
+        --text-muted: rgba(255, 248, 239, 0.74);
+        --shadow: 0 22px 70px rgba(0, 0, 0, 0.58);
+      }
+
+      body {
+        background:
+          linear-gradient(110deg, rgba(122, 10, 21, 0.5), rgba(7, 5, 7, 0.92) 42%, rgba(18, 25, 25, 0.78)),
+          url("images/maulredbg.png") no-repeat center top fixed,
+          #030203;
+        background-size: cover, min(980px, 100vw) auto, auto;
+      }
+
+      body::before {
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        background-size: 64px 64px;
+        mix-blend-mode: normal;
+        opacity: 0.42;
+        z-index: -2;
+      }
+
+      body::after {
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.82)),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.05) 42%, rgba(0, 0, 0, 0.5));
+      }
+
+      .dropbtn {
+        background: rgba(12, 7, 8, 0.76);
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.46);
+      }
+
+      .dropdown {
+        left: auto;
+        right: 20px;
+      }
+
+      .dropdown-content {
+        left: auto;
+        right: 0;
+      }
+
+      .hamburger span {
+        background: linear-gradient(90deg, var(--gold), var(--accent));
+      }
+
+      .dropdown-content {
+        background-color: rgba(12, 7, 8, 0.94);
+        border-color: var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .page-wrapper {
+        max-width: 1280px;
+        margin-bottom: 56px;
+        padding: 88px 24px 0;
+      }
+
+      .header {
+        isolation: isolate;
+        overflow: hidden;
+        min-height: 300px;
+        display: grid;
+        align-content: end;
+        text-align: left;
+        padding: clamp(34px, 6vw, 72px);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background:
+          linear-gradient(105deg, rgba(18, 9, 12, 0.82), rgba(35, 16, 17, 0.54) 54%, rgba(5, 5, 7, 0.62)),
+          rgba(10, 7, 8, 0.78);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+      }
+
+      .header::before {
+        content: "TAGS";
+        position: absolute;
+        right: -0.12em;
+        top: 50%;
+        z-index: -1;
+        transform: translateY(-50%);
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(5.8rem, 15vw, 12.5rem);
+        font-weight: 700;
+        line-height: 0.78;
+        letter-spacing: 0.03em;
+        color: rgba(255, 248, 239, 0.055);
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.07);
+        white-space: nowrap;
+      }
+
+      .header::after {
+        content: "";
+        position: absolute;
+        right: clamp(12px, 7vw, 92px);
+        bottom: -78px;
+        width: min(34vw, 360px);
+        aspect-ratio: 1;
+        background: url("images/maulnobg.png") center / contain no-repeat;
+        opacity: 0.34;
+        filter: drop-shadow(0 36px 48px rgba(0, 0, 0, 0.72));
+        z-index: -1;
+      }
+
+      .header-badge {
+        width: fit-content;
+        margin-bottom: 18px;
+        background: rgba(10, 6, 7, 0.68);
+        border-color: rgba(255, 255, 255, 0.18);
+        color: rgba(255, 248, 239, 0.78);
+        letter-spacing: 0.12em;
+      }
+
+      .header h1 {
+        max-width: 760px;
+        font-size: clamp(3.5rem, 8vw, 7rem);
+        line-height: 0.88;
+        letter-spacing: 0;
+      }
+
+      .header h1 span {
+        background: linear-gradient(120deg, #fff8ef 0%, #fff8ef 42%, var(--gold) 70%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .header-subtitle {
+        max-width: 620px;
+        margin: 18px 0 0;
+        font-size: 1.02rem;
+        color: rgba(255, 248, 239, 0.78);
+      }
+
+      .header-highlight,
+      .info-paragraph strong,
+      .info-paragraph a {
+        color: var(--gold);
+      }
+
+      .header-actions {
+        justify-content: flex-start;
+      }
+
+      .cta-primary,
+      .cta-secondary,
+      .copy-btn {
+        min-height: 40px;
+        border-radius: 999px;
+        font-weight: 700;
+      }
+
+      .cta-primary {
+        background: linear-gradient(135deg, #ff775d, #ff384d 52%, #9d1022);
+        box-shadow: 0 18px 36px rgba(255, 56, 77, 0.2), 0 18px 42px rgba(0, 0, 0, 0.55);
+      }
+
+      .cta-secondary,
+      .copy-btn {
+        background: rgba(8, 5, 6, 0.58);
+        border-color: var(--line-strong);
+        color: var(--text-main);
+      }
+
+      .info-paragraph {
+        max-width: 100%;
+        margin: 18px auto 18px;
+        padding: 16px 18px;
+        border-radius: 8px;
+        background: rgba(12, 7, 8, 0.66);
+        border-color: var(--line);
+        box-shadow: 0 16px 44px rgba(0, 0, 0, 0.34);
+      }
+
+      .content-grid {
+        max-width: 100%;
+        padding: 0;
+        gap: 18px;
+      }
+
+      .panel,
+      .inline-preview-panel,
+      .collapsible-card,
+      .default-presets,
+      .advanced-panel,
+      .icon-picker-menu {
+        border-radius: 8px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025)),
+          var(--bg-card);
+        border: 1px solid var(--line);
+        box-shadow: 0 20px 58px rgba(0, 0, 0, 0.42);
+        backdrop-filter: blur(18px);
+      }
+
+      .panel {
+        padding: clamp(18px, 3vw, 30px);
+      }
+
+      .section-title {
+        text-align: left;
+        margin-bottom: 8px;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(1.7rem, 3vw, 2.55rem);
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .section-title u {
+        text-decoration: none;
+      }
+
+      .section-subtitle {
+        max-width: 640px;
+        text-align: left;
+        line-height: 1.55;
+        margin-bottom: 22px;
+        color: var(--text-muted);
+      }
+
+      .gen-wrap {
+        gap: 16px;
+      }
+
+      .gen-controls {
+        gap: 12px;
+        align-items: stretch;
+      }
+
+      .gen-controls .field,
+      .gen-stop,
+      .advanced-adjustment,
+      .default-custom-row input,
+      .preview-name-row input {
+        border-radius: 8px;
+        background: rgba(6, 4, 5, 0.46);
+        border: 1px solid var(--line);
+        color: var(--text-muted);
+      }
+
+      .gen-controls .field {
+        min-height: 46px;
+        padding: 9px 11px;
+      }
+
+      .gen-controls .field label,
+      .gen-controls .field strong,
+      .preview-name-row label,
+      .color label {
+        color: rgba(255, 248, 239, 0.84);
+        font-weight: 700;
+      }
+
+      .gen-controls input[type="text"],
+      .gen-controls input[type="number"],
+      .gen-controls select,
+      .gen-controls textarea,
+      .gen-stop input[type="text"],
+      .icon-search,
+      .advanced-adjustment input,
+      .advanced-adjustment select {
+        min-height: 36px;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.38);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: var(--text-main);
+        padding: 7px 9px;
+        outline: none;
+      }
+
+      .gen-controls input:focus,
+      .gen-controls select:focus,
+      .gen-controls textarea:focus,
+      .gen-stop input:focus,
+      .icon-search:focus,
+      .preview-name-row input:focus {
+        border-color: rgba(255, 211, 122, 0.55);
+        box-shadow: 0 0 0 3px rgba(255, 211, 122, 0.12);
+      }
+
+      .copy-btn:hover,
+      .cta-secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 211, 122, 0.45);
+        color: #fff8ef;
+        transform: translateY(-1px);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.42);
+      }
+
+      .download-glow {
+        background:
+          linear-gradient(135deg, rgba(255, 119, 93, 0.96), rgba(255, 56, 77, 0.92) 58%, rgba(117, 9, 25, 0.96));
+        border-color: rgba(255, 211, 122, 0.38);
+        box-shadow: 0 18px 34px rgba(255, 56, 77, 0.2), 0 14px 30px rgba(0, 0, 0, 0.48);
+      }
+
+      .gen-output code,
+      #ntg-lotus-visual,
+      #ntg-preview,
+      #ntg-lotus-grad-preview {
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.5);
+        border-color: var(--line);
+      }
+
+      .inline-preview-panel {
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025)),
+          rgba(9, 6, 7, 0.74);
+      }
+
+      #ntg-visual {
+        min-height: 62px;
+        padding: 18px;
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
+          rgba(0, 0, 0, 0.38);
+        border: 1px solid var(--line);
+      }
+
+      .default-preset-btn,
+      .default-color-btn,
+      .icon-btn {
+        border-radius: 8px;
+        border-color: var(--line);
+        background: rgba(255, 255, 255, 0.045);
+      }
+
+      .default-preset-btn.selected,
+      .default-color-btn.selected {
+        border-color: rgba(255, 211, 122, 0.72);
+        box-shadow:
+          0 0 0 2px rgba(255, 211, 122, 0.13),
+          0 0 24px rgba(255, 56, 77, 0.2);
+      }
+
+      @media (max-width: 760px) {
+        .page-wrapper {
+          padding: 84px 14px 0;
+        }
+
+        .header {
+          min-height: 260px;
+          padding: 28px 22px;
+        }
+
+        .header::after {
+          width: 230px;
+          right: -52px;
+          bottom: -52px;
+          opacity: 0.2;
+        }
+
+        .header h1 {
+          font-size: clamp(3rem, 17vw, 4.8rem);
+        }
+
+        .header-subtitle {
+          font-size: 0.95rem;
+        }
+
+        .info-paragraph {
+          font-size: 0.92rem;
+        }
+      }
+
+      /* Richness pass: remove shadow text and warm the glass */
+      body {
+        background:
+          radial-gradient(circle at 18% 12%, rgba(255, 56, 77, 0.34), transparent 34%),
+          radial-gradient(circle at 82% 4%, rgba(255, 211, 122, 0.15), transparent 30%),
+          linear-gradient(118deg, rgba(86, 3, 14, 0.86), rgba(10, 4, 6, 0.96) 43%, rgba(2, 14, 14, 0.9)),
+          url("images/maulredbg.png") no-repeat center top fixed,
+          #030203;
+        background-size: auto, auto, cover, min(1120px, 112vw) auto, auto;
+      }
+
+      body::after {
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.8)),
+          radial-gradient(circle at 42% 24%, rgba(117, 9, 25, 0.28), transparent 45%),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.08), rgba(55, 4, 10, 0.26) 38%, rgba(0, 0, 0, 0.58));
+      }
+
+      .header::before {
+        content: none;
+        display: none;
+      }
+
+      .header {
+        background:
+          linear-gradient(118deg, rgba(62, 8, 14, 0.9), rgba(22, 7, 9, 0.86) 48%, rgba(4, 13, 13, 0.78)),
+          radial-gradient(circle at 16% 18%, rgba(255, 97, 75, 0.22), transparent 38%),
+          rgba(12, 6, 7, 0.9);
+        border-color: rgba(255, 211, 122, 0.2);
+        box-shadow:
+          0 34px 90px rgba(0, 0, 0, 0.66),
+          inset 0 1px 0 rgba(255, 255, 255, 0.11),
+          inset 0 -1px 0 rgba(255, 56, 77, 0.12);
+      }
+
+      .header::after {
+        opacity: 0.46;
+        right: clamp(-8px, 4vw, 56px);
+        bottom: -12px;
+        width: min(37vw, 400px);
+      }
+
+      .header h1 {
+        text-shadow:
+          0 4px 22px rgba(0, 0, 0, 0.58),
+          0 0 34px rgba(255, 56, 77, 0.14);
+      }
+
+      .header h1 span {
+        background: linear-gradient(120deg, #fffdf7 0%, #fff8ef 34%, #ffd37a 66%, #ff475a 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .panel,
+      .inline-preview-panel,
+      .collapsible-card,
+      .default-presets,
+      .advanced-panel,
+      .icon-picker-menu {
+        background:
+          linear-gradient(145deg, rgba(80, 13, 18, 0.42), rgba(12, 6, 7, 0.86) 46%, rgba(8, 16, 16, 0.68)),
+          rgba(15, 7, 8, 0.9);
+        border-color: rgba(255, 211, 122, 0.14);
+        box-shadow:
+          0 24px 72px rgba(0, 0, 0, 0.52),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .info-paragraph,
+      .gen-controls .field,
+      .gen-stop,
+      .advanced-adjustment,
+      .default-custom-row input,
+      .preview-name-row input,
+      #ntg-visual {
+        background:
+          linear-gradient(135deg, rgba(71, 12, 16, 0.46), rgba(5, 4, 5, 0.74)),
+          rgba(10, 5, 6, 0.78);
+        border-color: rgba(255, 211, 122, 0.13);
+      }
+
+      .gen-controls input[type="text"],
+      .gen-controls input[type="number"],
+      .gen-controls select,
+      .gen-controls textarea,
+      .gen-stop input[type="text"],
+      .icon-search,
+      .advanced-adjustment input,
+      .advanced-adjustment select {
+        background: rgba(2, 2, 3, 0.56);
+        border-color: rgba(255, 248, 239, 0.16);
+      }
+
+      .cta-secondary,
+      .copy-btn {
+        background:
+          linear-gradient(135deg, rgba(67, 12, 16, 0.58), rgba(8, 5, 6, 0.76)),
+          rgba(8, 5, 6, 0.68);
+        border-color: rgba(255, 211, 122, 0.2);
+      }
+
+      .header-badge,
+      .default-preset-selected {
+        background: rgba(12, 6, 7, 0.78);
+        border-color: rgba(255, 211, 122, 0.22);
+      }
+
     </style>
   </head>
 
@@ -1481,15 +1971,14 @@
       <div class="header">
         <div class="header-badge">
           <span class="header-badge-dot"></span>
-          Template tools for MAUL lobbies
+          MAUL lobby tools
         </div>
         <h1>
-          <span>Tag Studio</span>
+          <span>MAUL Tag Studio</span>
         </h1>
         <p class="header-subtitle">
-          Build <span class="header-highlight">custom lobby tags</span> with permissions, colors, fonts, and
-          mod-specific exports. Supports <strong>EHR</strong>, <strong>TONE / TOHEN</strong>, <strong>TOHO</strong>, and
-          <strong>Project Lotus</strong>.
+          Build <span class="header-highlight">custom lobby tags</span> for modded Among Us, then export them for
+          EHR, TONE / TOHEN, TOHO, or Project Lotus.
         </p>
         <div class="header-actions">
           <a href="https://moddedamong.us/" class="cta-secondary">
@@ -1504,18 +1993,14 @@
       </div>
 
       <p class="info-paragraph">
-        Use this studio to generate <strong>ready-to-paste tags</strong> for your modded Among Us lobbies.
-        Configure name text, gradients, fonts, and permissions, then download the output as a file for your
-        configs. Project Lotus titles export as <strong>YAML</strong>, while EHR, TONE/TOHEN, and TOHO export as
-        <strong>JSON / text</strong>.
+        Generate <strong>ready-to-paste tags</strong> with colors, fonts, permissions, presets, and mod-specific output.
       </p>
 
       <main class="content-grid">
         <section class="panel" id="name-tag-generator">
-          <h2 class="section-title"><u>Custom Tag Generator</u></h2>
+          <h2 class="section-title"><u>Custom tag generator</u></h2>
           <p class="section-subtitle">
-            Build Custom tags with permissions, colors, and fonts.<br />
-            The generator currently supports EHR, TONE, TOHEN, TOHO, and Project Lotus.
+            Choose your mod, style the tag, preview it in context, then copy or download the export.
           </p>
 
           <div class="gen-wrap taggen2-wrap">
