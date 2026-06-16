@@ -12,7 +12,7 @@
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
     <meta
       property="og:description"
-      content="Join the largest non-dev modded Among Us Discord. 20K+ members! Download, join, and create Modded Among Us Lobbies."
+      content="Join the largest non-dev modded Among Us Discord. 30K+ members, modded lobbies, Mafia Remastered nights, events, voice chats, and more."
     />
     <meta property="og:site_name" content="Modded Among Us Lobbies" />
     <meta property="og:locale" content="en_US" />
@@ -20,7 +20,7 @@
 
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -33,7 +33,1028 @@
 
     <style>
       :root {
-        --accent: #800000;
+        --red: #ec2537;
+        --red-dark: #74070f;
+        --red-soft: rgba(236, 37, 55, 0.2);
+        --gold: #ffd36e;
+        --cyan: #6ef9ff;
+        --violet: #a88bff;
+        --ink: #070407;
+        --ink-2: #12080b;
+        --paper: #fff8ef;
+        --muted: #cdbfc0;
+        --line: rgba(255, 255, 255, 0.14);
+        --glass: rgba(17, 8, 11, 0.72);
+        --glass-strong: rgba(28, 12, 15, 0.88);
+        --shadow: 0 28px 80px rgba(0, 0, 0, 0.72);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--paper);
+        background:
+          linear-gradient(115deg, rgba(5, 2, 4, 0.82), rgba(17, 3, 6, 0.62) 44%, rgba(4, 1, 3, 0.94)),
+          url("images/maulredbg.png") center top / cover fixed no-repeat,
+          #030203;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 16% 18%, rgba(236, 37, 55, 0.34), transparent 32%),
+          radial-gradient(circle at 78% 8%, rgba(255, 211, 110, 0.16), transparent 28%),
+          radial-gradient(circle at 70% 78%, rgba(110, 249, 255, 0.1), transparent 30%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0), #030203 78%);
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px);
+        background-size: 54px 54px;
+        mask-image: linear-gradient(to bottom, black, transparent 80%);
+        opacity: 0.62;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      ::selection {
+        background: rgba(255, 211, 110, 0.34);
+        color: #fff;
+      }
+
+      .dropdown {
+        position: fixed;
+        top: 22px;
+        left: 22px;
+        z-index: 1000;
+      }
+
+      .dropbtn {
+        width: 54px;
+        height: 54px;
+        padding: 0;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 50%;
+        background: linear-gradient(145deg, rgba(36, 15, 18, 0.9), rgba(8, 4, 6, 0.82));
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.56), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+        cursor: pointer;
+        backdrop-filter: blur(16px);
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .dropbtn:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 211, 110, 0.38);
+        box-shadow: 0 22px 54px rgba(0, 0, 0, 0.72), 0 0 36px rgba(236, 37, 55, 0.22);
+      }
+
+      .hamburger {
+        width: 24px;
+        height: 16px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .hamburger span {
+        display: block;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--gold), var(--red));
+        box-shadow: 0 0 12px rgba(236, 37, 55, 0.42);
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 0;
+        width: 360px;
+        max-width: calc(100vw - 32px);
+        max-height: calc(100vh - 44px);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: linear-gradient(160deg, rgba(35, 14, 17, 0.96), rgba(8, 4, 6, 0.96));
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(20px);
+      }
+
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+
+      .menu-view {
+        display: none;
+        max-height: calc(100vh - 66px);
+        padding: 8px 0;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+
+      .menu-view.active {
+        display: block;
+      }
+
+      .dropdown-content a,
+      .menu-nav-btn,
+      .menu-back-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 11px;
+        padding: 15px 22px;
+        border: 0;
+        background: transparent;
+        color: var(--paper);
+        font: inherit;
+        font-size: 0.96rem;
+        text-align: left;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+      }
+
+      .dropdown-content a i:first-child,
+      .menu-nav-btn span,
+      .menu-back-btn span {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .menu-nav-btn .fa-chevron-right {
+        margin-left: auto;
+      }
+
+      .dropdown-content a:hover,
+      .menu-nav-btn:hover,
+      .menu-back-btn:hover {
+        padding-left: 27px;
+        color: var(--gold);
+        background: linear-gradient(90deg, rgba(236, 37, 55, 0.16), rgba(255, 255, 255, 0.04));
+      }
+
+      .menu-back-btn {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        margin-bottom: 4px;
+      }
+
+      .submenu-title {
+        margin-bottom: 4px;
+        padding: 13px 22px 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.62);
+        font-size: 0.76rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .beta-glow,
+      .highlight-glow {
+        color: #ff727d !important;
+        font-weight: 700;
+        text-shadow: 0 0 14px rgba(236, 37, 55, 0.7);
+      }
+
+      .page-shell {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .hero {
+        min-height: 88vh;
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+        align-items: center;
+        gap: clamp(32px, 6vw, 80px);
+        padding: 86px 0 38px;
+        position: relative;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 94px -6vw 9vh;
+        z-index: -1;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 28px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.075), transparent 38%),
+          linear-gradient(180deg, rgba(236, 37, 55, 0.1), rgba(0, 0, 0, 0.3));
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .eyebrow {
+        width: fit-content;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        padding: 8px 13px;
+        border: 1px solid rgba(255, 211, 110, 0.32);
+        border-radius: 999px;
+        background: rgba(19, 8, 11, 0.66);
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        backdrop-filter: blur(16px);
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #32f59b;
+        box-shadow: 0 0 16px rgba(50, 245, 155, 0.85);
+      }
+
+      .hero-title {
+        margin: 0;
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(3.55rem, 7.4vw, 7.5rem);
+        line-height: 0.83;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-wrap: balance;
+      }
+
+      .hero-title .line {
+        display: block;
+      }
+
+      .hero-title .brand {
+        background: linear-gradient(95deg, #fff 4%, #ffe1a1 30%, #ff3447 63%, #9b131d);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: none;
+      }
+
+      .hero-copy {
+        max-width: 630px;
+        margin: 20px 0 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 1.6vw, 1.12rem);
+        line-height: 1.78;
+      }
+
+      .hero-copy strong {
+        color: #fff;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 26px;
+      }
+
+      .button {
+        min-height: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 20px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 800;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .button-primary {
+        color: #fff;
+        background: linear-gradient(135deg, #ffcf73, #ff394b 42%, #821018);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.62), 0 0 36px rgba(236, 37, 55, 0.26);
+      }
+
+      .button-secondary {
+        color: var(--paper);
+        border: 1px solid rgba(255, 211, 110, 0.28);
+        background: rgba(14, 7, 9, 0.62);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(14px);
+      }
+
+      .button:hover {
+        transform: translateY(-3px);
+      }
+
+      .button-primary:hover {
+        box-shadow: 0 24px 58px rgba(0, 0, 0, 0.74), 0 0 44px rgba(236, 37, 55, 0.36);
+      }
+
+      .button-secondary:hover {
+        border-color: rgba(255, 211, 110, 0.5);
+        background: rgba(36, 14, 18, 0.86);
+      }
+
+      .hero-proof {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        max-width: 660px;
+        margin-top: 26px;
+      }
+
+      .proof-tile {
+        min-height: 78px;
+        padding: 13px 15px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.025)),
+          rgba(14, 6, 8, 0.72);
+        box-shadow: 0 16px 38px rgba(0, 0, 0, 0.34);
+      }
+
+      .proof-value {
+        display: block;
+        font-family: "Outfit", sans-serif;
+        font-size: 1.48rem;
+        font-weight: 800;
+      }
+
+      .proof-label {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        line-height: 1.4;
+      }
+
+      .hero-art {
+        position: relative;
+        min-height: 540px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-art::before {
+        content: "";
+        position: absolute;
+        width: min(44vw, 530px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle, rgba(255, 211, 110, 0.28), transparent 58%),
+          conic-gradient(from 210deg, rgba(236, 37, 55, 0), rgba(236, 37, 55, 0.34), rgba(110, 249, 255, 0.16), rgba(236, 37, 55, 0));
+        filter: blur(4px);
+        opacity: 0.9;
+      }
+
+      .hero-art::after {
+        content: "";
+        position: absolute;
+        inset: 17% 6% 13% 8%;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 26px;
+        transform: rotate(-5deg);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02)),
+          rgba(10, 4, 6, 0.28);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-character {
+        position: relative;
+        z-index: 2;
+        width: min(88%, 430px);
+        max-height: 580px;
+        object-fit: contain;
+        filter: drop-shadow(0 38px 42px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 34px rgba(236, 37, 55, 0.18));
+      }
+
+      .floating-card {
+        position: absolute;
+        z-index: 3;
+        right: 0;
+        bottom: 11%;
+        width: min(300px, 74%);
+        height: 106px;
+        padding: 0;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 16px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.02)),
+          rgba(12, 6, 8, 0.58);
+        box-shadow: 0 20px 56px rgba(0, 0, 0, 0.58);
+        backdrop-filter: blur(18px);
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .floating-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, transparent, rgba(255, 211, 110, 0.2), transparent),
+          radial-gradient(circle at 76% 24%, rgba(236, 37, 55, 0.28), transparent 44%);
+      }
+
+      .section {
+        padding: 36px 0 76px;
+      }
+
+      .intro-panel {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 26px;
+        align-items: stretch;
+      }
+
+      .mission {
+        padding: 30px;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025)),
+          var(--glass);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+      }
+
+      .mission h2,
+      .offer-heading h2,
+      .join-panel h2 {
+        margin: 0;
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .mission p {
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.78;
+      }
+
+      .mission strong {
+        color: #fff;
+      }
+
+      .member-info-container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .member-box,
+      .discord-button {
+        min-height: 118px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.025)),
+          rgba(17, 7, 10, 0.75);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.42);
+        text-decoration: none;
+        backdrop-filter: blur(18px);
+      }
+
+      .member-box:hover,
+      .discord-button:hover,
+      .offer-item:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 211, 110, 0.28);
+      }
+
+      .online-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #32f59b;
+        box-shadow: 0 0 18px rgba(50, 245, 155, 0.82);
+      }
+
+      .total-dot {
+        background: linear-gradient(135deg, var(--gold), var(--red));
+        box-shadow: 0 0 18px rgba(255, 211, 110, 0.62);
+      }
+
+      .member-label {
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .member-value {
+        font-family: "Outfit", sans-serif;
+        font-size: 2rem;
+        font-weight: 800;
+      }
+
+      .discord-button {
+        grid-column: 1 / -1;
+        min-height: 92px;
+        flex-direction: row;
+        align-items: center;
+        color: #fff;
+        background:
+          linear-gradient(135deg, rgba(88, 101, 242, 0.9), rgba(236, 37, 55, 0.86)),
+          rgba(17, 7, 10, 0.9);
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .discord-button img {
+        width: 38px;
+        height: 38px;
+        object-fit: contain;
+      }
+
+      .discord-button span {
+        margin-left: auto;
+        font-weight: 800;
+      }
+
+      .offer-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 22px;
+      }
+
+      .offer-heading p {
+        max-width: 440px;
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .offer-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .offer-item {
+        min-height: 220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background:
+          linear-gradient(150deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)),
+          rgba(15, 7, 9, 0.78);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.34);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .offer-item::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 16% 10%, rgba(255, 211, 110, 0.18), transparent 36%),
+          radial-gradient(circle at 88% 88%, rgba(236, 37, 55, 0.18), transparent 38%);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .offer-item:hover::before {
+        opacity: 1;
+      }
+
+      .offer-icon {
+        width: 48px;
+        height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--gold);
+        font-size: 1.18rem;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        position: relative;
+      }
+
+      .offer-item h3 {
+        margin: 20px 0 8px;
+        color: #fff;
+        font-size: 1.05rem;
+        line-height: 1.28;
+        position: relative;
+      }
+
+      .offer-item h3 a,
+      .offer-item a.inline-link {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .offer-item h3 a:hover,
+      .offer-item a.inline-link:hover {
+        color: var(--gold);
+      }
+
+      .offer-item p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.62;
+        position: relative;
+      }
+
+      .wide-offer {
+        grid-column: span 2;
+        min-height: 220px;
+        background:
+          linear-gradient(120deg, rgba(8, 4, 6, 0.64), rgba(20, 8, 10, 0.74)),
+          url("images/banner.png") right 24px top 24px / 180px auto no-repeat,
+          rgba(15, 7, 9, 0.8);
+      }
+
+      .join-panel {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 28px;
+        align-items: center;
+        padding: 32px;
+        border: 1px solid rgba(255, 211, 110, 0.22);
+        border-radius: 24px;
+        background:
+          linear-gradient(120deg, rgba(236, 37, 55, 0.2), rgba(255, 211, 110, 0.08), rgba(110, 249, 255, 0.07)),
+          rgba(16, 7, 10, 0.86);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .join-panel p {
+        max-width: 710px;
+        margin: 14px 0 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .maul-icon {
+        max-height: 1em;
+        vertical-align: middle;
+      }
+
+      @media (max-width: 1020px) {
+        .hero,
+        .intro-panel,
+        .join-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding-top: 100px;
+        }
+
+        .hero-art {
+          min-height: 430px;
+        }
+
+        .hero-character {
+          width: min(74%, 390px);
+        }
+
+        .floating-card {
+          right: 8%;
+        }
+
+        .offer-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .join-panel {
+          justify-items: start;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .page-shell {
+          width: min(100% - 28px, 1180px);
+        }
+
+        .dropdown {
+          top: 18px;
+          left: 18px;
+        }
+
+        .hero {
+          min-height: auto;
+          padding: 86px 0 38px;
+          gap: 16px;
+        }
+
+        .hero::before {
+          inset: 80px -16px 4vh;
+          border-radius: 22px;
+        }
+
+        .hero-art {
+          min-height: 288px;
+        }
+
+        .hero-art::after {
+          inset: 14% 5% 10%;
+        }
+
+        .hero-character {
+          width: min(76%, 252px);
+        }
+
+        .floating-card {
+          right: 0;
+          bottom: -1%;
+          width: min(230px, 76%);
+          height: 78px;
+        }
+
+        .eyebrow {
+          max-width: 100%;
+          line-height: 1.35;
+        }
+
+        .hero-title {
+          font-size: clamp(2.85rem, 15.2vw, 4.35rem);
+        }
+
+        .hero-copy {
+          font-size: 1rem;
+        }
+
+        .hero-actions,
+        .hero-proof,
+        .member-info-container,
+        .offer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-actions {
+          display: grid;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .proof-tile,
+        .member-box,
+        .discord-button,
+        .offer-item,
+        .mission,
+        .join-panel {
+          border-radius: 17px;
+        }
+
+        .mission,
+        .join-panel {
+          padding: 22px;
+        }
+
+        .offer-heading {
+          display: block;
+        }
+
+        .offer-heading p {
+          margin-top: 14px;
+        }
+
+        .wide-offer {
+          grid-column: auto;
+          background:
+            linear-gradient(120deg, rgba(8, 4, 6, 0.64), rgba(20, 8, 10, 0.74)),
+            rgba(15, 7, 9, 0.8);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy-block">
+          <div class="eyebrow">Largest non-dev modded Among Us Discord</div>
+          <h1 class="hero-title" id="hero-title">
+            <span class="line">Modded</span>
+            <span class="line brand">Among Us</span>
+            <span class="line">Lobbies</span>
+          </h1>
+          <p class="hero-copy">
+            Join <strong>30,000+ players</strong> for modded Among Us lobbies, Mafia Remastered nights, events, and
+            voice chats.
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://discord.gg/MAUL" target="_blank" class="button button-primary">
+              <i class="fa-brands fa-discord"></i>
+              Join MAUL
+            </a>
+            <a href="https://moddedamong.us/mods.html" class="button button-secondary">
+              <i class="fa-solid fa-puzzle-piece"></i>
+              Explore Mods
+            </a>
+          </div>
+
+          <div class="hero-proof" aria-label="MAUL server stats">
+            <div class="proof-tile">
+              <span class="proof-value">30K+</span>
+              <span class="proof-label">Community members</span>
+            </div>
+            <div class="proof-tile">
+              <span class="proof-value">Modded</span>
+              <span class="proof-label">Among Us lobbies</span>
+            </div>
+            <div class="proof-tile">
+              <span class="proof-value">Mafia</span>
+              <span class="proof-label">Remastered nights</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <img src="images/maulnobg.png" alt="" class="hero-character" />
+          <div class="floating-card"></div>
+        </div>
+      </section>
+
+      <section class="section intro-panel" aria-label="Server overview">
+        <div class="mission">
+          <h2>Games, people, and a place to hang out.</h2>
+          <p>
+            <strong>MAUL</strong> is built around Modded Among Us Lobbies, with Mafia Remastered, events, art, voice
+            chats, and regulars around between games.
+          </p>
+        </div>
+
+        <div class="member-info-container">
+          <div id="memberCountContainer" class="member-box">
+            <span class="online-dot"></span>
+            <span class="member-label">Online now</span>
+            <span id="memberCount" class="member-value">Loading...</span>
+          </div>
+          <div id="totalMembersContainer" class="member-box">
+            <span class="online-dot total-dot"></span>
+            <span class="member-label">Total members</span>
+            <span class="member-value">30,000+</span>
+          </div>
+          <a href="https://discord.gg/MAUL" target="_blank" class="discord-button">
+            <img src="images/discordicon.png" alt="" />
+            <span>Join the Discord</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </section>
+
+      <section class="section" id="whatWeOffer">
+        <div class="offer-heading">
+          <h2>What MAUL gives you.</h2>
+          <p>
+            Active games, community channels, events, support, and people around between matches.
+          </p>
+        </div>
+
+        <div class="offer-grid">
+          <article class="offer-item wide-offer">
+            <div>
+              <span class="offer-icon"><i class="fa-solid fa-gamepad"></i></span>
+              <h3>Modded Among Us lobbies</h3>
+            </div>
+            <p>The main event: active modded lobbies, regular hosts, and rooms people can actually find.</p>
+          </article>
+
+          <article class="offer-item">
+            <div>
+              <span class="offer-icon"><i class="fa-solid fa-comments"></i></span>
+              <h3>Community spaces</h3>
+            </div>
+            <p>
+              Channels for chatting, gaming, regulars, and
+              <a href="https://moddedamong.us/art.html" class="inline-link">community art</a>.
+            </p>
+          </article>
+
+          <article class="offer-item">
+            <div>
+              <span class="offer-icon"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+              <h3>Setup support</h3>
+            </div>
+            <p>Help with downloads, mod setup, lobby joining, and quick fixes.</p>
+          </article>
+
+          <article class="offer-item">
+            <div>
+              <span class="offer-icon"><i class="fa-solid fa-shield-halved"></i></span>
+              <h3><a href="https://moddedamong.us/ourstaff.html">Active moderation</a></h3>
+            </div>
+            <p>Moderators and verification staff help keep the server fair and comfortable.</p>
+          </article>
+
+          <article class="offer-item">
+            <div>
+              <span class="offer-icon"><i class="fa-solid fa-trophy"></i></span>
+              <h3><a href="https://moddedamong.us/eventpics.html">Mafia and events</a></h3>
+            </div>
+            <p>Mafia Remastered nights, themed lobbies, tournaments, and seasonal events.</p>
+          </article>
+
+          <article class="offer-item">
+            <div>
+              <span class="offer-icon"><i class="fa-solid fa-robot"></i></span>
+              <h3>Bots and extras</h3>
+            </div>
+            <p>Community tools, bot commands, and extras that keep the server active.</p>
+          </article>
+
+          <article class="offer-item">
+            <div>
+              <span class="offer-icon"><i class="fa-solid fa-star"></i></span>
+              <h3>Rewards and perks</h3>
+            </div>
+            <p>Booster perks, sponsor roles, leveling rewards, and activity perks.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="join-panel">
+          <div>
+            <h2>Ready for the next lobby?</h2>
+            <p>
+              Join the Discord and see what is running now.
+            </p>
+          </div>
+          <a href="https://discord.gg/MAUL" target="_blank" class="button button-primary">
+            <i class="fa-brands fa-discord"></i>
+            Join MAUL
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const serverId = "995954559044304896";
+      const widgetUrl = `https://discord.com/api/guilds/${serverId}/widget.json`;
+
+      fetch(widgetUrl)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("memberCount").textContent = data.presence_count;
+        })
+        .catch(error => {
+          console.error("Error fetching Discord widget data:", error);
+          document.getElementById("memberCount").textContent = "Error";
+        });
+    </script>
+    <script src="/scripts/navbar.js"></script>
+  </body>
+</html>
         --accent-soft: rgba(128, 0, 0, 0.25);
         --accent-strong: #b00000;
         --bg-card: rgba(30, 12, 12, 0.9);
@@ -633,8 +1654,8 @@
           Welcome to <span>MAUL</span>
         </h1>
         <p class="header-subtitle">
-          We’re the <span class="header-highlight">largest non-dev modded Among Us Discord</span> with over
-          <strong>20,000 members</strong>. Daily lobbies, special events, and a welcoming community ready to play.
+          We’re the <span class="header-highlight">largest Active Modded Among Us Discord</span> with over
+          <strong>30,000 members</strong>. Daily lobbies, special events, and a welcoming community ready to play.
         </p>
         <div class="header-actions">
           <a href="https://discord.gg/MAUL" target="_blank" class="cta-primary">
@@ -651,7 +1672,7 @@
       <p class="info-paragraph">
         Welcome to <strong>Modded Among Us Lobbies</strong> – the home of modded chaos, clean games, and good vibes.
         We host <strong>15+ modded lobbies every day</strong>, ranging from casual hangs to sweaty lobbies. With
-        <strong>20,000+ members</strong>, you’ll never struggle to find a game. Our staff and verification team keep
+        <strong>30,000+ members</strong>, you’ll never struggle to find a game. Our staff and verification team keep
         things safe, SFW, and friendly, so you can focus on playing.
         <br /><br />
         Ready to jump in?
