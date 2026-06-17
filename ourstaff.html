@@ -554,6 +554,445 @@
         border: 0;
       }
 
+      .page-wrapper {
+        max-width: 1490px;
+        padding: 40px 28px 70px;
+      }
+
+      body {
+        background-color: #030000;
+        background-image:
+          linear-gradient(90deg, rgba(116, 0, 14, 0.52), transparent 28%, rgba(2, 16, 14, 0.62) 100%),
+          url("images/maulredbg.png");
+        background-position: top left, top center;
+        background-size: cover, auto 100%;
+      }
+
+      body::before {
+        background:
+          radial-gradient(circle at 17% 6%, rgba(255, 58, 68, 0.34), transparent 31%),
+          radial-gradient(circle at 74% 12%, rgba(231, 174, 79, 0.16), transparent 32%),
+          linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+        background-size: auto, auto, 44px 44px, 44px 44px;
+        mix-blend-mode: normal;
+        opacity: 1;
+      }
+
+      body::after {
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.86) 76%),
+          radial-gradient(circle at center, rgba(30, 0, 0, 0.46), rgba(0, 0, 0, 0.82));
+      }
+
+      .page-header {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 410px);
+        align-items: center;
+        min-height: 430px;
+        overflow: hidden;
+        padding: 74px 64px;
+        text-align: left;
+        border: 1px solid rgba(229, 161, 91, 0.34);
+        border-radius: 8px;
+        background:
+          radial-gradient(circle at 19% 16%, rgba(139, 0, 23, 0.76), transparent 34%),
+          linear-gradient(110deg, rgba(35, 0, 6, 0.92), rgba(7, 5, 5, 0.97) 63%, rgba(2, 13, 11, 0.94));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 30px 80px rgba(0, 0, 0, 0.78);
+      }
+
+      .page-header::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(115deg, rgba(255, 255, 255, 0.08), transparent 26%),
+          radial-gradient(circle at 77% 50%, rgba(231, 174, 79, 0.12), transparent 31%);
+        pointer-events: none;
+      }
+
+      .page-header::after {
+        content: "";
+        position: absolute;
+        right: 4%;
+        bottom: -82px;
+        width: min(34vw, 430px);
+        aspect-ratio: 1;
+        background: url("images/maulnobg.png") no-repeat center bottom / contain;
+        opacity: 0.86;
+        filter: drop-shadow(0 26px 42px rgba(0, 0, 0, 0.9));
+        pointer-events: none;
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 1;
+        max-width: 820px;
+      }
+
+      .join-maul-link {
+        position: absolute;
+        top: 28px;
+        right: 34px;
+        z-index: 2;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 8px 4px;
+        color: #fff7ef;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        text-decoration: none;
+        text-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+      }
+
+      .join-maul-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 5px;
+        height: 4px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #ff3048, #ff9e54, #f6d675);
+        box-shadow: 0 0 18px rgba(255, 72, 72, 0.62);
+      }
+
+      .header-badge {
+        background: rgba(12, 8, 8, 0.78);
+        border-color: rgba(229, 161, 91, 0.38);
+        color: #efe5d6;
+        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.55);
+      }
+
+      .page-header h1 {
+        max-width: 730px;
+        font-size: clamp(3.8rem, 8.8vw, 8rem);
+        line-height: 0.88;
+        letter-spacing: 0;
+      }
+
+      .page-header h1 span {
+        display: block;
+        background: linear-gradient(100deg, #f8f1e7 0%, #b7b0a8 34%, #d6b15b 62%, #ff4656 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .page-header-subtitle {
+        margin: 26px 0 0;
+        max-width: 760px;
+        color: rgba(250, 240, 232, 0.82);
+        font-size: 1.08rem;
+        font-weight: 600;
+      }
+
+      .hero-stats {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .hero-stat {
+        min-width: 128px;
+        padding: 14px 16px;
+        border: 1px solid rgba(229, 161, 91, 0.26);
+        border-radius: 8px;
+        background: rgba(12, 6, 6, 0.72);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .hero-stat strong,
+      .hero-stat span {
+        display: block;
+      }
+
+      .hero-stat strong {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.28rem;
+      }
+
+      .hero-stat span {
+        margin-top: 2px;
+        color: rgba(250, 240, 232, 0.68);
+        font-size: 0.78rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .staff-hub {
+        grid-template-columns: 0.9fr 1.1fr;
+        align-items: stretch;
+        margin-top: 24px;
+      }
+
+      .controls-section {
+        grid-column: 1 / -1;
+      }
+
+      .glass-card,
+      .directory-shell {
+        border-radius: 8px;
+        border-color: rgba(229, 161, 91, 0.24);
+        background:
+          linear-gradient(145deg, rgba(45, 7, 12, 0.86), rgba(12, 9, 9, 0.94) 58%, rgba(2, 15, 14, 0.86));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 24px 58px rgba(0, 0, 0, 0.68);
+      }
+
+      .jump-section,
+      .apply-section,
+      .controls-section {
+        padding: 26px;
+      }
+
+      .section-kicker,
+      .search-label,
+      .role-eyebrow {
+        color: rgba(237, 202, 151, 0.84);
+      }
+
+      .jump-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .jump-link,
+      .filter-btn,
+      .apply-pill {
+        border-color: rgba(229, 161, 91, 0.25);
+        background: rgba(8, 4, 4, 0.58);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .jump-link:hover,
+      .filter-btn:hover,
+      .apply-pill:hover {
+        border-color: rgba(255, 202, 126, 0.48);
+        box-shadow: 0 18px 32px rgba(0, 0, 0, 0.58);
+      }
+
+      .jump-count,
+      .status-pill {
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(250, 240, 232, 0.8);
+      }
+
+      .apply-pill.is-open {
+        background: linear-gradient(135deg, rgba(13, 77, 47, 0.78), rgba(9, 42, 31, 0.9));
+      }
+
+      .apply-pill.is-closed {
+        background: rgba(48, 10, 14, 0.72);
+        border-style: solid;
+      }
+
+      .controls-layout {
+        align-items: center;
+      }
+
+      .search-input {
+        min-height: 56px;
+        border-radius: 999px;
+        border-color: rgba(229, 161, 91, 0.28);
+        background: rgba(2, 0, 0, 0.62);
+        padding: 14px 22px;
+      }
+
+      .search-input:focus {
+        border-color: rgba(255, 190, 93, 0.72);
+        box-shadow: 0 0 0 4px rgba(255, 71, 71, 0.14);
+      }
+
+      .filter-row {
+        justify-content: flex-end;
+      }
+
+      .filter-btn.is-active {
+        background: linear-gradient(135deg, #ff3349, #b70924 48%, #3b0509);
+        box-shadow: 0 14px 30px rgba(165, 0, 21, 0.35);
+      }
+
+      .directory-section {
+        margin-top: 30px;
+      }
+
+      .directory-shell {
+        padding: 30px;
+      }
+
+      .directory-title {
+        font-size: clamp(1.8rem, 3vw, 2.65rem);
+      }
+
+      .staff-group {
+        margin-top: 28px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(229, 161, 91, 0.16);
+        scroll-margin-top: 92px;
+      }
+
+      .staff-group:first-of-type {
+        border-top: 0;
+      }
+
+      .staff-group-head {
+        margin-bottom: 18px;
+      }
+
+      .staff-group-title {
+        font-size: 1.34rem;
+        letter-spacing: 0.06em;
+      }
+
+      .staff-grid {
+        gap: 18px;
+      }
+
+      .staff-card {
+        position: relative;
+        overflow: hidden;
+        min-height: 230px;
+        padding: 18px;
+        border-radius: 8px;
+        border-color: rgba(229, 161, 91, 0.2);
+        background:
+          linear-gradient(155deg, rgba(37, 7, 10, 0.9), rgba(9, 8, 8, 0.96) 58%, rgba(0, 17, 15, 0.88));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          0 18px 42px rgba(0, 0, 0, 0.56);
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .staff-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 22% 0%, rgba(255, 68, 74, 0.16), transparent 35%),
+          linear-gradient(115deg, rgba(255, 255, 255, 0.07), transparent 24%);
+        pointer-events: none;
+      }
+
+      .staff-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(255, 196, 110, 0.46);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 24px 48px rgba(0, 0, 0, 0.7);
+      }
+
+      .staff-card-head,
+      .staff-more {
+        position: relative;
+        z-index: 1;
+      }
+
+      .staff-avatar {
+        width: 102px;
+        height: 102px;
+        border-radius: 8px;
+        border-color: rgba(229, 161, 91, 0.38);
+        box-shadow:
+          0 16px 30px rgba(0, 0, 0, 0.62),
+          0 0 0 5px rgba(255, 255, 255, 0.035);
+      }
+
+      .staff-card h3 {
+        font-size: 1.24rem;
+        line-height: 1.15;
+      }
+
+      .card-badge {
+        border: 1px solid rgba(229, 161, 91, 0.22);
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .card-badge.secondary {
+        border-color: rgba(255, 77, 77, 0.22);
+        background: rgba(128, 0, 0, 0.18);
+      }
+
+      .staff-more {
+        margin-top: auto;
+        border-color: rgba(229, 161, 91, 0.13);
+      }
+
+      .staff-more summary {
+        color: #f7d7ad;
+      }
+
+      .modal-content {
+        border-radius: 8px;
+        border-color: rgba(229, 161, 91, 0.28);
+        background: linear-gradient(145deg, rgba(45, 7, 12, 0.96), rgba(9, 7, 7, 0.98));
+      }
+
+      @media (max-width: 940px) {
+        .page-header {
+          grid-template-columns: 1fr;
+          min-height: 520px;
+          padding: 76px 32px 230px;
+        }
+
+        .page-header::after {
+          right: 50%;
+          bottom: -80px;
+          width: min(66vw, 340px);
+          transform: translateX(54%);
+        }
+
+        .staff-hub {
+          grid-template-columns: 1fr;
+        }
+
+        .controls-section {
+          grid-column: auto;
+        }
+
+        .filter-row {
+          justify-content: flex-start;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .page-wrapper {
+          padding: 84px 14px 52px;
+        }
+
+        .page-header {
+          padding: 72px 18px 220px;
+        }
+
+        .join-maul-link {
+          right: 18px;
+          top: 18px;
+        }
+
+        .page-header h1 {
+          font-size: clamp(3rem, 18vw, 4.6rem);
+        }
+
+        .jump-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .directory-shell {
+          padding: 20px 14px;
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         * {
           animation-duration: 0.001ms !important;
@@ -569,15 +1008,32 @@
 
     <div class="page-wrapper">
       <header class="page-header">
-        <div class="header-badge">
-          <span class="header-badge-dot"></span>
-          Meet the Team Behind MAUL
+        <a class="join-maul-link" href="https://discord.gg/maul" target="_blank" rel="noopener">Join MAUL</a>
+        <div class="hero-copy">
+          <div class="header-badge">
+            <span class="header-badge-dot"></span>
+            Meet the Team Behind MAUL
+          </div>
+          <h1>Our <span>Staff</span></h1>
+          <p class="page-header-subtitle">
+            Owners, admins, moderators, verification, events, and giveaways all in one clean directory.
+            Search by name, jump to a team, and open a card when you want the details.
+          </p>
+          <div class="hero-stats" aria-label="Staff directory summary">
+            <div class="hero-stat">
+              <strong>24</strong>
+              <span>Staff Cards</span>
+            </div>
+            <div class="hero-stat">
+              <strong>5</strong>
+              <span>Teams</span>
+            </div>
+            <div class="hero-stat">
+              <strong>30K+</strong>
+              <span>Members</span>
+            </div>
+          </div>
         </div>
-        <h1>Our <span>Staff</span></h1>
-        <p class="page-header-subtitle">
-          Owners, admins, moderators, verification, events, and giveaways all in one cleaner directory.
-          Search by name, jump straight to a team, and expand any card when you want more.
-        </p>
       </header>
 
       <div class="staff-hub">
@@ -587,7 +1043,7 @@
           <nav class="jump-grid" aria-label="Staff section shortcuts">
             <a class="jump-link" href="#owners"><span>Owners</span><span class="jump-count">2</span></a>
             <a class="jump-link" href="#admins"><span>Admins</span><span class="jump-count">4</span></a>
-            <a class="jump-link" href="#moderation"><span>Moderation</span><span class="jump-count">7</span></a>
+            <a class="jump-link" href="#moderation"><span>Moderation</span><span class="jump-count">9</span></a>
             <a class="jump-link" href="#verification"><span>Verification</span><span class="jump-count">4</span></a>
             <a class="jump-link" href="#events"><span>Events</span><span class="jump-count">5</span></a>
           </nav>
@@ -600,7 +1056,7 @@
             Interested in helping run the server, guide new hosts, or support events? 
           </p>
           <div class="apply-links">
-            <button id="moderation" class="apply-pill is-closed" type="button" aria-disabled="true" data-role-name="Moderation">
+            <button id="moderation-apply" class="apply-pill is-closed" type="button" aria-disabled="true" data-role-name="Moderation">
               <i class="fa-solid fa-lock status-closed" aria-hidden="true"></i>
               <span>Moderation</span>
               <span class="status-pill">Closed</span>
@@ -645,9 +1101,9 @@
         </section>
       </div>
 
-      <section class="directory-section" aria-labelledby="directoryTitle">
+      <section class="directory-section directory-shell" aria-labelledby="directoryTitle">
         <h2 id="directoryTitle" class="directory-title">Staff Directory</h2>
-        <p id="resultsStatus" class="results-status" aria-live="polite">Showing all 22 staff cards.</p>
+        <p id="resultsStatus" class="results-status" aria-live="polite">Showing all 24 staff cards.</p>
         <p id="emptyState" class="empty-state">No staff matched that search. Try a broader name, role, or team.</p>
 
         <section id="owners" class="staff-group" data-section>
@@ -806,7 +1262,7 @@
               <h3 class="staff-group-title">Moderation</h3>
               <p class="group-description">Senior moderators, moderators, and trial mods helping keep games fair and chat healthy.</p>
             </div>
-            <span class="status-pill">7</span>
+            <span class="status-pill">9</span>
           </div>
           <div class="staff-grid">
             <article class="staff-card" data-card data-groups="moderation" data-search="northie senior moderator music gaming paramedic stories art">
@@ -877,14 +1333,14 @@
               </details>
             </article>
 
-            <article class="staff-card" data-card data-groups="moderation" data-search="fish king moderator dad husband chemistry sports gaming">
+            <article class="staff-card" data-card data-groups="moderation" data-search="fish king senior moderator dad husband chemistry sports gaming">
               <div class="staff-card-head">
                 <img class="staff-avatar" src="images/fishimage.jpg" alt="Portrait of Fish King" loading="lazy" />
                 <div>
-                  <p class="role-eyebrow">Moderator</p>
+                  <p class="role-eyebrow">Senior Moderator</p>
                   <h3>Fish King</h3>
                   <div class="badge-row">
-                    <span class="card-badge"><i class="fa-solid fa-user-shield"></i> Moderator</span>
+                    <span class="card-badge"><i class="fa-solid fa-gavel"></i> Senior Mod</span>
                   </div>
                 </div>
               </div>
@@ -924,14 +1380,14 @@
               </details>
             </article>
 
-            <article class="staff-card" data-card data-groups="moderation verification events" data-search="ghoul trial mod verification event director netherlands reading sports movies">
+            <article class="staff-card" data-card data-groups="moderation verification events" data-search="ghoul moderator mod verification event director netherlands reading sports movies">
               <div class="staff-card-head">
                 <img class="staff-avatar" src="images/ghoulicon.png" alt="Portrait of Ghoul" loading="lazy" />
                 <div>
-                  <p class="role-eyebrow">Trial Mod</p>
+                  <p class="role-eyebrow">Moderator</p>
                   <h3>Ghoul</h3>
                   <div class="badge-row">
-                    <span class="card-badge"><i class="fa-solid fa-seedling"></i> Trial Mod</span>
+                    <span class="card-badge"><i class="fa-solid fa-user-shield"></i> Moderator</span>
                     <span class="card-badge secondary"><i class="fa-solid fa-badge-check"></i> Also Verification</span>
                     <span class="card-badge secondary"><i class="fa-solid fa-calendar-star"></i> Also Event Director</span>
                   </div>
@@ -941,6 +1397,44 @@
                 <summary>View more</summary>
                 <div class="staff-more-body">
                   <p>What is up. I am Ghoul. I am a student living in the Netherlands. I am a fan of reading, movies, and sports.</p>
+                </div>
+              </details>
+            </article>
+
+            <article class="staff-card" data-card data-groups="moderation" data-search="whimsy moderator mod">
+              <div class="staff-card-head">
+                <img class="staff-avatar" src="images/whimsy.gif" alt="Portrait of Whimsy" loading="lazy" />
+                <div>
+                  <p class="role-eyebrow">Moderator</p>
+                  <h3>Whimsy</h3>
+                  <div class="badge-row">
+                    <span class="card-badge"><i class="fa-solid fa-user-shield"></i> Moderator</span>
+                  </div>
+                </div>
+              </div>
+              <details class="staff-more">
+                <summary>View more</summary>
+                <div class="staff-more-body">
+                  <p>Supports moderation and helps keep the community comfortable.</p>
+                </div>
+              </details>
+            </article>
+
+            <article class="staff-card" data-card data-groups="moderation" data-search="diony 0uzo ouzo moderator mod">
+              <div class="staff-card-head">
+                <img class="staff-avatar" src="images/mod.png" alt="Portrait of Diony-0uzo" loading="lazy" />
+                <div>
+                  <p class="role-eyebrow">Moderator</p>
+                  <h3>Diony-0uzo•*⁀*</h3>
+                  <div class="badge-row">
+                    <span class="card-badge"><i class="fa-solid fa-user-shield"></i> Moderator</span>
+                  </div>
+                </div>
+              </div>
+              <details class="staff-more">
+                <summary>View more</summary>
+                <div class="staff-more-body">
+                  <p>Supports moderation and helps keep the community comfortable.</p>
                 </div>
               </details>
             </article>
@@ -1033,7 +1527,7 @@
               </details>
             </article>
 
-            <article class="staff-card" data-card data-groups="verification events moderation" data-search="ghoul verification event director trial mod netherlands reading sports movies">
+            <article class="staff-card" data-card data-groups="verification events moderation" data-search="ghoul verification event director moderator mod netherlands reading sports movies">
               <div class="staff-card-head">
                 <img class="staff-avatar" src="images/ghoulicon.png" alt="Portrait of Ghoul" loading="lazy" />
                 <div>
@@ -1042,7 +1536,7 @@
                   <div class="badge-row">
                     <span class="card-badge"><i class="fa-solid fa-badge-check"></i> Verification</span>
                     <span class="card-badge secondary"><i class="fa-solid fa-calendar-star"></i> Also Event Director</span>
-                    <span class="card-badge secondary"><i class="fa-solid fa-seedling"></i> Also Trial Mod</span>
+                    <span class="card-badge secondary"><i class="fa-solid fa-user-shield"></i> Also Mod</span>
                   </div>
                 </div>
               </div>
@@ -1084,7 +1578,7 @@
               </details>
             </article>
 
-            <article class="staff-card" data-card data-groups="events verification moderation" data-search="ghoul event director verification trial mod netherlands movies sports">
+            <article class="staff-card" data-card data-groups="events verification moderation" data-search="ghoul event director verification moderator mod netherlands movies sports">
               <div class="staff-card-head">
                 <img class="staff-avatar" src="images/ghoulicon.png" alt="Portrait of Ghoul" loading="lazy" />
                 <div>
@@ -1093,7 +1587,7 @@
                   <div class="badge-row">
                     <span class="card-badge"><i class="fa-solid fa-calendar-star"></i> Events</span>
                     <span class="card-badge secondary"><i class="fa-solid fa-badge-check"></i> Also Verification</span>
-                    <span class="card-badge secondary"><i class="fa-solid fa-seedling"></i> Also Trial Mod</span>
+                    <span class="card-badge secondary"><i class="fa-solid fa-user-shield"></i> Also Mod</span>
                   </div>
                 </div>
               </div>
