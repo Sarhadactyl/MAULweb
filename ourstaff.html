@@ -1776,7 +1776,7 @@
           modal.setAttribute("aria-hidden", "true");
         }
 
-        ["moderation", "verification-mod"].forEach((id) => {
+        ["moderation-apply", "verification-mod"].forEach((id) => {
           const el = document.getElementById(id);
           if (!el) return;
           el.addEventListener("click", () => {
