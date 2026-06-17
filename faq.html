@@ -20,7 +20,7 @@
       content="Quick help for players and hosts covering EHR basics, modded regions, custom tags, commands, updates, and troubleshooting."
     />
     <link rel="canonical" href="https://moddedamong.us/faq.html" />
-    <link rel="icon" type="image/png" href="https://moddedamong.us/images/favicon.png" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
       rel="stylesheet"
@@ -32,7 +32,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="https://moddedamong.us/styles/navbar.css" />
+    <link rel="stylesheet" href="/styles/navbar.css" />
 
     <style>
       :root {
@@ -63,7 +63,7 @@
       }
 
       body {
-        background: #000 url("https://moddedamong.us/images/maulredbg.png") no-repeat top center fixed;
+        background: #000 url("images/maulredbg.png") no-repeat top center fixed;
         background-size: auto 100%;
         position: relative;
       }
@@ -513,6 +513,308 @@
       .accent {
         color: var(--accent);
       }
+
+      /* MAUL rich refresh */
+      :root {
+        --accent: #ff384d;
+        --accent-soft: rgba(255, 56, 77, 0.2);
+        --accent-strong: #ff775d;
+        --gold: #ffd37a;
+        --panel: rgba(18, 7, 9, 0.9);
+        --panel-soft: rgba(42, 14, 17, 0.82);
+        --border-soft: rgba(255, 211, 122, 0.16);
+        --line-warm: rgba(255, 211, 122, 0.22);
+        --text-main: #fff8ef;
+        --text-muted: rgba(255, 248, 239, 0.74);
+        --shadow-strong: 0 24px 72px rgba(0, 0, 0, 0.5);
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 15% 8%, rgba(255, 56, 77, 0.3), transparent 34%),
+          radial-gradient(circle at 86% 18%, rgba(255, 211, 122, 0.16), transparent 31%),
+          linear-gradient(118deg, rgba(86, 3, 14, 0.88), rgba(10, 4, 6, 0.96) 46%, rgba(2, 14, 14, 0.9)),
+          url("images/maulredbg.png") no-repeat center top fixed,
+          #030203;
+        background-size: auto, auto, cover, min(1100px, 110vw) auto, auto;
+      }
+
+      body::before {
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        background-size: 64px 64px;
+        mix-blend-mode: normal;
+        opacity: 0.38;
+      }
+
+      body::after {
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.84)),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(55, 4, 10, 0.22) 38%, rgba(0, 0, 0, 0.58));
+      }
+
+      a {
+        color: var(--gold);
+      }
+
+      a:hover {
+        color: #fff8ef;
+      }
+
+      .page-wrapper {
+        max-width: 1240px;
+        padding: 86px 24px 70px;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 390px;
+        display: grid;
+        align-content: end;
+        overflow: hidden;
+        text-align: left;
+        padding: clamp(34px, 6vw, 68px);
+        border: 1px solid var(--line-warm);
+        border-radius: 8px;
+        background:
+          linear-gradient(118deg, rgba(62, 8, 14, 0.92), rgba(22, 7, 9, 0.9) 50%, rgba(4, 13, 13, 0.78)),
+          rgba(12, 6, 7, 0.9);
+        box-shadow:
+          0 34px 90px rgba(0, 0, 0, 0.64),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        isolation: isolate;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        right: clamp(12px, 5vw, 84px);
+        bottom: -22px;
+        width: min(34vw, 360px);
+        aspect-ratio: 1;
+        background: url("images/maulnobg.png") center / contain no-repeat;
+        opacity: 0.44;
+        filter: drop-shadow(0 34px 46px rgba(0, 0, 0, 0.72));
+        z-index: -1;
+      }
+
+      .hero-join-link {
+        position: absolute;
+        top: clamp(22px, 3vw, 36px);
+        right: clamp(24px, 4vw, 52px);
+        z-index: 2;
+        padding: 7px 0 10px;
+        color: #fff8ef;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.92rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .hero-join-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 2px;
+        height: 3px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--accent), var(--gold), #fff8ef);
+        box-shadow: 0 0 18px rgba(255, 211, 122, 0.38);
+      }
+
+      .header-badge {
+        width: fit-content;
+        background: rgba(12, 6, 7, 0.78);
+        border-color: rgba(255, 211, 122, 0.22);
+        color: rgba(255, 248, 239, 0.78);
+      }
+
+      .header-badge-dot {
+        background: var(--accent);
+        box-shadow: none;
+      }
+
+      .hero h1 {
+        max-width: 760px;
+        font-size: clamp(3.1rem, 7vw, 6.2rem);
+        line-height: 0.92;
+        letter-spacing: 0;
+      }
+
+      .hero h1 span {
+        display: block;
+        background: linear-gradient(120deg, #fffdf7 0%, #fff8ef 34%, var(--gold) 66%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .hero-subtitle {
+        max-width: 650px;
+        margin-left: 0;
+        color: rgba(255, 248, 239, 0.78);
+      }
+
+      .hero-actions {
+        justify-content: flex-start;
+      }
+
+      .cta-primary,
+      .cta-secondary,
+      .jump-links a {
+        border-radius: 999px;
+        font-weight: 700;
+      }
+
+      .cta-primary {
+        background: linear-gradient(135deg, #ff4f62, #9a071b);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 14px 34px rgba(153, 7, 27, 0.38);
+      }
+
+      .cta-secondary,
+      .jump-links a {
+        background: rgba(10, 5, 6, 0.72);
+        border: 1px solid rgba(255, 211, 122, 0.28);
+        color: rgba(255, 248, 239, 0.84);
+      }
+
+      .jump-links {
+        justify-content: flex-start;
+        max-width: none;
+        margin-top: 22px;
+      }
+
+      .overview-grid {
+        margin: 28px 0 34px;
+      }
+
+      .overview-card,
+      .mini-card,
+      .step-card,
+      .link-card,
+      .faq-item {
+        border-radius: 8px;
+        background:
+          linear-gradient(145deg, rgba(80, 13, 18, 0.42), rgba(12, 6, 7, 0.88) 46%, rgba(8, 16, 16, 0.68)),
+          var(--panel);
+        border-color: rgba(255, 211, 122, 0.14);
+        box-shadow:
+          0 24px 72px rgba(0, 0, 0, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        backdrop-filter: none;
+      }
+
+      .overview-card::before {
+        background: radial-gradient(circle at top left, rgba(255, 211, 122, 0.12), transparent 55%);
+      }
+
+      .section-shell {
+        border-radius: 8px;
+        background: rgba(8, 5, 6, 0.62);
+        border-color: rgba(255, 211, 122, 0.14);
+        box-shadow: 0 24px 72px rgba(0, 0, 0, 0.44);
+        backdrop-filter: none;
+      }
+
+      .faq-section h2 {
+        font-size: clamp(1.75rem, 3vw, 2.55rem);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      .faq-item summary::after {
+        color: var(--gold);
+      }
+
+      .faq-item[open] {
+        border-color: rgba(255, 211, 122, 0.3);
+      }
+
+      .faq-item[open] summary {
+        color: #fff8ef;
+      }
+
+      .faq-item-content {
+        border-top-color: rgba(255, 211, 122, 0.12);
+      }
+
+      .faq-item-content code,
+      .step-card code,
+      .mini-card code,
+      .link-card code,
+      .tip-pill code {
+        background: rgba(255, 211, 122, 0.09);
+        border-color: rgba(255, 211, 122, 0.18);
+        color: #ffe3b0;
+      }
+
+      .step-number {
+        border-radius: 8px;
+        background: linear-gradient(135deg, var(--accent), #8d0718);
+        color: #fff8ef;
+      }
+
+      .tip-pill,
+      .media-placeholder {
+        border-radius: 8px;
+        background: rgba(10, 5, 6, 0.58);
+        border-color: rgba(255, 211, 122, 0.13);
+      }
+
+      .media-placeholder img {
+        border-radius: 8px;
+      }
+
+      .resource-link {
+        padding: 8px 0;
+      }
+
+      .resource-link i,
+      .accent {
+        color: var(--gold);
+      }
+
+      .footnote {
+        max-width: 880px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      @media (max-width: 700px) {
+        .page-wrapper {
+          padding: 84px 14px 56px;
+        }
+
+        .hero {
+          min-height: 360px;
+          padding: 66px 22px 28px;
+        }
+
+        .hero::after {
+          width: 230px;
+          right: -46px;
+          bottom: -44px;
+          opacity: 0.22;
+        }
+
+        .hero-join-link {
+          top: 18px;
+          right: 20px;
+          font-size: 0.82rem;
+        }
+
+        .hero h1 {
+          font-size: clamp(2.75rem, 15vw, 4.3rem);
+        }
+
+        .section-shell {
+          padding: 18px;
+        }
+      }
     </style>
   </head>
 
@@ -521,6 +823,9 @@
 
     <div class="page-wrapper">
       <header class="hero">
+        <a class="hero-join-link" href="https://discord.gg/MAUL" target="_blank" rel="noopener">
+          Join MAUL
+        </a>
         <div class="header-badge">
           <span class="header-badge-dot"></span>
           Player + Host Quick Reference
@@ -538,10 +843,6 @@
           <a href="#hosts" class="cta-secondary">
             <i class="fa-solid fa-server"></i>
             Host Help
-          </a>
-          <a href="https://discord.gg/maul" target="_blank" rel="noopener" class="cta-secondary">
-            <i class="fa-brands fa-discord"></i>
-            Our Discord
           </a>
         </div>
 
@@ -1098,7 +1399,6 @@
       </p>
     </div>
 
-    <script src="https://moddedamong.us/scripts/navbar.js"></script>
+    <script src="/scripts/navbar.js"></script>
   </body>
 </html>
-
