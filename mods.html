@@ -348,6 +348,312 @@
           scroll-behavior: auto !important;
         }
       }
+
+      /* MAUL rich refresh */
+      :root {
+        --accent: #ff384d;
+        --accent-soft: rgba(255, 56, 77, 0.22);
+        --accent-strong: #ff775d;
+        --gold: #ffd37a;
+        --line: rgba(255, 255, 255, 0.13);
+        --text-main: #fff8ef;
+        --text-muted: rgba(255, 248, 239, 0.74);
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 18% 10%, rgba(255, 56, 77, 0.3), transparent 34%),
+          linear-gradient(118deg, rgba(86, 3, 14, 0.86), rgba(10, 4, 6, 0.96) 46%, rgba(2, 14, 14, 0.9)),
+          url("images/maulredbg.png") no-repeat center top fixed,
+          #030203;
+        background-size: auto, cover, min(1100px, 110vw) auto, auto;
+      }
+
+      body::before {
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        background-size: 64px 64px;
+        mix-blend-mode: normal;
+        opacity: 0.42;
+      }
+
+      body::after {
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.82)),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.08), rgba(55, 4, 10, 0.24) 38%, rgba(0, 0, 0, 0.58));
+      }
+
+      .page-wrapper {
+        max-width: 1240px;
+        padding: 86px 24px 70px;
+      }
+
+      .page-header {
+        position: relative;
+        overflow: hidden;
+        text-align: left;
+        min-height: 330px;
+        display: grid;
+        align-content: end;
+        padding: clamp(34px, 6vw, 68px);
+        border: 1px solid rgba(255, 211, 122, 0.18);
+        border-radius: 8px;
+        background:
+          linear-gradient(118deg, rgba(62, 8, 14, 0.9), rgba(22, 7, 9, 0.86) 50%, rgba(4, 13, 13, 0.78)),
+          rgba(12, 6, 7, 0.9);
+        box-shadow:
+          0 34px 90px rgba(0, 0, 0, 0.66),
+          inset 0 1px 0 rgba(255, 255, 255, 0.11);
+        backdrop-filter: blur(18px);
+        isolation: isolate;
+      }
+
+      .page-header::after {
+        content: "";
+        position: absolute;
+        right: clamp(4px, 6vw, 72px);
+        bottom: -18px;
+        width: min(34vw, 360px);
+        aspect-ratio: 1;
+        background: url("images/maulnobg.png") center / contain no-repeat;
+        opacity: 0.42;
+        filter: drop-shadow(0 34px 46px rgba(0, 0, 0, 0.72));
+        z-index: -1;
+      }
+
+      .header-badge {
+        width: fit-content;
+        background: rgba(12, 6, 7, 0.78);
+        border-color: rgba(255, 211, 122, 0.22);
+        color: rgba(255, 248, 239, 0.78);
+      }
+
+      .page-header h1 {
+        max-width: 780px;
+        font-size: clamp(3.35rem, 7.2vw, 6.5rem);
+        line-height: 0.9;
+        letter-spacing: 0;
+      }
+
+      .page-header h1 span {
+        background: linear-gradient(120deg, #fffdf7 0%, #fff8ef 34%, var(--gold) 66%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .page-header-subtitle {
+        max-width: 620px;
+        margin-left: 0;
+        color: rgba(255, 248, 239, 0.78);
+      }
+
+      .featured-highlight,
+      .mods-section {
+        max-width: 100%;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+      }
+
+      .featured-highlight {
+        margin: 26px auto 38px;
+      }
+
+      .featured-highlight-header,
+      .mods-section-title,
+      .mods-section-subtitle {
+        max-width: 980px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .mods-section-title {
+        text-align: left;
+        margin-bottom: 8px;
+        font-size: clamp(1.65rem, 3vw, 2.45rem);
+        line-height: 1;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .mods-section-subtitle {
+        text-align: left;
+        margin-bottom: 18px;
+        line-height: 1.6;
+      }
+
+      .featured-highlight-label {
+        color: var(--gold);
+      }
+
+      .featured-highlight-pill,
+      .section-chip {
+        background: rgba(12, 6, 7, 0.78);
+        border: 1px solid rgba(255, 211, 122, 0.22);
+        color: var(--gold);
+      }
+
+      .grid,
+      #featured-grid.grid {
+        max-width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 18px;
+      }
+
+      .card {
+        border-radius: 8px;
+        background:
+          linear-gradient(145deg, rgba(80, 13, 18, 0.42), rgba(12, 6, 7, 0.88) 46%, rgba(8, 16, 16, 0.68)),
+          rgba(15, 7, 8, 0.9);
+        border-color: rgba(255, 211, 122, 0.14);
+        box-shadow:
+          0 24px 72px rgba(0, 0, 0, 0.52),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .card:hover {
+        background:
+          linear-gradient(145deg, rgba(100, 18, 24, 0.54), rgba(16, 7, 8, 0.9) 46%, rgba(9, 20, 20, 0.72)),
+          rgba(15, 7, 8, 0.94);
+        border-color: rgba(255, 211, 122, 0.34);
+        box-shadow:
+          0 28px 80px rgba(0, 0, 0, 0.62),
+          0 0 34px rgba(255, 56, 77, 0.14);
+      }
+
+      .thumb {
+        height: 170px;
+        background:
+          radial-gradient(circle at 50% 38%, rgba(255, 56, 77, 0.2), transparent 42%),
+          linear-gradient(135deg, rgba(4, 2, 3, 0.94), rgba(47, 7, 12, 0.76));
+        border-bottom: 1px solid rgba(255, 211, 122, 0.11);
+        box-shadow: none;
+      }
+
+      .thumb.mod-mark {
+        display: grid;
+        place-items: center;
+        padding: 18px;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(1.45rem, 3vw, 2.6rem);
+        font-weight: 700;
+        line-height: 0.95;
+        text-align: center;
+        color: #fff8ef;
+        text-shadow: 0 12px 30px rgba(0, 0, 0, 0.72);
+      }
+
+      .thumb.mod-mark span {
+        color: var(--gold);
+      }
+
+      .title {
+        color: #fff8ef;
+      }
+
+      .btn {
+        min-height: 40px;
+        background:
+          linear-gradient(135deg, rgba(67, 12, 16, 0.58), rgba(8, 5, 6, 0.76)),
+          rgba(8, 5, 6, 0.68);
+        border-color: rgba(255, 211, 122, 0.2);
+      }
+
+      .btn:hover {
+        border-color: rgba(255, 211, 122, 0.45);
+        color: #fff8ef;
+      }
+
+      .release-btn {
+        border-color: rgba(255, 211, 122, 0.34);
+        background:
+          linear-gradient(135deg, rgba(255, 119, 93, 0.24), rgba(255, 56, 77, 0.16)),
+          rgba(8, 5, 6, 0.72);
+      }
+
+      .download-btn {
+        border-color: rgba(255, 211, 122, 0.42);
+        color: #fff8ef;
+      }
+
+      .mods-section.starlight-section {
+        margin-top: 8px;
+      }
+
+      .starlight-section .mods-section-title {
+        color: #fff8ef;
+      }
+
+      .starlight-section .mods-section-title::after {
+        content: " Starlight catalog";
+        display: inline-flex;
+        margin-left: 10px;
+        padding: 5px 9px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 211, 122, 0.22);
+        background: rgba(12, 6, 7, 0.78);
+        color: var(--gold);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        vertical-align: middle;
+      }
+
+      .section-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin: 0 auto 16px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .card.starlight-card .card-body::before {
+        content: "Starlight";
+        width: fit-content;
+        margin: -2px auto 0;
+        padding: 3px 8px;
+        border-radius: 999px;
+        background: rgba(255, 211, 122, 0.12);
+        border: 1px solid rgba(255, 211, 122, 0.18);
+        color: var(--gold);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 700px) {
+        .page-wrapper {
+          padding: 84px 14px 56px;
+        }
+
+        .page-header {
+          min-height: 290px;
+          padding: 28px 22px;
+        }
+
+        .page-header::after {
+          width: 230px;
+          right: -44px;
+          bottom: -38px;
+          opacity: 0.22;
+        }
+
+        .page-header h1 {
+          font-size: clamp(3rem, 16vw, 4.7rem);
+        }
+
+        .starlight-section .mods-section-title::after {
+          margin: 10px 0 0;
+        }
+      }
     </style>
   </head>
 
@@ -782,6 +1088,353 @@
         </div>
       </section>
 
+      <section class="mods-section starlight-section" id="starlight-mods">
+        <h2 class="mods-section-title">Starlight Mods</h2>
+        <p class="mods-section-subtitle">
+          Mods and add-ons that work in the Starlight launcher. 
+        </p>
+
+        <div class="section-chip">
+          <i class="fa-solid fa-star"></i>
+          Core and role mods
+        </div>
+
+        <div class="grid">
+          <article class="card starlight-card">
+            <img src="images/tourmira.png" alt="Town of Us: Mira" class="thumb" />
+            <div class="card-body">
+              <h3 class="title">Town of Us: Mira</h3>
+              <p class="sub">
+                Town of Us Reactivated, rebuilt cleaner on MiraAPI with many improvements.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/AU-Avengers/TOU-Mira" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a class="btn" href="https://discord.gg/A5eyxVjPMr" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+                <a class="btn" href="https://au-avengers.github.io/docs.toum.gg/" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-book"></i> Wiki
+                </a>
+                <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-mug-hot"></i> Ko-Fi
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <img src="images/lpr.png" alt="Launchpad Reloaded" class="thumb" />
+            <div class="card-body">
+              <h3 class="title">Launchpad Reloaded</h3>
+              <p class="sub">
+                Adds new roles, features, and gamemodes while keeping them close to the original Among Us style and balance.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/All-Of-Us-Mods/LaunchpadReloaded" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a class="btn" href="https://launchpad.allofus.dev/index.php/Main_Page" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-book"></i> Wiki
+                </a>
+                <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-mug-hot"></i> Ko-Fi
+                </a>
+                <a class="btn" href="https://discord.gg/NxdE43Gw" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <div class="thumb mod-mark">New<span>Mod</span></div>
+            <div class="card-body">
+              <h3 class="title">NewMod</h3>
+              <p class="sub">
+                Introduces new roles, unique abilities, and custom game modes for fresh ways to play Among Us.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/CallOfCreator/NewMod" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a class="btn" href="https://newmodau.vercel.app/home" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-globe"></i> Website
+                </a>
+                <a class="btn" href="https://discord.gg/7UKG528WxZ" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <img src="images/TOU-logo.png" alt="Syzyfowy Town Of Us" class="thumb" />
+            <div class="card-body">
+              <h3 class="title">Syzyfowy Town Of Us</h3>
+              <p class="sub">
+                Adds roles and gameplay mechanics that expand the classic Town of Us experience.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/LimeShep/Town-Of-Us" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a class="btn" href="https://discord.gg/VUyBhVhKVy" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <img src="images/snr.webp" alt="Super New Roles" class="thumb" />
+            <div class="card-body">
+              <h3 class="title">Super New Roles</h3>
+              <p class="sub">
+                A popular Japan-based mod with 150+ roles, around 1,000 cosmetics, animated abilities, English support, and Android/Windows compatibility.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/SuperNewRoles/SuperNewRoles" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a class="btn" href="https://discord.gg/s27fUArwXn" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+                <a class="btn" href="https://www.patreon.com/cw/SuperNewRoles" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-heart"></i> Patreon
+                </a>
+                <a class="btn" href="https://wiki.supernewroles.com/ja/home" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-book"></i> Wiki
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <img src="images/nebula.webp" alt="Nebula on Ship" class="thumb" />
+            <div class="card-body">
+              <h3 class="title">Nebula on Ship</h3>
+              <p class="sub">
+                Original mechanics mixed with ideas from major role mods, creating a large feature-rich experience.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/Dolly1016/Nebula" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a class="btn" href="https://dolly1016.github.io/NebulaWiki" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-book"></i> Wiki
+                </a>
+                <a class="btn" href="https://ofuse.me/nebulaontheship" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-mug-hot"></i> Support
+                </a>
+                <a class="btn" href="https://discord.gg/kHNZD4pq9E" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <div class="thumb mod-mark">Troll<span>Mod</span></div>
+            <div class="card-body">
+              <h3 class="title">TrollMod</h3>
+              <p class="sub">
+                An Among Us mod bundle built with MiraAPI and Reactor, adding roles and gameplay features.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/TechDevOfficial/TrollMod17" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <div class="thumb mod-mark">yanpla<span>Roles</span></div>
+            <div class="card-body">
+              <h3 class="title">yanplaRoles</h3>
+              <p class="sub">
+                Adds new roles and modifiers to Among Us.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/yanpla/yanplaRoles" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <img src="images/Project lotus.jpg" alt="Project Lotus" class="thumb" />
+            <div class="card-body">
+              <h3 class="title">Project Lotus</h3>
+              <p class="sub">
+                A host-only role mod focused on customizability, quality, custom cosmetics, and a polished lobby experience.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/Lotus-AU/LotusContinued?dhc-id=80400832587108366" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <div class="thumb mod-mark">TO<span>HO</span></div>
+            <div class="card-body">
+              <h3 class="title">TOHO</h3>
+              <p class="sub">
+                Added to the Starlight catalog for MAUL players who use TOHO in modded lobbies.
+              </p>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <img src="images/auunlocker.png" alt="AUnlocker" class="thumb" />
+            <div class="card-body">
+              <h3 class="title">AUnlocker</h3>
+              <p class="sub">
+                A quality-of-life utility used alongside modded setups.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/astra1dev/AUnlocker" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-chip">
+          <i class="fa-solid fa-plug"></i>
+          Extension mods
+        </div>
+
+        <div class="grid">
+          <article class="card starlight-card">
+            <div class="thumb mod-mark">TOU:M<span>Roles</span></div>
+            <div class="card-body">
+              <h3 class="title">Town of Us: Mira Roles Extension</h3>
+              <p class="sub">
+                Adds new roles and modifiers for Town of Us: Mira. Requires Town of Us: Mira and is not console-compatible.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/rewalo/TownOfUsMiraRolesExtension" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> Extension GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <div class="thumb mod-mark">Draft<span>TOU:M</span></div>
+            <div class="card-body">
+              <h3 class="title">Draft Mode: TOU:M</h3>
+              <p class="sub">
+                Adds Draft Mode to Town of Us: Mira, letting players pick roles before the game instead of receiving them randomly.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/ninja-au/DraftModeTOUM/" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-chip">
+          <i class="fa-solid fa-desktop"></i>
+          Client-side mods
+        </div>
+
+        <div class="grid">
+          <article class="card starlight-card">
+            <div class="thumb mod-mark">TOU Mira<span>Legacy</span></div>
+            <div class="card-body">
+              <h3 class="title">TOU Mira Legacy</h3>
+              <p class="sub">
+                Brings back the old Town of Us and pre-2021 Among Us feeling as an extension mod for TOU Mira.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/AU-Avengers/TouMiraLegacy" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a class="btn" href="https://au-avengers.org/" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-globe"></i> Website
+                </a>
+                <a class="btn" href="https://au-avengers.github.io/docs.toum.gg/" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-book"></i> Docs
+                </a>
+                <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-mug-hot"></i> Ko-Fi
+                </a>
+                <a class="btn" href="https://discord.gg/A5eyxVjPMr" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <div class="thumb mod-mark">Smol<span>Mod</span></div>
+            <div class="card-body">
+              <h3 class="title">SmolMod</h3>
+              <p class="sub">
+                Makes players the size of pets for a fun visual twist.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/XtraCube/SmolMod" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a class="btn" href="https://www.xtracube.dev/" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-globe"></i> Website
+                </a>
+                <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-mug-hot"></i> Ko-Fi
+                </a>
+                <a class="btn" href="https://discord.gg/NxdE43Gw" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <div class="thumb mod-mark">AleLudu<span>Mod</span></div>
+            <div class="card-body">
+              <h3 class="title">AleLuduMod</h3>
+              <p class="sub">
+                Unlocks more than 15 players in meetings, vitals, and Transporter/Glitch screens.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/townofus-pl/AleLuduMod" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a class="btn" href="https://discord.com/invite/JRAJCASAzN" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <div class="thumb mod-mark">Emoji<span>Mod</span></div>
+            <div class="card-body">
+              <h3 class="title">Emoji Mod</h3>
+              <p class="sub">
+                Adds emojis directly into the in-game chat as a client-side mod.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/WanderingPix/Emojis-in-the-mogus-chat" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <p class="mods-footer-note">
         Want your mod featured here?
         <a
@@ -795,6 +1448,94 @@
       </p>
     </div>
 
+    <script>
+      const starlightReleaseLinks = {
+        "Town of Us: Mira": [
+          ["Latest release", "https://github.com/AU-Avengers/TOU-Mira/releases/latest", "fa-solid fa-tag", "release-btn"],
+          ["Steam / Itch", "https://github.com/AU-Avengers/TOU-Mira/releases/download/1.6.3/TouMirav1.6.3-x86-steam-itch.zip", "fa-solid fa-download", "download-btn"],
+          ["Epic / MS", "https://github.com/AU-Avengers/TOU-Mira/releases/download/1.6.3/TouMirav1.6.3-x64-epic-msstore.zip", "fa-solid fa-download", "download-btn"],
+        ],
+        "Launchpad Reloaded": [
+          ["Latest release", "https://github.com/All-Of-Us-Mods/LaunchpadReloaded/releases/latest", "fa-solid fa-tag", "release-btn"],
+        ],
+        "NewMod": [
+          ["Latest release", "https://github.com/CallOfCreator/NewMod/releases/latest", "fa-solid fa-tag", "release-btn"],
+        ],
+        "Syzyfowy Town Of Us": [
+          ["Latest release", "https://github.com/LimeShep/Town-Of-Us/releases/latest", "fa-solid fa-tag", "release-btn"],
+        ],
+        "Super New Roles": [
+          ["Latest release", "https://github.com/SuperNewRoles/SuperNewRoles/releases/latest", "fa-solid fa-tag", "release-btn"],
+          ["Steam", "https://github.com/SuperNewRoles/SuperNewRoles/releases/download/3.1.5.1/SuperNewRoles-v3.1.5.1_Steam.zip", "fa-solid fa-download", "download-btn"],
+          ["Epic", "https://github.com/SuperNewRoles/SuperNewRoles/releases/download/3.1.5.1/SuperNewRoles-v3.1.5.1_Epic.zip", "fa-solid fa-download", "download-btn"],
+        ],
+        "Nebula on Ship": [
+          ["Latest release", "https://github.com/Dolly1016/Nebula/releases/latest", "fa-solid fa-tag", "release-btn"],
+          ["Steam", "https://github.com/Dolly1016/Nebula/releases/download/v%2Cv3.3%2C108%2C1598/Nebula_Steam.zip", "fa-solid fa-download", "download-btn"],
+          ["Epic", "https://github.com/Dolly1016/Nebula/releases/download/v%2Cv3.3%2C108%2C1598/Nebula_Epic.zip", "fa-solid fa-download", "download-btn"],
+        ],
+        "TrollMod": [
+          ["Latest release", "https://github.com/TechDevOfficial/TrollMod17/releases/latest", "fa-solid fa-tag", "release-btn"],
+        ],
+        "yanplaRoles": [
+          ["Latest release", "https://github.com/yanpla/yanplaRoles/releases/latest", "fa-solid fa-tag", "release-btn"],
+        ],
+        "Project Lotus": [
+          ["Latest release", "https://github.com/Lotus-AU/LotusContinued/releases/latest", "fa-solid fa-tag", "release-btn"],
+          ["Steam", "https://github.com/Lotus-AU/LotusContinued/releases/download/v1.7.2/Lotus.v1.7.2.Steam.zip", "fa-solid fa-download", "download-btn"],
+          ["Epic / MS", "https://github.com/Lotus-AU/LotusContinued/releases/download/v1.7.2/Lotus.v1.7.2.Epic%2BMicrosoftStore.zip", "fa-solid fa-download", "download-btn"],
+        ],
+        "AUnlocker": [
+          ["Latest release", "https://github.com/astra1dev/AUnlocker/releases/latest", "fa-solid fa-tag", "release-btn"],
+          ["Steam / Itch", "https://github.com/astra1dev/AUnlocker/releases/download/v1.3.0/AUnlocker_v1.3.0_Steam_Itch.zip", "fa-solid fa-download", "download-btn"],
+          ["Epic / MS / Xbox", "https://github.com/astra1dev/AUnlocker/releases/download/v1.3.0/AUnlocker_v1.3.0_EpicGames_MicrosoftStore_XboxApp.zip", "fa-solid fa-download", "download-btn"],
+        ],
+        "Town of Us: Mira Roles Extension": [
+          ["Latest release", "https://github.com/rewalo/TownOfUsMiraRolesExtension/releases/latest", "fa-solid fa-tag", "release-btn"],
+          ["Steam / Itch", "https://github.com/rewalo/TownOfUsMiraRolesExtension/releases/download/v1.1.9/TouMiraRolesExtension-v1.1.9-x86-steam-itch.zip", "fa-solid fa-download", "download-btn"],
+          ["Epic / MS", "https://github.com/rewalo/TownOfUsMiraRolesExtension/releases/download/v1.1.9/TouMiraRolesExtension-v1.1.9-x64-epic-msstore.zip", "fa-solid fa-download", "download-btn"],
+        ],
+        "Draft Mode: TOU:M": [
+          ["Latest release", "https://github.com/ninja-au/DraftModeTOUM/releases/latest", "fa-solid fa-tag", "release-btn"],
+        ],
+        "TOU Mira Legacy": [
+          ["Latest release", "https://github.com/AU-Avengers/TouMiraLegacy/releases/latest", "fa-solid fa-tag", "release-btn"],
+        ],
+        "SmolMod": [
+          ["Latest release", "https://github.com/XtraCube/SmolMod/releases/latest", "fa-solid fa-tag", "release-btn"],
+        ],
+        "AleLuduMod": [
+          ["Latest release", "https://github.com/townofus-pl/AleLuduMod/releases/latest", "fa-solid fa-tag", "release-btn"],
+        ],
+        "Emoji Mod": [
+          ["Latest release", "https://github.com/WanderingPix/Emojis-in-the-mogus-chat/releases/latest", "fa-solid fa-tag", "release-btn"],
+        ],
+      };
+
+      document.querySelectorAll("#starlight-mods .card").forEach((card) => {
+        const title = card.querySelector(".title")?.textContent.trim();
+        const links = starlightReleaseLinks[title];
+        if (!links) return;
+        let actions = card.querySelector(".preset-actions");
+        if (!actions) {
+          actions = document.createElement("div");
+          actions.className = "preset-actions";
+          card.querySelector(".card-body")?.appendChild(actions);
+        }
+        const existing = new Set([...actions.querySelectorAll("a")].map((link) => link.href));
+        links.forEach(([label, href, icon, extraClass]) => {
+          const absoluteHref = new URL(href, window.location.href).href;
+          if (existing.has(absoluteHref)) return;
+          const link = document.createElement("a");
+          link.className = `btn ${extraClass}`;
+          link.href = href;
+          link.target = "_blank";
+          link.rel = "noopener";
+          link.innerHTML = `<i class="${icon}"></i> ${label}`;
+          actions.appendChild(link);
+        });
+      });
+    </script>
     <script src="/scripts/navbar.js"></script>
   </body>
 </html>
