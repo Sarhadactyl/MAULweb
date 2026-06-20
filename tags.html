@@ -557,6 +557,34 @@
         gap: 8px;
       }
 
+      .gen-stop .stop-position {
+        display: grid;
+        gap: 5px;
+        min-width: 160px;
+      }
+
+      .stop-position-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.74rem;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+
+      .stop-position output {
+        color: #ffd8e0;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .gen-stop input[type="range"] {
+        width: 100%;
+        accent-color: #ff5f7e;
+        cursor: pointer;
+      }
+
       .gen-stop input[type="color"] {
         width: 42px;
         height: 32px;
@@ -2853,24 +2881,24 @@
 
       const previewFontMap = {
         "": "",
-        "BROOK SDF": 'Impact, "Arial Black", system-ui, sans-serif',
-        BROOK: 'Impact, "Arial Black", system-ui, sans-serif',
-        "VCR SDF": '"Courier New", "Lucida Console", monospace',
-        "Barlow-Black SDF": '"Arial Black", Arial, system-ui, sans-serif',
-        "Barlow-BoldItalic SDF": 'Arial, system-ui, sans-serif',
-        "Barlow-Light SDF": '"Segoe UI Light", "Segoe UI", Arial, system-ui, sans-serif',
-        "CONSOLA SDF": 'Consolas, "Courier New", monospace',
-        "DIGITAL-7 SDF": '"Lucida Console", "Courier New", monospace',
-        "DIN_Pro_Bold_700 SDF": '"Arial Narrow", Arial, system-ui, sans-serif',
+        "BROOK SDF": '"Press Start 2P", Impact, "Arial Black", system-ui, sans-serif',
+        BROOK: '"Press Start 2P", Impact, "Arial Black", system-ui, sans-serif',
+        "VCR SDF": '"VT323", "Share Tech Mono", "Courier New", monospace',
+        "Barlow-Black SDF": '"Barlow", "Arial Black", Arial, system-ui, sans-serif',
+        "Barlow-BoldItalic SDF": '"Barlow", Arial, system-ui, sans-serif',
+        "Barlow-Light SDF": '"Barlow", "Segoe UI Light", "Segoe UI", Arial, system-ui, sans-serif',
+        "CONSOLA SDF": '"Roboto Mono", Consolas, "Courier New", monospace',
+        "DIGITAL-7 SDF": '"Orbitron", "Share Tech Mono", "Lucida Console", monospace',
+        "DIN_Pro_Bold_700 SDF": '"Rajdhani", "Arial Narrow", Arial, system-ui, sans-serif',
         "LiberationSans SDF": '"Liberation Sans", Arial, system-ui, sans-serif',
         "NotoSansJP-Regular SDF": '"Noto Sans JP", "Yu Gothic", Meiryo, system-ui, sans-serif',
-        "OCRAEXT SDF": '"OCR A Extended", Consolas, "Courier New", monospace'
+        "OCRAEXT SDF": '"Share Tech Mono", "OCR A Extended", Consolas, "Courier New", monospace'
       };
 
       function previewFontCss(fontName) {
         const family = previewFontMap[fontName] || "";
         if (!family) return "";
-        let css = `font-family:${family};`;
+        let css = `display:inline-block;font-family:${family};`;
         switch (fontName) {
           case "VCR SDF":
             css += "font-size:1.08em;letter-spacing:0.08em;font-weight:700;font-variant:small-caps;";
@@ -3905,6 +3933,62 @@
       const iconChoices = iconGroups.flatMap((group) => group.icons);
 
       let gradStops = ["#B625F1", "#2970F8", "#00CFFF"];
+      let gradStopPositions = evenStopPositions(gradStops.length);
+
+      function evenStopPositions(count) {
+        const safeCount = Math.max(parseInt(count || 0, 10), 1);
+        if (safeCount === 1) return [0];
+        return Array.from({ length: safeCount }, (_, idx) =>
+          Math.round((idx * 100) / (safeCount - 1))
+        );
+      }
+
+      function normalizeStopPositions(count, positions = gradStopPositions) {
+        const fallback = evenStopPositions(count);
+        return Array.from({ length: count }, (_, idx) =>
+          clamp(parseInt(positions?.[idx] ?? fallback[idx], 10), 0, 100)
+        );
+      }
+
+      function setGradientStops(colors, positions) {
+        gradStops = colors.map((color) => normHex(color, true));
+        gradStopPositions = normalizeStopPositions(
+          gradStops.length,
+          positions || evenStopPositions(gradStops.length)
+        );
+      }
+
+      function gradientStopPairs(stops = gradStops, positions = gradStopPositions) {
+        const colors = stops.map((c) => normHex(c, true));
+        const pos = normalizeStopPositions(colors.length, positions);
+        return colors
+          .map((color, idx) => ({ color, pos: pos[idx], order: idx }))
+          .sort((a, b) => a.pos - b.pos || a.order - b.order);
+      }
+
+      function gradientCss(stops = gradStops, positions = gradStopPositions) {
+        return `linear-gradient(90deg, ${gradientStopPairs(stops, positions)
+          .map((stop) => `${stop.color} ${stop.pos}%`)
+          .join(", ")})`;
+      }
+
+      function colorAtGradientPosition(stops, positions, percent) {
+        const pairs = gradientStopPairs(stops, positions);
+        if (!pairs.length) return "#FFFFFF";
+        const t = clamp(percent, 0, 100);
+        if (t <= pairs[0].pos) return pairs[0].color;
+        const last = pairs[pairs.length - 1];
+        if (t >= last.pos) return last.color;
+        for (let i = 0; i < pairs.length - 1; i++) {
+          const a = pairs[i];
+          const b = pairs[i + 1];
+          if (t >= a.pos && t <= b.pos) {
+            const span = Math.max(b.pos - a.pos, 0.0001);
+            return lerpColor(a.color, b.color, (t - a.pos) / span);
+          }
+        }
+        return last.color;
+      }
       const defaultTagPresets = [
         {
           name: "Sussy Hearts",
@@ -4626,7 +4710,7 @@
         const scrollY = window.scrollY;
         const idx = defaultColorPresets.indexOf(preset);
         if (idx >= 0) selectedColorPresetIndex = idx;
-        gradStops = preset.colors.map((color) => normHex(color, true));
+        setGradientStops(preset.colors);
         stopCount.value = String(gradStops.length);
         setColorMode("grad");
         renderStopRows();
@@ -4803,15 +4887,13 @@
         }
 
         const stops = gradStops.slice().map((c) => normHex(c, true));
+        const positions = normalizeStopPositions(stops.length);
         colorableIndexes.forEach((idx, order) => {
           if (colorableIndexes.length === 1) {
-            colors[idx] = stops[Math.floor((stops.length - 1) / 2)];
+            colors[idx] = colorAtGradientPosition(stops, positions, 50);
           } else {
-            const t = order / (colorableIndexes.length - 1);
-            const seg = (stops.length - 1) * t;
-            const i0 = Math.floor(seg);
-            const i1 = Math.min(stops.length - 1, i0 + 1);
-            colors[idx] = lerpColor(stops[i0], stops[i1], seg - i0);
+            const t = (order / (colorableIndexes.length - 1)) * 100;
+            colors[idx] = colorAtGradientPosition(stops, positions, t);
           }
         });
 
@@ -5071,11 +5153,13 @@
       }
 
       function renderStopRows() {
+        gradStopPositions = normalizeStopPositions(gradStops.length);
         stopsEl.innerHTML = "";
         gradStops.forEach((hex, idx) => {
           const row = document.createElement("div");
           row.className = "gen-stop";
-          row.style.gridTemplateColumns = "auto 1fr auto";
+          row.style.gridTemplateColumns = "auto 1fr minmax(160px, 0.75fr) auto";
+          const position = gradStopPositions[idx];
           row.innerHTML = `
             <div class="color" style="min-width:120px">
               <label>Stop ${idx + 1}</label>
@@ -5090,6 +5174,13 @@
                 true
               )}" aria-label="Pick stop ${idx + 1}">
             </div>
+            <div class="stop-position">
+              <div class="stop-position-head">
+                <span>Position</span>
+                <output>${position}%</output>
+              </div>
+              <input type="range" min="0" max="100" step="1" value="${position}" aria-label="Position for stop ${idx + 1}">
+            </div>
             <div class="row-btns">
               <button class="copy-btn ntg-up" data-idx="${idx}" title="Up" type="button">▲</button>
               <button class="copy-btn ntg-down" data-idx="${idx}" title="Down" type="button">▼</button>
@@ -5102,22 +5193,18 @@
       }
 
       function updateGradPreview() {
-        const css = `linear-gradient(90deg, ${gradStops
-          .map(
-            (c, i) =>
-              `${normHex(c, true)} ${
-                (i * 100) / Math.max(gradStops.length - 1, 1)
-              }%`
-          )
-          .join(", ")})`;
-        prevEl.style.background = css;
+        gradStopPositions = normalizeStopPositions(gradStops.length);
+        prevEl.style.background = gradientCss();
       }
 
       stopsEl.addEventListener("input", (e) => {
         const row = e.target.closest(".gen-stop");
         if (!row) return;
         const idx = [...stopsEl.children].indexOf(row);
-        const [hexInput, colorInput] = row.querySelectorAll("input");
+        const hexInput = row.querySelector('input[type="text"]');
+        const colorInput = row.querySelector('input[type="color"]');
+        const positionInput = row.querySelector('input[type="range"]');
+        const positionOutput = row.querySelector("output");
         if (e.target === hexInput) {
           hexInput.value = cleanHexDraft(hexInput.value);
           if (isCompleteHex(hexInput.value)) {
@@ -5129,6 +5216,11 @@
           const h = normHex(colorInput.value, true);
           hexInput.value = h;
           gradStops[idx] = h;
+        } else if (e.target === positionInput) {
+          const pos = clamp(parseInt(positionInput.value || "0", 10), 0, 100);
+          positionInput.value = String(pos);
+          if (positionOutput) positionOutput.textContent = `${pos}%`;
+          gradStopPositions[idx] = pos;
         }
         updateGradPreview();
         render();
@@ -5139,7 +5231,8 @@
         const row = e.target.closest(".gen-stop");
         if (!row) return;
         const idx = [...stopsEl.children].indexOf(row);
-        const [hexInput, colorInput] = row.querySelectorAll("input");
+        const hexInput = row.querySelector('input[type="text"]');
+        const colorInput = row.querySelector('input[type="color"]');
         const h = readHexValue(hexInput, colorInput, gradStops[idx], true);
         hexInput.value = h;
         colorInput.value = h;
@@ -5154,10 +5247,19 @@
         const i = parseInt(btn.dataset.idx, 10);
         if (btn.classList.contains("ntg-del") && gradStops.length > 2) {
           gradStops.splice(i, 1);
+          gradStopPositions.splice(i, 1);
         } else if (btn.classList.contains("ntg-up") && i > 0) {
           [gradStops[i - 1], gradStops[i]] = [gradStops[i], gradStops[i - 1]];
+          [gradStopPositions[i - 1], gradStopPositions[i]] = [
+            gradStopPositions[i],
+            gradStopPositions[i - 1]
+          ];
         } else if (btn.classList.contains("ntg-down") && i < gradStops.length - 1) {
           [gradStops[i + 1], gradStops[i]] = [gradStops[i], gradStops[i + 1]];
+          [gradStopPositions[i + 1], gradStopPositions[i]] = [
+            gradStopPositions[i],
+            gradStopPositions[i + 1]
+          ];
         }
         stopCount.value = String(gradStops.length);
         renderStopRows();
@@ -5173,6 +5275,12 @@
               () => "89ABCDEF01234567"[Math.floor(Math.random() * 16)]
             ).join("")
         );
+        gradStopPositions = normalizeStopPositions(gradStops.length - 1);
+        gradStopPositions.push(
+          gradStopPositions.length
+            ? clamp(gradStopPositions[gradStopPositions.length - 1] + 10, 0, 100)
+            : 100
+        );
         stopCount.value = String(gradStops.length);
         renderStopRows();
         render();
@@ -5180,6 +5288,7 @@
       btnRem.addEventListener("click", () => {
         if (gradStops.length <= 2) return;
         gradStops.pop();
+        gradStopPositions.pop();
         stopCount.value = String(gradStops.length);
         renderStopRows();
         render();
@@ -5198,7 +5307,9 @@
       });
       stopCount.addEventListener("change", () => {
         let n = clamp(parseInt(stopCount.value || "3", 10), 2, 10);
-        while (gradStops.length < n)
+        const fallbackPositions = evenStopPositions(n);
+        gradStopPositions = normalizeStopPositions(gradStops.length);
+        while (gradStops.length < n) {
           gradStops.push(
             "#" +
               Array.from(
@@ -5206,7 +5317,13 @@
                 () => "89ABCDEF01234567"[Math.floor(Math.random() * 16)]
               ).join("")
           );
-        while (gradStops.length > n) gradStops.pop();
+          gradStopPositions.push(fallbackPositions[gradStops.length - 1]);
+        }
+        while (gradStops.length > n) {
+          gradStops.pop();
+          gradStopPositions.pop();
+        }
+        gradStopPositions = normalizeStopPositions(gradStops.length);
         renderStopRows();
         render();
       });
@@ -5216,7 +5333,7 @@
         if (!btn) return;
         const preset = gradientPresets[parseInt(btn.dataset.preset, 10)];
         if (!preset) return;
-        gradStops = preset.colors.slice();
+        setGradientStops(preset.colors);
         stopCount.value = String(gradStops.length);
         setColorMode("grad");
         renderStopRows();
@@ -5850,10 +5967,12 @@ LowerText:
       }
 
       function tmpFontStyle(content) {
-        const match = content.match(/font\s*=\s*"([^"]+)"/i);
-        const materialMatch = content.match(/material\s*=\s*"([^"]+)"/i);
-        const fontName = match ? match[1] : tmpTagValue(content);
-        const materialName = materialMatch ? materialMatch[1] : "";
+        const match = content.match(/font\s*=\s*(?:"([^"]+)"|'([^']+)'|([^>\s]+))/i);
+        const materialMatch = content.match(/material\s*=\s*(?:"([^"]+)"|'([^']+)'|([^>\s]+))/i);
+        const fontName = match ? (match[1] || match[2] || match[3]) : tmpTagValue(content);
+        const materialName = materialMatch
+          ? materialMatch[1] || materialMatch[2] || materialMatch[3] || ""
+          : "";
         return previewFontCss(fontName) + previewMaterialCss(materialName);
       }
 
