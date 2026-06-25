@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta property="og:title" content="User Art • MAUL" />
+    <meta property="og:title" content="User Art | MAUL" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moddedamong.us/art.html" />
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
@@ -501,6 +501,1181 @@
             scale(calc(var(--thumb-scale, 1) + var(--thumb-hover-scale, 0)));
         }
       }
+
+      /* Elevated gallery pass */
+      :root {
+        --accent: #ff3f5f;
+        --accent-soft: rgba(255, 63, 95, 0.2);
+        --accent-strong: #ff667d;
+        --gold: #f5c96b;
+        --teal: #35d7c6;
+        --ink: #050203;
+        --panel: rgba(15, 7, 8, 0.82);
+        --panel-strong: rgba(24, 8, 10, 0.92);
+        --line: rgba(255, 255, 255, 0.12);
+        --line-warm: rgba(245, 201, 107, 0.22);
+        --text-main: #fffaf3;
+        --text-muted: rgba(255, 250, 243, 0.72);
+      }
+
+      body {
+        min-height: 100%;
+        background:
+          linear-gradient(120deg, rgba(122, 0, 22, 0.52), transparent 34%),
+          linear-gradient(260deg, rgba(6, 44, 43, 0.42), transparent 38%),
+          linear-gradient(180deg, #150305 0%, #070203 52%, #020202 100%);
+        background-attachment: fixed;
+      }
+
+      body::before {
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 32%, rgba(0, 0, 0, 0.46));
+        background-size: 44px 44px, 44px 44px, 100% 100%;
+        mix-blend-mode: normal;
+        opacity: 0.62;
+      }
+
+      body::after {
+        background:
+          linear-gradient(90deg, rgba(255, 63, 95, 0.12), transparent 28%, rgba(53, 215, 198, 0.08)),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.72));
+      }
+
+      .page-wrapper {
+        width: min(100%, 1240px);
+        max-width: none;
+        padding: 52px 24px 72px;
+        gap: 22px;
+      }
+
+      .gallery-hero {
+        width: min(100%, 1120px);
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: end;
+        gap: 28px;
+        margin: 0;
+        text-align: left;
+      }
+
+      .hero-copy {
+        min-width: 0;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 14px;
+        color: rgba(255, 250, 243, 0.74);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--teal);
+        box-shadow: 0 0 16px rgba(53, 215, 198, 0.65);
+      }
+
+      header h1 {
+        max-width: 860px;
+        font-size: clamp(3.4rem, 8vw, 7rem);
+        line-height: 0.86;
+        letter-spacing: 0;
+        text-shadow: 0 22px 54px rgba(0, 0, 0, 0.72);
+      }
+
+      header h1 span {
+        background: linear-gradient(115deg, #fff7eb 0%, #d8d2c3 28%, var(--gold) 54%, #ff6a54 76%, #ff3f5f 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .subtitle {
+        max-width: 660px;
+        margin: 20px 0 0;
+        color: var(--text-muted);
+        font-size: clamp(1rem, 1.6vw, 1.18rem);
+        line-height: 1.7;
+      }
+
+      .hero-panel {
+        min-width: 210px;
+        padding: 18px 20px;
+        border: 1px solid var(--line-warm);
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgba(245, 201, 107, 0.12), rgba(255, 63, 95, 0.08)),
+          rgba(0, 0, 0, 0.34);
+        box-shadow: 0 20px 48px rgba(0, 0, 0, 0.42);
+      }
+
+      .hero-panel span,
+      .gallery-toolbar span {
+        display: block;
+        color: rgba(255, 250, 243, 0.58);
+        font-size: 0.74rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .hero-panel strong {
+        display: block;
+        margin: 8px 0 2px;
+        color: #fff7eb;
+        font-family: "Poppins", sans-serif;
+        font-size: 2.6rem;
+        line-height: 1;
+      }
+
+      .hero-panel small {
+        color: var(--text-muted);
+        font-weight: 700;
+      }
+
+      .slideshow-card {
+        width: min(100%, 1120px);
+        max-width: none;
+        margin: 0;
+        padding: 16px;
+        border-radius: 8px;
+        border: 1px solid var(--line-warm);
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 26%),
+          linear-gradient(180deg, var(--panel-strong), rgba(4, 2, 2, 0.94));
+        box-shadow:
+          0 34px 80px rgba(0, 0, 0, 0.66),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .slideshow-card::before {
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(255, 63, 95, 0.16), transparent 24%, transparent 76%, rgba(53, 215, 198, 0.1)),
+          linear-gradient(180deg, rgba(245, 201, 107, 0.1), transparent 42%);
+        filter: none;
+        opacity: 0.88;
+        animation: none;
+      }
+
+      .gallery-toolbar {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        min-height: 58px;
+        padding: 4px 4px 14px;
+      }
+
+      .gallery-toolbar strong {
+        display: block;
+        margin-top: 5px;
+        color: #fffaf3;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(1rem, 1.6vw, 1.28rem);
+      }
+
+      .join-link {
+        position: relative;
+        flex: 0 0 auto;
+        color: #fffaf3;
+        text-decoration: none;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+        padding: 10px 2px;
+      }
+
+      .join-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 5px;
+        height: 3px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--gold), #ff745f, var(--accent));
+        box-shadow: 0 0 18px rgba(255, 99, 112, 0.48);
+      }
+
+      .slideshow-container {
+        overflow: hidden;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 30%),
+          rgba(0, 0, 0, 0.48);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+      }
+
+      .slide {
+        min-height: clamp(430px, 58vw, 690px);
+        align-items: center;
+        justify-content: center;
+        padding: clamp(14px, 2vw, 28px);
+      }
+
+      .slide.active {
+        display: flex;
+      }
+
+      .slide::before {
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(128, 0, 18, 0.2), transparent 36%, rgba(3, 34, 32, 0.18)),
+          linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.3));
+        filter: none;
+        transform: none;
+      }
+
+      .slide.active::before {
+        transform: none;
+      }
+
+      .slide img {
+        width: auto;
+        max-width: 100%;
+        max-height: min(650px, 74vh);
+        border-radius: 8px;
+        border: 1px solid rgba(255, 250, 243, 0.16);
+        background: rgba(3, 2, 2, 0.74);
+        box-shadow:
+          0 28px 60px rgba(0, 0, 0, 0.68),
+          0 0 0 1px rgba(255, 255, 255, 0.04);
+      }
+
+      .artist-badge {
+        top: 18px;
+        left: 18px;
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgba(20, 8, 8, 0.86), rgba(7, 4, 4, 0.72)),
+          rgba(0, 0, 0, 0.62);
+        border-color: rgba(245, 201, 107, 0.22);
+        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.52);
+      }
+
+      .prev,
+      .next {
+        width: 46px;
+        height: 46px;
+        display: grid;
+        place-items: center;
+        padding: 0;
+        border-color: rgba(245, 201, 107, 0.25);
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent 45%),
+          rgba(10, 5, 5, 0.82);
+        backdrop-filter: blur(14px);
+      }
+
+      .prev {
+        left: 18px;
+      }
+
+      .next {
+        right: 18px;
+      }
+
+      .prev:hover,
+      .next:hover {
+        background:
+          linear-gradient(145deg, rgba(245, 201, 107, 0.18), rgba(255, 63, 95, 0.12)),
+          rgba(16, 6, 6, 0.92);
+      }
+
+      .slide-counter {
+        right: 18px;
+        bottom: 16px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: rgba(255, 250, 243, 0.76);
+        font-weight: 800;
+        letter-spacing: 0.06em;
+      }
+
+      .slideshow-meta {
+        margin-top: 14px;
+      }
+
+      .progress-track {
+        height: 5px;
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .progress-bar {
+        background: linear-gradient(90deg, var(--teal), var(--gold), var(--accent));
+        box-shadow: 0 0 18px rgba(245, 201, 107, 0.42);
+      }
+
+      .thumb-strip {
+        height: 126px;
+        border-radius: 8px;
+        border-color: rgba(245, 201, 107, 0.16);
+        background:
+          linear-gradient(90deg, rgba(255, 63, 95, 0.08), transparent 28%, rgba(53, 215, 198, 0.06)),
+          rgba(0, 0, 0, 0.36);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+      }
+
+      .thumb-strip::before,
+      .thumb-strip::after {
+        display: none;
+      }
+
+      .thumb-btn {
+        border-radius: 8px;
+        border-color: rgba(255, 250, 243, 0.12);
+        background: rgba(4, 2, 2, 0.88);
+      }
+
+      .thumb-btn.active {
+        border-color: rgba(245, 201, 107, 0.72);
+        box-shadow:
+          0 0 0 2px rgba(245, 201, 107, 0.16),
+          0 20px 34px rgba(0, 0, 0, 0.6);
+      }
+
+      .thumb-number {
+        color: #fffaf3;
+      }
+
+      .gallery-footer {
+        width: min(100%, 1120px);
+        max-width: none;
+        margin: 0;
+        border-radius: 8px;
+        border-color: rgba(245, 201, 107, 0.16);
+        background:
+          linear-gradient(90deg, rgba(255, 63, 95, 0.1), transparent 34%, rgba(53, 215, 198, 0.06)),
+          rgba(8, 4, 4, 0.78);
+        box-shadow: 0 22px 54px rgba(0, 0, 0, 0.44);
+      }
+
+      .gallery-footer a {
+        color: #fffaf3;
+        text-decoration-color: rgba(245, 201, 107, 0.85);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+      }
+
+      @media (max-width: 760px) {
+        .page-wrapper {
+          padding: 34px 14px 56px;
+        }
+
+        .gallery-hero {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .hero-panel {
+          width: 100%;
+        }
+
+        .gallery-toolbar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .slide {
+          min-height: 380px;
+          padding: 12px;
+        }
+
+        .artist-badge {
+          right: 12px;
+          border-radius: 8px;
+        }
+
+        .prev {
+          left: 10px;
+        }
+
+        .next {
+          right: 10px;
+        }
+      }
+
+      .gallery-actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .gallery-action {
+        min-height: 38px;
+        border: 1px solid rgba(245, 201, 107, 0.2);
+        border-radius: 999px;
+        padding: 9px 14px;
+        color: #fffaf3;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0)),
+          rgba(12, 5, 5, 0.72);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+        cursor: pointer;
+        font: 900 0.86rem "Roboto", sans-serif;
+        letter-spacing: 0.01em;
+        transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+      }
+
+      .gallery-action:hover,
+      .gallery-action:focus-visible {
+        border-color: rgba(245, 201, 107, 0.45);
+        background:
+          linear-gradient(145deg, rgba(245, 201, 107, 0.16), rgba(255, 63, 95, 0.08)),
+          rgba(18, 6, 6, 0.9);
+        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.34);
+        outline: none;
+        transform: translateY(-1px);
+      }
+
+      .gallery-action.primary {
+        border-color: rgba(255, 90, 112, 0.55);
+        background:
+          linear-gradient(135deg, #ff3f5f, #b80f2b 58%, #4a080e);
+        box-shadow: 0 14px 30px rgba(255, 63, 95, 0.22);
+      }
+
+      .slideshow-container::after {
+        content: "Click artwork for full view";
+        position: absolute;
+        left: 18px;
+        bottom: 16px;
+        z-index: 4;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: rgba(255, 250, 243, 0.7);
+        background: rgba(0, 0, 0, 0.42);
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        pointer-events: none;
+      }
+
+      .slide img {
+        cursor: zoom-in;
+        transition: transform 0.24s ease, box-shadow 0.24s ease, filter 0.24s ease;
+      }
+
+      .slide.active img:hover {
+        transform: translateY(-2px) scale(1.008);
+        filter: saturate(1.04) contrast(1.02);
+        box-shadow:
+          0 34px 72px rgba(0, 0, 0, 0.74),
+          0 0 0 1px rgba(245, 201, 107, 0.18);
+      }
+
+      .browse-panel {
+        display: none;
+        position: relative;
+        z-index: 5;
+        margin-top: 14px;
+        padding: 14px;
+        border: 1px solid rgba(245, 201, 107, 0.16);
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgba(255, 63, 95, 0.1), transparent 40%),
+          rgba(4, 2, 2, 0.76);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+      }
+
+      .browse-panel.open {
+        display: block;
+      }
+
+      .browse-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .browse-head span {
+        color: rgba(255, 250, 243, 0.68);
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .browse-grid,
+      .viewer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+        gap: 10px;
+        max-height: 330px;
+        overflow: auto;
+        padding-right: 4px;
+      }
+
+      .browse-tile,
+      .viewer-tile {
+        position: relative;
+        aspect-ratio: 1;
+        overflow: hidden;
+        border: 1px solid rgba(255, 250, 243, 0.12);
+        border-radius: 8px;
+        padding: 0;
+        background: rgba(0, 0, 0, 0.72);
+        cursor: pointer;
+      }
+
+      .browse-tile img,
+      .viewer-tile img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        transition: transform 0.22s ease, filter 0.22s ease;
+      }
+
+      .browse-tile span,
+      .viewer-tile span {
+        position: absolute;
+        right: 7px;
+        bottom: 6px;
+        z-index: 1;
+        color: #fffaf3;
+        font-size: 0.72rem;
+        font-weight: 900;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+      }
+
+      .browse-tile:hover img,
+      .browse-tile:focus-visible img,
+      .viewer-tile:hover img,
+      .viewer-tile:focus-visible img {
+        transform: scale(1.06);
+        filter: saturate(1.1) brightness(1.08);
+      }
+
+      .browse-tile.active,
+      .viewer-tile.active {
+        border-color: rgba(245, 201, 107, 0.82);
+        box-shadow:
+          0 0 0 2px rgba(245, 201, 107, 0.18),
+          0 14px 28px rgba(0, 0, 0, 0.42);
+      }
+
+      .viewer-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: none;
+        padding: 22px;
+      }
+
+      .viewer-modal.open {
+        display: grid;
+        place-items: center;
+      }
+
+      .viewer-backdrop {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(135deg, rgba(122, 0, 22, 0.24), rgba(0, 0, 0, 0.84)),
+          rgba(0, 0, 0, 0.82);
+        backdrop-filter: blur(18px);
+      }
+
+      .viewer-shell {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 1220px);
+        max-height: calc(100vh - 44px);
+        display: grid;
+        grid-template-rows: minmax(0, 1fr) auto auto;
+        gap: 12px;
+        padding: 14px;
+        border: 1px solid rgba(245, 201, 107, 0.22);
+        border-radius: 8px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 22%),
+          rgba(5, 2, 3, 0.92);
+        box-shadow:
+          0 42px 90px rgba(0, 0, 0, 0.72),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+      }
+
+      .viewer-stage {
+        position: relative;
+        min-height: min(64vh, 680px);
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgba(255, 63, 95, 0.1), transparent 34%, rgba(53, 215, 198, 0.08)),
+          rgba(0, 0, 0, 0.52);
+      }
+
+      .viewer-stage img {
+        max-width: 100%;
+        max-height: min(64vh, 680px);
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 26px 64px rgba(0, 0, 0, 0.68);
+      }
+
+      .viewer-close,
+      .viewer-nav {
+        border: 1px solid rgba(245, 201, 107, 0.22);
+        color: #fffaf3;
+        background: rgba(8, 4, 4, 0.78);
+        cursor: pointer;
+        backdrop-filter: blur(12px);
+      }
+
+      .viewer-close {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        z-index: 4;
+        width: 42px;
+        height: 42px;
+        border-radius: 999px;
+        font-size: 1.6rem;
+        line-height: 1;
+      }
+
+      .viewer-nav {
+        position: absolute;
+        top: 50%;
+        z-index: 3;
+        width: 48px;
+        height: 58px;
+        transform: translateY(-50%);
+        border-radius: 999px;
+        font-size: 2rem;
+      }
+
+      .viewer-prev {
+        left: 14px;
+      }
+
+      .viewer-next {
+        right: 14px;
+      }
+
+      .viewer-close:hover,
+      .viewer-nav:hover,
+      .viewer-close:focus-visible,
+      .viewer-nav:focus-visible {
+        border-color: rgba(245, 201, 107, 0.5);
+        background: rgba(20, 8, 8, 0.94);
+        outline: none;
+      }
+
+      .viewer-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 2px 4px;
+      }
+
+      .viewer-info span {
+        display: block;
+        color: rgba(255, 250, 243, 0.58);
+        font-size: 0.74rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .viewer-info strong {
+        display: block;
+        margin-top: 4px;
+        color: #fffaf3;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+      }
+
+      body.viewer-open {
+        overflow: hidden;
+      }
+
+      @media (max-width: 760px) {
+        .gallery-actions {
+          justify-content: flex-start;
+        }
+
+        .slideshow-container::after {
+          display: none;
+        }
+
+        .browse-grid,
+        .viewer-grid {
+          grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+          max-height: 260px;
+        }
+
+        .viewer-modal {
+          padding: 10px;
+        }
+
+        .viewer-shell {
+          max-height: calc(100vh - 20px);
+          padding: 10px;
+        }
+
+        .viewer-stage {
+          min-height: 54vh;
+        }
+
+        .viewer-stage img {
+          max-height: 54vh;
+        }
+
+        .viewer-info {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .viewer-nav {
+          width: 42px;
+          height: 50px;
+        }
+      }
+
+      /* Cinematic art-stage polish */
+      .slideshow-card {
+        position: relative;
+      }
+
+      .slideshow-card::after {
+        content: "";
+        position: absolute;
+        inset: 10px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 250, 243, 0.06);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .slideshow-container {
+        isolation: isolate;
+        min-height: clamp(470px, 60vw, 720px);
+        background:
+          radial-gradient(circle at 50% 16%, rgba(255, 250, 243, 0.1), transparent 28%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.72)),
+          #030101;
+      }
+
+      .stage-backdrop,
+      .viewer-backdrop-art {
+        position: absolute;
+        inset: -8%;
+        background-image: var(--active-art);
+        background-position: center;
+        background-size: cover;
+        opacity: 0;
+        filter: blur(34px) saturate(1.25) brightness(0.82);
+        transform: scale(1.08);
+        transition: opacity 0.35s ease, background-image 0.35s ease;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .slideshow-container.has-active-art .stage-backdrop,
+      .viewer-stage.has-active-art .viewer-backdrop-art {
+        opacity: 0.44;
+      }
+
+      .slideshow-container::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, 0.66), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.66)),
+          linear-gradient(180deg, rgba(255, 250, 243, 0.08), transparent 20%, rgba(0, 0, 0, 0.38)),
+          radial-gradient(circle at 50% 50%, transparent 38%, rgba(0, 0, 0, 0.45));
+      }
+
+      .slideshow-container::after {
+        bottom: 22px;
+        left: 22px;
+        z-index: 6;
+      }
+
+      .slide {
+        z-index: 2;
+      }
+
+      .slide.active {
+        animation: artRise 0.42s ease both;
+      }
+
+      @keyframes artRise {
+        from {
+          opacity: 0;
+          transform: translateY(10px) scale(0.985);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .slide img {
+        padding: clamp(6px, 1.1vw, 12px);
+        background:
+          linear-gradient(145deg, rgba(255, 250, 243, 0.16), rgba(255, 250, 243, 0.03)),
+          rgba(0, 0, 0, 0.58);
+        outline: 1px solid rgba(0, 0, 0, 0.7);
+        outline-offset: -7px;
+      }
+
+      .slide.active img {
+        box-shadow:
+          0 38px 86px rgba(0, 0, 0, 0.76),
+          0 0 0 1px rgba(255, 250, 243, 0.08),
+          0 0 70px rgba(245, 201, 107, 0.09);
+      }
+
+      .artist-badge {
+        z-index: 7;
+      }
+
+      .viewer-shell {
+        border-color: rgba(245, 201, 107, 0.32);
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.09), transparent 20%),
+          linear-gradient(180deg, rgba(20, 7, 8, 0.96), rgba(2, 1, 1, 0.96));
+      }
+
+      .viewer-stage {
+        isolation: isolate;
+        background:
+          radial-gradient(circle at 50% 18%, rgba(255, 250, 243, 0.09), transparent 30%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.78)),
+          #030101;
+      }
+
+      .viewer-stage::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, 0.72), transparent 16%, transparent 84%, rgba(0, 0, 0, 0.72)),
+          radial-gradient(circle at 50% 50%, transparent 48%, rgba(0, 0, 0, 0.45));
+      }
+
+      .viewer-backdrop-art {
+        filter: blur(42px) saturate(1.3) brightness(0.82);
+      }
+
+      .viewer-stage img {
+        position: relative;
+        z-index: 2;
+        padding: clamp(6px, 1vw, 12px);
+        background:
+          linear-gradient(145deg, rgba(255, 250, 243, 0.16), rgba(255, 250, 243, 0.03)),
+          rgba(0, 0, 0, 0.62);
+        outline: 1px solid rgba(0, 0, 0, 0.72);
+        outline-offset: -7px;
+        box-shadow:
+          0 34px 84px rgba(0, 0, 0, 0.78),
+          0 0 0 1px rgba(255, 250, 243, 0.08),
+          0 0 90px rgba(245, 201, 107, 0.1);
+      }
+
+      .viewer-nav,
+      .viewer-close {
+        z-index: 5;
+      }
+
+      .viewer-info,
+      .viewer-grid {
+        position: relative;
+        z-index: 2;
+      }
+
+      @media (max-width: 760px) {
+        .slideshow-container {
+          min-height: 420px;
+        }
+
+        .stage-backdrop,
+        .viewer-backdrop-art {
+          filter: blur(24px) saturate(1.18) brightness(0.82);
+        }
+      }
+
+      /* Borderless refinement: let the art float instead of boxing it in. */
+      .slideshow-card::after {
+        display: none;
+      }
+
+      .slideshow-card,
+      .slideshow-container,
+      .viewer-shell,
+      .viewer-stage,
+      .thumb-strip,
+      .browse-panel,
+      .gallery-footer {
+        border-color: transparent;
+      }
+
+      .slideshow-card {
+        box-shadow:
+          0 34px 90px rgba(0, 0, 0, 0.72),
+          0 0 120px rgba(255, 63, 95, 0.08);
+      }
+
+      .slideshow-container,
+      .viewer-stage {
+        box-shadow:
+          inset 0 1px 0 rgba(255, 250, 243, 0.06),
+          inset 0 -60px 120px rgba(0, 0, 0, 0.42);
+      }
+
+      .slide img,
+      .viewer-stage img {
+        padding: 0;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        border-radius: 10px;
+      }
+
+      .slide.active img,
+      .viewer-stage img {
+        box-shadow:
+          0 42px 90px rgba(0, 0, 0, 0.8),
+          0 0 80px rgba(245, 201, 107, 0.1),
+          0 0 130px rgba(255, 63, 95, 0.08);
+      }
+
+      .slide.active img:hover {
+        box-shadow:
+          0 48px 100px rgba(0, 0, 0, 0.84),
+          0 0 96px rgba(245, 201, 107, 0.14),
+          0 0 150px rgba(255, 63, 95, 0.1);
+      }
+
+      .artist-badge,
+      .slide-counter,
+      .gallery-action,
+      .viewer-close,
+      .viewer-nav {
+        border-color: rgba(255, 250, 243, 0.08);
+      }
+
+      .thumb-btn,
+      .browse-tile,
+      .viewer-tile {
+        border-color: rgba(255, 250, 243, 0.08);
+      }
+
+      .thumb-btn.active,
+      .browse-tile.active,
+      .viewer-tile.active {
+        border-color: rgba(245, 201, 107, 0.52);
+      }
+
+      /* Open dark-room gallery: no casing, just art under a spotlight. */
+      body {
+        background:
+          radial-gradient(circle at 50% 18%, rgba(118, 0, 20, 0.2), transparent 30%),
+          radial-gradient(circle at 82% 8%, rgba(30, 79, 77, 0.14), transparent 28%),
+          linear-gradient(180deg, #090304 0%, #030202 48%, #000 100%);
+      }
+
+      body::before {
+        opacity: 0.22;
+      }
+
+      body::after {
+        background:
+          radial-gradient(circle at 50% 34%, transparent 0 22%, rgba(0, 0, 0, 0.34) 58%, rgba(0, 0, 0, 0.88) 100%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.72));
+      }
+
+      .page-wrapper {
+        padding-top: 46px;
+      }
+
+      .slideshow-card {
+        padding: 0;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+      }
+
+      .slideshow-card::before,
+      .slideshow-card::after {
+        display: none;
+      }
+
+      .gallery-toolbar {
+        width: min(100%, 1040px);
+        margin: 0 auto 16px;
+        padding: 0;
+      }
+
+      .slideshow-container {
+        width: min(100%, 1080px);
+        margin: 0 auto;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        overflow: visible;
+      }
+
+      .slideshow-container::before {
+        inset: -10% -8%;
+        background:
+          radial-gradient(ellipse at 50% 46%, rgba(255, 242, 206, 0.18), rgba(245, 201, 107, 0.08) 28%, transparent 54%),
+          radial-gradient(ellipse at 50% 68%, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.72) 72%);
+        filter: blur(4px);
+      }
+
+      .slideshow-container::after {
+        background: rgba(0, 0, 0, 0.28);
+        border-color: transparent;
+      }
+
+      .stage-backdrop {
+        inset: -18%;
+        opacity: 0;
+        filter: blur(46px) saturate(1.18) brightness(0.62);
+        transform: scale(1.18);
+      }
+
+      .slideshow-container.has-active-art .stage-backdrop {
+        opacity: 0.32;
+      }
+
+      .slide {
+        min-height: clamp(480px, 60vw, 720px);
+        overflow: visible;
+      }
+
+      .slide::before {
+        display: none;
+      }
+
+      .slide::after {
+        content: "";
+        position: absolute;
+        inset: 11% 14% 7%;
+        z-index: 1;
+        background:
+          radial-gradient(ellipse at 50% 38%, rgba(255, 246, 221, 0.34), rgba(245, 201, 107, 0.12) 30%, transparent 58%),
+          radial-gradient(ellipse at 50% 82%, rgba(0, 0, 0, 0.52), transparent 52%);
+        filter: blur(22px);
+        opacity: 0;
+        transform: scale(0.9);
+        transition: opacity 0.32s ease, transform 0.32s ease;
+        pointer-events: none;
+      }
+
+      .slide.active::after {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .slide img {
+        position: relative;
+        z-index: 2;
+        border-radius: 6px;
+      }
+
+      .slide.active img {
+        box-shadow:
+          0 44px 95px rgba(0, 0, 0, 0.86),
+          0 0 110px rgba(255, 238, 196, 0.12),
+          0 0 170px rgba(255, 63, 95, 0.08);
+      }
+
+      .artist-badge {
+        background: rgba(0, 0, 0, 0.36);
+        border-color: transparent;
+        box-shadow: none;
+      }
+
+      .slide-counter {
+        background: rgba(0, 0, 0, 0.28);
+        border-color: transparent;
+      }
+
+      .slideshow-meta {
+        width: min(100%, 1040px);
+        margin: 18px auto 0;
+      }
+
+      .progress-track,
+      .thumb-strip,
+      .browse-panel,
+      .gallery-footer {
+        background: rgba(0, 0, 0, 0.26);
+        border: 0;
+        box-shadow: none;
+      }
+
+      .viewer-shell {
+        border: 0;
+        background: rgba(3, 2, 2, 0.92);
+        box-shadow: 0 42px 120px rgba(0, 0, 0, 0.82);
+      }
+
+      .viewer-stage {
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .viewer-stage::before {
+        background:
+          radial-gradient(ellipse at 50% 42%, rgba(255, 246, 221, 0.24), rgba(245, 201, 107, 0.08) 34%, transparent 62%),
+          radial-gradient(ellipse at 50% 76%, rgba(0, 0, 0, 0.52), transparent 56%);
+        filter: blur(12px);
+      }
+
+      .viewer-stage.has-active-art .viewer-backdrop-art {
+        opacity: 0.26;
+      }
+
+      @media (max-width: 760px) {
+        .slideshow-container {
+          width: 100%;
+        }
+
+        .slide {
+          min-height: 410px;
+        }
+
+        .slide::after {
+          inset: 18% 5% 12%;
+          filter: blur(18px);
+        }
+      }
     </style>
   </head>
 
@@ -508,13 +1683,34 @@
     <div id="navbar"></div>
 
     <div class="page-wrapper">
-      <header>
-        <h1><span>User Art Gallery</span></h1>
-        <p class="subtitle">Showcasing creations from the Modded Among Us Lobbies community.</p>
+      <header class="gallery-hero">
+        <div class="hero-copy">
+          <div class="eyebrow">MAUL Community Art</div>
+          <h1><span>User Art Gallery</span></h1>
+          <p class="subtitle">A showcase of the best pieces made by the Modded Among Us Lobbies community.</p>
+        </div>
+        <div class="hero-panel" aria-label="Gallery summary">
+          <span>Featured pieces</span>
+          <strong id="artCount">32</strong>
+          <small>Community submissions</small>
+        </div>
       </header>
 
       <div class="slideshow-card">
-        <div class="slideshow-container">
+        <div class="gallery-toolbar">
+          <div>
+            <span>Now showing</span>
+            <strong id="currentArtist">By: @Imnight</strong>
+          </div>
+          <div class="gallery-actions" aria-label="Gallery controls">
+            <button class="gallery-action" id="playToggle" type="button">Pause</button>
+            <button class="gallery-action" id="browseToggle" type="button">Browse all</button>
+            <button class="gallery-action primary" id="fullViewToggle" type="button">Full view</button>
+            <a class="join-link" href="https://discord.gg/maul" target="_blank" rel="noopener">Join MAUL</a>
+          </div>
+        </div>
+        <div class="slideshow-container" id="slideshowStage">
+          <div class="stage-backdrop" id="stageBackdrop" aria-hidden="true"></div>
           <div class="slide active">
             <div class="artist-badge">By: @Imnight</div>
             <img src="images/userart1.png" alt="User Art 1" />
@@ -653,17 +1849,45 @@
             <div class="progress-bar" id="progressBar"></div>
           </div>
           <div class="thumb-strip" id="thumbStrip" aria-label="Artwork thumbnails"></div>
+          <div class="browse-panel" id="browsePanel" aria-hidden="true">
+            <div class="browse-head">
+              <span>Browse the collection</span>
+              <button class="gallery-action" id="browseClose" type="button">Close</button>
+            </div>
+            <div class="browse-grid" id="browseGrid"></div>
+          </div>
         </div>
       </div>
 
-      <footer>
+      <footer class="gallery-footer">
         <p>
           Want your art featured here?
-          <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904" target="_blank">
+          <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904" target="_blank" rel="noopener">
             Open a ticket on Discord.
           </a>
         </p>
       </footer>
+    </div>
+
+    <div class="viewer-modal" id="viewerModal" aria-hidden="true">
+      <div class="viewer-backdrop" data-viewer-close></div>
+      <div class="viewer-shell" role="dialog" aria-modal="true" aria-label="Artwork viewer">
+        <button class="viewer-close" type="button" data-viewer-close aria-label="Close viewer">×</button>
+        <div class="viewer-stage" id="viewerStage">
+          <div class="viewer-backdrop-art" id="viewerBackdropArt" aria-hidden="true"></div>
+          <button class="viewer-nav viewer-prev" type="button" aria-label="Previous artwork">‹</button>
+          <img id="viewerImage" src="" alt="" />
+          <button class="viewer-nav viewer-next" type="button" aria-label="Next artwork">›</button>
+        </div>
+        <div class="viewer-info">
+          <div>
+            <span id="viewerCounter">1 / 32</span>
+            <strong id="viewerArtist">By: @Imnight</strong>
+          </div>
+          <button class="gallery-action" id="viewerPlayToggle" type="button">Pause slideshow</button>
+        </div>
+        <div class="viewer-grid" id="viewerGrid" aria-label="Artwork quick picker"></div>
+      </div>
     </div>
 
     <script>
@@ -671,19 +1895,99 @@
       const prevBtn = document.querySelector(".prev");
       const nextBtn = document.querySelector(".next");
       const counter = document.getElementById("slideCounter");
+      const currentArtist = document.getElementById("currentArtist");
+      const artCount = document.getElementById("artCount");
       const progressBar = document.getElementById("progressBar");
       const thumbStrip = document.getElementById("thumbStrip");
+      const slideshowStage = document.getElementById("slideshowStage");
+      const viewerStage = document.getElementById("viewerStage");
+      const playToggle = document.getElementById("playToggle");
+      const browseToggle = document.getElementById("browseToggle");
+      const browseClose = document.getElementById("browseClose");
+      const browsePanel = document.getElementById("browsePanel");
+      const browseGrid = document.getElementById("browseGrid");
+      const fullViewToggle = document.getElementById("fullViewToggle");
+      const viewerModal = document.getElementById("viewerModal");
+      const viewerImage = document.getElementById("viewerImage");
+      const viewerArtist = document.getElementById("viewerArtist");
+      const viewerCounter = document.getElementById("viewerCounter");
+      const viewerGrid = document.getElementById("viewerGrid");
+      const viewerPlayToggle = document.getElementById("viewerPlayToggle");
+      const viewerPrev = document.querySelector(".viewer-prev");
+      const viewerNext = document.querySelector(".viewer-next");
       const slideDelay = 5000;
       let currentIndex = 0;
-      let slideInterval = setInterval(nextSlide, slideDelay);
+      let slideInterval = null;
+      let isPlaying = true;
       let thumbPointerX = null;
       let thumbPointerActive = false;
+
+      function cssImageUrl(src) {
+        return `url("${String(src || "").replace(/"/g, "%22")}")`;
+      }
+
+      function activeArtwork() {
+        const activeSlide = slides[currentIndex];
+        const img = activeSlide?.querySelector("img");
+        const badge = activeSlide?.querySelector(".artist-badge");
+        return {
+          src: img?.getAttribute("src") || "",
+          alt: img?.getAttribute("alt") || `Artwork ${currentIndex + 1}`,
+          artist: badge ? badge.textContent : "Community artwork"
+        };
+      }
+
+      function updateArtworkAtmosphere() {
+        const art = activeArtwork();
+        if (!art.src) return;
+        const image = cssImageUrl(art.src);
+        [slideshowStage, viewerStage].forEach((stage) => {
+          if (!stage) return;
+          stage.style.setProperty("--active-art", image);
+          stage.classList.add("has-active-art");
+        });
+      }
 
       function restartProgress() {
         if (!progressBar) return;
         progressBar.classList.remove("is-running");
+        if (!isPlaying) return;
         void progressBar.offsetWidth;
         progressBar.classList.add("is-running");
+      }
+
+      function updatePlayButtons() {
+        const label = isPlaying ? "Pause" : "Play";
+        if (playToggle) playToggle.textContent = label;
+        if (viewerPlayToggle) viewerPlayToggle.textContent = isPlaying ? "Pause slideshow" : "Play slideshow";
+        if (progressBar) progressBar.classList.toggle("is-running", isPlaying);
+      }
+
+      function startAutoplay() {
+        if (slideInterval) clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, slideDelay);
+        isPlaying = true;
+        updatePlayButtons();
+        restartProgress();
+      }
+
+      function stopAutoplay() {
+        if (slideInterval) clearInterval(slideInterval);
+        slideInterval = null;
+        isPlaying = false;
+        updatePlayButtons();
+      }
+
+      function toggleAutoplay() {
+        if (isPlaying) stopAutoplay();
+        else startAutoplay();
+      }
+
+      function selectSlide(index, restartTimer = false) {
+        currentIndex = (index + slides.length) % slides.length;
+        showSlide(currentIndex);
+        if (restartTimer && isPlaying) startAutoplay();
+        updateViewer();
       }
 
       function syncThumbs() {
@@ -774,14 +2078,49 @@
             <span class="thumb-number">${index + 1}</span>
           `;
           button.addEventListener("click", () => {
-            clearInterval(slideInterval);
-            currentIndex = index;
-            showSlide(currentIndex);
-            slideInterval = setInterval(nextSlide, slideDelay);
+            selectSlide(index, true);
           });
           thumbStrip.appendChild(button);
         });
         syncThumbs();
+      }
+
+      function makeGalleryTile(index, className) {
+        const slide = slides[index];
+        const img = slide.querySelector("img");
+        const badge = slide.querySelector(".artist-badge");
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = className;
+        button.setAttribute("aria-label", `View artwork ${index + 1}${badge ? ` by ${badge.textContent.replace(/^By:\s*/, "")}` : ""}`);
+        button.innerHTML = `
+          <img src="${img?.getAttribute("src") || ""}" alt="${img?.getAttribute("alt") || `Artwork ${index + 1}`}" loading="lazy" />
+          <span>${index + 1}</span>
+        `;
+        button.addEventListener("click", () => {
+          selectSlide(index, true);
+          if (className === "viewer-tile") openViewer();
+        });
+        return button;
+      }
+
+      function buildBrowseViews() {
+        if (browseGrid) {
+          browseGrid.innerHTML = "";
+          slides.forEach((_, index) => browseGrid.appendChild(makeGalleryTile(index, "browse-tile")));
+        }
+        if (viewerGrid) {
+          viewerGrid.innerHTML = "";
+          slides.forEach((_, index) => viewerGrid.appendChild(makeGalleryTile(index, "viewer-tile")));
+        }
+      }
+
+      function syncBrowseViews() {
+        document.querySelectorAll(".browse-tile, .viewer-tile").forEach((tile, index) => {
+          const actualIndex = index % slides.length;
+          tile.classList.toggle("active", actualIndex === currentIndex);
+          tile.setAttribute("aria-current", actualIndex === currentIndex ? "true" : "false");
+        });
       }
 
       if (thumbStrip) {
@@ -801,41 +2140,141 @@
         counter.textContent = currentIndex + 1 + " / " + slides.length;
       }
 
+      function updateCurrentArtist() {
+        if (!currentArtist) return;
+        currentArtist.textContent = activeArtwork().artist;
+      }
+
+      function updateViewer() {
+        if (!viewerModal || !viewerImage) return;
+        const art = activeArtwork();
+        if (art.src) {
+          viewerImage.src = art.src;
+          viewerImage.alt = art.alt;
+        }
+        if (viewerArtist) viewerArtist.textContent = art.artist;
+        if (viewerCounter) viewerCounter.textContent = currentIndex + 1 + " / " + slides.length;
+        updateArtworkAtmosphere();
+        syncBrowseViews();
+      }
+
+      function openViewer() {
+        if (!viewerModal) return;
+        updateViewer();
+        viewerModal.classList.add("open");
+        viewerModal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("viewer-open");
+      }
+
+      function closeViewer() {
+        if (!viewerModal) return;
+        viewerModal.classList.remove("open");
+        viewerModal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("viewer-open");
+      }
+
+      function toggleBrowse() {
+        if (!browsePanel) return;
+        const isOpen = browsePanel.classList.toggle("open");
+        browsePanel.setAttribute("aria-hidden", isOpen ? "false" : "true");
+        if (browseToggle) browseToggle.textContent = isOpen ? "Hide browse" : "Browse all";
+        syncBrowseViews();
+      }
+
       function showSlide(index) {
         slides.forEach((slide, i) => {
           slide.classList.toggle("active", i === index);
         });
         updateCounter();
+        updateCurrentArtist();
+        updateArtworkAtmosphere();
         syncThumbs();
+        syncBrowseViews();
         restartProgress();
       }
 
       function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
+        selectSlide(currentIndex + 1);
       }
 
       function prevSlide() {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        showSlide(currentIndex);
+        selectSlide(currentIndex - 1);
       }
 
       if (nextBtn && prevBtn) {
         nextBtn.addEventListener("click", () => {
-          clearInterval(slideInterval);
           nextSlide();
-          slideInterval = setInterval(nextSlide, slideDelay);
+          if (isPlaying) startAutoplay();
         });
 
         prevBtn.addEventListener("click", () => {
-          clearInterval(slideInterval);
           prevSlide();
-          slideInterval = setInterval(nextSlide, slideDelay);
+          if (isPlaying) startAutoplay();
         });
       }
 
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest("#playToggle, #viewerPlayToggle")) return;
+        event.preventDefault();
+        toggleAutoplay();
+      });
+      browseToggle?.addEventListener("click", toggleBrowse);
+      browseClose?.addEventListener("click", () => {
+        browsePanel?.classList.remove("open");
+        browsePanel?.setAttribute("aria-hidden", "true");
+        if (browseToggle) browseToggle.textContent = "Browse all";
+      });
+      fullViewToggle?.addEventListener("click", openViewer);
+      viewerPrev?.addEventListener("click", () => {
+        prevSlide();
+        if (isPlaying) startAutoplay();
+      });
+      viewerNext?.addEventListener("click", () => {
+        nextSlide();
+        if (isPlaying) startAutoplay();
+      });
+      viewerModal?.addEventListener("click", (event) => {
+        if (event.target.matches("[data-viewer-close]")) closeViewer();
+      });
+
+      slides.forEach((slide, index) => {
+        slide.querySelector("img")?.addEventListener("click", () => {
+          selectSlide(index);
+          openViewer();
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeViewer();
+          return;
+        }
+        if (event.key === "ArrowRight") {
+          nextSlide();
+          if (isPlaying) startAutoplay();
+        }
+        if (event.key === "ArrowLeft") {
+          prevSlide();
+          if (isPlaying) startAutoplay();
+        }
+        if (event.key === " " && viewerModal?.classList.contains("open")) {
+          event.preventDefault();
+          toggleAutoplay();
+        }
+      });
+
+      if (artCount) artCount.textContent = String(slides.length);
+      slides.forEach((slide, index) => {
+        const img = slide.querySelector("img");
+        if (!img) return;
+        img.loading = index === 0 ? "eager" : "lazy";
+        img.decoding = "async";
+      });
+
       buildThumbs();
+      buildBrowseViews();
       showSlide(currentIndex);
+      startAutoplay();
     </script>
     <script src="/scripts/navbar.js"></script>
   </body>
