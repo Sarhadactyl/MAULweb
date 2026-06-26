@@ -1,0 +1,2107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lobby Templates · MAUL</title>
+    <meta property="og:title" content="Lobby Templates · MAUL" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/lobbytemplates.html" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta property="og:description" content="Gradient and Solid color templates to help new and returning hosts get started." />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://moddedamong.us/lobbytemplates.html" />
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/styles/navbar.css" />
+
+    <style>
+      :root {
+        --accent: #ff4558;
+        --accent-deep: #7b0614;
+        --gold: #e1aa58;
+        --ink: #070405;
+        --panel: rgba(20, 8, 10, 0.92);
+        --panel-soft: rgba(47, 18, 20, 0.76);
+        --line: rgba(255, 255, 255, 0.12);
+        --line-warm: rgba(225, 170, 88, 0.32);
+        --text-main: #fffaf3;
+        --text-muted: rgba(255, 246, 238, 0.72);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        color: var(--text-main);
+        overflow-x: hidden;
+      }
+
+      body {
+        background:
+          linear-gradient(180deg, rgba(8, 0, 2, 0.58), rgba(0, 0, 0, 0.92) 54%, #020202),
+          radial-gradient(circle at 12% 4%, rgba(162, 10, 30, 0.42), transparent 32%),
+          radial-gradient(circle at 88% 14%, rgba(225, 170, 88, 0.18), transparent 30%),
+          #050202 url("images/maulredbg.webp") no-repeat top center;
+        background-size: cover, auto, auto, auto 100%;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: linear-gradient(to bottom, black, transparent 76%);
+        opacity: 0.65;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .page-wrapper {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 86px 0 44px;
+      }
+
+      .header {
+        position: relative;
+        min-height: 430px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(300px, 0.78fr);
+        gap: 28px;
+        align-items: stretch;
+        padding: 34px;
+        border: 1px solid var(--line-warm);
+        border-radius: 26px;
+        background:
+          linear-gradient(135deg, rgba(73, 7, 15, 0.72), rgba(10, 7, 8, 0.94) 56%),
+          radial-gradient(circle at 74% 35%, rgba(255, 69, 88, 0.24), transparent 35%);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.54);
+        overflow: hidden;
+      }
+
+      .header::after {
+        content: "";
+        position: absolute;
+        right: -40px;
+        bottom: -80px;
+        width: 420px;
+        height: 420px;
+        background: url("images/maulnobg.webp") no-repeat center / contain;
+        opacity: 0.08;
+        pointer-events: none;
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .header-badge {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        gap: 9px;
+        padding: 8px 13px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        background: rgba(6, 3, 4, 0.62);
+        border: 1px solid rgba(225, 170, 88, 0.34);
+        color: rgba(255, 250, 243, 0.78);
+        margin-bottom: 18px;
+      }
+
+      .header-badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      .header h1 {
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(3rem, 7vw, 5.8rem);
+        line-height: 0.92;
+        margin: 0;
+        letter-spacing: 0;
+      }
+
+      .header h1 span {
+        display: block;
+        color: var(--gold);
+      }
+
+      .header-subtitle {
+        margin: 18px 0 0;
+        max-width: 650px;
+        font-size: 1.06rem;
+        line-height: 1.7;
+        color: var(--text-muted);
+      }
+
+      .header-highlight {
+        font-weight: 700;
+        color: #ffdca3;
+      }
+
+      .header-actions {
+        margin-top: 26px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .cta-primary,
+      .cta-secondary,
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        min-height: 42px;
+        padding: 10px 17px;
+        border-radius: 999px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 0.92rem;
+        transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+      }
+
+      .cta-primary {
+        background: linear-gradient(135deg, #ff4f62, #9a071b);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 14px 34px rgba(153, 7, 27, 0.38);
+      }
+
+      .cta-secondary,
+      .btn {
+        background: rgba(10, 5, 6, 0.72);
+        border: 1px solid rgba(225, 170, 88, 0.34);
+      }
+
+      .cta-primary:hover,
+      .cta-secondary:hover,
+      .btn:hover {
+        transform: translateY(-1px);
+        border-color: rgba(255, 237, 205, 0.65);
+      }
+
+      .hero-panel {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        align-content: end;
+        gap: 14px;
+        padding: 22px;
+        border-radius: 20px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025)),
+          rgba(3, 2, 3, 0.42);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .hero-panel > img {
+        width: min(100%, 380px);
+        justify-self: center;
+        filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.55));
+      }
+
+      .template-summary {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .summary-item {
+        padding: 12px;
+        border-radius: 14px;
+        background: rgba(0, 0, 0, 0.38);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .summary-item strong {
+        display: block;
+        font-size: 1.35rem;
+        color: #ffdca3;
+      }
+
+      .summary-item span {
+        display: block;
+        margin-top: 3px;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .info-paragraph {
+        max-width: 920px;
+        margin: 22px auto 28px;
+        padding: 18px 20px;
+        border-left: 3px solid var(--gold);
+        border-radius: 0 18px 18px 0;
+        background: rgba(12, 6, 7, 0.74);
+        color: var(--text-muted);
+        font-size: 0.98rem;
+        line-height: 1.7;
+      }
+
+      .info-paragraph strong {
+        color: #ffdca3;
+      }
+
+      .templates-section {
+        margin: 0 auto 30px;
+        padding: 24px;
+        border: 1px solid rgba(225, 170, 88, 0.22);
+        border-radius: 24px;
+        background: rgba(10, 6, 7, 0.7);
+        box-shadow: 0 18px 52px rgba(0, 0, 0, 0.34);
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+
+      .templates-section h2 {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(1.45rem, 3vw, 2.25rem);
+        letter-spacing: 0;
+      }
+
+      .templates-section p {
+        max-width: 620px;
+        margin: 7px 0 0;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.55;
+      }
+
+      .section-kicker {
+        color: var(--gold);
+        font-size: 0.78rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        position: relative;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid rgba(225, 170, 88, 0.22);
+        border-radius: 18px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.012)),
+          var(--panel);
+        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.32);
+        content-visibility: auto;
+        contain-intrinsic-size: 320px;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 218, 160, 0.48);
+      }
+
+      .template-header {
+        min-height: 7px;
+        background: #444;
+      }
+
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 16px;
+        flex: 1;
+      }
+
+      .card-main {
+        display: flex;
+        min-height: 132px;
+        flex-direction: column;
+        gap: 7px;
+      }
+
+      .title {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.05rem;
+        line-height: 1.2;
+      }
+
+      .sub {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .warning {
+        margin: auto 0 0;
+        color: #ffd18a;
+        font-size: 0.78rem;
+      }
+
+      .card-side {
+        margin-top: auto;
+      }
+
+      .preset-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        min-height: 38px;
+        padding: 8px 13px;
+        font-size: 0.84rem;
+      }
+
+      .btn.disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
+      .preview-card {
+        position: relative;
+        width: 100%;
+        border: 0;
+        padding: 0;
+        overflow: hidden;
+        cursor: pointer;
+        border-radius: 14px;
+        background: #090506;
+        aspect-ratio: 16 / 9;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .preview-card img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      .preview-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 42%, rgba(0, 0, 0, 0.72));
+      }
+
+      .preview-count {
+        position: absolute;
+        left: 12px;
+        bottom: 10px;
+        z-index: 1;
+        color: #fff;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .mini-steps-wrap {
+        max-width: 920px;
+        margin: 12px auto 36px;
+        padding: 18px 20px;
+        border: 1px solid rgba(225, 170, 88, 0.22);
+        border-radius: 20px;
+        background: rgba(8, 5, 6, 0.78);
+      }
+
+      .mini-steps-title {
+        margin: 0 0 10px;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.12rem;
+      }
+
+      .mini-steps {
+        margin: 0;
+        padding-left: 20px;
+        color: var(--text-muted);
+        line-height: 1.55;
+      }
+
+      .mini-steps code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+        font-size: 0.85em;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 0 4px;
+        border-radius: 4px;
+      }
+
+      .mini-note {
+        margin: 12px 0 0;
+        color: var(--text-muted);
+        font-size: 0.88rem;
+      }
+
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 2000;
+      }
+
+      .lightbox.open {
+        display: flex;
+      }
+
+      .lightbox-inner {
+        position: relative;
+        width: min(1120px, 94vw);
+        max-height: 92vh;
+        padding: 12px;
+        border-radius: 18px;
+        border: 1px solid rgba(225, 170, 88, 0.25);
+        background: #050303;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.72);
+      }
+
+      .lightbox-inner img {
+        display: block;
+        width: 100%;
+        max-height: 78vh;
+        object-fit: contain;
+        border-radius: 12px;
+      }
+
+      .lightbox-caption {
+        margin: 10px 44px 0;
+        color: var(--text-muted);
+        text-align: center;
+        font-size: 0.92rem;
+      }
+
+      .lightbox-close,
+      .lightbox-nav {
+        position: absolute;
+        display: inline-grid;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.72);
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .lightbox-close {
+        top: 12px;
+        right: 12px;
+        width: 34px;
+        height: 34px;
+        font-size: 20px;
+      }
+
+      .lightbox-nav {
+        top: 50%;
+        width: 42px;
+        height: 42px;
+        transform: translateY(-50%);
+        font-size: 24px;
+      }
+
+      .lightbox-prev {
+        left: 20px;
+      }
+
+      .lightbox-next {
+        right: 20px;
+      }
+
+      footer {
+        width: min(920px, calc(100% - 40px));
+        margin: 10px auto 32px;
+      }
+
+      .footer-inner {
+        text-align: center;
+        padding: 18px 24px;
+        border-radius: 18px;
+        background: rgba(8, 5, 6, 0.74);
+        border: 1px solid rgba(225, 170, 88, 0.18);
+        color: var(--text-muted);
+      }
+
+      footer a {
+        color: #ffdca3;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      body > a[href="https://moddedamong.us/wrapped"],
+      body > a[href="https://moddedamong.us/roletest"] {
+        display: none !important;
+      }
+
+      @media (max-width: 980px) {
+        .header,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .header {
+          min-height: 0;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page-wrapper {
+          width: min(100% - 24px, 1180px);
+          padding-top: 86px;
+        }
+
+        .header,
+        .templates-section {
+          padding: 20px;
+          border-radius: 20px;
+        }
+
+        .template-summary {
+          grid-template-columns: 1fr;
+        }
+
+        .section-head {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      /* Elevated searchable template gallery */
+      body {
+        background:
+          radial-gradient(circle at 50% 0%, rgba(129, 8, 28, 0.28), transparent 30%),
+          radial-gradient(circle at 88% 12%, rgba(68, 176, 184, 0.12), transparent 28%),
+          linear-gradient(180deg, #080304 0%, #030202 50%, #000 100%);
+        background-attachment: fixed;
+      }
+
+      body::before {
+        opacity: 0.18;
+      }
+
+      .page-wrapper {
+        width: min(1280px, calc(100% - 40px));
+      }
+
+      .header {
+        min-height: 380px;
+        border: 0;
+        border-radius: 10px;
+        background:
+          radial-gradient(circle at 75% 42%, rgba(255, 69, 88, 0.2), transparent 34%),
+          linear-gradient(135deg, rgba(90, 8, 18, 0.56), rgba(7, 5, 6, 0.94) 58%);
+        box-shadow:
+          0 34px 80px rgba(0, 0, 0, 0.58),
+          inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      }
+
+      .hero-panel,
+      .info-paragraph,
+      .templates-section,
+      .mini-steps-wrap,
+      footer,
+      .footer-inner {
+        border-radius: 10px;
+        border-color: rgba(255, 255, 255, 0.08);
+      }
+
+      .template-controls {
+        margin: 0 auto 20px;
+        padding: 16px;
+        border-radius: 10px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.065), transparent 36%),
+          rgba(5, 3, 4, 0.82);
+        box-shadow:
+          0 22px 58px rgba(0, 0, 0, 0.42),
+          inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .control-main {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(190px, 240px) auto;
+        gap: 12px;
+      }
+
+      .search-wrap,
+      .sort-wrap,
+      .reset-filters {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 48px;
+        padding: 0 14px;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.42);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      }
+
+      .reset-filters {
+        justify-content: center;
+        border: 0;
+        min-width: 92px;
+        color: rgba(255, 250, 243, 0.78);
+        cursor: pointer;
+        font: 900 0.88rem "Roboto", sans-serif;
+      }
+
+      .reset-filters:hover,
+      .reset-filters:focus-visible {
+        color: #fffaf3;
+        background: rgba(255, 255, 255, 0.1);
+        outline: none;
+      }
+
+      .search-wrap i,
+      .sort-wrap span {
+        color: rgba(255, 250, 243, 0.62);
+        font-size: 0.86rem;
+        font-weight: 900;
+      }
+
+      .search-wrap input,
+      .sort-wrap select {
+        width: 100%;
+        min-width: 0;
+        border: 0;
+        outline: 0;
+        color: var(--text-main);
+        background: transparent;
+        font: 800 0.95rem "Roboto", sans-serif;
+      }
+
+      .search-wrap input::placeholder {
+        color: rgba(255, 250, 243, 0.42);
+      }
+
+      .sort-wrap select option {
+        background: #100608;
+        color: var(--text-main);
+      }
+
+      .filter-row {
+        display: flex;
+        gap: 9px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+      }
+
+      .filter-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 36px;
+        border: 0;
+        border-radius: 999px;
+        padding: 8px 12px;
+        color: rgba(255, 250, 243, 0.76);
+        background: rgba(255, 255, 255, 0.06);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        cursor: pointer;
+        font: 900 0.82rem "Roboto", sans-serif;
+      }
+
+      .filter-chip::before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        border-radius: 999px;
+        background: var(--chip-gradient, linear-gradient(90deg, #777, #bbb));
+        box-shadow: 0 0 16px rgba(255, 255, 255, 0.12);
+      }
+
+      .filter-chip.active {
+        color: #fffaf3;
+        background: rgba(255, 255, 255, 0.12);
+        box-shadow:
+          inset 0 0 0 1px rgba(245, 201, 107, 0.24),
+          0 12px 28px rgba(0, 0, 0, 0.32);
+      }
+
+      .result-note {
+        margin-top: 12px;
+        color: rgba(255, 250, 243, 0.58);
+        font-size: 0.86rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      .templates-section {
+        padding: 22px;
+        border: 0;
+        background: rgba(255, 255, 255, 0.025);
+        box-shadow: none;
+      }
+
+      .section-head {
+        align-items: start;
+      }
+
+      .grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        border: 0;
+        border-radius: 10px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.012)),
+          rgba(10, 6, 7, 0.82);
+        box-shadow:
+          0 24px 52px rgba(0, 0, 0, 0.42),
+          inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow:
+          0 30px 68px rgba(0, 0, 0, 0.5),
+          0 0 70px rgba(255, 69, 88, 0.08);
+      }
+
+      .template-header {
+        height: 11px;
+        min-height: 11px;
+        color: transparent;
+        text-indent: -999px;
+        overflow: hidden;
+        box-shadow:
+          0 0 26px color-mix(in srgb, var(--template-main, #ff4558), transparent 58%),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.26);
+      }
+
+      .card-body {
+        gap: 12px;
+        padding: 13px;
+      }
+
+      .card-main {
+        min-height: 118px;
+      }
+
+      .template-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 2px;
+      }
+
+      .template-pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 26px;
+        border-radius: 999px;
+        padding: 5px 8px;
+        color: rgba(255, 250, 243, 0.74);
+        background: rgba(255, 255, 255, 0.06);
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .preview-card {
+        order: -1;
+        border: 0;
+        border-radius: 8px;
+        background: #050303;
+        box-shadow:
+          0 18px 34px rgba(0, 0, 0, 0.42),
+          0 0 0 1px rgba(255, 255, 255, 0.045);
+      }
+
+      .preview-card img {
+        transform: scale(1.01);
+        transition: transform 0.24s ease, filter 0.24s ease;
+      }
+
+      .preview-card:hover img {
+        transform: scale(1.05);
+        filter: saturate(1.08) contrast(1.03);
+      }
+
+      .preview-count {
+        left: 10px;
+        bottom: 9px;
+        padding: 5px 8px;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.54);
+      }
+
+      .empty-state {
+        grid-column: 1 / -1;
+        padding: 26px;
+        border-radius: 10px;
+        color: rgba(255, 250, 243, 0.62);
+        background: rgba(0, 0, 0, 0.34);
+        text-align: center;
+        font-weight: 800;
+      }
+
+      .lightbox-inner {
+        border: 0;
+        border-radius: 10px;
+      }
+
+      body {
+        background:
+          linear-gradient(180deg, rgba(12, 0, 2, 0.1), rgba(0, 0, 0, 0.92) 62%, #000),
+          radial-gradient(circle at top, rgba(128, 0, 0, 0.48), transparent 54%),
+          radial-gradient(circle at bottom, rgba(180, 0, 60, 0.28), transparent 58%),
+          #000 url("images/maulredbg.webp") no-repeat top center fixed;
+        background-size: cover, auto, auto, auto 100%;
+      }
+
+      body::before {
+        background:
+          radial-gradient(circle at 50% 0%, rgba(255, 40, 58, 0.18), transparent 34%),
+          linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.014) 1px, transparent 1px);
+        background-size: auto, 52px 52px, 52px 52px;
+        opacity: 0.72;
+        mix-blend-mode: screen;
+      }
+
+      .header,
+      .template-controls,
+      .templates-section,
+      .info-paragraph,
+      .mini-steps-wrap {
+        position: relative;
+        overflow: hidden;
+        border-color: rgba(255, 255, 255, 0.1);
+        background:
+          linear-gradient(135deg, rgba(128, 0, 0, 0.42), rgba(7, 5, 6, 0.94) 55%, rgba(0, 18, 16, 0.82)),
+          rgba(10, 4, 5, 0.88);
+      }
+
+      .header::before,
+      .template-controls::before,
+      .templates-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(15, 0, 2, 0.52), rgba(5, 0, 1, 0.68)),
+          url("images/maulredbg.webp") no-repeat center / cover;
+        opacity: 0.42;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .header::before {
+        opacity: 0.74;
+      }
+
+      .header::after {
+        z-index: 1;
+        opacity: 0.13;
+      }
+
+      .hero-copy,
+      .hero-panel,
+      .template-controls > *,
+      .templates-section > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      .header h1 span {
+        background: linear-gradient(120deg, #ffffff, #ff4d5f 54%, #800000);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .header-highlight,
+      .info-paragraph strong,
+      .mini-steps code {
+        color: #ffe2b6;
+      }
+
+      .hero-panel {
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)),
+          rgba(8, 3, 4, 0.5);
+        box-shadow:
+          0 22px 48px rgba(0, 0, 0, 0.46),
+          inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      }
+
+      .template-controls {
+        box-shadow:
+          0 24px 64px rgba(0, 0, 0, 0.52),
+          inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      }
+
+      .grid .card {
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.01)),
+          linear-gradient(145deg, rgba(58, 9, 13, 0.72), rgba(5, 5, 5, 0.88) 48%, rgba(0, 18, 16, 0.58)),
+          rgba(8, 5, 6, 0.9);
+      }
+
+      body {
+        background:
+          linear-gradient(180deg, rgba(12, 0, 2, 0.16), rgba(0, 0, 0, 0.92) 62%, #000),
+          radial-gradient(circle at top, rgba(128, 0, 0, 0.48), transparent 54%),
+          radial-gradient(circle at bottom, rgba(180, 0, 60, 0.28), transparent 58%),
+          #000;
+      }
+
+      .header::before,
+      .template-controls::before,
+      .templates-section::before {
+        background:
+          linear-gradient(90deg, rgba(18, 0, 2, 0.58), rgba(5, 0, 1, 0.76)),
+          url("images/banner-transparent-cropped.webp") no-repeat center / 88% auto;
+        opacity: 0.18;
+      }
+
+      .header::after {
+        display: none;
+      }
+
+      .header::before {
+        background:
+          radial-gradient(circle at 70% 44%, rgba(128, 0, 0, 0.24), transparent 38%),
+          linear-gradient(90deg, rgba(18, 0, 2, 0.52), rgba(5, 0, 1, 0.74));
+        opacity: 1;
+      }
+
+      .template-summary {
+        display: none;
+      }
+
+      .hero-panel {
+        position: relative;
+        width: min(100%, 520px);
+        min-height: 0;
+        height: clamp(318px, 34vw, 392px);
+        justify-self: center;
+        align-self: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        overflow: visible;
+        isolation: isolate;
+      }
+
+      .hero-panel::before {
+        content: "";
+        position: absolute;
+        width: min(44vw, 530px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle, rgba(255, 211, 110, 0.28), transparent 58%),
+          conic-gradient(from 210deg, rgba(236, 37, 55, 0), rgba(236, 37, 55, 0.34), rgba(110, 249, 255, 0.16), rgba(236, 37, 55, 0));
+        filter: blur(4px);
+        opacity: 0.9;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .hero-panel::after {
+        content: "";
+        position: absolute;
+        inset: 17% 6% 13% 8%;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 26px;
+        transform: rotate(-5deg);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02)),
+          rgba(10, 4, 6, 0.28);
+        box-shadow: 0 26px 70px rgba(0, 0, 0, 0.55);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .hero-banner-card {
+        position: absolute;
+        inset: 17% 6% 13% 8%;
+        z-index: 2;
+        transform: rotate(-5deg);
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .hero-banner-card::before {
+        content: none;
+      }
+
+      .hero-banner-card img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        display: block;
+        width: 90%;
+        height: auto;
+        transform: translate(-50%, -50%);
+        opacity: 0.26;
+        filter: saturate(1.12) drop-shadow(0 16px 34px rgba(0, 0, 0, 0.72));
+      }
+
+      .hero-panel > img {
+        position: relative;
+        z-index: 3;
+        width: min(74%, 330px);
+        max-height: 430px;
+        object-fit: contain;
+        margin-top: 10px;
+        filter: drop-shadow(0 38px 42px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 34px rgba(236, 37, 55, 0.18));
+      }
+
+      @media (max-width: 680px) {
+        .hero-panel {
+          height: 288px;
+        }
+
+        .hero-panel::after,
+        .hero-banner-card {
+          inset: 14% 5% 10%;
+        }
+
+        .hero-banner-card img {
+          width: 90%;
+        }
+
+        .hero-panel > img {
+          width: min(76%, 252px);
+        }
+      }
+
+      @media (min-width: 720px) {
+        .template-controls {
+          padding-left: 64px;
+        }
+      }
+
+      @media (max-width: 1120px) {
+        .grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 860px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .control-main {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar"></div>
+      <a href="https://moddedamong.us/wrapped"><i class="fa-solid fa-gift"></i> <span class="beta-glow">NEW</span> – 2025 Wrapped</a>
+      <a href="https://moddedamong.us/roletest"><i class="fa-solid fa-brain"></i> <span class="beta-glow">NEW</span> – Personality Test</a>
+    <div class="page-wrapper">
+      <div class="header">
+        <div class="hero-copy">
+          <h1>
+            Lobby <span>Templates</span>
+          </h1>
+          <p class="header-subtitle">
+            Download ready-to-edit <span class="header-highlight">solid, gradient, and basic</span>
+            templates for modded Among Us lobbies without digging through old message threads.
+          </p>
+          <div class="header-actions">
+            <a href="https://discord.gg/MAUL" target="_blank" class="cta-primary">
+              <i class="fa-brands fa-discord"></i>
+              Join MAUL
+            </a>
+            <a href="https://moddedamong.us/mods.html" class="cta-secondary">
+              <i class="fa-solid fa-puzzle-piece"></i>
+              Browse Mods
+            </a>
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="Template library summary">
+          <div class="hero-banner-card" aria-hidden="true">
+            <img src="images/banner-transparent-cropped.webp" alt="" />
+          </div>
+          <img src="images/maulnobg.webp" alt="MAUL" loading="eager" decoding="async" />
+        </div>
+      </div>
+
+      <p class="info-paragraph">
+        <strong>Lobby Templates</strong> are premade <code>.txt</code> files that include
+        Welcome, Rules, OnMeeting, Discord, and VIP sections. Download one, rename it to
+        <strong>template.txt</strong>, and customize the text to match your lobby’s style.
+      </p>
+
+      <section class="template-controls" aria-label="Template search and filters">
+        <div class="control-main">
+          <label class="search-wrap" for="template-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="template-search" type="search" placeholder="Search templates, colors, gradients..." autocomplete="off" />
+          </label>
+          <label class="sort-wrap" for="template-sort">
+            <span>Sort</span>
+            <select id="template-sort">
+              <option value="featured">Featured</option>
+              <option value="name">Name A-Z</option>
+              <option value="gradient">Gradients first</option>
+              <option value="color">Color group</option>
+            </select>
+          </label>
+          <button class="reset-filters" id="template-reset" type="button">Reset</button>
+        </div>
+        <div class="filter-row" id="color-filters" aria-label="Color groups"></div>
+        <div class="result-note" id="template-result-note">Showing all templates</div>
+      </section>
+
+      <section class="templates-section">
+        <h2>Lobby Templates</h2>
+        <p>
+          Premade templates included:
+          <strong>Welcome</strong>,
+          <strong>Rules</strong>,
+          <strong>OnMeeting</strong>,
+          <strong>Discord</strong>,
+          <strong>VIP</strong>.
+        </p>
+        <p style="margin-top:4px;">
+          To use a template:<br />
+          1) Rename the file to <strong>template.dat</strong> or <strong>template.txt</strong><br />
+          2) Edit the text to match your lobby’s style<br />
+          3) Remove <b>color</b> tags inside the file as you customize it
+        </p>
+
+        <div id="templates-grid" class="grid"></div>
+      </section>
+
+      <section class="templates-section">
+        <h2>Basic Templates</h2>
+        <p>These only include Welcome, Rules, OnMeeting.</p>
+        <div id="basic-templates-grid" class="grid"></div>
+      </section>
+
+      <section class="mini-steps-wrap" aria-labelledby="using-templates">
+        <h3 id="using-templates" class="mini-steps-title">Using Template Files</h3>
+        <ol class="mini-steps">
+          <li>Download the <code>.txt</code> template you like.</li>
+          <li>Rename it to <code>template.txt</code> and place it in your mod’s template/config folder.</li>
+        </ol>
+        <p class="mini-note">
+          Templates marked as “gradient” are more complex and may have a small warning:
+          <br />
+          <b>“Excessive template gradient may cause disconnects”</b>.
+        </p>
+      </section>
+    </div>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <div class="lightbox-inner">
+        <button class="lightbox-close" aria-label="Close image">&times;</button>
+        <button class="lightbox-nav lightbox-prev" aria-label="Previous image">&lsaquo;</button>
+        <button class="lightbox-nav lightbox-next" aria-label="Next image">&rsaquo;</button>
+        <img id="lightbox-img" src="" alt="" />
+        <p id="lightbox-caption" class="lightbox-caption"></p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <p>Made with ♥ by MAUL</p>
+        <p>
+          Want your template featured?
+          <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904">Open a ticket</a>
+          or send in templates in
+          <a href="https://discord.com/channels/995954559044304896/1410013572637130812">the presets channel</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const $ = sel => document.querySelector(sel);
+      const el = (tag, cls, html) => {
+        const n = document.createElement(tag);
+        if (cls) n.className = cls;
+        if (html !== undefined) n.innerHTML = html;
+        return n;
+      };
+
+      const BANNER_COLORS = {
+        aquamarine:'#00c5b3',
+        black:'#444444',
+        blue:'#3a6dff',
+        galaxy:'#8226ff',
+        green:'#48a048',
+        'magenta-cyan':'#ff3fb6',
+        'mossygreen-gradient':'#4d7b3b',
+        orange:'#ff8c2a',
+        pastel:'#ff7fb3',
+        pink:'#ff4b9a',
+        'pink-gradient':'#ff4b9a',
+        purple:'#a046ff',
+        red:'#ff4040',
+        sunset:'#ff6b3d',
+        yellow:'#ffd338',
+        'yellow-flame-gradient':'#ffb400',
+        'english-dat':'#666666'
+      };
+
+      const COLOR_GROUPS = [
+        { id:'all', label:'All', gradient:'linear-gradient(90deg,#ff4558,#e1aa58,#35d7c6)' },
+        { id:'red', label:'Red', gradient:'linear-gradient(90deg,#4a0208,#ff4058,#ff9a80)' },
+        { id:'pink', label:'Pink', gradient:'linear-gradient(90deg,#ff4b9a,#ffc2dd)' },
+        { id:'orange', label:'Orange', gradient:'linear-gradient(90deg,#ff6b2c,#ffd166)' },
+        { id:'yellow', label:'Yellow / Gold', gradient:'linear-gradient(90deg,#7b5300,#ffd338,#fff1a8)' },
+        { id:'green', label:'Green', gradient:'linear-gradient(90deg,#0a3b24,#56d86c,#d7ff7a)' },
+        { id:'blue', label:'Blue', gradient:'linear-gradient(90deg,#102d8a,#3a9bff,#b9f7ff)' },
+        { id:'purple', label:'Purple', gradient:'linear-gradient(90deg,#31055f,#a046ff,#ff9df2)' },
+        { id:'neutral', label:'Neutral', gradient:'linear-gradient(90deg,#222,#777,#d8d8d8)' },
+        { id:'multi', label:'Multi', gradient:'linear-gradient(90deg,#ff4558,#ffd338,#35d7c6,#a046ff)' }
+      ];
+
+      const COLOR_META = {
+        aquamarine:{ group:'blue', label:'Aquamarine', main:'#00c5b3', gradient:'linear-gradient(90deg,#073d45,#00c5b3,#9fffea)' },
+        black:{ group:'neutral', label:'Black', main:'#444444', gradient:'linear-gradient(90deg,#070707,#444,#aaa)' },
+        blue:{ group:'blue', label:'Blue', main:'#3a6dff', gradient:'linear-gradient(90deg,#10245d,#3a6dff,#95dcff)' },
+        galaxy:{ group:'purple', label:'Galaxy', main:'#8226ff', gradient:'linear-gradient(90deg,#140022,#5320d8,#ff65cf)' },
+        green:{ group:'green', label:'Green', main:'#48a048', gradient:'linear-gradient(90deg,#0a331b,#48a048,#b9ff8a)' },
+        'magenta-cyan':{ group:'multi', label:'Magenta / Cyan', main:'#ff3fb6', gradient:'linear-gradient(90deg,#ff3fb6,#8f4dff,#00d8ff)' },
+        'mossygreen-gradient':{ group:'green', label:'Mossy Green', main:'#4d7b3b', gradient:'linear-gradient(90deg,#203118,#4d7b3b,#d8c97a)' },
+        orange:{ group:'orange', label:'Orange', main:'#ff8c2a', gradient:'linear-gradient(90deg,#8f2e00,#ff8c2a,#ffd08a)' },
+        pastel:{ group:'multi', label:'Pastel', main:'#ff7fb3', gradient:'linear-gradient(90deg,#ff9dc7,#ffe28f,#9fffea,#c6a7ff)' },
+        pink:{ group:'pink', label:'Pink', main:'#ff4b9a', gradient:'linear-gradient(90deg,#8c0d45,#ff4b9a,#ffc1dc)' },
+        'pink-gradient':{ group:'pink', label:'Pink Gradient', main:'#ff4b9a', gradient:'linear-gradient(90deg,#ff4b9a,#ff92c6,#ffe1f0)' },
+        purple:{ group:'purple', label:'Purple', main:'#a046ff', gradient:'linear-gradient(90deg,#35105e,#a046ff,#e1b6ff)' },
+        red:{ group:'red', label:'Red', main:'#ff4040', gradient:'linear-gradient(90deg,#5e0707,#ff4040,#ffa17a)' },
+        sunset:{ group:'multi', label:'Sunset', main:'#ff6b3d', gradient:'linear-gradient(90deg,#ff6b3d,#ff4b9a,#5d4dff)' },
+        yellow:{ group:'yellow', label:'Yellow', main:'#ffd338', gradient:'linear-gradient(90deg,#8d6500,#ffd338,#fff0a4)' },
+        'yellow-flame-gradient':{ group:'yellow', label:'Yellow Flame', main:'#ffb400', gradient:'linear-gradient(90deg,#ff4b00,#ffb400,#fff08a)' },
+        'floral-pink':{ group:'pink', label:'Floral Pink', main:'#ff7fae', gradient:'linear-gradient(90deg,#7b2849,#ff7fae,#ffd6e5)' },
+        'blood-moon':{ group:'red', label:'Blood Moon', main:'#b21024', gradient:'linear-gradient(90deg,#160104,#b21024,#ff725e)' },
+        'yellow-stars':{ group:'yellow', label:'Yellow Stars', main:'#ffd338', gradient:'linear-gradient(90deg,#2c2100,#ffd338,#fff8ba)' },
+        forestgreen:{ group:'green', label:'Forest Green', main:'#2f7d43', gradient:'linear-gradient(90deg,#071c10,#2f7d43,#9cdb8c)' },
+        bluestorm:{ group:'blue', label:'Blue Storm', main:'#31a8ff', gradient:'linear-gradient(90deg,#081835,#236dff,#9deaff)' },
+        purplevoid:{ group:'purple', label:'Purple Void', main:'#8a4dff', gradient:'linear-gradient(90deg,#06000d,#5e25ba,#c397ff)' },
+        'crystal-blue':{ group:'blue', label:'Crystal Blue', main:'#8ce8ff', gradient:'linear-gradient(90deg,#103766,#51b7ff,#d7fbff)' },
+        'toxic-waste-gradient':{ group:'green', label:'Toxic Waste', main:'#a8ff30', gradient:'linear-gradient(90deg,#113b00,#a8ff30,#fff45c)' },
+        'lightning-gradient':{ group:'blue', label:'Lightning', main:'#78ddff', gradient:'linear-gradient(90deg,#0b1d59,#78ddff,#fff06d)' },
+        'ice-gradient':{ group:'blue', label:'Ice', main:'#b9f4ff', gradient:'linear-gradient(90deg,#315e8f,#b9f4ff,#ffffff)' },
+        'fire-gradient':{ group:'orange', label:'Fire', main:'#ff5a24', gradient:'linear-gradient(90deg,#5b0202,#ff5a24,#ffd166)' },
+        'rose-gold-gradient':{ group:'pink', label:'Rose Gold', main:'#d98a72', gradient:'linear-gradient(90deg,#6e3142,#d98a72,#ffe0ae)' },
+        'ivory-gradient':{ group:'neutral', label:'Ivory', main:'#f2dfbd', gradient:'linear-gradient(90deg,#7c705e,#f2dfbd,#fffaf0)' },
+        'teal-gradient':{ group:'blue', label:'Teal', main:'#1bc9bd', gradient:'linear-gradient(90deg,#063c45,#1bc9bd,#b7fff8)' },
+        'indago-gradient':{ group:'blue', label:'Indago', main:'#3656c9', gradient:'linear-gradient(90deg,#080b35,#3656c9,#8a8dff)' },
+        'gold-dark-gradient':{ group:'yellow', label:'Dark Gold', main:'#d9a944', gradient:'linear-gradient(90deg,#060606,#a46b15,#ffd982)' },
+        'silver-gradient':{ group:'neutral', label:'Silver', main:'#d8d8d8', gradient:'linear-gradient(90deg,#424242,#d8d8d8,#ffffff)' },
+        'english-dat':{ group:'neutral', label:'Utility', main:'#666666', gradient:'linear-gradient(90deg,#333,#777,#aaa)' }
+      };
+
+      const PREVIEW_IMAGES = {
+        black:'images/template/black (3).webp',
+        blue:'images/template/blue (3).webp',
+        green:'images/template/green.webp',
+        'magenta-cyan':'images/template/magenta-cyan (4).webp',
+        orange:'images/template/orange (5).webp',
+        pastel:'images/template/pastel (4).webp',
+        pink:'images/template/pink (3).webp',
+        purple:'images/template/purple (3).webp',
+        red:'images/template/red (2).webp',
+        sunset:'images/template/sunset (3).webp',
+        yellow:'images/template/yellow-5.webp',
+        'yellow-flame-gradient':'images/template/yellow-flame-gradient-2.webp',
+        'mossygreen-gradient':'images/template/mossygreengradient (1).webp',
+        aquamarine:'images/template/aquamarine (3).webp',
+        galaxy:'images/template/galaxy (5).webp',
+        'pink-gradient':'images/template/pink-gradient (6).webp',
+        'floral-pink':'images/template/floral-pink (1).webp',
+        'blood-moon':'images/template/bloodmoon (1).webp',
+        'yellow-stars':'images/template/yellow-stars (1).webp',
+        forestgreen:'images/template/forestgreen (2).webp',
+        bluestorm:'images/template/bluestorm (1).webp',
+        purplevoid:'images/template/purplevoid (2).webp',
+        'crystal-blue':'images/template/crystal-blue (2).webp',
+        'toxic-waste-gradient':'images/template/toxic-waste-gradient.webp',
+        'lightning-gradient':'images/template/lightning-gradient (2).webp',
+        'ice-gradient':'images/template/ice-gradient (1).webp',
+        'fire-gradient':'images/template/fire-gradient (2).webp',
+        'rose-gold-gradient':'images/template/rose-gold-gradient (1).webp',
+        'ivory-gradient':'images/template/ivory-gradient (1).webp',
+        'teal-gradient':'images/template/teal-gradient (2).webp',
+        'indago-gradient':'images/template/indago-gradient (1).webp',
+        'gold-dark-gradient':'images/template/gold-dark-gradient (2).webp',
+        'silver-gradient':'images/template/silver-gradient (1).webp'
+      };
+
+      const templateState = {
+        query: '',
+        group: 'all',
+        sort: 'featured'
+      };
+
+      let activeGallery = [];
+      let activeGalleryTitle = '';
+      let activeGalleryIndex = 0;
+
+      function showLightboxImage(index) {
+        if (!activeGallery.length) return;
+        activeGalleryIndex = (index + activeGallery.length) % activeGallery.length;
+
+        const box = $('#lightbox');
+        const img = $('#lightbox-img');
+        const cap = $('#lightbox-caption');
+        const src = activeGallery[activeGalleryIndex];
+
+        img.src = src;
+        img.alt = activeGalleryTitle + ' preview ' + (activeGalleryIndex + 1);
+        cap.textContent = activeGalleryTitle + ' - ' + (activeGalleryIndex + 1) + ' of ' + activeGallery.length;
+      }
+
+      function openLightbox(images, caption, startIndex = 0) {
+        activeGallery = Array.isArray(images) ? images : [images];
+        activeGalleryTitle = caption || '';
+        showLightboxImage(startIndex);
+
+        const box = $('#lightbox');
+        box.classList.add('open');
+        box.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeLightbox() {
+        const box = $('#lightbox');
+        const img = $('#lightbox-img');
+
+        img.src = '';
+        activeGallery = [];
+        box.classList.remove('open');
+        box.setAttribute('aria-hidden', 'true');
+      }
+
+      function buildCollage(container, tpl) {
+        const urls = tpl.images || [];
+        if (!urls.length) return;
+        const previewUrl = PREVIEW_IMAGES[tpl.id] && urls.includes(PREVIEW_IMAGES[tpl.id])
+          ? PREVIEW_IMAGES[tpl.id]
+          : (urls[1] || urls[0]);
+
+        const btn = el('button', 'preview-card');
+        btn.type = 'button';
+        btn.setAttribute('aria-label', 'Open previews for ' + tpl.title);
+
+        const img = new Image();
+        img.src = previewUrl;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.alt = tpl.title + ' preview';
+
+        const count = el('span', 'preview-count', urls.length + ' previews');
+
+        btn.addEventListener('click', e => {
+          e.preventDefault();
+          openLightbox(urls, tpl.title);
+        });
+
+        btn.appendChild(img);
+        btn.appendChild(count);
+        container.appendChild(btn);
+      }
+
+      function isGradientTemplate(tpl) {
+        return /gradient/i.test(tpl.title) ||
+          /gradient/i.test(tpl.id || '') ||
+          /gradient/i.test(tpl.tag || '') ||
+          /gradient/i.test(tpl.description || '');
+      }
+
+      function templateColorMeta(tpl) {
+        return COLOR_META[tpl.id] || {
+          group:'neutral',
+          label:tpl.badge || 'Template',
+          main:BANNER_COLORS[tpl.id] || '#777777',
+          gradient:`linear-gradient(90deg, ${BANNER_COLORS[tpl.id] || '#444'}, #cccccc)`
+        };
+      }
+
+      function templateSearchText(tpl) {
+        const meta = templateColorMeta(tpl);
+        return [
+          tpl.title,
+          tpl.description,
+          tpl.id,
+          tpl.badge,
+          meta.group,
+          meta.label,
+          isGradientTemplate(tpl) ? 'gradient' : 'solid basic'
+        ].filter(Boolean).join(' ').toLowerCase();
+      }
+
+      function sortTemplates(list) {
+        const sorted = list.slice();
+        if (templateState.sort === 'name') {
+          sorted.sort((a, b) => a.title.localeCompare(b.title));
+        } else if (templateState.sort === 'gradient') {
+          sorted.sort((a, b) => Number(isGradientTemplate(b)) - Number(isGradientTemplate(a)) || a.title.localeCompare(b.title));
+        } else if (templateState.sort === 'color') {
+          sorted.sort((a, b) => {
+            const am = templateColorMeta(a);
+            const bm = templateColorMeta(b);
+            return am.group.localeCompare(bm.group) || am.label.localeCompare(bm.label) || a.title.localeCompare(b.title);
+          });
+        } else {
+          sorted.sort((a, b) => (a._order || 0) - (b._order || 0));
+        }
+        return sorted;
+      }
+
+      function filterTemplates(list) {
+        const query = templateState.query.trim().toLowerCase();
+        return sortTemplates(list.filter(tpl => {
+          const meta = templateColorMeta(tpl);
+          const groupMatch = templateState.group === 'all' || meta.group === templateState.group;
+          const queryMatch = !query || templateSearchText(tpl).includes(query);
+          return groupMatch && queryMatch;
+        }));
+      }
+
+      function templateCard(tpl) {
+        const meta = templateColorMeta(tpl);
+        const gradient = isGradientTemplate(tpl);
+        const card = el('article', 'card');
+        card.dataset.group = meta.group;
+        card.dataset.templateId = tpl.id || '';
+        card.style.setProperty('--template-main', meta.main);
+
+        const header = el('div', 'template-header', tpl.title);
+        header.style.background = meta.gradient;
+        card.appendChild(header);
+
+        const body = el('div', 'card-body');
+
+        const mainCol = el('div', 'card-main');
+        const title = el('h3', 'title', tpl.title);
+        mainCol.appendChild(title);
+
+        const metaRow = el('div', 'template-meta');
+        metaRow.appendChild(el('span', 'template-pill', meta.label));
+        metaRow.appendChild(el('span', 'template-pill', gradient ? 'Gradient' : 'Solid'));
+        mainCol.appendChild(metaRow);
+
+        if (tpl.description) {
+          const desc = el('p', 'sub', tpl.description);
+          mainCol.appendChild(desc);
+        }
+
+        if (gradient) {
+          const warn = el('p', 'warning', '⚠ Excessive template gradient may cause disconnects.');
+          mainCol.appendChild(warn);
+        }
+
+        const sideCol = el('div', 'card-side');
+        const actions = el('div', 'preset-actions');
+
+        if (tpl.file) {
+          const dl = el('a', 'btn', 'Download .txt');
+          dl.href = tpl.file;
+          dl.setAttribute('download', '');
+          actions.appendChild(dl);
+        } else if (tpl.comingSoon) {
+          const btn = el('span', 'btn disabled', 'Coming soon');
+          actions.appendChild(btn);
+        }
+
+        if (tpl.badge) {
+          const badge = el('span', 'badge', tpl.badge);
+          actions.appendChild(badge);
+        }
+
+        sideCol.appendChild(actions);
+
+        body.appendChild(mainCol);
+        body.appendChild(sideCol);
+
+        if (Array.isArray(tpl.images) && tpl.images.length) {
+          buildCollage(body, tpl);
+        }
+
+        card.appendChild(body);
+        return card;
+      }
+
+      function renderTemplates(list, targetId) {
+        const container = document.getElementById(targetId);
+        if (!container) return;
+        container.innerHTML = '';
+        if (!list.length) {
+          container.appendChild(el('div', 'empty-state', 'No templates match those filters.'));
+          return;
+        }
+        list.forEach(t => container.appendChild(templateCard(t)));
+      }
+
+      function renderFilterChips() {
+        const row = $('#color-filters');
+        if (!row) return;
+        row.innerHTML = '';
+        COLOR_GROUPS.forEach(group => {
+          const btn = el('button', 'filter-chip', group.label);
+          btn.type = 'button';
+          btn.style.setProperty('--chip-gradient', group.gradient);
+          btn.classList.toggle('active', templateState.group === group.id);
+          btn.addEventListener('click', () => {
+            templateState.group = group.id;
+            renderAllTemplates();
+          });
+          row.appendChild(btn);
+        });
+      }
+
+      function renderAllTemplates() {
+        const primary = filterTemplates(templates);
+        const basic = filterTemplates(basicTemplates);
+        renderTemplates(primary, 'templates-grid');
+        renderTemplates(basic, 'basic-templates-grid');
+        renderFilterChips();
+
+        const note = $('#template-result-note');
+        if (note) {
+          const total = primary.length + basic.length;
+          const group = COLOR_GROUPS.find(g => g.id === templateState.group)?.label || 'All';
+          const query = templateState.query.trim();
+          note.textContent = `${total} template${total === 1 ? '' : 's'} shown · ${group}${query ? ` · "${query}"` : ''}`;
+        }
+      }
+
+      const templates = [
+        {
+          id:'black',
+          title:'Black Template',
+          description:'Minimal high-contrast dark template.',
+          file:'images/template/blacktemplate.txt',
+          images:[
+            'images/template/black (1).webp',
+            'images/template/black (2).webp',
+            'images/template/black (3).webp',
+            'images/template/black (4).webp',
+            'images/template/black (5).webp',
+            'images/template/black (6).webp',
+            'images/template/black (7).webp',
+            'images/template/black (8).webp',
+            'images/template/black (9).webp',
+            'images/template/black (10).webp',
+            'images/template/black (11).webp',
+            'images/template/black (12).webp'
+          ]
+        },
+        {
+          id:'blue',
+          title:'Blue Template',
+          description:'Simple blue accent template.',
+          file:'images/template/bluetemplate.txt',
+          images:[
+            'images/template/blue (2).webp',
+            'images/template/blue (3).webp',
+            'images/template/blue (4).webp',
+            'images/template/blue (5).webp',
+            'images/template/blue (6).webp',
+            'images/template/blue.webp'
+          ]
+        },
+        {
+          id:'green',
+          title:'Green Template',
+          description:'Fresh green accent kinda reminds me of grass....',
+          file:'images/template/greentemplate.txt',
+          images:[
+            'images/template/green (2).webp',
+            'images/template/green (3).webp',
+            'images/template/green (4).webp',
+            'images/template/green (5).webp',
+            'images/template/green.webp'
+          ]
+        },
+        {
+          id:'magenta-cyan',
+          title:'Magenta–Cyan Template',
+          description:'Bright neon magenta/cyan theme.',
+          file:'images/template/magenta-cyan.txt',
+          images:[
+            'images/template/magenta-cyan (1).webp',
+            'images/template/magenta-cyan (2).webp',
+            'images/template/magenta-cyan (3).webp',
+            'images/template/magenta-cyan (4).webp',
+            'images/template/magenta-cyan (5).webp',
+            'images/template/magenta-cyan (6).webp'
+          ]
+        },
+        {
+          id:'orange',
+          title:'Orange Template',
+          description:'Warm orange accents for friendly vibes.',
+          file:'images/template/orangetemplate.txt',
+          images:[
+            'images/template/orange (2).webp',
+            'images/template/orange (3).webp',
+            'images/template/orange (4).webp',
+            'images/template/orange (5).webp',
+            'images/template/orange (6).webp',
+            'images/template/orange.webp'
+          ]
+        },
+        {
+          id:'pastel',
+          title:'Pastel Template',
+          description:'Soft pastel rainbow look.',
+          file:'images/template/pasteltemplate.txt',
+          images:[
+            'images/template/pastel (1).webp',
+            'images/template/pastel (2).webp',
+            'images/template/pastel (3).webp',
+            'images/template/pastel (4).webp',
+            'images/template/pastel (5).webp',
+            'images/template/pastel (6).webp'
+          ]
+        },
+        {
+          id:'pink',
+          title:'Pink Template',
+          description:'Soft, friendly pink highlights.',
+          file:'images/template/pinktemplate.txt',
+          images:[
+            'images/template/pink (1).webp',
+            'images/template/pink (2).webp',
+            'images/template/pink (3).webp',
+            'images/template/pink (4).webp',
+            'images/template/pink (5).webp',
+            'images/template/pink (6).webp'
+          ]
+        },
+        {
+          id:'purple',
+          title:'Purple Template',
+          description:'Classic rich purple vibe.',
+          file:'images/template/purpletemplate.txt',
+          images:[
+            'images/template/purple (1).webp',
+            'images/template/purple (2).webp',
+            'images/template/purple (3).webp',
+            'images/template/purple (4).webp',
+            'images/template/purple (5).webp',
+            'images/template/purple (6).webp'
+          ]
+        },
+        {
+          id:'red',
+          title:'Red Template',
+          description:'Bright red for a classic look.',
+          file:'images/template/redtemplate.txt',
+          images:[
+            'images/template/red (1).webp',
+            'images/template/red (2).webp',
+            'images/template/red (3).webp',
+            'images/template/red (4).webp',
+            'images/template/red (5).webp',
+            'images/template/red (6).webp'
+          ]
+        },
+        {
+          id:'sunset',
+          title:'Sunset Template',
+          description:'Orange pinks and purples like a sunset sky.',
+          file:'images/template/sunsettemplate.txt',
+          images:[
+            'images/template/sunset (1).webp',
+            'images/template/sunset (2).webp',
+            'images/template/sunset (3).webp',
+            'images/template/sunset (4).webp',
+            'images/template/sunset (5).webp',
+            'images/template/sunset (6).webp'
+          ]
+        },
+        {
+          id:'yellow',
+          title:'Yellow Template',
+          description:'Mustard yellow vibes.',
+          file:'images/template/yellowtemplate.txt',
+          images:[
+            'images/template/yellow-1.webp',
+            'images/template/yellow-2.webp',
+            'images/template/yellow-3.webp',
+            'images/template/yellow-4.webp',
+            'images/template/yellow-5.webp',
+            'images/template/yellow-6.webp'
+          ]
+        },
+
+        {
+          id:'yellow-flame-gradient',
+          title:'Yellow Flame Gradient Template',
+          description:'Hot yellow/orange gradient.',
+          file:'images/template/yellow-flame-template.txt',
+          images:[
+            'images/template/yellow-flame-gradient-1.webp',
+            'images/template/yellow-flame-gradient-2.webp',
+            'images/template/yellow-flame-gradient-3.webp',
+            'images/template/yellow-flame-gradient-4.webp',
+            'images/template/yellow-flame-gradient-5.webp',
+            'images/template/yellow-flame-gradient-6.webp'
+          ]
+        },
+        {
+          id:'mossygreen-gradient',
+          title:'Mossy Green Gradient Template',
+          description:'Earthy green gradient layout.',
+          file:'images/template/mossy-green-template.txt',
+          images:[
+            'images/template/mossygreengradient (1).webp',
+            'images/template/mossygreengradient (2).webp',
+            'images/template/mossygreengradient (3).webp',
+            'images/template/mossygreengradient (4).webp',
+            'images/template/mossygreengradient (5).webp',
+            'images/template/mossygreengradient (6).webp'
+          ]
+        },
+        {
+          id:'aquamarine',
+          title:'Aquamarine Template',
+          description:'Cool blue-green theme.',
+          file:'images/template/aquamarine-template.txt',
+          images:[
+            'images/template/aquamarine (1).webp',
+            'images/template/aquamarine (2).webp',
+            'images/template/aquamarine (3).webp',
+            'images/template/aquamarine (4).webp',
+            'images/template/aquamarine (5).webp',
+            'images/template/aquamarine (6).webp'
+          ]
+        },
+        {
+          id:'galaxy',
+          title:'Galaxy Template',
+          description:'Deep purple gradient.',
+          file:'images/template/galaxytemplate.txt',
+          images:[
+            'images/template/galaxy (1).webp',
+            'images/template/galaxy (2).webp',
+            'images/template/galaxy (3).webp',
+            'images/template/galaxy (4).webp',
+            'images/template/galaxy (5).webp',
+            'images/template/galaxy (6).webp'
+          ]
+        },
+        {
+          id:'pink-gradient',
+          title:'Pink Gradient Template',
+          description:'Pink-to-light pink gradient.',
+          file:'images/template/pink-gradient-template.txt',
+          images:[
+            'images/template/pink-gradient (1).webp',
+            'images/template/pink-gradient (2).webp',
+            'images/template/pink-gradient (3).webp',
+            'images/template/pink-gradient (4).webp',
+            'images/template/pink-gradient (5).webp',
+            'images/template/pink-gradient (6).webp'
+          ]
+        }
+      ];
+
+      const basicTemplates = [
+        {
+          id:'floral-pink',
+          title:'Floral Pink Template',
+          description:'Soft floral pink aesthetic.',
+          file:'images/template/floral-pink.txt',
+          images:[
+            'images/template/floral-pink (1).webp',
+            'images/template/floral-pink (2).webp'
+          ]
+        },
+        {
+          id:'blood-moon',
+          title:'Blood Moon Template',
+          description:'Deep red lunar-inspired theme.',
+          file:'images/template/blood-moon.txt',
+          images:[
+            'images/template/bloodmoon (1).webp',
+            'images/template/bloodmoon (2).webp'
+          ]
+        },
+        {
+          id:'yellow-stars',
+          title:'Yellow Stars Template',
+          description:'Bright starry yellow aesthetic.',
+          file:'images/template/yellowstars.txt',
+          images:[
+            'images/template/yellow-stars (1).webp',
+            'images/template/yellow-stars (2).webp'
+          ]
+        },
+        {
+          id:'forestgreen',
+          title:'Forest Green Template',
+          description:'Dark natural forest green tone.',
+          file:'images/template/forestgreen.txt',
+          images:[
+            'images/template/forestgreen (1).webp',
+            'images/template/forestgreen (2).webp'
+          ]
+        },
+        {
+          id:'bluestorm',
+          title:'Blue Storm Template',
+          description:'Electric stormy blue theme.',
+          file:'images/template/bluestorm.txt',
+          images:[
+            'images/template/bluestorm (1).webp',
+            'images/template/bluestorm (2).webp'
+          ]
+        },
+        {
+          id:'purplevoid',
+          title:'Purple Void Template',
+          description:'Deep void-like purple gradient.',
+          file:'images/template/purplevoid.txt',
+          images:[
+            'images/template/purplevoid (1).webp',
+            'images/template/purplevoid (2).webp'
+          ]
+        },
+        {
+          id:'crystal-blue',
+          title:'Crystal Blue Template',
+          description:'Cold, crystalline blue theme.',
+          file:'images/template/crystal-blue.txt',
+          images:[
+            'images/template/crystal-blue (1).webp',
+            'images/template/crystal-blue (2).webp'
+          ]
+        },
+        {
+          id:'toxic-waste-gradient',
+          title:'Toxic Waste Gradient Template',
+          description:'Neon green/yellow hazardous glow.',
+          file:'images/template/toxic-waste-gradient.txt',
+          images:[
+            'images/template/toxic-waste-gradient.webp',
+            'images/template/toxic-waste-gradient (2).webp'
+          ]
+        },
+        {
+          id:'lightning-gradient',
+          title:'Lightning Gradient Template',
+          description:'Sharp electric lightning tones.',
+          file:'images/template/lightning-gradient.txt',
+          images:[
+            'images/template/lightning-gradient (1).webp',
+            'images/template/lightning-gradient (2).webp'
+          ]
+        },
+        {
+          id:'ice-gradient',
+          title:'Ice Gradient Template',
+          description:'Frozen pale blue and white gradient.',
+          file:'images/template/ice-gradient.txt',
+          images:[
+            'images/template/ice-gradient (1).webp',
+            'images/template/ice-gradient (2).webp'
+          ]
+        },
+        {
+          id:'fire-gradient',
+          title:'Fire Gradient Template',
+          description:'Hot red-orange flame gradient.',
+          file:'images/template/fire-gradient.txt',
+          images:[
+            'images/template/fire-gradient (1).webp',
+            'images/template/fire-gradient (2).webp'
+          ]
+        },
+        {
+          id:'rose-gold-gradient',
+          title:'Rose Gold Gradient Template',
+          description:'Metallic rose-gold shine.',
+          file:'images/template/rose-gold-gradient.txt',
+          images:[
+            'images/template/rose-gold-gradient (1).webp',
+            'images/template/rose-gold-gradient (2).webp'
+          ]
+        },
+        {
+          id:'ivory-gradient',
+          title:'Ivory Gradient Template',
+          description:'Soft ivory-to-cream fade.',
+          file:'images/template/ivory-gradient.txt',
+          images:[
+            'images/template/ivory-gradient (1).webp',
+            'images/template/ivory-gradient (2).webp'
+          ]
+        },
+        {
+          id:'teal-gradient',
+          title:'Teal Gradient Template',
+          description:'Deep teal fading into aqua.',
+          file:'images/template/teal-gradient.txt',
+          images:[
+            'images/template/teal-gradient (1).webp',
+            'images/template/teal-gradient (2).webp'
+          ]
+        },
+        {
+          id:'indago-gradient',
+          title:'Indago Gradient Template',
+          description:'Cool indigo/dark blue gradient.',
+          file:'images/template/indago-gradient.txt',
+          images:[
+            'images/template/indago-gradient (1).webp',
+            'images/template/indago-gradient (2).webp'
+          ]
+        },
+        {
+          id:'gold-dark-gradient',
+          title:'Gold Dark Gradient Template',
+          description:'Black-to-gold dramatic gradient.',
+          file:'images/template/gold-dark-gradient.txt',
+          images:[
+            'images/template/gold-dark-gradient (1).webp',
+            'images/template/gold-dark-gradient (2).webp'
+          ]
+        },
+        {
+          id:'silver-gradient',
+          title:'Silver Gradient Template',
+          description:'Clean metallic silver gradient.',
+          file:'images/template/Silver-gradient-template.txt',
+          images:[
+            'images/template/silver-gradient (1).webp',
+            'images/template/silver-gradient (2).webp'
+          ]
+        },
+        {
+          id:'english-dat',
+          title:'english.dat',
+          description:'Template pack for english.dat formatting.',
+          comingSoon:true,
+          badge:'Coming soon'
+        }
+      ];
+
+      templates.forEach((tpl, index) => (tpl._order = index));
+      basicTemplates.forEach((tpl, index) => (tpl._order = index));
+
+      const searchInput = $('#template-search');
+      const syncSearch = e => {
+        templateState.query = e.target.value || '';
+        renderAllTemplates();
+      };
+      ['input', 'change', 'search', 'keyup'].forEach(eventName => {
+        searchInput?.addEventListener(eventName, syncSearch);
+      });
+
+      $('#template-sort')?.addEventListener('change', e => {
+        templateState.sort = e.target.value || 'featured';
+        renderAllTemplates();
+      });
+
+      $('#template-reset')?.addEventListener('click', () => {
+        templateState.query = '';
+        templateState.group = 'all';
+        templateState.sort = 'featured';
+        if (searchInput) searchInput.value = '';
+        const sortInput = $('#template-sort');
+        if (sortInput) sortInput.value = 'featured';
+        renderAllTemplates();
+      });
+
+      renderAllTemplates();
+
+      (function () {
+        const box = $('#lightbox');
+        const closeBtn = box.querySelector('.lightbox-close');
+        const prevBtn = box.querySelector('.lightbox-prev');
+        const nextBtn = box.querySelector('.lightbox-next');
+
+        closeBtn.addEventListener('click', closeLightbox);
+        prevBtn.addEventListener('click', () => showLightboxImage(activeGalleryIndex - 1));
+        nextBtn.addEventListener('click', () => showLightboxImage(activeGalleryIndex + 1));
+        box.addEventListener('click', e => {
+          if (e.target === box) closeLightbox();
+        });
+        document.addEventListener('keydown', e => {
+          if (e.key === 'Escape') closeLightbox();
+          if (!box.classList.contains('open')) return;
+          if (e.key === 'ArrowLeft') showLightboxImage(activeGalleryIndex - 1);
+          if (e.key === 'ArrowRight') showLightboxImage(activeGalleryIndex + 1);
+        });
+      })();
+    </script>
+    <script src="/scripts/navbar.js"></script>
+  </body>
+</html>
