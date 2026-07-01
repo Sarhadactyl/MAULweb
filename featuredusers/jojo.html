@@ -80,6 +80,7 @@
         position: fixed;
         inset: 0;
         pointer-events: none;
+        z-index: -1;
         background:
           linear-gradient(90deg, rgba(255, 255, 255, 0.05), transparent 18%, transparent 82%, rgba(255, 255, 255, 0.06)),
           radial-gradient(circle at center, transparent 0 62%, rgba(0, 0, 0, 0.45));
@@ -87,6 +88,198 @@
 
       a {
         color: inherit;
+      }
+
+
+      /* MAUL navbar fix - matches the Spyder featured-user navbar behavior */
+      #navbar {
+        position: relative;
+        z-index: 1000;
+      }
+
+      .dropdown {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+      }
+
+      .dropbtn {
+        background: rgba(8, 8, 8, 0.94);
+        border: 2px solid var(--ink);
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        padding: 10px;
+        border-radius: 0;
+        color: var(--ink);
+        box-shadow: 5px 5px 0 rgba(0, 128, 128, 0.42);
+        backdrop-filter: blur(10px);
+      }
+
+      .dropbtn:hover {
+        transform: translateY(-1px);
+        background: linear-gradient(135deg, var(--teal-main), var(--teal-bright));
+        box-shadow: 7px 7px 0 rgba(0, 128, 128, 0.48);
+      }
+
+      .hamburger {
+        width: 26px;
+        height: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .hamburger span {
+        display: block;
+        height: 3px;
+        background: var(--ink);
+        border-radius: 999px;
+      }
+
+      .dropbtn:hover .hamburger span {
+        background: #ffffff;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        width: 350px;
+        max-width: calc(100vw - 32px);
+        max-height: calc(100vh - 40px);
+        overflow: hidden;
+        background:
+          radial-gradient(circle, rgba(255, 255, 255, 0.09) 1px, transparent 1.4px) 0 0 / 11px 11px,
+          rgba(8, 8, 8, 0.98);
+        border: 3px solid var(--ink);
+        box-shadow: 9px 9px 0 rgba(0, 128, 128, 0.42), 0 18px 40px rgba(0, 0, 0, 0.86);
+        backdrop-filter: blur(12px);
+      }
+
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+
+      .menu-view {
+        display: none;
+        padding: 8px 0;
+        max-height: calc(100vh - 56px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+
+      .menu-view.active {
+        display: block;
+      }
+
+      .dropdown-content a,
+      .menu-nav-btn,
+      .menu-back-btn {
+        width: 100%;
+        color: var(--ink);
+        padding: 15px 20px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        font-size: 0.96rem;
+        font-weight: 900;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        transition: background 0.18s ease, color 0.18s ease, padding-left 0.18s ease;
+        background: transparent;
+        border: none;
+        font-family: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .dropdown-content a i:first-child,
+      .menu-nav-btn span,
+      .menu-back-btn span {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .menu-nav-btn .fa-chevron-right {
+        margin-left: auto;
+      }
+
+      .dropdown-content a:hover,
+      .menu-nav-btn:hover,
+      .menu-back-btn:hover {
+        background: linear-gradient(135deg, var(--teal-main), var(--teal-bright));
+        color: #ffffff;
+        padding-left: 26px;
+      }
+
+      .menu-back-btn {
+        justify-content: flex-start;
+        border-bottom: 2px solid rgba(244, 240, 232, 0.26);
+        margin-bottom: 4px;
+      }
+
+      .submenu-title {
+        padding: 13px 20px 10px;
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        border-bottom: 2px solid rgba(244, 240, 232, 0.2);
+        margin-bottom: 4px;
+      }
+
+      .beta-glow,
+      .highlight-glow {
+        color: #ffffff !important;
+        font-weight: 900;
+        text-shadow:
+          0 0 8px rgba(0, 128, 128, 0.78),
+          0 0 16px rgba(0, 128, 128, 0.46);
+        animation: betaPulse 1.6s ease-in-out infinite;
+      }
+
+      .beta-glow:hover,
+      .highlight-glow:hover {
+        background: linear-gradient(135deg, var(--teal-main), var(--teal-bright)) !important;
+        color: #ffffff !important;
+      }
+
+      @keyframes betaPulse {
+        0% {
+          text-shadow:
+            0 0 6px rgba(0, 128, 128, 0.52),
+            0 0 12px rgba(0, 128, 128, 0.24);
+        }
+        50% {
+          text-shadow:
+            0 0 12px rgba(0, 128, 128, 0.92),
+            0 0 24px rgba(0, 128, 128, 0.62);
+        }
+        100% {
+          text-shadow:
+            0 0 6px rgba(0, 128, 128, 0.52),
+            0 0 12px rgba(0, 128, 128, 0.24);
+        }
+      }
+
+      body.light-view .dropbtn,
+      body.light-view .dropdown-content {
+        background:
+          radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1.4px) 0 0 / 11px 11px,
+          rgba(255, 252, 244, 0.98);
+      }
+
+      body.light-view .dropbtn:hover,
+      body.light-view .dropdown-content a:hover,
+      body.light-view .menu-nav-btn:hover,
+      body.light-view .menu-back-btn:hover {
+        color: #ffffff;
       }
 
       .page {
@@ -1022,7 +1215,7 @@
     </style>
   </head>
 
-  <body>
+  <body data-host-id="1072010786668548156" data-host-slug="jojo">
     <div id="navbar"></div>
 
     <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to white view">
@@ -1212,6 +1405,20 @@
 
     <script src="/scripts/navbar.js"></script>
     <script>
+      (() => {
+        const loadNavbarFallback = () => {
+          if (document.querySelector(".dropdown") || window.__maulNavbarFallbackLoaded) return;
+          window.__maulNavbarFallbackLoaded = true;
+          const script = document.createElement("script");
+          script.src = "../scripts/navbar.js";
+          document.body.appendChild(script);
+        };
+
+        window.addEventListener("DOMContentLoaded", () => {
+          window.setTimeout(loadNavbarFallback, 350);
+        });
+      })();
+
       (() => {
         const button = document.querySelector(".theme-toggle");
         const label = button?.querySelector(".theme-toggle-text");
