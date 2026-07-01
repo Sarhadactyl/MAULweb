@@ -30,16 +30,16 @@
 
     <style>
       :root {
-        --ink: #070707;
-        --ink-soft: #252525;
-        --paper: #f4f0e8;
-        --paper-deep: #dfd7c8;
-        --panel: rgba(255, 252, 244, 0.94);
+        --ink: #f4f0e8;
+        --ink-soft: #d6cebf;
+        --paper: #080808;
+        --paper-deep: #151515;
+        --panel: rgba(9, 10, 10, 0.94);
         --teal-main: #002a49;
         --teal-bright: #008080;
         --teal-wash: rgba(0, 128, 128, 0.15);
         --line: 3px solid var(--ink);
-        --shadow: 10px 10px 0 rgba(0, 42, 73, 0.22);
+        --shadow: 10px 10px 0 rgba(0, 128, 128, 0.28);
       }
 
       * {
@@ -58,7 +58,7 @@
         background:
           radial-gradient(circle at 16% 10%, rgba(0, 128, 128, 0.16), transparent 24%),
           radial-gradient(circle at 88% 4%, rgba(0, 42, 73, 0.18), transparent 22%),
-          linear-gradient(135deg, rgba(0, 0, 0, 0.035) 25%, transparent 25%) 0 0 / 8px 8px,
+          linear-gradient(135deg, rgba(255, 255, 255, 0.045) 25%, transparent 25%) 0 0 / 8px 8px,
           linear-gradient(180deg, var(--paper), var(--paper-deep));
         overflow-x: hidden;
       }
@@ -71,8 +71,8 @@
         opacity: 0.44;
         z-index: -1;
         background:
-          radial-gradient(circle, rgba(0, 0, 0, 0.16) 1px, transparent 1.4px) 0 0 / 12px 12px,
-          linear-gradient(90deg, transparent 0 48%, rgba(0, 0, 0, 0.05) 48% 52%, transparent 52% 100%) 0 0 / 58px 58px;
+          radial-gradient(circle, rgba(255, 255, 255, 0.12) 1px, transparent 1.4px) 0 0 / 12px 12px,
+          linear-gradient(90deg, transparent 0 48%, rgba(255, 255, 255, 0.08) 48% 52%, transparent 52% 100%) 0 0 / 58px 58px;
       }
 
       body::after {
@@ -81,8 +81,8 @@
         inset: 0;
         pointer-events: none;
         background:
-          linear-gradient(90deg, rgba(255, 255, 255, 0.14), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.08)),
-          radial-gradient(circle at center, transparent 0 62%, rgba(0, 0, 0, 0.2));
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05), transparent 18%, transparent 82%, rgba(255, 255, 255, 0.06)),
+          radial-gradient(circle at center, transparent 0 62%, rgba(0, 0, 0, 0.45));
       }
 
       a {
@@ -110,7 +110,7 @@
         position: absolute;
         inset: 0;
         background:
-          linear-gradient(90deg, rgba(255, 252, 244, 0.1), rgba(255, 252, 244, 0.86) 57%),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.08), rgba(8, 8, 8, 0.88) 57%),
           linear-gradient(135deg, rgba(0, 42, 73, 0.86), rgba(0, 128, 128, 0.58)),
           url("https://raw.githubusercontent.com/Sarhadactyl/MAULweb/main/images/veteranusers/jojobanner.gif") center/cover no-repeat;
         filter: grayscale(1) contrast(1.45);
@@ -122,9 +122,9 @@
         position: absolute;
         inset: 0;
         background:
-          repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0 1px, transparent 1px 7px),
-          radial-gradient(circle, rgba(0, 0, 0, 0.18) 1px, transparent 1.6px) 0 0 / 9px 9px;
-        mix-blend-mode: multiply;
+          repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 7px),
+          radial-gradient(circle, rgba(255, 255, 255, 0.14) 1px, transparent 1.6px) 0 0 / 9px 9px;
+        mix-blend-mode: screen;
         opacity: 0.42;
         pointer-events: none;
         z-index: -2;
@@ -152,8 +152,8 @@
         width: min(100%, 330px);
         aspect-ratio: 4 / 5;
         border: var(--line);
-        background: #fff;
-        box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.86);
+        background: #080808;
+        box-shadow: 8px 8px 0 rgba(0, 128, 128, 0.42);
         transform: rotate(-2deg);
         overflow: hidden;
       }
@@ -172,9 +172,9 @@
         position: absolute;
         inset: 0;
         background:
-          repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 7px),
+          repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0 1px, transparent 1px 7px),
           linear-gradient(180deg, transparent 48%, rgba(0, 42, 73, 0.22));
-        mix-blend-mode: multiply;
+        mix-blend-mode: screen;
         pointer-events: none;
         z-index: 3;
       }
@@ -203,7 +203,7 @@
 
       .hero-copy {
         padding: 20px;
-        background: rgba(255, 252, 244, 0.88);
+        background: rgba(8, 8, 8, 0.88);
         border: var(--line);
         box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.88);
       }
@@ -212,7 +212,7 @@
         width: fit-content;
         margin: 0 0 16px;
         padding: 7px 10px;
-        background: var(--ink);
+        background: #050505;
         color: #fff;
         font-weight: 900;
         letter-spacing: 0.12em;
@@ -233,7 +233,7 @@
         letter-spacing: 0;
         color: var(--ink);
         text-shadow:
-          4px 4px 0 #fff,
+          4px 4px 0 #050505,
           9px 9px 0 rgba(0, 128, 128, 0.58);
       }
 
@@ -260,9 +260,32 @@
         min-height: 38px;
         padding: 8px 11px;
         border: 2px solid var(--ink);
-        background: #fff;
+        background: #101010;
         box-shadow: 4px 4px 0 rgba(0, 42, 73, 0.24);
         font-weight: 900;
+      }
+
+      .action-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .action-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 42px;
+        padding: 10px 13px;
+        border: 2px solid var(--ink);
+        background: linear-gradient(135deg, var(--teal-main), var(--teal-bright));
+        color: #fff;
+        box-shadow: 4px 4px 0 rgba(0, 128, 128, 0.34);
+        font-weight: 900;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
       }
 
       .manga-grid {
@@ -279,9 +302,9 @@
         padding: 22px;
         border: var(--line);
         background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(244, 240, 232, 0.94)),
-          radial-gradient(circle, rgba(0, 0, 0, 0.16) 1px, transparent 1.4px) 0 0 / 11px 11px;
-        box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.84);
+          linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(8, 8, 8, 0.96)),
+          radial-gradient(circle, rgba(255, 255, 255, 0.11) 1px, transparent 1.4px) 0 0 / 11px 11px;
+        box-shadow: 7px 7px 0 rgba(0, 128, 128, 0.38);
         overflow: hidden;
       }
 
@@ -293,7 +316,7 @@
         padding: 7px 10px;
         border-left: 2px solid var(--ink);
         border-bottom: 2px solid var(--ink);
-        background: var(--ink);
+        background: var(--teal-main);
         color: #fff;
         font-size: 0.72rem;
         font-weight: 900;
@@ -330,6 +353,76 @@
         gap: 12px;
       }
 
+      .upvote-card {
+        display: grid;
+        grid-template-columns: 88px minmax(0, 1fr);
+        gap: 14px;
+        align-items: center;
+        margin-top: 14px;
+      }
+
+      .upvote-count {
+        display: grid;
+        place-items: center;
+        min-height: 88px;
+        border: 2px solid var(--ink);
+        background:
+          radial-gradient(circle, rgba(0, 128, 128, 0.26) 1px, transparent 1.8px) 0 0 / 10px 10px,
+          rgba(0, 0, 0, 0.48);
+        color: var(--ink);
+        font-family: "Archivo Black", Impact, sans-serif;
+        font-size: 2.6rem;
+        line-height: 1;
+        box-shadow: 4px 4px 0 rgba(0, 128, 128, 0.4);
+      }
+
+      .upvote-copy strong,
+      .upvote-copy span {
+        display: block;
+      }
+
+      .upvote-copy strong {
+        font-family: "Archivo Black", Impact, sans-serif;
+        text-transform: uppercase;
+        font-size: 1.15rem;
+      }
+
+      .upvote-copy span {
+        margin-top: 6px;
+        color: var(--ink-soft);
+        font-weight: 800;
+        line-height: 1.45;
+      }
+
+      .upvote-notes {
+        display: grid;
+        gap: 8px;
+        max-height: 180px;
+        margin-top: 14px;
+        padding-right: 6px;
+        overflow-y: auto;
+        scrollbar-color: var(--teal-bright) transparent;
+      }
+
+      .upvote-note,
+      .upvote-notes-empty {
+        border: 2px solid var(--ink);
+        background: rgba(0, 0, 0, 0.48);
+        padding: 10px;
+        color: var(--ink-soft);
+        font-weight: 800;
+        line-height: 1.45;
+      }
+
+      .upvote-note strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--teal-bright);
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
       .info-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         margin-top: 18px;
@@ -339,7 +432,7 @@
       .kv-grid div,
       .badge-list li {
         border: 2px solid var(--ink);
-        background: rgba(255, 255, 255, 0.66);
+        background: rgba(0, 0, 0, 0.48);
         padding: 12px;
       }
 
@@ -351,7 +444,7 @@
         text-transform: uppercase;
         letter-spacing: 0.08em;
         font-size: 0.76rem;
-        color: var(--teal-main);
+        color: var(--teal-bright);
       }
 
       .info-grid span,
@@ -387,10 +480,10 @@
         position: absolute;
         inset: 0;
         background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 40%),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 40%),
           radial-gradient(circle at 18% 24%, rgba(0, 128, 128, 0.22), transparent 34%),
-          repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.12) 0 1px, transparent 1px 6px);
-        mix-blend-mode: multiply;
+          repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 6px);
+        mix-blend-mode: screen;
         pointer-events: none;
       }
 
@@ -402,8 +495,8 @@
         display: grid;
         place-items: center;
         border: 2px solid var(--ink);
-        background: #fff;
-        box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.72);
+        background: #0d0d0d;
+        box-shadow: 3px 3px 0 rgba(0, 128, 128, 0.5);
       }
 
       .badge-art img {
@@ -420,8 +513,8 @@
         inset: 0;
         background:
           linear-gradient(135deg, rgba(0, 42, 73, 0.36), transparent 54%),
-          radial-gradient(circle, rgba(0, 0, 0, 0.2) 1px, transparent 1.4px) 0 0 / 7px 7px;
-        mix-blend-mode: multiply;
+          radial-gradient(circle, rgba(255, 255, 255, 0.16) 1px, transparent 1.4px) 0 0 / 7px 7px;
+        mix-blend-mode: screen;
         pointer-events: none;
       }
 
@@ -488,7 +581,7 @@
         object-fit: cover;
         border: 2px solid var(--ink);
         filter: grayscale(0.88) contrast(1.24) saturate(0.48);
-        background: #fff;
+        background: #080808;
       }
 
       .art-grid img:first-child {
@@ -512,8 +605,8 @@
         place-items: center;
         padding: 20px;
         background:
-          radial-gradient(circle at center, rgba(244, 240, 232, 0.72), rgba(223, 215, 200, 0.96) 58%),
-          radial-gradient(circle, rgba(0, 0, 0, 0.16) 1px, transparent 1.4px) 0 0 / 12px 12px;
+          radial-gradient(circle at center, rgba(28, 28, 28, 0.72), rgba(0, 0, 0, 0.96) 58%),
+          radial-gradient(circle, rgba(255, 255, 255, 0.13) 1px, transparent 1.4px) 0 0 / 12px 12px;
         pointer-events: none;
         animation: bookLoaderFade 0.55s ease 2.55s forwards;
       }
@@ -532,7 +625,7 @@
         right: 8%;
         bottom: -18px;
         height: 36px;
-        background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.34), transparent 68%);
+        background: radial-gradient(ellipse at center, rgba(0, 128, 128, 0.34), transparent 68%);
         filter: blur(4px);
         animation: bookShadowStretch 1.8s ease 0.25s forwards;
       }
@@ -553,10 +646,10 @@
         width: 49%;
         border: 3px solid var(--ink);
         background:
-          linear-gradient(90deg, rgba(0, 0, 0, 0.08), transparent 16%, rgba(255, 255, 255, 0.48)),
-          radial-gradient(circle, rgba(0, 0, 0, 0.12) 1px, transparent 1.5px) 0 0 / 10px 10px,
+          linear-gradient(90deg, rgba(255, 255, 255, 0.12), transparent 16%, rgba(255, 255, 255, 0.18)),
+          radial-gradient(circle, rgba(255, 255, 255, 0.12) 1px, transparent 1.5px) 0 0 / 10px 10px,
           var(--paper);
-        box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.26);
+        box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.08);
       }
 
       .book-pages::before {
@@ -612,7 +705,7 @@
         text-transform: uppercase;
         color: #fff;
         text-shadow:
-          4px 4px 0 var(--ink),
+          4px 4px 0 #050505,
           8px 8px 0 rgba(0, 128, 128, 0.75);
         animation: bookTitleFade 0.35s ease 1.08s forwards;
       }
@@ -631,6 +724,168 @@
 
       .page {
         animation: pageArrive 0.8s ease 2.25s both;
+      }
+
+      .theme-toggle {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        z-index: 60;
+        width: 44px;
+        height: 44px;
+        display: inline-grid;
+        place-items: center;
+        align-items: center;
+        padding: 0;
+        border: 3px solid var(--ink);
+        background: var(--paper);
+        color: var(--ink);
+        box-shadow: 5px 5px 0 rgba(0, 128, 128, 0.46);
+        cursor: pointer;
+      }
+
+      .theme-toggle-icon {
+        width: 24px;
+        height: 24px;
+        border: 2px solid currentColor;
+        border-radius: 50%;
+        background: currentColor;
+        box-shadow:
+          0 -10px 0 -7px currentColor,
+          0 10px 0 -7px currentColor,
+          10px 0 0 -7px currentColor,
+          -10px 0 0 -7px currentColor,
+          7px 7px 0 -7px currentColor,
+          -7px -7px 0 -7px currentColor,
+          7px -7px 0 -7px currentColor,
+          -7px 7px 0 -7px currentColor;
+      }
+
+      .theme-toggle[aria-pressed="true"] .theme-toggle-icon {
+        background: transparent;
+        box-shadow: inset -7px 0 0 currentColor;
+      }
+
+      .theme-toggle-text {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      body.light-view {
+        --ink: #070707;
+        --ink-soft: #252525;
+        --paper: #f4f0e8;
+        --paper-deep: #dfd7c8;
+        --panel: rgba(255, 252, 244, 0.94);
+      }
+
+      body.light-view {
+        background:
+          radial-gradient(circle at 16% 10%, rgba(0, 128, 128, 0.16), transparent 24%),
+          radial-gradient(circle at 88% 4%, rgba(0, 42, 73, 0.18), transparent 22%),
+          linear-gradient(135deg, rgba(0, 0, 0, 0.035) 25%, transparent 25%) 0 0 / 8px 8px,
+          linear-gradient(180deg, var(--paper), var(--paper-deep));
+      }
+
+      body.light-view::before {
+        background:
+          radial-gradient(circle, rgba(0, 0, 0, 0.16) 1px, transparent 1.4px) 0 0 / 12px 12px,
+          linear-gradient(90deg, transparent 0 48%, rgba(0, 0, 0, 0.05) 48% 52%, transparent 52% 100%) 0 0 / 58px 58px;
+      }
+
+      body.light-view::after {
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.14), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.08)),
+          radial-gradient(circle at center, transparent 0 62%, rgba(0, 0, 0, 0.2));
+      }
+
+      body.light-view .hero::before {
+        background:
+          linear-gradient(90deg, rgba(255, 252, 244, 0.1), rgba(255, 252, 244, 0.86) 57%),
+          linear-gradient(135deg, rgba(0, 42, 73, 0.86), rgba(0, 128, 128, 0.58)),
+          url("https://raw.githubusercontent.com/Sarhadactyl/MAULweb/main/images/veteranusers/jojobanner.gif") center/cover no-repeat;
+      }
+
+      body.light-view .hero::after {
+        background:
+          repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0 1px, transparent 1px 7px),
+          radial-gradient(circle, rgba(0, 0, 0, 0.18) 1px, transparent 1.6px) 0 0 / 9px 9px;
+        mix-blend-mode: multiply;
+      }
+
+      body.light-view .pfp-frame,
+      body.light-view .pill-row span,
+      body.light-view .tag-row span,
+      body.light-view .upvote-count,
+      body.light-view .badge-art {
+        background: #fff;
+      }
+
+      body.light-view .pfp-frame {
+        box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.86);
+      }
+
+      body.light-view .pfp-frame::after {
+        background:
+          repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 7px),
+          linear-gradient(180deg, transparent 48%, rgba(0, 42, 73, 0.22));
+        mix-blend-mode: multiply;
+      }
+
+      body.light-view .hero-copy {
+        background: rgba(255, 252, 244, 0.88);
+      }
+
+      body.light-view .kicker {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      body.light-view h1 {
+        text-shadow:
+          4px 4px 0 #fff,
+          9px 9px 0 rgba(0, 128, 128, 0.58);
+      }
+
+      body.light-view .panel {
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(244, 240, 232, 0.94)),
+          radial-gradient(circle, rgba(0, 0, 0, 0.16) 1px, transparent 1.4px) 0 0 / 11px 11px;
+        box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.84);
+      }
+
+      body.light-view .panel::before {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      body.light-view .info-grid div,
+      body.light-view .kv-grid div,
+      body.light-view .badge-list li,
+      body.light-view .upvote-note,
+      body.light-view .upvote-notes-empty {
+        background: rgba(255, 255, 255, 0.66);
+      }
+
+      body.light-view .info-grid strong,
+      body.light-view .kv-grid span {
+        color: var(--teal-main);
+      }
+
+      body.light-view .badge-list li::after,
+      body.light-view .badge-art::after {
+        mix-blend-mode: multiply;
+      }
+
+      body.light-view .art-grid img {
+        background: #fff;
       }
 
       @keyframes leftCoverOpen {
@@ -768,6 +1023,11 @@
   </head>
 
   <body>
+    <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to white view">
+      <span class="theme-toggle-icon" aria-hidden="true"></span>
+      <span class="theme-toggle-text">White View</span>
+    </button>
+
     <div class="book-loader" aria-hidden="true">
       <div class="book-stage">
         <div class="book-shadow"></div>
@@ -801,6 +1061,17 @@
               <span><i class="fa-solid fa-gem"></i> Server Booster</span>
               <span><i class="fa-solid fa-id-badge"></i> Event Manager / Verification Mod</span>
               <span><i class="fa-solid fa-comments"></i> Level 175 Yapper</span>
+            </div>
+
+            <div class="action-row" aria-label="jojo profile actions">
+              <a
+                class="action-link"
+                href="https://discord.com/users/1072010786668548156"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fa-brands fa-discord"></i> Discord Profile
+              </a>
             </div>
           </div>
         </div>
@@ -888,6 +1159,20 @@
           <p>"I yap a lot ig second in leaderboard for now."</p>
         </article>
 
+        <article class="panel" data-label="Upvotes">
+          <h2><i class="fa-solid fa-arrow-up-right-from-square"></i> Upvotes</h2>
+          <div class="upvote-card" aria-label="jojo community favorite upvotes">
+            <div class="upvote-count" id="community-favorite-count">0</div>
+            <div class="upvote-copy">
+              <strong>Community Favorite</strong>
+              <span id="host-upvotes-summary">0 upvotes - last upvoted never</span>
+            </div>
+          </div>
+          <div class="upvote-notes" id="upvote-notes-list" aria-label="jojo upvote notes">
+            <div class="upvote-notes-empty" id="upvote-notes-empty">No upvote notes yet.</div>
+          </div>
+        </article>
+
         <article class="panel" data-label="Favourites">
           <h2><i class="fa-solid fa-heart"></i> Shelf Picks</h2>
           <div class="kv-grid">
@@ -922,5 +1207,115 @@
         make MAUL feel alive.
       </p>
     </main>
+
+    <script>
+      (() => {
+        const button = document.querySelector(".theme-toggle");
+        const label = button?.querySelector(".theme-toggle-text");
+
+        const setLightView = (isLight) => {
+          document.body.classList.toggle("light-view", isLight);
+          if (button) {
+            button.setAttribute("aria-pressed", String(isLight));
+            button.setAttribute("aria-label", isLight ? "Switch to black view" : "Switch to white view");
+          }
+          if (label) {
+            label.textContent = isLight ? "Black View" : "White View";
+          }
+        };
+
+        setLightView(false);
+        button?.addEventListener("click", () => {
+          setLightView(!document.body.classList.contains("light-view"));
+        });
+      })();
+
+      (() => {
+        const hostId = "1072010786668548156";
+        const hostSlug = "jojo";
+        const communityFavoriteCount = document.getElementById("community-favorite-count");
+        const hostUpvotesSummary = document.getElementById("host-upvotes-summary");
+        const upvoteNotesList = document.getElementById("upvote-notes-list");
+        const upvoteNotesEmpty = document.getElementById("upvote-notes-empty");
+
+        const formatLastUpvoted = (value) => {
+          if (!value) return "never";
+          const date = new Date(value);
+          if (Number.isNaN(date.getTime())) return String(value);
+          return date.toLocaleDateString(undefined, {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          });
+        };
+
+        const loadUpvotes = async () => {
+          const urls = ["data/host_upvote_totals.json", "../data/host_upvote_totals.json"];
+          for (const url of urls) {
+            try {
+              const response = await fetch(url, { cache: "no-store" });
+              if (!response.ok) continue;
+              const data = await response.json();
+              const hostData =
+                (data.hosts && data.hosts[hostId]) ||
+                (data.hosts && data.hosts[hostSlug]) ||
+                null;
+
+              if (!hostData) return;
+
+              const upvotedTimes = Number(hostData.upvoted_times || 0);
+              const lastUpvoted = formatLastUpvoted(hostData.last_upvoted_at || hostData.last_upvoted);
+              if (communityFavoriteCount) communityFavoriteCount.textContent = String(upvotedTimes);
+              if (hostUpvotesSummary) {
+                hostUpvotesSummary.textContent = `${upvotedTimes} upvotes - last upvoted ${lastUpvoted}`;
+              }
+              return;
+            } catch (_error) {
+              // Local file previews may block fetch; keep the static fallback text.
+            }
+          }
+        };
+
+        const loadUpvoteNotes = async () => {
+          const urls = ["data/host_messages.json", "../data/host_messages.json"];
+          for (const url of urls) {
+            try {
+              const response = await fetch(url, { cache: "no-store" });
+              if (!response.ok) continue;
+              const data = await response.json();
+              const hostMessages =
+                (data.hosts && data.hosts[hostId]) ||
+                (data.hosts && data.hosts[hostSlug]) ||
+                [];
+
+              if (!Array.isArray(hostMessages) || hostMessages.length === 0 || !upvoteNotesList) return;
+
+              if (upvoteNotesEmpty) upvoteNotesEmpty.remove();
+              upvoteNotesList.replaceChildren(
+                ...hostMessages.map((entry) => {
+                  const note = document.createElement("div");
+                  note.className = "upvote-note";
+
+                  const author = document.createElement("strong");
+                  author.textContent = entry.author || entry.username || "Upvote note";
+
+                  const message = document.createElement("span");
+                  message.textContent = entry.message || entry.note || "";
+
+                  note.append(author, message);
+                  return note;
+                })
+              );
+              return;
+            } catch (_error) {
+              // Local file previews may block fetch; keep the static fallback text.
+            }
+          }
+        };
+
+        loadUpvotes();
+        loadUpvoteNotes();
+      })();
+    </script>
   </body>
 </html>
