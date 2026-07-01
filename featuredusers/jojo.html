@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jojo - Featured User - MAUL</title>
+
+    <meta property="og:title" content="jojo - Featured User - MAUL" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/jojo/jojobanner.gif" />
+    <meta
+      property="og:description"
+      content="Featured user profile for jojo - event director, verification mod, level 175 yapper, football fan, and anime-book regular."
+    />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+
+    <link rel="shortcut icon" type="image/png" href="https://moddedamong.us/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --ink: #070707;
+        --ink-soft: #252525;
+        --paper: #f4f0e8;
+        --paper-deep: #dfd7c8;
+        --panel: rgba(255, 252, 244, 0.94);
+        --teal-main: #002a49;
+        --teal-bright: #008080;
+        --teal-wash: rgba(0, 128, 128, 0.15);
+        --line: 3px solid var(--ink);
+        --shadow: 10px 10px 0 rgba(0, 42, 73, 0.22);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 16% 10%, rgba(0, 128, 128, 0.16), transparent 24%),
+          radial-gradient(circle at 88% 4%, rgba(0, 42, 73, 0.18), transparent 22%),
+          linear-gradient(135deg, rgba(0, 0, 0, 0.035) 25%, transparent 25%) 0 0 / 8px 8px,
+          linear-gradient(180deg, var(--paper), var(--paper-deep));
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.44;
+        z-index: -1;
+        background:
+          radial-gradient(circle, rgba(0, 0, 0, 0.16) 1px, transparent 1.4px) 0 0 / 12px 12px,
+          linear-gradient(90deg, transparent 0 48%, rgba(0, 0, 0, 0.05) 48% 52%, transparent 52% 100%) 0 0 / 58px 58px;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.14), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.08)),
+          radial-gradient(circle at center, transparent 0 62%, rgba(0, 0, 0, 0.2));
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        width: min(1180px, calc(100% - 28px));
+        margin: 0 auto;
+        padding: 28px 0 38px;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 620px;
+        border: var(--line);
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(255, 252, 244, 0.1), rgba(255, 252, 244, 0.86) 57%),
+          linear-gradient(135deg, rgba(0, 42, 73, 0.86), rgba(0, 128, 128, 0.58)),
+          url("assets/jojo/jojobanner.gif") center/cover no-repeat;
+        filter: grayscale(1) contrast(1.45);
+        z-index: -3;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0 1px, transparent 1px 7px),
+          radial-gradient(circle, rgba(0, 0, 0, 0.18) 1px, transparent 1.6px) 0 0 / 9px 9px;
+        mix-blend-mode: multiply;
+        opacity: 0.42;
+        pointer-events: none;
+        z-index: -2;
+      }
+
+      .hero-grid {
+        min-height: 620px;
+        display: grid;
+        grid-template-columns: minmax(250px, 390px) minmax(0, 1fr);
+        gap: 28px;
+        align-items: end;
+        padding: clamp(22px, 5vw, 54px);
+      }
+
+      .pfp-panel {
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 14px;
+      }
+
+      .pfp-frame {
+        position: relative;
+        width: min(100%, 330px);
+        aspect-ratio: 4 / 5;
+        border: var(--line);
+        background: #fff;
+        box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.86);
+        transform: rotate(-2deg);
+        overflow: hidden;
+      }
+
+      .pfp-frame::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 10px solid rgba(255, 252, 244, 0.82);
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .pfp-frame::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 7px),
+          linear-gradient(180deg, transparent 48%, rgba(0, 42, 73, 0.22));
+        mix-blend-mode: multiply;
+        pointer-events: none;
+        z-index: 3;
+      }
+
+      .pfp-frame img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        filter: grayscale(0.82) contrast(1.3) saturate(0.45);
+      }
+
+      .stamp {
+        width: fit-content;
+        max-width: 100%;
+        padding: 9px 13px;
+        border: 2px solid var(--ink);
+        background: linear-gradient(135deg, var(--teal-main), var(--teal-bright));
+        color: #fff;
+        font-family: "Archivo Black", Impact, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        box-shadow: 5px 5px 0 var(--ink);
+        transform: rotate(1.5deg);
+      }
+
+      .hero-copy {
+        padding: 20px;
+        background: rgba(255, 252, 244, 0.88);
+        border: var(--line);
+        box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.88);
+      }
+
+      .kicker {
+        width: fit-content;
+        margin: 0 0 16px;
+        padding: 7px 10px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 0.78rem;
+      }
+
+      h1,
+      h2 {
+        font-family: "Archivo Black", Impact, sans-serif;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(4rem, 14vw, 10.5rem);
+        line-height: 0.82;
+        letter-spacing: 0;
+        color: var(--ink);
+        text-shadow:
+          4px 4px 0 #fff,
+          9px 9px 0 rgba(0, 128, 128, 0.58);
+      }
+
+      .lede {
+        max-width: 720px;
+        margin: 22px 0 0;
+        font-size: clamp(1.08rem, 2vw, 1.42rem);
+        line-height: 1.55;
+        font-weight: 800;
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .pill-row span,
+      .tag-row span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 38px;
+        padding: 8px 11px;
+        border: 2px solid var(--ink);
+        background: #fff;
+        box-shadow: 4px 4px 0 rgba(0, 42, 73, 0.24);
+        font-weight: 900;
+      }
+
+      .manga-grid {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 24px;
+      }
+
+      .panel {
+        position: relative;
+        grid-column: span 4;
+        min-height: 230px;
+        padding: 22px;
+        border: var(--line);
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(244, 240, 232, 0.94)),
+          radial-gradient(circle, rgba(0, 0, 0, 0.16) 1px, transparent 1.4px) 0 0 / 11px 11px;
+        box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.84);
+        overflow: hidden;
+      }
+
+      .panel::before {
+        content: attr(data-label);
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 7px 10px;
+        border-left: 2px solid var(--ink);
+        border-bottom: 2px solid var(--ink);
+        background: var(--ink);
+        color: #fff;
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .panel.wide {
+        grid-column: span 8;
+      }
+
+      .panel.full {
+        grid-column: 1 / -1;
+      }
+
+      .panel h2 {
+        margin: 0 0 14px;
+        max-width: calc(100% - 94px);
+        font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+        line-height: 1.05;
+      }
+
+      .panel p {
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: 1rem;
+        line-height: 1.72;
+        font-weight: 700;
+      }
+
+      .info-grid,
+      .kv-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-top: 18px;
+      }
+
+      .info-grid div,
+      .kv-grid div,
+      .badge-list li {
+        border: 2px solid var(--ink);
+        background: rgba(255, 255, 255, 0.66);
+        padding: 12px;
+      }
+
+      .info-grid strong,
+      .kv-grid span {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.76rem;
+        color: var(--teal-main);
+      }
+
+      .info-grid span,
+      .kv-grid strong {
+        display: block;
+        color: var(--ink);
+        font-weight: 800;
+        line-height: 1.5;
+      }
+
+      .badge-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .badge-list li {
+        position: relative;
+        display: grid;
+        grid-template-columns: 52px minmax(0, 1fr);
+        align-items: center;
+        gap: 10px;
+        min-height: 76px;
+        font-weight: 900;
+        overflow: hidden;
+      }
+
+      .badge-list li::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 40%),
+          radial-gradient(circle at 18% 24%, rgba(0, 128, 128, 0.22), transparent 34%),
+          repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.12) 0 1px, transparent 1px 6px);
+        mix-blend-mode: multiply;
+        pointer-events: none;
+      }
+
+      .badge-art {
+        position: relative;
+        z-index: 1;
+        width: 52px;
+        height: 52px;
+        display: grid;
+        place-items: center;
+        border: 2px solid var(--ink);
+        background: #fff;
+        box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.72);
+      }
+
+      .badge-art img {
+        width: 38px;
+        height: 38px;
+        object-fit: contain;
+        display: block;
+        filter: grayscale(1) contrast(1.55) brightness(0.88);
+      }
+
+      .badge-art::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(135deg, rgba(0, 42, 73, 0.36), transparent 54%),
+          radial-gradient(circle, rgba(0, 0, 0, 0.2) 1px, transparent 1.4px) 0 0 / 7px 7px;
+        mix-blend-mode: multiply;
+        pointer-events: none;
+      }
+
+      .badge-copy {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 3px;
+      }
+
+      .badge-copy strong {
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .badge-copy span {
+        display: block;
+        color: var(--ink-soft);
+        font-size: 0.8rem;
+        line-height: 1.35;
+      }
+
+      .panel h2 i {
+        color: var(--teal-bright);
+      }
+
+      .quote {
+        display: flex;
+        align-items: center;
+        background:
+          linear-gradient(135deg, rgba(0, 42, 73, 0.94), rgba(0, 128, 128, 0.76)),
+          radial-gradient(circle, rgba(255, 255, 255, 0.24) 1px, transparent 1.8px) 0 0 / 13px 13px;
+        color: #fff;
+      }
+
+      .quote p {
+        color: #fff;
+        font-family: "Archivo Black", Impact, sans-serif;
+        font-size: clamp(1.35rem, 3.5vw, 2.5rem);
+        line-height: 1.12;
+        text-transform: uppercase;
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .art-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.55fr) minmax(190px, 0.55fr);
+        gap: 14px;
+        align-items: stretch;
+      }
+
+      .art-grid img {
+        width: 100%;
+        height: 100%;
+        min-height: 230px;
+        display: block;
+        object-fit: cover;
+        border: 2px solid var(--ink);
+        filter: grayscale(0.88) contrast(1.24) saturate(0.48);
+        background: #fff;
+      }
+
+      .art-grid img:first-child {
+        aspect-ratio: 16 / 7;
+      }
+
+      .footer-note {
+        margin: 28px auto 0;
+        max-width: 780px;
+        text-align: center;
+        color: var(--ink-soft);
+        font-weight: 800;
+        line-height: 1.6;
+      }
+
+      .book-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        background:
+          radial-gradient(circle at center, rgba(244, 240, 232, 0.72), rgba(223, 215, 200, 0.96) 58%),
+          radial-gradient(circle, rgba(0, 0, 0, 0.16) 1px, transparent 1.4px) 0 0 / 12px 12px;
+        pointer-events: none;
+        animation: bookLoaderFade 0.55s ease 2.55s forwards;
+      }
+
+      .book-stage {
+        position: relative;
+        width: min(760px, 88vw);
+        aspect-ratio: 1.42;
+        perspective: 1400px;
+        transform-style: preserve-3d;
+      }
+
+      .book-shadow {
+        position: absolute;
+        left: 8%;
+        right: 8%;
+        bottom: -18px;
+        height: 36px;
+        background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.34), transparent 68%);
+        filter: blur(4px);
+        animation: bookShadowStretch 1.8s ease 0.25s forwards;
+      }
+
+      .book-pages,
+      .book-cover {
+        position: absolute;
+        inset: 0;
+        transform-style: preserve-3d;
+      }
+
+      .book-pages::before,
+      .book-pages::after {
+        content: "";
+        position: absolute;
+        top: 5%;
+        bottom: 5%;
+        width: 49%;
+        border: 3px solid var(--ink);
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, 0.08), transparent 16%, rgba(255, 255, 255, 0.48)),
+          radial-gradient(circle, rgba(0, 0, 0, 0.12) 1px, transparent 1.5px) 0 0 / 10px 10px,
+          var(--paper);
+        box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.26);
+      }
+
+      .book-pages::before {
+        left: 1%;
+        transform-origin: right center;
+        animation: leftPageOpen 1.15s cubic-bezier(0.2, 0.9, 0.25, 1) 0.72s forwards;
+      }
+
+      .book-pages::after {
+        right: 1%;
+        transform-origin: left center;
+        animation: rightPageOpen 1.15s cubic-bezier(0.2, 0.9, 0.25, 1) 0.84s forwards;
+      }
+
+      .book-cover::before,
+      .book-cover::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 50%;
+        border: 4px solid var(--ink);
+        background:
+          linear-gradient(135deg, rgba(0, 42, 73, 0.82), rgba(0, 128, 128, 0.5)),
+          url("assets/jojo/jojobanner.gif") center/cover no-repeat;
+        filter: grayscale(1) contrast(1.55);
+        box-shadow:
+          inset 0 0 0 12px rgba(255, 252, 244, 0.14),
+          8px 8px 0 rgba(0, 0, 0, 0.86);
+      }
+
+      .book-cover::before {
+        left: 0;
+        transform-origin: right center;
+        animation: leftCoverOpen 1.28s cubic-bezier(0.18, 0.85, 0.24, 1) 0.32s forwards;
+      }
+
+      .book-cover::after {
+        right: 0;
+        transform-origin: left center;
+        animation: rightCoverOpen 1.28s cubic-bezier(0.18, 0.85, 0.24, 1) 0.32s forwards;
+      }
+
+      .book-title {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        display: grid;
+        place-items: center;
+        font-family: "Archivo Black", Impact, sans-serif;
+        font-size: clamp(3.5rem, 16vw, 9.2rem);
+        line-height: 0.8;
+        text-transform: uppercase;
+        color: #fff;
+        text-shadow:
+          4px 4px 0 var(--ink),
+          8px 8px 0 rgba(0, 128, 128, 0.75);
+        animation: bookTitleFade 0.35s ease 1.08s forwards;
+      }
+
+      .book-spine {
+        position: absolute;
+        top: -2%;
+        bottom: -2%;
+        left: calc(50% - 5px);
+        z-index: 4;
+        width: 10px;
+        background: var(--ink);
+        box-shadow: 0 0 0 3px rgba(255, 252, 244, 0.28);
+        animation: bookSpineFade 0.35s ease 1.2s forwards;
+      }
+
+      .page {
+        animation: pageArrive 0.8s ease 2.25s both;
+      }
+
+      @keyframes leftCoverOpen {
+        0% {
+          transform: rotateY(0deg);
+        }
+        100% {
+          transform: rotateY(-116deg);
+        }
+      }
+
+      @keyframes rightCoverOpen {
+        0% {
+          transform: rotateY(0deg);
+        }
+        100% {
+          transform: rotateY(116deg);
+        }
+      }
+
+      @keyframes leftPageOpen {
+        0% {
+          transform: rotateY(0deg) translateZ(2px);
+        }
+        100% {
+          transform: rotateY(-28deg) translateZ(2px);
+        }
+      }
+
+      @keyframes rightPageOpen {
+        0% {
+          transform: rotateY(0deg) translateZ(2px);
+        }
+        100% {
+          transform: rotateY(28deg) translateZ(2px);
+        }
+      }
+
+      @keyframes bookTitleFade {
+        to {
+          opacity: 0;
+          transform: scale(0.94);
+        }
+      }
+
+      @keyframes bookSpineFade {
+        to {
+          opacity: 0;
+        }
+      }
+
+      @keyframes bookShadowStretch {
+        to {
+          transform: scaleX(1.45);
+          opacity: 0.48;
+        }
+      }
+
+      @keyframes bookLoaderFade {
+        to {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+
+      @keyframes pageArrive {
+        0% {
+          opacity: 0;
+          transform: translateY(18px) scale(0.985);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .book-loader {
+          display: none;
+        }
+
+        .page {
+          animation: none;
+        }
+      }
+
+      @media (max-width: 920px) {
+        .hero,
+        .hero-grid {
+          min-height: auto;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .pfp-frame {
+          width: min(78vw, 310px);
+        }
+
+        .panel,
+        .panel.wide {
+          grid-column: 1 / -1;
+        }
+
+        .info-grid,
+        .art-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .page {
+          width: min(100% - 18px, 1180px);
+          padding-top: 12px;
+        }
+
+        .hero-grid,
+        .hero-copy,
+        .panel {
+          padding: 16px;
+        }
+
+        .pill-row span,
+        .tag-row span {
+          width: 100%;
+        }
+
+        .panel h2 {
+          max-width: 100%;
+          padding-top: 28px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="book-loader" aria-hidden="true">
+      <div class="book-stage">
+        <div class="book-shadow"></div>
+        <div class="book-pages"></div>
+        <div class="book-cover"></div>
+        <div class="book-spine"></div>
+        <div class="book-title">jojo</div>
+      </div>
+    </div>
+
+    <main class="page">
+      <section class="hero" aria-label="jojo profile overview">
+        <div class="hero-grid">
+          <div class="pfp-panel">
+            <div class="pfp-frame">
+              <img src="assets/jojo/jojopfp.jpg" alt="jojo profile picture" />
+            </div>
+            <div class="stamp">Featured User</div>
+          </div>
+
+          <div class="hero-copy">
+            <p class="kicker">Yapper / Event Director</p>
+            <h1>jojo</h1>
+            <p class="lede">
+              Random Indian dude, level 175 yapper, football enjoyer, Messi believer, music listener, and certified
+              watcher of way too many shows and movies.
+            </p>
+
+            <div class="pill-row" aria-label="jojo badges">
+              <span><i class="fa-solid fa-calendar-day"></i> Joined Nov 17, 2024</span>
+              <span><i class="fa-solid fa-gem"></i> Server Booster</span>
+              <span><i class="fa-solid fa-id-badge"></i> Event Manager / Verification Mod</span>
+              <span><i class="fa-solid fa-comments"></i> Level 175 Yapper</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="manga-grid">
+        <article class="panel wide" data-label="About Me">
+          <h2><i class="fa-solid fa-user-pen"></i> jojo / joji / jowjow / mark</h2>
+          <p>
+            Random Indian dude who watches so much stuff, loves football, thinks Messi is the goat fr, and listens to
+            music a lot.
+          </p>
+          <div class="info-grid">
+            <div>
+              <strong>In MAUL</strong>
+              <span>Joined through some rando dude advertising in vanilla. Shout out to him.</span>
+            </div>
+            <div>
+              <strong>Favourite Among Us Role</strong>
+              <span>Lawyer, because he is biased.</span>
+            </div>
+            <div>
+              <strong>Extra Chapter</strong>
+              <span>Watches a lot of series and movies, has all the time for it, and JJBA is peak trust.</span>
+            </div>
+            <div>
+              <strong>Stats</strong>
+              <span>Yaps a lot. Second on the leaderboard for now.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel" data-label="Badges">
+          <h2><i class="fa-solid fa-award"></i> Inked Achievements</h2>
+          <ul class="badge-list">
+            <li>
+              <span class="badge-art">
+                <img src="assets/jojo/badges/year%202.webp" alt="2 year veteran user badge" />
+              </span>
+              <span class="badge-copy">
+                <strong>Veteran User</strong>
+                <span>Joined Nov 17, 2024 - 2yr kinda</span>
+              </span>
+            </li>
+            <li>
+              <span class="badge-art">
+                <img src="assets/jojo/badges/booster.webp" alt="Server booster badge" />
+              </span>
+              <span class="badge-copy">
+                <strong>Server Booster</strong>
+                <span>Boosting MAUL</span>
+              </span>
+            </li>
+            <li>
+              <span class="badge-art">
+                <img src="assets/jojo/badges/Server%20Staff.webp" alt="Server staff badge" />
+              </span>
+              <span class="badge-copy">
+                <strong>Staff</strong>
+                <span>Event manager / verification mod</span>
+              </span>
+            </li>
+            <li>
+              <span class="badge-art">
+                <img src="assets/jojo/badges/event.webp" alt="Event host badge" />
+              </span>
+              <span class="badge-copy">
+                <strong>Event Host</strong>
+                <span>Hosting for like 4 months</span>
+              </span>
+            </li>
+            <li>
+              <span class="badge-art">
+                <img src="assets/jojo/badges/activechatter.webp" alt="Active chatter badge" />
+              </span>
+              <span class="badge-copy">
+                <strong>Active Chatter</strong>
+                <span>Level 175 yapper fr</span>
+              </span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="panel quote" data-label="Speech Bubble">
+          <p>"I yap a lot ig second in leaderboard for now."</p>
+        </article>
+
+        <article class="panel" data-label="Favourites">
+          <h2><i class="fa-solid fa-heart"></i> Shelf Picks</h2>
+          <div class="kv-grid">
+            <div><span>Anime</span><strong>JJBA and One Piece</strong></div>
+            <div><span>Movie</span><strong>Memories of Murder</strong></div>
+            <div><span>Show</span><strong>Better Call Saul / Daredevil</strong></div>
+            <div><span>Music</span><strong>Let It Happen</strong></div>
+          </div>
+        </article>
+
+        <article class="panel" data-label="Events Arc">
+          <h2><i class="fa-solid fa-calendar-check"></i> Hosting</h2>
+          <p>Has been hosting for like 4 months and is currently an event director.</p>
+          <div class="tag-row">
+            <span>Movie Night</span>
+            <span>Anonymous Alias</span>
+            <span>Clash of Creation</span>
+            <span>GeoGuessr</span>
+          </div>
+        </article>
+
+        <article class="panel full" data-label="Custom Banner / Image">
+          <div class="art-grid">
+            <img src="assets/jojo/jojobanner.gif" alt="jojo custom banner" />
+            <img src="assets/jojo/jojopfp.jpg" alt="jojo custom profile art" />
+          </div>
+        </article>
+      </section>
+
+      <p class="footer-note">
+        Featured user pages spotlight the familiar names, staff, regulars, hosts, yappers, and community people who
+        make MAUL feel alive.
+      </p>
+    </main>
+  </body>
+</html>
