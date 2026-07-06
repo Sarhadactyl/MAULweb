@@ -247,7 +247,6 @@
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        height: 100%;
         transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
       }
 
@@ -268,16 +267,11 @@
         box-shadow: 0 10px 24px rgba(0, 0, 0, 0.9);
       }
 
-      .thumb.thumb-missing {
-        object-fit: cover;
-      }
-
       .card-body {
         padding: 14px 14px 16px;
         display: flex;
         flex-direction: column;
         gap: 10px;
-        flex: 1;
       }
 
       .title {
@@ -296,14 +290,11 @@
       }
 
       .preset-actions {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        display: flex;
         gap: 10px;
-        margin-top: auto;
-        padding-top: 10px;
-        min-height: 150px;
-        align-items: stretch;
-        align-content: start;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        justify-content: center;
       }
 
       .btn {
@@ -311,27 +302,16 @@
         align-items: center;
         justify-content: center;
         gap: 6px;
-        width: 100%;
-        min-width: 0;
-        padding: 9px 10px;
+        padding: 9px 14px;
         background: rgba(20, 6, 6, 0.9);
         color: #ffffff;
         text-decoration: none;
         font-weight: 600;
         border-radius: 999px;
         border: 1px solid rgba(255, 255, 255, 0.22);
-        font-size: 0.76rem;
-        line-height: 1.15;
-        text-align: center;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        font-size: 0.84rem;
         transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.2s ease, border-color 0.18s ease;
         cursor: pointer;
-      }
-
-      .btn i {
-        flex: 0 0 auto;
       }
 
       .btn:hover {
@@ -360,341 +340,25 @@
         text-decoration: underline;
       }
 
-      @media (prefers-reduced-motion: reduce) {
-        * {
-          animation-duration: 0.001ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.001ms !important;
-          scroll-behavior: auto !important;
-        }
-      }
-
-      /* MAUL rich refresh */
-      :root {
-        --accent: #ff384d;
-        --accent-soft: rgba(255, 56, 77, 0.22);
-        --accent-strong: #ff775d;
-        --gold: #ffd37a;
-        --line: rgba(255, 255, 255, 0.13);
-        --text-main: #fff8ef;
-        --text-muted: rgba(255, 248, 239, 0.74);
-      }
-
-      body {
-        background:
-          radial-gradient(circle at 18% 10%, rgba(255, 56, 77, 0.3), transparent 34%),
-          linear-gradient(118deg, rgba(86, 3, 14, 0.86), rgba(10, 4, 6, 0.96) 46%, rgba(2, 14, 14, 0.9)),
-          url("images/maulredbg.png") no-repeat center top fixed,
-          #030203;
-        background-size: auto, cover, min(1100px, 110vw) auto, auto;
-      }
-
-      body::before {
-        background:
-          linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-        background-size: 64px 64px;
-        mix-blend-mode: normal;
-        opacity: 0.42;
-      }
-
-      body::after {
-        background:
-          linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.82)),
-          linear-gradient(90deg, rgba(0, 0, 0, 0.08), rgba(55, 4, 10, 0.24) 38%, rgba(0, 0, 0, 0.58));
-      }
-
-      .page-wrapper {
-        max-width: 1240px;
-        padding: 86px 24px 70px;
-      }
-
-      .page-header {
-        position: relative;
-        overflow: hidden;
-        text-align: left;
-        min-height: 330px;
-        display: grid;
-        align-content: end;
-        padding: clamp(34px, 6vw, 68px);
-        border: 1px solid rgba(255, 211, 122, 0.18);
-        border-radius: 8px;
-        background:
-          linear-gradient(118deg, rgba(62, 8, 14, 0.9), rgba(22, 7, 9, 0.86) 50%, rgba(4, 13, 13, 0.78)),
-          rgba(12, 6, 7, 0.9);
-        box-shadow:
-          0 34px 90px rgba(0, 0, 0, 0.66),
-          inset 0 1px 0 rgba(255, 255, 255, 0.11);
-        backdrop-filter: blur(18px);
-        isolation: isolate;
-      }
-
-      .page-header::after {
-        content: "";
-        position: absolute;
-        right: clamp(4px, 6vw, 72px);
-        bottom: -18px;
-        width: min(34vw, 360px);
-        aspect-ratio: 1;
-        background: url("images/maulnobg.png") center / contain no-repeat;
-        opacity: 0.42;
-        filter: drop-shadow(0 34px 46px rgba(0, 0, 0, 0.72));
-        z-index: -1;
-      }
-
-      .hero-join-link {
-        position: absolute;
-        top: clamp(22px, 3vw, 36px);
-        right: clamp(24px, 4vw, 52px);
-        z-index: 2;
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        padding: 7px 0 10px;
-        color: #fff8ef;
-        font-family: "Poppins", sans-serif;
-        font-size: 0.94rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        text-decoration: none;
-        text-transform: uppercase;
-      }
-
-      .hero-join-link::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 2px;
-        height: 3px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, var(--accent), var(--gold), #fff8ef);
-        box-shadow: 0 0 18px rgba(255, 211, 122, 0.38);
-        transform-origin: left;
-        transition: transform 0.18s ease, opacity 0.18s ease;
-      }
-
-      .hero-join-link:hover::after {
-        transform: scaleX(1.08);
-        opacity: 0.94;
-      }
-
-      .header-badge {
-        width: fit-content;
-        background: rgba(12, 6, 7, 0.78);
-        border-color: rgba(255, 211, 122, 0.22);
-        color: rgba(255, 248, 239, 0.78);
-      }
-
-      .page-header h1 {
-        max-width: 780px;
-        font-size: clamp(3.35rem, 7.2vw, 6.5rem);
-        line-height: 0.9;
-        letter-spacing: 0;
-      }
-
-      .page-header h1 span {
-        background: linear-gradient(120deg, #fffdf7 0%, #fff8ef 34%, var(--gold) 66%, var(--accent) 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-      }
-
-      .page-header-subtitle {
-        max-width: 620px;
-        margin-left: 0;
-        color: rgba(255, 248, 239, 0.78);
-      }
-
-      .featured-highlight,
-      .mods-section {
-        max-width: 100%;
-        padding: 0;
-        background: transparent;
-        border: 0;
-        box-shadow: none;
-        backdrop-filter: none;
-      }
-
-      .featured-highlight {
-        margin: 26px auto 38px;
-      }
-
-      .featured-highlight-header,
-      .mods-section-title,
-      .mods-section-subtitle {
-        max-width: 980px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .mods-section-title {
-        text-align: left;
-        margin-bottom: 8px;
-        font-size: clamp(1.65rem, 3vw, 2.45rem);
-        line-height: 1;
-        letter-spacing: 0;
-        text-transform: none;
-      }
-
-      .mods-section-subtitle {
-        text-align: left;
-        margin-bottom: 18px;
-        line-height: 1.6;
-      }
-
-      .featured-highlight-label {
-        color: var(--gold);
-      }
-
-      .featured-highlight-pill,
-      .section-chip {
-        background: rgba(12, 6, 7, 0.78);
-        border: 1px solid rgba(255, 211, 122, 0.22);
-        color: var(--gold);
-      }
-
-      .grid,
-      #featured-grid.grid {
-        max-width: 100%;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 18px;
-      }
-
-      .card {
-        border-radius: 8px;
-        background:
-          linear-gradient(145deg, rgba(80, 13, 18, 0.42), rgba(12, 6, 7, 0.88) 46%, rgba(8, 16, 16, 0.68)),
-          rgba(15, 7, 8, 0.9);
-        border-color: rgba(255, 211, 122, 0.14);
-        box-shadow:
-          0 24px 72px rgba(0, 0, 0, 0.52),
-          inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      }
-
-      .card:hover {
-        background:
-          linear-gradient(145deg, rgba(100, 18, 24, 0.54), rgba(16, 7, 8, 0.9) 46%, rgba(9, 20, 20, 0.72)),
-          rgba(15, 7, 8, 0.94);
-        border-color: rgba(255, 211, 122, 0.34);
-        box-shadow:
-          0 28px 80px rgba(0, 0, 0, 0.62),
-          0 0 34px rgba(255, 56, 77, 0.14);
-      }
-
-      .thumb {
-        height: 170px;
-        background:
-          radial-gradient(circle at 50% 38%, rgba(255, 56, 77, 0.2), transparent 42%),
-          linear-gradient(135deg, rgba(4, 2, 3, 0.94), rgba(47, 7, 12, 0.76));
-        border-bottom: 1px solid rgba(255, 211, 122, 0.11);
-        box-shadow: none;
-      }
-
-      .thumb.mod-mark {
-        display: grid;
-        place-items: center;
-        padding: 18px;
-        font-family: "Poppins", sans-serif;
-        font-size: clamp(1.45rem, 3vw, 2.6rem);
-        font-weight: 700;
-        line-height: 0.95;
-        text-align: center;
-        color: #fff8ef;
-        text-shadow: 0 12px 30px rgba(0, 0, 0, 0.72);
-      }
-
-      .thumb.mod-mark span {
-        color: var(--gold);
-      }
-
-      .title {
-        color: #fff8ef;
-      }
-
-      .btn {
-        min-height: 40px;
-        background:
-          linear-gradient(135deg, rgba(67, 12, 16, 0.58), rgba(8, 5, 6, 0.76)),
-          rgba(8, 5, 6, 0.68);
-        border-color: rgba(255, 211, 122, 0.2);
-      }
-
-      .btn:hover {
-        border-color: rgba(255, 211, 122, 0.45);
-        color: #fff8ef;
-      }
-
-      .release-btn {
-        border-color: rgba(255, 211, 122, 0.34);
-        background:
-          linear-gradient(135deg, rgba(255, 119, 93, 0.24), rgba(255, 56, 77, 0.16)),
-          rgba(8, 5, 6, 0.72);
-      }
-
-      body.search-active .featured-highlight,
-      body.search-active .mods-section {
-        padding: 0;
-        border-color: transparent;
-        background: transparent;
-        box-shadow: none;
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-
-      body.search-active .featured-copy,
-      body.search-active .featured-highlight-pill,
-      body.search-active .mods-section-title,
-      body.search-active .mods-section-subtitle,
-      body.search-active .section-chip {
-        display: none;
-      }
-
-      .card[hidden],
-      .mods-section[hidden],
-      .featured-highlight[hidden] {
-        display: none !important;
-      }
-
-      .download-btn {
-        border-color: rgba(255, 211, 122, 0.42);
-        color: #fff8ef;
-      }
-
-      .featured-highlight {
-        max-width: 460px;
-        margin: 26px auto 42px;
-      }
-
-      .featured-highlight-header {
-        align-items: flex-end;
-        margin-bottom: 14px;
-      }
-
       .featured-heading {
         margin: 4px 0 0;
         font-family: "Poppins", sans-serif;
-        font-size: clamp(1.45rem, 4vw, 2.1rem);
+        font-size: clamp(1.35rem, 4vw, 1.9rem);
         line-height: 1.05;
-        color: #fff8ef;
       }
 
-      #featured-grid.grid {
+      #featured-grid {
         display: flex;
         justify-content: center;
-        max-width: 460px;
       }
 
       #featured-grid .card {
         width: min(100%, 390px);
-        border-color: rgba(255, 211, 122, 0.4);
+        border-color: rgba(255, 255, 255, 0.28);
         box-shadow:
-          0 34px 90px rgba(0, 0, 0, 0.68),
-          0 0 46px rgba(255, 211, 122, 0.18),
-          0 0 80px rgba(255, 56, 77, 0.16);
-      }
-
-      body.search-active .featured-highlight {
-        display: none;
+          0 0 42px rgba(255, 255, 255, 0.24),
+          0 0 82px rgba(255, 255, 255, 0.08),
+          0 22px 50px rgba(0, 0, 0, 0.9);
       }
 
       body.spotlight-open {
@@ -709,7 +373,7 @@
         place-items: center;
         padding: 24px;
         background:
-          radial-gradient(ellipse at center, rgba(255, 248, 239, 0.34) 0%, rgba(255, 211, 122, 0.16) 19%, transparent 42%),
+          radial-gradient(ellipse at center, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.16) 20%, transparent 42%),
           radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.34) 44%, rgba(0, 0, 0, 0.88) 100%),
           rgba(0, 0, 0, 0.82);
         backdrop-filter: blur(8px);
@@ -721,15 +385,6 @@
 
       .featured-spotlight-panel {
         width: min(430px, 100%);
-        position: relative;
-        transform: translateY(12px) scale(0.98);
-        opacity: 0;
-        transition: transform 0.28s ease, opacity 0.28s ease;
-      }
-
-      .featured-spotlight.open .featured-spotlight-panel {
-        transform: translateY(0) scale(1);
-        opacity: 1;
       }
 
       .featured-spotlight-bar {
@@ -746,38 +401,33 @@
         font-size: 0.9rem;
         letter-spacing: 0.16em;
         text-transform: uppercase;
-        color: var(--gold);
-        text-shadow: 0 0 24px rgba(255, 211, 122, 0.44);
+        color: #ffffff;
+        text-shadow: 0 0 24px rgba(255, 255, 255, 0.44);
       }
 
       .featured-spotlight-dismiss {
-        appearance: none;
-        border: 1px solid rgba(255, 211, 122, 0.26);
+        border: 1px solid rgba(255, 255, 255, 0.28);
         border-radius: 999px;
-        background: rgba(8, 5, 6, 0.78);
-        color: #fff8ef;
+        background: rgba(20, 6, 6, 0.9);
+        color: #ffffff;
         cursor: pointer;
         font: inherit;
         font-size: 0.82rem;
         font-weight: 700;
         padding: 8px 14px;
-        transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
       }
 
       .featured-spotlight-dismiss:hover,
       .featured-spotlight-dismiss:focus-visible {
-        background: rgba(67, 12, 16, 0.84);
-        border-color: rgba(255, 211, 122, 0.52);
+        border-color: var(--accent-soft);
         outline: none;
-        transform: translateY(-1px);
       }
 
       #featured-spotlight-grid .card {
-        border-color: rgba(255, 211, 122, 0.5);
+        border-color: rgba(255, 255, 255, 0.36);
         box-shadow:
           0 34px 90px rgba(0, 0, 0, 0.72),
-          0 0 60px rgba(255, 248, 239, 0.24),
-          0 0 96px rgba(255, 211, 122, 0.2);
+          0 0 60px rgba(255, 255, 255, 0.24);
       }
 
       @media (max-width: 600px) {
@@ -794,241 +444,12 @@
         }
       }
 
-      .link-warning {
-        position: fixed;
-        inset: 0;
-        z-index: 2000;
-        display: none;
-        place-items: center;
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.74);
-        backdrop-filter: blur(10px);
-      }
-
-      .link-warning.open {
-        display: grid;
-      }
-
-      .link-warning-card {
-        width: min(420px, 100%);
-        border-radius: 8px;
-        border: 1px solid rgba(255, 211, 122, 0.26);
-        background:
-          linear-gradient(145deg, rgba(78, 13, 18, 0.92), rgba(9, 6, 7, 0.98) 52%, rgba(8, 17, 17, 0.94)),
-          rgba(12, 6, 7, 0.96);
-        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.72);
-        padding: 22px;
-        color: #fff8ef;
-      }
-
-      .link-warning-icon {
-        width: 42px;
-        height: 42px;
-        display: grid;
-        place-items: center;
-        border-radius: 999px;
-        margin-bottom: 14px;
-        color: var(--gold);
-        background: rgba(255, 211, 122, 0.1);
-        border: 1px solid rgba(255, 211, 122, 0.22);
-      }
-
-      .link-warning-title {
-        margin: 0 0 8px;
-        font-family: "Poppins", sans-serif;
-        font-size: 1.18rem;
-      }
-
-      .link-warning-message {
-        margin: 0;
-        color: var(--text-muted);
-        font-size: 0.9rem;
-        line-height: 1.6;
-      }
-
-      .link-warning-destination {
-        margin: 14px 0 0;
-        padding: 10px 12px;
-        border-radius: 8px;
-        background: rgba(0, 0, 0, 0.28);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: rgba(255, 248, 239, 0.78);
-        font-size: 0.78rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      .link-warning-actions {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        margin-top: 18px;
-      }
-
-      .link-warning-actions .btn {
-        min-height: 42px;
-      }
-
-      .link-warning-cancel {
-        background: rgba(0, 0, 0, 0.32);
-      }
-
-      .mod-search {
-        max-width: 100%;
-        margin: 18px auto 30px;
-        padding: 14px;
-        border: 1px solid rgba(255, 211, 122, 0.15);
-        border-radius: 8px;
-        background:
-          linear-gradient(135deg, rgba(80, 13, 18, 0.34), rgba(8, 5, 6, 0.74)),
-          rgba(12, 6, 7, 0.76);
-        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.38);
-        backdrop-filter: blur(16px);
-      }
-
-      .mod-search-inner {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .mod-search-field {
-        position: relative;
-      }
-
-      .mod-search-field i {
-        position: absolute;
-        left: 14px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: var(--gold);
-        opacity: 0.85;
-        pointer-events: none;
-      }
-
-      #mods-search {
-        width: 100%;
-        min-height: 46px;
-        padding: 10px 14px 10px 42px;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 248, 239, 0.18);
-        background: rgba(0, 0, 0, 0.44);
-        color: var(--text-main);
-        font: inherit;
-        outline: none;
-      }
-
-      #mods-search:focus {
-        border-color: rgba(255, 211, 122, 0.56);
-        box-shadow: 0 0 0 3px rgba(255, 211, 122, 0.12);
-      }
-
-      .mod-search-count {
-        min-width: 94px;
-        text-align: right;
-        color: var(--text-muted);
-        font-size: 0.82rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .no-mod-results {
-        display: none;
-        margin: 12px 0 0;
-        color: var(--text-muted);
-        text-align: center;
-      }
-
-      .mod-search.no-results .no-mod-results {
-        display: block;
-      }
-
-      .mods-section.starlight-section {
-        margin-top: 8px;
-      }
-
-      .starlight-section .mods-section-title {
-        color: #fff8ef;
-      }
-
-      .starlight-section .mods-section-title::after {
-        content: " Starlight catalog";
-        display: inline-flex;
-        margin-left: 10px;
-        padding: 5px 9px;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 211, 122, 0.22);
-        background: rgba(12, 6, 7, 0.78);
-        color: var(--gold);
-        font-size: 0.72rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        vertical-align: middle;
-      }
-
-      body.search-active .starlight-section .mods-section-title::after {
-        display: none;
-      }
-
-      .section-chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        margin: 0 auto 16px;
-        padding: 5px 10px;
-        border-radius: 999px;
-        font-size: 0.72rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .card.starlight-card .card-body::before {
-        content: "Starlight";
-        width: fit-content;
-        margin: -2px auto 0;
-        padding: 3px 8px;
-        border-radius: 999px;
-        background: rgba(255, 211, 122, 0.12);
-        border: 1px solid rgba(255, 211, 122, 0.18);
-        color: var(--gold);
-        font-size: 0.68rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      @media (max-width: 700px) {
-        .page-wrapper {
-          padding: 84px 14px 56px;
-        }
-
-        .page-header {
-          min-height: 290px;
-          padding: 28px 22px;
-        }
-
-        .page-header::after {
-          width: 230px;
-          right: -44px;
-          bottom: -38px;
-          opacity: 0.22;
-        }
-
-        .hero-join-link {
-          top: 18px;
-          right: 20px;
-          font-size: 0.82rem;
-        }
-
-        .page-header h1 {
-          font-size: clamp(3rem, 16vw, 4.7rem);
-        }
-
-        .starlight-section .mods-section-title::after {
-          margin: 10px 0 0;
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
         }
       }
     </style>
@@ -1039,9 +460,10 @@
 
     <div class="page-wrapper">
       <header class="page-header">
-        <a class="hero-join-link" href="https://discord.gg/MAUL" target="_blank" rel="noopener">
-          Join MAUL
-        </a>
+        <div class="header-badge">
+          <span class="header-badge-dot"></span>
+          Mods we frequently use in MAUL
+        </div>
         <h1>Featured <span>Among Us Mods</span></h1>
         <p class="page-header-subtitle">
           Host-only and client-required mods that power our lobbies – from classic role packs to custom maps and QoL tools.
@@ -1056,18 +478,8 @@
           </div>
           <span class="featured-highlight-pill" id="featured-mod-period">July 2026</span>
         </div>
-        <div class="grid" id="featured-grid" aria-live="polite"></div>
-      </section>
 
-      <section class="mod-search" aria-label="Search mods">
-        <div class="mod-search-inner">
-          <label class="mod-search-field" for="mods-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input id="mods-search" type="search" placeholder="Search mods or aliases..." autocomplete="off" />
-          </label>
-          <span class="mod-search-count" id="mods-search-count">0 mods</span>
-        </div>
-        <p class="no-mod-results" id="mods-empty" aria-live="polite">No mods match that search.</p>
+        <div id="featured-grid" class="grid" aria-live="polite"></div>
       </section>
 
       <section class="mods-section" id="host-only">
@@ -1132,34 +544,6 @@
                   rel="noopener"
                 >
                   <i class="fa-brands fa-github"></i> GitHub
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <img src="images/b4da61f0-a00b-4347-b657-683b6106d84e.webp" alt="Town of Host: Optimized" class="thumb" data-custom-image />
-            <div class="card-body">
-              <h3 class="title">Town of Host: Optimized</h3>
-              <p class="sub">
-                TOHO keeps the host-only flow familiar while adding extra roles, settings, and quality-of-life features for bigger modded lobbies.
-              </p>
-              <div class="preset-actions">
-                <a
-                  class="btn"
-                  href="https://github.com/Limeau/TownofHost-Optimized"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-                <a
-                  class="btn"
-                  href="https://sites.google.com/view/TOHOptimized"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-solid fa-globe"></i> Website
                 </a>
               </div>
             </div>
@@ -1311,62 +695,6 @@
           </article>
 
           <article class="card">
-            <img src="images/ATR-logo.png" alt="All The Roles Mod" class="thumb" />
-            <div class="card-body">
-              <h3 class="title">All The Roles</h3>
-              <p class="sub">
-                Adds new roles, game modes, map settings, and custom cosmetics including hats, visors, and nameplates.
-              </p>
-              <div class="preset-actions">
-                <a
-                  class="btn"
-                  href="https://github.com/Zeo666/AllTheRoles"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-                <a
-                  class="btn"
-                  href="https://discord.gg/JZnd8e62qy"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-brands fa-discord"></i> Discord
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <img src="images/StellarBanner.png" alt="Stellar Roles Mod" class="thumb" />
-            <div class="card-body">
-              <h3 class="title">Stellar Roles</h3>
-              <p class="sub">
-                A client-side role pack with new roles, modifiers, settings, and custom cosmetics for coordinated lobbies.
-              </p>
-              <div class="preset-actions">
-                <a
-                  class="btn"
-                  href="https://github.com/Mr-Fluuff/StellarRolesAU"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-                <a
-                  class="btn"
-                  href="https://discord.gg/9DtVXpRVQn"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-brands fa-discord"></i> Discord
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
             <img src="images/submergedIcon.png" alt="Submerged Mod" class="thumb" />
             <div class="card-body">
               <h3 class="title">Submerged</h3>
@@ -1389,7 +717,7 @@
           <article class="card">
             <img src="images/tourmira.png" alt="TOU-Mira Mod" class="thumb" />
             <div class="card-body">
-              <h3 class="title">Town of Us: Mira</h3>
+              <h3 class="title">TOU-Mira</h3>
               <p class="sub">
                 Town of Us: Reactivated rebuilt on MiraAPI with cleaner architecture, new improvements, and long-term maintainability.
               </p>
@@ -1401,42 +729,6 @@
                   rel="noopener"
                 >
                   <i class="fa-brands fa-github"></i> GitHub
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <img src="images/" alt="Among Us Ranked" class="thumb" data-custom-image />
-            <div class="card-body">
-              <h3 class="title">Among Us Ranked</h3>
-              <p class="sub">
-                A Steam-only competitive Among Us experience with ranks, public stats, match history, and serious lobby play.
-              </p>
-              <div class="preset-actions">
-                <a
-                  class="btn"
-                  href="https://discord.gg/VehgUD6qAe"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-brands fa-discord"></i> Discord
-                </a>
-                <a
-                  class="btn"
-                  href="https://store.steampowered.com/app/3769780/Among_Us_Ranked/"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-brands fa-steam"></i> Steam
-                </a>
-                <a
-                  class="btn"
-                  href="https://amongusranked.orianagames.com/leaderboards/roles"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-solid fa-chart-line"></i> Leaderboard
                 </a>
               </div>
             </div>
@@ -1570,409 +862,6 @@
               </div>
             </div>
           </article>
-
-          <article class="card">
-            <img src="images/skeldnet.png" alt="Skeld.net" class="thumb" data-custom-image />
-            <div class="card-body">
-              <h3 class="title">Skeld.net</h3>
-              <p class="sub">
-                A mobile-friendly region and modded server option for extra roles and game modes.
-              </p>
-              <div class="preset-actions">
-                <a
-                  class="btn"
-                  href="https://discord.com/invite/B2Cj6usFBa"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-brands fa-discord"></i> Discord
-                </a>
-                <a
-                  class="btn"
-                  href="https://skeld.net/"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-solid fa-globe"></i> Website
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <img src="images/MogusVampy.webp" alt="Among Us Revamped" class="thumb" data-custom-image />
-            <div class="card-body">
-              <h3 class="title">Among Us Revamped</h3>
-              <p class="sub">
-                A public-lobby-friendly host-only mod with custom roles, custom gamemodes, and a special moderation system.
-              </p>
-              <div class="preset-actions">
-                <a
-                  class="btn"
-                  href="https://github.com/ApeMV/AmongUsRevamped"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-                <a
-                  class="btn"
-                  href="https://discord.gg/XZQW7DJSDg"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-brands fa-discord"></i> Discord
-                </a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="mods-section starlight-section" id="starlight-mods">
-        <h2 class="mods-section-title">Starlight Mods</h2>
-        <p class="mods-section-subtitle">
-          Mods and add-ons that fit the Starlight launcher flow. Some also appear above, and that overlap is intentional for quick browsing.
-        </p>
-
-        <div class="section-chip">
-          <i class="fa-solid fa-star"></i>
-          Core and role mods
-        </div>
-
-        <div class="grid">
-          <article class="card starlight-card">
-            <img src="images/tourmira.png" alt="Town of Us: Mira" class="thumb" />
-            <div class="card-body">
-              <h3 class="title">Town of Us: Mira</h3>
-              <p class="sub">
-                Town of Us Reactivated, rebuilt cleaner on MiraAPI with many improvements.
-              </p>
-              <div class="preset-actions">
-                <a class="btn" href="https://github.com/AU-Avengers/TOU-Mira" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-                <a class="btn" href="https://discord.gg/A5eyxVjPMr" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
-                </a>
-                <a class="btn" href="https://au-avengers.github.io/docs.toum.gg/" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-book"></i> Wiki
-                </a>
-                <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-mug-hot"></i> Ko-Fi
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card starlight-card">
-            <img src="images/lpr.png" alt="Launchpad Reloaded" class="thumb" />
-            <div class="card-body">
-              <h3 class="title">Launchpad Reloaded</h3>
-              <p class="sub">
-                Adds new roles, features, and gamemodes while keeping them close to the original Among Us style and balance.
-              </p>
-              <div class="preset-actions">
-                <a class="btn" href="https://github.com/All-Of-Us-Mods/LaunchpadReloaded" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-                <a class="btn" href="https://launchpad.allofus.dev/index.php/Main_Page" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-book"></i> Wiki
-                </a>
-                <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-mug-hot"></i> Ko-Fi
-                </a>
-                <a class="btn" href="https://discord.gg/NxdE43Gw" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card starlight-card">
-            <img src="images/nmol.webp" alt="NewMod" class="thumb" data-custom-image />
-            <div class="card-body">
-              <h3 class="title">NewMod</h3>
-              <p class="sub">
-                Introduces new roles, unique abilities, and custom game modes for fresh ways to play Among Us.
-              </p>
-              <div class="preset-actions">
-                <a class="btn" href="https://github.com/CallOfCreator/NewMod" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-                <a class="btn" href="https://newmodau.vercel.app/home" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-globe"></i> Website
-                </a>
-                <a class="btn" href="https://discord.gg/7UKG528WxZ" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card starlight-card">
-            <img src="images/TOU-logo.png" alt="Syzyfowy Town Of Us" class="thumb" />
-            <div class="card-body">
-              <h3 class="title">Syzyfowy Town Of Us</h3>
-              <p class="sub">
-                Adds roles and gameplay mechanics that expand the classic Town of Us experience.
-              </p>
-              <div class="preset-actions">
-                <a class="btn" href="https://github.com/LimeShep/Town-Of-Us" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-                <a class="btn" href="https://discord.gg/VUyBhVhKVy" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card starlight-card">
-            <img src="images/snr.webp" alt="Super New Roles" class="thumb" />
-            <div class="card-body">
-              <h3 class="title">Super New Roles</h3>
-              <p class="sub">
-                A popular Japan-based mod with 150+ roles, around 1,000 cosmetics, animated abilities, English support, and Android/Windows compatibility.
-              </p>
-              <div class="preset-actions">
-                <a class="btn" href="https://github.com/SuperNewRoles/SuperNewRoles" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-                <a class="btn" href="https://discord.gg/s27fUArwXn" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
-                </a>
-                <a class="btn" href="https://www.patreon.com/cw/SuperNewRoles" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-heart"></i> Patreon
-                </a>
-                <a class="btn" href="https://wiki.supernewroles.com/ja/home" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-book"></i> Wiki
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card starlight-card">
-            <img src="images/nebula.webp" alt="Nebula on Ship" class="thumb" />
-            <div class="card-body">
-              <h3 class="title">Nebula on Ship</h3>
-              <p class="sub">
-                Original mechanics mixed with ideas from major role mods, creating a large feature-rich experience.
-              </p>
-              <div class="preset-actions">
-                <a class="btn" href="https://github.com/Dolly1016/Nebula" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-                <a class="btn" href="https://dolly1016.github.io/NebulaWiki" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-book"></i> Wiki
-                </a>
-                <a class="btn" href="https://ofuse.me/nebulaontheship" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-mug-hot"></i> Support
-                </a>
-                <a class="btn" href="https://discord.gg/kHNZD4pq9E" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card starlight-card">
-            <img src="images/trollmod (1).webp" alt="TrollMod" class="thumb" data-custom-image />
-            <div class="card-body">
-              <h3 class="title">TrollMod</h3>
-              <p class="sub">
-                An Among Us mod bundle built with MiraAPI and Reactor, adding roles and gameplay features.
-              </p>
-              <div class="preset-actions">
-                <a class="btn" href="https://github.com/TechDevOfficial/TrollMod17" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card starlight-card">
-            <img src="images/yanpla.webp" alt="yanplaRoles" class="thumb" data-custom-image />
-            <div class="card-body">
-              <h3 class="title">yanplaRoles</h3>
-              <p class="sub">
-                Adds new roles and modifiers to Among Us.
-              </p>
-              <div class="preset-actions">
-                <a class="btn" href="https://github.com/yanpla/yanplaRoles" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card starlight-card">
-            <img src="images/Project lotus.jpg" alt="Project Lotus" class="thumb" />
-            <div class="card-body">
-              <h3 class="title">Project Lotus</h3>
-              <p class="sub">
-                A host-only role mod focused on customizability, quality, custom cosmetics, and a polished lobby experience.
-              </p>
-              <div class="preset-actions">
-                <a class="btn" href="https://github.com/Lotus-AU/LotusContinued?dhc-id=80400832587108366" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card starlight-card">
-            <img src="images/b4da61f0-a00b-4347-b657-683b6106d84e.webp" alt="TOHO" class="thumb" data-custom-image />
-            <div class="card-body">
-              <h3 class="title">TOHO</h3>
-              <p class="sub">
-                Added to the Starlight catalog for MAUL players who use TOHO in modded lobbies.
-              </p>
-            </div>
-          </article>
-
-          <article class="card starlight-card">
-            <img src="images/auunlocker.png" alt="AUnlocker" class="thumb" />
-            <div class="card-body">
-              <h3 class="title">AUnlocker</h3>
-              <p class="sub">
-                A quality-of-life utility used alongside modded setups.
-              </p>
-              <div class="preset-actions">
-                <a class="btn" href="https://github.com/astra1dev/AUnlocker" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="section-chip">
-          <i class="fa-solid fa-plug"></i>
-          Extension mods
-        </div>
-
-        <div class="grid">
-          <article class="card starlight-card">
-            <img src="images/extension.webp" alt="Town of Us: Mira Roles Extension" class="thumb" data-custom-image />
-            <div class="card-body">
-              <h3 class="title">Town of Us: Mira Roles Extension</h3>
-              <p class="sub">
-                Adds new roles and modifiers for Town of Us: Mira. Requires Town of Us: Mira and is not console-compatible.
-              </p>
-              <div class="preset-actions">
-                <a class="btn" href="https://github.com/rewalo/TownOfUsMiraRolesExtension" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> Extension GitHub
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card starlight-card">
-            <img src="images/draft.webp" alt="Draft Mode: TOU:M" class="thumb" data-custom-image />
-            <div class="card-body">
-              <h3 class="title">Draft Mode: TOU:M</h3>
-              <p class="sub">
-                Adds Draft Mode to Town of Us: Mira, letting players pick roles before the game instead of receiving them randomly.
-              </p>
-              <div class="preset-actions">
-                <a class="btn" href="https://github.com/idkimneil/DraftMode-TOUM/releases/tag/v1.0.8" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="section-chip">
-          <i class="fa-solid fa-desktop"></i>
-          Client-side mods
-        </div>
-
-        <div class="grid">
-          <article class="card starlight-card">
-            <img src="images/miralegacy.webp" alt="TOU Mira Legacy" class="thumb" data-custom-image />
-            <div class="card-body">
-              <h3 class="title">TOU Mira Legacy</h3>
-              <p class="sub">
-                Brings back the old Town of Us and pre-2021 Among Us feeling as an extension mod for TOU Mira.
-              </p>
-              <div class="preset-actions">
-                <a class="btn" href="https://github.com/AU-Avengers/TouMiraLegacy" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-                <a class="btn" href="https://au-avengers.org/" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-globe"></i> Website
-                </a>
-                <a class="btn" href="https://au-avengers.github.io/docs.toum.gg/" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-book"></i> Docs
-                </a>
-                <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-mug-hot"></i> Ko-Fi
-                </a>
-                <a class="btn" href="https://discord.gg/A5eyxVjPMr" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card starlight-card">
-            <img src="images/smolmod.webp" alt="SmolMod" class="thumb" data-custom-image />
-            <div class="card-body">
-              <h3 class="title">SmolMod</h3>
-              <p class="sub">
-                Makes players the size of pets for a fun visual twist.
-              </p>
-              <div class="preset-actions">
-                <a class="btn" href="https://github.com/XtraCube/SmolMod" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-                <a class="btn" href="https://www.xtracube.dev/" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-globe"></i> Website
-                </a>
-                <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-mug-hot"></i> Ko-Fi
-                </a>
-                <a class="btn" href="https://discord.gg/NxdE43Gw" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card starlight-card">
-            <img src="images/aleludu.webp" alt="AleLuduMod" class="thumb" data-custom-image />
-            <div class="card-body">
-              <h3 class="title">AleLuduMod</h3>
-              <p class="sub">
-                Unlocks more than 15 players in meetings, vitals, and Transporter/Glitch screens.
-              </p>
-              <div class="preset-actions">
-                <a class="btn" href="https://github.com/townofus-pl/AleLuduMod" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-                <a class="btn" href="https://discord.com/invite/JRAJCASAzN" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card starlight-card">
-            <img src="images/emojis.webp" alt="Emoji Mod" class="thumb" data-custom-image />
-            <div class="card-body">
-              <h3 class="title">Emoji Mod</h3>
-              <p class="sub">
-                Adds emojis directly into the in-game chat as a client-side mod.
-              </p>
-              <div class="preset-actions">
-                <a class="btn" href="https://github.com/WanderingPix/Emojis-in-the-mogus-chat" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-              </div>
-            </div>
-          </article>
         </div>
       </section>
 
@@ -1999,23 +888,6 @@
       </div>
     </div>
 
-    <div class="link-warning" id="link-warning" role="dialog" aria-modal="true" aria-labelledby="link-warning-title" aria-hidden="true">
-      <div class="link-warning-card">
-        <div class="link-warning-icon" id="link-warning-icon">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </div>
-        <h2 class="link-warning-title" id="link-warning-title">Leaving MAUL</h2>
-        <p class="link-warning-message" id="link-warning-message">
-          This link opens an external page.
-        </p>
-        <p class="link-warning-destination" id="link-warning-destination"></p>
-        <div class="link-warning-actions">
-          <button class="btn link-warning-cancel" type="button" id="link-warning-cancel">Cancel</button>
-          <button class="btn release-btn" type="button" id="link-warning-continue">Continue</button>
-        </div>
-      </div>
-    </div>
-
     <script type="application/json" id="featured-mod-schedule">
 [
   {
@@ -2027,220 +899,6 @@
     </script>
 
     <script>
-      const starlightReleaseLinks = {
-        "Town of Host": [
-          ["Latest release", "https://github.com/tukasa0001/TownOfHost/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/tukasa0001/TownOfHost/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic", "https://github.com/tukasa0001/TownOfHost/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Town of Host: Y": [
-          ["Latest release", "https://github.com/Yumenopai/TownOfHost_Y/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Download", "https://github.com/Yumenopai/TownOfHost_Y/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Town of Host: Optimized": [
-          ["Latest release", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "TOHO": [
-          ["Latest release", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "More GameModes": [
-          ["Latest release", "https://github.com/Rabek009/MoreGamemodes/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/Rabek009/MoreGamemodes/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/Rabek009/MoreGamemodes/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Endless Host Roles": [
-          ["Latest release", "https://github.com/Gurge44/EndlessHostRoles/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/Gurge44/EndlessHostRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/Gurge44/EndlessHostRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Town of Host: Enhanced": [
-          ["Latest release", "https://github.com/EnhancedNetwork/TownofHost-Enhanced/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/EnhancedNetwork/TownofHost-Enhanced/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/EnhancedNetwork/TownofHost-Enhanced/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "TOU-Mira": [
-          ["Latest release", "https://github.com/AU-Avengers/TOU-Mira/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/AU-Avengers/TOU-Mira/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/AU-Avengers/TOU-Mira/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Town of Us: Mira": [
-          ["Latest release", "https://github.com/AU-Avengers/TOU-Mira/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/AU-Avengers/TOU-Mira/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/AU-Avengers/TOU-Mira/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Launchpad Reloaded": [
-          ["Latest release", "https://github.com/All-Of-Us-Mods/LaunchpadReloaded/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/All-Of-Us-Mods/LaunchpadReloaded/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "NewMod": [
-          ["Latest release", "https://github.com/CallOfCreator/NewMod/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Download", "https://github.com/CallOfCreator/NewMod/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["MS Store", "https://github.com/CallOfCreator/NewMod/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Syzyfowy Town Of Us": [
-          ["Latest release", "https://github.com/LimeShep/Town-Of-Us/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["x64", "https://github.com/LimeShep/Town-Of-Us/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["x32", "https://github.com/LimeShep/Town-Of-Us/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Super New Roles": [
-          ["Latest release", "https://github.com/SuperNewRoles/SuperNewRoles/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/SuperNewRoles/SuperNewRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic", "https://github.com/SuperNewRoles/SuperNewRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "The Other Roles": [
-          ["Latest release", "https://github.com/TheOtherRolesAU/TheOtherRoles/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Download", "https://github.com/TheOtherRolesAU/TheOtherRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["MS Store", "https://github.com/TheOtherRolesAU/TheOtherRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Town of Us: Reactivated": [
-          ["Latest release", "https://github.com/eDonnes124/Town-Of-Us-R/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Download", "https://github.com/eDonnes124/Town-Of-Us-R/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "All The Roles": [
-          ["Latest release", "https://github.com/Zeo666/AllTheRoles/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/Zeo666/AllTheRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/Zeo666/AllTheRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Cosmetics", "https://github.com/Zeo666/AllTheRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Stellar Roles": [
-          ["Latest release", "https://github.com/Mr-Fluuff/StellarRolesAU/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/Mr-Fluuff/StellarRolesAU/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic", "https://github.com/Mr-Fluuff/StellarRolesAU/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["DLL", "https://github.com/Mr-Fluuff/StellarRolesAU/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Submerged": [
-          ["Latest release", "https://github.com/SubmergedAmongUs/Submerged/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/SubmergedAmongUs/Submerged/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/SubmergedAmongUs/Submerged/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Nebula on Ship": [
-          ["Latest release", "https://github.com/Dolly1016/Nebula/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/Dolly1016/Nebula/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic", "https://github.com/Dolly1016/Nebula/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "TrollMod": [
-          ["Latest release", "https://github.com/TechDevOfficial/TrollMod17/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/TechDevOfficial/TrollMod17/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "yanplaRoles": [
-          ["Latest release", "https://github.com/yanpla/yanplaRoles/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["ZIP", "https://github.com/yanpla/yanplaRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["DLL", "https://github.com/yanpla/yanplaRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Project Lotus": [
-          ["Latest release", "https://github.com/Lotus-AU/LotusContinued/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/Lotus-AU/LotusContinued/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/Lotus-AU/LotusContinued/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "AUnlocker": [
-          ["Latest release", "https://github.com/astra1dev/AUnlocker/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/astra1dev/AUnlocker/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS / Xbox", "https://github.com/astra1dev/AUnlocker/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "BetterCrewLink": [
-          ["Latest release", "https://github.com/OhMyGuus/BetterCrewLink/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Windows", "https://github.com/OhMyGuus/BetterCrewLink/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Crowded Mod": [
-          ["Latest release", "https://github.com/CrowdedMods/CrowdedMod/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/CrowdedMods/CrowdedMod/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Better Among Us": [
-          ["Latest release", "https://github.com/D1GQ/BetterAmongUs-Public/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/D1GQ/BetterAmongUs-Public/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/D1GQ/BetterAmongUs-Public/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Among Us Revamped": [
-          ["Latest release", "https://github.com/ApeMV/AmongUsRevamped/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/ApeMV/AmongUsRevamped/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS / Xbox", "https://github.com/ApeMV/AmongUsRevamped/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["DLL", "https://github.com/ApeMV/AmongUsRevamped/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Town of Us: Mira Roles Extension": [
-          ["Latest release", "https://github.com/rewalo/TownOfUsMiraRolesExtension/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/rewalo/TownOfUsMiraRolesExtension/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/rewalo/TownOfUsMiraRolesExtension/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Draft Mode: TOU:M": [
-          ["Latest release", "https://github.com/idkimneil/DraftMode-TOUM/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/idkimneil/DraftMode-TOUM/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "TOU Mira Legacy": [
-          ["Latest release", "https://github.com/AU-Avengers/TouMiraLegacy/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/AU-Avengers/TouMiraLegacy/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "SmolMod": [
-          ["Latest release", "https://github.com/XtraCube/SmolMod/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/XtraCube/SmolMod/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "AleLuduMod": [
-          ["Latest release", "https://github.com/townofus-pl/AleLuduMod/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/townofus-pl/AleLuduMod/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Emoji Mod": [
-          ["Latest release", "https://github.com/WanderingPix/Emojis-in-the-mogus-chat/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/WanderingPix/Emojis-in-the-mogus-chat/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-      };
-
-      const getGitHubDownloadDetails = (href) => {
-        const downloadMatch = href.match(/^https:\/\/github\.com\/([^/]+\/[^/]+)\/releases\/download\/[^/]+\/(.+)$/i);
-        if (downloadMatch) {
-          return {
-            repo: downloadMatch[1],
-            assetName: decodeURIComponent(downloadMatch[2].split(/[?#]/)[0])
-          };
-        }
-        const latestMatch = href.match(/^https:\/\/github\.com\/([^/]+\/[^/]+)\/releases\/latest$/i);
-        return latestMatch ? { repo: latestMatch[1], assetName: "" } : null;
-      };
-
-      document.querySelectorAll(".card").forEach((card) => {
-        const title = card.querySelector(".title")?.textContent.trim();
-        const links = starlightReleaseLinks[title];
-        if (!links) return;
-        let actions = card.querySelector(".preset-actions");
-        if (!actions) {
-          actions = document.createElement("div");
-          actions.className = "preset-actions";
-          card.querySelector(".card-body")?.appendChild(actions);
-        }
-        const existing = new Set([...actions.querySelectorAll("a")].map((link) => `${link.href}|${link.textContent.trim()}`));
-        links.forEach(([label, href, icon, extraClass]) => {
-          const link = document.createElement("a");
-          const compactLabels = {
-            "Latest release": "Latest",
-            "Epic / MS / Xbox": "Epic / MS",
-            "Epic / MS / Xbox": "Epic / MS"
-          };
-          const displayLabel = compactLabels[label] || label;
-          const downloadDetails = extraClass?.includes("download-btn")
-            ? getGitHubDownloadDetails(href)
-            : null;
-          const linkHref = downloadDetails
-            ? `https://github.com/${downloadDetails.repo}/releases/latest`
-            : href;
-          const absoluteHref = new URL(linkHref, window.location.href).href;
-          if (existing.has(`${absoluteHref}|${displayLabel}`)) return;
-          link.className = `btn ${extraClass}`;
-          link.href = linkHref;
-          link.target = "_blank";
-          link.rel = "noopener";
-          if (downloadDetails) {
-            link.dataset.githubRepo = downloadDetails.repo;
-            link.dataset.assetFlavor = label;
-            link.dataset.assetName = downloadDetails.assetName;
-          }
-          link.innerHTML = `<i class="${icon}"></i> ${displayLabel}`;
-          link.title = downloadDetails ? `Latest ${label}` : label;
-          actions.appendChild(link);
-        });
-      });
-
       const featuredScheduleNode = document.querySelector("#featured-mod-schedule");
       const featuredSection = document.querySelector("#featured-mod");
       const featuredHeading = document.querySelector("#featured-mod-heading");
@@ -2289,26 +947,44 @@
 
       const cardTitle = (card) => card?.querySelector(".title")?.textContent.trim() || "";
 
-      const loadFeaturedSchedule = () => {
+      const normalizeFeaturedSchedule = (entries) => {
+        if (!Array.isArray(entries)) return [];
+        return entries
+          .map((entry) => ({
+            date: normalizeFeaturedDate(entry.date),
+            label: String(entry.label || "").trim(),
+            mod: String(entry.mod || "").trim()
+          }))
+          .filter((entry) => entry.date && entry.mod)
+          .sort((a, b) => a.date.localeCompare(b.date));
+      };
+
+      const loadEmbeddedFeaturedSchedule = () => {
         if (!featuredScheduleNode) return [];
         try {
           const entries = JSON.parse(featuredScheduleNode.textContent || "[]");
-          if (!Array.isArray(entries)) return [];
-          return entries
-            .map((entry) => ({
-              date: normalizeFeaturedDate(entry.date),
-              label: String(entry.label || "").trim(),
-              mod: String(entry.mod || "").trim()
-            }))
-            .filter((entry) => entry.date && entry.mod)
-            .sort((a, b) => a.date.localeCompare(b.date));
+          return normalizeFeaturedSchedule(entries);
         } catch {
           return [];
         }
       };
 
-      const activeFeaturedEntry = () => {
-        const schedule = loadFeaturedSchedule();
+      const loadFeaturedSchedule = async () => {
+        const fallbackSchedule = loadEmbeddedFeaturedSchedule();
+        try {
+          const response = await fetch(`/data/featured_mod.json?v=${Date.now()}`, { cache: "no-store" });
+          if (!response.ok) throw new Error(`Could not load featured mod data (HTTP ${response.status})`);
+          const data = await response.json();
+          const entries = Array.isArray(data) ? data : data.schedule;
+          const schedule = normalizeFeaturedSchedule(entries);
+          return schedule.length ? schedule : fallbackSchedule;
+        } catch {
+          return fallbackSchedule;
+        }
+      };
+
+      const activeFeaturedEntry = async () => {
+        const schedule = await loadFeaturedSchedule();
         const today = getLocalDateKey();
         const active = schedule.filter((entry) => entry.date <= today);
         if (active.length) return active[active.length - 1];
@@ -2349,8 +1025,8 @@
         featuredSpotlightDismiss?.focus();
       };
 
-      const setupFeaturedMod = () => {
-        const entry = activeFeaturedEntry();
+      const setupFeaturedMod = async () => {
+        const entry = await activeFeaturedEntry();
         const sourceCard = findFeaturedSourceCard(entry.mod);
         if (!sourceCard) {
           if (featuredSection) featuredSection.hidden = true;
@@ -2375,268 +1051,8 @@
         }
       });
       setupFeaturedMod();
-
-      const modSearch = document.querySelector("#mods-search");
-      const modSearchPanel = document.querySelector(".mod-search");
-      const modCount = document.querySelector("#mods-search-count");
-      const searchableCards = [...document.querySelectorAll(".mods-section .card")];
-      const searchableGroups = [...document.querySelectorAll(".mods-section")];
-      const blankThumb =
-        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3C/svg%3E";
-      const searchAliases = {
-        "Town of Host": "toh",
-        "Town of Host: Y": "tohy town of host y",
-        "Town of Host: Optimized": "toho town of host optimized",
-        "Endless Host Roles": "ehr",
-        "Town of Host: Enhanced": "tohe",
-        "Super New Roles": "snr",
-        "The Other Roles": "tor",
-        "Town of Us: Reactivated": "tour tou r town of us r",
-        "Town of Us: Mira": "tou mira toum town of us mira",
-        "TOU-Mira": "tou mira toum town of us mira",
-        "Syzyfowy Town Of Us": "town of us syzyfowy",
-        "All The Roles": "atr",
-        "Stellar Roles": "stellarroles stellar roles",
-        "Launchpad Reloaded": "lpr launchpad",
-        "BetterCrewLink": "bcl better crewlink crewlink",
-        "Better Among Us": "bau",
-        "Among Us Revamped": "aur revamped",
-        "Project Lotus": "lotus",
-        "AUnlocker": "unlocker aunlocker",
-        "Town of Us: Mira Roles Extension": "tou mira roles extension toum roles town of us",
-        "Draft Mode: TOU:M": "draft toum draft mode town of us mira",
-        "TOU Mira Legacy": "tou mira legacy toum legacy town of us",
-        "AleLuduMod": "ale ludu aleludu",
-        "Emoji Mod": "emojis emoji"
-      };
-      const canonicalTitles = {
-        "TOU-Mira": "Town of Us: Mira",
-        "Town of Us: Mira": "Town of Us: Mira",
-        "Project Lotus": "Project Lotus",
-        "Super New Roles": "Super New Roles",
-        "Launchpad Reloaded": "Launchpad Reloaded",
-        "AUnlocker": "AUnlocker",
-        "TOHO": "Town of Host: Optimized",
-        "Town of Host: Optimized": "Town of Host: Optimized"
-      };
-      const normalizeSearchText = (value) =>
-        value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
-
-      document.querySelectorAll("img[data-custom-image]").forEach((image) => {
-        const markMissing = () => {
-          image.classList.add("thumb-missing");
-          image.src = blankThumb;
-        };
-        image.addEventListener("error", markMissing, { once: true });
-        if (image.complete && image.naturalWidth === 0) markMissing();
-      });
-
-      const applyModSearch = () => {
-        const query = normalizeSearchText(modSearch.value);
-        const queryTokens = query ? query.split(" ") : [];
-        let visibleCount = 0;
-        const seenTitles = new Set();
-        searchableCards.forEach((card) => {
-          const title = card.querySelector(".title")?.textContent.trim() || "";
-          const altText = card.querySelector("img")?.alt || "";
-          const canonicalTitle = canonicalTitles[title] || title;
-          const aliases = searchAliases[title] || searchAliases[canonicalTitle] || "";
-          const haystack = normalizeSearchText(`${title} ${canonicalTitle} ${aliases} ${altText}`);
-          const isDuplicate = !!query && seenTitles.has(canonicalTitle);
-          const isMatch = queryTokens.every((token) => haystack.includes(token));
-          const isVisible = !query || (isMatch && !isDuplicate);
-          card.hidden = !isVisible;
-          if (isVisible) {
-            visibleCount += 1;
-            if (query) seenTitles.add(canonicalTitle);
-          }
-        });
-        searchableGroups.forEach((group) => {
-          const hasVisibleCard = !!group.querySelector(".card:not([hidden])");
-          group.hidden = !!query && !hasVisibleCard;
-        });
-        modCount.textContent = `${visibleCount} mod${visibleCount === 1 ? "" : "s"}`;
-        modSearchPanel.classList.toggle("no-results", visibleCount === 0);
-        document.body.classList.toggle("search-active", !!query);
-      };
-
-      modSearch?.addEventListener("input", applyModSearch);
-      applyModSearch();
-
-      const linkWarning = document.querySelector("#link-warning");
-      const linkWarningTitle = document.querySelector("#link-warning-title");
-      const linkWarningMessage = document.querySelector("#link-warning-message");
-      const linkWarningDestination = document.querySelector("#link-warning-destination");
-      const linkWarningIcon = document.querySelector("#link-warning-icon i");
-      const linkWarningCancel = document.querySelector("#link-warning-cancel");
-      const linkWarningContinue = document.querySelector("#link-warning-continue");
-      let pendingExternalLink = null;
-      const latestReleaseCache = new Map();
-
-      const downloadPattern = /\.(zip|dll|exe|msi|rar|7z)(\?|#|$)/i;
-      const isDownloadLink = (link) =>
-        link.classList.contains("download-btn") ||
-        link.href.includes("/releases/download/") ||
-        downloadPattern.test(link.href);
-
-      const getLatestRelease = async (repo) => {
-        if (!latestReleaseCache.has(repo)) {
-          latestReleaseCache.set(
-            repo,
-            fetch(`https://api.github.com/repos/${repo}/releases/latest`, {
-              headers: { Accept: "application/vnd.github+json" }
-            }).then((response) => {
-              if (!response.ok) throw new Error("Latest release unavailable");
-              return response.json();
-            })
-          );
-        }
-        return latestReleaseCache.get(repo);
-      };
-
-      const tokenizeAsset = (value) =>
-        value.toLowerCase().replace(/\.[a-z0-9]+$/i, "").replace(/[^a-z0-9]+/g, " ").split(" ").filter(Boolean);
-
-      const scoreAsset = (asset, flavor, originalAssetName) => {
-        const name = asset.name.toLowerCase();
-        const originalTokens = tokenizeAsset(originalAssetName)
-          .filter((token) => !/^(v?\d+|\d+|x86|x64|win64|win32|zip|dll|exe|msi|store|games?)$/.test(token));
-        let score = 0;
-
-        originalTokens.forEach((token) => {
-          if (name.includes(token)) score += 1;
-        });
-
-        const wantsSteam = /steam/i.test(flavor);
-        const wantsItch = /itch/i.test(flavor);
-        const wantsEpic = /epic/i.test(flavor);
-        const wantsMs = /\bms\b|microsoft|xbox/i.test(flavor);
-        const wantsDll = /dll/i.test(flavor);
-        const wantsZip = /zip/i.test(flavor);
-        const wantsWindows = /windows/i.test(flavor);
-        const wantsCosmetics = /cosmetics/i.test(flavor);
-        const wantsStarlight = /starlight/i.test(flavor);
-        const wantsX64 = /x64/i.test(flavor);
-        const wantsX32 = /x32|x86/i.test(flavor);
-
-        if (wantsSteam && name.includes("steam")) score += 18;
-        if (wantsItch && (name.includes("itch") || name.includes("itchio"))) score += 12;
-        if (wantsEpic && name.includes("epic")) score += 18;
-        if (wantsMs && (name.includes("ms") || name.includes("microsoft") || name.includes("xbox"))) score += 12;
-        if (wantsDll && name.endsWith(".dll")) score += 24;
-        if (wantsZip && name.endsWith(".zip")) score += 18;
-        if (wantsWindows && (name.endsWith(".exe") || name.includes("setup") || name.includes("windows"))) score += 18;
-        if (wantsCosmetics && name.includes("cosmetic")) score += 20;
-        if (wantsStarlight && name.includes("starlight")) score += 20;
-        if (wantsX64 && (name.includes("x64") || name.includes("64"))) score += 18;
-        if (wantsX32 && (name.includes("x32") || name.includes("x86") || name.includes("32"))) score += 18;
-        if (/download/i.test(flavor) && name.endsWith(".zip")) score += 8;
-
-        if ((wantsSteam || wantsItch) && (name.includes("epic") || name.includes("microsoft") || name.includes("msstore") || name.includes("xbox"))) score -= 25;
-        if ((wantsEpic || wantsMs) && (name.includes("steam") || name.includes("itch"))) score -= 25;
-        if (wantsDll && !name.endsWith(".dll")) score -= 20;
-        if (wantsZip && !name.endsWith(".zip")) score -= 12;
-        if (/download/i.test(flavor) && (name.includes("msstore") || name.includes("microsoft"))) score -= 8;
-
-        return score;
-      };
-
-      const resolveLatestDownloadUrl = async ({ repo, flavor, assetName = "" }) => {
-        if (!repo) return null;
-        const release = await getLatestRelease(repo);
-        const assets = Array.isArray(release.assets) ? release.assets : [];
-        if (!assets.length) return null;
-        const ranked = assets
-          .map((asset) => ({
-            asset,
-            score: scoreAsset(asset, flavor, assetName)
-          }))
-          .sort((a, b) => b.score - a.score);
-        return ranked[0]?.score > 0 ? ranked[0].asset.browser_download_url : null;
-      };
-
-      const closeLinkWarning = () => {
-        pendingExternalLink = null;
-        linkWarning?.classList.remove("open");
-        linkWarning?.setAttribute("aria-hidden", "true");
-      };
-
-      const openLinkWarning = (link) => {
-        const url = new URL(link.href);
-        const linkText = link.textContent.trim() || "this link";
-        const download = isDownloadLink(link);
-        pendingExternalLink = {
-          href: link.href,
-          target: link.target || "_blank",
-          repo: link.dataset.githubRepo,
-          flavor: link.dataset.assetFlavor,
-          assetName: link.dataset.assetName
-        };
-
-        linkWarningTitle.textContent = download ? "Download warning" : "Leaving MAUL";
-        linkWarningMessage.textContent = download
-          ? `You are about to open a download for ${linkText}. You are able to go to github for assurance. These links are provided for convenience.`
-          : `You are about to open ${linkText} on an external site.`;
-        linkWarningDestination.textContent = url.hostname;
-        linkWarningIcon.className = download ? "fa-solid fa-download" : "fa-solid fa-arrow-up-right-from-square";
-        linkWarningContinue.textContent = download ? "Download" : "Continue";
-        linkWarning.classList.add("open");
-        linkWarning.setAttribute("aria-hidden", "false");
-        linkWarningContinue.focus();
-      };
-
-      document.addEventListener("click", (event) => {
-        const link = event.target.closest("a[href]");
-        if (!link || link.dataset.warningBypass === "true") return;
-        const url = new URL(link.href, window.location.href);
-        if (url.origin === window.location.origin && !isDownloadLink(link)) return;
-        event.preventDefault();
-        openLinkWarning(link);
-      });
-
-      linkWarningCancel?.addEventListener("click", closeLinkWarning);
-      linkWarning?.addEventListener("click", (event) => {
-        if (event.target === linkWarning) closeLinkWarning();
-      });
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && linkWarning?.classList.contains("open")) {
-          closeLinkWarning();
-        }
-      });
-      linkWarningContinue?.addEventListener("click", () => {
-        if (!pendingExternalLink) return;
-        const pendingLink = pendingExternalLink;
-        const originalText = linkWarningContinue.textContent;
-        const openResolvedLink = (href, target) => {
-          if (target === "_self") {
-            window.location.href = href;
-          } else {
-            window.open(href, "_blank", "noopener");
-          }
-        };
-
-        linkWarningContinue.disabled = true;
-        linkWarningContinue.textContent = pendingLink.repo ? "Finding latest..." : originalText;
-
-        Promise.resolve(
-          pendingLink.repo
-            ? resolveLatestDownloadUrl(pendingLink)
-            : null
-        )
-          .then((resolvedHref) => {
-            closeLinkWarning();
-            openResolvedLink(resolvedHref || pendingLink.href, pendingLink.target);
-          })
-          .catch(() => {
-            closeLinkWarning();
-            openResolvedLink(pendingLink.href, pendingLink.target);
-          })
-          .finally(() => {
-            linkWarningContinue.disabled = false;
-            linkWarningContinue.textContent = originalText;
-          });
-      });
     </script>
+
     <script src="/scripts/navbar.js"></script>
   </body>
 </html>
