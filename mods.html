@@ -661,8 +661,8 @@
       }
 
       .featured-highlight {
-        max-width: 460px;
-        margin: 26px auto 42px;
+        max-width: 980px;
+        margin: 24px auto 48px;
       }
 
       .featured-highlight-header {
@@ -681,16 +681,58 @@
       #featured-grid.grid {
         display: flex;
         justify-content: center;
-        max-width: 460px;
+        max-width: 980px;
       }
 
       #featured-grid .card {
-        width: min(100%, 390px);
+        width: 100%;
+        min-height: 250px;
         border-color: rgba(255, 211, 122, 0.4);
         box-shadow:
           0 34px 90px rgba(0, 0, 0, 0.68),
           0 0 46px rgba(255, 211, 122, 0.18),
           0 0 80px rgba(255, 56, 77, 0.16);
+      }
+
+      #featured-grid .featured-card {
+        display: grid;
+        grid-template-columns: minmax(220px, 34%) minmax(0, 1fr);
+        align-items: stretch;
+      }
+
+      #featured-grid .featured-card .thumb {
+        height: 100%;
+        min-height: 250px;
+        border-right: 1px solid rgba(255, 211, 122, 0.16);
+        border-bottom: 0;
+        padding: 18px;
+      }
+
+      #featured-grid .featured-card .card-body {
+        padding: 22px 24px 24px;
+        justify-content: center;
+        text-align: left;
+      }
+
+      #featured-grid .featured-card .title,
+      #featured-grid .featured-card .sub {
+        text-align: left;
+      }
+
+      #featured-grid .featured-card .title {
+        margin-top: 0;
+        font-size: clamp(1.2rem, 2.6vw, 1.8rem);
+      }
+
+      #featured-grid .featured-card .sub {
+        max-width: 58ch;
+        margin-bottom: 2px;
+      }
+
+      #featured-grid .featured-card .preset-actions {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        min-height: 0;
+        margin-top: 8px;
       }
 
       body.search-active .featured-highlight {
@@ -785,6 +827,27 @@
         .featured-spotlight-bar {
           align-items: flex-start;
           flex-direction: column;
+        }
+
+        #featured-grid .featured-card {
+          grid-template-columns: 1fr;
+        }
+
+        #featured-grid .featured-card .thumb {
+          height: 180px;
+          min-height: 0;
+          border-right: 0;
+          border-bottom: 1px solid rgba(255, 211, 122, 0.16);
+        }
+
+        #featured-grid .featured-card .card-body,
+        #featured-grid .featured-card .title,
+        #featured-grid .featured-card .sub {
+          text-align: center;
+        }
+
+        #featured-grid .featured-card .preset-actions {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .featured-spotlight {
@@ -2609,52 +2672,4 @@
         const url = new URL(link.href, window.location.href);
         if (url.origin === window.location.origin && !isDownloadLink(link)) return;
         event.preventDefault();
-        openLinkWarning(link);
-      });
-
-      linkWarningCancel?.addEventListener("click", closeLinkWarning);
-      linkWarning?.addEventListener("click", (event) => {
-        if (event.target === linkWarning) closeLinkWarning();
-      });
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && linkWarning?.classList.contains("open")) {
-          closeLinkWarning();
-        }
-      });
-      linkWarningContinue?.addEventListener("click", () => {
-        if (!pendingExternalLink) return;
-        const pendingLink = pendingExternalLink;
-        const originalText = linkWarningContinue.textContent;
-        const openResolvedLink = (href, target) => {
-          if (target === "_self") {
-            window.location.href = href;
-          } else {
-            window.open(href, "_blank", "noopener");
-          }
-        };
-
-        linkWarningContinue.disabled = true;
-        linkWarningContinue.textContent = pendingLink.repo ? "Finding latest..." : originalText;
-
-        Promise.resolve(
-          pendingLink.repo
-            ? resolveLatestDownloadUrl(pendingLink)
-            : null
-        )
-          .then((resolvedHref) => {
-            closeLinkWarning();
-            openResolvedLink(resolvedHref || pendingLink.href, pendingLink.target);
-          })
-          .catch(() => {
-            closeLinkWarning();
-            openResolvedLink(pendingLink.href, pendingLink.target);
-          })
-          .finally(() => {
-            linkWarningContinue.disabled = false;
-            linkWarningContinue.textContent = originalText;
-          });
-      });
-    </script>
-    <script src="/scripts/navbar.js"></script>
-  </body>
-</html>
+        openLinkWarning(link)
