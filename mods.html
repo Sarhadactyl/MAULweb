@@ -2672,4 +2672,52 @@
         const url = new URL(link.href, window.location.href);
         if (url.origin === window.location.origin && !isDownloadLink(link)) return;
         event.preventDefault();
-        openLinkWarning(link)
+        openLinkWarning(link);
+      });
+
+      linkWarningCancel?.addEventListener("click", closeLinkWarning);
+      linkWarning?.addEventListener("click", (event) => {
+        if (event.target === linkWarning) closeLinkWarning();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && linkWarning?.classList.contains("open")) {
+          closeLinkWarning();
+        }
+      });
+      linkWarningContinue?.addEventListener("click", () => {
+        if (!pendingExternalLink) return;
+        const pendingLink = pendingExternalLink;
+        const originalText = linkWarningContinue.textContent;
+        const openResolvedLink = (href, target) => {
+          if (target === "_self") {
+            window.location.href = href;
+          } else {
+            window.open(href, "_blank", "noopener");
+          }
+        };
+
+        linkWarningContinue.disabled = true;
+        linkWarningContinue.textContent = pendingLink.repo ? "Finding latest..." : originalText;
+
+        Promise.resolve(
+          pendingLink.repo
+            ? resolveLatestDownloadUrl(pendingLink)
+            : null
+        )
+          .then((resolvedHref) => {
+            closeLinkWarning();
+            openResolvedLink(resolvedHref || pendingLink.href, pendingLink.target);
+          })
+          .catch(() => {
+            closeLinkWarning();
+            openResolvedLink(pendingLink.href, pendingLink.target);
+          })
+          .finally(() => {
+            linkWarningContinue.disabled = false;
+            linkWarningContinue.textContent = originalText;
+          });
+      });
+    </script>
+    <script src="/scripts/navbar.js"></script>
+  </body>
+</html>
