@@ -1117,7 +1117,7 @@
             <i class="fa-solid fa-magnifying-glass"></i>
             <input id="mods-search" type="search" placeholder="Search mods or aliases..." autocomplete="off" />
           </label>
-          <span class="mod-search-count" id="mods-search-count">0 mods</span>
+          <span class="mod-search-count" id="mods-search-count">40 mods</span>
         </div>
         <p class="no-mod-results" id="mods-empty" aria-live="polite">No mods match that search.</p>
       </section>
@@ -1130,7 +1130,51 @@
           </div>
           <span class="featured-highlight-pill" id="featured-mod-period">July 2026</span>
         </div>
-        <div class="grid" id="featured-grid" aria-live="polite"></div>
+        <div class="grid" id="featured-grid" aria-live="polite">
+          <article class="card featured-card">
+            <img src="images/Project lotus.jpg" alt="Project Lotus" class="thumb" />
+            <div class="card-body">
+              <h3 class="title">Project Lotus</h3>
+              <p class="sub">
+                A host only mod which focuses on quality over quantity and turning your game into an experience. This mod adds custom cosmetics, a variety of unique roles and features, and extensive customizability.
+              </p>
+              <div class="preset-actions">
+                <a
+                  class="btn"
+                  href="https://github.com/Lotus-AU/LotusContinued?dhc-id=80400832587108366"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="fa-brands fa-github"></i> Github
+                </a>
+                <a
+                  class="btn release-btn"
+                  href="https://github.com/Lotus-AU/LotusContinued/releases/latest"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="fa-solid fa-tag"></i> Latest
+                </a>
+                <a
+                  class="btn download-btn"
+                  href="https://github.com/Lotus-AU/LotusContinued/releases/latest"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="fa-solid fa-download"></i> Steam
+                </a>
+                <a
+                  class="btn download-btn"
+                  href="https://github.com/Lotus-AU/LotusContinued/releases/latest"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="fa-solid fa-download"></i> Epic / MS
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
       </section>
 
       <section class="mods-section" id="host-only">
@@ -2434,7 +2478,7 @@
         const entry = await activeFeaturedEntry();
         const sourceCard = findFeaturedSourceCard(entry.mod);
         if (!sourceCard) {
-          if (featuredSection) featuredSection.hidden = true;
+          if (featuredSection && !featuredGrid?.children.length) featuredSection.hidden = true;
           return;
         }
 
