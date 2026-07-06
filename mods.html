@@ -660,6 +660,140 @@
         color: #fff8ef;
       }
 
+      .featured-highlight {
+        max-width: 460px;
+        margin: 26px auto 42px;
+      }
+
+      .featured-highlight-header {
+        align-items: flex-end;
+        margin-bottom: 14px;
+      }
+
+      .featured-heading {
+        margin: 4px 0 0;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(1.45rem, 4vw, 2.1rem);
+        line-height: 1.05;
+        color: #fff8ef;
+      }
+
+      #featured-grid.grid {
+        display: flex;
+        justify-content: center;
+        max-width: 460px;
+      }
+
+      #featured-grid .card {
+        width: min(100%, 390px);
+        border-color: rgba(255, 211, 122, 0.4);
+        box-shadow:
+          0 34px 90px rgba(0, 0, 0, 0.68),
+          0 0 46px rgba(255, 211, 122, 0.18),
+          0 0 80px rgba(255, 56, 77, 0.16);
+      }
+
+      body.search-active .featured-highlight {
+        display: none;
+      }
+
+      body.spotlight-open {
+        overflow: hidden;
+      }
+
+      .featured-spotlight {
+        position: fixed;
+        inset: 0;
+        z-index: 1800;
+        display: none;
+        place-items: center;
+        padding: 24px;
+        background:
+          radial-gradient(ellipse at center, rgba(255, 248, 239, 0.34) 0%, rgba(255, 211, 122, 0.16) 19%, transparent 42%),
+          radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.34) 44%, rgba(0, 0, 0, 0.88) 100%),
+          rgba(0, 0, 0, 0.82);
+        backdrop-filter: blur(8px);
+      }
+
+      .featured-spotlight.open {
+        display: grid;
+      }
+
+      .featured-spotlight-panel {
+        width: min(430px, 100%);
+        position: relative;
+        transform: translateY(12px) scale(0.98);
+        opacity: 0;
+        transition: transform 0.28s ease, opacity 0.28s ease;
+      }
+
+      .featured-spotlight.open .featured-spotlight-panel {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+
+      .featured-spotlight-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .featured-spotlight-title {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold);
+        text-shadow: 0 0 24px rgba(255, 211, 122, 0.44);
+      }
+
+      .featured-spotlight-dismiss {
+        appearance: none;
+        border: 1px solid rgba(255, 211, 122, 0.26);
+        border-radius: 999px;
+        background: rgba(8, 5, 6, 0.78);
+        color: #fff8ef;
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 8px 14px;
+        transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      }
+
+      .featured-spotlight-dismiss:hover,
+      .featured-spotlight-dismiss:focus-visible {
+        background: rgba(67, 12, 16, 0.84);
+        border-color: rgba(255, 211, 122, 0.52);
+        outline: none;
+        transform: translateY(-1px);
+      }
+
+      #featured-spotlight-grid .card {
+        border-color: rgba(255, 211, 122, 0.5);
+        box-shadow:
+          0 34px 90px rgba(0, 0, 0, 0.72),
+          0 0 60px rgba(255, 248, 239, 0.24),
+          0 0 96px rgba(255, 211, 122, 0.2);
+      }
+
+      @media (max-width: 600px) {
+        .featured-highlight-header,
+        .featured-spotlight-bar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .featured-spotlight {
+          align-items: start;
+          overflow-y: auto;
+          padding-top: 74px;
+        }
+      }
+
       .link-warning {
         position: fixed;
         inset: 0;
@@ -913,6 +1047,17 @@
           Host-only and client-required mods that power our lobbies – from classic role packs to custom maps and QoL tools.
         </p>
       </header>
+
+      <section class="featured-highlight" id="featured-mod" aria-labelledby="featured-mod-heading">
+        <div class="featured-highlight-header">
+          <div>
+            <span class="featured-highlight-label">Featured Mod</span>
+            <h2 class="featured-heading" id="featured-mod-heading">Project Lotus</h2>
+          </div>
+          <span class="featured-highlight-pill" id="featured-mod-period">July 2026</span>
+        </div>
+        <div class="grid" id="featured-grid" aria-live="polite"></div>
+      </section>
 
       <section class="mod-search" aria-label="Search mods">
         <div class="mod-search-inner">
@@ -1844,6 +1989,16 @@
       </p>
     </div>
 
+    <div class="featured-spotlight" id="featured-spotlight" role="dialog" aria-modal="true" aria-labelledby="featured-spotlight-title" aria-hidden="true">
+      <div class="featured-spotlight-panel">
+        <div class="featured-spotlight-bar">
+          <h2 class="featured-spotlight-title" id="featured-spotlight-title">Featured Mod</h2>
+          <button class="featured-spotlight-dismiss" id="featured-spotlight-dismiss" type="button">Dismiss</button>
+        </div>
+        <div id="featured-spotlight-grid"></div>
+      </div>
+    </div>
+
     <div class="link-warning" id="link-warning" role="dialog" aria-modal="true" aria-labelledby="link-warning-title" aria-hidden="true">
       <div class="link-warning-card">
         <div class="link-warning-icon" id="link-warning-icon">
@@ -1860,6 +2015,16 @@
         </div>
       </div>
     </div>
+
+    <script type="application/json" id="featured-mod-schedule">
+[
+  {
+    "date": "2026-07-01",
+    "label": "July 2026",
+    "mod": "Project Lotus"
+  }
+]
+    </script>
 
     <script>
       const starlightReleaseLinks = {
@@ -2076,10 +2241,145 @@
         });
       });
 
+      const featuredScheduleNode = document.querySelector("#featured-mod-schedule");
+      const featuredSection = document.querySelector("#featured-mod");
+      const featuredHeading = document.querySelector("#featured-mod-heading");
+      const featuredPeriod = document.querySelector("#featured-mod-period");
+      const featuredGrid = document.querySelector("#featured-grid");
+      const featuredSpotlight = document.querySelector("#featured-spotlight");
+      const featuredSpotlightGrid = document.querySelector("#featured-spotlight-grid");
+      const featuredSpotlightDismiss = document.querySelector("#featured-spotlight-dismiss");
+      const monthNames = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ];
+
+      const normalizeFeaturedDate = (value) => {
+        const raw = String(value || "").trim();
+        if (/^\d{4}-\d{2}$/.test(raw)) return `${raw}-01`;
+        if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw;
+        return "";
+      };
+
+      const getLocalDateKey = (date = new Date()) => {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+      };
+
+      const getMonthLabel = (dateKey) => {
+        const [year, month] = dateKey.split("-");
+        const monthIndex = Number(month) - 1;
+        return `${monthNames[monthIndex] || "Featured"} ${year || ""}`.trim();
+      };
+
+      const normalizeTitleKey = (value) =>
+        String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+
+      const cardTitle = (card) => card?.querySelector(".title")?.textContent.trim() || "";
+
+      const loadFeaturedSchedule = () => {
+        if (!featuredScheduleNode) return [];
+        try {
+          const entries = JSON.parse(featuredScheduleNode.textContent || "[]");
+          if (!Array.isArray(entries)) return [];
+          return entries
+            .map((entry) => ({
+              date: normalizeFeaturedDate(entry.date),
+              label: String(entry.label || "").trim(),
+              mod: String(entry.mod || "").trim()
+            }))
+            .filter((entry) => entry.date && entry.mod)
+            .sort((a, b) => a.date.localeCompare(b.date));
+        } catch {
+          return [];
+        }
+      };
+
+      const activeFeaturedEntry = () => {
+        const schedule = loadFeaturedSchedule();
+        const today = getLocalDateKey();
+        const active = schedule.filter((entry) => entry.date <= today);
+        if (active.length) return active[active.length - 1];
+        return schedule[0] || { date: today, label: "July 2026", mod: "Project Lotus" };
+      };
+
+      const findFeaturedSourceCard = (modName) => {
+        const target = normalizeTitleKey(modName);
+        const cards = [...document.querySelectorAll(".mods-section .card")];
+        return (
+          cards.find((card) => normalizeTitleKey(cardTitle(card)) === target) ||
+          cards.find((card) => normalizeTitleKey(cardTitle(card)).includes(target)) ||
+          null
+        );
+      };
+
+      const cloneFeaturedCardInto = (target, sourceCard) => {
+        if (!target || !sourceCard) return;
+        target.innerHTML = "";
+        const clone = sourceCard.cloneNode(true);
+        clone.classList.add("featured-card");
+        clone.hidden = false;
+        clone.querySelectorAll("[id]").forEach((node) => node.removeAttribute("id"));
+        target.appendChild(clone);
+      };
+
+      const closeFeaturedSpotlight = () => {
+        featuredSpotlight?.classList.remove("open");
+        featuredSpotlight?.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("spotlight-open");
+      };
+
+      const openFeaturedSpotlight = () => {
+        if (!featuredSpotlight || !featuredSpotlightGrid?.children.length) return;
+        featuredSpotlight.classList.add("open");
+        featuredSpotlight.setAttribute("aria-hidden", "false");
+        document.body.classList.add("spotlight-open");
+        featuredSpotlightDismiss?.focus();
+      };
+
+      const setupFeaturedMod = () => {
+        const entry = activeFeaturedEntry();
+        const sourceCard = findFeaturedSourceCard(entry.mod);
+        if (!sourceCard) {
+          if (featuredSection) featuredSection.hidden = true;
+          return;
+        }
+
+        const title = cardTitle(sourceCard) || entry.mod;
+        if (featuredHeading) featuredHeading.textContent = title;
+        if (featuredPeriod) featuredPeriod.textContent = entry.label || getMonthLabel(entry.date);
+        cloneFeaturedCardInto(featuredGrid, sourceCard);
+        cloneFeaturedCardInto(featuredSpotlightGrid, sourceCard);
+        window.requestAnimationFrame(openFeaturedSpotlight);
+      };
+
+      featuredSpotlightDismiss?.addEventListener("click", closeFeaturedSpotlight);
+      featuredSpotlight?.addEventListener("click", (event) => {
+        if (event.target === featuredSpotlight) closeFeaturedSpotlight();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && featuredSpotlight?.classList.contains("open")) {
+          closeFeaturedSpotlight();
+        }
+      });
+      setupFeaturedMod();
+
       const modSearch = document.querySelector("#mods-search");
       const modSearchPanel = document.querySelector(".mod-search");
       const modCount = document.querySelector("#mods-search-count");
-      const searchableCards = [...document.querySelectorAll(".card")];
+      const searchableCards = [...document.querySelectorAll(".mods-section .card")];
       const searchableGroups = [...document.querySelectorAll(".mods-section")];
       const blankThumb =
         "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 10'%3E%3C/svg%3E";
