@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Privacy Policy &middot; Modded Among Us Games</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:title" content="Privacy Policy &middot; Modded Among Us Games" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/privacy.html" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta
+      property="og:description"
+      content="Privacy policy for the Modded Among Us Games Discord bot used by Modded Among Us Lobbies."
+    />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      name="description"
+      content="Privacy policy for the Modded Among Us Games Discord bot, including data use, Discord intents, PingMe lobby notifications, retention, message content, presence data, and contact details."
+    />
+    <link rel="canonical" href="https://moddedamong.us/privacy.html" />
+    <link rel="icon" type="image/png" href="https://moddedamong.us/images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://moddedamong.us/styles/navbar.css" />
+
+    <style>
+      :root {
+        --accent: #800000;
+        --accent-soft: rgba(128, 0, 0, 0.25);
+        --accent-strong: #b00000;
+        --bg-card: rgba(30, 12, 12, 0.9);
+        --bg-soft: rgba(45, 18, 18, 0.9);
+        --text-main: #ffffff;
+        --text-muted: #dedee8;
+        --border-soft: rgba(255, 255, 255, 0.1);
+        --shadow-strong: 0 22px 50px rgba(0, 0, 0, 0.9);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", sans-serif;
+        color: var(--text-main);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #000 url("https://moddedamong.us/images/maulredbg.png") no-repeat top center fixed;
+        background-size: auto 100%;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(circle at top, rgba(128, 0, 0, 0.45), transparent 55%),
+          radial-gradient(circle at bottom, rgba(180, 0, 60, 0.25), transparent 55%);
+        mix-blend-mode: screen;
+        opacity: 0.7;
+        pointer-events: none;
+        z-index: -2;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
+        z-index: -1;
+      }
+
+      a {
+        color: #ff6b6b;
+      }
+
+      a:hover {
+        color: #ffffff;
+      }
+
+      .page-wrapper {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 88px 20px 64px;
+      }
+
+      @media (max-width: 600px) {
+        .page-wrapper {
+          padding-top: 96px;
+        }
+      }
+
+      .hero {
+        text-align: center;
+        padding: 28px 10px 18px;
+      }
+
+      .header-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: linear-gradient(120deg, rgba(128, 0, 0, 0.5), rgba(200, 0, 80, 0.35));
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: var(--text-muted);
+        margin-bottom: 16px;
+      }
+
+      .header-badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #00ff9c, #00b36b);
+        box-shadow: 0 0 12px rgba(0, 255, 156, 0.7);
+      }
+
+      .hero h1 {
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(2.4rem, 4vw, 3.25rem);
+        margin: 0;
+        letter-spacing: 0.04em;
+        text-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+      }
+
+      .hero h1 span {
+        background: linear-gradient(120deg, #ffffff, #ff6b6b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero-subtitle {
+        max-width: 780px;
+        margin: 14px auto 0;
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--text-muted);
+      }
+
+      .hero-actions,
+      .jump-links {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .hero-actions {
+        margin-top: 24px;
+      }
+
+      .cta-primary,
+      .cta-secondary,
+      .jump-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      }
+
+      .cta-primary,
+      .cta-secondary {
+        padding: 10px 18px;
+        border-radius: 999px;
+        font-size: 0.95rem;
+      }
+
+      .cta-primary {
+        background: linear-gradient(135deg, #800000, #b00000);
+        color: #fff;
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.9);
+      }
+
+      .cta-secondary {
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: rgba(40, 12, 12, 0.9);
+        color: var(--text-muted);
+      }
+
+      .cta-primary:hover,
+      .cta-secondary:hover,
+      .jump-links a:hover {
+        color: #fff;
+        transform: translateY(-1px);
+      }
+
+      .cta-primary:hover {
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.95);
+      }
+
+      .cta-secondary:hover,
+      .jump-links a:hover {
+        background: rgba(55, 18, 18, 0.98);
+      }
+
+      .jump-links {
+        margin: 24px auto 10px;
+        max-width: 980px;
+      }
+
+      .jump-links a {
+        color: var(--text-main);
+        background: rgba(45, 18, 18, 0.95);
+        border: 1px solid var(--border-soft);
+        border-radius: 999px;
+        padding: 9px 14px;
+        font-size: 0.9rem;
+        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.75);
+      }
+
+      .overview-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        margin: 28px 0 36px;
+      }
+
+      @media (max-width: 980px) {
+        .overview-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 700px) {
+        .overview-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .overview-card,
+      .policy-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-soft);
+        border-radius: 18px;
+        box-shadow: var(--shadow-strong);
+        backdrop-filter: blur(12px);
+      }
+
+      .overview-card {
+        position: relative;
+        overflow: hidden;
+        padding: 18px 18px 20px;
+      }
+
+      .overview-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top left, rgba(128, 0, 0, 0.18), transparent 55%);
+        pointer-events: none;
+      }
+
+      .overview-card h2,
+      .policy-section h2,
+      .policy-card h3 {
+        margin: 0 0 10px;
+        font-family: "Outfit", sans-serif;
+      }
+
+      .overview-card p,
+      .policy-card p,
+      .policy-card li,
+      .section-intro {
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      .overview-card p,
+      .policy-card p {
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .section-shell {
+        background: rgba(18, 6, 6, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 24px;
+        padding: 24px;
+        margin-top: 28px;
+        box-shadow: 0 24px 54px rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(10px);
+      }
+
+      .policy-section + .policy-section,
+      .section-shell + .section-shell {
+        margin-top: 28px;
+      }
+
+      .policy-section h2 {
+        font-size: 1.8rem;
+        letter-spacing: 0.03em;
+      }
+
+      .section-intro {
+        margin: 0 0 18px;
+        font-size: 0.96rem;
+      }
+
+      .policy-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .policy-card {
+        padding: 20px;
+      }
+
+      .policy-card ul {
+        margin: 12px 0 0;
+        padding-left: 20px;
+      }
+
+      .policy-card strong {
+        color: #ffffff;
+      }
+
+      .policy-card code {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        padding: 2px 6px;
+        font-size: 0.92em;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      @media (max-width: 700px) {
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .info-pill {
+        background: rgba(45, 18, 18, 0.95);
+        border: 1px solid var(--border-soft);
+        border-radius: 14px;
+        padding: 12px 14px;
+        color: var(--text-muted);
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+      }
+
+      .info-pill span {
+        display: block;
+        color: #ffffff;
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+
+      .accent {
+        color: #ff6b6b;
+      }
+
+      .footnote {
+        margin-top: 26px;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      /* Clean MAUL homepage visual refresh */
+      :root {
+        --red: #ec2537;
+        --red-dark: #74070f;
+        --red-soft: rgba(236, 37, 55, 0.2);
+        --gold: #ffd36e;
+        --cyan: #6ef9ff;
+        --violet: #a88bff;
+        --ink: #070407;
+        --ink-2: #12080b;
+        --paper: #fff8ef;
+        --muted: #cdbfc0;
+        --line: rgba(255, 255, 255, 0.14);
+        --glass: rgba(17, 8, 11, 0.72);
+        --glass-strong: rgba(28, 12, 15, 0.88);
+        --shadow: 0 28px 80px rgba(0, 0, 0, 0.72);
+        --text-main: var(--paper);
+        --text-muted: var(--muted);
+        --border-soft: var(--line);
+        --bg-card: var(--glass);
+        --bg-soft: var(--glass-strong);
+        --shadow-strong: var(--shadow);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--paper);
+        background:
+          linear-gradient(115deg, rgba(5, 2, 4, 0.82), rgba(17, 3, 6, 0.62) 44%, rgba(4, 1, 3, 0.94)),
+          url("https://moddedamong.us/images/maulredbg.png") center top / cover fixed no-repeat,
+          #030203;
+        line-height: 1.5;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 16% 18%, rgba(236, 37, 55, 0.34), transparent 32%),
+          radial-gradient(circle at 78% 8%, rgba(255, 211, 110, 0.16), transparent 28%),
+          radial-gradient(circle at 70% 78%, rgba(110, 249, 255, 0.1), transparent 30%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0), #030203 78%);
+        mix-blend-mode: normal;
+        opacity: 1;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px);
+        background-size: 54px 54px;
+        mask-image: linear-gradient(to bottom, black, transparent 80%);
+        opacity: 0.62;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      ::selection {
+        background: rgba(255, 211, 110, 0.34);
+        color: #fff;
+      }
+
+      .page-wrapper {
+        width: min(1180px, calc(100% - 40px));
+        max-width: none;
+        margin: 0 auto;
+        padding: 0 0 72px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 118px 0 38px;
+        position: relative;
+        text-align: left;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 86px -6vw 8px;
+        z-index: -1;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 28px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.075), transparent 38%),
+          linear-gradient(180deg, rgba(236, 37, 55, 0.1), rgba(0, 0, 0, 0.3));
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .header-badge {
+        width: fit-content;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 20px;
+        padding: 8px 13px;
+        border: 1px solid rgba(255, 211, 110, 0.32);
+        border-radius: 999px;
+        background: rgba(19, 8, 11, 0.66);
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        backdrop-filter: blur(16px);
+      }
+
+      .header-badge-dot {
+        width: 9px;
+        height: 9px;
+        background: #32f59b;
+        box-shadow: 0 0 16px rgba(50, 245, 155, 0.85);
+      }
+
+      .hero h1 {
+        max-width: 900px;
+        margin: 0;
+        font-family: "Outfit", sans-serif;
+        font-size: 5.8rem;
+        line-height: 0.9;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-wrap: balance;
+        text-shadow: none;
+      }
+
+      .hero h1 span {
+        background: linear-gradient(95deg, #fff 4%, #ffe1a1 30%, #ff3447 63%, #9b131d);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero-subtitle {
+        max-width: 760px;
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.78;
+      }
+
+      .hero-actions,
+      .jump-links {
+        justify-content: flex-start;
+      }
+
+      .hero-actions {
+        gap: 14px;
+        margin-top: 26px;
+      }
+
+      .cta-primary,
+      .cta-secondary,
+      .jump-links a {
+        min-height: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        text-decoration: none;
+        font-weight: 800;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .cta-primary,
+      .cta-secondary {
+        padding: 0 20px;
+        border-radius: 999px;
+        font-size: 0.95rem;
+      }
+
+      .cta-primary {
+        color: #fff;
+        background: linear-gradient(135deg, #ffcf73, #ff394b 42%, #821018);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.62), 0 0 36px rgba(236, 37, 55, 0.26);
+      }
+
+      .cta-secondary {
+        color: var(--paper);
+        border: 1px solid rgba(255, 211, 110, 0.28);
+        background: rgba(14, 7, 9, 0.62);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(14px);
+      }
+
+      .cta-primary:hover,
+      .cta-secondary:hover,
+      .jump-links a:hover {
+        color: #fff;
+        transform: translateY(-3px);
+      }
+
+      .cta-primary:hover {
+        box-shadow: 0 24px 58px rgba(0, 0, 0, 0.74), 0 0 44px rgba(236, 37, 55, 0.36);
+      }
+
+      .cta-secondary:hover,
+      .jump-links a:hover {
+        border-color: rgba(255, 211, 110, 0.5);
+        background: rgba(36, 14, 18, 0.86);
+      }
+
+      .jump-links {
+        max-width: 1040px;
+        margin: 28px 0 0;
+        gap: 10px;
+      }
+
+      .jump-links a {
+        min-height: 38px;
+        padding: 0 14px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+          rgba(14, 6, 8, 0.68);
+        color: var(--paper);
+        font-size: 0.84rem;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.36);
+        backdrop-filter: blur(14px);
+      }
+
+      .overview-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin: 8px 0 38px;
+      }
+
+      .overview-card {
+        min-height: 118px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.025)),
+          rgba(17, 7, 10, 0.75);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.42);
+        backdrop-filter: blur(18px);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+
+      .overview-card:hover,
+      .policy-card:hover,
+      .info-pill:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 211, 110, 0.28);
+      }
+
+      .overview-card::before {
+        display: none;
+      }
+
+      .overview-card h2 {
+        margin: 0 0 12px;
+        color: #fff;
+        font-family: "Outfit", sans-serif;
+        font-size: 1.22rem;
+        letter-spacing: 0;
+      }
+
+      .overview-card p {
+        color: var(--muted);
+        font-size: 0.93rem;
+        line-height: 1.62;
+      }
+
+      .section-shell {
+        margin-top: 28px;
+        padding: 30px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025)),
+          var(--glass);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+      }
+
+      .policy-section h2 {
+        margin: 0;
+        font-family: "Outfit", sans-serif;
+        font-size: 2.7rem;
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .section-intro {
+        max-width: 860px;
+        margin: 16px 0 20px;
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.78;
+      }
+
+      .policy-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .policy-card {
+        position: relative;
+        overflow: hidden;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background:
+          linear-gradient(150deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)),
+          rgba(15, 7, 9, 0.78);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.34);
+        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .policy-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 16% 10%, rgba(255, 211, 110, 0.18), transparent 36%),
+          radial-gradient(circle at 88% 88%, rgba(236, 37, 55, 0.18), transparent 38%);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .policy-card:hover::before {
+        opacity: 1;
+      }
+
+      .policy-card > * {
+        position: relative;
+      }
+
+      .policy-card h3 {
+        margin: 0 0 10px;
+        color: #fff;
+        font-family: "Outfit", sans-serif;
+        font-size: 1.15rem;
+        letter-spacing: 0;
+      }
+
+      .policy-card p,
+      .policy-card li {
+        color: var(--muted);
+        font-size: 0.94rem;
+        line-height: 1.68;
+      }
+
+      .policy-card ul {
+        margin: 12px 0 0;
+        padding-left: 20px;
+      }
+
+      .policy-card li + li {
+        margin-top: 7px;
+      }
+
+      .policy-card strong,
+      .overview-card strong,
+      .info-pill span {
+        color: #fff;
+      }
+
+      .policy-card a,
+      .overview-card a,
+      .info-pill a {
+        color: var(--gold);
+        text-decoration: none;
+      }
+
+      .policy-card a:hover,
+      .overview-card a:hover,
+      .info-pill a:hover {
+        color: #fff;
+      }
+
+      .policy-card code,
+      .overview-card code,
+      .info-pill code {
+        display: inline;
+        padding: 2px 6px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.075);
+        color: #fff2cc;
+        overflow-wrap: anywhere;
+      }
+
+      .info-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
+      }
+
+      .info-pill {
+        min-height: 112px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.025)),
+          rgba(17, 7, 10, 0.75);
+        color: var(--muted);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.36);
+        backdrop-filter: blur(18px);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+
+      .info-pill span {
+        margin-bottom: 8px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .accent {
+        color: var(--gold);
+      }
+
+      .footnote {
+        margin: 34px 0 0;
+        color: var(--muted);
+      }
+
+      @media (max-width: 980px) {
+        .hero {
+          padding-top: 104px;
+        }
+
+        .hero h1 {
+          font-size: 4.6rem;
+        }
+
+        .overview-grid,
+        .policy-list {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 700px) {
+        .page-wrapper {
+          width: min(100% - 28px, 1180px);
+        }
+
+        .hero {
+          padding-top: 96px;
+        }
+
+        .hero::before {
+          inset: 76px -14px 0;
+          border-radius: 22px;
+        }
+
+        .hero h1 {
+          font-size: 3.4rem;
+        }
+
+        .hero-subtitle {
+          font-size: 0.98rem;
+        }
+
+        .hero-actions,
+        .jump-links {
+          align-items: stretch;
+        }
+
+        .cta-primary,
+        .cta-secondary {
+          width: 100%;
+        }
+
+        .overview-grid,
+        .policy-list,
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section-shell {
+          padding: 22px;
+          border-radius: 20px;
+        }
+
+        .policy-section h2 {
+          font-size: 2.15rem;
+        }
+      }
+
+      @media (max-width: 430px) {
+        .hero h1 {
+          font-size: 2.6rem;
+        }
+      }
+
+      /* Sharper MAUL geometry: less bubble, more clean edge */
+      .hero::before {
+        border-radius: 10px;
+      }
+
+      .header-badge,
+      .cta-primary,
+      .cta-secondary,
+      .jump-links a {
+        border-radius: 8px;
+      }
+
+      .overview-card,
+      .policy-card,
+      .info-pill {
+        border-radius: 8px;
+      }
+
+      .section-shell {
+        border-radius: 10px;
+      }
+
+      .policy-card code,
+      .overview-card code,
+      .info-pill code {
+        border-radius: 4px;
+      }
+
+      .overview-card,
+      .policy-card,
+      .info-pill,
+      .section-shell,
+      .cta-primary,
+      .cta-secondary,
+      .jump-links a {
+        box-shadow: 0 18px 42px rgba(0, 0, 0, 0.44);
+      }
+
+      .policy-card::before {
+        background:
+          linear-gradient(135deg, rgba(255, 211, 110, 0.12), transparent 34%),
+          linear-gradient(315deg, rgba(236, 37, 55, 0.14), transparent 42%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <div class="page-wrapper">
+      <header class="hero">
+        <div class="header-badge">
+          <span class="header-badge-dot"></span>
+          Discord Bot Privacy Policy
+        </div>
+        <h1>Modded Among Us <span>Games</span></h1>
+        <p class="hero-subtitle">
+          This privacy policy explains what data the Modded Among Us Games Discord bot uses, why it is used,
+          how it is stored, and how members can contact us about privacy requests.
+        </p>
+
+        <div class="hero-actions">
+          <a href="mailto:admin@modded-au.org" class="cta-primary">
+            <i class="fa-solid fa-envelope"></i>
+            Contact Admin
+          </a>
+          <a href="https://discord.com/users/1067220560972628058" target="_blank" rel="noopener" class="cta-secondary">
+            <i class="fa-brands fa-discord"></i>
+            @sarhadactyl
+          </a>
+          <a
+            href="https://discord.com/channels/995954559044304896/1491280785079275520"
+            target="_blank"
+            rel="noopener"
+            class="cta-secondary"
+          >
+            <i class="fa-solid fa-ticket"></i>
+            Priority Tickets
+          </a>
+        </div>
+
+        <nav class="jump-links" aria-label="Privacy policy sections">
+          <a href="#summary">Summary</a>
+          <a href="#data">Data Collected</a>
+          <a href="#usage">Use</a>
+          <a href="#intents">Intents</a>
+          <a href="#message-content">Message Content</a>
+          <a href="#presence">Presence</a>
+          <a href="#pingme-data">PingMe Data</a>
+          <a href="#retention">Retention</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <section class="overview-grid" id="summary" aria-label="Policy summary">
+        <article class="overview-card">
+          <h2><i class="fa-solid fa-robot accent"></i> Bot</h2>
+          <p>Modded Among Us Games, Discord application ID <code>1291220895846760523</code>.</p>
+        </article>
+
+        <article class="overview-card">
+          <h2><i class="fa-solid fa-server accent"></i> Server</h2>
+          <p>Used for the Modded Among Us Lobbies community and its server systems.</p>
+        </article>
+
+        <article class="overview-card">
+          <h2><i class="fa-solid fa-user-shield accent"></i> Owner</h2>
+          <p>
+            Managed by
+            <a href="https://discord.com/users/1067220560972628058" target="_blank" rel="noopener">@sarhadactyl</a>.
+          </p>
+        </article>
+
+        <article class="overview-card">
+          <h2><i class="fa-solid fa-calendar-days accent"></i> Updated</h2>
+          <p>Effective June 11, 2026. Last updated July 11, 2026.</p>
+        </article>
+      </section>
+
+      <section class="section-shell policy-section" id="overview">
+        <h2>What The App Does</h2>
+        <p class="section-intro">
+          Modded Among Us Games is a private Discord community bot used to support and automate the Modded
+          Among Us Lobbies server.
+        </p>
+
+        <div class="policy-list">
+          <article class="policy-card">
+            <h3>Community Management</h3>
+            <p>
+              The bot helps staff and members with moderation, role management, verification-related workflows,
+              giveaways, events, minigames, Mafia and Among Us community tools, host tracking, warning systems,
+              member support, server notifications, and activity tracking.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Server-Only Use</h3>
+            <p>
+              The bot is intended for use within Modded Among Us Lobbies and related community workflows. It is
+              not a public multipurpose bot and is not used to sell user data or serve advertising.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell policy-section" id="data">
+        <h2>Information We Collect</h2>
+        <p class="section-intro">
+          The bot only collects or processes Discord information needed for its enabled features.
+        </p>
+
+        <div class="policy-list">
+          <article class="policy-card">
+            <h3>Discord Account And Server Data</h3>
+            <ul>
+              <li>Discord user IDs, usernames, display names, and mentions.</li>
+              <li>Server IDs, channel IDs, thread IDs, role IDs, message IDs, and application IDs.</li>
+              <li>Member role information and server join dates when needed for permissions, panels, or eligibility checks.</li>
+              <li>Invite-related information when needed for member access or invite tracking workflows.</li>
+            </ul>
+          </article>
+
+          <article class="policy-card">
+            <h3>Bot Feature Data</h3>
+            <ul>
+              <li>Giveaway entries, eligibility checks, bonus entries, reroll records, and giveaway audit logs.</li>
+              <li>Moderation records such as warnings, mutes, punishments, staff notes, role changes, and audit entries.</li>
+              <li>Game, event, Mafia, host, and participation statistics.</li>
+              <li>Economy and minigame data, including balances, inventory, rewards, cooldowns, participation, and transaction logs.</li>
+              <li>User opt-in preferences for role panels, notifications, pings, stream alerts, and related features.</li>
+              <li>PingMe / DCD lobby notification settings, subscriber lists, forum thread settings, and optional thread emoji suffixes.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell policy-section" id="usage">
+        <h2>How We Use Information</h2>
+        <div class="policy-list">
+          <article class="policy-card">
+            <h3>Operational Use</h3>
+            <p>
+              Information is used to run commands, manage roles, enforce server requirements, support moderation,
+              operate giveaways, track game hosting, run minigames, manage server notifications, and maintain
+              server configuration.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Safety And Abuse Prevention</h3>
+            <p>
+              Information may also be used to prevent spam, duplicate entries, cheating, command abuse,
+              moderation evasion, or misuse of server systems.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell policy-section" id="intents">
+        <h2>Discord Gateway Intents</h2>
+        <p class="section-intro">
+          The bot uses Discord gateway intents so Discord can send events needed for commands, moderation,
+          role systems, notifications, and lobby tools. The bot uses Discord's default intents plus the
+          privileged message content, server members, and presence intents.
+        </p>
+
+        <div class="policy-list">
+          <article class="policy-card">
+            <h3>Message Content Intent</h3>
+            <p>
+              Used when message text is needed for prefix commands, custom commands, autoresponders, sticky
+              messages, Mafia or game log parsing, chat activity tracking, economy rewards, moderation tools,
+              and other chat-based server features.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Server Members Intent</h3>
+            <p>
+              Used to read member information needed for verification-related workflows, role panels, role
+              management, permission checks, moderation actions, warning systems, eligibility checks,
+              participation tracking, and member support tools.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Presence Intent</h3>
+            <p>
+              Used for features that depend on Discord activity status, especially Among Us rich presence. This
+              lets the bot detect when a tracked host appears to be in an open lobby, post lobby-open messages,
+              ping opted-in members, and show a user's current activity details through debug commands.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Default Discord Events</h3>
+            <p>
+              Used for normal server operation, such as knowing which servers, channels, threads, roles,
+              messages, reactions, voice states, invites, emojis, and interactions exist where the bot has
+              permission. These events support commands, panels, logs, reaction features, voice or lobby tools,
+              and server automation.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Feature And Cog Examples</h3>
+            <p>
+              Known examples from the current workspace and supplied cog archive include:
+            </p>
+            <ul>
+              <li>
+                <strong>Element Tribes</strong> (<code>cogs.element_tribes</code> /
+                <code>cogs.ElementTribes</code>) processes message, member, reaction, voice, thread, and
+                interaction events for tribe assignment, chat and voice objectives, custom quests, Harmony
+                submissions, reaction quests, command tracking, panels, and staff review workflows.
+              </li>
+              <li>
+                <strong>Verification, role, and access tools</strong> (<code>cogs.verification_role_swap</code>,
+                <code>cogs.verify_sqlite</code>, <code>cogs.verify_mysql</code>,
+                <code>cogs.verify_fallback</code>, <code>cogs.verify_followup</code>,
+                <code>cogs.role_management</code>, <code>cogs.gamepanel</code>,
+                <code>cogs.internationalpanel</code>, and <code>cogs.forum_threads</code>) process member,
+                role, message, thread, and interaction events for verification prompts, role swaps, role
+                panels, game/access roles, forum access, and follow-up verification support.
+              </li>
+              <li>
+                <strong>Message, command, help, and responder tools</strong> (<code>cogs.amongus</code>,
+                <code>cogs.amongus_help</code>, <code>cogs.auhelp</code>, <code>cogs.customtags</code>,
+                <code>cogs.MAULtag</code>, <code>cogs.quote</code>, <code>cogs.type</code>,
+                <code>cogs.translation</code>, <code>cogs.banned_responder</code>, <code>cogs.delete</code>,
+                <code>cogs.guildmanager</code>, <code>cogs.starlightcv2</code>,
+                <code>cogs.FeaturedMod</code>, <code>cogs.adminusertools</code>, and
+                <code>cogs.dashboard_deploy</code>) process message content, command metadata, channel/thread
+                data, and member permissions for prefix commands, help responses, custom tags, translations,
+                moderation utilities, and dashboard or responder workflows.
+              </li>
+              <li>
+                <strong>Economy, leveling, games, and event tools</strong> (<code>cogs.beans</code>,
+                <code>cogs.leveling</code>, <code>cogs.giveaways</code>, <code>cogs.EasterHunt</code>,
+                <code>cogs.bombevent</code>, <code>cogs.valentine</code>, <code>cogs.autoreact</code>,
+                <code>cogs.upvotes</code>, <code>cogs.skullboard</code>, and
+                <code>cogs.reaction_logger</code>) process message, reaction, member, role, voice, and thread
+                events for rewards, participation, leaderboards, giveaway eligibility, reaction logging,
+                event progress, and anti-abuse checks.
+              </li>
+              <li>
+                <strong>Lobby, voice, presence, stream, and timer tools</strong> (<code>cogs.pingme</code>,
+                <code>cogs.vc_lobby_tracker</code>, <code>cogs.vc_bcl_hosting_leaderboard</code>,
+                <code>cogs.MobileLobby</code>, <code>cogs.no_among_us</code>, <code>cogs.status</code>,
+                <code>cogs.blvc</code>, <code>cogs.streamping</code>, and <code>cogs.lmstimer</code>) process
+                presence, voice state, member, channel, thread, and role events to detect Among Us lobby
+                activity, track hosts, create or update lobby posts, restrict voice access, run timers, and
+                notify opted-in members.
+              </li>
+              <li>
+                <strong>Mafia, moderation, and staff safety tools</strong> (<code>cogs.mafiapanel</code>,
+                <code>cogs.mafiacommands</code>, <code>cogs.mafiaauto</code>,
+                <code>cogs.mafia_host_tracking</code>, <code>cogs.mafia_private_chats</code>,
+                <code>cogs.mafia_points</code>, <code>cogs.mafia_mutes</code>,
+                <code>cogs.mafia_warnings</code>, <code>cogs.mafiafaqpanel</code>,
+                <code>cogs.maulmafia</code>, <code>cogs.maulnotes</code>, <code>cogs.ncic</code>,
+                <code>cogs.punishments</code>, <code>cogs.warn</code>, <code>cogs.banemoji</code>,
+                <code>cogs.skull_ban</code>, and <code>cogs.rename</code>) process message, member, role,
+                invite, reaction, and thread events for Mafia logs, private game channels, host stats, points,
+                mutes, warnings, invite history, member join/leave records, nickname enforcement, and staff
+                review tools.
+              </li>
+              <li>
+                <strong>Scheduling and community utilities</strong> (<code>cogs.calendar</code>,
+                <code>cogs.birthday</code>, <code>cogs.sticky</code>, and related panel utilities) process
+                member, role, channel, message, thread, and interaction events for event reminders, birthday
+                features, sticky messages, panels, and server organization.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell policy-section" id="message-content">
+        <h2>Message Content</h2>
+        <div class="policy-list">
+          <article class="policy-card">
+            <h3>Why Message Content Is Used</h3>
+            <p>
+              The bot may read message content in server channels where it has access when message content is
+              required for enabled features. This includes prefix commands, custom commands, autoresponders,
+              sticky messages, Mafia or game log parsing, chat activity tracking, economy rewards, and chat-based
+              minigames.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Limits</h3>
+            <p>
+              Message content is used for bot functionality only. It is not sold, used for advertising, or shared
+              with unrelated third parties.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell policy-section" id="presence">
+        <h2>Presence And Activity Data</h2>
+        <div class="policy-list">
+          <article class="policy-card">
+            <h3>Lobby Notifications</h3>
+            <p>
+              The bot may use Discord presence or activity data for features that detect relevant game or lobby
+              states, such as Among Us lobby reopen notifications. This allows opted-in members to receive
+              useful pings when a tracked lobby becomes available.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Activity Debugging</h3>
+            <p>
+              Presence information may also be shown to a user through debugging commands so they can verify
+              whether Discord is exposing the activity needed for lobby notification features.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell policy-section" id="pingme-data">
+        <h2>PingMe And Lobby Data</h2>
+        <p class="section-intro">
+          The PingMe / DCD lobby tools use forum thread, subscriber, and presence information to notify members
+          when a host's Among Us lobby reopens.
+        </p>
+
+        <div class="policy-list">
+          <article class="policy-card">
+            <h3>Stored Configuration</h3>
+            <p>
+              The bot may store server IDs, enabled forum channel IDs, forum thread IDs, thread owner user IDs,
+              whether DCD pings or lobby-open messages are enabled, subscriber user IDs waiting for a ping, and
+              optional thread emoji suffixes used when a thread is renamed.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Presence Information Used</h3>
+            <p>
+              When a tracked post owner has Discord activity available, the bot may read activity type, activity
+              name, state, and details. For Among Us activity, this can include whether the player is "In
+              Lobby," a lobby code, region, and host/lobby label exposed by Discord rich presence.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Runtime And Output</h3>
+            <p>
+              The bot may temporarily track recent lobby codes, requested thread names, cooldowns, and send
+              queues to avoid duplicate or rate-limited notifications. PingMe output may mention subscribed
+              members, post a lobby-open message, include the lobby code, or rename a forum thread using the
+              lobby code, host name, region, and configured emoji suffix.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Cleanup</h3>
+            <p>
+              Subscriber lists are cleared after a DCD reopen ping is sent or when a user removes themselves.
+              Thread state may remain while the feature is enabled for that post, while subscribers are waiting,
+              or while related thread settings are still active.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell policy-section" id="storage">
+        <h2>Storage And Access</h2>
+        <div class="policy-list">
+          <article class="policy-card">
+            <h3>Where Data Is Stored</h3>
+            <p>
+              Bot data may be stored in local databases, configuration files, logs, or other storage used to
+              operate the bot. Stored data may include moderation records, giveaway records, economy data,
+              game statistics, server settings, and user opt-in preferences.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Who Can Access It</h3>
+            <p>
+              Access is limited to authorized server staff, bot maintainers, or administrators who need the
+              information to operate, moderate, troubleshoot, or maintain the bot and server.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell policy-section" id="retention">
+        <h2>Retention And Deletion</h2>
+        <div class="policy-list">
+          <article class="policy-card">
+            <h3>Retention</h3>
+            <p>
+              Data is kept only as long as needed for bot functionality, server administration, moderation
+              history, audit logs, giveaways, game statistics, or abuse prevention.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Deletion Requests</h3>
+            <p>
+              Users may request deletion of eligible stored data. Some data may be retained when needed for
+              moderation history, safety, unresolved disputes, audit logs, or abuse-prevention requirements.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell policy-section" id="sharing">
+        <h2>Sharing</h2>
+        <div class="policy-list">
+          <article class="policy-card">
+            <h3>No Sale Of Data</h3>
+            <p>
+              We do not sell user data. We do not share collected data with advertisers or unrelated third
+              parties.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Normal Server Visibility</h3>
+            <p>
+              Some bot output may be visible in server channels as part of normal functionality, such as
+              leaderboards, giveaway entries, public stats, role panels, event posts, or game participation
+              information.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell policy-section" id="contact">
+        <h2>Contact</h2>
+        <p class="section-intro">
+          For privacy questions, data requests, bot-related concerns, or priority support, contact the server
+          owner, admin email, or Priority Tickets channel.
+        </p>
+
+        <article class="policy-card">
+          <div class="info-grid">
+            <div class="info-pill">
+              <span>Bot</span>
+              Modded Among Us Games<br />
+              ID: <code>1291220895846760523</code>
+            </div>
+
+            <div class="info-pill">
+              <span>Server</span>
+              Modded Among Us Lobbies
+            </div>
+
+            <div class="info-pill">
+              <span>Discord Contact</span>
+              <a href="https://discord.com/users/1067220560972628058" target="_blank" rel="noopener">@sarhadactyl</a><br />
+              User ID: <code>1067220560972628058</code>
+            </div>
+
+            <div class="info-pill">
+              <span>Email</span>
+              <a href="mailto:admin@modded-au.org">admin@modded-au.org</a>
+            </div>
+
+            <div class="info-pill">
+              <span>Priority Tickets</span>
+              <a href="https://discord.com/channels/995954559044304896/1491280785079275520" target="_blank" rel="noopener">
+                Open priority tickets
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <p class="footnote">
+        Last updated July 11, 2026. This policy applies to the Modded Among Us Games Discord bot in Modded Among Us Lobbies.
+      </p>
+    </div>
+
+    <script src="https://moddedamong.us/scripts/navbar.js"></script>
+  </body>
+</html>
