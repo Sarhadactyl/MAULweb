@@ -19,7 +19,7 @@
 
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -558,6 +558,505 @@
         font-size: 0.75rem;
       }
 
+      /* MAUL rich refresh */
+      :root {
+        --accent: #ff384d;
+        --accent-soft: rgba(255, 56, 77, 0.22);
+        --accent-strong: #ff775d;
+        --gold: #ffd37a;
+        --cyan: #6ef9ff;
+        --line: rgba(255, 255, 255, 0.13);
+        --panel: rgba(17, 8, 11, 0.76);
+        --panel-strong: rgba(29, 11, 14, 0.9);
+        --text-main: #fff8ef;
+        --text-muted: rgba(255, 248, 239, 0.74);
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background:
+          radial-gradient(circle at 18% 10%, rgba(255, 56, 77, 0.3), transparent 34%),
+          radial-gradient(circle at 78% 16%, rgba(255, 211, 122, 0.14), transparent 30%),
+          radial-gradient(circle at 72% 82%, rgba(110, 249, 255, 0.08), transparent 32%),
+          linear-gradient(118deg, rgba(86, 3, 14, 0.86), rgba(10, 4, 6, 0.96) 46%, rgba(2, 14, 14, 0.9)),
+          url("images/maulredbg.png") no-repeat center top fixed,
+          #030203;
+        background-size: auto, auto, auto, cover, min(1100px, 110vw) auto, auto;
+      }
+
+      body::before {
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        background-size: 64px 64px;
+        mix-blend-mode: normal;
+        opacity: 0.42;
+      }
+
+      body::after {
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.82)),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.08), rgba(55, 4, 10, 0.24) 38%, rgba(0, 0, 0, 0.58));
+      }
+
+      .page-wrapper {
+        max-width: 1240px;
+        padding: 86px 24px 70px;
+      }
+
+      .page-header {
+        position: relative;
+        overflow: hidden;
+        text-align: left;
+        min-height: 360px;
+        display: grid;
+        align-content: end;
+        padding: clamp(34px, 6vw, 68px);
+        border: 1px solid rgba(255, 211, 122, 0.18);
+        border-radius: 8px;
+        background:
+          linear-gradient(118deg, rgba(96, 8, 17, 0.84), rgba(22, 7, 9, 0.9) 48%, rgba(4, 18, 18, 0.74)),
+          radial-gradient(circle at 80% 24%, rgba(255, 211, 122, 0.16), transparent 30%),
+          var(--panel-strong);
+        box-shadow:
+          0 34px 90px rgba(0, 0, 0, 0.66),
+          inset 0 1px 0 rgba(255, 255, 255, 0.11);
+        backdrop-filter: blur(18px);
+        isolation: isolate;
+      }
+
+      .hero-bean {
+        position: absolute;
+        right: clamp(26px, 6vw, 78px);
+        bottom: clamp(18px, 4vw, 42px);
+        z-index: 0;
+        width: clamp(92px, 13vw, 156px);
+        height: auto;
+        opacity: 0.96;
+        filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.72));
+        pointer-events: none;
+        transform: rotate(-5deg);
+      }
+
+      .header-badge,
+      .page-header h1,
+      .page-header-subtitle {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-join-link {
+        position: absolute;
+        top: clamp(22px, 3vw, 36px);
+        right: clamp(24px, 4vw, 52px);
+        z-index: 2;
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 7px 0 10px;
+        color: #fff8ef;
+        font-family: "Outfit", sans-serif;
+        font-size: 0.94rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .hero-join-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 2px;
+        height: 3px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--accent), var(--gold), #fff8ef);
+        box-shadow: 0 0 18px rgba(255, 211, 122, 0.38);
+        transform-origin: left;
+        transition: transform 0.18s ease, opacity 0.18s ease;
+      }
+
+      .hero-join-link:hover::after {
+        transform: scaleX(1.08);
+        opacity: 0.94;
+      }
+
+      .header-badge {
+        width: fit-content;
+        background: rgba(12, 6, 7, 0.78);
+        border-color: rgba(255, 211, 122, 0.22);
+        color: rgba(255, 248, 239, 0.78);
+      }
+
+      .page-header h1 {
+        max-width: 780px;
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(3.35rem, 7.2vw, 6.5rem);
+        line-height: 0.9;
+        letter-spacing: 0;
+      }
+
+      .page-header h1 span {
+        background: linear-gradient(120deg, #fffdf7 0%, #fff8ef 34%, var(--gold) 66%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      .page-header-subtitle {
+        max-width: 620px;
+        padding-right: clamp(96px, 15vw, 180px);
+        margin-left: 0;
+        color: rgba(255, 248, 239, 0.78);
+      }
+
+      .page-header-subtitle strong {
+        color: #fff;
+        font-weight: 800;
+      }
+
+      .featured-highlight,
+      .mods-section {
+        max-width: 100%;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+      }
+
+      .featured-highlight {
+        max-width: 980px;
+        margin: 24px auto 48px;
+      }
+
+      .featured-highlight-header,
+      .mods-section-title,
+      .mods-section-subtitle {
+        max-width: 980px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .featured-highlight-header {
+        align-items: flex-end;
+        margin-bottom: 14px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255, 211, 122, 0.12);
+      }
+
+      .featured-highlight-label {
+        color: var(--gold);
+      }
+
+      .featured-highlight-pill {
+        background: rgba(12, 6, 7, 0.78);
+        border: 1px solid rgba(255, 211, 122, 0.22);
+        color: var(--gold);
+      }
+
+      .mods-section-title {
+        font-family: "Outfit", sans-serif;
+        text-align: left;
+        margin-bottom: 8px;
+        font-size: clamp(1.65rem, 3vw, 2.45rem);
+        line-height: 1;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .mods-section-subtitle {
+        text-align: left;
+        margin-bottom: 18px;
+        line-height: 1.6;
+      }
+
+      .grid,
+      #featured-grid.grid {
+        max-width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 18px;
+      }
+
+      .card {
+        position: relative;
+        height: 100%;
+        border-radius: 8px;
+        background:
+          linear-gradient(145deg, rgba(80, 13, 18, 0.42), rgba(12, 6, 7, 0.88) 46%, rgba(8, 16, 16, 0.68)),
+          rgba(15, 7, 8, 0.9);
+        border-color: rgba(255, 211, 122, 0.14);
+        box-shadow:
+          0 24px 72px rgba(0, 0, 0, 0.52),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), var(--gold), rgba(110, 249, 255, 0.72));
+        opacity: 0.74;
+        pointer-events: none;
+      }
+
+      .card:hover {
+        background:
+          linear-gradient(145deg, rgba(100, 18, 24, 0.54), rgba(16, 7, 8, 0.9) 46%, rgba(9, 20, 20, 0.72)),
+          rgba(15, 7, 8, 0.94);
+        border-color: rgba(255, 211, 122, 0.34);
+        box-shadow:
+          0 28px 80px rgba(0, 0, 0, 0.62),
+          0 0 34px rgba(255, 56, 77, 0.14);
+      }
+
+      .thumb {
+        height: 170px;
+        background:
+          radial-gradient(circle at 50% 38%, rgba(255, 56, 77, 0.2), transparent 42%),
+          linear-gradient(135deg, rgba(4, 2, 3, 0.94), rgba(47, 7, 12, 0.76));
+        border-bottom: 1px solid rgba(255, 211, 122, 0.11);
+        box-shadow: none;
+      }
+
+      .card-body {
+        flex: 1;
+      }
+
+      .title {
+        font-family: "Outfit", sans-serif;
+        font-weight: 800;
+        letter-spacing: 0;
+        color: #fff8ef;
+      }
+
+      .btn {
+        min-height: 40px;
+        background:
+          linear-gradient(135deg, rgba(67, 12, 16, 0.58), rgba(8, 5, 6, 0.76)),
+          rgba(8, 5, 6, 0.68);
+        border-color: rgba(255, 211, 122, 0.2);
+      }
+
+      .btn:hover {
+        border-color: rgba(255, 211, 122, 0.45);
+        color: #fff8ef;
+      }
+
+      .btn:focus-visible {
+        outline: 3px solid rgba(255, 211, 122, 0.5);
+        outline-offset: 3px;
+      }
+
+      .btn.secondary {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.14);
+      }
+
+      .download-btn {
+        background:
+          linear-gradient(135deg, rgba(255, 56, 77, 0.42), rgba(255, 211, 122, 0.18)),
+          rgba(20, 8, 9, 0.86);
+        border-color: rgba(255, 211, 122, 0.42);
+        color: #fff8ef;
+      }
+
+      .download-btn:hover {
+        border-color: rgba(255, 211, 122, 0.68);
+        box-shadow:
+          0 16px 34px rgba(0, 0, 0, 0.58),
+          0 0 24px rgba(255, 56, 77, 0.18);
+      }
+
+      .download-btn.is-downloading {
+        pointer-events: none;
+        opacity: 0.78;
+      }
+
+      .card > .card-body > .preset-actions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+        align-items: stretch;
+      }
+
+      .card > .card-body > .preset-actions .btn {
+        width: 100%;
+      }
+
+      .presets .preset-actions,
+      .modal-body .preset-actions {
+        justify-content: flex-start;
+        align-items: center;
+        min-height: 0;
+      }
+
+      .presets .preset-actions .btn,
+      .modal-body .preset-actions .btn {
+        width: auto;
+        min-width: 128px;
+      }
+
+      #featured-grid.grid {
+        display: flex;
+        justify-content: center;
+        max-width: 980px;
+      }
+
+      #featured-grid .card {
+        width: 100%;
+        min-height: 250px;
+        border-color: rgba(255, 211, 122, 0.4);
+        box-shadow:
+          0 34px 90px rgba(0, 0, 0, 0.68),
+          0 0 46px rgba(255, 211, 122, 0.18),
+          0 0 80px rgba(255, 56, 77, 0.16);
+      }
+
+      #featured-grid .featured-card {
+        display: grid;
+        grid-template-columns: minmax(220px, 34%) minmax(0, 1fr);
+        align-items: stretch;
+      }
+
+      #featured-grid .featured-card .thumb {
+        height: 100%;
+        min-height: 250px;
+        border-right: 1px solid rgba(255, 211, 122, 0.16);
+        border-bottom: 0;
+        padding: 18px;
+      }
+
+      #featured-grid .featured-card .card-body {
+        padding: 22px 24px 24px;
+        justify-content: center;
+        text-align: left;
+      }
+
+      #featured-grid .featured-card .title,
+      #featured-grid .featured-card .sub {
+        text-align: left;
+      }
+
+      #featured-grid .featured-card .title {
+        margin-top: 0;
+        font-size: clamp(1.2rem, 2.6vw, 1.8rem);
+      }
+
+      #featured-grid .featured-card .sub {
+        max-width: 58ch;
+        margin-bottom: 2px;
+      }
+
+      #featured-grid .featured-card .preset-actions {
+        grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+        min-height: 0;
+        margin-top: 8px;
+      }
+
+      details {
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.28);
+        border-color: rgba(255, 211, 122, 0.1);
+      }
+
+      details[open] {
+        border-color: rgba(255, 211, 122, 0.28);
+        background: rgba(30, 10, 10, 0.76);
+      }
+
+      summary {
+        color: #fff8ef;
+      }
+
+      .mini-steps-wrap {
+        max-width: 980px;
+        border-radius: 8px;
+        background:
+          linear-gradient(135deg, rgba(80, 13, 18, 0.34), rgba(8, 5, 6, 0.74)),
+          rgba(12, 6, 7, 0.76);
+        border-color: rgba(255, 211, 122, 0.15);
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.38);
+      }
+
+      .mini-steps-title {
+        letter-spacing: 0;
+        text-transform: none;
+        font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+      }
+
+      .modal {
+        border-radius: 8px;
+        border-color: rgba(255, 211, 122, 0.24);
+        background:
+          linear-gradient(145deg, rgba(78, 13, 18, 0.92), rgba(9, 6, 7, 0.98) 52%, rgba(8, 17, 17, 0.94)),
+          rgba(12, 6, 7, 0.96);
+      }
+
+      .modal-header {
+        background: rgba(12, 6, 7, 0.88);
+        border-bottom-color: rgba(255, 211, 122, 0.16);
+      }
+
+      .modal-title,
+      .modal-body h4 {
+        color: #fff8ef;
+      }
+
+      @media (max-width: 700px) {
+        .page-wrapper {
+          padding: 84px 14px 56px;
+        }
+
+        .page-header {
+          min-height: 290px;
+          padding: 28px 22px;
+        }
+
+        .hero-bean {
+          width: clamp(70px, 20vw, 102px);
+          right: 16px;
+          bottom: 18px;
+          opacity: 0.64;
+        }
+
+        .page-header-subtitle {
+          padding-right: clamp(76px, 22vw, 114px);
+        }
+
+        .hero-join-link {
+          top: 18px;
+          right: 20px;
+          font-size: 0.82rem;
+        }
+
+        .page-header h1 {
+          font-size: clamp(3rem, 16vw, 4.7rem);
+        }
+
+        .featured-highlight-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        #featured-grid .featured-card {
+          grid-template-columns: 1fr;
+        }
+
+        #featured-grid .featured-card .thumb {
+          height: 180px;
+          min-height: 0;
+          border-right: 0;
+          border-bottom: 1px solid rgba(255, 211, 122, 0.16);
+        }
+
+        #featured-grid .featured-card .card-body,
+        #featured-grid .featured-card .title,
+        #featured-grid .featured-card .sub {
+          text-align: center;
+        }
+      }
+
       @media (prefers-reduced-motion: reduce) {
         * {
           animation-duration: 0.001ms !important;
@@ -586,6 +1085,10 @@
 
     <div class="page-wrapper">
       <header class="page-header">
+        <a class="hero-join-link" href="https://discord.gg/MAUL" target="_blank" rel="noopener">
+          Join MAUL
+        </a>
+        <img class="hero-bean" src="images/maulnobg.png" alt="" aria-hidden="true" />
         <div class="header-badge">
           <span class="header-badge-dot"></span>
           Ready-to-Use Settings for Mods
@@ -705,7 +1208,7 @@
                 description:
                   "Chaos preset + multiple gamemodes (Time Juggle, Soul Shift, Apoc, Murder Mystery, Boss Battle).<br>" +
                   "Some modes require CTA or combo-playable support.",
-                file: "https://raw.githubusercontent.com/Sarhadactyl/MAULweb/main/presets/wyzerisfebOptions.json",
+                file: "presets/wyzerisfebOptions.json",
                 notes:
                   "Boss Battle requires manual tuning past 12 players. Click above for setup details + downloads.",
                 detailsHtml: `
@@ -756,15 +1259,15 @@
                   <h4>Downloads</h4>
                   <div class="preset-actions" style="justify-content:flex-start; flex-wrap:wrap; gap:8px;">
               
-                    <a class="btn" href="https://raw.githubusercontent.com/Sarhadactyl/MAULweb/main/presets/wyzerisfebOptions.json" download>
+                    <a class="btn download-btn" href="presets/wyzerisfebOptions.json" download="wyzerisfebOptions.json">
                       <i class="fa-solid fa-download"></i><span>Options.json</span>
                     </a>
               
-                    <a class="btn secondary" href="https://raw.githubusercontent.com/Sarhadactyl/MAULweb/main/presets/NeverCombos.json" download>
+                    <a class="btn secondary download-btn" href="presets/NeverCombos.json" download="NeverCombos.json">
                       <i class="fa-regular fa-file-code"></i><span>NeverCombos.json</span>
                     </a>
               
-                    <a class="btn secondary" href="https://raw.githubusercontent.com/Sarhadactyl/MAULweb/main/presets/CTA_Data.txt" download>
+                    <a class="btn secondary download-btn" href="presets/CTA_Data.txt" download="CTA_Data.txt">
                       <i class="fa-regular fa-file-lines"></i><span>CTA_Data.txt</span>
                     </a>
               
@@ -859,6 +1362,98 @@
           .replaceAll("'", "&#39;");
       }
 
+      function downloadFileName(file = "") {
+        const cleanPath = String(file).split(/[?#]/)[0];
+        const fileName = cleanPath.split("/").pop() || "preset";
+
+        try {
+          return decodeURIComponent(fileName);
+        } catch {
+          return fileName;
+        }
+      }
+
+      function downloadLinkHtml(file, label = "Download") {
+        const fileName = downloadFileName(file);
+        return `
+          <a
+            class="btn download-btn"
+            href="${escapeHtml(file)}"
+            download="${escapeHtml(fileName)}"
+            data-download-file="${escapeHtml(file)}"
+            aria-label="${escapeHtml(`${label} ${fileName}`)}"
+          >
+            <i class="fa-solid fa-download"></i> ${escapeHtml(label)}
+          </a>
+        `;
+      }
+
+      async function forcePresetDownload(link) {
+        const href = link.getAttribute("href");
+        if (!href) return;
+
+        const downloadUrl = new URL(href, window.location.href);
+        const fileName = link.getAttribute("download") || downloadFileName(href);
+        const originalHtml = link.innerHTML;
+
+        link.classList.add("is-downloading");
+        link.setAttribute("aria-busy", "true");
+        link.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Downloading`;
+
+        try {
+          const response = await fetch(downloadUrl.href, { cache: "no-store" });
+          if (!response.ok) {
+            throw new Error(`Download failed with ${response.status}`);
+          }
+
+          const blob = await response.blob();
+          const objectUrl = URL.createObjectURL(blob);
+          const downloadAnchor = document.createElement("a");
+
+          downloadAnchor.href = objectUrl;
+          downloadAnchor.download = fileName;
+          downloadAnchor.style.display = "none";
+          document.body.appendChild(downloadAnchor);
+          downloadAnchor.click();
+          downloadAnchor.remove();
+
+          window.setTimeout(() => URL.revokeObjectURL(objectUrl), 4000);
+        } catch (error) {
+          console.error("Preset download failed:", error);
+
+          const fallbackAnchor = document.createElement("a");
+          fallbackAnchor.href = downloadUrl.href;
+          fallbackAnchor.download = fileName;
+          fallbackAnchor.style.display = "none";
+          document.body.appendChild(fallbackAnchor);
+          fallbackAnchor.click();
+          fallbackAnchor.remove();
+        } finally {
+          link.classList.remove("is-downloading");
+          link.removeAttribute("aria-busy");
+          link.innerHTML = originalHtml;
+        }
+      }
+
+      function wirePresetDownloads(scope = document) {
+        scope.querySelectorAll("a.download-btn[href]").forEach((link) => {
+          if (link.dataset.downloadWired === "true") return;
+
+          link.dataset.downloadWired = "true";
+          link.addEventListener("click", (event) => {
+            const href = link.getAttribute("href") || "";
+            const url = new URL(href, window.location.href);
+
+            if (url.origin !== window.location.origin && url.protocol !== "file:") {
+              return;
+            }
+
+            event.preventDefault();
+            forcePresetDownload(link);
+          });
+        });
+      }
+
       function presetDetailsHtml(preset) {
         const bits = [];
 
@@ -872,7 +1467,7 @@
 
         if (preset.file) {
           bits.push(
-            `<p><a class="btn" href="${preset.file}" target="_blank" rel="noopener">Download Preset</a></p>`
+            `<p>${downloadLinkHtml(preset.file, "Download Preset")}</p>`
           );
         }
 
@@ -890,6 +1485,7 @@
 
         modalTitle.textContent = title;
         modalBody.innerHTML = html;
+        wirePresetDownloads(modalBody);
         modal.classList.add("open");
         modal.setAttribute("aria-hidden", "false");
       }
@@ -908,7 +1504,7 @@
           .map((item) => {
             const firstPreset = item.presets?.[0];
             const downloadBtn = firstPreset?.file
-              ? `<a class="btn" href="${firstPreset.file}" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download</a>`
+              ? downloadLinkHtml(firstPreset.file)
               : "";
 
             const detailsBtn = firstPreset
@@ -918,7 +1514,7 @@
               : "";
 
             return `
-              <article class="card">
+              <article class="card featured-card">
                 <img src="${item.image}" alt="${escapeHtml(item.title)}" class="thumb" />
                 <div class="card-body">
                   <h3 class="title">${escapeHtml(item.title)}</h3>
@@ -944,6 +1540,7 @@
             openModal(`${item.title} — ${preset.name}`, presetDetailsHtml(preset));
           });
         });
+        wirePresetDownloads(root);
       }
 
       function renderMods() {
@@ -961,9 +1558,7 @@
                 `;
 
                 const downloadButton = preset.file
-                  ? `<a class="btn" href="${preset.file}" target="_blank" rel="noopener">
-                      <i class="fa-solid fa-download"></i> Download
-                    </a>`
+                  ? downloadLinkHtml(preset.file)
                   : "";
 
                 return `
@@ -1012,6 +1607,7 @@
             openModal(`${mod.title} — ${preset.name}`, presetDetailsHtml(preset));
           });
         });
+        wirePresetDownloads(root);
       }
 
       document.getElementById("modalCloseBtn")?.addEventListener("click", closeModal);
