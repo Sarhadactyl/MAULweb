@@ -1,0 +1,912 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Privacy Policy &amp; Terms of Service &middot; Modded Among Us Mafia</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:title" content="Privacy Policy &amp; Terms of Service &middot; Modded Among Us Mafia" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/MAUF" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta
+      property="og:description"
+      content="Privacy Policy and Terms of Service for the Modded Among Us Mafia Discord bot used by Modded Among Us Lobbies."
+    />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      name="description"
+      content="Privacy Policy and Terms of Service for the Modded Among Us Mafia Discord bot, including data use, Discord intents, Mafia game data, retention, deletion, and contact details."
+    />
+    <link rel="canonical" href="https://moddedamong.us/MAUF" />
+    <link rel="icon" type="image/png" href="https://moddedamong.us/images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --red: #ec2537;
+        --red-dark: #74070f;
+        --red-soft: rgba(236, 37, 55, 0.2);
+        --gold: #ffd36e;
+        --cyan: #6ef9ff;
+        --violet: #a88bff;
+        --ink: #070407;
+        --paper: #fff8ef;
+        --muted: #cdbfc0;
+        --line: rgba(255, 255, 255, 0.14);
+        --glass: rgba(17, 8, 11, 0.72);
+        --glass-strong: rgba(28, 12, 15, 0.88);
+        --shadow: 0 28px 80px rgba(0, 0, 0, 0.72);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100%;
+        margin: 0;
+        overflow-x: hidden;
+        color: var(--paper);
+        background:
+          linear-gradient(115deg, rgba(5, 2, 4, 0.82), rgba(17, 3, 6, 0.62) 44%, rgba(4, 1, 3, 0.94)),
+          url("https://moddedamong.us/images/maulredbg.png") center top / cover fixed no-repeat,
+          #030203;
+        font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      body::before {
+        z-index: -2;
+        background:
+          radial-gradient(circle at 16% 18%, rgba(236, 37, 55, 0.34), transparent 32%),
+          radial-gradient(circle at 78% 8%, rgba(255, 211, 110, 0.16), transparent 28%),
+          radial-gradient(circle at 70% 78%, rgba(110, 249, 255, 0.1), transparent 30%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0), #030203 78%);
+      }
+
+      body::after {
+        z-index: -1;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px);
+        background-size: 54px 54px;
+        mask-image: linear-gradient(to bottom, black, transparent 80%);
+        opacity: 0.62;
+      }
+
+      a {
+        color: inherit;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
+
+      a:hover {
+        color: #ffffff;
+      }
+
+      ::selection {
+        background: rgba(255, 211, 110, 0.34);
+        color: #ffffff;
+      }
+
+      .page-wrapper {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 0 0 72px;
+      }
+
+      .hero {
+        position: relative;
+        padding: 118px 0 38px;
+        text-align: left;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 86px -6vw 8px;
+        z-index: -1;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 28px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.075), transparent 38%),
+          linear-gradient(180deg, rgba(236, 37, 55, 0.1), rgba(0, 0, 0, 0.3));
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .header-badge {
+        width: fit-content;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 20px;
+        padding: 8px 13px;
+        border: 1px solid rgba(255, 211, 110, 0.32);
+        border-radius: 999px;
+        background: rgba(19, 8, 11, 0.66);
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        backdrop-filter: blur(16px);
+      }
+
+      .header-badge-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #32f59b;
+        box-shadow: 0 0 16px rgba(50, 245, 155, 0.85);
+      }
+
+      .hero h1 {
+        max-width: 930px;
+        margin: 0;
+        font-family: "Outfit", "Inter", sans-serif;
+        font-size: clamp(3.2rem, 10vw, 5.8rem);
+        line-height: 0.92;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-wrap: balance;
+      }
+
+      .hero h1 span {
+        background: linear-gradient(95deg, #fff 4%, #ffe1a1 30%, #ff3447 63%, #9b131d);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero-subtitle {
+        max-width: 800px;
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.78;
+      }
+
+      .hero-actions,
+      .jump-links {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .hero-actions {
+        gap: 14px;
+        margin-top: 26px;
+      }
+
+      .cta-primary,
+      .cta-secondary,
+      .jump-links a {
+        min-height: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        text-decoration: none;
+        font-weight: 800;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .cta-primary,
+      .cta-secondary {
+        padding: 0 20px;
+        border-radius: 999px;
+        font-size: 0.95rem;
+      }
+
+      .cta-primary {
+        color: #ffffff;
+        background: linear-gradient(135deg, #ffcf73, #ff394b 42%, #821018);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.62), 0 0 36px rgba(236, 37, 55, 0.26);
+      }
+
+      .cta-secondary {
+        color: var(--paper);
+        border: 1px solid rgba(255, 211, 110, 0.28);
+        background: rgba(14, 7, 9, 0.62);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(14px);
+      }
+
+      .cta-primary:hover,
+      .cta-secondary:hover,
+      .jump-links a:hover {
+        transform: translateY(-3px);
+      }
+
+      .cta-primary:hover {
+        box-shadow: 0 24px 58px rgba(0, 0, 0, 0.74), 0 0 44px rgba(236, 37, 55, 0.36);
+      }
+
+      .cta-secondary:hover,
+      .jump-links a:hover {
+        border-color: rgba(255, 211, 110, 0.5);
+        background: rgba(36, 14, 18, 0.86);
+      }
+
+      .jump-links {
+        max-width: 1040px;
+        margin: 28px 0 0;
+        gap: 10px;
+      }
+
+      .jump-links a {
+        min-height: 38px;
+        padding: 0 14px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+          rgba(14, 6, 8, 0.68);
+        color: var(--paper);
+        font-size: 0.84rem;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.36);
+        backdrop-filter: blur(14px);
+      }
+
+      .overview-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin: 8px 0 38px;
+      }
+
+      .overview-card,
+      .policy-card,
+      .info-pill {
+        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .overview-card {
+        min-height: 118px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.025)),
+          rgba(17, 7, 10, 0.75);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.42);
+        backdrop-filter: blur(18px);
+      }
+
+      .overview-card:hover,
+      .policy-card:hover,
+      .info-pill:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 211, 110, 0.28);
+      }
+
+      .overview-card h2,
+      .policy-section h2,
+      .policy-card h3 {
+        margin: 0;
+        font-family: "Outfit", "Inter", sans-serif;
+        letter-spacing: 0;
+      }
+
+      .overview-card h2 {
+        color: #ffffff;
+        font-size: 1.22rem;
+      }
+
+      .overview-card p,
+      .policy-card p,
+      .policy-card li,
+      .section-intro {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .overview-card p,
+      .policy-card p {
+        margin: 12px 0 0;
+        font-size: 0.95rem;
+      }
+
+      .section-shell {
+        margin-top: 28px;
+        padding: 30px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025)),
+          var(--glass);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+      }
+
+      .policy-section h2 {
+        color: #ffffff;
+        font-size: clamp(2rem, 5vw, 2.7rem);
+        line-height: 1;
+      }
+
+      .section-intro {
+        max-width: 860px;
+        margin: 16px 0 20px;
+        font-size: 1rem;
+        line-height: 1.78;
+      }
+
+      .policy-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .policy-card {
+        position: relative;
+        overflow: hidden;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background:
+          linear-gradient(150deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)),
+          rgba(15, 7, 9, 0.78);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.34);
+      }
+
+      .policy-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 16% 10%, rgba(255, 211, 110, 0.18), transparent 36%),
+          radial-gradient(circle at 88% 88%, rgba(236, 37, 55, 0.18), transparent 38%);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .policy-card:hover::before {
+        opacity: 1;
+      }
+
+      .policy-card > * {
+        position: relative;
+      }
+
+      .policy-card h3 {
+        color: #ffffff;
+        font-size: 1.16rem;
+      }
+
+      .policy-card ul {
+        margin: 12px 0 0;
+        padding-left: 20px;
+      }
+
+      .policy-card li + li {
+        margin-top: 8px;
+      }
+
+      .policy-card strong {
+        color: #ffffff;
+      }
+
+      .policy-card code,
+      .info-pill code {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.06);
+        color: #ffffff;
+        padding: 2px 6px;
+        font-size: 0.92em;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .info-pill {
+        overflow-wrap: anywhere;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: rgba(45, 18, 18, 0.95);
+        color: var(--muted);
+        padding: 12px 14px;
+        line-height: 1.6;
+      }
+
+      .info-pill span {
+        display: block;
+        color: #ffffff;
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+
+      .accent {
+        color: var(--gold);
+      }
+
+      .footnote {
+        margin: 26px 0 0;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 980px) {
+        .overview-grid,
+        .policy-list {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 700px) {
+        .page-wrapper {
+          width: min(100% - 28px, 1180px);
+        }
+
+        .hero {
+          padding-top: 74px;
+        }
+
+        .overview-grid,
+        .policy-list,
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section-shell {
+          padding: 22px;
+        }
+
+        .cta-primary,
+        .cta-secondary {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <header class="hero">
+        <div class="header-badge">
+          <span class="header-badge-dot" aria-hidden="true"></span>
+          Privacy Policy &amp; Terms of Service
+        </div>
+
+        <h1>Modded Among Us <span>Mafia</span></h1>
+        <p class="hero-subtitle">
+          This page explains what data the Modded Among Us Mafia Discord bot uses, why it is used,
+          how long it may be kept, and the basic rules for using the bot's Mafia systems in
+          Modded Among Us Lobbies.
+        </p>
+
+        <div class="hero-actions">
+          <a href="mailto:admin@modded-au.org" class="cta-primary">Contact Admin</a>
+          <a href="https://discord.com/users/1067220560972628058" target="_blank" rel="noopener" class="cta-secondary">
+            @sarhadactyl
+          </a>
+          <a
+            href="https://discord.com/channels/995954559044304896/1491280785079275520"
+            target="_blank"
+            rel="noopener"
+            class="cta-secondary"
+          >
+            Priority Tickets
+          </a>
+        </div>
+
+        <nav class="jump-links" aria-label="Page sections">
+          <a href="#overview">Overview</a>
+          <a href="#data">Data Collected</a>
+          <a href="#intents">Gateway Intents</a>
+          <a href="#message-content">Message Content</a>
+          <a href="#storage">Storage</a>
+          <a href="#retention">Deletion</a>
+          <a href="#terms">Terms</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <section class="overview-grid" aria-label="Quick bot details">
+        <article class="overview-card">
+          <h2>Bot</h2>
+          <p>Modded Among Us Mafia, Discord application ID <code>1530443638809563236</code>.</p>
+        </article>
+
+        <article class="overview-card">
+          <h2>Server</h2>
+          <p>Used for the Modded Among Us Lobbies community and Mafia game systems.</p>
+        </article>
+
+        <article class="overview-card">
+          <h2>Owner</h2>
+          <p>Contact <a href="https://discord.com/users/1067220560972628058" target="_blank" rel="noopener">@sarhadactyl</a>.</p>
+        </article>
+
+        <article class="overview-card">
+          <h2>Updated</h2>
+          <p>Effective July 26, 2026. Last updated July 26, 2026.</p>
+        </article>
+      </section>
+
+      <main>
+        <section class="section-shell policy-section" id="overview">
+          <h2>What The Bot Does</h2>
+          <p class="section-intro">
+            Modded Among Us Mafia is a Discord community bot used to run and manage the Mafia systems that
+            were previously handled by the Modded Among Us Games bot.
+          </p>
+
+          <div class="policy-list">
+            <article class="policy-card">
+              <h3>Mafia Game Management</h3>
+              <p>
+                The bot supports Mafia setup, player joining, host controls, role assignment, private game
+                channels or chats, game logs, voting, night actions, points, stats, mutes, warnings, FAQ panels,
+                and staff review workflows related to Mafia games.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3>Server-Only Use</h3>
+              <p>
+                The bot is intended for Modded Among Us Lobbies and related Mafia workflows. It is not a public
+                multipurpose bot, and it is not used to sell user data or serve advertising.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-shell policy-section" id="data">
+          <h2>Information We Collect</h2>
+          <p class="section-intro">
+            The bot only collects or processes Discord information needed for enabled Mafia features,
+            server administration, support, safety, and troubleshooting.
+          </p>
+
+          <div class="policy-list">
+            <article class="policy-card">
+              <h3>Discord Account And Server Data</h3>
+              <ul>
+                <li>Discord user IDs, usernames, display names, avatars, and mentions.</li>
+                <li>Server IDs, channel IDs, thread IDs, role IDs, message IDs, and application IDs.</li>
+                <li>Member role information and permissions when needed for Mafia hosts, staff controls, eligibility checks, or private channel access.</li>
+                <li>Invite, join, leave, nickname, or server event details when used by Mafia staff safety or review tools.</li>
+              </ul>
+            </article>
+
+            <article class="policy-card">
+              <h3>Mafia Feature Data</h3>
+              <ul>
+                <li>Game setup, host information, joined players, assigned roles, alive or eliminated status, team or alignment data, and game outcomes.</li>
+                <li>Votes, night actions, private chat or channel IDs, logs, moderation notes, warnings, mutes, points, host stats, and game statistics.</li>
+                <li>Server configuration such as enabled cogs, command settings, staff roles, logging channels, game settings, and FAQ or panel settings.</li>
+                <li>Command usage, timestamps, errors, diagnostics, and limited interaction content needed to process commands, buttons, menus, and modals.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-shell policy-section" id="usage">
+          <h2>How We Use Information</h2>
+          <div class="policy-list">
+            <article class="policy-card">
+              <h3>Operational Use</h3>
+              <p>
+                Information is used to run Mafia games, manage hosts and players, assign or restrict roles,
+                maintain private game spaces, process votes and actions, show results, track optional stats,
+                and save server settings chosen by authorized staff.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3>Safety And Abuse Prevention</h3>
+              <p>
+                Information may also be used to prevent cheating, command abuse, spam, duplicate actions,
+                moderation evasion, unauthorized access to private Mafia areas, or misuse of server systems.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-shell policy-section" id="intents">
+          <h2>Discord Gateway Intents</h2>
+          <p class="section-intro">
+            The bot uses Discord gateway intents so Discord can send events needed for commands, Mafia game
+            operation, moderation, staff tools, private channels, logs, role checks, and support workflows.
+          </p>
+
+          <div class="policy-list">
+            <article class="policy-card">
+              <h3>Message Content Intent</h3>
+              <p>
+                Used when message text is needed for prefix commands, host commands, Mafia game log parsing,
+                private chat workflows, moderation tools, staff notes, FAQ responses, and other chat-based
+                Mafia features.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3>Server Members Intent</h3>
+              <p>
+                Used to read member information needed for role checks, host permissions, private game access,
+                mutes, warnings, nickname enforcement, participation tracking, staff review, and member support.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3>Default Discord Events</h3>
+              <p>
+                Used for normal server operation, such as knowing which servers, channels, threads, roles,
+                messages, reactions, voice states, invites, emojis, and interactions exist where the bot has
+                permission. These events support commands, panels, logs, reactions, and Mafia automation.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3>Feature And Cog Examples</h3>
+              <p>Known Mafia-related examples from the previous bot include:</p>
+              <ul>
+                <li>
+                  <strong>Mafia panel and command tools</strong> (<code>cogs.mafiapanel</code>,
+                  <code>cogs.mafiacommands</code>, <code>cogs.mafiaauto</code>, and
+                  <code>cogs.mafiafaqpanel</code>) process command metadata, interactions, roles, channels,
+                  threads, messages, and game configuration for Mafia setup and operation.
+                </li>
+                <li>
+                  <strong>Mafia private spaces</strong> (<code>cogs.mafia_private_chats</code>) process member,
+                  role, channel, thread, and message information to create or manage private Mafia chats or
+                  channels.
+                </li>
+                <li>
+                  <strong>Mafia host, points, and records</strong> (<code>cogs.mafia_host_tracking</code>,
+                  <code>cogs.mafia_points</code>, and <code>cogs.maulmafia</code>) process game participation,
+                  host records, point totals, game results, and related statistics.
+                </li>
+                <li>
+                  <strong>Mafia moderation and staff safety</strong> (<code>cogs.mafia_mutes</code>,
+                  <code>cogs.mafia_warnings</code>, <code>cogs.maulnotes</code>, <code>cogs.ncic</code>,
+                  <code>cogs.punishments</code>, <code>cogs.warn</code>, <code>cogs.banemoji</code>,
+                  <code>cogs.skull_ban</code>, and <code>cogs.rename</code>) process member, role, invite,
+                  reaction, nickname, thread, and message data for safety, logs, notes, warnings, mutes,
+                  punishments, and staff review.
+                </li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-shell policy-section" id="message-content">
+          <h2>Message Content</h2>
+          <div class="policy-list">
+            <article class="policy-card">
+              <h3>Why Message Content Is Used</h3>
+              <p>
+                The bot may read message content in server channels where it has access when message content is
+                required for enabled Mafia features. This includes prefix commands, host commands, Mafia logs,
+                vote or action parsing, private game chat workflows, staff notes, and chat-based moderation.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3>Limits</h3>
+              <p>
+                Message content is used for bot functionality only. It is not sold, used for advertising, or
+                shared with unrelated third parties. The bot is not intended to monitor or store unrelated server
+                conversations.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-shell policy-section" id="storage">
+          <h2>Storage And Access</h2>
+          <div class="policy-list">
+            <article class="policy-card">
+              <h3>Where Data Is Stored</h3>
+              <p>
+                Bot data may be stored in local databases, configuration files, logs, or other storage used to
+                operate the bot. Stored data may include Mafia game records, points, host records, moderation
+                records, server settings, warnings, mutes, staff notes, and user opt-in or participation data.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3>Who Can Access It</h3>
+              <p>
+                Access is limited to authorized server staff, bot maintainers, or administrators who need the
+                information to operate, moderate, troubleshoot, or maintain the bot and server.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-shell policy-section" id="retention">
+          <h2>Retention And Deletion</h2>
+          <div class="policy-list">
+            <article class="policy-card">
+              <h3>Retention</h3>
+              <p>
+                Active Mafia game data is kept as long as needed to run the game and clean up after it ends.
+                Server configuration, optional stats, game history, moderation history, audit logs, and
+                abuse-prevention records may be kept while needed for server administration or safety.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3>Deletion Requests</h3>
+              <p>
+                Users may request deletion of eligible stored data. Server owners or authorized administrators
+                may request deletion of server-linked configuration or records. Some data may be retained when
+                needed for moderation history, safety, unresolved disputes, audit logs, or abuse prevention.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-shell policy-section" id="sharing">
+          <h2>Sharing</h2>
+          <div class="policy-list">
+            <article class="policy-card">
+              <h3>No Sale Of Data</h3>
+              <p>
+                We do not sell user data. We do not share collected data with advertisers or unrelated third
+                parties.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3>Normal Server Visibility</h3>
+              <p>
+                Some bot output may be visible in server channels as part of normal functionality, such as game
+                signups, host panels, results, logs, public stats, warnings, point totals, or participation
+                information.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-shell policy-section" id="terms">
+          <h2>Terms Of Service</h2>
+          <p class="section-intro">
+            By adding, using, or interacting with Modded Among Us Mafia, you agree to these Terms of Service.
+            If you do not agree, do not use the bot and remove it from your server if you have permission to do so.
+          </p>
+
+          <div class="policy-list">
+            <article class="policy-card">
+              <h3>Allowed Use</h3>
+              <ul>
+                <li>Use the bot only for lawful Discord server gameplay, moderation, support, and Mafia administration.</li>
+                <li>Do not use the bot to harass, threaten, abuse, spam, raid, scam, phish, or distribute malicious content.</li>
+                <li>Do not exploit, disrupt, overload, reverse engineer, or bypass limits in the bot.</li>
+                <li>Do not use the bot in a way that violates Discord's rules, applicable law, or the rules of the server where it is installed.</li>
+                <li>Do not misrepresent the bot as being owned, operated, endorsed, or approved by Discord or InnerSloth.</li>
+              </ul>
+            </article>
+
+            <article class="policy-card">
+              <h3>Server Responsibility</h3>
+              <p>
+                Server owners and administrators are responsible for deciding whether the bot is appropriate for
+                their server, configuring it safely, assigning suitable permissions, and making sure bot use
+                follows Discord's Terms of Service, Discord's Community Guidelines, and server rules.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3>Availability And Changes</h3>
+              <p>
+                The bot is provided as available. Features may be changed, paused, limited, or removed at any
+                time, including Mafia cogs, commands, settings, statistics, game modes, and support features.
+                We may restrict or block access for users or servers that abuse the bot, create security risks,
+                or violate these terms.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3>No Warranty And Liability Limits</h3>
+              <p>
+                The bot is provided without warranties of any kind. To the fullest extent allowed by law, the bot
+                operator is not liable for indirect, incidental, special, consequential, or punitive damages, or
+                for loss of data, server disruption, game disruption, or user disputes arising from use of the bot.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-shell policy-section" id="discord-terms">
+          <h2>Relationship To Discord Terms</h2>
+          <p class="section-intro">
+            Use of the bot also depends on Discord's own services, rules, permissions, and platform behavior.
+            Nothing on this page replaces or overrides Discord's Terms of Service, Discord's Privacy Policy, the
+            Discord Developer Terms of Service, or the Discord Developer Policy. If there is a conflict,
+            Discord's applicable terms control your use of Discord and the Discord API.
+          </p>
+
+          <div class="policy-list">
+            <article class="policy-card">
+              <h3>Discord Policy Links</h3>
+              <ul>
+                <li><a href="https://discord.com/privacy/privacypolicy" target="_blank" rel="noopener">Discord Privacy Policy</a></li>
+                <li><a href="https://support-dev.discord.com/hc/en-us/articles/8562894815383-Discord-Developer-Terms-of-Service" target="_blank" rel="noopener">Discord Developer Terms of Service</a></li>
+                <li><a href="https://support-dev.discord.com/hc/en-us/articles/8563934450327-Discord-Developer-Policy" target="_blank" rel="noopener">Discord Developer Policy</a></li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-shell policy-section" id="contact">
+          <h2>Contact</h2>
+          <p class="section-intro">
+            For privacy questions, data requests, Terms of Service questions, bot-related concerns, or priority
+            support, contact the server owner, admin email, or Priority Tickets channel.
+          </p>
+
+          <article class="policy-card">
+            <div class="info-grid">
+              <div class="info-pill">
+                <span>Bot</span>
+                Modded Among Us Mafia<br />
+                ID: <code>1530443638809563236</code>
+              </div>
+
+              <div class="info-pill">
+                <span>Server</span>
+                Modded Among Us Lobbies
+              </div>
+
+              <div class="info-pill">
+                <span>Discord Contact</span>
+                <a href="https://discord.com/users/1067220560972628058" target="_blank" rel="noopener">@sarhadactyl</a><br />
+                User ID: <code>1067220560972628058</code>
+              </div>
+
+              <div class="info-pill">
+                <span>Email</span>
+                <a href="mailto:admin@modded-au.org">admin@modded-au.org</a>
+              </div>
+
+              <div class="info-pill">
+                <span>Priority Tickets</span>
+                <a href="https://discord.com/channels/995954559044304896/1491280785079275520" target="_blank" rel="noopener">
+                  Open priority tickets
+                </a>
+              </div>
+
+              <div class="info-pill">
+                <span>Webpage Link</span>
+                <code>/MAUF</code>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <p class="footnote">
+        Last updated July 26, 2026. This page applies to the Modded Among Us Mafia Discord bot in Modded Among Us Lobbies.
+      </p>
+    </div>
+  </body>
+</html>
