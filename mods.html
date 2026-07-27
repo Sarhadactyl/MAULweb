@@ -1,21 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Featured Among Us Mods · MAUL</title>
+    <title>Among Us Mods, &amp;Mod Managers and APIs | MAUL</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Browse 55 Among Us mods, Starlight compatible mods, APIs, and mod managers with GitHub, Discord, Steam, Epic, DLL, and latest release links for the most used mods in the Modded Among Us community."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Modded Among Us Lobbies" />
+    <meta name="application-name" content="MAUL Among Us Mods" />
 
-    <meta property="og:title" content="Featured Among Us Mods" />
+    <meta property="og:title" content="Among Us Mods, Downloads &amp; Mod Managers | MAUL" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moddedamong.us/mods.html" />
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta property="og:image:alt" content="Modded Among Us Lobbies banner" />
     <meta
       property="og:description"
-      content="A curated list of host-only and client-required mods used by the Modded Among Us Lobbies community."
+      content="Find Among Us mods, Starlight-compatible mods, modding APIs, and mod managers with GitHub, Discord, and latest release download links."
     />
     <meta property="og:site_name" content="Modded Among Us Lobbies" />
     <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Among Us Mods, Downloads &amp; Mod Managers | MAUL" />
+    <meta
+      name="twitter:description"
+      content="Browse 55 Among Us mods, Starlight mods, APIs, and mod managers with GitHub, Discord, and latest release links."
+    />
+    <meta name="twitter:image" content="https://moddedamong.us/images/banner.png" />
     <link rel="canonical" href="https://moddedamong.us/mods.html" />
+    <link rel="alternate" hreflang="en" href="https://moddedamong.us/mods.html" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://moddedamong.us/#website",
+            "url": "https://moddedamong.us/",
+            "name": "Modded Among Us Lobbies",
+            "alternateName": "MAUL",
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://moddedamong.us/mods.html#webpage",
+            "url": "https://moddedamong.us/mods.html",
+            "name": "Among Us Mods, Downloads & Mod Managers",
+            "description": "A curated MAUL catalog of Among Us mods, Starlight mods, host-only mods, client-required mods, APIs, and mod managers with GitHub, Discord, and release links.",
+            "isPartOf": { "@id": "https://moddedamong.us/#website" },
+            "inLanguage": "en-US",
+            "dateModified": "2026-07-27",
+            "primaryImageOfPage": {
+              "@type": "ImageObject",
+              "url": "https://moddedamong.us/images/banner.png"
+            },
+            "about": [
+              { "@type": "Thing", "name": "Among Us mods" },
+              { "@type": "Thing", "name": "Starlight mods" },
+              { "@type": "Thing", "name": "Host-only Among Us mods" },
+              { "@type": "Thing", "name": "Among Us mod managers" }
+            ],
+            "mainEntity": { "@id": "https://moddedamong.us/mods.html#mod-categories" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://moddedamong.us/mods.html#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "MAUL",
+                "item": "https://moddedamong.us/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Among Us Mods",
+                "item": "https://moddedamong.us/mods.html"
+              }
+            ]
+          },
+          {
+            "@type": "ItemList",
+            "@id": "https://moddedamong.us/mods.html#mod-categories",
+            "name": "Among Us mod categories",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Host-Only Mods",
+                "url": "https://moddedamong.us/mods.html#host-only"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Client-Required Mods",
+                "url": "https://moddedamong.us/mods.html#client-required"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Utility Mods",
+                "url": "https://moddedamong.us/mods.html#utility-mods"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Starlight Mods",
+                "url": "https://moddedamong.us/mods.html#starlight-mods"
+              },
+              {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "APIs",
+                "url": "https://moddedamong.us/mods.html#apis"
+              },
+              {
+                "@type": "ListItem",
+                "position": 6,
+                "name": "Mod Managers",
+                "url": "https://moddedamong.us/mods.html#mod-managers"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
 
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
     <link
@@ -540,6 +654,29 @@
         color: rgba(255, 248, 239, 0.78);
       }
 
+      .mods-category-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        max-width: 980px;
+        margin: 18px auto 30px;
+        padding: 0 2px;
+        font-size: 0.86rem;
+        font-weight: 700;
+      }
+
+      .mods-category-nav a {
+        color: var(--gold);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 211, 122, 0.44);
+        transition: color 0.18s ease, border-color 0.18s ease;
+      }
+
+      .mods-category-nav a:hover {
+        color: #fff8ef;
+        border-color: #fff8ef;
+      }
+
       .featured-highlight,
       .mods-section {
         max-width: 100%;
@@ -678,6 +815,7 @@
 
       body.search-active .featured-copy,
       body.search-active .featured-highlight-pill,
+      body.search-active .mods-category-nav,
       body.search-active .mods-section-title,
       body.search-active .mods-section-subtitle,
       body.search-active .section-chip {
@@ -1125,6 +1263,11 @@
           font-size: clamp(3rem, 16vw, 4.7rem);
         }
 
+        .mods-category-nav {
+          margin-top: 14px;
+          margin-bottom: 22px;
+        }
+
         .starlight-section .mods-section-title::after {
           margin: 10px 0 0;
         }
@@ -1140,11 +1283,20 @@
         <a class="hero-join-link" href="https://discord.gg/MAUL" target="_blank" rel="noopener">
           Join MAUL
         </a>
-        <h1>Featured <span>Among Us Mods</span></h1>
+        <h1>Among Us <span>Mods &amp; Downloads</span></h1>
         <p class="page-header-subtitle">
-          Host-only and client-required mods that power our lobbies – from classic role packs to custom maps and QoL tools.
+          Find and download Among Us mods for MAUL lobbies, including host-only mods, client-required mods, Starlight-compatible mods, APIs, mod managers, and latest Steam, Epic, and DLL release links.
         </p>
       </header>
+
+      <nav class="mods-category-nav" aria-label="Among Us mod categories">
+        <a href="#host-only">Host-only mods</a>
+        <a href="#client-required">Client-required mods</a>
+        <a href="#utility-mods">Utility mods</a>
+        <a href="#starlight-mods">Starlight mods</a>
+        <a href="#apis">APIs</a>
+        <a href="#mod-managers">Mod managers</a>
+      </nav>
 
       <section class="mod-search" aria-label="Search mods">
         <div class="mod-search-inner">
