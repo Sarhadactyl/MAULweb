@@ -43,5 +43,5 @@ This project uses a **mixed-license setup** to keep things clear and fair:
   
   <strong><a href="https://github.com/yanpla">@yanpla</a></strong><br>
   Check out their website <a href="https://ehr.gurge44.eu](https://starlight.yanpla.nl">here</a>.<br>
-  Their website has helped me maintain Componets in Maul as well as out Starlight section on the mod page.</strong><br>
+  Their website has helped me maintain Componets in Maul as well as our Starlight section on the mod page.</strong><br>
 </div>
