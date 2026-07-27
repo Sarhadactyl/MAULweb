@@ -287,6 +287,41 @@
         text-align: center;
       }
 
+      .title-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        margin: 4px 2px;
+      }
+
+      .title-row .title {
+        margin: 0;
+      }
+
+      .mod-status-tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 18px;
+        padding: 2px 7px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 211, 122, 0.24);
+        background: rgba(255, 211, 122, 0.1);
+        color: var(--gold);
+        font-size: 0.62rem;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .deprecated-tag {
+        border-color: rgba(255, 119, 93, 0.34);
+        background: rgba(255, 119, 93, 0.14);
+        color: #ffb39c;
+      }
+
       .sub {
         margin: 0 2px 8px;
         font-size: 0.86rem;
@@ -1117,7 +1152,7 @@
             <i class="fa-solid fa-magnifying-glass"></i>
             <input id="mods-search" type="search" placeholder="Search mods or aliases..." autocomplete="off" />
           </label>
-          <span class="mod-search-count" id="mods-search-count">40 mods</span>
+          <span class="mod-search-count" id="mods-search-count">55 mods</span>
         </div>
         <p class="no-mod-results" id="mods-empty" aria-live="polite">No mods match that search.</p>
       </section>
@@ -1187,7 +1222,10 @@
           <article class="card">
             <img src="images/TownOfHost-Title.png" alt="Town of Host Mod" class="thumb" />
             <div class="card-body">
-              <h3 class="title">Town of Host</h3>
+              <div class="title-row">
+                <h3 class="title">Town of Host</h3>
+                <span class="mod-status-tag deprecated-tag">Deprecated</span>
+              </div>
               <p class="sub">
                 A classic Among Us framework that many other role mods are built on. The host controls roles, rules, and balance.
               </p>
@@ -1227,7 +1265,10 @@
           <article class="card">
             <img src="images/TOHY.jpg" alt="Town of Host: Y Mod" class="thumb" />
             <div class="card-body">
-              <h3 class="title">Town of Host: Y</h3>
+              <div class="title-row">
+                <h3 class="title">Town of Host: Y</h3>
+                <span class="mod-status-tag deprecated-tag">Deprecated</span>
+              </div>
               <p class="sub">
                 An expanded fork of Town of Host, adding even more roles and configuration options while keeping the host-only structure.
               </p>
@@ -1273,9 +1314,35 @@
           </article>
 
           <article class="card">
+            <img src="https://starlight.allofus.dev/api/v3/mods/com.qin-qwq.townofnextedited/thumbnail" alt="Town of Next: Edited" class="thumb" data-custom-image />
+            <div class="card-body">
+              <div class="title-row">
+                <h3 class="title">Town of Next: Edited</h3>
+              </div>
+              <p class="sub">
+                Includes 300+ roles, interesting game modes, and limited-time modes. Thanks for using TONE!
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/qin-qwq/TownofNext-Edited" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a class="btn" href="https://tone2.top/" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-globe"></i> Website
+                </a>
+                <a class="btn" href="https://discord.com/invite/jg4a2Xqrbb" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
             <img src="images/moregamemodes.png" alt="More GameModes Mod" class="thumb" />
             <div class="card-body">
-              <h3 class="title">More GameModes</h3>
+              <div class="title-row">
+                <h3 class="title">More GameModes</h3>
+                <span class="mod-status-tag deprecated-tag">Deprecated</span>
+              </div>
               <p class="sub">
                 Adds new gamemodes like Bomb Tag and Battle Royale, giving hosts more ways to mix up the pace of a lobby.
               </p>
@@ -1315,7 +1382,10 @@
           <article class="card">
             <img src="images/TOHE-BG.jpg" alt="Town of Host: Enhanced" class="thumb" />
             <div class="card-body">
-              <h3 class="title">Town of Host: Enhanced</h3>
+              <div class="title-row">
+                <h3 class="title">Town of Host: Enhanced</h3>
+                <span class="mod-status-tag deprecated-tag">Deprecated</span>
+              </div>
               <p class="sub">
                 A host only mod with more game modes and features.
               </p>
@@ -1838,6 +1908,44 @@
           </article>
 
           <article class="card starlight-card">
+            <img src="https://starlight.allofus.dev/api/v3/mods/CursedAmongUs/thumbnail" alt="Cursed Among Us Continued" class="thumb" data-custom-image />
+            <div class="card-body">
+              <h3 class="title">Cursed Among Us Continued</h3>
+              <p class="sub">
+                Ever wondered what Among Us would look like if demons made it? This mod came straight from hell to aggravate players with exacerbated tasks and other painful changes.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/XiezibanWrite/Cursed-Among-Us-Continued" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <img src="https://starlight.allofus.dev/api/v3/mods/com.qin-qwq.townofnextedited/thumbnail" alt="Town of Next: Edited" class="thumb" data-custom-image />
+            <div class="card-body">
+              <div class="title-row">
+                <h3 class="title">Town of Next: Edited</h3>
+              </div>
+              <p class="sub">
+                Includes 300+ roles, interesting game modes, and limited-time modes. Thanks for using TONE!
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/qin-qwq/TownofNext-Edited" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a class="btn" href="https://tone2.top/" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-globe"></i> Website
+                </a>
+                <a class="btn" href="https://discord.com/invite/jg4a2Xqrbb" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
             <img src="images/TOU-logo.png" alt="Syzyfowy Town Of Us" class="thumb" />
             <div class="card-body">
               <h3 class="title">Syzyfowy Town Of Us</h3>
@@ -1874,6 +1982,23 @@
                 </a>
                 <a class="btn" href="https://wiki.supernewroles.com/ja/home" target="_blank" rel="noopener">
                   <i class="fa-solid fa-book"></i> Wiki
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <img src="https://starlight.allofus.dev/api/v3/mods/com.missingpixel.stargazer/thumbnail" alt="Stargazer" class="thumb" data-custom-image />
+            <div class="card-body">
+              <div class="title-row">
+                <h3 class="title">Stargazer</h3>
+              </div>
+              <p class="sub">
+                Adds new roles while keeping the vanilla feel, with original ideas and reworked popular roles.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://starlight.allofus.dev/api/v3/mods/com.missingpixel.stargazer" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-star"></i> Starlight
                 </a>
               </div>
             </div>
@@ -2100,6 +2225,149 @@
               </div>
             </div>
           </article>
+
+          <article class="card starlight-card">
+            <img src="https://starlight.allofus.dev/api/v3/mods/auavengers.localize.us/thumbnail" alt="Localize Us!" class="thumb" data-custom-image />
+            <div class="card-body">
+              <div class="title-row">
+                <h3 class="title">Localize Us!</h3>
+              </div>
+              <p class="sub">
+                Among Us, but localized to more languages.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/AU-Avengers/LocalizeUs" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a class="btn" href="https://au-avengers.org/" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-globe"></i> Website
+                </a>
+                <a class="btn" href="https://discord.gg/7p99epZ34c" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <img src="https://starlight.allofus.dev/api/v3/mods/lol.eps.FlashlightUs/thumbnail" alt="FlashlightUs" class="thumb" data-custom-image />
+            <div class="card-body">
+              <div class="title-row">
+                <h3 class="title">FlashlightUs</h3>
+              </div>
+              <p class="sub">
+                Allows you to use Flashlight Mode in normal games.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/ThetaHalo/FlashlightUs" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a class="btn" href="https://discord.com/users/216404071253278720" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+                <a class="btn" href="https://github.com/sponsors/ThetaHalo" target="_blank" rel="noopener">
+                  <i class="fa-solid fa-heart"></i> Sponsor
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <img src="https://starlight.allofus.dev/api/v3/mods/com.missingpixel.hostutility/thumbnail" alt="Host Utility" class="thumb" data-custom-image />
+            <div class="card-body">
+              <div class="title-row">
+                <h3 class="title">Host Utility</h3>
+              </div>
+              <p class="sub">
+                An Among Us mod that makes public lobbies more playable.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/WanderingPix/Host-Utility" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card starlight-card">
+            <img src="https://starlight.allofus.dev/api/v3/mods/com.d1gq.betteramongus/thumbnail" alt="BetterAmongUs" class="thumb" data-custom-image />
+            <div class="card-body">
+              <div class="title-row">
+                <h3 class="title">BetterAmongUs</h3>
+              </div>
+              <p class="sub">
+                A client-sided mod that enhances the vanilla Among Us experience.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/D1GQ/BetterAmongUs" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="mods-section" id="apis">
+        <h2 class="mods-section-title">APIs</h2>
+        <p class="mods-section-subtitle">
+          Modding APIs and shared libraries used by Among Us mods and Starlight-compatible projects.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <img src="https://avatars.githubusercontent.com/u/78455861?s=200&amp;v=4" alt="MiraAPI" class="thumb" data-custom-image />
+            <div class="card-body">
+              <h3 class="title">MiraAPI</h3>
+              <p class="sub">
+                Easy to use Among Us modding API.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/All-Of-Us-Mods/MiraAPI/" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a class="btn" href="https://discord.gg/7p99epZ34c" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="https://starlight.allofus.dev/api/v3/mods/AchievementsAPI/thumbnail" alt="AchievementsAPI" class="thumb" data-custom-image />
+            <div class="card-body">
+              <h3 class="title">AchievementsAPI</h3>
+              <p class="sub">
+                An Among Us API that allows mods to add their own achievements.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/am-clonec/Achievements-API" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a class="btn" href="https://discord.gg/RJyNm9UaT7" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="https://avatars.githubusercontent.com/u/75682690?s=200&amp;v=4" alt="Reactor" class="thumb" data-custom-image />
+            <div class="card-body">
+              <h3 class="title">Reactor</h3>
+              <p class="sub">
+                Modding API for Among Us featuring a modded handshake, custom RPC API, and utility methods.
+              </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/NuclearPowered/Reactor" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a class="btn" href="https://reactor.gg/discord" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-discord"></i> Discord
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -2284,6 +2552,20 @@
           ["Download", "https://github.com/CallOfCreator/NewMod/releases/latest", "fa-solid fa-download", "download-btn"],
           ["MS Store", "https://github.com/CallOfCreator/NewMod/releases/latest", "fa-solid fa-download", "download-btn"],
         ],
+        "Localize Us!": [
+          ["Latest release", "https://github.com/AU-Avengers/LocalizeUs/releases/latest", "fa-solid fa-tag", "release-btn"],
+          ["DLL", "https://github.com/AU-Avengers/LocalizeUs/releases/latest", "fa-solid fa-download", "download-btn"],
+        ],
+        "FlashlightUs": [
+          ["Latest release", "https://github.com/ThetaHalo/FlashlightUs/releases/latest", "fa-solid fa-tag", "release-btn"],
+          ["Steam", "https://github.com/ThetaHalo/FlashlightUs/releases/latest", "fa-solid fa-download", "download-btn"],
+          ["Epic / MS", "https://github.com/ThetaHalo/FlashlightUs/releases/latest", "fa-solid fa-download", "download-btn"],
+          ["DLL", "https://github.com/ThetaHalo/FlashlightUs/releases/latest", "fa-solid fa-download", "download-btn"],
+        ],
+        "Host Utility": [
+          ["Latest release", "https://github.com/WanderingPix/Host-Utility/releases/latest", "fa-solid fa-tag", "release-btn"],
+          ["DLL", "https://github.com/WanderingPix/Host-Utility/releases/latest", "fa-solid fa-download", "download-btn"],
+        ],
         "Syzyfowy Town Of Us": [
           ["Latest release", "https://github.com/LimeShep/Town-Of-Us/releases/latest", "fa-solid fa-tag", "release-btn"],
           ["x64", "https://github.com/LimeShep/Town-Of-Us/releases/latest", "fa-solid fa-download", "download-btn"],
@@ -2353,9 +2635,16 @@
           ["DLL", "https://github.com/CrowdedMods/CrowdedMod/releases/latest", "fa-solid fa-download", "download-btn"],
         ],
         "Better Among Us": [
-          ["Latest release", "https://github.com/D1GQ/BetterAmongUs-Public/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/D1GQ/BetterAmongUs-Public/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/D1GQ/BetterAmongUs-Public/releases/latest", "fa-solid fa-download", "download-btn"],
+          ["Latest release", "https://github.com/D1GQ/BetterAmongUs/releases/latest", "fa-solid fa-tag", "release-btn"],
+          ["Steam / Itch", "https://github.com/D1GQ/BetterAmongUs/releases/latest", "fa-solid fa-download", "download-btn"],
+          ["Epic / MS", "https://github.com/D1GQ/BetterAmongUs/releases/latest", "fa-solid fa-download", "download-btn"],
+          ["DLL", "https://github.com/D1GQ/BetterAmongUs/releases/latest", "fa-solid fa-download", "download-btn"],
+        ],
+        "BetterAmongUs": [
+          ["Latest release", "https://github.com/D1GQ/BetterAmongUs/releases/latest", "fa-solid fa-tag", "release-btn"],
+          ["Steam / Itch", "https://github.com/D1GQ/BetterAmongUs/releases/latest", "fa-solid fa-download", "download-btn"],
+          ["Epic / MS", "https://github.com/D1GQ/BetterAmongUs/releases/latest", "fa-solid fa-download", "download-btn"],
+          ["DLL", "https://github.com/D1GQ/BetterAmongUs/releases/latest", "fa-solid fa-download", "download-btn"],
         ],
         "Among Us Revamped": [
           ["Latest release", "https://github.com/ApeMV/AmongUsRevamped/releases/latest", "fa-solid fa-tag", "release-btn"],
@@ -2632,7 +2921,17 @@
         "DiscordMute": "discord mute among us discordmute blackmailer blackmailed ehr voice meeting utility",
         "Starlight PC": "starlight pc launcher mod manager launchpad all of us",
         "Bean Mod Manager": "bean manager beanmodmanager bmm releases mod manager",
-        "Mod Manager": "jarnemm jarne dev sys github manager ko fi kofi discord mod manager"
+        "Mod Manager": "jarnemm jarne dev sys github manager ko fi kofi discord mod manager",
+        "Cursed Among Us Continued": "cursed cursedamongus demons starlight",
+        "Town of Next: Edited": "town of next edited tone roles game modes limited time host only starlight",
+        "Stargazer": "stargazer wandering pixel all clients roles vanilla starlight",
+        "Localize Us!": "localize localise localization languages au avengers client only starlight",
+        "FlashlightUs": "flashlight flashlightus theta client only starlight",
+        "Host Utility": "host utility wandering pixel public lobbies client only starlight",
+        "BetterAmongUs": "better among us betteramongus d1gq client only starlight",
+        "MiraAPI": "mira api miraapi all of us modding api starlight",
+        "AchievementsAPI": "achievements achievement api achievementsapi",
+        "Reactor": "reactor nuclearpowered modding api handshake rpc utility methods impostor"
       };
       const canonicalTitles = {
         "TOU-Mira": "Town of Us: Mira",
