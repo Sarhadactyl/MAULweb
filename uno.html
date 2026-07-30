@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>UNO Tournament Bracket · MAUL</title>
+    <title>UNO Tournament Board - MAUL</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="UNO Tournament Bracket" />
+    <meta property="og:title" content="UNO Tournament Board" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moddedamong.us/uno.html" />
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
     <meta
       property="og:description"
-      content="Live bracket, match status, and participants for the MAUL UNO Tournament 2.0."
+      content="Live match status and participants for the MAUL UNO Tournament 2.0."
     />
     <meta property="og:site_name" content="Modded Among Us Lobbies" />
     <meta property="og:locale" content="en_US" />
@@ -30,11 +30,11 @@
     <link rel="stylesheet" href="/styles/navbar.css" />
     <style id="uno-fallback-style">
       :root {
-        --uno-text: #fff7ef;
-        --uno-muted: #d7c8c4;
+        --uno-text: #f7f8fb;
+        --uno-muted: #b7becb;
         --uno-line: rgba(255,255,255,.14);
-        --uno-red: #ec2537;
-        --uno-gold: #ffd36e;
+        --uno-accent: #d8dde6;
+        --uno-soft: #8d96a6;
       }
 
       * { box-sizing: border-box; }
@@ -46,15 +46,15 @@
         color: var(--uno-text);
         font-family: "Inter", Arial, sans-serif;
         background:
-          linear-gradient(125deg, rgba(4,2,3,.92), rgba(25,5,8,.72), rgba(2,2,4,.96)),
-          url("/images/maulredbg.png") center top / cover fixed no-repeat,
-          #050203;
+          linear-gradient(132deg, rgba(4,5,8,.98), rgba(18,20,25,.9) 48%, rgba(3,4,7,.98)),
+          linear-gradient(180deg, rgba(255,255,255,.075), transparent 34%),
+          #06070a;
       }
 
       .uno-page {
-        width: min(1780px, calc(100% - 32px));
+        width: min(1240px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 86px 0 64px;
+        padding: 76px 0 64px;
       }
 
       .uno-shell { display: grid; gap: 16px; }
@@ -84,12 +84,12 @@
       .uno-title {
         margin: 0;
         font-family: "Outfit", Arial, sans-serif;
-        font-size: clamp(2.35rem, 5vw, 5rem);
-        line-height: .95;
+        font-size: clamp(2.15rem, 4.2vw, 4.4rem);
+        line-height: .96;
       }
 
-      .uno-title span { color: var(--uno-gold); }
-      .uno-summary { max-width: 760px; color: var(--uno-muted); line-height: 1.65; }
+      .uno-title span { color: var(--uno-accent); }
+      .uno-summary { max-width: 660px; color: var(--uno-muted); line-height: 1.65; }
       .uno-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
 
       .uno-button,
@@ -103,7 +103,7 @@
       }
 
       .uno-button { display: inline-flex; align-items: center; gap: 9px; padding: 10px 14px; }
-      .uno-button.primary { background: linear-gradient(135deg, rgba(236,37,55,.88), rgba(125,8,18,.86)); }
+      .uno-button.primary { background: linear-gradient(135deg, rgba(242,244,248,.2), rgba(141,150,166,.16)); }
       .uno-status-grid { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 10px; }
 
       .uno-stat,
@@ -112,7 +112,7 @@
       .uno-panel {
         border: 1px solid var(--uno-line);
         border-radius: 8px;
-        background: rgba(22,11,13,.88);
+        background: rgba(16,18,23,.88);
         box-shadow: 0 24px 62px rgba(0,0,0,.58);
       }
 
@@ -128,10 +128,10 @@
       .uno-tab.is-active { background: rgba(255,255,255,.14); color: var(--uno-text); }
       .uno-view { display: none; }
       .uno-view.is-active { display: block; }
-      .bracket-scroll { min-height: 620px; max-height: calc(100vh - 230px); overflow: auto; padding: 16px; }
-      .bracket-grid { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(248px,284px); gap: 18px; align-items: start; min-width: max-content; }
+      .bracket-scroll { min-height: 360px; max-height: none; overflow: visible; padding: 16px; }
+      .bracket-grid { display: grid; grid-auto-flow: row; grid-template-columns: minmax(0, 1fr) minmax(280px, .78fr); gap: 14px; align-items: start; min-width: 0; }
       .match-card, .list-item { display: grid; gap: 8px; padding: 10px; border: 1px solid rgba(255,255,255,.1); border-radius: 8px; background: rgba(255,255,255,.055); }
-      .slot { display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 8px; align-items: center; min-height: 36px; padding: 8px; border-radius: 6px; background: rgba(255,255,255,.055); }
+      .slot { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 8px; align-items: center; min-height: 36px; padding: 8px; border-radius: 6px; background: rgba(255,255,255,.055); }
       .slot-name, .list-name { min-width: 0; overflow: hidden; font-weight: 800; white-space: nowrap; text-overflow: ellipsis; }
       .empty-state { padding: 22px; color: rgba(255,247,239,.72); line-height: 1.55; }
 
@@ -154,9 +154,9 @@
       }
 
       .uno-kicker {
-        border-color: rgba(255,211,110,.26);
-        background: rgba(255,211,110,.08);
-        color: #ffe6a8;
+        border-color: rgba(232,236,242,.22);
+        background: rgba(232,236,242,.075);
+        color: #f7f8fb;
       }
 
       .uno-title {
@@ -168,7 +168,7 @@
         overflow: hidden;
         background:
           linear-gradient(180deg, rgba(255,255,255,.07), transparent),
-          linear-gradient(150deg, rgba(30,13,17,.94), rgba(9,5,8,.86));
+          linear-gradient(150deg, rgba(32,35,42,.94), rgba(8,9,12,.86));
       }
 
       .uno-stat::before {
@@ -177,14 +177,14 @@
         inset: 0 auto auto 0;
         width: 100%;
         height: 2px;
-        background: linear-gradient(90deg, #f03a4a, #ffd36e, #72eaff);
+        background: linear-gradient(90deg, rgba(247,248,251,.85), rgba(141,150,166,.7), rgba(101,115,137,.75));
       }
 
       .uno-control-bar {
         position: sticky;
         top: 12px;
         z-index: 8;
-        background: rgba(9,5,7,.78);
+        background: rgba(9,10,13,.78);
         backdrop-filter: blur(18px);
       }
 
@@ -193,7 +193,7 @@
         overflow: hidden;
         background:
           linear-gradient(180deg, rgba(255,255,255,.045), transparent),
-          rgba(5,2,3,.74);
+          rgba(6,7,10,.74);
       }
 
       .match-card {
@@ -206,7 +206,7 @@
         border: 1px dashed rgba(255,255,255,.18);
         border-radius: 8px;
         background:
-          linear-gradient(135deg, rgba(255,211,110,.08), transparent 42%),
+          linear-gradient(135deg, rgba(232,236,242,.08), transparent 42%),
           rgba(255,255,255,.04);
       }
 
@@ -219,7 +219,7 @@
       @media (max-width: 520px) {
         .uno-page { width: min(100% - 20px, 1780px); }
         .uno-status-grid { grid-template-columns: 1fr; }
-        .bracket-grid { grid-auto-columns: minmax(236px,82vw); }
+        .bracket-grid { grid-template-columns: 1fr; }
       }
     </style>
     <style id="uno-silver-fallback-style">
@@ -333,6 +333,135 @@
           linear-gradient(135deg, rgba(242,244,248,.08), transparent 42%),
           rgba(255,255,255,.04);
       }
+
+      .uno-page {
+        width: min(1240px, calc(100% - 32px));
+        padding-top: 76px;
+      }
+
+      .uno-title {
+        font-size: clamp(2.15rem, 4.2vw, 4.4rem);
+        line-height: .96;
+      }
+
+      .bracket-scroll {
+        min-height: 360px;
+        max-height: none;
+        overflow: visible;
+      }
+
+      .bracket-grid {
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, .78fr);
+        gap: 14px;
+        min-width: 0;
+      }
+
+      .board-section {
+        min-width: 0;
+        padding: 14px;
+        border: 1px solid rgba(232,236,242,.13);
+        border-radius: 8px;
+        background: rgba(255,255,255,.035);
+      }
+
+      .board-section.full,
+      .board-hero {
+        grid-column: 1 / -1;
+      }
+
+      .board-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .section-heading h2,
+      .board-hero h2 {
+        margin: 0;
+        font-family: "Outfit", Arial, sans-serif;
+        font-size: 1.28rem;
+      }
+
+      .section-heading span,
+      .section-kicker,
+      .board-hero p,
+      .board-count span {
+        color: rgba(247,248,251,.56);
+      }
+
+      .board-count {
+        min-width: 150px;
+        padding: 13px;
+        border: 1px solid rgba(232,236,242,.13);
+        border-radius: 8px;
+        background: rgba(255,255,255,.055);
+        text-align: center;
+      }
+
+      .board-count strong {
+        display: block;
+        font-family: "Outfit", Arial, sans-serif;
+        font-size: 2.3rem;
+        line-height: 1;
+      }
+
+      .match-board-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 10px;
+      }
+
+      .player-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+
+      .player-chip {
+        display: inline-flex;
+        max-width: 220px;
+        min-height: 30px;
+        align-items: center;
+        padding: 6px 9px;
+        border: 1px solid rgba(232,236,242,.1);
+        border-radius: 999px;
+        background: rgba(255,255,255,.065);
+        font-size: .86rem;
+        font-weight: 700;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .slot {
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+
+      .match-channel {
+        overflow: hidden;
+        color: rgba(247,248,251,.56);
+        font-size: .74rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      @media (max-width: 760px) {
+        .bracket-grid,
+        .board-hero {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
     <link rel="stylesheet" href="/styles/uno-bracket.css" />
     <link rel="stylesheet" href="styles/uno-bracket.css" />
@@ -347,11 +476,12 @@
           <div>
             <div class="uno-kicker">
               <i class="fa-solid fa-trophy"></i>
-              Live Tournament Bracket
+              Live Tournament Board
             </div>
             <h1 class="uno-title">UNO Tournament <span>2.0</span></h1>
             <p class="uno-summary">
-              Uno bracket for our Uno 2.0 event!
+              Community tournament board connected to the Discord player roster,
+              created match channels, deadlines, and finalized winners.
             </p>
           </div>
 
@@ -362,7 +492,7 @@
             </button>
             <button class="uno-button" id="copyPairings" type="button">
               <i class="fa-solid fa-copy"></i>
-              Copy Pairings
+              Copy Open Games
             </button>
           </div>
         </header>
@@ -374,16 +504,16 @@
               Participants
             </div>
             <div class="uno-stat-value" id="participantCount">-</div>
-            <div class="uno-stat-note" id="exportState">Loading bracket export</div>
+            <div class="uno-stat-note" id="rosterState">Loading roster</div>
           </article>
 
           <article class="uno-stat">
             <div class="uno-stat-label">
               <i class="fa-solid fa-sitemap"></i>
-              Bracket
+              Created Games
             </div>
             <div class="uno-stat-value" id="bracketSize">-</div>
-            <div class="uno-stat-note">Slots with automatic byes</div>
+            <div class="uno-stat-note">Discord match channels</div>
           </article>
 
           <article class="uno-stat">
@@ -410,11 +540,11 @@
               Signups Close
             </div>
             <div class="uno-stat-value" id="deadline">-</div>
-            <div class="uno-stat-note">Last export: <span id="generatedAt">waiting</span></div>
+            <div class="uno-stat-note">Updated: <span id="generatedAt">waiting</span></div>
           </article>
         </section>
 
-        <section class="uno-control-bar" aria-label="Bracket controls">
+        <section class="uno-control-bar" aria-label="Tournament board controls">
           <label class="uno-search" for="participantSearch">
             <i class="fa-solid fa-magnifying-glass"></i>
             <input
@@ -427,7 +557,7 @@
 
           <div class="uno-tabs" role="tablist" aria-label="Tournament views">
             <button class="uno-tab is-active" type="button" data-view="bracketView">
-              Bracket
+              Board
             </button>
             <button class="uno-tab" type="button" data-view="matchesView">
               Matches
@@ -438,7 +568,7 @@
           </div>
         </section>
 
-        <section class="uno-view is-active" id="bracketView" aria-label="Bracket view">
+        <section class="uno-view is-active" id="bracketView" aria-label="Tournament board view">
           <div class="bracket-frame">
             <div class="bracket-scroll">
               <div class="bracket-grid" id="bracketGrid"></div>
@@ -460,7 +590,7 @@
           <div class="uno-panel">
             <div class="panel-heading">
               <h2>Participants</h2>
-              <span>Seed order</span>
+              <span>Community roster</span>
             </div>
             <div class="participant-list" id="participantList"></div>
           </div>
@@ -471,6 +601,12 @@
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script src="/scripts/navbar.js"></script>
+    <script src="/data/uno_bracket.js"></script>
+    <script>
+      if (!window.UNO_BRACKET_DATA) {
+        document.write('<script src="data/uno_bracket.js"><\/script>');
+      }
+    </script>
     <script src="/scripts/uno-bracket.js"></script>
     <script>
       if (!window.__unoBracketLoaded) {
