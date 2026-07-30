@@ -353,9 +353,96 @@
       .bracket-grid {
         display: grid;
         grid-auto-flow: row;
-        grid-template-columns: minmax(0, 1fr) minmax(280px, .78fr);
+        grid-template-columns: 1fr;
         gap: 14px;
         min-width: 0;
+      }
+
+      .bracket-stage {
+        min-width: 0;
+        padding: 16px;
+        border: 1px solid rgba(232,236,242,.13);
+        border-radius: 8px;
+        background: rgba(255,255,255,.03);
+      }
+
+      .bracket-stage-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: center;
+        margin-bottom: 18px;
+      }
+
+      .bracket-stage-head h2 {
+        margin: 0;
+        font-family: "Outfit", Arial, sans-serif;
+        font-size: 1.55rem;
+      }
+
+      .bracket-stage-head p {
+        max-width: 680px;
+        margin: 8px 0 0;
+        color: rgba(247,248,251,.68);
+      }
+
+      .bracket-track {
+        display: grid;
+        grid-template-columns: minmax(220px,1.1fr) minmax(220px,.9fr) minmax(170px,.68fr);
+        gap: 28px;
+      }
+
+      .bracket-column { min-width: 0; }
+      .bracket-column-title { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+      .bracket-column-title h2 { margin: 0; font-family: "Outfit", Arial, sans-serif; font-size: 1.03rem; }
+      .bracket-column-title span { color: rgba(247,248,251,.56); font-size: .78rem; font-weight: 800; text-transform: uppercase; }
+      .bracket-lineup { display: grid; gap: 18px; }
+
+      .bracket-match,
+      .bracket-placeholder,
+      .bracket-empty-slot { position: relative; }
+
+      .bracket-match::after,
+      .bracket-placeholder::after,
+      .bracket-empty-slot::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -29px;
+        width: 29px;
+        height: 1px;
+        background: rgba(232,236,242,.28);
+      }
+
+      .bracket-column:last-child .bracket-match::after,
+      .bracket-column:last-child .bracket-placeholder::after,
+      .bracket-column:last-child .bracket-empty-slot::after {
+        display: none;
+      }
+
+      .bracket-placeholder {
+        display: grid;
+        gap: 7px;
+        min-height: 76px;
+        padding: 10px;
+        border-left: 2px solid rgba(232,236,242,.24);
+        background: rgba(255,255,255,.03);
+      }
+
+      .bracket-placeholder span {
+        height: 24px;
+        border: 1px solid rgba(232,236,242,.09);
+        border-radius: 4px;
+        background: rgba(255,255,255,.045);
+      }
+
+      .bracket-empty-slot {
+        min-height: 76px;
+        padding: 25px 12px;
+        border-left: 2px solid rgba(232,236,242,.2);
+        background: rgba(255,255,255,.028);
+        color: rgba(247,248,251,.56);
+        font-weight: 800;
       }
 
       .board-section {
@@ -458,13 +545,21 @@
 
       @media (max-width: 760px) {
         .bracket-grid,
-        .board-hero {
+        .board-hero,
+        .bracket-stage-head,
+        .bracket-track {
           grid-template-columns: 1fr;
+        }
+
+        .bracket-match::after,
+        .bracket-placeholder::after,
+        .bracket-empty-slot::after {
+          display: none;
         }
       }
     </style>
-    <link rel="stylesheet" href="/styles/uno-bracket.css" />
-    <link rel="stylesheet" href="styles/uno-bracket.css" />
+    <link rel="stylesheet" href="/styles/uno-bracket.css?v=community-board-3" />
+    <link rel="stylesheet" href="styles/uno-bracket.css?v=community-board-3" />
   </head>
 
   <body>
@@ -601,16 +696,16 @@
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script src="/scripts/navbar.js"></script>
-    <script src="/data/uno_bracket.js"></script>
+    <script src="/data/uno_bracket.js?v=community-board-3"></script>
     <script>
       if (!window.UNO_BRACKET_DATA) {
-        document.write('<script src="data/uno_bracket.js"><\/script>');
+        document.write('<script src="data/uno_bracket.js?v=community-board-3"><\/script>');
       }
     </script>
-    <script src="/scripts/uno-bracket.js"></script>
+    <script src="/scripts/uno-bracket.js?v=community-board-3"></script>
     <script>
       if (!window.__unoBracketLoaded) {
-        document.write('<script src="scripts/uno-bracket.js"><\/script>');
+        document.write('<script src="scripts/uno-bracket.js?v=community-board-3"><\/script>');
       }
     </script>
   </body>
