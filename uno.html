@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UNO Tournament Bracket · MAUL</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="UNO Tournament Bracket" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/uno.html" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta
+      property="og:description"
+      content="Live bracket, match status, and participants for the MAUL UNO Tournament 2.0."
+    />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://moddedamong.us/uno.html" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="styles/uno-bracket.css" />
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <main class="uno-page">
+      <div class="uno-shell">
+        <header class="uno-hero">
+          <div>
+            <div class="uno-kicker">
+              <i class="fa-solid fa-trophy"></i>
+              MAUL Event Bracket
+            </div>
+            <h1 class="uno-title">UNO Tournament <span>2.0</span></h1>
+            <p class="uno-summary">
+              Single-elimination UNO bracket connected to the Discord cog's exported roster,
+              active match channels, deadlines, and finalized winners.
+            </p>
+          </div>
+
+          <div class="uno-actions">
+            <button class="uno-button primary" id="refreshData" type="button">
+              <i class="fa-solid fa-rotate"></i>
+              Refresh
+            </button>
+            <button class="uno-button" id="copyPairings" type="button">
+              <i class="fa-solid fa-copy"></i>
+              Copy Pairings
+            </button>
+          </div>
+        </header>
+
+        <section class="uno-status-grid" aria-label="Tournament status">
+          <article class="uno-stat">
+            <div class="uno-stat-label">
+              <i class="fa-solid fa-users"></i>
+              Participants
+            </div>
+            <div class="uno-stat-value" id="participantCount">-</div>
+            <div class="uno-stat-note" id="exportState">Loading bracket export</div>
+          </article>
+
+          <article class="uno-stat">
+            <div class="uno-stat-label">
+              <i class="fa-solid fa-sitemap"></i>
+              Bracket
+            </div>
+            <div class="uno-stat-value" id="bracketSize">-</div>
+            <div class="uno-stat-note">Slots with automatic byes</div>
+          </article>
+
+          <article class="uno-stat">
+            <div class="uno-stat-label">
+              <i class="fa-solid fa-fire"></i>
+              Active
+            </div>
+            <div class="uno-stat-value" id="activeMatches">-</div>
+            <div class="uno-stat-note">Open match channels</div>
+          </article>
+
+          <article class="uno-stat">
+            <div class="uno-stat-label">
+              <i class="fa-solid fa-check"></i>
+              Finished
+            </div>
+            <div class="uno-stat-value" id="completedMatches">-</div>
+            <div class="uno-stat-note">Finalized games</div>
+          </article>
+
+          <article class="uno-stat">
+            <div class="uno-stat-label">
+              <i class="fa-regular fa-clock"></i>
+              Signups Close
+            </div>
+            <div class="uno-stat-value" id="deadline">-</div>
+            <div class="uno-stat-note">Updated <span id="generatedAt">-</span></div>
+          </article>
+        </section>
+
+        <section class="uno-control-bar" aria-label="Bracket controls">
+          <label class="uno-search" for="participantSearch">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              id="participantSearch"
+              type="search"
+              placeholder="Search participants"
+              autocomplete="off"
+            />
+          </label>
+
+          <div class="uno-tabs" role="tablist" aria-label="Tournament views">
+            <button class="uno-tab is-active" type="button" data-view="bracketView">
+              Bracket
+            </button>
+            <button class="uno-tab" type="button" data-view="matchesView">
+              Matches
+            </button>
+            <button class="uno-tab" type="button" data-view="participantsView">
+              Players
+            </button>
+          </div>
+        </section>
+
+        <section class="uno-view is-active" id="bracketView" aria-label="Bracket view">
+          <div class="bracket-frame">
+            <div class="bracket-scroll">
+              <div class="bracket-grid" id="bracketGrid"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="uno-view" id="matchesView" aria-label="Match list">
+          <div class="uno-panel">
+            <div class="panel-heading">
+              <h2>Match Channels</h2>
+              <span>Newest first</span>
+            </div>
+            <div class="match-list" id="matchList"></div>
+          </div>
+        </section>
+
+        <section class="uno-view" id="participantsView" aria-label="Participant list">
+          <div class="uno-panel">
+            <div class="panel-heading">
+              <h2>Participants</h2>
+              <span>Seed order</span>
+            </div>
+            <div class="participant-list" id="participantList"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="/scripts/navbar.js"></script>
+    <script src="scripts/uno-bracket.js"></script>
+  </body>
+</html>
