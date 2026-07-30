@@ -1,11 +1,386 @@
 {
+  "bracket_size": 64,
   "event": {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": null,
+  "generated_at_timestamp": 1785432667,
   "guild_id": "995954559044304896",
+  "guild_name": "Modded Among Us Lobbies",
+  "matches": [],
   "next_game_id": 2,
-  "participants": [],
-  "matches": []
+  "participant_count": 53,
+  "participants": [
+    {
+      "display_name": "!  twiste\u201d donuts",
+      "id": "1297676868841115652",
+      "mention": "<@1297676868841115652>",
+      "seed": 1,
+      "username": "friendlyspidy"
+    },
+    {
+      "display_name": "[AFK] \u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a",
+      "id": "906424513137377280",
+      "mention": "<@906424513137377280>",
+      "seed": 2,
+      "username": "sixiemesm"
+    },
+    {
+      "display_name": "Ace",
+      "id": "1302452142140817429",
+      "mention": "<@1302452142140817429>",
+      "seed": 3,
+      "username": "manofthreenames"
+    },
+    {
+      "display_name": "BajaBlast \ud83c\udf83",
+      "id": "788883935790759936",
+      "mention": "<@788883935790759936>",
+      "seed": 4,
+      "username": "devilash"
+    },
+    {
+      "display_name": "BoilPotato",
+      "id": "1234190738263380019",
+      "mention": "<@1234190738263380019>",
+      "seed": 5,
+      "username": "aaloyhaz17"
+    },
+    {
+      "display_name": "Britney \u23fe\u22c6.\u02da",
+      "id": "988926958777806939",
+      "mention": "<@988926958777806939>",
+      "seed": 6,
+      "username": "briiit_085"
+    },
+    {
+      "display_name": "Cheesey201\ud83c\uddfa\ud83c\uddf8",
+      "id": "1517602675603017800",
+      "mention": "<@1517602675603017800>",
+      "seed": 7,
+      "username": "goku031493"
+    },
+    {
+      "display_name": "Coolkid",
+      "id": "1276774905731485769",
+      "mention": "<@1276774905731485769>",
+      "seed": 8,
+      "username": "sebthecoolkid."
+    },
+    {
+      "display_name": "croissant",
+      "id": "909871406630731776",
+      "mention": "<@909871406630731776>",
+      "seed": 9,
+      "username": "crxstos"
+    },
+    {
+      "display_name": "DashTheGreen",
+      "id": "1149978318448361623",
+      "mention": "<@1149978318448361623>",
+      "seed": 10,
+      "username": "dashy042"
+    },
+    {
+      "display_name": "Env1",
+      "id": "1131631997966618755",
+      "mention": "<@1131631997966618755>",
+      "seed": 11,
+      "username": "env1x_ity"
+    },
+    {
+      "display_name": "Ghost",
+      "id": "805304427400921118",
+      "mention": "<@805304427400921118>",
+      "seed": 12,
+      "username": "ghostbhai88"
+    },
+    {
+      "display_name": "Honey_Mei",
+      "id": "1523738783399415923",
+      "mention": "<@1523738783399415923>",
+      "seed": 13,
+      "username": "honey_mei_."
+    },
+    {
+      "display_name": "is",
+      "id": "824357839936946226",
+      "mention": "<@824357839936946226>",
+      "seed": 14,
+      "username": "its.is"
+    },
+    {
+      "display_name": "Ivy",
+      "id": "966343802308665365",
+      "mention": "<@966343802308665365>",
+      "seed": 15,
+      "username": "tasdid1"
+    },
+    {
+      "display_name": "James(Kyle)",
+      "id": "1243640882905743441",
+      "mention": "<@1243640882905743441>",
+      "seed": 16,
+      "username": "king_james_the_first_43117"
+    },
+    {
+      "display_name": "Justabookgirle",
+      "id": "783138602997514240",
+      "mention": "<@783138602997514240>",
+      "seed": 17,
+      "username": "lavender_xxqueen"
+    },
+    {
+      "display_name": "K",
+      "id": "666430660973690882",
+      "mention": "<@666430660973690882>",
+      "seed": 18,
+      "username": "mcsquishie"
+    },
+    {
+      "display_name": "Katty",
+      "id": "1121126678467465247",
+      "mention": "<@1121126678467465247>",
+      "seed": 19,
+      "username": "smartkats127"
+    },
+    {
+      "display_name": "kea\u00a8\u032eof the water",
+      "id": "802745192683012156",
+      "mention": "<@802745192683012156>",
+      "seed": 20,
+      "username": "kayyvision"
+    },
+    {
+      "display_name": "KoRn",
+      "id": "982309100530589746",
+      "mention": "<@982309100530589746>",
+      "seed": 21,
+      "username": "kornfan98"
+    },
+    {
+      "display_name": "me_123",
+      "id": "1021458492659343381",
+      "mention": "<@1021458492659343381>",
+      "seed": 22,
+      "username": "me.091"
+    },
+    {
+      "display_name": "Mink",
+      "id": "1016671324527140864",
+      "mention": "<@1016671324527140864>",
+      "seed": 23,
+      "username": "kingmink_"
+    },
+    {
+      "display_name": "Mrs Sammy",
+      "id": "577492184002199589",
+      "mention": "<@577492184002199589>",
+      "seed": 24,
+      "username": "mrss9"
+    },
+    {
+      "display_name": "MV",
+      "id": "802648654292058163",
+      "mention": "<@802648654292058163>",
+      "seed": 25,
+      "username": "apemv"
+    },
+    {
+      "display_name": "NANA SIMIRA",
+      "id": "1514914741670121477",
+      "mention": "<@1514914741670121477>",
+      "seed": 26,
+      "username": "nanasimira"
+    },
+    {
+      "display_name": "Nexus\ud83d\ude2e\u200d\ud83d\udca8",
+      "id": "1367142692324245646",
+      "mention": "<@1367142692324245646>",
+      "seed": 27,
+      "username": "nexus_nexw"
+    },
+    {
+      "display_name": "Nobody",
+      "id": "1091990364581265419",
+      "mention": "<@1091990364581265419>",
+      "seed": 28,
+      "username": "nobodyis_here0"
+    },
+    {
+      "display_name": "non_responding_guy",
+      "id": "1383120619914133574",
+      "mention": "<@1383120619914133574>",
+      "seed": 29,
+      "username": "non_responding_guy_33910"
+    },
+    {
+      "display_name": "Outpost13",
+      "id": "871631130678411304",
+      "mention": "<@871631130678411304>",
+      "seed": 30,
+      "username": "outpost13"
+    },
+    {
+      "display_name": "PanCaKe",
+      "id": "1175886799227322463",
+      "mention": "<@1175886799227322463>",
+      "seed": 31,
+      "username": "pancake_0_0_0"
+    },
+    {
+      "display_name": "Python",
+      "id": "1236381560232611891",
+      "mention": "<@1236381560232611891>",
+      "seed": 32,
+      "username": "predatorypython"
+    },
+    {
+      "display_name": "Sarha \u22c6.\u02da \u263c\u22c6\ud80c\uddfc\uff61\ud81a\uddb9\u02d9\u0f04.\u00b0",
+      "id": "1067220560972628058",
+      "mention": "<@1067220560972628058>",
+      "seed": 33,
+      "username": "sarhadactyl"
+    },
+    {
+      "display_name": "Shadow",
+      "id": "1396482378943303800",
+      "mention": "<@1396482378943303800>",
+      "seed": 34,
+      "username": "shadowknight971"
+    },
+    {
+      "display_name": "sofii ! \ud83c\udf0a",
+      "id": "1201237256346808341",
+      "mention": "<@1201237256346808341>",
+      "seed": 35,
+      "username": "svf_ii"
+    },
+    {
+      "display_name": "summer \u1aa5\uaac2\u0fd4",
+      "id": "1101745950789218374",
+      "mention": "<@1101745950789218374>",
+      "seed": 36,
+      "username": "summerain."
+    },
+    {
+      "display_name": "whimsy \u0f3a\u2766\u0f3b",
+      "id": "758534870745219072",
+      "mention": "<@758534870745219072>",
+      "seed": 37,
+      "username": "the.whimsical.whimsy"
+    },
+    {
+      "display_name": "Win\u2020erieee",
+      "id": "1220227055191330857",
+      "mention": "<@1220227055191330857>",
+      "seed": 38,
+      "username": "winter.sky7"
+    },
+    {
+      "display_name": "\u00b8\u00b8\u266c\u00af\u00b7\u266b\u00b8\u00b8 Kenpachi '\u266b\u00b7\u00af\u00b7\u266a",
+      "id": "1072462136443404379",
+      "mention": "<@1072462136443404379>",
+      "seed": 39,
+      "username": "sisas4sh"
+    },
+    {
+      "display_name": "\u0f7c\ud80c\udf7c\u2118Mistborn Daisy\u2118\ud80c\udf7c \u0f7c",
+      "id": "790132069098586133",
+      "mention": "<@790132069098586133>",
+      "seed": 40,
+      "username": "dazzlechoon"
+    },
+    {
+      "display_name": "\u1bd3 \u2605 Dex \u265b\u272e\u0f12\u263d",
+      "id": "976261529622175766",
+      "mention": "<@976261529622175766>",
+      "seed": 41,
+      "username": "notd3xt3r"
+    },
+    {
+      "display_name": "\u1bd3\u2730\ud835\udcfb\ud835\udcf2\ud835\udcf0\ud835\udcf1\ud835\udcfd\ud835\udcfc\ud835\udcfd\ud835\udcea\ud835\udcfb\u2730\u22c6\u02da \u0741\u02d6\u2b51.\u141f",
+      "id": "1099240775230963742",
+      "mention": "<@1099240775230963742>",
+      "seed": 42,
+      "username": "rightstar_1503"
+    },
+    {
+      "display_name": "\u207a\u2027\u208a\u02da\u098c\u22c6Mixie\u22c6\u098c\u02da\u208a\u2027\u207a",
+      "id": "294356624255090688",
+      "mention": "<@294356624255090688>",
+      "seed": 43,
+      "username": "frickcase"
+    },
+    {
+      "display_name": "\u22b9 \u08ea \u02d6 \u157c\ud835\udd5a\u10e7\u03c3\ud835\udd63\u03b9 \u02d6 \u08ea\u22b9",
+      "id": "1357352341250113710",
+      "mention": "<@1357352341250113710>",
+      "seed": 44,
+      "username": "_.roronoazoro_"
+    },
+    {
+      "display_name": "\u22c6. \ud801\ude5a\u02da\u0fd4 \ud835\ude72\ud835\ude98\ud835\ude95\ud835\ude9e\ud835\ude96\ud835\ude8b\ud835\ude92\ud835\ude97\ud835\ude8a\ud835\udf17\ud835\udf1a\u02da\u22c6",
+      "id": "1438174767843774565",
+      "mention": "<@1438174767843774565>",
+      "seed": 45,
+      "username": "piewithoutpie"
+    },
+    {
+      "display_name": "\u22c6\u02da\u0fd4 \ud835\ude09\ud835\ude36\ud835\ude33\ud835\ude2f\ud835\ude35\ud835\ude15\ud835\ude36\ud835\ude28\ud835\ude34 \u266b\u02da\u22c6",
+      "id": "835499496665645096",
+      "mention": "<@835499496665645096>",
+      "seed": 46,
+      "username": "z_io43"
+    },
+    {
+      "display_name": "\u2606_\u2219\u2744\ufe0f\u2219Acyy\u2219\u2744\ufe0f\u2219_\u2606",
+      "id": "1127991573850898604",
+      "mention": "<@1127991573850898604>",
+      "seed": 47,
+      "username": "lost_acyy"
+    },
+    {
+      "display_name": "\u2606\u300a\u300a ,,  REN _ \u2606",
+      "id": "1223726339392278528",
+      "mention": "<@1223726339392278528>",
+      "seed": 48,
+      "username": "pretzel0031"
+    },
+    {
+      "display_name": "\u263c\u22c5\u02da\u208a\u2027 Keika \u2027\u208a\u02da \u22c5\ud80c\uddfc",
+      "id": "1227518353686396940",
+      "mention": "<@1227518353686396940>",
+      "seed": 49,
+      "username": "keika.sama"
+    },
+    {
+      "display_name": "\u2730 Jojo",
+      "id": "1072010786668548156",
+      "mention": "<@1072010786668548156>",
+      "seed": 50,
+      "username": "dead2016"
+    },
+    {
+      "display_name": "\ud835\udcdb\ud835\udcea\ud835\udcf6\ud835\udcf9\ud835\udcf2\ud835\udcee \u2740",
+      "id": "1263068258995798066",
+      "mention": "<@1263068258995798066>",
+      "seed": 51,
+      "username": "ast3rzzx"
+    },
+    {
+      "display_name": "\ud83d\udd25Hylon\ud83d\udd25",
+      "id": "1206232315890507776",
+      "mention": "<@1206232315890507776>",
+      "seed": 52,
+      "username": "hylon_61406"
+    },
+    {
+      "display_name": "\ud83d\udd25\ud835\udd6d\ud835\udd91\ud835\udd86\ud835\udd9f\ud835\udd8a\ud83d\udd25",
+      "id": "1237216817026695228",
+      "mention": "<@1237216817026695228>",
+      "seed": 53,
+      "username": "fire_roar72"
+    }
+  ]
 }
