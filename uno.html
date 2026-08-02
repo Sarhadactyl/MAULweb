@@ -131,8 +131,10 @@
       .bracket-scroll { min-height: 360px; max-height: none; overflow: visible; padding: 16px; }
       .bracket-grid { display: grid; grid-auto-flow: row; grid-template-columns: minmax(0, 1fr) minmax(280px, .78fr); gap: 14px; align-items: start; min-width: 0; }
       .match-card, .list-item { display: grid; gap: 8px; padding: 10px; border: 1px solid rgba(255,255,255,.1); border-radius: 8px; background: rgba(255,255,255,.055); }
-      .slot { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 8px; align-items: center; min-height: 36px; padding: 8px; border-radius: 6px; background: rgba(255,255,255,.055); }
+      .slot { display: flex; gap: 8px; align-items: center; min-height: 36px; padding: 8px; border-radius: 6px; background: rgba(255,255,255,.055); }
       .slot-name, .list-name { min-width: 0; overflow: hidden; font-weight: 800; white-space: nowrap; text-overflow: ellipsis; }
+      .slot-name { flex: 0 1 auto; }
+      .slot-detail { flex: 0 0 auto; font-weight: 800; }
       .empty-state { padding: 22px; color: rgba(255,247,239,.72); line-height: 1.55; }
 
       body::before {
@@ -388,6 +390,11 @@
 
       .bracket-track {
         display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .bracket-track.is-waiting {
         grid-template-columns: minmax(220px,1.1fr) minmax(220px,.9fr) minmax(170px,.68fr);
         gap: 28px;
       }
@@ -397,6 +404,26 @@
       .bracket-column-title h2 { margin: 0; font-family: "Outfit", Arial, sans-serif; font-size: 1.03rem; }
       .bracket-column-title span { color: rgba(247,248,251,.56); font-size: .78rem; font-weight: 800; text-transform: uppercase; }
       .bracket-lineup { display: grid; gap: 18px; }
+
+      .created-game-track { display: grid; gap: 12px; }
+      .bracket-game-row { display: grid; grid-template-columns: minmax(260px,1fr) 34px minmax(170px,.55fr); align-items: center; }
+      .bracket-connector { height: 1px; background: rgba(232,236,242,.28); }
+      .advance-slot {
+        display: grid;
+        gap: 5px;
+        min-height: 38px;
+        align-content: center;
+        padding: 12px;
+        border: 1px solid rgba(232,236,242,.09);
+        border-left: 3px solid rgba(232,236,242,.22);
+        border-radius: 4px;
+        background: rgba(255,255,255,.035);
+      }
+      .advance-slot.is-complete { border-left-color: #7de3b2; background: rgba(125,227,178,.08); }
+      .bracket-game-row[data-winner-slot="one"] .advance-slot { align-self: start; margin-top: 35px; }
+      .bracket-game-row[data-winner-slot="two"] .advance-slot { align-self: start; margin-top: 81px; }
+      .advance-label { color: rgba(247,248,251,.56); font-size: .72rem; font-weight: 800; text-transform: uppercase; }
+      .advance-slot strong { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
       .bracket-match,
       .bracket-placeholder,
@@ -531,10 +558,6 @@
         text-overflow: ellipsis;
       }
 
-      .slot {
-        grid-template-columns: minmax(0, 1fr) auto;
-      }
-
       .match-channel {
         overflow: hidden;
         color: rgba(247,248,251,.56);
@@ -551,6 +574,15 @@
           grid-template-columns: 1fr;
         }
 
+        .bracket-game-row {
+          grid-template-columns: 1fr;
+        }
+
+        .bracket-game-row[data-winner-slot] .advance-slot {
+          margin-top: 0;
+        }
+
+        .bracket-connector,
         .bracket-match::after,
         .bracket-placeholder::after,
         .bracket-empty-slot::after {
@@ -558,8 +590,8 @@
         }
       }
     </style>
-    <link rel="stylesheet" href="/styles/uno-bracket.css?v=community-board-3" />
-    <link rel="stylesheet" href="styles/uno-bracket.css?v=community-board-3" />
+    <link rel="stylesheet" href="/styles/uno-bracket.css?v=community-board-6" />
+    <link rel="stylesheet" href="styles/uno-bracket.css?v=community-board-6" />
   </head>
 
   <body>
@@ -575,7 +607,8 @@
             </div>
             <h1 class="uno-title">UNO Tournament <span>2.0</span></h1>
             <p class="uno-summary">
-              MAUL Uno 2.0 tournament board 
+              Maul uno tournament board with player roster,
+              created match channels, deadlines, and finalized winners.
             </p>
           </div>
 
@@ -695,16 +728,16 @@
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script src="/scripts/navbar.js"></script>
-    <script src="/data/uno_bracket.js?v=community-board-3"></script>
+    <script src="/data/uno_bracket.js?v=community-board-6"></script>
     <script>
       if (!window.UNO_BRACKET_DATA) {
-        document.write('<script src="data/uno_bracket.js?v=community-board-3"><\/script>');
+        document.write('<script src="data/uno_bracket.js?v=community-board-6"><\/script>');
       }
     </script>
-    <script src="/scripts/uno-bracket.js?v=community-board-3"></script>
+    <script src="/scripts/uno-bracket.js?v=community-board-6"></script>
     <script>
       if (!window.__unoBracketLoaded) {
-        document.write('<script src="scripts/uno-bracket.js?v=community-board-3"><\/script>');
+        document.write('<script src="scripts/uno-bracket.js?v=community-board-6"><\/script>');
       }
     </script>
   </body>
