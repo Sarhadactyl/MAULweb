@@ -1,10 +1,10 @@
 window.UNO_BRACKET_DATA = {
-  "created_game_count": 23,
+  "created_game_count": 24,
   "event": {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1785636113,
+  "generated_at_timestamp": 1785636123,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -306,9 +306,22 @@ window.UNO_BRACKET_DATA = {
       "player_one_id": "1396482378943303800",
       "player_two_id": "1220227055191330857",
       "winner_id": null
+    },
+    {
+      "channel_id": "1533293774011367617",
+      "channel_name": "uno-25-sofii-summer",
+      "created_at_timestamp": 1785636121,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722521,
+      "finalized": false,
+      "game_id": 25,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1201237256346808341",
+      "player_two_id": "1101745950789218374",
+      "winner_id": null
     }
   ],
-  "next_game_id": 25,
+  "next_game_id": 26,
   "participant_count": 52,
   "participants": [
     {
