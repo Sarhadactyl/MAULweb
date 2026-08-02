@@ -1,10 +1,10 @@
 {
-  "created_game_count": 8,
+  "created_game_count": 9,
   "event": {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1785635954,
+  "generated_at_timestamp": 1785635960,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -111,9 +111,22 @@
       "player_one_id": "788883935790759936",
       "player_two_id": "1234190738263380019",
       "winner_id": null
+    },
+    {
+      "channel_id": "1533293089840435371",
+      "channel_name": "uno-10-britney-cheesey201",
+      "created_at_timestamp": 1785635958,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722358,
+      "finalized": false,
+      "game_id": 10,
+      "guild_id": "995954559044304896",
+      "player_one_id": "988926958777806939",
+      "player_two_id": "1517602675603017800",
+      "winner_id": null
     }
   ],
-  "next_game_id": 10,
+  "next_game_id": 11,
   "participant_count": 52,
   "participants": [
     {
