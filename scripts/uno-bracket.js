@@ -61,10 +61,69 @@
     return /^\d{12,}$/.test(String(value ?? "").trim());
   }
 
+  const LOOKALIKE_LETTERS = new Map([
+    ["ᕼ", "H"],
+    ["ყ", "y"],
+    ["σ", "o"],
+    ["ι", "i"],
+    ["ꜱ", "s"],
+    ["ɪ", "i"],
+    ["ᴇ", "e"],
+    ["ʀ", "r"],
+    ["ɴ", "n"],
+    ["ᴀ", "a"],
+    ["ʙ", "b"],
+    ["ᴄ", "c"],
+    ["ᴅ", "d"],
+    ["ꜰ", "f"],
+    ["ɢ", "g"],
+    ["ʜ", "h"],
+    ["ᴊ", "j"],
+    ["ᴋ", "k"],
+    ["ʟ", "l"],
+    ["ᴍ", "m"],
+    ["ᴏ", "o"],
+    ["ᴘ", "p"],
+    ["ǫ", "q"],
+    ["ᴛ", "t"],
+    ["ᴜ", "u"],
+    ["ᴠ", "v"],
+    ["ᴡ", "w"],
+    ["ʏ", "y"],
+    ["ᴢ", "z"]
+  ]);
+
+  function stripToPlainName(value) {
+    const mapped = Array.from(String(value ?? ""))
+      .map((character) => LOOKALIKE_LETTERS.get(character) || character)
+      .join("");
+    return mapped
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^A-Za-z]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
   function cleanDisplayLabel(value, id) {
-    const label = String(value ?? "").trim();
+    const label = stripToPlainName(value);
     if (!label || label === toId(id) || isRawIdLike(label)) return "";
     return label;
+  }
+
+  function isUsefulPlainName(value) {
+    return stripToPlainName(value).replace(/[^A-Za-z]/g, "").length >= 2;
+  }
+
+  function channelFallbackName(match, slot) {
+    const gamePrefix = `uno-${Number(match.gameId || 0)}-`;
+    const channelName = String(match.channelName || "").toLowerCase();
+    const slug = channelName.startsWith(gamePrefix)
+      ? channelName.slice(gamePrefix.length)
+      : channelName.replace(/^uno-\d+-/, "");
+    const pieces = slug.split("-").filter(Boolean);
+    if (!pieces.length) return "";
+    return slot === 1 ? pieces[0] : pieces[pieces.length - 1];
   }
 
   function formatDate(timestamp, style) {
@@ -145,7 +204,11 @@
         ),
         createdAtTimestamp: Number(match.created_at_timestamp || 0),
         deadlineTimestamp: Number(match.deadline_timestamp || 0),
-        finalized: Boolean(match.finalized)
+        finalized: Boolean(match.finalized),
+        resultStatus: (firstText(match.result_status, match.status) || "")
+          .trim()
+          .toLowerCase(),
+        resultNote: firstText(match.result_note, match.cancel_reason, match.reason)
       }))
       .filter((match) => {
         return match.channelId && match.gameId && match.playerOneId && match.playerTwoId;
@@ -153,20 +216,31 @@
       .sort((first, second) => first.gameId - second.gameId);
   }
 
-  function getParticipantLabel(participantMap, id, fallbackName) {
+  function getParticipantLabel(participantMap, id, fallbackName, match = null, slot = 1) {
     const participant = participantMap.get(toId(id));
     const participantName = participant
       ? cleanDisplayLabel(participant.displayName, id)
       : "";
     const fallback = cleanDisplayLabel(fallbackName, id);
-    if (participantName && !/^Participant \d+$/.test(participantName)) {
+    const channelFallback = match
+      ? cleanDisplayLabel(channelFallbackName(match, slot), id)
+      : "";
+
+    if (
+      participantName &&
+      !/^Participant \d+$/.test(participantName) &&
+      isUsefulPlainName(participantName)
+    ) {
       return participantName;
     }
 
-    return fallback || participantName || `User ${toId(id)}`;
+    if (fallback && isUsefulPlainName(fallback)) return fallback;
+    if (channelFallback && isUsefulPlainName(channelFallback)) return channelFallback;
+    if (participantName) return participantName;
+    return "Player";
   }
 
-  function renderSlot(name, isWinner) {
+  function renderSlot(name, isWinner, winnerDetail = "Winner") {
     if (!name) {
       return `
         <div class="slot is-empty">
@@ -179,7 +253,7 @@
     return `
       <div class="slot${isWinner ? " is-winner" : ""}">
         <span class="slot-name" title="${escapeHtml(name)}">${escapeHtml(name)}</span>
-        <span class="slot-detail">${isWinner ? "Winner" : ""}</span>
+        <span class="slot-detail">${isWinner ? escapeHtml(winnerDetail) : ""}</span>
       </div>
     `;
   }
@@ -191,33 +265,41 @@
   }
 
   function matchStatus(match) {
+    if (match.resultStatus === "cancelled" || match.resultStatus === "canceled") {
+      return "cancelled";
+    }
+    if (match.resultStatus === "forfeit" || match.resultStatus === "forfeited") {
+      return "forfeit";
+    }
     return match.finalized ? "complete" : "active";
   }
 
+  function matchStatusLabel(status) {
+    if (status === "cancelled") return "Cancelled";
+    if (status === "forfeit") return "Forfeit";
+    if (status === "complete") return "Complete";
+    return "Open";
+  }
+
   function renderBracketMatch(match, map) {
-    const firstName = getParticipantLabel(map, match.playerOneId, match.playerOneName);
-    const secondName = getParticipantLabel(map, match.playerTwoId, match.playerTwoName);
-    const winnerName = match.winnerId ? getParticipantLabel(map, match.winnerId, match.winnerName) : "";
+    const firstName = getParticipantLabel(map, match.playerOneId, match.playerOneName, match, 1);
+    const secondName = getParticipantLabel(map, match.playerTwoId, match.playerTwoName, match, 2);
     const firstIsWinner = Boolean(match.winnerId && match.winnerId === match.playerOneId);
     const secondIsWinner = Boolean(match.winnerId && match.winnerId === match.playerTwoId);
     const status = matchStatus(match);
+    const winnerDetail = status === "forfeit" ? "Forfeit" : "Winner";
 
     return `
-      <article class="match-card bracket-match" data-state="${status}">
+      <article class="match-card bracket-match bracket-match-compact" data-state="${status}">
         <div class="match-meta">
           <span>Game #${escapeHtml(match.gameId)}</span>
           <span class="match-pill status-${status}">
             <span class="status-dot"></span>
-            ${match.finalized ? "Complete" : "Open"}
+            ${escapeHtml(matchStatusLabel(status))}
           </span>
         </div>
-        ${renderSlot(firstName, firstIsWinner)}
-        ${renderSlot(secondName, secondIsWinner)}
-        <div class="match-foot">
-          <span>${match.finalized ? `Winner: ${escapeHtml(winnerName || "Saved")}` : "Discord match channel created"}</span>
-          <span>${match.deadlineTimestamp ? escapeHtml(formatDate(match.deadlineTimestamp, "short")) : ""}</span>
-        </div>
-        ${match.channelName ? `<div class="match-channel">${escapeHtml(match.channelName)}</div>` : ""}
+        ${renderSlot(firstName, firstIsWinner, winnerDetail)}
+        ${renderSlot(secondName, secondIsWinner, winnerDetail)}
       </article>
     `;
   }
@@ -306,17 +388,19 @@
   function renderRoundPlaceholder(round) {
     return `
       <article class="bracket-placeholder" aria-label="${escapeHtml(round.title)} game waiting">
-        <strong>Awaiting game</strong>
-        <span>${escapeHtml(round.title)}</span>
+        <div class="placeholder-line"></div>
+        <div class="placeholder-line short"></div>
       </article>
     `;
   }
 
   function renderRoundColumn(round, map) {
+    const roundWidth = 178;
+
     return `
       <section
-        class="bracket-column bracket-round-column bracket-side-column-${escapeHtml(round.side || "full")}"
-        style="--round-depth: ${escapeHtml(round.index || 0)};"
+        class="bracket-column bracket-round-column"
+        style="--round-depth: ${escapeHtml(round.index || 0)}; --round-width: ${escapeHtml(roundWidth)}px;"
       >
         <div class="bracket-column-title">
           <h2>${escapeHtml(round.title)}</h2>
@@ -326,84 +410,6 @@
           ${round.slots
             .map((match) => (match ? renderBracketMatch(match, map) : renderRoundPlaceholder(round)))
             .join("")}
-        </div>
-      </section>
-    `;
-  }
-
-  function splitBracketRounds(rounds, side) {
-    const playableRounds = rounds.slice(0, -1);
-    const sideRounds = playableRounds
-      .map((round) => {
-        const midpoint = Math.ceil(round.slots.length / 2);
-        const slots =
-          side === "left"
-            ? round.slots.slice(0, midpoint)
-            : round.slots.slice(midpoint);
-
-        return {
-          ...round,
-          side,
-          size: slots.length,
-          filled: slots.filter(Boolean).length,
-          slots
-        };
-      })
-      .filter((round) => round.size > 0);
-
-    return side === "right" ? sideRounds.reverse() : sideRounds;
-  }
-
-  function renderBracketSide(rounds, map, side) {
-    const sideRounds = splitBracketRounds(rounds, side);
-
-    return `
-      <div class="bracket-side bracket-side-${escapeHtml(side)}">
-        ${sideRounds.map((round) => renderRoundColumn(round, map)).join("")}
-      </div>
-    `;
-  }
-
-  function renderFinalCenter(rounds, map) {
-    const finalRound = rounds[rounds.length - 1];
-    const finalMatch = finalRound ? finalRound.slots.find(Boolean) : null;
-
-    return `
-      <section class="bracket-final-center" aria-label="Finals">
-        <div class="final-trophy" aria-hidden="true">🏆</div>
-        <div class="final-title">
-          <span>UNO</span>
-          <h2>Finals</h2>
-        </div>
-        ${
-          finalMatch
-            ? renderBracketMatch(finalMatch, map)
-            : `
-              <article class="final-card">
-                <div class="finalist-slot">Left finalist pending</div>
-                <div class="final-divider"></div>
-                <div class="finalist-slot">Right finalist pending</div>
-              </article>
-            `
-        }
-        <div class="final-caption">Winner advances here after the semifinals.</div>
-      </section>
-    `;
-  }
-
-  function renderBracketColumn(title, note, matches, map, emptyCopy) {
-    return `
-      <section class="bracket-column">
-        <div class="bracket-column-title">
-          <h2>${escapeHtml(title)}</h2>
-          <span>${escapeHtml(note)}</span>
-        </div>
-        <div class="bracket-lineup">
-          ${
-            matches.length
-              ? matches.map((match) => renderBracketMatch(match, map)).join("")
-              : `<div class="bracket-empty-slot">${escapeHtml(emptyCopy)}</div>`
-          }
         </div>
       </section>
     `;
@@ -469,18 +475,16 @@
         <div class="bracket-stage-head">
           <div>
             <div class="section-kicker">Live bracket</div>
-            <h2>Created match channels by round</h2>
-            <p>Winners stay attached to the game they came from. Future rounds fill in as channels are opened.</p>
+            <h2>Created match channels</h2>
+            <p>Actual created games are shown as compact bracket cards. Future rounds stay neutral until match channels exist.</p>
           </div>
           <div class="board-count">
             <strong>${escapeHtml(state.matches.length)}</strong>
             <span>created games</span>
           </div>
         </div>
-        <div class="bracket-track bracket-showcase">
-          ${renderBracketSide(rounds, map, "left")}
-          ${renderFinalCenter(rounds, map)}
-          ${renderBracketSide(rounds, map, "right")}
+        <div class="bracket-track bracket-clean">
+          ${rounds.map((round) => renderRoundColumn(round, map)).join("")}
         </div>
       </section>
     `;
@@ -507,22 +511,24 @@
       .slice()
       .reverse()
       .map((match) => {
-        const firstName = getParticipantLabel(participantMap, match.playerOneId, match.playerOneName);
-        const secondName = getParticipantLabel(participantMap, match.playerTwoId, match.playerTwoName);
+        const firstName = getParticipantLabel(participantMap, match.playerOneId, match.playerOneName, match, 1);
+        const secondName = getParticipantLabel(participantMap, match.playerTwoId, match.playerTwoName, match, 2);
+        const winnerSlot = match.winnerId === match.playerTwoId ? 2 : 1;
         const winnerName = match.winnerId
-          ? getParticipantLabel(participantMap, match.winnerId, match.winnerName)
+          ? getParticipantLabel(participantMap, match.winnerId, match.winnerName, match, winnerSlot)
           : "Pending";
-        const status = match.finalized ? "complete" : "active";
+        const status = matchStatus(match);
 
         return `
           <article class="list-item">
             <div class="list-top">
               <span class="list-name">Game #${escapeHtml(match.gameId)}</span>
-              <span class="state-chip ${status}">${match.finalized ? "Complete" : "Active"}</span>
+              <span class="state-chip ${status}">${escapeHtml(matchStatusLabel(status))}</span>
             </div>
             <div class="list-meta">
               ${escapeHtml(firstName)} vs. ${escapeHtml(secondName)}<br />
               Winner: ${escapeHtml(winnerName)}<br />
+              ${match.resultNote ? `Note: ${escapeHtml(match.resultNote)}<br />` : ""}
               ${match.channelName ? `Channel: ${escapeHtml(match.channelName)}<br />` : ""}
               ${match.deadlineTimestamp ? `Deadline: ${escapeHtml(formatDate(match.deadlineTimestamp, "short"))}` : ""}
             </div>
@@ -578,8 +584,8 @@
   }
 
   function renderStats() {
-    const active = state.matches.filter((match) => !match.finalized).length;
-    const complete = state.matches.filter((match) => match.finalized).length;
+    const active = state.matches.filter((match) => matchStatus(match) === "active").length;
+    const complete = state.matches.filter((match) => matchStatus(match) !== "active").length;
 
     if (elements.participantCount) {
       elements.participantCount.textContent = state.participants.length;
@@ -730,10 +736,10 @@
     const map = participantMap();
 
     return state.matches
-      .filter((match) => !match.finalized)
+      .filter((match) => matchStatus(match) === "active")
       .map((match) => {
-        const firstName = getParticipantLabel(map, match.playerOneId, match.playerOneName);
-        const secondName = getParticipantLabel(map, match.playerTwoId, match.playerTwoName);
+        const firstName = getParticipantLabel(map, match.playerOneId, match.playerOneName, match, 1);
+        const secondName = getParticipantLabel(map, match.playerTwoId, match.playerTwoName, match, 2);
         return `Game #${match.gameId}: ${firstName} vs ${secondName}`;
       })
       .join("\n");
