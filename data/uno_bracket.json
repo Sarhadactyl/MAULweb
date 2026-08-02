@@ -1,10 +1,10 @@
 {
-  "created_game_count": 30,
+  "created_game_count": 31,
   "event": {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1785666081,
+  "generated_at_timestamp": 1785666099,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -397,9 +397,22 @@
       "player_one_id": "1525201717111689296",
       "player_two_id": "1504580237806276819",
       "winner_id": null
+    },
+    {
+      "channel_id": "1533419505089253386",
+      "channel_name": "uno-32-gh-7-kiwii-ig",
+      "created_at_timestamp": 1785666098,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785752498,
+      "finalized": false,
+      "game_id": 32,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1432558191086014464",
+      "player_two_id": "1512728097449971788",
+      "winner_id": null
     }
   ],
-  "next_game_id": 32,
+  "next_game_id": 33,
   "participant_count": 52,
   "participants": [
     {
