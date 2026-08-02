@@ -224,9 +224,9 @@
 
   function renderEmptyBracketRail() {
     const rounds = [
-      { title: "Opening Games", slots: 4 },
-      { title: "Next Round", slots: 2 },
-      { title: "Final", slots: 1 }
+      { title: "Round 1", slots: 4 },
+      { title: "Round 2", slots: 2 },
+      { title: "Finals", slots: 1 }
     ];
 
     return `
@@ -252,6 +252,79 @@
           `)
           .join("")}
       </div>
+    `;
+  }
+
+  function bracketRoundSizes(participantCount, matchCount) {
+    const sizes = [];
+    let slots = Math.max(1, Math.ceil(Number(participantCount || matchCount || 0) / 2));
+
+    while (slots > 1) {
+      sizes.push(slots);
+      slots = Math.ceil(slots / 2);
+    }
+
+    sizes.push(1);
+
+    const minimumCreatedSlots = Math.max(1, Number(matchCount || 0));
+    while (sizes.reduce((total, size) => total + size, 0) < minimumCreatedSlots) {
+      sizes.unshift(minimumCreatedSlots);
+    }
+
+    return sizes;
+  }
+
+  function roundTitle(index, total) {
+    if (index === total - 1) return "Finals";
+    return `Round ${index + 1}`;
+  }
+
+  function buildBracketRounds(matches, participantCount) {
+    const orderedMatches = matches
+      .slice()
+      .sort((first, second) => first.gameId - second.gameId);
+    const sizes = bracketRoundSizes(participantCount, orderedMatches.length);
+    let cursor = 0;
+
+    return sizes.map((size, index) => {
+      const slots = Array.from({ length: size }, () => {
+        const match = orderedMatches[cursor] || null;
+        cursor += 1;
+        return match;
+      });
+
+      return {
+        index,
+        title: roundTitle(index, sizes.length),
+        filled: slots.filter(Boolean).length,
+        size,
+        slots
+      };
+    });
+  }
+
+  function renderRoundPlaceholder(round) {
+    return `
+      <article class="bracket-placeholder" aria-label="${escapeHtml(round.title)} game waiting">
+        <strong>Awaiting game</strong>
+        <span>${escapeHtml(round.title)}</span>
+      </article>
+    `;
+  }
+
+  function renderRoundColumn(round, map) {
+    return `
+      <section class="bracket-column bracket-round-column">
+        <div class="bracket-column-title">
+          <h2>${escapeHtml(round.title)}</h2>
+          <span>${escapeHtml(`${round.filled}/${round.size} games`)}</span>
+        </div>
+        <div class="bracket-lineup">
+          ${round.slots
+            .map((match) => (match ? renderBracketMatch(match, map) : renderRoundPlaceholder(round)))
+            .join("")}
+        </div>
+      </section>
     `;
   }
 
@@ -302,8 +375,6 @@
     if (!elements.bracket) return;
 
     const map = participantMap();
-    const openMatches = state.matches.filter((match) => !match.finalized);
-    const completedMatches = state.matches.filter((match) => match.finalized).slice().reverse();
 
     if (!state.matches.length) {
       elements.bracket.innerHTML = `
@@ -328,13 +399,15 @@
       return;
     }
 
+    const rounds = buildBracketRounds(state.matches, state.participants.length);
+
     elements.bracket.innerHTML = `
       <section class="bracket-stage">
         <div class="bracket-stage-head">
           <div>
             <div class="section-kicker">Live bracket</div>
-            <h2>Created match channels</h2>
-            <p>Only games with opened Discord match channels are shown.</p>
+            <h2>Created match channels by round</h2>
+            <p>Winners stay attached to the game they came from. Future rounds fill in as channels are opened.</p>
           </div>
           <div class="board-count">
             <strong>${escapeHtml(state.matches.length)}</strong>
@@ -342,17 +415,7 @@
           </div>
         </div>
         <div class="bracket-track">
-          ${renderBracketColumn("Open Games", `${openMatches.length} active`, openMatches, map, "No open games")}
-          ${renderBracketColumn("Results", `${completedMatches.length} finished`, completedMatches, map, "No results yet")}
-          <section class="bracket-column bracket-column-final">
-            <div class="bracket-column-title">
-              <h2>Champion</h2>
-              <span>Pending</span>
-            </div>
-            <div class="bracket-lineup">
-              <div class="bracket-empty-slot">Winner pending</div>
-            </div>
-          </section>
+          ${rounds.map((round) => renderRoundColumn(round, map)).join("")}
         </div>
       </section>
     `;
