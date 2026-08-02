@@ -1,805 +1,677 @@
-window.UNO_BRACKET_DATA = {
-  "created_game_count": 31,
-  "event": {
-    "name": "UNO Tournament 2.0",
-    "signup_deadline_timestamp": 1785524400
-  },
-  "generated_at_timestamp": 1785683856,
-  "guild_id": "995954559044304896",
-  "guild_name": "Modded Among Us Lobbies",
-  "matches": [
-    {
-      "channel_id": "1533292247318134895",
-      "channel_name": "uno-2-mixie-twiste-donuts",
-      "created_at_timestamp": 1785635758,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722158,
-      "finalized": false,
-      "game_id": 2,
-      "guild_id": "995954559044304896",
-      "player_one_id": "294356624255090688",
-      "player_two_id": "1297676868841115652",
-      "winner_id": null,
-      "player_one_name": "⁺‧₊˚ঌ⋆Mixie⋆ঌ˚₊‧⁺",
-      "player_two_name": "!  twiste” donuts"
-    },
-    {
-      "channel_id": "1533292363945082941",
-      "channel_name": "uno-3-x-mr-roe-deer",
-      "created_at_timestamp": 1785635786,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722186,
-      "finalized": true,
-      "game_id": 3,
-      "guild_id": "995954559044304896",
-      "player_one_id": "906424513137377280",
-      "player_two_id": "1072462136443404379",
-      "winner_id": "906424513137377280",
-      "player_one_name": "⁺‧₊˚〚 ꜱɪxɪᴇ 〛 ˚₊‧⁺",
-      "player_two_name": "¸¸♬¯·♫¸¸ Mr. Roe deer '♫·¯·♪",
-      "winner_name": "⁺‧₊˚〚 ꜱɪxɪᴇ 〛 ˚₊‧⁺"
-    },
-    {
-      "channel_id": "1533292519461228747",
-      "channel_name": "uno-4-ir-columbina",
-      "created_at_timestamp": 1785635822,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722222,
-      "finalized": true,
-      "game_id": 4,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1357352341250113710",
-      "player_two_id": "1438174767843774565",
-      "winner_id": "1357352341250113710",
-      "player_one_name": "⊹ ࣪ ˖ ᕼ𝕚ყσ𝕣ι ˖ ࣪⊹",
-      "player_two_name": "⋆. 𐙚˚࿔ 𝙲𝚘𝚕𝚞𝚖𝚋𝚒𝚗𝚊𝜗𝜚˚⋆",
-      "winner_name": "⊹ ࣪ ˖ ᕼ𝕚ყσ𝕣ι ˖ ࣪⊹"
-    },
-    {
-      "channel_id": "1533292615212994691",
-      "channel_name": "uno-5-burntnugs-acyy",
-      "created_at_timestamp": 1785635844,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722244,
-      "finalized": true,
-      "game_id": 5,
-      "guild_id": "995954559044304896",
-      "player_one_id": "835499496665645096",
-      "player_two_id": "1127991573850898604",
-      "winner_id": "1127991573850898604",
-      "player_one_name": "⋆˚࿔ 𝘉𝘶𝘳𝘯𝘵𝘕𝘶𝘨𝘴 ♫˚⋆",
-      "player_two_name": "☆_∙❄️∙Acyy∙❄️∙_☆",
-      "winner_name": "☆_∙❄️∙Acyy∙❄️∙_☆"
-    },
-    {
-      "channel_id": "1533292957288103986",
-      "channel_name": "uno-6-ren-toast-keika",
-      "created_at_timestamp": 1785635927,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722327,
-      "finalized": true,
-      "game_id": 6,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1223726339392278528",
-      "player_two_id": "1227518353686396940",
-      "winner_id": "1223726339392278528",
-      "player_one_name": "☆《《 ,,  REN _ ☆",
-      "player_two_name": "☼⋅˚₊‧ Toast Keika ‧₊˚ ⋅𓇼",
-      "winner_name": "☆《《 ,,  REN _ ☆"
-    },
-    {
-      "channel_id": "1533293013512753252",
-      "channel_name": "uno-7-jojo-blaze",
-      "created_at_timestamp": 1785635940,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722340,
-      "finalized": true,
-      "game_id": 7,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1072010786668548156",
-      "player_two_id": "1237216817026695228",
-      "winner_id": "1237216817026695228",
-      "player_one_name": "✰ Jojo",
-      "player_two_name": "🔥𝕭𝖑𝖆𝖟𝖊🔥",
-      "winner_name": "🔥𝕭𝖑𝖆𝖟𝖊🔥"
-    },
-    {
-      "channel_id": "1533293042339938464",
-      "channel_name": "uno-8-hylon-ace",
-      "created_at_timestamp": 1785635947,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722347,
-      "finalized": false,
-      "game_id": 8,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1206232315890507776",
-      "player_two_id": "1302452142140817429",
-      "winner_id": null,
-      "player_one_name": "🔥Hylon🔥",
-      "player_two_name": "Ace"
-    },
-    {
-      "channel_id": "1533293067598168216",
-      "channel_name": "uno-9-bajablast-boilpotato",
-      "created_at_timestamp": 1785635953,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722353,
-      "finalized": false,
-      "game_id": 9,
-      "guild_id": "995954559044304896",
-      "player_one_id": "788883935790759936",
-      "player_two_id": "1234190738263380019",
-      "winner_id": null,
-      "player_one_name": "BajaBlast 🎃",
-      "player_two_name": "BoilPotato"
-    },
-    {
-      "channel_id": "1533293089840435371",
-      "channel_name": "uno-10-britney-cheesey201",
-      "created_at_timestamp": 1785635958,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722358,
-      "finalized": false,
-      "game_id": 10,
-      "guild_id": "995954559044304896",
-      "player_one_id": "988926958777806939",
-      "player_two_id": "1517602675603017800",
-      "winner_id": null,
-      "player_one_name": "Britney ⏾⋆.˚",
-      "player_two_name": "Cheesey201🇺🇸"
-    },
-    {
-      "channel_id": "1533293153849966633",
-      "channel_name": "uno-11-coolkid-croissant",
-      "created_at_timestamp": 1785635974,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722374,
-      "finalized": true,
-      "game_id": 11,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1276774905731485769",
-      "player_two_id": "909871406630731776",
-      "winner_id": "909871406630731776",
-      "player_one_name": "Coolkid",
-      "player_two_name": "croissant",
-      "winner_name": "croissant"
-    },
-    {
-      "channel_id": "1533293187165192202",
-      "channel_name": "uno-12-dashthegreen-env1",
-      "created_at_timestamp": 1785635979,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722379,
-      "finalized": true,
-      "game_id": 12,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1149978318448361623",
-      "player_two_id": "1131631997966618755",
-      "winner_id": "1149978318448361623",
-      "player_one_name": "DashTheGreen",
-      "player_two_name": "Env1",
-      "winner_name": "DashTheGreen"
-    },
-    {
-      "channel_id": "1533293244224372927",
-      "channel_name": "uno-13-ghost-honey-mei",
-      "created_at_timestamp": 1785635996,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722396,
-      "finalized": false,
-      "game_id": 13,
-      "guild_id": "995954559044304896",
-      "player_one_id": "805304427400921118",
-      "player_two_id": "1523738783399415923",
-      "winner_id": null,
-      "player_one_name": "Ghost",
-      "player_two_name": "Honey_Mei"
-    },
-    {
-      "channel_id": "1533293313694629948",
-      "channel_name": "uno-14-is-ivy",
-      "created_at_timestamp": 1785636012,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722412,
-      "finalized": false,
-      "game_id": 14,
-      "guild_id": "995954559044304896",
-      "player_one_id": "824357839936946226",
-      "player_two_id": "966343802308665365",
-      "winner_id": null,
-      "player_one_name": "is",
-      "player_two_name": "Ivy"
-    },
-    {
-      "channel_id": "1533293390119305266",
-      "channel_name": "uno-15-james-kyle-justabookgirle",
-      "created_at_timestamp": 1785636030,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722430,
-      "finalized": true,
-      "game_id": 15,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1243640882905743441",
-      "player_two_id": "783138602997514240",
-      "winner_id": "783138602997514240",
-      "player_one_name": "James(Kyle)",
-      "player_two_name": "Justabookgirle",
-      "winner_name": "Justabookgirle"
-    },
-    {
-      "channel_id": "1533293423472152808",
-      "channel_name": "uno-16-k-katty",
-      "created_at_timestamp": 1785636038,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722438,
-      "finalized": false,
-      "game_id": 16,
-      "guild_id": "995954559044304896",
-      "player_one_id": "666430660973690882",
-      "player_two_id": "1121126678467465247",
-      "winner_id": null,
-      "player_one_name": "K",
-      "player_two_name": "Katty"
-    },
-    {
-      "channel_id": "1533293465444679863",
-      "channel_name": "uno-17-kea-of-the-water-korn",
-      "created_at_timestamp": 1785636048,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722448,
-      "finalized": false,
-      "game_id": 17,
-      "guild_id": "995954559044304896",
-      "player_one_id": "802745192683012156",
-      "player_two_id": "982309100530589746",
-      "winner_id": null,
-      "player_one_name": "kea¨̮of the water",
-      "player_two_name": "KoRn"
-    },
-    {
-      "channel_id": "1533293495928885319",
-      "channel_name": "uno-18-lampie-me-123",
-      "created_at_timestamp": 1785636055,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722455,
-      "finalized": false,
-      "game_id": 18,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1263068258995798066",
-      "player_two_id": "1021458492659343381",
-      "winner_id": null,
-      "player_one_name": "𝓛𝓪𝓶𝓹𝓲𝓮 ❀",
-      "player_two_name": "me_123"
-    },
-    {
-      "channel_id": "1533293525930873043",
-      "channel_name": "uno-19-mink-mrs-sammy",
-      "created_at_timestamp": 1785636063,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722463,
-      "finalized": false,
-      "game_id": 19,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1016671324527140864",
-      "player_two_id": "577492184002199589",
-      "winner_id": null,
-      "player_one_name": "Mink",
-      "player_two_name": "Mrs Sammy"
-    },
-    {
-      "channel_id": "1533293579370365071",
-      "channel_name": "uno-20-mv-nana-simira",
-      "created_at_timestamp": 1785636075,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722475,
-      "finalized": false,
-      "game_id": 20,
-      "guild_id": "995954559044304896",
-      "player_one_id": "802648654292058163",
-      "player_two_id": "1514914741670121477",
-      "winner_id": null,
-      "player_one_name": "MV",
-      "player_two_name": "NANA SIMIRA"
-    },
-    {
-      "channel_id": "1533293629307748363",
-      "channel_name": "uno-21-nexus-nobody",
-      "created_at_timestamp": 1785636087,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722487,
-      "finalized": false,
-      "game_id": 21,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1367142692324245646",
-      "player_two_id": "1091990364581265419",
-      "winner_id": null,
-      "player_one_name": "Nexus😮‍💨",
-      "player_two_name": "Nobody"
-    },
-    {
-      "channel_id": "1533293653529858299",
-      "channel_name": "uno-22-non-responding-guy-outpost13",
-      "created_at_timestamp": 1785636093,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722493,
-      "finalized": false,
-      "game_id": 22,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1383120619914133574",
-      "player_two_id": "871631130678411304",
-      "winner_id": null,
-      "player_one_name": "non_responding_guy",
-      "player_two_name": "Outpost13"
-    },
-    {
-      "channel_id": "1533293678771175648",
-      "channel_name": "uno-23-pancake-pine",
-      "created_at_timestamp": 1785636099,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722499,
-      "finalized": false,
-      "game_id": 23,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1175886799227322463",
-      "player_two_id": "1236381560232611891",
-      "winner_id": null,
-      "player_one_name": "PanCaKe",
-      "player_two_name": "pine"
-    },
-    {
-      "channel_id": "1533293734551093359",
-      "channel_name": "uno-24-shadow-sky",
-      "created_at_timestamp": 1785636112,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722512,
-      "finalized": true,
-      "game_id": 24,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1396482378943303800",
-      "player_two_id": "1220227055191330857",
-      "winner_id": "1396482378943303800",
-      "player_one_name": "Shadow",
-      "player_two_name": "Sky",
-      "winner_name": "Shadow"
-    },
-    {
-      "channel_id": "1533293774011367617",
-      "channel_name": "uno-25-sofii-summer",
-      "created_at_timestamp": 1785636121,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722521,
-      "finalized": false,
-      "game_id": 25,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1201237256346808341",
-      "player_two_id": "1101745950789218374",
-      "winner_id": null,
-      "player_one_name": "sofii ! 🌊",
-      "player_two_name": "summer ᪥ꫂ࿔"
-    },
-    {
-      "channel_id": "1533293806907297986",
-      "channel_name": "uno-26-whimsy-mistborn-daisy",
-      "created_at_timestamp": 1785636130,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722530,
-      "finalized": false,
-      "game_id": 26,
-      "guild_id": "995954559044304896",
-      "player_one_id": "758534870745219072",
-      "player_two_id": "790132069098586133",
-      "winner_id": null,
-      "player_one_name": "whimsy ༺❦༻",
-      "player_two_name": "ོ𓍼℘Mistborn Daisy℘𓍼 ོ"
-    },
-    {
-      "channel_id": "1533294147794894928",
-      "channel_name": "uno-27-dex-rightstar",
-      "created_at_timestamp": 1785636211,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785722611,
-      "finalized": false,
-      "game_id": 27,
-      "guild_id": "995954559044304896",
-      "player_one_id": "976261529622175766",
-      "player_two_id": "1099240775230963742",
-      "winner_id": null,
-      "player_one_name": "ᯓ ★ Dex ♛✮༒☽",
-      "player_two_name": "ᯓ✰𝓻𝓲𝓰𝓱𝓽𝓼𝓽𝓪𝓻✰⋆˚ ݁˖⭑.ᐟ"
-    },
-    {
-      "channel_id": "1533419188033425448",
-      "channel_name": "uno-28-nira-lowkey-loky",
-      "created_at_timestamp": 1785666020,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785752420,
-      "finalized": true,
-      "game_id": 28,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1374460522258235515",
-      "player_two_id": "899320430777757716",
-      "winner_id": "1374460522258235515",
-      "player_one_name": "Nira Lowkey",
-      "player_two_name": "Loky",
-      "winner_name": "Nira Lowkey"
-    },
-    {
-      "channel_id": "1533419271932219542",
-      "channel_name": "uno-29-rosa-nam",
-      "created_at_timestamp": 1785666043,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785752443,
-      "finalized": false,
-      "game_id": 29,
-      "guild_id": "995954559044304896",
-      "player_one_id": "886675454965186621",
-      "player_two_id": "939544072710938664",
-      "winner_id": null,
-      "player_one_name": "Rosa",
-      "player_two_name": "Nam"
-    },
-    {
-      "channel_id": "1533419352324309142",
-      "channel_name": "uno-30-duskrose-aired-up-jayce",
-      "created_at_timestamp": 1785666062,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785752462,
-      "finalized": true,
-      "game_id": 30,
-      "guild_id": "995954559044304896",
-      "player_one_id": "788051727051391017",
-      "player_two_id": "1233690167605198902",
-      "winner_id": "1233690167605198902",
-      "player_one_name": "Duskrose",
-      "player_two_name": "Aired Up Jayce",
-      "winner_name": "Aired Up Jayce"
-    },
-    {
-      "channel_id": "1533419429604622506",
-      "channel_name": "uno-31-targaryen-water-gojo",
-      "created_at_timestamp": 1785666080,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785752480,
-      "finalized": true,
-      "game_id": 31,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1525201717111689296",
-      "player_two_id": "1504580237806276819",
-      "winner_id": "1504580237806276819",
-      "player_one_name": "Targaryen",
-      "player_two_name": "Water Gojo",
-      "winner_name": "Water Gojo"
-    },
-    {
-      "channel_id": "1533419505089253386",
-      "channel_name": "uno-32-gh-7-kiwii-ig",
-      "created_at_timestamp": 1785666098,
-      "created_by_id": "972228046323064903",
-      "deadline_timestamp": 1785752498,
-      "finalized": false,
-      "game_id": 32,
-      "guild_id": "995954559044304896",
-      "player_one_id": "1432558191086014464",
-      "player_two_id": "1512728097449971788",
-      "winner_id": null,
-      "player_one_name": "GH 7",
-      "player_two_name": "Kiwii IG"
+(function () {
+  window.__unoBracketLoaded = true;
+
+  const DATA_URLS = [
+    "/data/uno_bracket.json",
+    "/data/uno_data.json",
+    "data/uno_bracket.json",
+    "data/uno_data.json"
+  ];
+
+  const elements = {
+    bracket: document.getElementById("bracketGrid"),
+    matchList: document.getElementById("matchList"),
+    participantList: document.getElementById("participantList"),
+    participantCount: document.getElementById("participantCount"),
+    bracketSize: document.getElementById("bracketSize"),
+    activeMatches: document.getElementById("activeMatches"),
+    completedMatches: document.getElementById("completedMatches"),
+    deadline: document.getElementById("deadline"),
+    generatedAt: document.getElementById("generatedAt"),
+    rosterState: document.getElementById("rosterState"),
+    search: document.getElementById("participantSearch"),
+    refresh: document.getElementById("refreshData"),
+    copyPairings: document.getElementById("copyPairings"),
+    toast: document.getElementById("toast")
+  };
+
+  let state = {
+    participants: [],
+    matches: [],
+    rounds: [],
+    dataUrl: "",
+    deadlineTimestamp: null,
+    generatedAtTimestamp: null,
+    nextGameId: null
+  };
+
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function toId(value) {
+    if (value === null || value === undefined || value === "") return "";
+    return String(value);
+  }
+
+  function firstText(...values) {
+    for (const value of values) {
+      const text = String(value ?? "").trim();
+      if (text) return text;
     }
-  ],
-  "next_game_id": 33,
-  "participant_count": 52,
-  "participants": [
-    {
-      "display_name": "!  twiste” donuts",
-      "id": "1297676868841115652",
-      "mention": "<@1297676868841115652>",
-      "username": "friendlyspidy"
-    },
-    {
-      "display_name": "Ace",
-      "id": "1302452142140817429",
-      "mention": "<@1302452142140817429>",
-      "username": "manofthreenames"
-    },
-    {
-      "display_name": "BajaBlast 🎃",
-      "id": "788883935790759936",
-      "mention": "<@788883935790759936>",
-      "username": "devilash"
-    },
-    {
-      "display_name": "BoilPotato",
-      "id": "1234190738263380019",
-      "mention": "<@1234190738263380019>",
-      "username": "aaloyhaz17"
-    },
-    {
-      "display_name": "Britney ⏾⋆.˚",
-      "id": "988926958777806939",
-      "mention": "<@988926958777806939>",
-      "username": "briiit_085"
-    },
-    {
-      "display_name": "Cheesey201🇺🇸",
-      "id": "1517602675603017800",
-      "mention": "<@1517602675603017800>",
-      "username": "goku031493"
-    },
-    {
-      "display_name": "Coolkid",
-      "id": "1276774905731485769",
-      "mention": "<@1276774905731485769>",
-      "username": "sebthecoolkid."
-    },
-    {
-      "display_name": "croissant",
-      "id": "909871406630731776",
-      "mention": "<@909871406630731776>",
-      "username": "crxstos"
-    },
-    {
-      "display_name": "DashTheGreen",
-      "id": "1149978318448361623",
-      "mention": "<@1149978318448361623>",
-      "username": "dashy042"
-    },
-    {
-      "display_name": "Env1",
-      "id": "1131631997966618755",
-      "mention": "<@1131631997966618755>",
-      "username": "env1x_ity"
-    },
-    {
-      "display_name": "Ghost",
-      "id": "805304427400921118",
-      "mention": "<@805304427400921118>",
-      "username": "ghostbhai88"
-    },
-    {
-      "display_name": "Honey_Mei",
-      "id": "1523738783399415923",
-      "mention": "<@1523738783399415923>",
-      "username": "honey_mei_."
-    },
-    {
-      "display_name": "is",
-      "id": "824357839936946226",
-      "mention": "<@824357839936946226>",
-      "username": "its.is"
-    },
-    {
-      "display_name": "Ivy",
-      "id": "966343802308665365",
-      "mention": "<@966343802308665365>",
-      "username": "tasdid1"
-    },
-    {
-      "display_name": "James(Kyle)",
-      "id": "1243640882905743441",
-      "mention": "<@1243640882905743441>",
-      "username": "king_james_the_first_43117"
-    },
-    {
-      "display_name": "Justabookgirle",
-      "id": "783138602997514240",
-      "mention": "<@783138602997514240>",
-      "username": "lavender_xxqueen"
-    },
-    {
-      "display_name": "K",
-      "id": "666430660973690882",
-      "mention": "<@666430660973690882>",
-      "username": "mcsquishie"
-    },
-    {
-      "display_name": "Katty",
-      "id": "1121126678467465247",
-      "mention": "<@1121126678467465247>",
-      "username": "smartkats127"
-    },
-    {
-      "display_name": "kea¨̮of the water",
-      "id": "802745192683012156",
-      "mention": "<@802745192683012156>",
-      "username": "kayyvision"
-    },
-    {
-      "display_name": "KoRn",
-      "id": "982309100530589746",
-      "mention": "<@982309100530589746>",
-      "username": "kornfan98"
-    },
-    {
-      "display_name": "me_123",
-      "id": "1021458492659343381",
-      "mention": "<@1021458492659343381>",
-      "username": "me.091"
-    },
-    {
-      "display_name": "Mink",
-      "id": "1016671324527140864",
-      "mention": "<@1016671324527140864>",
-      "username": "kingmink_"
-    },
-    {
-      "display_name": "Mrs Sammy",
-      "id": "577492184002199589",
-      "mention": "<@577492184002199589>",
-      "username": "mrss9"
-    },
-    {
-      "display_name": "MV",
-      "id": "802648654292058163",
-      "mention": "<@802648654292058163>",
-      "username": "apemv"
-    },
-    {
-      "display_name": "NANA SIMIRA",
-      "id": "1514914741670121477",
-      "mention": "<@1514914741670121477>",
-      "username": "nanasimira"
-    },
-    {
-      "display_name": "Nexus😮‍💨",
-      "id": "1367142692324245646",
-      "mention": "<@1367142692324245646>",
-      "username": "nexus_nexw"
-    },
-    {
-      "display_name": "Nobody",
-      "id": "1091990364581265419",
-      "mention": "<@1091990364581265419>",
-      "username": "nobodyis_here0"
-    },
-    {
-      "display_name": "non_responding_guy",
-      "id": "1383120619914133574",
-      "mention": "<@1383120619914133574>",
-      "username": "non_responding_guy_33910"
-    },
-    {
-      "display_name": "Outpost13",
-      "id": "871631130678411304",
-      "mention": "<@871631130678411304>",
-      "username": "outpost13"
-    },
-    {
-      "display_name": "PanCaKe",
-      "id": "1175886799227322463",
-      "mention": "<@1175886799227322463>",
-      "username": "pancake_0_0_0"
-    },
-    {
-      "display_name": "pine",
-      "id": "1236381560232611891",
-      "mention": "<@1236381560232611891>",
-      "username": "predatorypython"
-    },
-    {
-      "display_name": "Shadow",
-      "id": "1396482378943303800",
-      "mention": "<@1396482378943303800>",
-      "username": "shadowknight971"
-    },
-    {
-      "display_name": "Sky",
-      "id": "1220227055191330857",
-      "mention": "<@1220227055191330857>",
-      "username": "winter.sky7"
-    },
-    {
-      "display_name": "sofii ! 🌊",
-      "id": "1201237256346808341",
-      "mention": "<@1201237256346808341>",
-      "username": "svf_ii"
-    },
-    {
-      "display_name": "summer ᪥ꫂ࿔",
-      "id": "1101745950789218374",
-      "mention": "<@1101745950789218374>",
-      "username": "summerain."
-    },
-    {
-      "display_name": "whimsy ༺❦༻",
-      "id": "758534870745219072",
-      "mention": "<@758534870745219072>",
-      "username": "the.whimsical.whimsy"
-    },
-    {
-      "display_name": "¸¸♬¯·♫¸¸ Mr. Roe deer '♫·¯·♪",
-      "id": "1072462136443404379",
-      "mention": "<@1072462136443404379>",
-      "username": "sisas4sh"
-    },
-    {
-      "display_name": "ོ𓍼℘Mistborn Daisy℘𓍼 ོ",
-      "id": "790132069098586133",
-      "mention": "<@790132069098586133>",
-      "username": "dazzlechoon"
-    },
-    {
-      "display_name": "ᯓ ★ Dex ♛✮༒☽",
-      "id": "976261529622175766",
-      "mention": "<@976261529622175766>",
-      "username": "notd3xt3r"
-    },
-    {
-      "display_name": "ᯓ✰𝓻𝓲𝓰𝓱𝓽𝓼𝓽𝓪𝓻✰⋆˚ ݁˖⭑.ᐟ",
-      "id": "1099240775230963742",
-      "mention": "<@1099240775230963742>",
-      "username": "rightstar_1503"
-    },
-    {
-      "display_name": "⁺‧₊˚ঌ⋆Mixie⋆ঌ˚₊‧⁺",
-      "id": "294356624255090688",
-      "mention": "<@294356624255090688>",
-      "username": "frickcase"
-    },
-    {
-      "display_name": "⁺‧₊˚〚 ꜱɪxɪᴇ 〛 ˚₊‧⁺",
-      "id": "906424513137377280",
-      "mention": "<@906424513137377280>",
-      "username": "sixiemesm"
-    },
-    {
-      "display_name": "⊹ ࣪ ˖ ᕼ𝕚ყσ𝕣ι ˖ ࣪⊹",
-      "id": "1357352341250113710",
-      "mention": "<@1357352341250113710>",
-      "username": "_.roronoazoro_"
-    },
-    {
-      "display_name": "⋆. 𐙚˚࿔ 𝙲𝚘𝚕𝚞𝚖𝚋𝚒𝚗𝚊𝜗𝜚˚⋆",
-      "id": "1438174767843774565",
-      "mention": "<@1438174767843774565>",
-      "username": "piewithoutpie"
-    },
-    {
-      "display_name": "⋆˚࿔ 𝘉𝘶𝘳𝘯𝘵𝘕𝘶𝘨𝘴 ♫˚⋆",
-      "id": "835499496665645096",
-      "mention": "<@835499496665645096>",
-      "username": "z_io43"
-    },
-    {
-      "display_name": "☆_∙❄️∙Acyy∙❄️∙_☆",
-      "id": "1127991573850898604",
-      "mention": "<@1127991573850898604>",
-      "username": "lost_acyy"
-    },
-    {
-      "display_name": "☆《《 ,,  REN _ ☆",
-      "id": "1223726339392278528",
-      "mention": "<@1223726339392278528>",
-      "username": "pretzel0031"
-    },
-    {
-      "display_name": "☼⋅˚₊‧ Toast Keika ‧₊˚ ⋅𓇼",
-      "id": "1227518353686396940",
-      "mention": "<@1227518353686396940>",
-      "username": "keika.sama"
-    },
-    {
-      "display_name": "✰ Jojo",
-      "id": "1072010786668548156",
-      "mention": "<@1072010786668548156>",
-      "username": "dead2016"
-    },
-    {
-      "display_name": "𝓛𝓪𝓶𝓹𝓲𝓮 ❀",
-      "id": "1263068258995798066",
-      "mention": "<@1263068258995798066>",
-      "username": "ast3rzzx"
-    },
-    {
-      "display_name": "🔥Hylon🔥",
-      "id": "1206232315890507776",
-      "mention": "<@1206232315890507776>",
-      "username": "hylon_61406"
-    },
-    {
-      "display_name": "🔥𝕭𝖑𝖆𝖟𝖊🔥",
-      "id": "1237216817026695228",
-      "mention": "<@1237216817026695228>",
-      "username": "fire_roar72"
+    return "";
+  }
+
+  function isRawIdLike(value) {
+    return /^\d{12,}$/.test(String(value ?? "").trim());
+  }
+
+  function cleanDisplayLabel(value, id) {
+    const label = String(value ?? "").trim();
+    if (!label || label === toId(id) || isRawIdLike(label)) return "";
+    return label;
+  }
+
+  function formatDate(timestamp, style) {
+    if (!timestamp) return "Not set";
+
+    const date = new Date(Number(timestamp) * 1000);
+
+    if (Number.isNaN(date.getTime())) return "Not set";
+
+    return new Intl.DateTimeFormat(undefined, {
+      dateStyle: style || "medium",
+      timeStyle: "short"
+    }).format(date);
+  }
+
+  function normalizeParticipants(rawData) {
+    const participants = Array.isArray(rawData.participants)
+      ? rawData.participants
+      : [];
+
+    return participants
+      .map((participant, index) => {
+        const id = toId(participant.id ?? participant.user_id);
+        const displayName =
+          cleanDisplayLabel(
+            firstText(
+              participant.display_name,
+              participant.displayName,
+              participant.username,
+              participant.name
+            ),
+            id
+          ) || `Participant ${index + 1}`;
+
+        return {
+          id,
+          displayName,
+          username: String(participant.username || ""),
+          mention: String(participant.mention || "")
+        };
+      })
+      .filter((participant) => participant.id)
+      .sort((first, second) => {
+        return first.displayName.localeCompare(second.displayName);
+      });
+  }
+
+  function normalizeMatches(rawData) {
+    const rawMatches = Array.isArray(rawData.matches)
+      ? rawData.matches
+      : Object.values(rawData.matches || {});
+
+    return rawMatches
+      .map((match) => ({
+        gameId: Number(match.game_id),
+        channelId: toId(match.channel_id),
+        channelName: String(match.channel_name || ""),
+        playerOneId: toId(match.player_one_id),
+        playerTwoId: toId(match.player_two_id),
+        winnerId: toId(match.winner_id),
+        playerOneName: firstText(
+          match.player_one_name,
+          match.player_one_display_name,
+          match.player_one_username,
+          match.playerOneName
+        ),
+        playerTwoName: firstText(
+          match.player_two_name,
+          match.player_two_display_name,
+          match.player_two_username,
+          match.playerTwoName
+        ),
+        winnerName: firstText(
+          match.winner_name,
+          match.winner_display_name,
+          match.winner_username,
+          match.winnerName
+        ),
+        createdAtTimestamp: Number(match.created_at_timestamp || 0),
+        deadlineTimestamp: Number(match.deadline_timestamp || 0),
+        finalized: Boolean(match.finalized)
+      }))
+      .filter((match) => {
+        return match.channelId && match.gameId && match.playerOneId && match.playerTwoId;
+      })
+      .sort((first, second) => first.gameId - second.gameId);
+  }
+
+  function getParticipantLabel(participantMap, id, fallbackName) {
+    const participant = participantMap.get(toId(id));
+    const participantName = participant
+      ? cleanDisplayLabel(participant.displayName, id)
+      : "";
+    const fallback = cleanDisplayLabel(fallbackName, id);
+    if (participantName && !/^Participant \d+$/.test(participantName)) {
+      return participantName;
     }
-  ]
-};
+
+    return fallback || participantName || `User ${toId(id)}`;
+  }
+
+  function renderSlot(name, isWinner) {
+    if (!name) {
+      return `
+        <div class="slot is-empty">
+          <span class="slot-name">TBD</span>
+          <span class="slot-detail"></span>
+        </div>
+      `;
+    }
+
+    return `
+      <div class="slot${isWinner ? " is-winner" : ""}">
+        <span class="slot-name" title="${escapeHtml(name)}">${escapeHtml(name)}</span>
+        <span class="slot-detail">${isWinner ? "Winner" : ""}</span>
+      </div>
+    `;
+  }
+
+  function participantMap() {
+    return new Map(
+      state.participants.map((participant) => [participant.id, participant])
+    );
+  }
+
+  function matchStatus(match) {
+    return match.finalized ? "complete" : "active";
+  }
+
+  function renderBracketMatch(match, map) {
+    const firstName = getParticipantLabel(map, match.playerOneId, match.playerOneName);
+    const secondName = getParticipantLabel(map, match.playerTwoId, match.playerTwoName);
+    const winnerName = match.winnerId ? getParticipantLabel(map, match.winnerId, match.winnerName) : "";
+    const firstIsWinner = Boolean(match.winnerId && match.winnerId === match.playerOneId);
+    const secondIsWinner = Boolean(match.winnerId && match.winnerId === match.playerTwoId);
+    const status = matchStatus(match);
+
+    return `
+      <article class="match-card bracket-match" data-state="${status}">
+        <div class="match-meta">
+          <span>Game #${escapeHtml(match.gameId)}</span>
+          <span class="match-pill status-${status}">
+            <span class="status-dot"></span>
+            ${match.finalized ? "Complete" : "Open"}
+          </span>
+        </div>
+        ${renderSlot(firstName, firstIsWinner)}
+        ${renderSlot(secondName, secondIsWinner)}
+        <div class="match-foot">
+          <span>${match.finalized ? `Winner: ${escapeHtml(winnerName || "Saved")}` : "Discord match channel created"}</span>
+          <span>${match.deadlineTimestamp ? escapeHtml(formatDate(match.deadlineTimestamp, "short")) : ""}</span>
+        </div>
+        ${match.channelName ? `<div class="match-channel">${escapeHtml(match.channelName)}</div>` : ""}
+      </article>
+    `;
+  }
+
+  function renderEmptyBracketRail() {
+    const rounds = [
+      { title: "Opening Games", slots: 4 },
+      { title: "Next Round", slots: 2 },
+      { title: "Final", slots: 1 }
+    ];
+
+    return `
+      <div class="bracket-track is-waiting">
+        ${rounds
+          .map((round) => `
+            <section class="bracket-column">
+              <div class="bracket-column-title">
+                <h2>${escapeHtml(round.title)}</h2>
+                <span>Waiting</span>
+              </div>
+              <div class="bracket-lineup">
+                ${Array.from({ length: round.slots })
+                  .map(() => `
+                    <article class="bracket-placeholder" aria-label="Match channel waiting">
+                      <span></span>
+                      <span></span>
+                    </article>
+                  `)
+                  .join("")}
+              </div>
+            </section>
+          `)
+          .join("")}
+      </div>
+    `;
+  }
+
+  function renderBracketColumn(title, note, matches, map, emptyCopy) {
+    return `
+      <section class="bracket-column">
+        <div class="bracket-column-title">
+          <h2>${escapeHtml(title)}</h2>
+          <span>${escapeHtml(note)}</span>
+        </div>
+        <div class="bracket-lineup">
+          ${
+            matches.length
+              ? matches.map((match) => renderBracketMatch(match, map)).join("")
+              : `<div class="bracket-empty-slot">${escapeHtml(emptyCopy)}</div>`
+          }
+        </div>
+      </section>
+    `;
+  }
+
+  function renderParticipantCloud(limit) {
+    if (!state.participants.length) {
+      return `
+        <div class="empty-state">
+          <strong>No players listed yet.</strong><br />
+          The player list will appear here once signups are loaded.
+        </div>
+      `;
+    }
+
+    const visibleParticipants = state.participants.slice(0, limit || state.participants.length);
+    const remaining = state.participants.length - visibleParticipants.length;
+
+    return `
+      <div class="player-cloud">
+        ${visibleParticipants
+          .map((participant) => `
+            <span class="player-chip" title="${escapeHtml(participant.displayName)}">${escapeHtml(participant.displayName)}</span>
+          `)
+          .join("")}
+        ${remaining > 0 ? `<span class="player-chip muted">+${remaining} more</span>` : ""}
+      </div>
+    `;
+  }
+
+  function renderBracket() {
+    if (!elements.bracket) return;
+
+    const map = participantMap();
+    const openMatches = state.matches.filter((match) => !match.finalized);
+    const completedMatches = state.matches.filter((match) => match.finalized).slice().reverse();
+
+    if (!state.matches.length) {
+      elements.bracket.innerHTML = `
+        <section class="bracket-stage">
+          <div class="bracket-stage-head">
+            <div>
+              <div class="section-kicker">Waiting for match channels</div>
+              <h2>No created games yet</h2>
+              <p>
+                The roster is loaded. Matchups will appear only after real Discord
+                match channels are opened.
+              </p>
+            </div>
+            <div class="board-count">
+              <strong>${escapeHtml(state.participants.length)}</strong>
+              <span>players signed up</span>
+            </div>
+          </div>
+          ${renderEmptyBracketRail()}
+        </section>
+      `;
+      return;
+    }
+
+    elements.bracket.innerHTML = `
+      <section class="bracket-stage">
+        <div class="bracket-stage-head">
+          <div>
+            <div class="section-kicker">Live bracket</div>
+            <h2>Created match channels</h2>
+            <p>Only games with opened Discord match channels are shown.</p>
+          </div>
+          <div class="board-count">
+            <strong>${escapeHtml(state.matches.length)}</strong>
+            <span>created games</span>
+          </div>
+        </div>
+        <div class="bracket-track">
+          ${renderBracketColumn("Open Games", `${openMatches.length} active`, openMatches, map, "No open games")}
+          ${renderBracketColumn("Results", `${completedMatches.length} finished`, completedMatches, map, "No results yet")}
+          <section class="bracket-column bracket-column-final">
+            <div class="bracket-column-title">
+              <h2>Champion</h2>
+              <span>Pending</span>
+            </div>
+            <div class="bracket-lineup">
+              <div class="bracket-empty-slot">Winner pending</div>
+            </div>
+          </section>
+        </div>
+      </section>
+    `;
+  }
+
+  function renderMatches() {
+    if (!elements.matchList) return;
+
+    if (!state.matches.length) {
+      elements.matchList.innerHTML = `
+        <div class="empty-state">
+          <strong>No match channels saved yet.</strong><br />
+          Created games and finalized results will show here.
+        </div>
+      `;
+      return;
+    }
+
+    const participantMap = new Map(
+      state.participants.map((participant) => [participant.id, participant])
+    );
+
+    elements.matchList.innerHTML = state.matches
+      .slice()
+      .reverse()
+      .map((match) => {
+        const firstName = getParticipantLabel(participantMap, match.playerOneId, match.playerOneName);
+        const secondName = getParticipantLabel(participantMap, match.playerTwoId, match.playerTwoName);
+        const winnerName = match.winnerId
+          ? getParticipantLabel(participantMap, match.winnerId, match.winnerName)
+          : "Pending";
+        const status = match.finalized ? "complete" : "active";
+
+        return `
+          <article class="list-item">
+            <div class="list-top">
+              <span class="list-name">Game #${escapeHtml(match.gameId)}</span>
+              <span class="state-chip ${status}">${match.finalized ? "Complete" : "Active"}</span>
+            </div>
+            <div class="list-meta">
+              ${escapeHtml(firstName)} vs. ${escapeHtml(secondName)}<br />
+              Winner: ${escapeHtml(winnerName)}<br />
+              ${match.channelName ? `Channel: ${escapeHtml(match.channelName)}<br />` : ""}
+              ${match.deadlineTimestamp ? `Deadline: ${escapeHtml(formatDate(match.deadlineTimestamp, "short"))}` : ""}
+            </div>
+          </article>
+        `;
+      })
+      .join("");
+  }
+
+  function renderParticipants() {
+    if (!elements.participantList) return;
+
+    const query = (elements.search ? elements.search.value : "").trim().toLowerCase();
+    const participants = state.participants.filter((participant) => {
+      if (!query) return true;
+
+      return (
+        participant.displayName.toLowerCase().includes(query) ||
+        participant.username.toLowerCase().includes(query) ||
+        participant.id.includes(query)
+      );
+    });
+
+    if (!state.participants.length) {
+      elements.participantList.innerHTML = `
+        <div class="empty-state">
+          <strong>No players listed yet.</strong><br />
+          The player list will appear here once signups are loaded.
+        </div>
+      `;
+      return;
+    }
+
+    if (!participants.length) {
+      elements.participantList.innerHTML = `
+        <div class="empty-state">
+          <strong>No matching participants.</strong>
+        </div>
+      `;
+      return;
+    }
+
+    elements.participantList.innerHTML = participants
+      .map((participant) => `
+        <article class="list-item">
+          <div class="list-top">
+            <span class="list-name" title="${escapeHtml(participant.displayName)}">${escapeHtml(participant.displayName)}</span>
+          </div>
+          <div class="list-meta">${escapeHtml(participant.username || participant.mention || participant.id)}</div>
+        </article>
+      `)
+      .join("");
+  }
+
+  function renderStats() {
+    const active = state.matches.filter((match) => !match.finalized).length;
+    const complete = state.matches.filter((match) => match.finalized).length;
+
+    if (elements.participantCount) {
+      elements.participantCount.textContent = state.participants.length;
+    }
+
+    if (elements.bracketSize) {
+      elements.bracketSize.textContent = state.matches.length;
+    }
+
+    if (elements.activeMatches) {
+      elements.activeMatches.textContent = active;
+    }
+
+    if (elements.completedMatches) {
+      elements.completedMatches.textContent = complete;
+    }
+
+    if (elements.deadline) {
+      elements.deadline.textContent = state.deadlineTimestamp
+        ? formatDate(state.deadlineTimestamp, "short")
+        : "Not set";
+    }
+
+    if (elements.generatedAt) {
+      elements.generatedAt.textContent = state.generatedAtTimestamp
+        ? formatDate(state.generatedAtTimestamp, "short")
+        : "Waiting for update";
+    }
+
+    if (elements.rosterState) {
+      const stateLabel = state.dataUrl.includes("uno_bracket")
+        ? "Roster loaded"
+        : "Tournament data loaded";
+      elements.rosterState.textContent = stateLabel;
+    }
+  }
+
+  function renderAll() {
+    renderStats();
+    renderBracket();
+    renderMatches();
+    renderParticipants();
+  }
+
+  async function loadJson(url) {
+    const cacheBust = url.includes("?") ? "&" : "?";
+    const response = await fetch(`${url}${cacheBust}v=${Date.now()}`, {
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error(`${url} returned ${response.status}`);
+    }
+
+    return response.json();
+  }
+
+  async function loadData() {
+    let rawData = null;
+    let starterData = null;
+    let dataUrl = "";
+    let starterDataUrl = "";
+    let lastError = null;
+    const scriptData = window.UNO_BRACKET_DATA
+      ? JSON.parse(JSON.stringify(window.UNO_BRACKET_DATA))
+      : null;
+
+    if (window.location.protocol === "file:" && scriptData) {
+      rawData = scriptData;
+      dataUrl = "data/uno_bracket.js";
+    }
+
+    if (!rawData) {
+      for (const url of DATA_URLS) {
+        try {
+          const loadedData = await loadJson(url);
+          const loadedParticipants = normalizeParticipants(loadedData);
+          const loadedMatches = normalizeMatches(loadedData);
+          const isStarterFile =
+            url.includes("uno_bracket") &&
+            !loadedData.generated_at_timestamp &&
+            !loadedParticipants.length &&
+            !loadedMatches.length;
+
+          if (isStarterFile) {
+            starterData = loadedData;
+            starterDataUrl = url;
+            continue;
+          }
+
+          rawData = loadedData;
+          dataUrl = url;
+          break;
+        } catch (error) {
+          lastError = error;
+        }
+      }
+    }
+
+    if (!rawData && scriptData) {
+      rawData = scriptData;
+      dataUrl = "data/uno_bracket.js";
+    }
+
+    if (!rawData && starterData) {
+      rawData = starterData;
+      dataUrl = starterDataUrl;
+    }
+
+    if (!rawData) {
+      throw lastError || new Error("Tournament data could not be loaded.");
+    }
+
+    const participants = normalizeParticipants(rawData);
+    const matches = normalizeMatches(rawData);
+
+    state = {
+      participants,
+      matches,
+      rounds: [],
+      dataUrl,
+      deadlineTimestamp:
+        rawData.signup_deadline_timestamp ||
+        (rawData.event && rawData.event.signup_deadline_timestamp) ||
+        null,
+      generatedAtTimestamp: rawData.generated_at_timestamp || null,
+      nextGameId: rawData.next_game_id || null
+    };
+
+    renderAll();
+  }
+
+  function showToast(message) {
+    if (!elements.toast) return;
+
+    elements.toast.textContent = message;
+    elements.toast.classList.add("is-visible");
+
+    window.clearTimeout(showToast.timeoutId);
+    showToast.timeoutId = window.setTimeout(() => {
+      elements.toast.classList.remove("is-visible");
+    }, 2200);
+  }
+
+  function currentFirstRoundPairings() {
+    if (!state.matches.length) return "";
+
+    const map = participantMap();
+
+    return state.matches
+      .filter((match) => !match.finalized)
+      .map((match) => {
+        const firstName = getParticipantLabel(map, match.playerOneId, match.playerOneName);
+        const secondName = getParticipantLabel(map, match.playerTwoId, match.playerTwoName);
+        return `Game #${match.gameId}: ${firstName} vs ${secondName}`;
+      })
+      .join("\n");
+  }
+
+  function bindEvents() {
+    document.querySelectorAll(".uno-tab").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".uno-tab").forEach((tab) => {
+          tab.classList.toggle("is-active", tab === button);
+        });
+
+        document.querySelectorAll(".uno-view").forEach((view) => {
+          view.classList.toggle("is-active", view.id === button.dataset.view);
+        });
+      });
+    });
+
+    if (elements.search) {
+      elements.search.addEventListener("input", renderParticipants);
+    }
+
+    if (elements.refresh) {
+      elements.refresh.addEventListener("click", async () => {
+        elements.refresh.disabled = true;
+
+        try {
+          await loadData();
+          showToast("Tournament board updated.");
+        } catch (error) {
+          showToast("Tournament board could not be loaded.");
+        } finally {
+          elements.refresh.disabled = false;
+        }
+      });
+    }
+
+    if (elements.copyPairings) {
+      elements.copyPairings.addEventListener("click", async () => {
+        const pairings = currentFirstRoundPairings();
+
+        if (!pairings) {
+          showToast("No open match channels to copy.");
+          return;
+        }
+
+        try {
+          await navigator.clipboard.writeText(pairings);
+          showToast("Open matches copied.");
+        } catch (error) {
+          showToast("Clipboard is unavailable in this browser.");
+        }
+      });
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    bindEvents();
+
+    try {
+      await loadData();
+    } catch (error) {
+      renderAll();
+      if (elements.rosterState) {
+        elements.rosterState.textContent = "Tournament data unavailable";
+      }
+    }
+  });
+})();
