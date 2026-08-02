@@ -1,10 +1,10 @@
 {
-  "created_game_count": 15,
+  "created_game_count": 16,
   "event": {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1785636039,
+  "generated_at_timestamp": 1785636050,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -202,9 +202,22 @@
       "player_one_id": "666430660973690882",
       "player_two_id": "1121126678467465247",
       "winner_id": null
+    },
+    {
+      "channel_id": "1533293465444679863",
+      "channel_name": "uno-17-kea-of-the-water-korn",
+      "created_at_timestamp": 1785636048,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722448,
+      "finalized": false,
+      "game_id": 17,
+      "guild_id": "995954559044304896",
+      "player_one_id": "802745192683012156",
+      "player_two_id": "982309100530589746",
+      "winner_id": null
     }
   ],
-  "next_game_id": 17,
+  "next_game_id": 18,
   "participant_count": 52,
   "participants": [
     {
