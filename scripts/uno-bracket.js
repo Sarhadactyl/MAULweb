@@ -314,7 +314,10 @@
 
   function renderRoundColumn(round, map) {
     return `
-      <section class="bracket-column bracket-round-column">
+      <section
+        class="bracket-column bracket-round-column bracket-side-column-${escapeHtml(round.side || "full")}"
+        style="--round-depth: ${escapeHtml(round.index || 0)};"
+      >
         <div class="bracket-column-title">
           <h2>${escapeHtml(round.title)}</h2>
           <span>${escapeHtml(`${round.filled}/${round.size} games`)}</span>
@@ -324,6 +327,66 @@
             .map((match) => (match ? renderBracketMatch(match, map) : renderRoundPlaceholder(round)))
             .join("")}
         </div>
+      </section>
+    `;
+  }
+
+  function splitBracketRounds(rounds, side) {
+    const playableRounds = rounds.slice(0, -1);
+    const sideRounds = playableRounds
+      .map((round) => {
+        const midpoint = Math.ceil(round.slots.length / 2);
+        const slots =
+          side === "left"
+            ? round.slots.slice(0, midpoint)
+            : round.slots.slice(midpoint);
+
+        return {
+          ...round,
+          side,
+          size: slots.length,
+          filled: slots.filter(Boolean).length,
+          slots
+        };
+      })
+      .filter((round) => round.size > 0);
+
+    return side === "right" ? sideRounds.reverse() : sideRounds;
+  }
+
+  function renderBracketSide(rounds, map, side) {
+    const sideRounds = splitBracketRounds(rounds, side);
+
+    return `
+      <div class="bracket-side bracket-side-${escapeHtml(side)}">
+        ${sideRounds.map((round) => renderRoundColumn(round, map)).join("")}
+      </div>
+    `;
+  }
+
+  function renderFinalCenter(rounds, map) {
+    const finalRound = rounds[rounds.length - 1];
+    const finalMatch = finalRound ? finalRound.slots.find(Boolean) : null;
+
+    return `
+      <section class="bracket-final-center" aria-label="Finals">
+        <div class="final-trophy" aria-hidden="true">🏆</div>
+        <div class="final-title">
+          <span>UNO</span>
+          <h2>Finals</h2>
+        </div>
+        ${
+          finalMatch
+            ? renderBracketMatch(finalMatch, map)
+            : `
+              <article class="final-card">
+                <div class="finalist-slot">Left finalist pending</div>
+                <div class="final-divider"></div>
+                <div class="finalist-slot">Right finalist pending</div>
+              </article>
+            `
+        }
+        <div class="final-caption">Winner advances here after the semifinals.</div>
       </section>
     `;
   }
@@ -414,8 +477,10 @@
             <span>created games</span>
           </div>
         </div>
-        <div class="bracket-track">
-          ${rounds.map((round) => renderRoundColumn(round, map)).join("")}
+        <div class="bracket-track bracket-showcase">
+          ${renderBracketSide(rounds, map, "left")}
+          ${renderFinalCenter(rounds, map)}
+          ${renderBracketSide(rounds, map, "right")}
         </div>
       </section>
     `;
