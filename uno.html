@@ -590,8 +590,8 @@
         }
       }
     </style>
-    <link rel="stylesheet" href="/styles/uno-bracket.css?v=community-board-7" />
-    <link rel="stylesheet" href="styles/uno-bracket.css?v=community-board-7" />
+    <link rel="stylesheet" href="/styles/uno-bracket.css?v=community-board-8" />
+    <link rel="stylesheet" href="styles/uno-bracket.css?v=community-board-8" />
   </head>
 
   <body>
@@ -607,7 +607,7 @@
             </div>
             <h1 class="uno-title">UNO Tournament <span>2.0</span></h1>
             <p class="uno-summary">
-              Maul uno tournament boardwith player roster,
+              Community tournament board connected to the Discord player roster,
               created match channels, deadlines, and finalized winners.
             </p>
           </div>
@@ -728,17 +728,33 @@
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script src="/scripts/navbar.js"></script>
-    <script src="/data/uno_bracket.js?v=community-board-7"></script>
+    <script src="/data/uno_bracket.js?v=community-board-8"></script>
     <script>
       if (!window.UNO_BRACKET_DATA) {
-        document.write('<script src="data/uno_bracket.js?v=community-board-7"><\/script>');
+        document.write('<script src="data/uno_bracket.js?v=community-board-8"><\/script>');
       }
     </script>
-    <script src="/scripts/uno-bracket.js?v=community-board-7"></script>
+    <script src="/scripts/uno-bracket.js?v=community-board-8"></script>
     <script>
       if (!window.__unoBracketLoaded) {
-        document.write('<script src="scripts/uno-bracket.js?v=community-board-7"><\/script>');
+        document.write('<script src="scripts/uno-bracket.js?v=community-board-8"><\/script>');
       }
+
+      window.setTimeout(function () {
+        if (window.__unoBracketLoaded) return;
+
+        var rosterState = document.getElementById("rosterState");
+        var bracketGrid = document.getElementById("bracketGrid");
+
+        if (rosterState) {
+          rosterState.textContent = "Board script missing";
+        }
+
+        if (bracketGrid) {
+          bracketGrid.innerHTML =
+            '<div class="empty-state"><strong>Board script did not load.</strong><br />Upload scripts/uno-bracket.js with the hyphenated filename.</div>';
+        }
+      }, 1500);
     </script>
   </body>
 </html>
