@@ -1,10 +1,10 @@
 {
-  "created_game_count": 5,
+  "created_game_count": 6,
   "event": {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1785635928,
+  "generated_at_timestamp": 1785635941,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -72,9 +72,22 @@
       "player_one_id": "1223726339392278528",
       "player_two_id": "1227518353686396940",
       "winner_id": null
+    },
+    {
+      "channel_id": "1533293013512753252",
+      "channel_name": "uno-7-jojo-blaze",
+      "created_at_timestamp": 1785635940,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722340,
+      "finalized": false,
+      "game_id": 7,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1072010786668548156",
+      "player_two_id": "1237216817026695228",
+      "winner_id": null
     }
   ],
-  "next_game_id": 7,
+  "next_game_id": 8,
   "participant_count": 52,
   "participants": [
     {
