@@ -1,10 +1,10 @@
 {
-  "created_game_count": 4,
+  "created_game_count": 5,
   "event": {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1785635847,
+  "generated_at_timestamp": 1785635928,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -59,9 +59,22 @@
       "player_one_id": "835499496665645096",
       "player_two_id": "1127991573850898604",
       "winner_id": null
+    },
+    {
+      "channel_id": "1533292957288103986",
+      "channel_name": "uno-6-ren-toast-keika",
+      "created_at_timestamp": 1785635927,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722327,
+      "finalized": false,
+      "game_id": 6,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1223726339392278528",
+      "player_two_id": "1227518353686396940",
+      "winner_id": null
     }
   ],
-  "next_game_id": 6,
+  "next_game_id": 7,
   "participant_count": 52,
   "participants": [
     {
