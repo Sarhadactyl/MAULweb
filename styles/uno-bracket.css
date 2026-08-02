@@ -762,7 +762,7 @@ input {
 .bracket-scroll {
   min-height: 360px;
   max-height: none;
-  overflow: visible;
+  overflow: auto;
 }
 
 .bracket-grid {
@@ -803,8 +803,12 @@ input {
 
 .bracket-track {
   display: grid;
-  grid-template-columns: minmax(220px, 1.1fr) minmax(220px, 0.9fr) minmax(170px, 0.68fr);
-  gap: 28px;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(268px, 306px);
+  grid-template-columns: none;
+  align-items: start;
+  gap: 24px;
+  min-width: max-content;
 }
 
 .bracket-column {
@@ -834,6 +838,41 @@ input {
 .bracket-lineup {
   display: grid;
   gap: 18px;
+}
+
+.bracket-round-column {
+  width: 100%;
+}
+
+.bracket-round-column .bracket-match,
+.bracket-round-column .bracket-placeholder,
+.bracket-round-column .bracket-empty-slot {
+  min-height: 130px;
+}
+
+.bracket-placeholder {
+  display: grid;
+  gap: 8px;
+  align-content: center;
+  min-height: 130px;
+  padding: 12px;
+  border: 1px dashed rgba(232, 236, 242, 0.16);
+  border-left: 2px solid rgba(232, 236, 242, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.028);
+  color: rgba(247, 248, 251, 0.56);
+}
+
+.bracket-placeholder strong {
+  color: rgba(247, 248, 251, 0.76);
+  font-family: "Outfit", Arial, sans-serif;
+}
+
+.bracket-placeholder span {
+  color: rgba(247, 248, 251, 0.5);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 .bracket-empty-slot {
@@ -928,8 +967,7 @@ input {
 
 @media (max-width: 900px) {
   .uno-control-bar,
-  .bracket-stage-head,
-  .bracket-track {
+  .bracket-stage-head {
     grid-template-columns: 1fr;
   }
 }
