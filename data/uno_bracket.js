@@ -4,7 +4,7 @@ window.UNO_BRACKET_DATA = {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1785683856,
+  "generated_at_timestamp": 1785834706,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -14,14 +14,17 @@ window.UNO_BRACKET_DATA = {
       "created_at_timestamp": 1785635758,
       "created_by_id": "972228046323064903",
       "deadline_timestamp": 1785722158,
-      "finalized": false,
+      "finalized": true,
       "game_id": 2,
       "guild_id": "995954559044304896",
       "player_one_id": "294356624255090688",
+      "player_one_name": "\u207a\u2027\u208a\u02da\u098c\u22c6Mixie\u22c6\u098c\u02da\u208a\u2027\u207a",
       "player_two_id": "1297676868841115652",
-      "winner_id": null,
-      "player_one_name": "⁺‧₊˚ঌ⋆Mixie⋆ঌ˚₊‧⁺",
-      "player_two_name": "!  twiste” donuts"
+      "player_two_name": "!  twiste\u201d donuts",
+      "result_note": "Mixie couldn't participate",
+      "result_status": "forfeit",
+      "winner_id": "1297676868841115652",
+      "winner_name": "!  twiste\u201d donuts"
     },
     {
       "channel_id": "1533292363945082941",
@@ -33,11 +36,13 @@ window.UNO_BRACKET_DATA = {
       "game_id": 3,
       "guild_id": "995954559044304896",
       "player_one_id": "906424513137377280",
+      "player_one_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a",
       "player_two_id": "1072462136443404379",
+      "player_two_name": "\u00b8\u00b8\u266c\u00af\u00b7\u266b\u00b8\u00b8 Mr. Roe deer '\u266b\u00b7\u00af\u00b7\u266a",
+      "result_note": "",
+      "result_status": "complete",
       "winner_id": "906424513137377280",
-      "player_one_name": "⁺‧₊˚〚 ꜱɪxɪᴇ 〛 ˚₊‧⁺",
-      "player_two_name": "¸¸♬¯·♫¸¸ Mr. Roe deer '♫·¯·♪",
-      "winner_name": "⁺‧₊˚〚 ꜱɪxɪᴇ 〛 ˚₊‧⁺"
+      "winner_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a"
     },
     {
       "channel_id": "1533292519461228747",
@@ -49,11 +54,13 @@ window.UNO_BRACKET_DATA = {
       "game_id": 4,
       "guild_id": "995954559044304896",
       "player_one_id": "1357352341250113710",
+      "player_one_name": "\u22b9 \u08ea \u02d6 \u157c\ud835\udd5a\u10e7\u03c3\ud835\udd63\u03b9 \u02d6 \u08ea\u22b9",
       "player_two_id": "1438174767843774565",
+      "player_two_name": "\u22c6. \ud801\ude5a\u02da\u0fd4 \ud835\ude72\ud835\ude98\ud835\ude95\ud835\ude9e\ud835\ude96\ud835\ude8b\ud835\ude92\ud835\ude97\ud835\ude8a\ud835\udf17\ud835\udf1a\u02da\u22c6",
+      "result_note": "",
+      "result_status": "complete",
       "winner_id": "1357352341250113710",
-      "player_one_name": "⊹ ࣪ ˖ ᕼ𝕚ყσ𝕣ι ˖ ࣪⊹",
-      "player_two_name": "⋆. 𐙚˚࿔ 𝙲𝚘𝚕𝚞𝚖𝚋𝚒𝚗𝚊𝜗𝜚˚⋆",
-      "winner_name": "⊹ ࣪ ˖ ᕼ𝕚ყσ𝕣ι ˖ ࣪⊹"
+      "winner_name": "\u22b9 \u08ea \u02d6 \u157c\ud835\udd5a\u10e7\u03c3\ud835\udd63\u03b9 \u02d6 \u08ea\u22b9"
     },
     {
       "channel_id": "1533292615212994691",
@@ -65,11 +72,13 @@ window.UNO_BRACKET_DATA = {
       "game_id": 5,
       "guild_id": "995954559044304896",
       "player_one_id": "835499496665645096",
+      "player_one_name": "\u22c6\u02da\u0fd4 \ud835\ude09\ud835\ude36\ud835\ude33\ud835\ude2f\ud835\ude35\ud835\ude15\ud835\ude36\ud835\ude28\ud835\ude34 \u266b\u02da\u22c6",
       "player_two_id": "1127991573850898604",
+      "player_two_name": "\u2606_\u2219\u2744\ufe0f\u2219Acyy\u2219\u2744\ufe0f\u2219_\u2606",
+      "result_note": "",
+      "result_status": "complete",
       "winner_id": "1127991573850898604",
-      "player_one_name": "⋆˚࿔ 𝘉𝘶𝘳𝘯𝘵𝘕𝘶𝘨𝘴 ♫˚⋆",
-      "player_two_name": "☆_∙❄️∙Acyy∙❄️∙_☆",
-      "winner_name": "☆_∙❄️∙Acyy∙❄️∙_☆"
+      "winner_name": "\u2606_\u2219\u2744\ufe0f\u2219Acyy\u2219\u2744\ufe0f\u2219_\u2606"
     },
     {
       "channel_id": "1533292957288103986",
@@ -81,11 +90,13 @@ window.UNO_BRACKET_DATA = {
       "game_id": 6,
       "guild_id": "995954559044304896",
       "player_one_id": "1223726339392278528",
+      "player_one_name": "\u2606\u300a\u300a ,,  REN _ \u2606",
       "player_two_id": "1227518353686396940",
+      "player_two_name": "\u263c\u22c5\u02da\u208a\u2027 Toast Keika \u2027\u208a\u02da \u22c5\ud80c\uddfc",
+      "result_note": "",
+      "result_status": "complete",
       "winner_id": "1223726339392278528",
-      "player_one_name": "☆《《 ,,  REN _ ☆",
-      "player_two_name": "☼⋅˚₊‧ Toast Keika ‧₊˚ ⋅𓇼",
-      "winner_name": "☆《《 ,,  REN _ ☆"
+      "winner_name": "\u2606\u300a\u300a ,,  REN _ \u2606"
     },
     {
       "channel_id": "1533293013512753252",
@@ -97,11 +108,13 @@ window.UNO_BRACKET_DATA = {
       "game_id": 7,
       "guild_id": "995954559044304896",
       "player_one_id": "1072010786668548156",
+      "player_one_name": "\u2730 Jojo",
       "player_two_id": "1237216817026695228",
+      "player_two_name": "\ud83d\udd25\ud835\udd6d\ud835\udd91\ud835\udd86\ud835\udd9f\ud835\udd8a\ud83d\udd25",
+      "result_note": "",
+      "result_status": "complete",
       "winner_id": "1237216817026695228",
-      "player_one_name": "✰ Jojo",
-      "player_two_name": "🔥𝕭𝖑𝖆𝖟𝖊🔥",
-      "winner_name": "🔥𝕭𝖑𝖆𝖟𝖊🔥"
+      "winner_name": "\ud83d\udd25\ud835\udd6d\ud835\udd91\ud835\udd86\ud835\udd9f\ud835\udd8a\ud83d\udd25"
     },
     {
       "channel_id": "1533293042339938464",
@@ -109,14 +122,17 @@ window.UNO_BRACKET_DATA = {
       "created_at_timestamp": 1785635947,
       "created_by_id": "972228046323064903",
       "deadline_timestamp": 1785722347,
-      "finalized": false,
+      "finalized": true,
       "game_id": 8,
       "guild_id": "995954559044304896",
       "player_one_id": "1206232315890507776",
+      "player_one_name": "\ud83d\udd25Hylon\ud83d\udd25",
       "player_two_id": "1302452142140817429",
-      "winner_id": null,
-      "player_one_name": "🔥Hylon🔥",
-      "player_two_name": "Ace"
+      "player_two_name": "Ace",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1206232315890507776",
+      "winner_name": "\ud83d\udd25Hylon\ud83d\udd25"
     },
     {
       "channel_id": "1533293067598168216",
@@ -124,14 +140,17 @@ window.UNO_BRACKET_DATA = {
       "created_at_timestamp": 1785635953,
       "created_by_id": "972228046323064903",
       "deadline_timestamp": 1785722353,
-      "finalized": false,
+      "finalized": true,
       "game_id": 9,
       "guild_id": "995954559044304896",
       "player_one_id": "788883935790759936",
+      "player_one_name": "BajaBlast \ud83c\udf83",
       "player_two_id": "1234190738263380019",
-      "winner_id": null,
-      "player_one_name": "BajaBlast 🎃",
-      "player_two_name": "BoilPotato"
+      "player_two_name": "BoilPotato",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "788883935790759936",
+      "winner_name": "BajaBlast \ud83c\udf83"
     },
     {
       "channel_id": "1533293089840435371",
@@ -139,14 +158,17 @@ window.UNO_BRACKET_DATA = {
       "created_at_timestamp": 1785635958,
       "created_by_id": "972228046323064903",
       "deadline_timestamp": 1785722358,
-      "finalized": false,
+      "finalized": true,
       "game_id": 10,
       "guild_id": "995954559044304896",
       "player_one_id": "988926958777806939",
+      "player_one_name": "Britney \u23fe\u22c6.\u02da",
       "player_two_id": "1517602675603017800",
-      "winner_id": null,
-      "player_one_name": "Britney ⏾⋆.˚",
-      "player_two_name": "Cheesey201🇺🇸"
+      "player_two_name": "Cheesey201\ud83c\uddfa\ud83c\uddf8",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "988926958777806939",
+      "winner_name": "Britney \u23fe\u22c6.\u02da"
     },
     {
       "channel_id": "1533293153849966633",
@@ -158,10 +180,12 @@ window.UNO_BRACKET_DATA = {
       "game_id": 11,
       "guild_id": "995954559044304896",
       "player_one_id": "1276774905731485769",
-      "player_two_id": "909871406630731776",
-      "winner_id": "909871406630731776",
       "player_one_name": "Coolkid",
+      "player_two_id": "909871406630731776",
       "player_two_name": "croissant",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "909871406630731776",
       "winner_name": "croissant"
     },
     {
@@ -174,10 +198,12 @@ window.UNO_BRACKET_DATA = {
       "game_id": 12,
       "guild_id": "995954559044304896",
       "player_one_id": "1149978318448361623",
-      "player_two_id": "1131631997966618755",
-      "winner_id": "1149978318448361623",
       "player_one_name": "DashTheGreen",
+      "player_two_id": "1131631997966618755",
       "player_two_name": "Env1",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1149978318448361623",
       "winner_name": "DashTheGreen"
     },
     {
@@ -186,14 +212,17 @@ window.UNO_BRACKET_DATA = {
       "created_at_timestamp": 1785635996,
       "created_by_id": "972228046323064903",
       "deadline_timestamp": 1785722396,
-      "finalized": false,
+      "finalized": true,
       "game_id": 13,
       "guild_id": "995954559044304896",
       "player_one_id": "805304427400921118",
-      "player_two_id": "1523738783399415923",
-      "winner_id": null,
       "player_one_name": "Ghost",
-      "player_two_name": "Honey_Mei"
+      "player_two_id": "1523738783399415923",
+      "player_two_name": "Honey_Mei",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "805304427400921118",
+      "winner_name": "Ghost"
     },
     {
       "channel_id": "1533293313694629948",
@@ -201,14 +230,17 @@ window.UNO_BRACKET_DATA = {
       "created_at_timestamp": 1785636012,
       "created_by_id": "972228046323064903",
       "deadline_timestamp": 1785722412,
-      "finalized": false,
+      "finalized": true,
       "game_id": 14,
       "guild_id": "995954559044304896",
       "player_one_id": "824357839936946226",
-      "player_two_id": "966343802308665365",
-      "winner_id": null,
       "player_one_name": "is",
-      "player_two_name": "Ivy"
+      "player_two_id": "966343802308665365",
+      "player_two_name": "Ivy",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "966343802308665365",
+      "winner_name": "Ivy"
     },
     {
       "channel_id": "1533293390119305266",
@@ -220,10 +252,12 @@ window.UNO_BRACKET_DATA = {
       "game_id": 15,
       "guild_id": "995954559044304896",
       "player_one_id": "1243640882905743441",
-      "player_two_id": "783138602997514240",
-      "winner_id": "783138602997514240",
       "player_one_name": "James(Kyle)",
+      "player_two_id": "783138602997514240",
       "player_two_name": "Justabookgirle",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "783138602997514240",
       "winner_name": "Justabookgirle"
     },
     {
@@ -236,10 +270,13 @@ window.UNO_BRACKET_DATA = {
       "game_id": 16,
       "guild_id": "995954559044304896",
       "player_one_id": "666430660973690882",
-      "player_two_id": "1121126678467465247",
-      "winner_id": null,
       "player_one_name": "K",
-      "player_two_name": "Katty"
+      "player_two_id": "1121126678467465247",
+      "player_two_name": "Katty",
+      "result_note": "",
+      "result_status": "open",
+      "winner_id": null,
+      "winner_name": ""
     },
     {
       "channel_id": "1533293465444679863",
@@ -251,10 +288,13 @@ window.UNO_BRACKET_DATA = {
       "game_id": 17,
       "guild_id": "995954559044304896",
       "player_one_id": "802745192683012156",
+      "player_one_name": "kea\u00a8\u032eof the water",
       "player_two_id": "982309100530589746",
+      "player_two_name": "KoRn",
+      "result_note": "",
+      "result_status": "open",
       "winner_id": null,
-      "player_one_name": "kea¨̮of the water",
-      "player_two_name": "KoRn"
+      "winner_name": ""
     },
     {
       "channel_id": "1533293495928885319",
@@ -262,14 +302,17 @@ window.UNO_BRACKET_DATA = {
       "created_at_timestamp": 1785636055,
       "created_by_id": "972228046323064903",
       "deadline_timestamp": 1785722455,
-      "finalized": false,
+      "finalized": true,
       "game_id": 18,
       "guild_id": "995954559044304896",
       "player_one_id": "1263068258995798066",
+      "player_one_name": "\ud835\udcdb\ud835\udcea\ud835\udcf6\ud835\udcf9\ud835\udcf2\ud835\udcee \u2740",
       "player_two_id": "1021458492659343381",
-      "winner_id": null,
-      "player_one_name": "𝓛𝓪𝓶𝓹𝓲𝓮 ❀",
-      "player_two_name": "me_123"
+      "player_two_name": "me_123",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1021458492659343381",
+      "winner_name": "me_123"
     },
     {
       "channel_id": "1533293525930873043",
@@ -277,14 +320,17 @@ window.UNO_BRACKET_DATA = {
       "created_at_timestamp": 1785636063,
       "created_by_id": "972228046323064903",
       "deadline_timestamp": 1785722463,
-      "finalized": false,
+      "finalized": true,
       "game_id": 19,
       "guild_id": "995954559044304896",
       "player_one_id": "1016671324527140864",
-      "player_two_id": "577492184002199589",
-      "winner_id": null,
       "player_one_name": "Mink",
-      "player_two_name": "Mrs Sammy"
+      "player_two_id": "577492184002199589",
+      "player_two_name": "Mrs Sammy",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "577492184002199589",
+      "winner_name": "Mrs Sammy"
     },
     {
       "channel_id": "1533293579370365071",
@@ -292,14 +338,17 @@ window.UNO_BRACKET_DATA = {
       "created_at_timestamp": 1785636075,
       "created_by_id": "972228046323064903",
       "deadline_timestamp": 1785722475,
-      "finalized": false,
+      "finalized": true,
       "game_id": 20,
       "guild_id": "995954559044304896",
       "player_one_id": "802648654292058163",
-      "player_two_id": "1514914741670121477",
-      "winner_id": null,
       "player_one_name": "MV",
-      "player_two_name": "NANA SIMIRA"
+      "player_two_id": "1514914741670121477",
+      "player_two_name": "NANA SIMIRA",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "802648654292058163",
+      "winner_name": "MV"
     },
     {
       "channel_id": "1533293629307748363",
@@ -311,10 +360,13 @@ window.UNO_BRACKET_DATA = {
       "game_id": 21,
       "guild_id": "995954559044304896",
       "player_one_id": "1367142692324245646",
+      "player_one_name": "Nexus\ud83d\ude2e\u200d\ud83d\udca8",
       "player_two_id": "1091990364581265419",
+      "player_two_name": "Nobody",
+      "result_note": "",
+      "result_status": "open",
       "winner_id": null,
-      "player_one_name": "Nexus😮‍💨",
-      "player_two_name": "Nobody"
+      "winner_name": ""
     },
     {
       "channel_id": "1533293653529858299",
@@ -322,14 +374,17 @@ window.UNO_BRACKET_DATA = {
       "created_at_timestamp": 1785636093,
       "created_by_id": "972228046323064903",
       "deadline_timestamp": 1785722493,
-      "finalized": false,
+      "finalized": true,
       "game_id": 22,
       "guild_id": "995954559044304896",
       "player_one_id": "1383120619914133574",
-      "player_two_id": "871631130678411304",
-      "winner_id": null,
       "player_one_name": "non_responding_guy",
-      "player_two_name": "Outpost13"
+      "player_two_id": "871631130678411304",
+      "player_two_name": "Outpost13",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "871631130678411304",
+      "winner_name": "Outpost13"
     },
     {
       "channel_id": "1533293678771175648",
@@ -337,14 +392,17 @@ window.UNO_BRACKET_DATA = {
       "created_at_timestamp": 1785636099,
       "created_by_id": "972228046323064903",
       "deadline_timestamp": 1785722499,
-      "finalized": false,
+      "finalized": true,
       "game_id": 23,
       "guild_id": "995954559044304896",
       "player_one_id": "1175886799227322463",
-      "player_two_id": "1236381560232611891",
-      "winner_id": null,
       "player_one_name": "PanCaKe",
-      "player_two_name": "pine"
+      "player_two_id": "1236381560232611891",
+      "player_two_name": "pine",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1175886799227322463",
+      "winner_name": "\ud83e\udd5e"
     },
     {
       "channel_id": "1533293734551093359",
@@ -356,10 +414,12 @@ window.UNO_BRACKET_DATA = {
       "game_id": 24,
       "guild_id": "995954559044304896",
       "player_one_id": "1396482378943303800",
-      "player_two_id": "1220227055191330857",
-      "winner_id": "1396482378943303800",
       "player_one_name": "Shadow",
-      "player_two_name": "Sky",
+      "player_two_id": "1220227055191330857",
+      "player_two_name": "The Britney Diaries",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1396482378943303800",
       "winner_name": "Shadow"
     },
     {
@@ -372,10 +432,13 @@ window.UNO_BRACKET_DATA = {
       "game_id": 25,
       "guild_id": "995954559044304896",
       "player_one_id": "1201237256346808341",
+      "player_one_name": "sofii ! \ud83c\udf0a",
       "player_two_id": "1101745950789218374",
+      "player_two_name": "summer \u1aa5\uaac2\u0fd4",
+      "result_note": "",
+      "result_status": "open",
       "winner_id": null,
-      "player_one_name": "sofii ! 🌊",
-      "player_two_name": "summer ᪥ꫂ࿔"
+      "winner_name": ""
     },
     {
       "channel_id": "1533293806907297986",
@@ -383,14 +446,17 @@ window.UNO_BRACKET_DATA = {
       "created_at_timestamp": 1785636130,
       "created_by_id": "972228046323064903",
       "deadline_timestamp": 1785722530,
-      "finalized": false,
+      "finalized": true,
       "game_id": 26,
       "guild_id": "995954559044304896",
       "player_one_id": "758534870745219072",
+      "player_one_name": "whimsy \u0f3a\u2766\u0f3b",
       "player_two_id": "790132069098586133",
-      "winner_id": null,
-      "player_one_name": "whimsy ༺❦༻",
-      "player_two_name": "ོ𓍼℘Mistborn Daisy℘𓍼 ོ"
+      "player_two_name": "\u0f7c\ud80c\udf7c\u2118Mistborn Daisy\u2118\ud80c\udf7c \u0f7c",
+      "result_note": "can\u2019t play",
+      "result_status": "forfeit",
+      "winner_id": "758534870745219072",
+      "winner_name": "whimsy \u0f3a\u2766\u0f3b"
     },
     {
       "channel_id": "1533294147794894928",
@@ -398,14 +464,17 @@ window.UNO_BRACKET_DATA = {
       "created_at_timestamp": 1785636211,
       "created_by_id": "972228046323064903",
       "deadline_timestamp": 1785722611,
-      "finalized": false,
+      "finalized": true,
       "game_id": 27,
       "guild_id": "995954559044304896",
       "player_one_id": "976261529622175766",
+      "player_one_name": "\u1bd3 \u2605 Dex \u265b\u272e\u0f12\u263d",
       "player_two_id": "1099240775230963742",
-      "winner_id": null,
-      "player_one_name": "ᯓ ★ Dex ♛✮༒☽",
-      "player_two_name": "ᯓ✰𝓻𝓲𝓰𝓱𝓽𝓼𝓽𝓪𝓻✰⋆˚ ݁˖⭑.ᐟ"
+      "player_two_name": "\u1bd3\u2730\ud835\udcfb\ud835\udcf2\ud835\udcf0\ud835\udcf1\ud835\udcfd\ud835\udcfc\ud835\udcfd\ud835\udcea\ud835\udcfb\u2730\u22c6\u02da \u0741\u02d6\u2b51.\u141f",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1099240775230963742",
+      "winner_name": "\u1bd3\u2730\ud835\udcfb\ud835\udcf2\ud835\udcf0\ud835\udcf1\ud835\udcfd\ud835\udcfc\ud835\udcfd\ud835\udcea\ud835\udcfb\u2730\u22c6\u02da \u0741\u02d6\u2b51.\u141f"
     },
     {
       "channel_id": "1533419188033425448",
@@ -417,11 +486,13 @@ window.UNO_BRACKET_DATA = {
       "game_id": 28,
       "guild_id": "995954559044304896",
       "player_one_id": "1374460522258235515",
+      "player_one_name": "@ nira",
       "player_two_id": "899320430777757716",
+      "player_two_name": "Lowkey Loky \ud83c\udf19",
+      "result_note": "",
+      "result_status": "complete",
       "winner_id": "1374460522258235515",
-      "player_one_name": "Nira Lowkey",
-      "player_two_name": "Loky",
-      "winner_name": "Nira Lowkey"
+      "winner_name": "@ nira"
     },
     {
       "channel_id": "1533419271932219542",
@@ -429,14 +500,17 @@ window.UNO_BRACKET_DATA = {
       "created_at_timestamp": 1785666043,
       "created_by_id": "972228046323064903",
       "deadline_timestamp": 1785752443,
-      "finalized": false,
+      "finalized": true,
       "game_id": 29,
       "guild_id": "995954559044304896",
       "player_one_id": "886675454965186621",
+      "player_one_name": "\u211d\ud835\udd60\ud835\udd64\ud835\udd52 \ud83c\udf0a",
       "player_two_id": "939544072710938664",
-      "winner_id": null,
-      "player_one_name": "Rosa",
-      "player_two_name": "Nam"
+      "player_two_name": "\ud83c\udf38 Na\u0337m\u0337\u0268 \ud83c\udf38",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "886675454965186621",
+      "winner_name": "\u211d\ud835\udd60\ud835\udd64\ud835\udd52 \ud83c\udf0a"
     },
     {
       "channel_id": "1533419352324309142",
@@ -448,11 +522,13 @@ window.UNO_BRACKET_DATA = {
       "game_id": 30,
       "guild_id": "995954559044304896",
       "player_one_id": "788051727051391017",
-      "player_two_id": "1233690167605198902",
-      "winner_id": "1233690167605198902",
       "player_one_name": "Duskrose",
-      "player_two_name": "Aired Up Jayce",
-      "winner_name": "Aired Up Jayce"
+      "player_two_id": "1233690167605198902",
+      "player_two_name": "\ud83c\udf2c\ufe0f Aired up Jayce \ud83c\udf43",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1233690167605198902",
+      "winner_name": "\ud83c\udf2c\ufe0f Aired up Jayce \ud83c\udf43"
     },
     {
       "channel_id": "1533419429604622506",
@@ -464,10 +540,12 @@ window.UNO_BRACKET_DATA = {
       "game_id": 31,
       "guild_id": "995954559044304896",
       "player_one_id": "1525201717111689296",
-      "player_two_id": "1504580237806276819",
-      "winner_id": "1504580237806276819",
       "player_one_name": "Targaryen",
+      "player_two_id": "1504580237806276819",
       "player_two_name": "Water Gojo",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1504580237806276819",
       "winner_name": "Water Gojo"
     },
     {
@@ -476,21 +554,24 @@ window.UNO_BRACKET_DATA = {
       "created_at_timestamp": 1785666098,
       "created_by_id": "972228046323064903",
       "deadline_timestamp": 1785752498,
-      "finalized": false,
+      "finalized": true,
       "game_id": 32,
       "guild_id": "995954559044304896",
       "player_one_id": "1432558191086014464",
+      "player_one_name": "Gh/7",
       "player_two_id": "1512728097449971788",
+      "player_two_name": "Kiwii",
+      "result_note": "Cancelled by UNO staff",
+      "result_status": "cancelled",
       "winner_id": null,
-      "player_one_name": "GH 7",
-      "player_two_name": "Kiwii IG"
+      "winner_name": ""
     }
   ],
   "next_game_id": 33,
-  "participant_count": 52,
+  "participant_count": 57,
   "participants": [
     {
-      "display_name": "!  twiste” donuts",
+      "display_name": "!  twiste\u201d donuts",
       "id": "1297676868841115652",
       "mention": "<@1297676868841115652>",
       "username": "friendlyspidy"
@@ -502,7 +583,7 @@ window.UNO_BRACKET_DATA = {
       "username": "manofthreenames"
     },
     {
-      "display_name": "BajaBlast 🎃",
+      "display_name": "BajaBlast \ud83c\udf83",
       "id": "788883935790759936",
       "mention": "<@788883935790759936>",
       "username": "devilash"
@@ -514,16 +595,16 @@ window.UNO_BRACKET_DATA = {
       "username": "aaloyhaz17"
     },
     {
-      "display_name": "Britney ⏾⋆.˚",
+      "display_name": "Britney \u23fe\u22c6.\u02da",
       "id": "988926958777806939",
       "mention": "<@988926958777806939>",
       "username": "briiit_085"
     },
     {
-      "display_name": "Cheesey201🇺🇸",
-      "id": "1517602675603017800",
-      "mention": "<@1517602675603017800>",
-      "username": "goku031493"
+      "display_name": "@ nira",
+      "id": "1374460522258235515",
+      "mention": "<@1374460522258235515>",
+      "username": "heartfaced"
     },
     {
       "display_name": "Coolkid",
@@ -556,10 +637,10 @@ window.UNO_BRACKET_DATA = {
       "username": "ghostbhai88"
     },
     {
-      "display_name": "Honey_Mei",
-      "id": "1523738783399415923",
-      "mention": "<@1523738783399415923>",
-      "username": "honey_mei_."
+      "display_name": "Duskrose",
+      "id": "788051727051391017",
+      "mention": "<@788051727051391017>",
+      "username": "angelofvoid24"
     },
     {
       "display_name": "is",
@@ -598,7 +679,7 @@ window.UNO_BRACKET_DATA = {
       "username": "smartkats127"
     },
     {
-      "display_name": "kea¨̮of the water",
+      "display_name": "kea\u00a8\u032eof the water",
       "id": "802745192683012156",
       "mention": "<@802745192683012156>",
       "username": "kayyvision"
@@ -634,13 +715,13 @@ window.UNO_BRACKET_DATA = {
       "username": "apemv"
     },
     {
-      "display_name": "NANA SIMIRA",
-      "id": "1514914741670121477",
-      "mention": "<@1514914741670121477>",
-      "username": "nanasimira"
+      "display_name": "Gh/7",
+      "id": "1432558191086014464",
+      "mention": "<@1432558191086014464>",
+      "username": "gh70853"
     },
     {
-      "display_name": "Nexus😮‍💨",
+      "display_name": "Nexus\ud83d\ude2e\u200d\ud83d\udca8",
       "id": "1367142692324245646",
       "mention": "<@1367142692324245646>",
       "username": "nexus_nexw"
@@ -652,10 +733,10 @@ window.UNO_BRACKET_DATA = {
       "username": "nobodyis_here0"
     },
     {
-      "display_name": "non_responding_guy",
-      "id": "1383120619914133574",
-      "mention": "<@1383120619914133574>",
-      "username": "non_responding_guy_33910"
+      "display_name": "Kiwii",
+      "id": "1512728097449971788",
+      "mention": "<@1512728097449971788>",
+      "username": "awenayafr"
     },
     {
       "display_name": "Outpost13",
@@ -682,124 +763,154 @@ window.UNO_BRACKET_DATA = {
       "username": "shadowknight971"
     },
     {
-      "display_name": "Sky",
+      "display_name": "The Britney Diaries",
       "id": "1220227055191330857",
       "mention": "<@1220227055191330857>",
       "username": "winter.sky7"
     },
     {
-      "display_name": "sofii ! 🌊",
+      "display_name": "sofii ! \ud83c\udf0a",
       "id": "1201237256346808341",
       "mention": "<@1201237256346808341>",
       "username": "svf_ii"
     },
     {
-      "display_name": "summer ᪥ꫂ࿔",
+      "display_name": "summer \u1aa5\uaac2\u0fd4",
       "id": "1101745950789218374",
       "mention": "<@1101745950789218374>",
       "username": "summerain."
     },
     {
-      "display_name": "whimsy ༺❦༻",
+      "display_name": "whimsy \u0f3a\u2766\u0f3b",
       "id": "758534870745219072",
       "mention": "<@758534870745219072>",
       "username": "the.whimsical.whimsy"
     },
     {
-      "display_name": "¸¸♬¯·♫¸¸ Mr. Roe deer '♫·¯·♪",
+      "display_name": "\u00b8\u00b8\u266c\u00af\u00b7\u266b\u00b8\u00b8 Mr. Roe deer '\u266b\u00b7\u00af\u00b7\u266a",
       "id": "1072462136443404379",
       "mention": "<@1072462136443404379>",
       "username": "sisas4sh"
     },
     {
-      "display_name": "ོ𓍼℘Mistborn Daisy℘𓍼 ོ",
+      "display_name": "\u0f7c\ud80c\udf7c\u2118Mistborn Daisy\u2118\ud80c\udf7c \u0f7c",
       "id": "790132069098586133",
       "mention": "<@790132069098586133>",
       "username": "dazzlechoon"
     },
     {
-      "display_name": "ᯓ ★ Dex ♛✮༒☽",
+      "display_name": "\u1bd3 \u2605 Dex \u265b\u272e\u0f12\u263d",
       "id": "976261529622175766",
       "mention": "<@976261529622175766>",
       "username": "notd3xt3r"
     },
     {
-      "display_name": "ᯓ✰𝓻𝓲𝓰𝓱𝓽𝓼𝓽𝓪𝓻✰⋆˚ ݁˖⭑.ᐟ",
+      "display_name": "\u1bd3\u2730\ud835\udcfb\ud835\udcf2\ud835\udcf0\ud835\udcf1\ud835\udcfd\ud835\udcfc\ud835\udcfd\ud835\udcea\ud835\udcfb\u2730\u22c6\u02da \u0741\u02d6\u2b51.\u141f",
       "id": "1099240775230963742",
       "mention": "<@1099240775230963742>",
       "username": "rightstar_1503"
     },
     {
-      "display_name": "⁺‧₊˚ঌ⋆Mixie⋆ঌ˚₊‧⁺",
+      "display_name": "\u207a\u2027\u208a\u02da\u098c\u22c6Mixie\u22c6\u098c\u02da\u208a\u2027\u207a",
       "id": "294356624255090688",
       "mention": "<@294356624255090688>",
       "username": "frickcase"
     },
     {
-      "display_name": "⁺‧₊˚〚 ꜱɪxɪᴇ 〛 ˚₊‧⁺",
+      "display_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a",
       "id": "906424513137377280",
       "mention": "<@906424513137377280>",
       "username": "sixiemesm"
     },
     {
-      "display_name": "⊹ ࣪ ˖ ᕼ𝕚ყσ𝕣ι ˖ ࣪⊹",
+      "display_name": "\u22b9 \u08ea \u02d6 \u157c\ud835\udd5a\u10e7\u03c3\ud835\udd63\u03b9 \u02d6 \u08ea\u22b9",
       "id": "1357352341250113710",
       "mention": "<@1357352341250113710>",
       "username": "_.roronoazoro_"
     },
     {
-      "display_name": "⋆. 𐙚˚࿔ 𝙲𝚘𝚕𝚞𝚖𝚋𝚒𝚗𝚊𝜗𝜚˚⋆",
+      "display_name": "\u22c6. \ud801\ude5a\u02da\u0fd4 \ud835\ude72\ud835\ude98\ud835\ude95\ud835\ude9e\ud835\ude96\ud835\ude8b\ud835\ude92\ud835\ude97\ud835\ude8a\ud835\udf17\ud835\udf1a\u02da\u22c6",
       "id": "1438174767843774565",
       "mention": "<@1438174767843774565>",
       "username": "piewithoutpie"
     },
     {
-      "display_name": "⋆˚࿔ 𝘉𝘶𝘳𝘯𝘵𝘕𝘶𝘨𝘴 ♫˚⋆",
+      "display_name": "\u22c6\u02da\u0fd4 \ud835\ude09\ud835\ude36\ud835\ude33\ud835\ude2f\ud835\ude35\ud835\ude15\ud835\ude36\ud835\ude28\ud835\ude34 \u266b\u02da\u22c6",
       "id": "835499496665645096",
       "mention": "<@835499496665645096>",
       "username": "z_io43"
     },
     {
-      "display_name": "☆_∙❄️∙Acyy∙❄️∙_☆",
+      "display_name": "\u2606_\u2219\u2744\ufe0f\u2219Acyy\u2219\u2744\ufe0f\u2219_\u2606",
       "id": "1127991573850898604",
       "mention": "<@1127991573850898604>",
       "username": "lost_acyy"
     },
     {
-      "display_name": "☆《《 ,,  REN _ ☆",
+      "display_name": "\u2606\u300a\u300a ,,  REN _ \u2606",
       "id": "1223726339392278528",
       "mention": "<@1223726339392278528>",
       "username": "pretzel0031"
     },
     {
-      "display_name": "☼⋅˚₊‧ Toast Keika ‧₊˚ ⋅𓇼",
+      "display_name": "\u263c\u22c5\u02da\u208a\u2027 Toast Keika \u2027\u208a\u02da \u22c5\ud80c\uddfc",
       "id": "1227518353686396940",
       "mention": "<@1227518353686396940>",
       "username": "keika.sama"
     },
     {
-      "display_name": "✰ Jojo",
+      "display_name": "\u2730 Jojo",
       "id": "1072010786668548156",
       "mention": "<@1072010786668548156>",
       "username": "dead2016"
     },
     {
-      "display_name": "𝓛𝓪𝓶𝓹𝓲𝓮 ❀",
-      "id": "1263068258995798066",
-      "mention": "<@1263068258995798066>",
-      "username": "ast3rzzx"
+      "display_name": "Lowkey Loky \ud83c\udf19",
+      "id": "899320430777757716",
+      "mention": "<@899320430777757716>",
+      "username": "loky12ily"
     },
     {
-      "display_name": "🔥Hylon🔥",
+      "display_name": "\ud83d\udd25Hylon\ud83d\udd25",
       "id": "1206232315890507776",
       "mention": "<@1206232315890507776>",
       "username": "hylon_61406"
     },
     {
-      "display_name": "🔥𝕭𝖑𝖆𝖟𝖊🔥",
+      "display_name": "\ud83d\udd25\ud835\udd6d\ud835\udd91\ud835\udd86\ud835\udd9f\ud835\udd8a\ud83d\udd25",
       "id": "1237216817026695228",
       "mention": "<@1237216817026695228>",
       "username": "fire_roar72"
+    },
+    {
+      "display_name": "Targaryen",
+      "id": "1525201717111689296",
+      "mention": "<@1525201717111689296>",
+      "username": "targaryenaer"
+    },
+    {
+      "display_name": "Water Gojo",
+      "id": "1504580237806276819",
+      "mention": "<@1504580237806276819>",
+      "username": "thehonoredone7580"
+    },
+    {
+      "display_name": "\u211d\ud835\udd60\ud835\udd64\ud835\udd52 \ud83c\udf0a",
+      "id": "886675454965186621",
+      "mention": "<@886675454965186621>",
+      "username": "archer_222"
+    },
+    {
+      "display_name": "\ud83c\udf2c\ufe0f Aired up Jayce \ud83c\udf43",
+      "id": "1233690167605198902",
+      "mention": "<@1233690167605198902>",
+      "username": "itzjayce2006"
+    },
+    {
+      "display_name": "\ud83c\udf38 Na\u0337m\u0337\u0268 \ud83c\udf38",
+      "id": "939544072710938664",
+      "mention": "<@939544072710938664>",
+      "username": "shinitive"
     }
   ]
 };
