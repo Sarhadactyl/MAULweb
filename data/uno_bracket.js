@@ -4,7 +4,7 @@ window.UNO_BRACKET_DATA = {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1785834743,
+  "generated_at_timestamp": 1785834758,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
