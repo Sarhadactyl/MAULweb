@@ -1,10 +1,10 @@
 window.UNO_BRACKET_DATA = {
-  "created_game_count": 37,
+  "created_game_count": 38,
   "event": {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1785920617,
+  "generated_at_timestamp": 1785920628,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -673,9 +673,27 @@ window.UNO_BRACKET_DATA = {
       "result_status": "open",
       "winner_id": null,
       "winner_name": ""
+    },
+    {
+      "channel_id": "1534487075976511569",
+      "channel_name": "uno-39-britney-nirau",
+      "created_at_timestamp": 1785920627,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786007027,
+      "finalized": false,
+      "game_id": 39,
+      "guild_id": "995954559044304896",
+      "player_one_id": "988926958777806939",
+      "player_one_name": "Britney \u23fe\u22c6.\u02da",
+      "player_two_id": "1374460522258235515",
+      "player_two_name": "@ nirau",
+      "result_note": "",
+      "result_status": "open",
+      "winner_id": null,
+      "winner_name": ""
     }
   ],
-  "next_game_id": 39,
+  "next_game_id": 40,
   "participant_count": 57,
   "participants": [
     {
