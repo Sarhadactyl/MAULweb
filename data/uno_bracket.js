@@ -1,10 +1,10 @@
 window.UNO_BRACKET_DATA = {
-  "created_game_count": 35,
+  "created_game_count": 36,
   "event": {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1785920587,
+  "generated_at_timestamp": 1785920606,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -637,9 +637,27 @@ window.UNO_BRACKET_DATA = {
       "result_status": "open",
       "winner_id": null,
       "winner_name": ""
+    },
+    {
+      "channel_id": "1534486980900163665",
+      "channel_name": "uno-37-twiste-donuts-outpost13",
+      "created_at_timestamp": 1785920604,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786007004,
+      "finalized": false,
+      "game_id": 37,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1297676868841115652",
+      "player_one_name": "!  twiste\u201d donuts",
+      "player_two_id": "871631130678411304",
+      "player_two_name": "Outpost13",
+      "result_note": "",
+      "result_status": "open",
+      "winner_id": null,
+      "winner_name": ""
     }
   ],
-  "next_game_id": 37,
+  "next_game_id": 38,
   "participant_count": 57,
   "participants": [
     {
