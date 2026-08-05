@@ -1,10 +1,10 @@
 {
-  "created_game_count": 36,
+  "created_game_count": 37,
   "event": {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1785920606,
+  "generated_at_timestamp": 1785920617,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -655,9 +655,27 @@
       "result_status": "open",
       "winner_id": null,
       "winner_name": ""
+    },
+    {
+      "channel_id": "1534487028719161518",
+      "channel_name": "uno-38-water-gojo-sofii",
+      "created_at_timestamp": 1785920616,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786007016,
+      "finalized": false,
+      "game_id": 38,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1504580237806276819",
+      "player_one_name": "Water Gojo",
+      "player_two_id": "1201237256346808341",
+      "player_two_name": "sofii ! \ud83c\udf0a",
+      "result_note": "",
+      "result_status": "open",
+      "winner_id": null,
+      "winner_name": ""
     }
   ],
-  "next_game_id": 38,
+  "next_game_id": 39,
   "participant_count": 57,
   "participants": [
     {
