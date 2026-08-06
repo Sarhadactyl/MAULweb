@@ -1,10 +1,10 @@
 window.UNO_BRACKET_DATA = {
-  "created_game_count": 46,
+  "created_game_count": 47,
   "event": {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1786008618,
+  "generated_at_timestamp": 1786008630,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -835,9 +835,27 @@ window.UNO_BRACKET_DATA = {
       "result_status": "open",
       "winner_id": null,
       "winner_name": ""
+    },
+    {
+      "channel_id": "1534856183171776533",
+      "channel_name": "uno-48-rightstar-sofii",
+      "created_at_timestamp": 1786008629,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786095029,
+      "finalized": false,
+      "game_id": 48,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1099240775230963742",
+      "player_one_name": "\u1bd3\u2730\ud835\udcfb\ud835\udcf2\ud835\udcf0\ud835\udcf1\ud835\udcfd\ud835\udcfc\ud835\udcfd\ud835\udcea\ud835\udcfb\u2730\u22c6\u02da \u0741\u02d6\u2b51.\u141f",
+      "player_two_id": "1201237256346808341",
+      "player_two_name": "sofii ! \ud83c\udf0a",
+      "result_note": "",
+      "result_status": "open",
+      "winner_id": null,
+      "winner_name": ""
     }
   ],
-  "next_game_id": 48,
+  "next_game_id": 49,
   "participant_count": 57,
   "participants": [
     {
