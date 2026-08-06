@@ -1,10 +1,10 @@
 window.UNO_BRACKET_DATA = {
-  "created_game_count": 47,
+  "created_game_count": 48,
   "event": {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1786008630,
+  "generated_at_timestamp": 1786008641,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -853,9 +853,27 @@ window.UNO_BRACKET_DATA = {
       "result_status": "open",
       "winner_id": null,
       "winner_name": ""
+    },
+    {
+      "channel_id": "1534856230726533242",
+      "channel_name": "uno-49-aired-up-jayce-ir",
+      "created_at_timestamp": 1786008640,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786095040,
+      "finalized": false,
+      "game_id": 49,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1233690167605198902",
+      "player_one_name": "\ud83c\udf2c\ufe0f Aired up Jayce \ud83c\udf43",
+      "player_two_id": "1357352341250113710",
+      "player_two_name": "\u22b9 \u08ea \u02d6 \u157c\ud835\udd5a\u10e7\u03c3\ud835\udd63\u03b9 \u02d6 \u08ea\u22b9",
+      "result_note": "",
+      "result_status": "open",
+      "winner_id": null,
+      "winner_name": ""
     }
   ],
-  "next_game_id": 49,
+  "next_game_id": 50,
   "participant_count": 57,
   "participants": [
     {
