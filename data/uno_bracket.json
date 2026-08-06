@@ -4,7 +4,7 @@
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1786008408,
+  "generated_at_timestamp": 1786008420,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -680,7 +680,7 @@
       "created_at_timestamp": 1785920627,
       "created_by_id": "1297676868841115652",
       "deadline_timestamp": 1786007027,
-      "finalized": false,
+      "finalized": true,
       "game_id": 39,
       "guild_id": "995954559044304896",
       "player_one_id": "988926958777806939",
@@ -688,9 +688,9 @@
       "player_two_id": "1374460522258235515",
       "player_two_name": "@ nirau",
       "result_note": "",
-      "result_status": "open",
-      "winner_id": null,
-      "winner_name": ""
+      "result_status": "complete",
+      "winner_id": "988926958777806939",
+      "winner_name": "Britney \u23fe\u22c6.\u02da"
     },
     {
       "channel_id": "1534487126303965354",
