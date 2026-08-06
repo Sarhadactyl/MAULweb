@@ -4,7 +4,7 @@ window.UNO_BRACKET_DATA = {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1786008382,
+  "generated_at_timestamp": 1786008393,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -644,7 +644,7 @@ window.UNO_BRACKET_DATA = {
       "created_at_timestamp": 1785920604,
       "created_by_id": "1297676868841115652",
       "deadline_timestamp": 1786007004,
-      "finalized": false,
+      "finalized": true,
       "game_id": 37,
       "guild_id": "995954559044304896",
       "player_one_id": "1297676868841115652",
@@ -652,9 +652,9 @@ window.UNO_BRACKET_DATA = {
       "player_two_id": "871631130678411304",
       "player_two_name": "Outpost13",
       "result_note": "",
-      "result_status": "open",
-      "winner_id": null,
-      "winner_name": ""
+      "result_status": "complete",
+      "winner_id": "871631130678411304",
+      "winner_name": "Outpost13"
     },
     {
       "channel_id": "1534487028719161518",
