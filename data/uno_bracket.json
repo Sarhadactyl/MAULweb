@@ -1,10 +1,10 @@
 {
-  "created_game_count": 43,
+  "created_game_count": 44,
   "event": {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1786008508,
+  "generated_at_timestamp": 1786008594,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -781,9 +781,27 @@
       "result_status": "complete",
       "winner_id": "1357352341250113710",
       "winner_name": "\u22b9 \u08ea \u02d6 \u157c\ud835\udd5a\u10e7\u03c3\ud835\udd63\u03b9 \u02d6 \u08ea\u22b9"
+    },
+    {
+      "channel_id": "1534856032851857458",
+      "channel_name": "uno-45-hylon-croissant",
+      "created_at_timestamp": 1786008593,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786094993,
+      "finalized": false,
+      "game_id": 45,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1206232315890507776",
+      "player_one_name": "\ud83d\udd25Hylon\ud83d\udd25",
+      "player_two_id": "909871406630731776",
+      "player_two_name": "croissant",
+      "result_note": "",
+      "result_status": "open",
+      "winner_id": null,
+      "winner_name": ""
     }
   ],
-  "next_game_id": 45,
+  "next_game_id": 46,
   "participant_count": 57,
   "participants": [
     {
