@@ -1,10 +1,10 @@
 {
-  "created_game_count": 51,
+  "created_game_count": 52,
   "event": {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1786099871,
+  "generated_at_timestamp": 1786099980,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -925,9 +925,27 @@
       "result_status": "complete",
       "winner_id": "871631130678411304",
       "winner_name": "Outpost13"
+    },
+    {
+      "channel_id": "1535239331093155900",
+      "channel_name": "uno-53-hylon-shadow",
+      "created_at_timestamp": 1786099979,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786186379,
+      "finalized": false,
+      "game_id": 53,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1206232315890507776",
+      "player_one_name": "\ud83d\udd25Hylon\ud83d\udd25",
+      "player_two_id": "1396482378943303800",
+      "player_two_name": "Shadow",
+      "result_note": "",
+      "result_status": "open",
+      "winner_id": null,
+      "winner_name": ""
     }
   ],
-  "next_game_id": 53,
+  "next_game_id": 54,
   "participant_count": 57,
   "participants": [
     {
