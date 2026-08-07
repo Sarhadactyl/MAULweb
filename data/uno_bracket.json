@@ -1,10 +1,10 @@
 {
-  "created_game_count": 54,
+  "created_game_count": 55,
   "event": {
     "name": "UNO Tournament 2.0",
     "signup_deadline_timestamp": 1785524400
   },
-  "generated_at_timestamp": 1786099997,
+  "generated_at_timestamp": 1786100006,
   "guild_id": "995954559044304896",
   "guild_name": "Modded Among Us Lobbies",
   "matches": [
@@ -979,9 +979,27 @@
       "result_status": "open",
       "winner_id": null,
       "winner_name": ""
+    },
+    {
+      "channel_id": "1535239442388750456",
+      "channel_name": "uno-56-rightstar-ir",
+      "created_at_timestamp": 1786100005,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786186405,
+      "finalized": false,
+      "game_id": 56,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1099240775230963742",
+      "player_one_name": "\u1bd3\u2730\ud835\udcfb\ud835\udcf2\ud835\udcf0\ud835\udcf1\ud835\udcfd\ud835\udcfc\ud835\udcfd\ud835\udcea\ud835\udcfb\u2730\u22c6\u02da \u0741\u02d6\u2b51.\u141f",
+      "player_two_id": "1357352341250113710",
+      "player_two_name": "\u22b9 \u08ea \u02d6 \u157c\ud835\udd5a\u10e7\u03c3\ud835\udd63\u03b9 \u02d6 \u08ea\u22b9",
+      "result_note": "",
+      "result_status": "open",
+      "winner_id": null,
+      "winner_name": ""
     }
   ],
-  "next_game_id": 56,
+  "next_game_id": 57,
   "participant_count": 57,
   "participants": [
     {
