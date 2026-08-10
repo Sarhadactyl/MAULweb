@@ -1,0 +1,1475 @@
+window.UNO_BRACKET_DATA = {
+  "champion_id": "906424513137377280",
+  "champion_name": "sixie",
+  "created_game_count": 58,
+  "event": {
+    "name": "UNO Tournament 2.0",
+    "signup_deadline_timestamp": 1785524400
+  },
+  "generated_at_timestamp": 1786294108,
+  "guild_id": "995954559044304896",
+  "guild_name": "Modded Among Us Lobbies",
+  "matches": [
+    {
+      "channel_id": "1533292247318134895",
+      "channel_name": "uno-2-mixie-twiste-donuts",
+      "created_at_timestamp": 1785635758,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722158,
+      "finalized": true,
+      "game_id": 2,
+      "guild_id": "995954559044304896",
+      "player_one_id": "294356624255090688",
+      "player_one_name": "\u207a\u2027\u208a\u02da\u098c\u22c6Mixie\u22c6\u098c\u02da\u208a\u2027\u207a",
+      "player_two_id": "1297676868841115652",
+      "player_two_name": "!  twiste\u201d donuts",
+      "result_note": "Mixie couldn't participate",
+      "result_status": "forfeit",
+      "winner_id": "1297676868841115652",
+      "winner_name": "!  twiste\u201d donuts"
+    },
+    {
+      "channel_id": "1533292363945082941",
+      "channel_name": "uno-3-x-mr-roe-deer",
+      "created_at_timestamp": 1785635786,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722186,
+      "finalized": true,
+      "game_id": 3,
+      "guild_id": "995954559044304896",
+      "player_one_id": "906424513137377280",
+      "player_one_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a",
+      "player_two_id": "1072462136443404379",
+      "player_two_name": "\u00b8\u00b8\u266c\u00af\u00b7\u266b\u00b8\u00b8 Mr. Roe deer '\u266b\u00b7\u00af\u00b7\u266a",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "906424513137377280",
+      "winner_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a"
+    },
+    {
+      "channel_id": "1533292519461228747",
+      "channel_name": "uno-4-ir-columbina",
+      "created_at_timestamp": 1785635822,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722222,
+      "finalized": true,
+      "game_id": 4,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1357352341250113710",
+      "player_one_name": "\u22b9 \u08ea \u02d6 \u157c\ud835\udd5a\u10e7\u03c3\ud835\udd63\u03b9 \u02d6 \u08ea\u22b9",
+      "player_two_id": "1438174767843774565",
+      "player_two_name": "\u22c6. \ud801\ude5a\u02da\u0fd4 \ud835\ude72\ud835\ude98\ud835\ude95\ud835\ude9e\ud835\ude96\ud835\ude8b\ud835\ude92\ud835\ude97\ud835\ude8a\ud835\udf17\ud835\udf1a\u02da\u22c6",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1357352341250113710",
+      "winner_name": "\u22b9 \u08ea \u02d6 \u157c\ud835\udd5a\u10e7\u03c3\ud835\udd63\u03b9 \u02d6 \u08ea\u22b9"
+    },
+    {
+      "channel_id": "1533292615212994691",
+      "channel_name": "uno-5-burntnugs-acyy",
+      "created_at_timestamp": 1785635844,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722244,
+      "finalized": true,
+      "game_id": 5,
+      "guild_id": "995954559044304896",
+      "player_one_id": "835499496665645096",
+      "player_one_name": "\u22c6\u02da\u0fd4 \ud835\ude09\ud835\ude36\ud835\ude33\ud835\ude2f\ud835\ude35\ud835\ude15\ud835\ude36\ud835\ude28\ud835\ude34 \u266b\u02da\u22c6",
+      "player_two_id": "1127991573850898604",
+      "player_two_name": "\u2606_\u2219\u2744\ufe0f\u2219Acyy\u2219\u2744\ufe0f\u2219_\u2606",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1127991573850898604",
+      "winner_name": "\u2606_\u2219\u2744\ufe0f\u2219Acyy\u2219\u2744\ufe0f\u2219_\u2606"
+    },
+    {
+      "channel_id": "1533292957288103986",
+      "channel_name": "uno-6-ren-toast-keika",
+      "created_at_timestamp": 1785635927,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722327,
+      "finalized": true,
+      "game_id": 6,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1223726339392278528",
+      "player_one_name": "\u2606\u300a\u300a ,,  REN _ \u2606",
+      "player_two_id": "1227518353686396940",
+      "player_two_name": "\u263c\u22c5\u02da\u208a\u2027 Toast Keika \u2027\u208a\u02da \u22c5\ud80c\uddfc",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1223726339392278528",
+      "winner_name": "\u2606\u300a\u300a ,,  REN _ \u2606"
+    },
+    {
+      "channel_id": "1533293013512753252",
+      "channel_name": "uno-7-jojo-blaze",
+      "created_at_timestamp": 1785635940,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722340,
+      "finalized": true,
+      "game_id": 7,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1072010786668548156",
+      "player_one_name": "\u2730 Jojo",
+      "player_two_id": "1237216817026695228",
+      "player_two_name": "\ud83d\udd25\ud835\udd6d\ud835\udd91\ud835\udd86\ud835\udd9f\ud835\udd8a\ud83d\udd25",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1237216817026695228",
+      "winner_name": "\ud83d\udd25\ud835\udd6d\ud835\udd91\ud835\udd86\ud835\udd9f\ud835\udd8a\ud83d\udd25"
+    },
+    {
+      "channel_id": "1533293042339938464",
+      "channel_name": "uno-8-hylon-ace",
+      "created_at_timestamp": 1785635947,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722347,
+      "finalized": true,
+      "game_id": 8,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1206232315890507776",
+      "player_one_name": "\ud83d\udd25Hylon\ud83d\udd25",
+      "player_two_id": "1302452142140817429",
+      "player_two_name": "Ace",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1206232315890507776",
+      "winner_name": "\ud83d\udd25Hylon\ud83d\udd25"
+    },
+    {
+      "channel_id": "1533293067598168216",
+      "channel_name": "uno-9-bajablast-boilpotato",
+      "created_at_timestamp": 1785635953,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722353,
+      "finalized": true,
+      "game_id": 9,
+      "guild_id": "995954559044304896",
+      "player_one_id": "788883935790759936",
+      "player_one_name": "BajaBlast \ud83c\udf83",
+      "player_two_id": "1234190738263380019",
+      "player_two_name": "BoilPotato",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "788883935790759936",
+      "winner_name": "BajaBlast \ud83c\udf83"
+    },
+    {
+      "channel_id": "1533293089840435371",
+      "channel_name": "uno-10-britney-cheesey201",
+      "created_at_timestamp": 1785635958,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722358,
+      "finalized": true,
+      "game_id": 10,
+      "guild_id": "995954559044304896",
+      "player_one_id": "988926958777806939",
+      "player_one_name": "Britney \u23fe\u22c6.\u02da",
+      "player_two_id": "1517602675603017800",
+      "player_two_name": "Cheesey201\ud83c\uddfa\ud83c\uddf8",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "988926958777806939",
+      "winner_name": "Britney \u23fe\u22c6.\u02da"
+    },
+    {
+      "channel_id": "1533293153849966633",
+      "channel_name": "uno-11-coolkid-croissant",
+      "created_at_timestamp": 1785635974,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722374,
+      "finalized": true,
+      "game_id": 11,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1276774905731485769",
+      "player_one_name": "Coolkid",
+      "player_two_id": "909871406630731776",
+      "player_two_name": "croissant",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "909871406630731776",
+      "winner_name": "croissant"
+    },
+    {
+      "channel_id": "1533293187165192202",
+      "channel_name": "uno-12-dashthegreen-env1",
+      "created_at_timestamp": 1785635979,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722379,
+      "finalized": true,
+      "game_id": 12,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1149978318448361623",
+      "player_one_name": "DashTheGreen",
+      "player_two_id": "1131631997966618755",
+      "player_two_name": "Env1",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1149978318448361623",
+      "winner_name": "DashTheGreen"
+    },
+    {
+      "channel_id": "1533293244224372927",
+      "channel_name": "uno-13-ghost-honey-mei",
+      "created_at_timestamp": 1785635996,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722396,
+      "finalized": true,
+      "game_id": 13,
+      "guild_id": "995954559044304896",
+      "player_one_id": "805304427400921118",
+      "player_one_name": "Ghost",
+      "player_two_id": "1523738783399415923",
+      "player_two_name": "Honey_Mei",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "805304427400921118",
+      "winner_name": "Ghost"
+    },
+    {
+      "channel_id": "1533293313694629948",
+      "channel_name": "uno-14-is-ivy",
+      "created_at_timestamp": 1785636012,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722412,
+      "finalized": true,
+      "game_id": 14,
+      "guild_id": "995954559044304896",
+      "player_one_id": "824357839936946226",
+      "player_one_name": "is",
+      "player_two_id": "966343802308665365",
+      "player_two_name": "Ivy",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "966343802308665365",
+      "winner_name": "Ivy"
+    },
+    {
+      "channel_id": "1533293390119305266",
+      "channel_name": "uno-15-james-kyle-justabookgirle",
+      "created_at_timestamp": 1785636030,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722430,
+      "finalized": true,
+      "game_id": 15,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1243640882905743441",
+      "player_one_name": "James(Kyle)",
+      "player_two_id": "783138602997514240",
+      "player_two_name": "Justabookgirle",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "783138602997514240",
+      "winner_name": "Justabookgirle"
+    },
+    {
+      "channel_id": "1533293423472152808",
+      "channel_name": "uno-16-k-katty",
+      "created_at_timestamp": 1785636038,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722438,
+      "finalized": true,
+      "game_id": 16,
+      "guild_id": "995954559044304896",
+      "player_one_id": "666430660973690882",
+      "player_one_name": "K",
+      "player_two_id": "1121126678467465247",
+      "player_two_name": "Katty",
+      "result_note": "Cancelled by UNO staff",
+      "result_status": "cancelled",
+      "winner_id": null,
+      "winner_name": ""
+    },
+    {
+      "channel_id": "1533293465444679863",
+      "channel_name": "uno-17-kea-of-the-water-korn",
+      "created_at_timestamp": 1785636048,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722448,
+      "finalized": true,
+      "game_id": 17,
+      "guild_id": "995954559044304896",
+      "player_one_id": "802745192683012156",
+      "player_one_name": "kea\u00a8\u032eof the water",
+      "player_two_id": "982309100530589746",
+      "player_two_name": "KoRn",
+      "result_note": "Cancelled by UNO staff",
+      "result_status": "cancelled",
+      "winner_id": null,
+      "winner_name": ""
+    },
+    {
+      "channel_id": "1533293495928885319",
+      "channel_name": "uno-18-lampie-me-123",
+      "created_at_timestamp": 1785636055,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722455,
+      "finalized": true,
+      "game_id": 18,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1263068258995798066",
+      "player_one_name": "\ud835\udcdb\ud835\udcea\ud835\udcf6\ud835\udcf9\ud835\udcf2\ud835\udcee \u2740",
+      "player_two_id": "1021458492659343381",
+      "player_two_name": "me_123",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1021458492659343381",
+      "winner_name": "me_123"
+    },
+    {
+      "channel_id": "1533293525930873043",
+      "channel_name": "uno-19-mink-mrs-sammy",
+      "created_at_timestamp": 1785636063,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722463,
+      "finalized": true,
+      "game_id": 19,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1016671324527140864",
+      "player_one_name": "Mink",
+      "player_two_id": "577492184002199589",
+      "player_two_name": "Mrs Sammy",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "577492184002199589",
+      "winner_name": "Mrs Sammy"
+    },
+    {
+      "channel_id": "1533293579370365071",
+      "channel_name": "uno-20-mv-nana-simira",
+      "created_at_timestamp": 1785636075,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722475,
+      "finalized": true,
+      "game_id": 20,
+      "guild_id": "995954559044304896",
+      "player_one_id": "802648654292058163",
+      "player_one_name": "MV",
+      "player_two_id": "1514914741670121477",
+      "player_two_name": "NANA SIMIRA",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "802648654292058163",
+      "winner_name": "MV"
+    },
+    {
+      "channel_id": "1533293629307748363",
+      "channel_name": "uno-21-nexus-nobody",
+      "created_at_timestamp": 1785636087,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722487,
+      "finalized": true,
+      "game_id": 21,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1367142692324245646",
+      "player_one_name": "Nexus\ud83d\ude2e\u200d\ud83d\udca8",
+      "player_two_id": "1091990364581265419",
+      "player_two_name": "Nobody",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1091990364581265419",
+      "winner_name": "Nobody"
+    },
+    {
+      "channel_id": "1533293653529858299",
+      "channel_name": "uno-22-non-responding-guy-outpost13",
+      "created_at_timestamp": 1785636093,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722493,
+      "finalized": true,
+      "game_id": 22,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1383120619914133574",
+      "player_one_name": "non_responding_guy",
+      "player_two_id": "871631130678411304",
+      "player_two_name": "Outpost13",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "871631130678411304",
+      "winner_name": "Outpost13"
+    },
+    {
+      "channel_id": "1533293678771175648",
+      "channel_name": "uno-23-pancake-pine",
+      "created_at_timestamp": 1785636099,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722499,
+      "finalized": true,
+      "game_id": 23,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1175886799227322463",
+      "player_one_name": "PanCaKe",
+      "player_two_id": "1236381560232611891",
+      "player_two_name": "pine",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1175886799227322463",
+      "winner_name": "\ud83e\udd5e"
+    },
+    {
+      "channel_id": "1533293734551093359",
+      "channel_name": "uno-24-shadow-sky",
+      "created_at_timestamp": 1785636112,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722512,
+      "finalized": true,
+      "game_id": 24,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1396482378943303800",
+      "player_one_name": "Shadow",
+      "player_two_id": "1220227055191330857",
+      "player_two_name": "The Britney Diaries",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1396482378943303800",
+      "winner_name": "Shadow"
+    },
+    {
+      "channel_id": "1533293774011367617",
+      "channel_name": "uno-25-sofii-summer",
+      "created_at_timestamp": 1785636121,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722521,
+      "finalized": true,
+      "game_id": 25,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1201237256346808341",
+      "player_one_name": "sofii ! \ud83c\udf0a",
+      "player_two_id": "1101745950789218374",
+      "player_two_name": "summer \u1aa5\uaac2\u0fd4",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1201237256346808341",
+      "winner_name": "sofii ! \ud83c\udf0a"
+    },
+    {
+      "channel_id": "1533293806907297986",
+      "channel_name": "uno-26-whimsy-mistborn-daisy",
+      "created_at_timestamp": 1785636130,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722530,
+      "finalized": true,
+      "game_id": 26,
+      "guild_id": "995954559044304896",
+      "player_one_id": "758534870745219072",
+      "player_one_name": "whimsy \u0f3a\u2766\u0f3b",
+      "player_two_id": "790132069098586133",
+      "player_two_name": "\u0f7c\ud80c\udf7c\u2118Mistborn Daisy\u2118\ud80c\udf7c \u0f7c",
+      "result_note": "can\u2019t play",
+      "result_status": "forfeit",
+      "winner_id": "758534870745219072",
+      "winner_name": "whimsy \u0f3a\u2766\u0f3b"
+    },
+    {
+      "channel_id": "1533294147794894928",
+      "channel_name": "uno-27-dex-rightstar",
+      "created_at_timestamp": 1785636211,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785722611,
+      "finalized": true,
+      "game_id": 27,
+      "guild_id": "995954559044304896",
+      "player_one_id": "976261529622175766",
+      "player_one_name": "\u1bd3 \u2605 Dex \u265b\u272e\u0f12\u263d",
+      "player_two_id": "1099240775230963742",
+      "player_two_name": "\u1bd3\u2730\ud835\udcfb\ud835\udcf2\ud835\udcf0\ud835\udcf1\ud835\udcfd\ud835\udcfc\ud835\udcfd\ud835\udcea\ud835\udcfb\u2730\u22c6\u02da \u0741\u02d6\u2b51.\u141f",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1099240775230963742",
+      "winner_name": "\u1bd3\u2730\ud835\udcfb\ud835\udcf2\ud835\udcf0\ud835\udcf1\ud835\udcfd\ud835\udcfc\ud835\udcfd\ud835\udcea\ud835\udcfb\u2730\u22c6\u02da \u0741\u02d6\u2b51.\u141f"
+    },
+    {
+      "channel_id": "1533419188033425448",
+      "channel_name": "uno-28-nira-lowkey-loky",
+      "created_at_timestamp": 1785666020,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785752420,
+      "finalized": true,
+      "game_id": 28,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1374460522258235515",
+      "player_one_name": "@ nira",
+      "player_two_id": "899320430777757716",
+      "player_two_name": "Lowkey Loky \ud83c\udf19",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1374460522258235515",
+      "winner_name": "@ nira"
+    },
+    {
+      "channel_id": "1533419271932219542",
+      "channel_name": "uno-29-rosa-nam",
+      "created_at_timestamp": 1785666043,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785752443,
+      "finalized": true,
+      "game_id": 29,
+      "guild_id": "995954559044304896",
+      "player_one_id": "886675454965186621",
+      "player_one_name": "\u211d\ud835\udd60\ud835\udd64\ud835\udd52 \ud83c\udf0a",
+      "player_two_id": "939544072710938664",
+      "player_two_name": "\ud83c\udf38 Na\u0337m\u0337\u0268 \ud83c\udf38",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "886675454965186621",
+      "winner_name": "\u211d\ud835\udd60\ud835\udd64\ud835\udd52 \ud83c\udf0a"
+    },
+    {
+      "channel_id": "1533419352324309142",
+      "channel_name": "uno-30-duskrose-aired-up-jayce",
+      "created_at_timestamp": 1785666062,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785752462,
+      "finalized": true,
+      "game_id": 30,
+      "guild_id": "995954559044304896",
+      "player_one_id": "788051727051391017",
+      "player_one_name": "Duskrose",
+      "player_two_id": "1233690167605198902",
+      "player_two_name": "\ud83c\udf2c\ufe0f Aired up Jayce \ud83c\udf43",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1233690167605198902",
+      "winner_name": "\ud83c\udf2c\ufe0f Aired up Jayce \ud83c\udf43"
+    },
+    {
+      "channel_id": "1533419429604622506",
+      "channel_name": "uno-31-targaryen-water-gojo",
+      "created_at_timestamp": 1785666080,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785752480,
+      "finalized": true,
+      "game_id": 31,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1525201717111689296",
+      "player_one_name": "Targaryen",
+      "player_two_id": "1504580237806276819",
+      "player_two_name": "Water Gojo",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1504580237806276819",
+      "winner_name": "Water Gojo"
+    },
+    {
+      "channel_id": "1533419505089253386",
+      "channel_name": "uno-32-gh-7-kiwii-ig",
+      "created_at_timestamp": 1785666098,
+      "created_by_id": "972228046323064903",
+      "deadline_timestamp": 1785752498,
+      "finalized": true,
+      "game_id": 32,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1432558191086014464",
+      "player_one_name": "Gh/7",
+      "player_two_id": "1512728097449971788",
+      "player_two_name": "Kiwii",
+      "result_note": "Cancelled by UNO staff",
+      "result_status": "cancelled",
+      "winner_id": null,
+      "winner_name": ""
+    },
+    {
+      "channel_id": "1534486753828802580",
+      "channel_name": "uno-33-hylon-me-123",
+      "created_at_timestamp": 1785920550,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786006950,
+      "finalized": true,
+      "game_id": 33,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1206232315890507776",
+      "player_one_name": "\ud83d\udd25Hylon\ud83d\udd25",
+      "player_two_id": "1021458492659343381",
+      "player_two_name": "me_123",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1206232315890507776",
+      "winner_name": "\ud83d\udd25Hylon\ud83d\udd25"
+    },
+    {
+      "channel_id": "1534486800998076456",
+      "channel_name": "uno-34-x-whimsy",
+      "created_at_timestamp": 1785920561,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786006961,
+      "finalized": true,
+      "game_id": 34,
+      "guild_id": "995954559044304896",
+      "player_one_id": "906424513137377280",
+      "player_one_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a",
+      "player_two_id": "758534870745219072",
+      "player_two_name": "whimsy \u0f3a\u2766\u0f3b",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "906424513137377280",
+      "winner_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a"
+    },
+    {
+      "channel_id": "1534486845650505759",
+      "channel_name": "uno-35-blaze-justabookgirle",
+      "created_at_timestamp": 1785920572,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786006972,
+      "finalized": true,
+      "game_id": 35,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1237216817026695228",
+      "player_one_name": "\ud83d\udd25\ud835\udd6d\ud835\udd91\ud835\udd86\ud835\udd9f\ud835\udd8a\ud83d\udd25",
+      "player_two_id": "783138602997514240",
+      "player_two_name": "Justabookgirle",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "783138602997514240",
+      "winner_name": "Justabookgirle"
+    },
+    {
+      "channel_id": "1534486902441513000",
+      "channel_name": "uno-36-shadow-dashthegreen",
+      "created_at_timestamp": 1785920586,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786006986,
+      "finalized": true,
+      "game_id": 36,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1396482378943303800",
+      "player_one_name": "Shadow",
+      "player_two_id": "1149978318448361623",
+      "player_two_name": "DashTheGreen",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1396482378943303800",
+      "winner_name": "Shadow"
+    },
+    {
+      "channel_id": "1534486980900163665",
+      "channel_name": "uno-37-twiste-donuts-outpost13",
+      "created_at_timestamp": 1785920604,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786007004,
+      "finalized": true,
+      "game_id": 37,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1297676868841115652",
+      "player_one_name": "!  twiste\u201d donuts",
+      "player_two_id": "871631130678411304",
+      "player_two_name": "Outpost13",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "871631130678411304",
+      "winner_name": "Outpost13"
+    },
+    {
+      "channel_id": "1534487028719161518",
+      "channel_name": "uno-38-water-gojo-sofii",
+      "created_at_timestamp": 1785920616,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786007016,
+      "finalized": true,
+      "game_id": 38,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1504580237806276819",
+      "player_one_name": "Water Gojo",
+      "player_two_id": "1201237256346808341",
+      "player_two_name": "sofii ! \ud83c\udf0a",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1201237256346808341",
+      "winner_name": "sofii ! \ud83c\udf0a"
+    },
+    {
+      "channel_id": "1534487075976511569",
+      "channel_name": "uno-39-britney-nirau",
+      "created_at_timestamp": 1785920627,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786007027,
+      "finalized": true,
+      "game_id": 39,
+      "guild_id": "995954559044304896",
+      "player_one_id": "988926958777806939",
+      "player_one_name": "Britney \u23fe\u22c6.\u02da",
+      "player_two_id": "1374460522258235515",
+      "player_two_name": "@ nirau",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "988926958777806939",
+      "winner_name": "Britney \u23fe\u22c6.\u02da"
+    },
+    {
+      "channel_id": "1534487126303965354",
+      "channel_name": "uno-40-ghost-bajablast",
+      "created_at_timestamp": 1785920638,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786007038,
+      "finalized": true,
+      "game_id": 40,
+      "guild_id": "995954559044304896",
+      "player_one_id": "805304427400921118",
+      "player_one_name": "Ghost",
+      "player_two_id": "788883935790759936",
+      "player_two_name": "BajaBlast \ud83c\udf83",
+      "result_note": "didn\u2019t play in alloted time",
+      "result_status": "forfeit",
+      "winner_id": "805304427400921118",
+      "winner_name": "Ghost"
+    },
+    {
+      "channel_id": "1534487201646379149",
+      "channel_name": "uno-41-ren-rightstar",
+      "created_at_timestamp": 1785920657,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786007057,
+      "finalized": true,
+      "game_id": 41,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1223726339392278528",
+      "player_one_name": "\u300a\ud83c\udf3f\u300b  ,,  REN _ \u2606",
+      "player_two_id": "1099240775230963742",
+      "player_two_name": "\u1bd3\u2730\ud835\udcfb\ud835\udcf2\ud835\udcf0\ud835\udcf1\ud835\udcfd\ud835\udcfc\ud835\udcfd\ud835\udcea\ud835\udcfb\u2730\u22c6\u02da \u0741\u02d6\u2b51.\u141f",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1099240775230963742",
+      "winner_name": "\u1bd3\u2730\ud835\udcfb\ud835\udcf2\ud835\udcf0\ud835\udcf1\ud835\udcfd\ud835\udcfc\ud835\udcfd\ud835\udcea\ud835\udcfb\u2730\u22c6\u02da \u0741\u02d6\u2b51.\u141f"
+    },
+    {
+      "channel_id": "1534487243094233158",
+      "channel_name": "uno-42-ivy-mrs-sammy",
+      "created_at_timestamp": 1785920667,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786007067,
+      "finalized": true,
+      "game_id": 42,
+      "guild_id": "995954559044304896",
+      "player_one_id": "966343802308665365",
+      "player_one_name": "Ivy",
+      "player_two_id": "577492184002199589",
+      "player_two_name": "Mrs Sammy",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "577492184002199589",
+      "winner_name": "Mrs Sammy"
+    },
+    {
+      "channel_id": "1534487276342607922",
+      "channel_name": "uno-43-croissant-mv",
+      "created_at_timestamp": 1785920675,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786007075,
+      "finalized": true,
+      "game_id": 43,
+      "guild_id": "995954559044304896",
+      "player_one_id": "909871406630731776",
+      "player_one_name": "croissant",
+      "player_two_id": "802648654292058163",
+      "player_two_name": "MV",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "909871406630731776",
+      "winner_name": "croissant"
+    },
+    {
+      "channel_id": "1534487338476900433",
+      "channel_name": "uno-44-ir-acyy",
+      "created_at_timestamp": 1785920690,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786007090,
+      "finalized": true,
+      "game_id": 44,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1357352341250113710",
+      "player_one_name": "\u22b9 \u08ea \u02d6 \u157c\ud835\udd5a\u10e7\u03c3\ud835\udd63\u03b9 \u02d6 \u08ea\u22b9",
+      "player_two_id": "1127991573850898604",
+      "player_two_name": "\u2606_\u2219\u26c4\u2219\ud835\udd1e\ud835\udd20\ud835\udc9a\ud835\udc9a\u2219\u26c4\u2219_\u2606",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1357352341250113710",
+      "winner_name": "\u22b9 \u08ea \u02d6 \u157c\ud835\udd5a\u10e7\u03c3\ud835\udd63\u03b9 \u02d6 \u08ea\u22b9"
+    },
+    {
+      "channel_id": "1534856032851857458",
+      "channel_name": "uno-45-hylon-croissant",
+      "created_at_timestamp": 1786008593,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786094993,
+      "finalized": true,
+      "game_id": 45,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1206232315890507776",
+      "player_one_name": "\ud83d\udd25Hylon\ud83d\udd25",
+      "player_two_id": "909871406630731776",
+      "player_two_name": "croissant",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1206232315890507776",
+      "winner_name": "\ud83d\udd25Hylon\ud83d\udd25"
+    },
+    {
+      "channel_id": "1534856075600203889",
+      "channel_name": "uno-46-ghost-justabookgirle",
+      "created_at_timestamp": 1786008603,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786095003,
+      "finalized": true,
+      "game_id": 46,
+      "guild_id": "995954559044304896",
+      "player_one_id": "805304427400921118",
+      "player_one_name": "Ghost",
+      "player_two_id": "783138602997514240",
+      "player_two_name": "Justabookgirle",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "805304427400921118",
+      "winner_name": "Ghost"
+    },
+    {
+      "channel_id": "1534856132827283496",
+      "channel_name": "uno-47-x-pancake",
+      "created_at_timestamp": 1786008617,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786095017,
+      "finalized": true,
+      "game_id": 47,
+      "guild_id": "995954559044304896",
+      "player_one_id": "906424513137377280",
+      "player_one_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a",
+      "player_two_id": "1175886799227322463",
+      "player_two_name": "PanCaKe",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "906424513137377280",
+      "winner_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a"
+    },
+    {
+      "channel_id": "1534856183171776533",
+      "channel_name": "uno-48-rightstar-sofii",
+      "created_at_timestamp": 1786008629,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786095029,
+      "finalized": true,
+      "game_id": 48,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1099240775230963742",
+      "player_one_name": "\u1bd3\u2730\ud835\udcfb\ud835\udcf2\ud835\udcf0\ud835\udcf1\ud835\udcfd\ud835\udcfc\ud835\udcfd\ud835\udcea\ud835\udcfb\u2730\u22c6\u02da \u0741\u02d6\u2b51.\u141f",
+      "player_two_id": "1201237256346808341",
+      "player_two_name": "sofii ! \ud83c\udf0a",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1099240775230963742",
+      "winner_name": "\u1bd3\u2730\ud835\udcfb\ud835\udcf2\ud835\udcf0\ud835\udcf1\ud835\udcfd\ud835\udcfc\ud835\udcfd\ud835\udcea\ud835\udcfb\u2730\u22c6\u02da \u0741\u02d6\u2b51.\u141f"
+    },
+    {
+      "channel_id": "1534856230726533242",
+      "channel_name": "uno-49-aired-up-jayce-ir",
+      "created_at_timestamp": 1786008640,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786095040,
+      "finalized": true,
+      "game_id": 49,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1233690167605198902",
+      "player_one_name": "\ud83c\udf2c\ufe0f Aired up Jayce \ud83c\udf43",
+      "player_two_id": "1357352341250113710",
+      "player_two_name": "\u22b9 \u08ea \u02d6 \u157c\ud835\udd5a\u10e7\u03c3\ud835\udd63\u03b9 \u02d6 \u08ea\u22b9",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1357352341250113710",
+      "winner_name": "\u22b9 \u08ea \u02d6 \u157c\ud835\udd5a\u10e7\u03c3\ud835\udd63\u03b9 \u02d6 \u08ea\u22b9"
+    },
+    {
+      "channel_id": "1534856288880562216",
+      "channel_name": "uno-50-rosa-britney",
+      "created_at_timestamp": 1786008654,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786095054,
+      "finalized": true,
+      "game_id": 50,
+      "guild_id": "995954559044304896",
+      "player_one_id": "886675454965186621",
+      "player_one_name": "\u211d\ud835\udd60\ud835\udd64\ud835\udd52 \ud83c\udf0a",
+      "player_two_id": "988926958777806939",
+      "player_two_name": "Britney \u23fe\u22c6.\u02da",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "988926958777806939",
+      "winner_name": "Britney \u23fe\u22c6.\u02da"
+    },
+    {
+      "channel_id": "1534856344023072898",
+      "channel_name": "uno-51-mrs-sammy-shadow",
+      "created_at_timestamp": 1786008667,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786095067,
+      "finalized": true,
+      "game_id": 51,
+      "guild_id": "995954559044304896",
+      "player_one_id": "577492184002199589",
+      "player_one_name": "Mrs Sammy",
+      "player_two_id": "1396482378943303800",
+      "player_two_name": "Shadow",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1396482378943303800",
+      "winner_name": "Shadow"
+    },
+    {
+      "channel_id": "1534856385395687504",
+      "channel_name": "uno-52-outpost13-nobody",
+      "created_at_timestamp": 1786008677,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786095077,
+      "finalized": true,
+      "game_id": 52,
+      "guild_id": "995954559044304896",
+      "player_one_id": "871631130678411304",
+      "player_one_name": "Outpost13",
+      "player_two_id": "1091990364581265419",
+      "player_two_name": "Nobody",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "871631130678411304",
+      "winner_name": "Outpost13"
+    },
+    {
+      "channel_id": "1535239331093155900",
+      "channel_name": "uno-53-hylon-shadow",
+      "created_at_timestamp": 1786099979,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786186379,
+      "finalized": true,
+      "game_id": 53,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1206232315890507776",
+      "player_one_name": "\ud83d\udd25Hylon\ud83d\udd25",
+      "player_two_id": "1396482378943303800",
+      "player_two_name": "Shadow",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1396482378943303800",
+      "winner_name": "Shadow"
+    },
+    {
+      "channel_id": "1535239368967462993",
+      "channel_name": "uno-54-ghost-britney",
+      "created_at_timestamp": 1786099987,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786186387,
+      "finalized": true,
+      "game_id": 54,
+      "guild_id": "995954559044304896",
+      "player_one_id": "805304427400921118",
+      "player_one_name": "Ghost",
+      "player_two_id": "988926958777806939",
+      "player_two_name": "Britney \u23fe\u22c6.\u02da",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "988926958777806939",
+      "winner_name": "Britney \u23fe\u22c6.\u02da"
+    },
+    {
+      "channel_id": "1535239401955790868",
+      "channel_name": "uno-55-x-outpost13",
+      "created_at_timestamp": 1786099996,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786186396,
+      "finalized": true,
+      "game_id": 55,
+      "guild_id": "995954559044304896",
+      "player_one_id": "906424513137377280",
+      "player_one_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a",
+      "player_two_id": "871631130678411304",
+      "player_two_name": "Outpost13",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "906424513137377280",
+      "winner_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a"
+    },
+    {
+      "channel_id": "1535239442388750456",
+      "channel_name": "uno-56-rightstar-ir",
+      "created_at_timestamp": 1786100005,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786186405,
+      "finalized": true,
+      "game_id": 56,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1099240775230963742",
+      "player_one_name": "\u1bd3\u2730\ud835\udcfb\ud835\udcf2\ud835\udcf0\ud835\udcf1\ud835\udcfd\ud835\udcfc\ud835\udcfd\ud835\udcea\ud835\udcfb\u2730\u22c6\u02da \u0741\u02d6\u2b51.\u141f",
+      "player_two_id": "1357352341250113710",
+      "player_two_name": "\u22b9 \u08ea \u02d6 \u157c\ud835\udd5a\u10e7\u03c3\ud835\udd63\u03b9 \u02d6 \u08ea\u22b9",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1099240775230963742",
+      "winner_name": "\u1bd3\u2730\ud835\udcfb\ud835\udcf2\ud835\udcf0\ud835\udcf1\ud835\udcfd\ud835\udcfc\ud835\udcfd\ud835\udcea\ud835\udcfb\u2730\u22c6\u02da \u0741\u02d6\u2b51.\u141f"
+    },
+    {
+      "channel_id": "1535351052742951002",
+      "channel_name": "uno-57-x-britney",
+      "created_at_timestamp": 1786126615,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786213015,
+      "finalized": true,
+      "game_id": 57,
+      "guild_id": "995954559044304896",
+      "player_one_id": "906424513137377280",
+      "player_one_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a",
+      "player_two_id": "988926958777806939",
+      "player_two_name": "Britney \u23fe\u22c6.\u02da",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "906424513137377280",
+      "winner_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a"
+    },
+    {
+      "channel_id": "1535493768248299631",
+      "channel_name": "uno-58-rightstar-shadow",
+      "created_at_timestamp": 1786160641,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786247041,
+      "finalized": true,
+      "game_id": 58,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1099240775230963742",
+      "player_one_name": "\u1bd3\u2730\ud835\udcfb\ud835\udcf2\ud835\udcf0\ud835\udcf1\ud835\udcfd\ud835\udcfc\ud835\udcfd\ud835\udcea\ud835\udcfb\u2730\u22c6\u02da \u0741\u02d6\u2b51.\u141f",
+      "player_two_id": "1396482378943303800",
+      "player_two_name": "Shadow",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "1396482378943303800",
+      "winner_name": "Shadow"
+    },
+    {
+      "channel_id": "1535985830881923072",
+      "channel_name": "uno-59-shadow-x",
+      "created_at_timestamp": 1786277958,
+      "created_by_id": "1297676868841115652",
+      "deadline_timestamp": 1786364358,
+      "finalized": true,
+      "game_id": 59,
+      "guild_id": "995954559044304896",
+      "player_one_id": "1396482378943303800",
+      "player_one_name": "Shadow",
+      "player_two_id": "906424513137377280",
+      "player_two_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a",
+      "result_note": "",
+      "result_status": "complete",
+      "winner_id": "906424513137377280",
+      "winner_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a"
+    }
+  ],
+  "next_game_id": 60,
+  "participant_count": 57,
+  "tournament_complete": true,
+  "participants": [
+    {
+      "display_name": "!  twiste\u201d donuts",
+      "id": "1297676868841115652",
+      "mention": "<@1297676868841115652>",
+      "username": "friendlyspidy"
+    },
+    {
+      "display_name": "Ace",
+      "id": "1302452142140817429",
+      "mention": "<@1302452142140817429>",
+      "username": "manofthreenames"
+    },
+    {
+      "display_name": "BajaBlast \ud83c\udf83",
+      "id": "788883935790759936",
+      "mention": "<@788883935790759936>",
+      "username": "devilash"
+    },
+    {
+      "display_name": "BoilPotato",
+      "id": "1234190738263380019",
+      "mention": "<@1234190738263380019>",
+      "username": "aaloyhaz17"
+    },
+    {
+      "display_name": "Britney \u23fe\u22c6.\u02da",
+      "id": "988926958777806939",
+      "mention": "<@988926958777806939>",
+      "username": "briiit_085"
+    },
+    {
+      "display_name": "@ nira",
+      "id": "1374460522258235515",
+      "mention": "<@1374460522258235515>",
+      "username": "heartfaced"
+    },
+    {
+      "display_name": "Coolkid",
+      "id": "1276774905731485769",
+      "mention": "<@1276774905731485769>",
+      "username": "sebthecoolkid."
+    },
+    {
+      "display_name": "croissant",
+      "id": "909871406630731776",
+      "mention": "<@909871406630731776>",
+      "username": "crxstos"
+    },
+    {
+      "display_name": "DashTheGreen",
+      "id": "1149978318448361623",
+      "mention": "<@1149978318448361623>",
+      "username": "dashy042"
+    },
+    {
+      "display_name": "Env1",
+      "id": "1131631997966618755",
+      "mention": "<@1131631997966618755>",
+      "username": "env1x_ity"
+    },
+    {
+      "display_name": "Ghost",
+      "id": "805304427400921118",
+      "mention": "<@805304427400921118>",
+      "username": "ghostbhai88"
+    },
+    {
+      "display_name": "Duskrose",
+      "id": "788051727051391017",
+      "mention": "<@788051727051391017>",
+      "username": "angelofvoid24"
+    },
+    {
+      "display_name": "is",
+      "id": "824357839936946226",
+      "mention": "<@824357839936946226>",
+      "username": "its.is"
+    },
+    {
+      "display_name": "Ivy",
+      "id": "966343802308665365",
+      "mention": "<@966343802308665365>",
+      "username": "tasdid1"
+    },
+    {
+      "display_name": "James(Kyle)",
+      "id": "1243640882905743441",
+      "mention": "<@1243640882905743441>",
+      "username": "king_james_the_first_43117"
+    },
+    {
+      "display_name": "Justabookgirle",
+      "id": "783138602997514240",
+      "mention": "<@783138602997514240>",
+      "username": "lavender_xxqueen"
+    },
+    {
+      "display_name": "K",
+      "id": "666430660973690882",
+      "mention": "<@666430660973690882>",
+      "username": "mcsquishie"
+    },
+    {
+      "display_name": "Katty",
+      "id": "1121126678467465247",
+      "mention": "<@1121126678467465247>",
+      "username": "smartkats127"
+    },
+    {
+      "display_name": "kea\u00a8\u032eof the water",
+      "id": "802745192683012156",
+      "mention": "<@802745192683012156>",
+      "username": "kayyvision"
+    },
+    {
+      "display_name": "KoRn",
+      "id": "982309100530589746",
+      "mention": "<@982309100530589746>",
+      "username": "kornfan98"
+    },
+    {
+      "display_name": "me_123",
+      "id": "1021458492659343381",
+      "mention": "<@1021458492659343381>",
+      "username": "me.091"
+    },
+    {
+      "display_name": "Mink",
+      "id": "1016671324527140864",
+      "mention": "<@1016671324527140864>",
+      "username": "kingmink_"
+    },
+    {
+      "display_name": "Mrs Sammy",
+      "id": "577492184002199589",
+      "mention": "<@577492184002199589>",
+      "username": "mrss9"
+    },
+    {
+      "display_name": "MV",
+      "id": "802648654292058163",
+      "mention": "<@802648654292058163>",
+      "username": "apemv"
+    },
+    {
+      "display_name": "Gh/7",
+      "id": "1432558191086014464",
+      "mention": "<@1432558191086014464>",
+      "username": "gh70853"
+    },
+    {
+      "display_name": "Nexus\ud83d\ude2e\u200d\ud83d\udca8",
+      "id": "1367142692324245646",
+      "mention": "<@1367142692324245646>",
+      "username": "nexus_nexw"
+    },
+    {
+      "display_name": "Nobody",
+      "id": "1091990364581265419",
+      "mention": "<@1091990364581265419>",
+      "username": "nobodyis_here0"
+    },
+    {
+      "display_name": "Kiwii",
+      "id": "1512728097449971788",
+      "mention": "<@1512728097449971788>",
+      "username": "awenayafr"
+    },
+    {
+      "display_name": "Outpost13",
+      "id": "871631130678411304",
+      "mention": "<@871631130678411304>",
+      "username": "outpost13"
+    },
+    {
+      "display_name": "PanCaKe",
+      "id": "1175886799227322463",
+      "mention": "<@1175886799227322463>",
+      "username": "pancake_0_0_0"
+    },
+    {
+      "display_name": "pine",
+      "id": "1236381560232611891",
+      "mention": "<@1236381560232611891>",
+      "username": "predatorypython"
+    },
+    {
+      "display_name": "Shadow",
+      "id": "1396482378943303800",
+      "mention": "<@1396482378943303800>",
+      "username": "shadowknight971"
+    },
+    {
+      "display_name": "The Britney Diaries",
+      "id": "1220227055191330857",
+      "mention": "<@1220227055191330857>",
+      "username": "winter.sky7"
+    },
+    {
+      "display_name": "sofii ! \ud83c\udf0a",
+      "id": "1201237256346808341",
+      "mention": "<@1201237256346808341>",
+      "username": "svf_ii"
+    },
+    {
+      "display_name": "summer \u1aa5\uaac2\u0fd4",
+      "id": "1101745950789218374",
+      "mention": "<@1101745950789218374>",
+      "username": "summerain."
+    },
+    {
+      "display_name": "whimsy \u0f3a\u2766\u0f3b",
+      "id": "758534870745219072",
+      "mention": "<@758534870745219072>",
+      "username": "the.whimsical.whimsy"
+    },
+    {
+      "display_name": "\u00b8\u00b8\u266c\u00af\u00b7\u266b\u00b8\u00b8 Mr. Roe deer '\u266b\u00b7\u00af\u00b7\u266a",
+      "id": "1072462136443404379",
+      "mention": "<@1072462136443404379>",
+      "username": "sisas4sh"
+    },
+    {
+      "display_name": "\u0f7c\ud80c\udf7c\u2118Mistborn Daisy\u2118\ud80c\udf7c \u0f7c",
+      "id": "790132069098586133",
+      "mention": "<@790132069098586133>",
+      "username": "dazzlechoon"
+    },
+    {
+      "display_name": "\u1bd3 \u2605 Dex \u265b\u272e\u0f12\u263d",
+      "id": "976261529622175766",
+      "mention": "<@976261529622175766>",
+      "username": "notd3xt3r"
+    },
+    {
+      "display_name": "\u1bd3\u2730\ud835\udcfb\ud835\udcf2\ud835\udcf0\ud835\udcf1\ud835\udcfd\ud835\udcfc\ud835\udcfd\ud835\udcea\ud835\udcfb\u2730\u22c6\u02da \u0741\u02d6\u2b51.\u141f",
+      "id": "1099240775230963742",
+      "mention": "<@1099240775230963742>",
+      "username": "rightstar_1503"
+    },
+    {
+      "display_name": "\u207a\u2027\u208a\u02da\u098c\u22c6Mixie\u22c6\u098c\u02da\u208a\u2027\u207a",
+      "id": "294356624255090688",
+      "mention": "<@294356624255090688>",
+      "username": "frickcase"
+    },
+    {
+      "display_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a",
+      "id": "906424513137377280",
+      "mention": "<@906424513137377280>",
+      "username": "sixiemesm"
+    },
+    {
+      "display_name": "\u22b9 \u08ea \u02d6 \u157c\ud835\udd5a\u10e7\u03c3\ud835\udd63\u03b9 \u02d6 \u08ea\u22b9",
+      "id": "1357352341250113710",
+      "mention": "<@1357352341250113710>",
+      "username": "_.roronoazoro_"
+    },
+    {
+      "display_name": "\u22c6. \ud801\ude5a\u02da\u0fd4 \ud835\ude72\ud835\ude98\ud835\ude95\ud835\ude9e\ud835\ude96\ud835\ude8b\ud835\ude92\ud835\ude97\ud835\ude8a\ud835\udf17\ud835\udf1a\u02da\u22c6",
+      "id": "1438174767843774565",
+      "mention": "<@1438174767843774565>",
+      "username": "piewithoutpie"
+    },
+    {
+      "display_name": "\u22c6\u02da\u0fd4 \ud835\ude09\ud835\ude36\ud835\ude33\ud835\ude2f\ud835\ude35\ud835\ude15\ud835\ude36\ud835\ude28\ud835\ude34 \u266b\u02da\u22c6",
+      "id": "835499496665645096",
+      "mention": "<@835499496665645096>",
+      "username": "z_io43"
+    },
+    {
+      "display_name": "\u2606_\u2219\u2744\ufe0f\u2219Acyy\u2219\u2744\ufe0f\u2219_\u2606",
+      "id": "1127991573850898604",
+      "mention": "<@1127991573850898604>",
+      "username": "lost_acyy"
+    },
+    {
+      "display_name": "\u2606\u300a\u300a ,,  REN _ \u2606",
+      "id": "1223726339392278528",
+      "mention": "<@1223726339392278528>",
+      "username": "pretzel0031"
+    },
+    {
+      "display_name": "\u263c\u22c5\u02da\u208a\u2027 Toast Keika \u2027\u208a\u02da \u22c5\ud80c\uddfc",
+      "id": "1227518353686396940",
+      "mention": "<@1227518353686396940>",
+      "username": "keika.sama"
+    },
+    {
+      "display_name": "\u2730 Jojo",
+      "id": "1072010786668548156",
+      "mention": "<@1072010786668548156>",
+      "username": "dead2016"
+    },
+    {
+      "display_name": "Lowkey Loky \ud83c\udf19",
+      "id": "899320430777757716",
+      "mention": "<@899320430777757716>",
+      "username": "loky12ily"
+    },
+    {
+      "display_name": "\ud83d\udd25Hylon\ud83d\udd25",
+      "id": "1206232315890507776",
+      "mention": "<@1206232315890507776>",
+      "username": "hylon_61406"
+    },
+    {
+      "display_name": "\ud83d\udd25\ud835\udd6d\ud835\udd91\ud835\udd86\ud835\udd9f\ud835\udd8a\ud83d\udd25",
+      "id": "1237216817026695228",
+      "mention": "<@1237216817026695228>",
+      "username": "fire_roar72"
+    },
+    {
+      "display_name": "Targaryen",
+      "id": "1525201717111689296",
+      "mention": "<@1525201717111689296>",
+      "username": "targaryenaer"
+    },
+    {
+      "display_name": "Water Gojo",
+      "id": "1504580237806276819",
+      "mention": "<@1504580237806276819>",
+      "username": "thehonoredone7580"
+    },
+    {
+      "display_name": "\u211d\ud835\udd60\ud835\udd64\ud835\udd52 \ud83c\udf0a",
+      "id": "886675454965186621",
+      "mention": "<@886675454965186621>",
+      "username": "archer_222"
+    },
+    {
+      "display_name": "\ud83c\udf2c\ufe0f Aired up Jayce \ud83c\udf43",
+      "id": "1233690167605198902",
+      "mention": "<@1233690167605198902>",
+      "username": "itzjayce2006"
+    },
+    {
+      "display_name": "\ud83c\udf38 Na\u0337m\u0337\u0268 \ud83c\udf38",
+      "id": "939544072710938664",
+      "mention": "<@939544072710938664>",
+      "username": "shinitive"
+    }
+  ]
+};
+
+(function () {
+  function escapeHtml(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function showChampion() {
+    var data = window.UNO_BRACKET_DATA || {};
+    var championName = data.champion_name || "sixie";
+    var bracket = document.getElementById("bracketGrid");
+
+    if (!data.tournament_complete || !bracket || !championName) {
+      return;
+    }
+
+    if (
+      bracket.getAttribute("data-champion-rendered") === "true" &&
+      bracket.innerHTML.indexOf("UNO Tournament 2.0 Champion") !== -1
+    ) {
+      return;
+    }
+
+    bracket.setAttribute("data-champion-rendered", "true");
+    bracket.innerHTML = [
+      '<section class="bracket-stage" style="display:grid;gap:18px;min-width:0;padding:clamp(24px,5vw,54px);border:1px solid rgba(232,236,242,.22);border-radius:8px;background:linear-gradient(135deg,rgba(255,255,255,.11),transparent 42%),linear-gradient(180deg,rgba(18,20,26,.98),rgba(5,6,9,.96));box-shadow:0 26px 80px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.14);">',
+      '<div class="section-kicker">Tournament Complete</div>',
+      '<h2 style="margin:0;font-family:Outfit,Arial,sans-serif;font-size:clamp(1.35rem,2.6vw,2.35rem);line-height:1.04;">UNO Tournament 2.0 Champion</h2>',
+      '<div title="',
+      escapeHtml(championName),
+      '" style="max-width:100%;overflow:hidden;color:#fff;font-family:Outfit,Arial,sans-serif;font-size:clamp(2.15rem,7vw,5.8rem);font-weight:900;line-height:.95;text-overflow:ellipsis;text-shadow:0 18px 44px rgba(0,0,0,.62);white-space:normal;">',
+      escapeHtml(championName),
+      '</div>',
+      '<p style="max-width:720px;margin:0;color:rgba(247,248,251,.72);font-size:clamp(.98rem,1.5vw,1.18rem);line-height:1.55;">Congratulations to ',
+      escapeHtml(championName),
+      ' for winning the tournament.</p>',
+      '</section>'
+    ].join("");
+  }
+
+  function scheduleChampion() {
+    var delays = [0, 100, 500, 1500, 3000];
+
+    delays.forEach(function (delay) {
+      window.setTimeout(showChampion, delay);
+    });
+
+    var bracket = document.getElementById("bracketGrid");
+
+    if (bracket && window.MutationObserver && !bracket.__unoChampionObserver) {
+      bracket.__unoChampionObserver = new MutationObserver(function () {
+        window.setTimeout(showChampion, 0);
+      });
+      bracket.__unoChampionObserver.observe(bracket, {
+        childList: true,
+        subtree: true
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", scheduleChampion);
+  } else {
+    scheduleChampion();
+  }
+})();
