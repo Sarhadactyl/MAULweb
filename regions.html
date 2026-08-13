@@ -55,8 +55,8 @@
       }
 
       body {
-        background: #000 url("images/maulredbg.png") no-repeat top center fixed;
-        background-size: auto 100%;
+        background: #000 url("images/Modded-among-us.jpg") no-repeat center top fixed;
+        background-size: cover;
         position: relative;
       }
 
@@ -641,16 +641,17 @@
       body {
         background-color: #030000;
         background-image:
-          linear-gradient(90deg, rgba(116, 0, 14, 0.56), transparent 30%, rgba(2, 16, 14, 0.64) 100%),
-          url("images/maulredbg.png");
-        background-position: top left, top center;
-        background-size: cover, auto 100%;
+          linear-gradient(180deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.88) 64%, rgba(0, 0, 0, 0.96)),
+          radial-gradient(circle at 22% 18%, rgba(186, 28, 42, 0.24), transparent 34%),
+          url("images/Modded-among-us.jpg");
+        background-position: center top, center top, center top;
+        background-size: cover, cover, cover;
       }
 
       body::before {
         background:
-          radial-gradient(circle at 18% 8%, rgba(255, 58, 68, 0.34), transparent 30%),
-          radial-gradient(circle at 78% 12%, rgba(231, 174, 79, 0.16), transparent 32%),
+          radial-gradient(circle at 18% 8%, rgba(219, 42, 58, 0.28), transparent 30%),
+          radial-gradient(circle at 78% 12%, rgba(255, 204, 128, 0.14), transparent 32%),
           linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
         background-size: auto, auto, 44px 44px, 44px 44px;
@@ -666,32 +667,24 @@
 
       .header {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+        grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.72fr);
         align-items: center;
-        min-height: 430px;
-        padding: 72px 48px;
+        gap: 36px;
+        min-height: 0;
+        padding: 46px 44px;
         text-align: left;
-        border: 1px solid rgba(229, 161, 91, 0.34);
+        border: 1px solid rgba(255, 204, 128, 0.3);
         border-radius: 8px;
         background:
-          radial-gradient(circle at 20% 18%, rgba(139, 0, 23, 0.78), transparent 34%),
-          linear-gradient(110deg, rgba(35, 0, 6, 0.92), rgba(7, 5, 5, 0.98) 62%, rgba(2, 13, 11, 0.95));
+          linear-gradient(105deg, rgba(8, 7, 9, 0.96) 0%, rgba(13, 12, 15, 0.88) 48%, rgba(8, 7, 9, 0.7) 100%),
+          radial-gradient(circle at 18% 16%, rgba(170, 28, 42, 0.54), transparent 34%);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.08),
           0 30px 80px rgba(0, 0, 0, 0.78);
       }
 
       .header::before {
-        inset: 0;
-        left: auto;
-        top: auto;
-        right: 5%;
-        bottom: 0;
-        width: min(28vw, 320px);
-        background: url("images/maulnobg.png") no-repeat center bottom / contain;
-        opacity: 0.82;
-        transform: none;
-        filter: drop-shadow(0 26px 42px rgba(0, 0, 0, 0.9));
+        display: none;
       }
 
       .header::after {
@@ -700,14 +693,25 @@
         inset: 0;
         background:
           linear-gradient(115deg, rgba(255, 255, 255, 0.08), transparent 25%),
-          radial-gradient(circle at 75% 50%, rgba(231, 174, 79, 0.12), transparent 31%);
+          linear-gradient(90deg, rgba(0, 0, 0, 0.48), transparent 64%),
+          radial-gradient(circle at 75% 50%, rgba(255, 204, 128, 0.1), transparent 31%);
         pointer-events: none;
       }
 
       .hero-copy {
         position: relative;
         z-index: 1;
-        max-width: 820px;
+        max-width: 620px;
+      }
+
+      .hero-eyebrow {
+        margin: 0 0 14px;
+        color: #ffcc80;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
       }
 
       .join-maul-link {
@@ -740,30 +744,30 @@
       }
 
       .header h1 {
-        max-width: 800px;
-        font-size: clamp(3.7rem, 8.6vw, 7.4rem);
-        line-height: 0.9;
+        max-width: 560px;
+        font-size: clamp(3rem, 5.9vw, 5.3rem);
+        line-height: 0.96;
         letter-spacing: 0;
       }
 
       .header h1 span {
-        display: block;
-        background: linear-gradient(100deg, #f8f1e7 0%, #b7b0a8 34%, #d6b15b 62%, #ff4656 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
+        color: #ffcc80;
+        background: none;
+        -webkit-background-clip: initial;
+        background-clip: initial;
       }
 
       .hero-subtitle {
-        margin: 24px 0 0;
-        max-width: 720px;
+        margin: 18px 0 0;
+        max-width: 560px;
         color: rgba(250, 240, 232, 0.82);
-        font-size: 1.08rem;
-        font-weight: 600;
-        line-height: 1.7;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.65;
       }
 
       .top-actions {
-        margin: 26px 0 0;
+        margin: 28px 0 0;
         max-width: 820px;
       }
 
@@ -773,9 +777,52 @@
 
       .action-button {
         border-color: rgba(229, 161, 91, 0.27);
-        background: rgba(8, 4, 4, 0.58);
+        background: rgba(16, 15, 18, 0.74);
         border-radius: 8px;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .action-button.secondary-action {
+        background: rgba(255, 204, 128, 0.1);
+      }
+
+      .hero-note {
+        margin: 16px 0 0;
+        color: rgba(250, 240, 232, 0.62);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .hero-art {
+        position: relative;
+        z-index: 1;
+        align-self: center;
+        aspect-ratio: 16 / 9;
+        min-height: 0;
+        border: 1px solid rgba(255, 204, 128, 0.18);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #050505;
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.58);
+      }
+
+      .hero-art img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+        opacity: 0.88;
+      }
+
+      .hero-art::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, transparent 42%, rgba(0, 0, 0, 0.54)),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.22), transparent 46%);
+        pointer-events: none;
       }
 
       .primary-action {
@@ -786,9 +833,9 @@
       .disclaimer {
         margin: 18px 0 0;
         padding: 14px 16px;
-        border: 1px solid rgba(229, 161, 91, 0.22);
+        border: 1px solid rgba(255, 204, 128, 0.2);
         border-radius: 8px;
-        background: rgba(12, 6, 6, 0.62);
+        background: rgba(16, 15, 18, 0.62);
         color: rgba(250, 240, 232, 0.78);
         text-align: left;
         font-style: normal;
@@ -796,12 +843,12 @@
 
       .content-panel {
         border-radius: 8px;
-        border-color: rgba(229, 161, 91, 0.24);
+        border-color: rgba(255, 204, 128, 0.16);
         background:
-          linear-gradient(145deg, rgba(45, 7, 12, 0.86), rgba(12, 9, 9, 0.94) 58%, rgba(2, 15, 14, 0.86));
+          linear-gradient(180deg, rgba(21, 20, 23, 0.94), rgba(11, 11, 13, 0.96));
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.08),
-          0 24px 58px rgba(0, 0, 0, 0.68);
+          0 18px 44px rgba(0, 0, 0, 0.6);
       }
 
       .windows-panel {
@@ -815,6 +862,10 @@
 
       .server-section h2 {
         color: #fff7ef;
+        margin-bottom: 14px;
+        font-size: 1.32rem;
+        letter-spacing: 0.01em;
+        text-transform: none;
       }
 
       .server-section + .server-section,
@@ -823,30 +874,29 @@
       }
 
       .region-grid {
-        gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 12px;
       }
 
       .region-link {
-        min-height: 92px;
+        min-height: 68px;
         border-radius: 8px;
-        border-color: rgba(229, 161, 91, 0.22);
-        background:
-          radial-gradient(circle at 12% 0%, rgba(255, 68, 74, 0.18), transparent 36%),
-          linear-gradient(155deg, rgba(37, 7, 10, 0.9), rgba(9, 8, 8, 0.96) 58%, rgba(0, 17, 15, 0.88));
+        justify-content: flex-start;
+        border-color: rgba(255, 204, 128, 0.14);
+        border-left: 3px solid rgba(255, 204, 128, 0.44);
+        background: rgba(18, 17, 20, 0.72);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.06),
-          0 18px 42px rgba(0, 0, 0, 0.56);
+          0 12px 28px rgba(0, 0, 0, 0.36);
       }
 
       .region-link::after {
-        border-radius: 7px;
+        display: none;
       }
 
       .region-link:hover {
-        border-color: rgba(255, 196, 110, 0.46);
-        background:
-          radial-gradient(circle at 12% 0%, rgba(255, 68, 74, 0.24), transparent 38%),
-          linear-gradient(155deg, rgba(54, 10, 14, 0.96), rgba(12, 9, 9, 0.98) 58%, rgba(0, 22, 19, 0.92));
+        border-color: rgba(255, 204, 128, 0.48);
+        background: rgba(33, 29, 31, 0.88);
       }
 
       .region-link i {
@@ -855,9 +905,9 @@
       }
 
       .mobile-label {
-        border-color: rgba(229, 161, 91, 0.25);
-        background: rgba(8, 4, 4, 0.58);
-        color: rgba(250, 240, 232, 0.8);
+        border-color: rgba(255, 204, 128, 0.22);
+        background: rgba(20, 18, 20, 0.72);
+        color: rgba(250, 240, 232, 0.82);
       }
 
       .mobile-layout {
@@ -882,18 +932,514 @@
         color: #f7d7ad;
       }
 
+      .setup-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .setup-tab {
+        min-height: 46px;
+        padding: 10px 15px;
+        border: 1px solid rgba(255, 204, 128, 0.2);
+        border-radius: 8px;
+        background: rgba(16, 15, 18, 0.86);
+        color: rgba(250, 240, 232, 0.78);
+        font-family: "Poppins", sans-serif;
+        font-size: 0.92rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+      }
+
+      .setup-tab:hover,
+      .setup-tab.active {
+        transform: translateY(-1px);
+        border-color: rgba(255, 204, 128, 0.52);
+        background: linear-gradient(135deg, rgba(177, 27, 42, 0.7), rgba(30, 26, 28, 0.95));
+        color: #ffffff;
+      }
+
+      .setup-panel[hidden] {
+        display: none;
+      }
+
+      .setup-panel {
+        animation: slideIn 0.22s ease both;
+      }
+
+      .method-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .method-card {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        gap: 14px;
+        padding: 22px;
+        border: 1px solid rgba(255, 204, 128, 0.22);
+        border-radius: 8px;
+        background:
+          radial-gradient(circle at 12% 0%, rgba(224, 52, 67, 0.14), transparent 36%),
+          rgba(14, 13, 16, 0.86);
+      }
+
+      .method-card.featured-method {
+        grid-column: auto;
+      }
+
+      .method-number {
+        width: fit-content;
+        padding: 4px 9px;
+        border: 1px solid rgba(255, 196, 110, 0.38);
+        border-radius: 999px;
+        color: #f7d7ad;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+      }
+
+      .method-card h3,
+      .ownership-item h3 {
+        margin: 0;
+        color: #fff7ef;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.08rem;
+        letter-spacing: 0;
+      }
+
+      .method-card p,
+      .method-credit,
+      .method-warning,
+      .method-steps,
+      .section-copy,
+      .ownership-item p,
+      .shoutout-section p,
+      .niko-feature p {
+        color: rgba(250, 240, 232, 0.78);
+        font-size: 0.95rem;
+        line-height: 1.65;
+      }
+
+      .method-card p,
+      .method-credit,
+      .method-warning,
+      .section-copy,
+      .ownership-item p,
+      .shoutout-section p,
+      .niko-feature p {
+        margin: 0;
+      }
+
+      .section-copy + .section-copy,
+      .niko-feature p + p,
+      .shoutout-section p + p {
+        margin-top: 10px;
+      }
+
+      .method-credit {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border: 1px solid rgba(255, 204, 128, 0.2);
+        border-radius: 999px;
+        background: rgba(255, 204, 128, 0.07);
+        color: #ffcc80;
+        font-size: 0.86rem;
+        font-weight: 700;
+      }
+
+      .method-credit i {
+        color: #ffcc80;
+      }
+
+      .method-warning {
+        padding: 12px 14px;
+        border: 1px solid rgba(255, 204, 128, 0.18);
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.24);
+      }
+
+      .method-steps {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      .method-steps li + li {
+        margin-top: 8px;
+      }
+
+      .method-steps li::marker {
+        color: #f7d7ad;
+        font-weight: 700;
+      }
+
+      .method-steps a,
+      .section-copy a,
+      .shoutout-section a:not(.method-download),
+      .niko-feature a {
+        color: #f7d7ad;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .method-steps a:hover,
+      .section-copy a:hover,
+      .shoutout-section a:not(.method-download):hover,
+      .niko-feature a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+
+      .method-card code {
+        display: inline-block;
+        max-width: 100%;
+        padding: 2px 7px;
+        border: 1px solid rgba(229, 161, 91, 0.2);
+        border-radius: 6px;
+        background: rgba(0, 0, 0, 0.36);
+        color: #ffffff;
+        overflow-wrap: anywhere;
+      }
+
+      .method-download {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        min-height: 42px;
+        padding: 9px 14px;
+        border: 1px solid rgba(229, 161, 91, 0.26);
+        border-radius: 8px;
+        background: linear-gradient(135deg, rgba(255, 51, 73, 0.24), rgba(10, 8, 8, 0.78));
+        color: #fff7ef;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .method-download:hover {
+        border-color: rgba(255, 196, 110, 0.48);
+        filter: brightness(1.08);
+      }
+
+      .method-download i {
+        color: #f7d7ad;
+      }
+
+      .method-images {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        align-items: start;
+        margin-top: 8px;
+      }
+
+      .method-images.four-images {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .method-images img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid rgba(229, 161, 91, 0.22);
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.42);
+      }
+
+      .shoutout-section {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(130px, 180px);
+        gap: 24px;
+        align-items: center;
+      }
+
+      .shoutout-section strong,
+      .niko-feature strong {
+        color: #fff7ef;
+      }
+
+      .niko-feature {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(120px, 170px);
+        gap: 22px;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 1px solid rgba(255, 204, 128, 0.14);
+        border-left: 3px solid rgba(255, 204, 128, 0.44);
+        border-radius: 8px;
+        background: rgba(16, 15, 18, 0.64);
+      }
+
+      .niko-portrait {
+        width: 100%;
+        max-width: 180px;
+        justify-self: end;
+        border: 1px solid rgba(255, 204, 128, 0.28);
+        border-radius: 8px;
+        background: rgba(16, 15, 18, 0.86);
+        box-shadow: 0 18px 42px rgba(0, 0, 0, 0.52);
+      }
+
+      .aou-section {
+        position: relative;
+        min-height: 0;
+        padding: 24px;
+        border: 1px solid rgba(255, 204, 128, 0.46);
+        border-left: 3px solid rgba(255, 204, 128, 0.62);
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(37, 27, 28, 0.98), rgba(13, 13, 16, 0.98));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.12),
+          0 0 0 1px rgba(255, 204, 128, 0.08),
+          0 26px 66px rgba(0, 0, 0, 0.62);
+        overflow: hidden;
+      }
+
+      .aou-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(110deg, rgba(255, 255, 255, 0.08), transparent 26%, transparent 72%, rgba(255, 204, 128, 0.08)),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 38%);
+        pointer-events: none;
+      }
+
+      .aou-section::after {
+        display: none;
+      }
+
+      .partner-tag {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        padding: 4px 9px;
+        border: 1px solid rgba(255, 204, 128, 0.26);
+        border-radius: 999px;
+        background: rgba(255, 204, 128, 0.08);
+        color: #ffcc80;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .aou-grid {
+        width: fit-content;
+        max-width: 100%;
+        margin: 18px 0 0;
+        grid-template-columns: minmax(0, 250px);
+      }
+
+      .partner-link {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 9px;
+        margin-top: 18px;
+        padding: 9px 13px;
+        border: 1px solid rgba(255, 204, 128, 0.24);
+        border-radius: 8px;
+        background: rgba(16, 15, 18, 0.76);
+        color: #fff7ef;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.92rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .partner-link:hover {
+        border-color: rgba(255, 204, 128, 0.52);
+        color: #ffffff;
+      }
+
+      .aou-link {
+        min-height: 58px;
+        width: 250px;
+        max-width: 100%;
+        align-items: center;
+        flex-direction: row;
+        border-color: rgba(255, 204, 128, 0.5);
+        background: rgba(20, 18, 20, 0.82);
+        isolation: isolate;
+        overflow: hidden;
+      }
+
+      .aou-link::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        border-radius: inherit;
+        background: linear-gradient(
+          110deg,
+          transparent 0%,
+          rgba(255, 232, 184, 0.05) 34%,
+          rgba(255, 224, 150, 0.24) 50%,
+          rgba(255, 232, 184, 0.05) 66%,
+          transparent 100%
+        );
+        opacity: 0;
+        transform: translateX(-42%);
+        transition: opacity 0.18s ease, transform 0.18s ease;
+        pointer-events: none;
+      }
+
+      .aou-link::after {
+        content: "";
+        position: absolute;
+        inset: 1px;
+        z-index: 1;
+        display: block;
+        border: 1px solid rgba(255, 224, 164, 0);
+        border-radius: 7px;
+        background: transparent;
+        box-shadow: inset 0 0 0 rgba(255, 224, 150, 0);
+        opacity: 0;
+        transition: opacity 0.18s ease;
+        pointer-events: none;
+      }
+
+      .aou-link .region-label {
+        position: relative;
+        z-index: 2;
+      }
+
+      .aou-link:hover {
+        border-color: rgba(255, 224, 164, 0.72);
+        background: rgba(35, 29, 30, 0.9);
+        animation: aouButtonPulse 1.75s ease-in-out infinite;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          inset 0 0 18px rgba(255, 224, 150, 0.16),
+          0 12px 28px rgba(0, 0, 0, 0.36);
+      }
+
+      .aou-link:hover::before {
+        opacity: 1;
+        animation: aouHighlightSweep 1.75s ease-in-out infinite;
+      }
+
+      .aou-link:hover::after {
+        opacity: 1;
+        animation: aouInnerGlow 1.75s ease-in-out infinite;
+      }
+
+      @keyframes aouButtonPulse {
+        0%, 100% {
+          border-color: rgba(255, 204, 128, 0.46);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            inset 0 0 12px rgba(255, 224, 150, 0.11),
+            0 12px 28px rgba(0, 0, 0, 0.36);
+        }
+        50% {
+          border-color: rgba(255, 230, 176, 0.86);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            inset 0 0 24px rgba(255, 224, 150, 0.24),
+            0 12px 28px rgba(0, 0, 0, 0.36);
+        }
+      }
+
+      @keyframes aouHighlightSweep {
+        0% {
+          transform: translateX(-54%);
+          opacity: 0.1;
+        }
+        50% {
+          opacity: 0.52;
+        }
+        100% {
+          transform: translateX(54%);
+          opacity: 0.14;
+        }
+      }
+
+      @keyframes aouInnerGlow {
+        0%, 100% {
+          border-color: rgba(255, 224, 164, 0.3);
+          box-shadow: inset 0 0 10px rgba(255, 224, 150, 0.08);
+        }
+        50% {
+          border-color: rgba(255, 234, 190, 0.68);
+          box-shadow: inset 0 0 20px rgba(255, 224, 150, 0.22);
+        }
+      }
+
+      .exclusive-tag {
+        color: #f7d7ad;
+        font-size: 0.74rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .region-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.05rem;
+      }
+
+      .ownership-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 16px;
+      }
+
+      .ownership-item {
+        padding: 18px;
+        border: 1px solid rgba(255, 204, 128, 0.14);
+        border-left: 3px solid rgba(255, 204, 128, 0.36);
+        border-radius: 8px;
+        background: rgba(16, 15, 18, 0.7);
+      }
+
       @media (max-width: 760px) {
         .header {
           grid-template-columns: 1fr;
-          min-height: 560px;
-          padding: 76px 32px 250px;
+          min-height: 0;
+          padding: 74px 24px 24px;
         }
 
         .header::before {
-          right: 50%;
-          bottom: 0;
-          width: min(64vw, 330px);
-          transform: translateX(54%);
+          display: none;
+        }
+
+        .hero-art {
+          min-height: 0;
+        }
+
+        .method-grid,
+        .ownership-grid,
+        .shoutout-section,
+        .niko-feature {
+          grid-template-columns: 1fr;
+        }
+
+        .method-card.featured-method {
+          grid-column: auto;
+        }
+
+        .method-images.four-images {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .niko-portrait {
+          justify-self: start;
         }
       }
 
@@ -903,8 +1449,8 @@
         }
 
         .header {
-          min-height: 540px;
-          padding: 72px 18px 238px;
+          min-height: 0;
+          padding: 68px 16px 18px;
         }
 
         .join-maul-link {
@@ -913,11 +1459,20 @@
         }
 
         .header h1 {
-          font-size: clamp(3rem, 17vw, 4.5rem);
+          font-size: clamp(2.55rem, 14vw, 4rem);
         }
 
         .content-panel {
           padding: 22px 16px 24px;
+        }
+
+        .method-images,
+        .method-images.four-images {
+          grid-template-columns: 1fr;
+        }
+
+        .partner-tag {
+          width: fit-content;
         }
       }
     </style>
@@ -930,9 +1485,11 @@
       <header class="header">
         <a class="join-maul-link" href="https://discord.gg/maul" target="_blank" rel="noopener">Join MAUL</a>
         <div class="hero-copy">
-          <h1>Modded <span>Regions</span></h1>
+          <p class="hero-eyebrow">MAUL region list</p>
+          <h1>Regions for <span>modded lobbies</span></h1>
           <p class="hero-subtitle">
-            Add the modded region list on Windows or mobile so you can reach the lobbies MAUL uses.
+            Use the links below on mobile, or use the setup notes at the bottom if you need to replace your region file
+            on Windows.
           </p>
 
           <div class="top-actions">
@@ -940,33 +1497,93 @@
               <a class="action-button" href="index.html">
                 Back to Home <i class="fa-solid fa-house"></i>
               </a>
+              <a class="action-button secondary-action" href="#setup-methods">
+                Setup Help <i class="fa-solid fa-screwdriver-wrench"></i>
+              </a>
             </div>
-
-            <p class="disclaimer">
-              Disclaimer: The .bat file is provided for convenience. MAUL does not maintain it and is not responsible for
-              its content or any effects it may have on your system. Use it at your own risk.
-            </p>
+            <p class="hero-note">Prepared for the next region launch while keeping the existing MAUL region list easy to reach.</p>
           </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <img src="images/Modded-among-us.jpg" alt="" />
         </div>
       </header>
 
-      <main class="content-panel windows-panel">
-        <section class="server-section">
-          <h2>Windows Installer</h2>
-          <div class="region-grid single-action-grid">
+      <main class="content-panel region-panel">
+        <div class="mobile-label"><i class="fa-solid fa-mobile-screen-button"></i> Phone / Mobile</div>
+
+        <section class="server-section aou-section">
+          <h2>AOU Regions <span class="partner-tag">Our Partners</span></h2>
+          <p class="section-copy">
+            AOU regions are made by our partners and the creators of the Starlight Launcher. Join their Discord to keep
+            up with their work and launch updates.
+          </p>
+          <a class="partner-link" href="https://discord.gg/XJyhQjyZpg" target="_blank" rel="noopener">
+            Join Starlight Discord <i class="fa-brands fa-discord"></i>
+          </a>
+          <div class="region-grid aou-grid">
             <a
-              class="region-link"
-              href="https://au.niko233.top/Setup_Custom_Server.bat"
-              download="CustomServerSetup.bat"
+              class="region-link aou-link"
+              href="amongus://init?servername=AOU_Europe&serverport=443&serverip=https%3A%2F%2Feu.allofus.dev&usedtls=false"
             >
-              <i class="fa-brands fa-windows"></i> Windows
+              <span class="region-label"><i class="fa-solid fa-star"></i> AOU Europe</span>
             </a>
           </div>
         </section>
-      </main>
 
-      <main class="content-panel region-panel">
-        <div class="mobile-label"><i class="fa-solid fa-mobile-screen-button"></i> Phone / Mobile</div>
+        <section class="server-section">
+          <h2>Niko233 Regions</h2>
+          <div class="niko-feature">
+            <div>
+              <p>
+                Huge shoutout to <strong>Niko233</strong>. He has been such a major part of the MAUL and modded
+                community since I joined in 2023, and he has been there to support all of us from the beginning.
+              </p>
+              <p>
+                His regions have survived over the years through every shift, outage, update, and new mod this community
+                has thrown at them. The work he puts in behind the scenes makes it easier for players to find each other,
+                keep lobbies alive, and keep modded Among Us feeling connected.
+              </p>
+              <p>
+                You can grab the latest Niko233 region file from
+                <a href="https://au.niko233.top/regioninfo.json" target="_blank" rel="noopener">au.niko233.top</a>.
+              </p>
+            </div>
+            <img class="niko-portrait" src="images/niko.webp" alt="Niko233" />
+          </div>
+          <div class="region-grid">
+            <a
+              class="region-link"
+              href="amongus://init?servername=Niko233(NA)&serverport=443&serverip=https%3A%2F%2Fau-us.niko233.top&usedtls=false"
+            >
+              <i class="fa-solid fa-globe"></i> NikoCat NA
+            </a>
+            <a
+              class="region-link"
+              href="amongus://init?servername=Niko233(EU)&serverport=443&serverip=https%3A%2F%2Fau-eu.niko233.top&usedtls=false"
+            >
+              <i class="fa-solid fa-globe"></i> NikoCat EU
+            </a>
+            <a
+              class="region-link"
+              href="amongus://init?servername=Niko233(AS)&serverport=443&serverip=https%3A%2F%2Fau-as.niko233.top&usedtls=false"
+            >
+              <i class="fa-solid fa-globe"></i> NikoCat AS
+            </a>
+            <a
+              class="region-link"
+              href="amongus://init?servername=Niko233(CN1)&serverport=443&serverip=https%3A%2F%2Fau-cn.niko233.top&usedtls=false"
+            >
+              <i class="fa-solid fa-globe"></i> NikoCat CN1
+            </a>
+            <a
+              class="region-link"
+              href="amongus://init?servername=NikoCN(IP)&serverport=443&serverip=https%3A%2F%2F43.248.2.100&usedtls=false"
+            >
+              <i class="fa-solid fa-globe"></i> NikoCN IP
+            </a>
+          </div>
+        </section>
 
         <section class="server-section">
           <h2>Modded Regions</h2>
@@ -992,30 +1609,6 @@
           </div>
         </section>
 
-        <section class="server-section">
-          <h2>NikoCat Regions</h2>
-          <div class="region-grid">
-            <a
-              class="region-link"
-              href="amongus://init?servername=Niko233(NA)&serverport=443&serverip=https%3A%2F%2Fau-us.niko233.top&usedtls=false"
-            >
-              <i class="fa-solid fa-globe"></i> NikoCat NA
-            </a>
-            <a
-              class="region-link"
-              href="amongus://init?servername=Niko233(EU)&serverport=443&serverip=https%3A%2F%2Fau-eu.niko233.top&usedtls=false"
-            >
-              <i class="fa-solid fa-globe"></i> NikoCat EU
-            </a>
-            <a
-              class="region-link"
-              href="amongus://init?servername=Niko233(AS)&serverport=443&serverip=https%3A%2F%2Fau-as.niko233.top&usedtls=false"
-            >
-              <i class="fa-solid fa-globe"></i> NikoCat AS
-            </a>
-          </div>
-        </section>
-
         <section class="mobile-steps">
           <h2>Mobile Steps</h2>
           <div class="mobile-layout">
@@ -1032,10 +1625,123 @@
         </section>
       </main>
 
+      <main class="content-panel ownership-panel">
+        <section class="server-section">
+          <h2>Region Ownership</h2>
+          <div class="ownership-grid">
+            <article class="ownership-item">
+              <h3>AOU regions</h3>
+              <p>AOU Regions are made by MAUL's partners and the creators of the Starlight Launcher, All of us, they are a team of amoung us modders who who are reinventing Modded Among Us as we know it.</p>
+            </article>
+            <article class="ownership-item">
+              <h3>Niko233 regions</h3>
+              <p>Niko233 owns the Niko regions: Niko NA, Niko EU, Niko AS, NikoCat CN1, and NikoCN IP. He has been a major part in the community, from his regions to his work in TOHE and other major mods.</p>
+            </article>
+            <article class="ownership-item">
+              <h3>Mini regions</h3>
+              <p>Miniduikboot owns the Mini regions: Modded NA, Modded EU, and Modded Asia. They have been maintaining these regions for many years and </p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <main class="content-panel setup-panel-wrap" id="setup-methods">
+        <section class="server-section">
+          <h2>Setup Methods</h2>
+          <div class="setup-tabs" role="tablist" aria-label="Setup methods">
+            <button class="setup-tab" type="button" role="tab" aria-selected="false" aria-controls="setup-windows" data-setup-tab="setup-windows">
+              01 Windows installer
+            </button>
+            <button class="setup-tab" type="button" role="tab" aria-selected="false" aria-controls="setup-manual" data-setup-tab="setup-manual">
+              02 Manual JSON
+            </button>
+            <button class="setup-tab" type="button" role="tab" aria-selected="false" aria-controls="setup-store" data-setup-tab="setup-store">
+              03 Microsoft Store
+            </button>
+          </div>
+
+          <div class="setup-panel" id="setup-windows" role="tabpanel" hidden>
+            <article class="method-card">
+              <span class="method-number">01</span>
+              <h3>Windows installer</h3>
+              <p class="method-credit"><i class="fa-solid fa-heart"></i> Installer and region resources by Niko233.</p>
+              <p>Fastest setup for most Windows players. Download the script, run it, then restart Among Us.</p>
+              <p class="method-warning">
+                Disclaimer: The .bat file is provided for convenience. MAUL does not maintain it and is not responsible
+                for its content or any effects it may have on your system. Use it at your own risk.
+              </p>
+              <a
+                class="method-download"
+                href="https://au.niko233.top/Setup_Custom_Server.bat"
+                download="CustomServerSetup.bat"
+              >
+                Download installer <i class="fa-brands fa-windows"></i>
+              </a>
+            </article>
+          </div>
+
+          <div class="setup-panel" id="setup-manual" role="tabpanel" hidden>
+            <article class="method-card">
+              <span class="method-number">02</span>
+              <h3>Replace regioninfo.json manually</h3>
+              <p class="method-credit"><i class="fa-solid fa-heart"></i> regioninfo.json is maintained by Niko233.</p>
+              <p>For a transparent, manual setup:</p>
+              <ol class="method-steps">
+                <li>Download <a href="https://au.niko233.top/regioninfo.json" target="_blank" rel="noopener">regioninfo.json</a>.</li>
+                <li>Press Win + R and open <code>%userprofile%\AppData\LocalLow\Innersloth\Among Us</code>.</li>
+                <li>Replace the existing file, then restart the game.</li>
+              </ol>
+              <div class="method-images">
+                <img src="images/win-run.png" alt="Windows Run dialog with the Among Us LocalLow folder path" />
+                <img src="images/replace.png" alt="Replacing regioninfo.json in the Among Us LocalLow folder" />
+              </div>
+            </article>
+          </div>
+
+          <div class="setup-panel" id="setup-store" role="tabpanel" hidden>
+            <article class="method-card">
+              <span class="method-number">03</span>
+              <h3>Microsoft Store version</h3>
+              <p class="method-credit"><i class="fa-solid fa-heart"></i> regioninfo.json is maintained by Niko233.</p>
+              <p>If the script does not work on the Microsoft Store version, follow the save-file route:</p>
+              <ol class="method-steps">
+                <li>Download <a href="https://au.niko233.top/regioninfo.json" target="_blank" rel="noopener">regioninfo.json</a>.</li>
+                <li>Open <code>%userprofile%\AppData\Local\Packages\Innersloth.AmongUs_fw5x688tam7rm\SystemAppData\wgs</code>.</li>
+                <li>Find the folder with long numeric names and open the JSON-like save file inside.</li>
+                <li>Paste the contents of regioninfo.json, save, and restart.</li>
+              </ol>
+              <div class="method-images four-images">
+                <img src="images/microsoft-data-folder.png" alt="Microsoft Store Among Us wgs folder path" />
+                <img src="images/microsoft-data-folder-2.png" alt="Long numeric save folders inside the Microsoft Store wgs folder" />
+                <img src="images/microsoft-data-folder-3.png" alt="JSON-like save file opened from the Microsoft Store save folder" />
+                <img src="images/microsoft-data-folder-4.png" alt="Copying regioninfo.json contents into the Microsoft Store save file" />
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+
       <p class="footer-note">These servers may include AntiCheat for host-only mods.</p>
       <p class="help-link">Need help? <a href="https://discord.gg/maul" target="_blank" rel="noopener">Join MAUL</a>.</p>
     </div>
 
     <script src="/scripts/navbar.js"></script>
+    <script>
+      document.querySelectorAll("[data-setup-tab]").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const targetId = tab.dataset.setupTab;
+
+          document.querySelectorAll("[data-setup-tab]").forEach((button) => {
+            const isActive = button === tab;
+            button.classList.toggle("active", isActive);
+            button.setAttribute("aria-selected", String(isActive));
+          });
+
+          document.querySelectorAll(".setup-panel").forEach((panel) => {
+            panel.hidden = panel.id !== targetId;
+          });
+        });
+      });
+    </script>
   </body>
 </html>
