@@ -36,11 +36,15 @@ This project uses a **mixed-license setup** to keep things clear and fair:
   for the time, patience, and steady support along the way — it’s meant a lot 💫<br><br>
 <p>
   <strong><a href="https://github.com/NikoCat233">@NikoCat233</a></strong><br>
-  for the support you gave the host only community over the past few years<br><br>
+  for the support you gave the host only community over the past few years
   Maul could not have maintained a safe community without you.<br><br>
-  <a href="https://moddedamong.us/regions">Our region page</a></strong> <a href="https://au.niko233.top/"> runs off of nikos website<br>
-  <a href="https://discord.gg/dKpX2FAvGc">Join Niko`s Discord</a></strong><br>
+  <a href="https://moddedamong.us/regions">Our region page</a></strong> <a href="https://au.niko233.top/"> runs off of nikos website
+  <a href="https://discord.gg/dKpX2FAvGc">Join Niko`s Discord</a></strong>
 </p>
+
+  <strong><a href="https://github.com/yanpla">@yanpla</a></strong><br>
+  Check out their website <a href="https://ehr.gurge44.eu](https://starlight.yanpla.nl">here</a>.<br>
+  Their website has helped me maintain Componets in Maul as well as our Starlight section on the mod page.</strong><br>
   <strong><a href="https://github.com/ZypherusKhan">@ZypherusKhan</a></strong><br>
   for thoughtful guidance, ideas, and direction ✨
 
@@ -48,7 +52,5 @@ This project uses a **mixed-license setup** to keep things clear and fair:
   Some icons were provided by the EHR codebase
   <a href="https://ehr.gurge44.eu">here</a></strong><br>
   
-  <strong><a href="https://github.com/yanpla">@yanpla</a></strong><br>
-  Check out their website <a href="https://ehr.gurge44.eu](https://starlight.yanpla.nl">here</a>.<br>
-  Their website has helped me maintain Componets in Maul as well as our Starlight section on the mod page.</strong><br>
+
 </div>
