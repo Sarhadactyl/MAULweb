@@ -35,10 +35,10 @@ This project uses a **mixed-license setup** to keep things clear and fair:
   <strong><a href="https://github.com/laikrai">@laikrai</a></strong><br>
   for the time, patience, and steady support along the way — it’s meant a lot 💫<br><br>
 
-  <strong><a href="https://github.com/NikoCat233">@NikoCat233</a></strong>
+  <strong><a href="https://github.com/NikoCat233">@NikoCat233</a></strong><br>
   for the support you gave the host only community over the past few years
   Maul could not have maintained a safe community without you.<br><br>
-  <a href="https://moddedamong.us/regions">Our region page</a></strong> <a href="https://au.niko233.top/"> runs off of nikos website
+  <a href="https://moddedamong.us/regions">Our region page</a></strong> <a href="https://au.niko233.top/"> runs off of nikos website<br>
   <a href="https://discord.gg/dKpX2FAvGc">Join Niko`s Discord</a></strong>
 
 
