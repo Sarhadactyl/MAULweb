@@ -58,12 +58,13 @@ This project uses a **mixed-license setup** to keep things clear and fair:
 </div>
 ---
 ## 🧚‍♀️ Sponsors
-
-Ogre - $5
-Trash - $5
-Han - $10
-Daisy - $40
-Kat - $60
-PepperCula - Nearly 2 years of sponsoring on discord and being our oldest supporter.
+<p align="left">
+Ogre - $5<br>
+Trash - $5<br>
+Han - $10<br>
+Daisy - $40<br>
+Kat - $60<br>
+PepperCula - Nearly 2 years of sponsoring on discord and being our oldest supporter.<br>
 Deth - $60 + Many months of server supporting on discord, between all of your alt accounts I have no idea how much you`ve sent but every penny is as appreciated as your friendship.
+</p>
 ---
