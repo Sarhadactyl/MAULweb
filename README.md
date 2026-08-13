@@ -56,7 +56,9 @@ This project uses a **mixed-license setup** to keep things clear and fair:
   
 
 </div>
+
 ---
+
 ## 🧚‍♀️ Sponsors
 <p align="left">
 Ogre - $5<br>
