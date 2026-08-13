@@ -67,6 +67,6 @@ Han - $10<br>
 Daisy - $40<br>
 Kat - $60<br>       
 Deth - $60 + Many months of server supporting on discord, between all of your alt accounts I have no idea how much you`ve sent but every penny is as appreciated as your friendship.
-<strong><a href="https://github.com/PEPPERcula> PepperCula </a></strong> - Nearly 2 years of sponsoring on discord and being our oldest supporter.<br>
-</p>
+<a href="https://github.com/PEPPERcula>PepperCula</a></strong> - Nearly 2 years of sponsoring on discord and being our oldest supporter.<br>
+
 ---
