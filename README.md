@@ -30,34 +30,45 @@ This project uses a **mixed-license setup** to keep things clear and fair:
 ## 🌷 Acknowledgements
 
 <div align="center">
-  ✨ With appreciation ✨<br><br>
+  <h3>With appreciation</h3>
 
-  <strong><a href="https://github.com/laikrai">@laikrai</a></strong><br>
-  for the time, patience, and steady support along the way — it’s meant a lot 💫<br><br>
+  <p>
+    <strong><a href="https://github.com/laikrai">@laikrai</a></strong><br>
+    Thank you for your time, patience, and steady support along the way. It has meant a lot.
+  </p>
 
-  <strong><a href="https://github.com/NikoCat233">@NikoCat233</a></strong><br>
-  for the support you gave the host only community over the past few years
-  Maul could not have maintained a safe community without you.<br>
-  moddedamong.us/regions uses images and content from <a href="https://au.niko233.top/">nikos website<br>
-  Join Niko`s <a href="https://discord.gg/dKpX2FAvGc">Discord</a></strong><br><br>
+  <p>
+    <strong><a href="https://github.com/NikoCat233">@NikoCat233</a></strong><br>
+    Thank you for the support you have given the host-only community over the past few years.
+    MAUL could not have maintained a safe community without you.<br>
+    <a href="https://moddedamong.us/regions">moddedamong.us/regions</a> uses images and content from
+    <a href="https://au.niko233.top/">Niko's website</a>.<br>
+    Join Niko's <a href="https://discord.gg/dKpX2FAvGc">Discord</a>.
+  </p>
 
+  <p>
+    <strong><a href="https://github.com/yanpla">@yanpla</a></strong><br>
+    Check out their website <a href="https://starlight.yanpla.nl">here</a>.<br>
+    Their work has helped me maintain components in MAUL and the Starlight section on the mods page.
+  </p>
 
-  <strong><a href="https://github.com/yanpla">@yanpla</a></strong><br>
-  Check out their website <a href="https://starlight.yanpla.nl">here</a>.<br>
-  Their website has helped me maintain Componets in Maul as well as our Starlight section on the mod page.</strong><br>
+  <p>
+    <strong><a href="https://github.com/astra1dev">@Astral</a></strong><br>
+    For a useful list of Among Us mods and utilities, check out
+    <a href="https://github.com/astra1dev/awesome-among-us">awesome-among-us</a>.<br>
+    Some content on <a href="https://moddedamong.us/mods">moddedamong.us/mods</a> was borrowed from Astral. :&gt;
+  </p>
 
-  <strong><a href="https://github.com/astra1dev">@Astral</a></strong><br>
-  For a list of useful among us mods and utilities check out https://github.com/astra1dev/awesome-among-us <br>
-  Some content on moddedamong.us/mods was borrowed from astral :> <br><br>
-  
-  <strong><a href="https://github.com/ZypherusKhan">@ZypherusKhan</a></strong><br>
-  for thoughtful guidance, ideas, and direction ✨
+  <p>
+    <strong><a href="https://github.com/ZypherusKhan">@ZypherusKhan</a></strong><br>
+    Thank you for the thoughtful guidance, ideas, and direction.
+  </p>
 
-  <strong><a href="https://github.com/Gurge44">@Gurge44</a></strong><br>
-  Some icons were provided by the EHR codebase
-  <a href="https://ehr.gurge44.eu">here</a></strong><br>
-  
-
+  <p>
+    <strong><a href="https://github.com/Gurge44">@Gurge44</a></strong><br>
+    Some icons were provided by the EHR codebase.<br>
+    Visit EHR <a href="https://ehr.gurge44.eu">here</a>.
+  </p>
 </div>
 
 ---
