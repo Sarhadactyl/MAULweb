@@ -38,9 +38,8 @@ This project uses a **mixed-license setup** to keep things clear and fair:
   <strong><a href="https://github.com/NikoCat233">@NikoCat233</a></strong><br>
   for the support you gave the host only community over the past few years
   Maul could not have maintained a safe community without you.<br><br>
-  https://moddedamong.us/regions uses images and content from <a href="https://au.niko233.top/">nikos website
-  
-  <a href="https://discord.gg/dKpX2FAvGc">Join Niko`s Discord</a></strong>
+  moddedamong.us/regions uses images and content from <a href="https://au.niko233.top/">nikos website
+  Join Niko`s <a href="https://discord.gg/dKpX2FAvGc">Discord</a></strong>
 
 
   <strong><a href="https://github.com/yanpla">@yanpla</a></strong><br>
