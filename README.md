@@ -46,6 +46,9 @@ This project uses a **mixed-license setup** to keep things clear and fair:
   Check out their website <a href="https://starlight.yanpla.nl">here</a>.<br>
   Their website has helped me maintain Componets in Maul as well as our Starlight section on the mod page.</strong><br>
 
+  <strong><a href="https://github.com/astra1dev">@Astral</a></strong><br>
+  For a list of useful among us mods and utilities check out https://github.com/astra1dev/awesome-among-us <br>
+  Some content on moddedamong.us/mods was borrowed from astral :> <br><br>
   
   <strong><a href="https://github.com/ZypherusKhan">@ZypherusKhan</a></strong><br>
   for thoughtful guidance, ideas, and direction ✨
