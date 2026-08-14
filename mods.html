@@ -1447,6 +1447,65 @@
           height: 25px;
         }
       }
+
+      @media (max-width: 900px), (hover: none), (pointer: coarse) {
+        html {
+          background: #030303 !important;
+          overflow-x: clip;
+        }
+
+        body {
+          width: 100% !important;
+          max-width: 100% !important;
+          min-height: 100svh;
+          overflow-x: clip;
+          background-color: #030303 !important;
+          background-image:
+            radial-gradient(ellipse at 72% -10%, rgba(229, 9, 20, 0.18), transparent 38svh),
+            linear-gradient(180deg, #040404 0%, #070102 48%, #030303 100%) !important;
+          background-attachment: scroll !important;
+          background-repeat: repeat-y !important;
+          background-size: 100% auto !important;
+        }
+
+        body::before,
+        body::after {
+          content: none !important;
+          display: none !important;
+          background: none !important;
+        }
+
+        .page-wrapper {
+          width: 100% !important;
+          max-width: 100% !important;
+          overflow: hidden;
+        }
+
+        .page-header,
+        .mods-category-nav,
+        .mod-search,
+        .featured-spotlight,
+        .link-warning {
+          -webkit-backdrop-filter: none !important;
+          backdrop-filter: none !important;
+        }
+
+        .grid,
+        #featured-grid.grid {
+          display: grid !important;
+          grid-template-columns: minmax(0, 1fr) !important;
+        }
+
+        #featured-grid .featured-card {
+          display: grid !important;
+          grid-template-columns: minmax(0, 1fr) !important;
+        }
+
+        #featured-grid .featured-card .thumb {
+          border-right: 0;
+          border-bottom: 1px solid rgba(255, 211, 122, 0.16);
+        }
+      }
     </style>
   </head>
 
@@ -3734,3 +3793,4 @@
     <script src="/scripts/navbar.js"></script>
   </body>
 </html>
+
