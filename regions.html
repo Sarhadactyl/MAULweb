@@ -1033,6 +1033,15 @@
         margin-top: 10px;
       }
 
+      .modded-note {
+        margin-bottom: 16px;
+        padding: 16px 18px;
+        border: 1px solid rgba(255, 204, 128, 0.16);
+        border-left: 3px solid rgba(255, 204, 128, 0.42);
+        border-radius: 8px;
+        background: rgba(16, 15, 18, 0.66);
+      }
+
       .method-credit {
         display: inline-flex;
         width: fit-content;
@@ -1074,6 +1083,7 @@
 
       .method-steps a,
       .section-copy a,
+      .ownership-details a,
       .shoutout-section a:not(.method-download),
       .niko-feature a {
         color: #f7d7ad;
@@ -1083,6 +1093,7 @@
 
       .method-steps a:hover,
       .section-copy a:hover,
+      .ownership-details a:hover,
       .shoutout-section a:not(.method-download):hover,
       .niko-feature a:hover {
         color: #ffffff;
@@ -1399,6 +1410,39 @@
         background: rgba(16, 15, 18, 0.7);
       }
 
+      .ownership-details {
+        display: grid;
+        gap: 10px;
+        margin: 14px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .ownership-details li {
+        display: grid;
+        gap: 3px;
+        min-width: 0;
+        color: rgba(250, 240, 232, 0.78);
+        font-size: 0.95rem;
+        line-height: 1.45;
+      }
+
+      .ownership-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        color: rgba(255, 204, 128, 0.82);
+        font-family: "Poppins", sans-serif;
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .ownership-details a {
+        overflow-wrap: anywhere;
+      }
+
       @media (max-width: 760px) {
         .header {
           grid-template-columns: 1fr;
@@ -1576,6 +1620,11 @@
 
         <section class="server-section">
           <h2>Modded Regions</h2>
+          <p class="section-copy modded-note">
+            The Modded servers are independent custom servers operated by community members miniduikboot and GD and have
+            been operating non-stop since 2021. The modded servers are there for mods that can't or won't work on the
+            official servers.
+          </p>
           <div class="region-grid">
             <a
               class="region-link"
@@ -1619,16 +1668,63 @@
           <h2>Region Ownership</h2>
           <div class="ownership-grid">
             <article class="ownership-item">
-              <h3>AOU regions</h3>
-              <p>AOU Regions are made by MAUL's partners and the creators of the Starlight Launcher, All of us, they are a team of amoung us modders who who are reinventing Modded Among Us as we know it.</p>
+              <h3>All Of Us: Among Us Mods</h3>
+              <ul class="ownership-details">
+                <li>
+                  <span class="ownership-label"><i class="fa-brands fa-discord"></i> Discord Invite</span>
+                  <a href="https://discord.gg/cRNUB9Qqfx" target="_blank" rel="noopener">discord.gg/cRNUB9Qqfx</a>
+                </li>
+                <li>
+                  <span class="ownership-label"><i class="fa-solid fa-server"></i> Region Names</span>
+                  AOU Europe
+                </li>
+                <li>
+                  <span class="ownership-label"><i class="fa-brands fa-github"></i> GitHub</span>
+                  <a href="https://github.com/All-Of-Us-Mods" target="_blank" rel="noopener">github.com/All-Of-Us-Mods</a>
+                </li>
+                <li>
+                  <span class="ownership-label"><i class="fa-solid fa-heart"></i> Sponsor</span>
+                  <a href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">ko-fi.com/allofusmods</a>
+                </li>
+              </ul>
             </article>
             <article class="ownership-item">
-              <h3>Niko233 regions</h3>
-              <p>Niko233 owns the Niko regions: Niko NA, Niko EU, Niko AS, NikoCat CN1, and NikoCN IP. He has been a major part in the community, from his regions to his work in TOHE and other major mods.</p>
+              <h3>Niko233</h3>
+              <ul class="ownership-details">
+                <li>
+                  <span class="ownership-label"><i class="fa-brands fa-discord"></i> Discord Invite</span>
+                  <a href="https://discord.gg/dKpX2FAvGc" target="_blank" rel="noopener">discord.gg/dKpX2FAvGc</a>
+                </li>
+                <li>
+                  <span class="ownership-label"><i class="fa-solid fa-server"></i> Region Names</span>
+                  NikoCat NA, NikoCat EU, NikoCat AS, NikoCat CN1, NikoCN IP
+                </li>
+                <li>
+                  <span class="ownership-label"><i class="fa-brands fa-github"></i> GitHub</span>
+                  <a href="https://github.com/NikoCat233" target="_blank" rel="noopener">github.com/NikoCat233</a>
+                </li>
+              </ul>
             </article>
             <article class="ownership-item">
-              <h3>Mini regions</h3>
-              <p>Miniduikboot owns the Mini regions: Modded NA, Modded EU, and Modded Asia. They have been maintaining these regions for many years and </p>
+              <h3>Modded Regions</h3>
+              <ul class="ownership-details">
+                <li>
+                  <span class="ownership-label"><i class="fa-solid fa-user-group"></i> Operators</span>
+                  miniduikboot and GD
+                </li>
+                <li>
+                  <span class="ownership-label"><i class="fa-solid fa-server"></i> Region Names</span>
+                  Modded NA, Modded EU, Modded Asia
+                </li>
+                <li>
+                  <span class="ownership-label"><i class="fa-brands fa-github"></i> GitHub</span>
+                  <a href="https://github.com/miniduikboot/Mini.RegionInstall" target="_blank" rel="noopener">github.com/miniduikboot/Mini.RegionInstall</a>
+                </li>
+                <li>
+                  <span class="ownership-label"><i class="fa-solid fa-heart"></i> Sponsor</span>
+                  <a href="https://github.com/sponsors/miniduikboot/" target="_blank" rel="noopener">github.com/sponsors/miniduikboot</a>
+                </li>
+              </ul>
             </article>
           </div>
         </section>
