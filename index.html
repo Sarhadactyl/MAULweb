@@ -136,6 +136,45 @@
         box-shadow: 0 22px 54px rgba(0, 0, 0, 0.72), 0 0 36px rgba(236, 37, 55, 0.22);
       }
 
+      .site-corner-icon {
+        position: fixed;
+        top: max(22px, env(safe-area-inset-top));
+        right: max(22px, env(safe-area-inset-right));
+        z-index: 1000;
+        width: 54px;
+        height: 54px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 50%;
+        background: linear-gradient(145deg, rgba(36, 15, 18, 0.9), rgba(8, 4, 6, 0.82));
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.56), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(16px);
+        color: var(--gold);
+        text-decoration: none;
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .site-corner-icon:hover,
+      .site-corner-icon:focus-visible {
+        transform: translateY(-2px);
+        border-color: rgba(255, 211, 110, 0.38);
+        box-shadow: 0 22px 54px rgba(0, 0, 0, 0.72), 0 0 36px rgba(236, 37, 55, 0.22);
+        outline: none;
+      }
+
+      .site-corner-icon img {
+        width: 32px;
+        height: 32px;
+        display: block;
+        object-fit: contain;
+      }
+
+      .site-corner-icon i {
+        display: none;
+        font-size: 1.12rem;
+      }
+
       .hamburger {
         width: 24px;
         height: 16px;
@@ -799,6 +838,18 @@
           left: 18px;
         }
 
+        .site-corner-icon {
+          top: max(18px, env(safe-area-inset-top));
+          right: max(18px, env(safe-area-inset-right));
+          width: 48px;
+          height: 48px;
+        }
+
+        .site-corner-icon img {
+          width: 29px;
+          height: 29px;
+        }
+
         .hero {
           min-height: auto;
           padding: 86px 0 38px;
@@ -895,6 +946,10 @@
 
   <body>
     <div id="navbar"></div>
+    <a class="site-corner-icon" href="/" aria-label="MAUL home" title="MAUL home">
+      <img src="images/favicon.png" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <i class="fa-solid fa-house" aria-hidden="true"></i>
+    </a>
 
     <main class="page-shell">
       <section class="hero" aria-labelledby="hero-title">
