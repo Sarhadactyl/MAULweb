@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T01:00:40.035333+00:00",
+  "generated_at": "2026-08-27T20:40:32.310713+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -73,6 +73,22 @@
       "upvoted_times": 14,
       "last_upvoted_at": "2026-05-10T18:41:05.369434+00:00"
     },
+    "906424513137377280": {
+      "host_id": 906424513137377280,
+      "host_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a",
+      "slug": "\u207a\u2027\u208a\u02da\u301a-\ua731\u026ax\u026a\u1d07-\u301b-\u02da\u208a\u2027\u207a",
+      "upvoted_by_users": 10,
+      "upvoted_times": 12,
+      "last_upvoted_at": "2026-08-27T20:40:32.296848+00:00"
+    },
+    "\u207a\u2027\u208a\u02da\u301a-\ua731\u026ax\u026a\u1d07-\u301b-\u02da\u208a\u2027\u207a": {
+      "host_id": 906424513137377280,
+      "host_name": "\u207a\u2027\u208a\u02da\u301a \ua731\u026ax\u026a\u1d07 \u301b \u02da\u208a\u2027\u207a",
+      "slug": "\u207a\u2027\u208a\u02da\u301a-\ua731\u026ax\u026a\u1d07-\u301b-\u02da\u208a\u2027\u207a",
+      "upvoted_by_users": 10,
+      "upvoted_times": 12,
+      "last_upvoted_at": "2026-08-27T20:40:32.296848+00:00"
+    },
     "472742355355697152": {
       "host_id": 472742355355697152,
       "host_name": "Silver",
@@ -88,22 +104,6 @@
       "upvoted_by_users": 7,
       "upvoted_times": 12,
       "last_upvoted_at": "2026-05-26T16:12:03.758789+00:00"
-    },
-    "906424513137377280": {
-      "host_id": 906424513137377280,
-      "host_name": "sixiemeSM",
-      "slug": "sixiemesm",
-      "upvoted_by_users": 9,
-      "upvoted_times": 11,
-      "last_upvoted_at": "2026-04-15T13:15:23.371171+00:00"
-    },
-    "sixiemesm": {
-      "host_id": 906424513137377280,
-      "host_name": "sixiemeSM",
-      "slug": "sixiemesm",
-      "upvoted_by_users": 9,
-      "upvoted_times": 11,
-      "last_upvoted_at": "2026-04-15T13:15:23.371171+00:00"
     },
     "1266747433514434573": {
       "host_id": 1266747433514434573,
