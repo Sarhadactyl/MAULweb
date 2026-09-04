@@ -522,6 +522,28 @@
         text-shadow: 0 0 10px rgba(255, 0, 0, 0.65);
       }
 
+      .maul-link {
+        border-color: rgba(255, 220, 72, 0.52);
+        box-shadow:
+          0 0 20px rgba(255, 220, 72, 0.28),
+          0 12px 26px rgba(0, 0, 0, 0.62),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .maul-link:hover {
+        border-color: rgba(255, 230, 112, 0.86);
+        box-shadow:
+          0 0 30px rgba(255, 220, 72, 0.58),
+          0 0 58px rgba(255, 190, 32, 0.24),
+          0 16px 36px rgba(0, 0, 0, 0.95),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+
+      .maul-link i {
+        color: #ffd84d;
+        text-shadow: 0 0 12px rgba(255, 216, 77, 0.82);
+      }
+
       .mobile-steps {
         position: relative;
         z-index: 1;
@@ -1223,6 +1245,22 @@
         display: none;
       }
 
+      .maul-section + .aou-section {
+        margin-top: 42px;
+      }
+
+      .maul-section + .aou-section::after {
+        content: "";
+        position: absolute;
+        top: -22px;
+        left: 8px;
+        right: 8px;
+        display: block;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255, 204, 128, 0.54), transparent);
+        box-shadow: 0 0 18px rgba(255, 204, 128, 0.24);
+      }
+
       .partner-tag {
         display: inline-flex;
         align-items: center;
@@ -1244,6 +1282,10 @@
         max-width: 100%;
         margin: 18px 0 0;
         grid-template-columns: minmax(0, 250px);
+      }
+
+      .maul-section .region-grid {
+        margin-top: 18px;
       }
 
       .partner-link {
@@ -1268,7 +1310,8 @@
         color: #ffffff;
       }
 
-      .aou-link {
+      .aou-link,
+      .maul-link {
         min-height: 58px;
         width: 250px;
         max-width: 100%;
@@ -1280,7 +1323,8 @@
         overflow: hidden;
       }
 
-      .aou-link::before {
+      .aou-link::before,
+      .maul-link::before {
         content: "";
         position: absolute;
         inset: 0;
@@ -1300,7 +1344,8 @@
         pointer-events: none;
       }
 
-      .aou-link::after {
+      .aou-link::after,
+      .maul-link::after {
         content: "";
         position: absolute;
         inset: 1px;
@@ -1315,12 +1360,14 @@
         pointer-events: none;
       }
 
-      .aou-link .region-label {
+      .aou-link .region-label,
+      .maul-link .region-label {
         position: relative;
         z-index: 2;
       }
 
-      .aou-link:hover {
+      .aou-link:hover,
+      .maul-link:hover {
         border-color: rgba(255, 224, 164, 0.72);
         background: rgba(35, 29, 30, 0.9);
         animation: aouButtonPulse 1.75s ease-in-out infinite;
@@ -1330,14 +1377,28 @@
           0 12px 28px rgba(0, 0, 0, 0.36);
       }
 
-      .aou-link:hover::before {
+      .aou-link:hover::before,
+      .maul-link:hover::before {
         opacity: 1;
         animation: aouHighlightSweep 1.75s ease-in-out infinite;
       }
 
-      .aou-link:hover::after {
+      .aou-link:hover::after,
+      .maul-link:hover::after {
         opacity: 1;
         animation: aouInnerGlow 1.75s ease-in-out infinite;
+      }
+
+      .maul-link {
+        box-shadow:
+          0 0 20px rgba(255, 220, 72, 0.28),
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          0 12px 28px rgba(0, 0, 0, 0.36);
+      }
+
+      .maul-link i {
+        color: #ffd84d;
+        text-shadow: 0 0 12px rgba(255, 216, 77, 0.82);
       }
 
       @keyframes aouButtonPulse {
@@ -1545,46 +1606,26 @@
       <main class="content-panel region-panel">
         <div class="mobile-label"><i class="fa-solid fa-mobile-screen-button"></i> Phone / Mobile</div>
 
-        <section class="server-section aou-section">
-          <h2>AOU Regions <span class="partner-tag">Our Partners</span></h2>
-          <p class="section-copy">
-            AOU regions are made by our partners and the creators of the Starlight Launcher. Join their Discord to keep
-            up with their work and launch updates.
-          </p>
-          <a class="partner-link" href="https://discord.gg/XJyhQjyZpg" target="_blank" rel="noopener">
-            Join Starlight Discord <i class="fa-brands fa-discord"></i>
-          </a>
-          <div class="region-grid aou-grid">
-            <a
-              class="region-link aou-link"
-              href="amongus://init?servername=AOU_Europe&serverport=443&serverip=https%3A%2F%2Feu.allofus.dev&usedtls=false"
-            >
-              <span class="region-label"><i class="fa-solid fa-star"></i> AOU Europe</span>
-            </a>
-          </div>
-        </section>
-
         <section class="server-section">
-          <h2>Niko233 Regions</h2>
+          <h2>NikoCat Regions</h2>
           <div class="niko-feature">
             <div>
               <p>
-                Huge shoutout to <strong>Niko233</strong>. He has been such a major part of the MAUL and modded
+                Huge shoutout to <strong>NikoCat233</strong>. He has been such a major part of the MAUL and modded
                 community since I joined in 2023, and he has been there to support all of us from the beginning.
               </p>
               <p>
-                His regions have survived over the years through every shift, outage, update, and new mod this community
-                has thrown at them. The work he puts in behind the scenes makes it easier for players to find each other,
-                keep lobbies alive, and keep modded Among Us feeling connected.
+                MAUL NA and MAUL EU are powered by NikoCat233. This is shared as clear attribution, not as a claim that
+                NikoCat233 sponsors, endorses, operates, guarantees, or commercially partners with MAUL.
               </p>
               <p>
-                You can grab the latest Niko233 region file from
-                <a href="https://au.niko233.top/regioninfo.json" target="_blank" rel="noopener">au.niko233.top</a>.
+                The region buttons on this page are loaded from
+                <a href="data/regioninfo.json" target="_blank" rel="noopener">data/regioninfo.json</a>.
               </p>
             </div>
-            <img class="niko-portrait" src="images/niko.webp" alt="Niko233" />
+            <img class="niko-portrait" src="images/niko.webp" alt="NikoCat233" />
           </div>
-          <div class="region-grid">
+          <div class="region-grid" data-region-group="niko">
             <a
               class="region-link"
               href="amongus://init?servername=Niko233(NA)&serverport=443&serverip=https%3A%2F%2Fau-us.niko233.top&usedtls=false"
@@ -1618,6 +1659,50 @@
           </div>
         </section>
 
+        <section class="server-section aou-section maul-section">
+          <h2>MAUL Regions <span class="partner-tag">Powered by NikoCat233</span></h2>
+          <p class="section-copy">
+            MAUL NA and MAUL EU are the MAUL-hosted region options for modded lobbies, with backend support powered by
+            NikoCat233. Join MAUL for updates, help, and region support.
+          </p>
+          <a class="partner-link" href="https://discord.gg/maul" target="_blank" rel="noopener">
+            Join MAUL Discord <i class="fa-brands fa-discord"></i>
+          </a>
+          <div class="region-grid" data-region-group="maul">
+            <a
+              class="region-link aou-link maul-link"
+              href="amongus://init?servername=MAUL%20NA&serverport=443&serverip=https%3A%2F%2Fau.moddedamong.us&usedtls=false"
+            >
+              <i class="fa-solid fa-globe"></i> MAUL NA
+            </a>
+            <a
+              class="region-link aou-link maul-link"
+              href="amongus://init?servername=MAUL%20EU&serverport=443&serverip=https%3A%2F%2Feu.moddedamong.us&usedtls=false"
+            >
+              <i class="fa-solid fa-globe"></i> MAUL EU
+            </a>
+          </div>
+        </section>
+
+        <section class="server-section aou-section">
+          <h2>AOU Regions <span class="partner-tag">Our Partners</span></h2>
+          <p class="section-copy">
+            AOU regions are made by our partners and the creators of the Starlight Launcher. Join their Discord to keep
+            up with their work and launch updates.
+          </p>
+          <a class="partner-link" href="https://discord.gg/XJyhQjyZpg" target="_blank" rel="noopener">
+            Join Starlight Discord <i class="fa-brands fa-discord"></i>
+          </a>
+          <div class="region-grid aou-grid" data-region-group="aou">
+            <a
+              class="region-link aou-link"
+              href="amongus://init?servername=AOU%20Europe&serverport=443&serverip=https%3A%2F%2Feu.allofus.dev&usedtls=false"
+            >
+              <span class="region-label"><i class="fa-solid fa-star"></i> AOU Europe</span>
+            </a>
+          </div>
+        </section>
+
         <section class="server-section">
           <h2>Modded Regions</h2>
           <p class="section-copy modded-note">
@@ -1625,7 +1710,7 @@
             been operating non-stop since 2021. The modded servers are there for mods that can't or won't work on the
             official servers.
           </p>
-          <div class="region-grid">
+          <div class="region-grid" data-region-group="modded">
             <a
               class="region-link"
               href="amongus://init?servername=Modded_NA&serverport=443&serverip=https%3A%2F%2Faumods.org&usedtls=false"
@@ -1643,6 +1728,29 @@
               href="amongus://init?servername=Modded_AS&serverport=443&serverip=https%3A%2F%2Fau-as.duikbo.at&usedtls=false"
             >
               <i class="fa-solid fa-globe"></i> Modded Asia
+            </a>
+          </div>
+        </section>
+
+        <section class="server-section">
+          <h2>Jarne's Regions</h2>
+          <p class="section-copy">
+            Jarne created Jarne's Modded Regions to give modded Among Us players another dedicated place to connect.
+            Jarne's MEU helps provide backend support for modded lobbies and adds another option for the community.
+          </p>
+          <p class="section-copy">
+            Jarne gives a huge thanks to Sarha for the continued support of both projects, and welcomes community help
+            and issue reports so problems can be fixed quickly.
+          </p>
+          <a class="partner-link" href="https://discord.gg/xgWc3yR7dv" target="_blank" rel="noopener">
+            Join Jarne's Discord <i class="fa-brands fa-discord"></i>
+          </a>
+          <div class="region-grid" data-region-group="jarne">
+            <a
+              class="region-link"
+              href="amongus://init?servername=Jarne%27s%20MEU&serverport=22023&serverip=http%3A%2F%2F185.228.81.170&usedtls=false"
+            >
+              <i class="fa-solid fa-globe"></i> Jarne's MEU
             </a>
           </div>
         </section>
@@ -1668,6 +1776,44 @@
           <h2>Region Ownership</h2>
           <div class="ownership-grid">
             <article class="ownership-item">
+              <h3>NikoCat233</h3>
+              <ul class="ownership-details">
+                <li>
+                  <span class="ownership-label"><i class="fa-brands fa-discord"></i> Discord Invite</span>
+                  <a href="https://discord.gg/dKpX2FAvGc" target="_blank" rel="noopener">discord.gg/dKpX2FAvGc</a>
+                </li>
+                <li>
+                  <span class="ownership-label"><i class="fa-solid fa-server"></i> Region Names</span>
+                  NikoCat NA, NikoCat EU, NikoCat AS, NikoCat CN1, NikoCN IP
+                </li>
+                <li>
+                  <span class="ownership-label"><i class="fa-brands fa-github"></i> GitHub</span>
+                  <a href="https://github.com/NikoCat233" target="_blank" rel="noopener">github.com/NikoCat233</a>
+                </li>
+              </ul>
+            </article>
+            <article class="ownership-item">
+              <h3>MAUL Regions</h3>
+              <ul class="ownership-details">
+                <li>
+                  <span class="ownership-label"><i class="fa-brands fa-discord"></i> Discord Invite</span>
+                  <a href="https://discord.gg/maul" target="_blank" rel="noopener">discord.gg/maul</a>
+                </li>
+                <li>
+                  <span class="ownership-label"><i class="fa-solid fa-server"></i> Region Names</span>
+                  MAUL NA, MAUL EU
+                </li>
+                <li>
+                  <span class="ownership-label"><i class="fa-solid fa-bolt"></i> Powered By</span>
+                  NikoCat233
+                </li>
+                <li>
+                  <span class="ownership-label"><i class="fa-solid fa-heart"></i> Sponsor</span>
+                  <a href="https://ko-fi.com/moddeau" target="_blank" rel="noopener">ko-fi.com/moddeau</a>
+                </li>
+              </ul>
+            </article>
+            <article class="ownership-item">
               <h3>All Of Us: Among Us Mods</h3>
               <ul class="ownership-details">
                 <li>
@@ -1689,23 +1835,6 @@
               </ul>
             </article>
             <article class="ownership-item">
-              <h3>Niko233</h3>
-              <ul class="ownership-details">
-                <li>
-                  <span class="ownership-label"><i class="fa-brands fa-discord"></i> Discord Invite</span>
-                  <a href="https://discord.gg/dKpX2FAvGc" target="_blank" rel="noopener">discord.gg/dKpX2FAvGc</a>
-                </li>
-                <li>
-                  <span class="ownership-label"><i class="fa-solid fa-server"></i> Region Names</span>
-                  NikoCat NA, NikoCat EU, NikoCat AS, NikoCat CN1, NikoCN IP
-                </li>
-                <li>
-                  <span class="ownership-label"><i class="fa-brands fa-github"></i> GitHub</span>
-                  <a href="https://github.com/NikoCat233" target="_blank" rel="noopener">github.com/NikoCat233</a>
-                </li>
-              </ul>
-            </article>
-            <article class="ownership-item">
               <h3>Modded Regions</h3>
               <ul class="ownership-details">
                 <li>
@@ -1723,6 +1852,27 @@
                 <li>
                   <span class="ownership-label"><i class="fa-solid fa-heart"></i> Sponsor</span>
                   <a href="https://github.com/sponsors/miniduikboot/" target="_blank" rel="noopener">github.com/sponsors/miniduikboot</a>
+                </li>
+              </ul>
+            </article>
+            <article class="ownership-item">
+              <h3>Jarne's Modded Regions</h3>
+              <ul class="ownership-details">
+                <li>
+                  <span class="ownership-label"><i class="fa-brands fa-discord"></i> Discord Invite</span>
+                  <a href="https://discord.gg/xgWc3yR7dv" target="_blank" rel="noopener">discord.gg/xgWc3yR7dv</a>
+                </li>
+                <li>
+                  <span class="ownership-label"><i class="fa-solid fa-server"></i> Region Names</span>
+                  Jarne's MEU
+                </li>
+                <li>
+                  <span class="ownership-label"><i class="fa-brands fa-github"></i> GitHub</span>
+                  <a href="https://github.com/JarneDEVsys" target="_blank" rel="noopener">github.com/JarneDEVsys</a>
+                </li>
+                <li>
+                  <span class="ownership-label"><i class="fa-solid fa-heart"></i> Sponsor</span>
+                  <a href="https://ko-fi.com/jarnemm" target="_blank" rel="noopener">ko-fi.com/jarnemm</a>
                 </li>
               </ul>
             </article>
@@ -1769,10 +1919,9 @@
             <article class="method-card">
               <span class="method-number">02</span>
               <h3>Replace regioninfo.json manually</h3>
-              <p class="method-credit"><i class="fa-solid fa-heart"></i> regioninfo.json is maintained by Niko233.</p>
               <p>For a transparent, manual setup:</p>
               <ol class="method-steps">
-                <li>Download <a href="https://au.niko233.top/regioninfo.json" target="_blank" rel="noopener">regioninfo.json</a>.</li>
+                <li>Download <a href="data/regioninfo.json" target="_blank" rel="noopener">regioninfo.json</a>.</li>
                 <li>Press Win + R and open <code>%userprofile%\AppData\LocalLow\Innersloth\Among Us</code>.</li>
                 <li>Replace the existing file, then restart the game.</li>
               </ol>
@@ -1787,10 +1936,9 @@
             <article class="method-card">
               <span class="method-number">03</span>
               <h3>Microsoft Store version</h3>
-              <p class="method-credit"><i class="fa-solid fa-heart"></i> regioninfo.json is maintained by Niko233.</p>
               <p>If the script does not work on the Microsoft Store version, follow the save-file route:</p>
               <ol class="method-steps">
-                <li>Download <a href="https://au.niko233.top/regioninfo.json" target="_blank" rel="noopener">regioninfo.json</a>.</li>
+                <li>Download <a href="data/regioninfo.json" target="_blank" rel="noopener">regioninfo.json</a>.</li>
                 <li>Open <code>%userprofile%\AppData\Local\Packages\Innersloth.AmongUs_fw5x688tam7rm\SystemAppData\wgs</code>.</li>
                 <li>Find the folder with long numeric names and open the JSON-like save file inside.</li>
                 <li>Paste the contents of regioninfo.json, save, and restart.</li>
@@ -1812,6 +1960,105 @@
 
     <script src="/scripts/navbar.js"></script>
     <script>
+      const regionDisplayNames = new Map([
+        ["Niko233(NA)", "NikoCat NA"],
+        ["Niko233(EU)", "NikoCat EU"],
+        ["Niko233(AS)", "NikoCat AS"],
+        ["Niko233(CN1)", "NikoCat CN1"],
+        ["NikoCN(IP)", "NikoCN IP"],
+        ["Niko-NA", "NikoCat NA"],
+        ["Niko-EU", "NikoCat EU"],
+        ["Niko-AS", "NikoCat AS"],
+        ["Modded NA (MNA)", "Modded NA"],
+        ["Modded EU (MEU)", "Modded EU"],
+        ["Modded Asia (MAS)", "Modded Asia"],
+        ["Jarne's Modded Region EU", "Jarne's MEU"],
+      ]);
+
+      const regionGroups = [
+        { id: "niko", pattern: /^(Niko233|Niko-|NikoCN)/i, icon: "fa-globe" },
+        { id: "maul", pattern: /^MAUL/i, icon: "fa-globe", linkClass: "aou-link maul-link", labelClass: "region-label" },
+        { id: "aou", pattern: /^AOU/i, icon: "fa-star", linkClass: "aou-link", labelClass: "region-label" },
+        { id: "modded", pattern: /^Modded/i, icon: "fa-globe" },
+        { id: "jarne", pattern: /^Jarne/i, icon: "fa-globe" },
+      ];
+
+      function escapeHtml(value) {
+        return String(value).replace(/[&<>"']/g, (char) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        })[char]);
+      }
+
+      function getRegionServer(region) {
+        return Array.isArray(region.Servers) && region.Servers.length > 0 ? region.Servers[0] : null;
+      }
+
+      function getDisplayName(region) {
+        return regionDisplayNames.get(region.Name) || region.Name;
+      }
+
+      function getAmongUsUrl(region) {
+        const server = getRegionServer(region);
+        const serverName = region.Name || (server && server.Name) || "";
+        const serverIp = (server && server.Ip) || region.PingServer || "";
+        const serverPort = (server && server.Port) || 443;
+        const useDtls = Boolean(server && server.UseDtls);
+
+        if (!serverName || !serverIp) {
+          return "#";
+        }
+
+        return [
+          "amongus://init",
+          `?servername=${encodeURIComponent(serverName)}`,
+          `&serverport=${encodeURIComponent(serverPort)}`,
+          `&serverip=${encodeURIComponent(serverIp)}`,
+          `&usedtls=${String(useDtls)}`,
+        ].join("");
+      }
+
+      function renderRegionLink(region, group) {
+        const label = escapeHtml(getDisplayName(region));
+        const href = escapeHtml(getAmongUsUrl(region));
+        const linkClass = ["region-link", group.linkClass].filter(Boolean).join(" ");
+        const icon = `<i class="fa-solid ${group.icon}"></i>`;
+        const content = group.labelClass
+          ? `<span class="${group.labelClass}">${icon} ${label}</span>`
+          : `${icon} ${label}`;
+
+        return `<a class="${linkClass}" href="${href}">${content}</a>`;
+      }
+
+      async function loadRegionButtons() {
+        try {
+          const response = await fetch("data/regioninfo.json", { cache: "no-store" });
+
+          if (!response.ok) {
+            throw new Error(`regioninfo.json returned ${response.status}`);
+          }
+
+          const data = await response.json();
+          const regions = Array.isArray(data.Regions) ? data.Regions : [];
+
+          regionGroups.forEach((group) => {
+            const container = document.querySelector(`[data-region-group="${group.id}"]`);
+            const matches = regions.filter((region) => group.pattern.test(region.Name || ""));
+
+            if (container && matches.length > 0) {
+              container.innerHTML = matches.map((region) => renderRegionLink(region, group)).join("");
+            }
+          });
+        } catch (error) {
+          console.warn("Could not load data/regioninfo.json; using static fallback links.", error);
+        }
+      }
+
+      loadRegionButtons();
+
       document.querySelectorAll("[data-setup-tab]").forEach((tab) => {
         tab.addEventListener("click", () => {
           const targetId = tab.dataset.setupTab;
