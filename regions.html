@@ -2001,10 +2001,32 @@
         return regionDisplayNames.get(region.Name) || region.Name;
       }
 
+      function normalizeRegion(region) {
+        if (!/^Jarne/i.test(region.Name || "")) {
+          return region;
+        }
+
+        return {
+          ...region,
+          Name: "Jarne's MEU",
+          PingServer: "modmanagere.eu.amongusclub.cn",
+          Servers: [
+            {
+              ...(getRegionServer(region) || {}),
+              Name: "http-1",
+              Ip: "https://modmanagere.eu.amongusclub.cn",
+              Port: 443,
+              UseDtls: false,
+            },
+          ],
+        };
+      }
+
       function getAmongUsUrl(region) {
-        const server = getRegionServer(region);
-        const serverName = region.Name || (server && server.Name) || "";
-        const serverIp = (server && server.Ip) || region.PingServer || "";
+        const normalizedRegion = normalizeRegion(region);
+        const server = getRegionServer(normalizedRegion);
+        const serverName = normalizedRegion.Name || (server && server.Name) || "";
+        const serverIp = (server && server.Ip) || normalizedRegion.PingServer || "";
         const serverPort = (server && server.Port) || 443;
         const useDtls = Boolean(server && server.UseDtls);
 
