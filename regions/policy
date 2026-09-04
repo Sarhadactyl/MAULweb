@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Region Policy • MAUL</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:title" content="MAUL Region Policy" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/regions/policy" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta property="og:description" content="Privacy Policy and Terms of Service for MAUL-operated custom Among Us regions." />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://moddedamong.us/regions/policy" />
+
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --accent: #800000;
+        --accent-soft: rgba(128, 0, 0, 0.25);
+        --accent-strong: #b00000;
+        --discord: #5865f2;
+        --bg-card: rgba(30, 12, 12, 0.9);
+        --bg-soft: rgba(45, 18, 18, 0.9);
+        --text-main: #ffffff;
+        --text-muted: #dedee8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        color: var(--text-main);
+        overflow-x: hidden;
+      }
+
+      body {
+        background: #000 url("images/Modded-among-us.jpg") no-repeat center top fixed;
+        background-size: cover;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(circle at top, rgba(128, 0, 0, 0.45), transparent 55%),
+          radial-gradient(circle at bottom, rgba(180, 0, 60, 0.25), transparent 55%);
+        mix-blend-mode: screen;
+        opacity: 0.7;
+        pointer-events: none;
+        z-index: -2;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
+        z-index: -1;
+      }
+
+      .dropdown {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+      }
+
+      .dropbtn {
+        background: rgba(35, 10, 10, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        cursor: pointer;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        padding: 10px;
+        border-radius: 999px;
+        backdrop-filter: blur(10px);
+      }
+
+      .dropbtn:hover {
+        transform: translateY(-1px) scale(1.03);
+        background: rgba(50, 16, 16, 0.98);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      }
+
+      .hamburger {
+        width: 26px;
+        height: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .hamburger span {
+        display: block;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), #ff0040);
+        border-radius: 999px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        background-color: rgba(35, 10, 10, 0.96);
+        width: 350px;
+        max-width: calc(100vw - 32px);
+        max-height: calc(100vh - 40px);
+        overflow: hidden;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+        border-radius: 20px;
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .dropdown.open .dropdown-content {
+        display: block;
+      }
+
+      .menu-view {
+        display: none;
+        padding: 8px 0;
+        max-height: calc(100vh - 56px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+
+      .menu-view.active {
+        display: block;
+      }
+
+      .dropdown-content a,
+      .menu-nav-btn,
+      .menu-back-btn {
+        width: 100%;
+        color: var(--text-main);
+        padding: 16px 22px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        font-size: 0.98rem;
+        transition: background 0.22s ease, color 0.22s ease, padding-left 0.22s ease;
+        background: transparent;
+        border: none;
+        font-family: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .dropdown-content a i:first-child,
+      .menu-nav-btn span,
+      .menu-back-btn span {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .menu-nav-btn .fa-chevron-right {
+        margin-left: auto;
+      }
+
+      .dropdown-content a:hover,
+      .menu-nav-btn:hover,
+      .menu-back-btn:hover {
+        background: rgba(255, 255, 255, 0.045);
+        color: var(--accent);
+        padding-left: 26px;
+      }
+
+      .menu-back-btn {
+        justify-content: flex-start;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 4px;
+      }
+
+      .submenu-title {
+        padding: 13px 22px 10px;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.62);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        margin-bottom: 4px;
+      }
+
+      .beta-glow,
+      .highlight-glow {
+        color: #ff4d4d !important;
+        font-weight: 700;
+        text-shadow:
+          0 0 8px rgba(255, 0, 0, 0.75),
+          0 0 12px rgba(255, 0, 0, 0.55);
+        animation: betaPulse 1.6s ease-in-out infinite;
+      }
+
+      .beta-glow:hover,
+      .highlight-glow:hover {
+        background: rgba(255, 0, 0, 0.12) !important;
+        color: #ff8080 !important;
+        text-shadow:
+          0 0 10px rgba(255, 50, 50, 1),
+          0 0 16px rgba(255, 0, 0, 0.9);
+      }
+
+      @keyframes betaPulse {
+        0% {
+          text-shadow:
+            0 0 6px rgba(255, 0, 0, 0.7),
+            0 0 12px rgba(255, 0, 0, 0.4);
+        }
+        50% {
+          text-shadow:
+            0 0 12px rgba(255, 60, 60, 1),
+            0 0 24px rgba(255, 0, 0, 0.9);
+        }
+        100% {
+          text-shadow:
+            0 0 6px rgba(255, 0, 0, 0.7),
+            0 0 12px rgba(255, 0, 0, 0.4);
+        }
+      }
+
+      .page-wrapper {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 76px 20px 58px;
+      }
+
+      .header {
+        position: relative;
+        text-align: center;
+        padding: 26px 20px 26px;
+        overflow: hidden;
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: -48px;
+        width: min(330px, 72vw);
+        aspect-ratio: 1;
+        opacity: 0.16;
+        transform: translateX(-50%);
+        filter: drop-shadow(0 18px 34px rgba(0, 0, 0, 0.9));
+        pointer-events: none;
+      }
+
+      .header h1 {
+        position: relative;
+        z-index: 1;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(3.2rem, 7vw, 5rem);
+        margin: 0;
+        text-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+        letter-spacing: 0.04em;
+        animation: fadeIn 0.9s ease-out;
+      }
+
+      .header h1 span {
+        background: linear-gradient(120deg, #ffffff, var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .content-panel {
+        position: relative;
+        margin: 28px auto 0;
+        padding: 30px 32px;
+        border: 1px solid rgba(255, 255, 255, 0.11);
+        background:
+          linear-gradient(145deg, rgba(28, 10, 10, 0.88), rgba(8, 2, 2, 0.92)),
+          var(--bg-card);
+        border-radius: 18px;
+        box-shadow:
+          0 22px 54px rgba(0, 0, 0, 0.86),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        overflow: hidden;
+        animation: slideIn 0.9s ease-out;
+      }
+
+      .content-panel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.035), transparent 36%),
+          radial-gradient(circle at top right, rgba(128, 0, 0, 0.08), transparent 46%);
+        pointer-events: none;
+      }
+
+      .windows-panel {
+        max-width: 520px;
+      }
+
+      .region-panel {
+        margin-top: 24px;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .top-actions {
+        margin: 24px auto 0;
+        max-width: 850px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .action-row {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .action-button,
+      .region-link {
+        text-decoration: none;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85);
+        transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+      }
+
+      .action-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 48px;
+        min-width: 164px;
+        padding: 12px 24px;
+        border-radius: 999px;
+        background: rgba(45, 16, 16, 0.86);
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        box-shadow:
+          0 10px 24px rgba(0, 0, 0, 0.72),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .primary-action {
+        background: linear-gradient(135deg, #9d0000, #c40000);
+        border-color: rgba(255, 255, 255, 0.16);
+      }
+
+      .action-button:hover,
+      .region-link:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.95);
+        filter: brightness(1.06);
+      }
+
+      .action-button i,
+      .region-link i {
+        color: #ff4d4d;
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.65);
+      }
+
+      .join-button i {
+        color: #9da6ff;
+        text-shadow: 0 0 12px rgba(88, 101, 242, 0.72);
+      }
+
+      .disclaimer {
+        max-width: 770px;
+        margin: 18px auto 0;
+        padding: 0;
+        color: #ffffff;
+        font-size: 0.98rem;
+        font-style: italic;
+        line-height: 1.55;
+        text-align: center;
+      }
+
+      .server-section {
+        position: relative;
+        z-index: 1;
+      }
+
+      .server-section + .server-section {
+        margin-top: 28px;
+        padding-top: 26px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .server-section h2 {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 16px;
+        font-size: 1.12rem;
+        text-transform: uppercase;
+        letter-spacing: 0.13em;
+        color: #ffffff;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .server-section h2::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #ff5c5c, #9d0000);
+        box-shadow: 0 0 12px rgba(255, 0, 0, 0.65);
+      }
+
+      .region-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .single-action-grid {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      .region-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        min-height: 82px;
+        padding: 16px 18px;
+        border-radius: 12px;
+        background:
+          radial-gradient(circle at top left, rgba(176, 0, 0, 0.25), transparent 42%),
+          linear-gradient(145deg, rgba(60, 20, 20, 0.9), rgba(28, 6, 6, 0.96));
+        font-family: "Poppins", sans-serif;
+        font-size: 1.05rem;
+        font-weight: 700;
+        box-shadow:
+          0 12px 26px rgba(0, 0, 0, 0.62),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .region-link::after {
+        content: "";
+        position: absolute;
+        inset: 1px;
+        border-radius: 11px;
+        background: linear-gradient(120deg, rgba(255, 255, 255, 0.055), transparent 42%);
+        opacity: 0;
+        transition: opacity 0.18s ease;
+        pointer-events: none;
+      }
+
+      .region-link:hover {
+        background:
+          radial-gradient(circle at top left, rgba(220, 0, 0, 0.34), transparent 44%),
+          linear-gradient(145deg, rgba(74, 24, 24, 0.96), rgba(34, 8, 8, 0.98));
+        border-color: var(--accent-soft);
+      }
+
+      .region-link:hover::after {
+        opacity: 1;
+      }
+
+      .region-link i {
+        width: auto;
+        height: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        background: none;
+        border: none;
+        border-radius: 0;
+        font-size: 1.1rem;
+        color: #ff4d4d;
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.65);
+      }
+
+      .mobile-steps {
+        position: relative;
+        z-index: 1;
+        margin-top: 26px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .mobile-steps ol {
+        margin: 0;
+        padding-left: 24px;
+        color: var(--text-muted);
+        font-size: 0.96rem;
+        line-height: 1.7;
+      }
+
+      .mobile-steps li::marker {
+        color: #ff4d4d;
+        font-weight: 700;
+      }
+
+      .mobile-label {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 20px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: linear-gradient(120deg, rgba(128, 0, 0, 0.42), rgba(80, 16, 16, 0.34));
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: var(--text-muted);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .mobile-label i {
+        color: #ff4d4d;
+      }
+
+      .mobile-layout {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+        gap: 22px;
+        align-items: center;
+      }
+
+      .mobile-image {
+        width: 100%;
+        max-height: 260px;
+        object-fit: contain;
+        filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.7));
+      }
+
+      .mobile-note {
+        margin: 12px 0 0;
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 0.9rem;
+        line-height: 1.55;
+      }
+
+      .help-link {
+        margin: 18px auto 0;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.9rem;
+      }
+
+      .help-link a {
+        color: #ff8080;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .help-link a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+
+      .footer-note {
+        margin: 16px auto 0;
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 0.86rem;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      @media (max-width: 750px) {
+        .region-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .action-button {
+          min-width: min(100%, 260px);
+        }
+
+        .mobile-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .mobile-image {
+          max-height: 220px;
+          order: -1;
+        }
+      }
+
+      .page-wrapper {
+        max-width: 1440px;
+        padding: 40px 28px 64px;
+      }
+
+      body {
+        background-color: #030000;
+        background-image:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.88) 64%, rgba(0, 0, 0, 0.96)),
+          radial-gradient(circle at 22% 18%, rgba(186, 28, 42, 0.24), transparent 34%),
+          url("images/Modded-among-us.jpg");
+        background-position: center top, center top, center top;
+        background-size: cover, cover, cover;
+      }
+
+      body::before {
+        background:
+          radial-gradient(circle at 18% 8%, rgba(219, 42, 58, 0.28), transparent 30%),
+          radial-gradient(circle at 78% 12%, rgba(255, 204, 128, 0.14), transparent 32%),
+          linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+        background-size: auto, auto, 44px 44px, 44px 44px;
+        mix-blend-mode: normal;
+        opacity: 1;
+      }
+
+      body::after {
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.88) 76%),
+          radial-gradient(circle at center, rgba(30, 0, 0, 0.48), rgba(0, 0, 0, 0.84));
+      }
+
+      .header {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.72fr);
+        align-items: center;
+        gap: 36px;
+        min-height: 0;
+        padding: 46px 44px;
+        text-align: left;
+        border: 1px solid rgba(255, 204, 128, 0.3);
+        border-radius: 8px;
+        background:
+          linear-gradient(105deg, rgba(8, 7, 9, 0.96) 0%, rgba(13, 12, 15, 0.88) 48%, rgba(8, 7, 9, 0.7) 100%),
+          radial-gradient(circle at 18% 16%, rgba(170, 28, 42, 0.54), transparent 34%);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 30px 80px rgba(0, 0, 0, 0.78);
+      }
+
+      .header::before {
+        display: none;
+      }
+
+      .header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(115deg, rgba(255, 255, 255, 0.08), transparent 25%),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.48), transparent 64%),
+          radial-gradient(circle at 75% 50%, rgba(255, 204, 128, 0.1), transparent 31%);
+        pointer-events: none;
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 1;
+        max-width: 620px;
+      }
+
+      .hero-eyebrow {
+        margin: 0 0 14px;
+        color: #ffcc80;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .join-maul-link {
+        position: absolute;
+        top: 28px;
+        right: 34px;
+        z-index: 2;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 8px 4px;
+        color: #fff7ef;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        text-decoration: none;
+        text-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+      }
+
+      .join-maul-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 5px;
+        height: 4px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #ff3048, #ff9e54, #f6d675);
+        box-shadow: 0 0 18px rgba(255, 72, 72, 0.62);
+      }
+
+      .header h1 {
+        max-width: 560px;
+        font-size: clamp(3rem, 5.9vw, 5.3rem);
+        line-height: 0.96;
+        letter-spacing: 0;
+      }
+
+      .header h1 span {
+        color: #ffcc80;
+        background: none;
+        -webkit-background-clip: initial;
+        background-clip: initial;
+      }
+
+      .hero-subtitle {
+        margin: 18px 0 0;
+        max-width: 560px;
+        color: rgba(250, 240, 232, 0.82);
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.65;
+      }
+
+      .top-actions {
+        margin: 28px 0 0;
+        max-width: 820px;
+      }
+
+      .action-row {
+        justify-content: flex-start;
+      }
+
+      .action-button {
+        border-color: rgba(229, 161, 91, 0.27);
+        background: rgba(16, 15, 18, 0.74);
+        border-radius: 8px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .action-button.secondary-action {
+        background: rgba(255, 204, 128, 0.1);
+      }
+
+      .hero-note {
+        margin: 16px 0 0;
+        color: rgba(250, 240, 232, 0.62);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .hero-art {
+        position: relative;
+        z-index: 1;
+        align-self: center;
+        aspect-ratio: 16 / 9;
+        min-height: 0;
+        border: 1px solid rgba(255, 204, 128, 0.18);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #050505 url("images/banner.png") center / contain no-repeat;
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.58);
+      }
+
+      .hero-art::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, transparent 42%, rgba(0, 0, 0, 0.54)),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.22), transparent 46%);
+        pointer-events: none;
+      }
+
+      .primary-action {
+        background: linear-gradient(135deg, #ff3349, #b70924 48%, #3b0509);
+        border-color: transparent;
+      }
+
+      .disclaimer {
+        margin: 18px 0 0;
+        padding: 14px 16px;
+        border: 1px solid rgba(255, 204, 128, 0.2);
+        border-radius: 8px;
+        background: rgba(16, 15, 18, 0.62);
+        color: rgba(250, 240, 232, 0.78);
+        text-align: left;
+        font-style: normal;
+      }
+
+      .content-panel {
+        border-radius: 8px;
+        border-color: rgba(255, 204, 128, 0.16);
+        background:
+          linear-gradient(180deg, rgba(21, 20, 23, 0.94), rgba(11, 11, 13, 0.96));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 18px 44px rgba(0, 0, 0, 0.6);
+      }
+
+      .windows-panel {
+        max-width: none;
+        margin-top: 24px;
+      }
+
+      .region-panel {
+        margin-top: 24px;
+      }
+
+      .server-section h2 {
+        color: #fff7ef;
+        margin-bottom: 14px;
+        font-size: 1.32rem;
+        letter-spacing: 0.01em;
+        text-transform: none;
+      }
+
+      .server-section + .server-section,
+      .mobile-steps {
+        border-top-color: rgba(229, 161, 91, 0.16);
+      }
+
+      .region-grid {
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 12px;
+      }
+
+      .region-link {
+        min-height: 68px;
+        border-radius: 8px;
+        justify-content: flex-start;
+        border-color: rgba(255, 204, 128, 0.14);
+        border-left: 3px solid rgba(255, 204, 128, 0.44);
+        background: rgba(18, 17, 20, 0.72);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          0 12px 28px rgba(0, 0, 0, 0.36);
+      }
+
+      .region-link::after {
+        display: none;
+      }
+
+      .region-link:hover {
+        border-color: rgba(255, 204, 128, 0.48);
+        background: rgba(33, 29, 31, 0.88);
+      }
+
+      .region-link i {
+        color: #f7d7ad;
+        text-shadow: 0 0 14px rgba(255, 114, 72, 0.55);
+      }
+
+      .mobile-label {
+        border-color: rgba(255, 204, 128, 0.22);
+        background: rgba(20, 18, 20, 0.72);
+        color: rgba(250, 240, 232, 0.82);
+      }
+
+      .mobile-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+        gap: 28px;
+      }
+
+      .mobile-image {
+        border: 1px solid rgba(229, 161, 91, 0.24);
+        border-radius: 8px;
+        background: rgba(12, 6, 6, 0.52);
+        padding: 12px;
+        max-height: 320px;
+      }
+
+      .footer-note,
+      .help-link {
+        color: rgba(250, 240, 232, 0.68);
+      }
+
+      .help-link a {
+        color: #f7d7ad;
+      }
+
+      .setup-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .setup-tab {
+        min-height: 46px;
+        padding: 10px 15px;
+        border: 1px solid rgba(255, 204, 128, 0.2);
+        border-radius: 8px;
+        background: rgba(16, 15, 18, 0.86);
+        color: rgba(250, 240, 232, 0.78);
+        font-family: "Poppins", sans-serif;
+        font-size: 0.92rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+      }
+
+      .setup-tab:hover,
+      .setup-tab.active {
+        transform: translateY(-1px);
+        border-color: rgba(255, 204, 128, 0.52);
+        background: linear-gradient(135deg, rgba(177, 27, 42, 0.7), rgba(30, 26, 28, 0.95));
+        color: #ffffff;
+      }
+
+      .setup-panel[hidden] {
+        display: none;
+      }
+
+      .setup-panel {
+        animation: slideIn 0.22s ease both;
+      }
+
+      .method-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .method-card {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        gap: 14px;
+        padding: 22px;
+        border: 1px solid rgba(255, 204, 128, 0.22);
+        border-radius: 8px;
+        background:
+          radial-gradient(circle at 12% 0%, rgba(224, 52, 67, 0.14), transparent 36%),
+          rgba(14, 13, 16, 0.86);
+      }
+
+      .method-card.featured-method {
+        grid-column: auto;
+      }
+
+      .method-number {
+        width: fit-content;
+        padding: 4px 9px;
+        border: 1px solid rgba(255, 196, 110, 0.38);
+        border-radius: 999px;
+        color: #f7d7ad;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+      }
+
+      .method-card h3,
+      .ownership-item h3 {
+        margin: 0;
+        color: #fff7ef;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.08rem;
+        letter-spacing: 0;
+      }
+
+      .method-card p,
+      .method-credit,
+      .method-warning,
+      .method-steps,
+      .section-copy,
+      .ownership-item p,
+      .shoutout-section p,
+      .niko-feature p {
+        color: rgba(250, 240, 232, 0.78);
+        font-size: 0.95rem;
+        line-height: 1.65;
+      }
+
+      .method-card p,
+      .method-credit,
+      .method-warning,
+      .section-copy,
+      .ownership-item p,
+      .shoutout-section p,
+      .niko-feature p {
+        margin: 0;
+      }
+
+      .section-copy + .section-copy,
+      .niko-feature p + p,
+      .shoutout-section p + p {
+        margin-top: 10px;
+      }
+
+      .modded-note {
+        margin-bottom: 16px;
+        padding: 16px 18px;
+        border: 1px solid rgba(255, 204, 128, 0.16);
+        border-left: 3px solid rgba(255, 204, 128, 0.42);
+        border-radius: 8px;
+        background: rgba(16, 15, 18, 0.66);
+      }
+
+      .method-credit {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border: 1px solid rgba(255, 204, 128, 0.2);
+        border-radius: 999px;
+        background: rgba(255, 204, 128, 0.07);
+        color: #ffcc80;
+        font-size: 0.86rem;
+        font-weight: 700;
+      }
+
+      .method-credit i {
+        color: #ffcc80;
+      }
+
+      .method-warning {
+        padding: 12px 14px;
+        border: 1px solid rgba(255, 204, 128, 0.18);
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.24);
+      }
+
+      .method-steps {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      .method-steps li + li {
+        margin-top: 8px;
+      }
+
+      .method-steps li::marker {
+        color: #f7d7ad;
+        font-weight: 700;
+      }
+
+      .method-steps a,
+      .section-copy a,
+      .ownership-details a,
+      .shoutout-section a:not(.method-download),
+      .niko-feature a {
+        color: #f7d7ad;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .method-steps a:hover,
+      .section-copy a:hover,
+      .ownership-details a:hover,
+      .shoutout-section a:not(.method-download):hover,
+      .niko-feature a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+
+      .method-card code {
+        display: inline-block;
+        max-width: 100%;
+        padding: 2px 7px;
+        border: 1px solid rgba(229, 161, 91, 0.2);
+        border-radius: 6px;
+        background: rgba(0, 0, 0, 0.36);
+        color: #ffffff;
+        overflow-wrap: anywhere;
+      }
+
+      .method-download {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        min-height: 42px;
+        padding: 9px 14px;
+        border: 1px solid rgba(229, 161, 91, 0.26);
+        border-radius: 8px;
+        background: linear-gradient(135deg, rgba(255, 51, 73, 0.24), rgba(10, 8, 8, 0.78));
+        color: #fff7ef;
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .method-download:hover {
+        border-color: rgba(255, 196, 110, 0.48);
+        filter: brightness(1.08);
+      }
+
+      .method-download i {
+        color: #f7d7ad;
+      }
+
+      .method-images {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        align-items: start;
+        margin-top: 8px;
+      }
+
+      .method-images.four-images {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .method-images img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 1px solid rgba(229, 161, 91, 0.22);
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.42);
+      }
+
+      .shoutout-section {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(130px, 180px);
+        gap: 24px;
+        align-items: center;
+      }
+
+      .shoutout-section strong,
+      .niko-feature strong {
+        color: #fff7ef;
+      }
+
+      .niko-feature {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(120px, 170px);
+        gap: 22px;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 1px solid rgba(255, 204, 128, 0.14);
+        border-left: 3px solid rgba(255, 204, 128, 0.44);
+        border-radius: 8px;
+        background: rgba(16, 15, 18, 0.64);
+      }
+
+      .niko-portrait {
+        width: 100%;
+        max-width: 180px;
+        justify-self: end;
+        border: 1px solid rgba(255, 204, 128, 0.28);
+        border-radius: 8px;
+        background: rgba(16, 15, 18, 0.86);
+        box-shadow: 0 18px 42px rgba(0, 0, 0, 0.52);
+      }
+
+      .aou-section {
+        position: relative;
+        min-height: 0;
+        padding: 24px;
+        border: 1px solid rgba(255, 204, 128, 0.46);
+        border-left: 3px solid rgba(255, 204, 128, 0.62);
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(37, 27, 28, 0.98), rgba(13, 13, 16, 0.98));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.12),
+          0 0 0 1px rgba(255, 204, 128, 0.08),
+          0 26px 66px rgba(0, 0, 0, 0.62);
+        overflow: hidden;
+      }
+
+      .aou-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(110deg, rgba(255, 255, 255, 0.08), transparent 26%, transparent 72%, rgba(255, 204, 128, 0.08)),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 38%);
+        pointer-events: none;
+      }
+
+      .aou-section::after {
+        display: none;
+      }
+
+      .partner-tag {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        padding: 4px 9px;
+        border: 1px solid rgba(255, 204, 128, 0.26);
+        border-radius: 999px;
+        background: rgba(255, 204, 128, 0.08);
+        color: #ffcc80;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .aou-grid {
+        width: fit-content;
+        max-width: 100%;
+        margin: 18px 0 0;
+        grid-template-columns: minmax(0, 250px);
+      }
+
+      .partner-link {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 9px;
+        margin-top: 18px;
+        padding: 9px 13px;
+        border: 1px solid rgba(255, 204, 128, 0.24);
+        border-radius: 8px;
+        background: rgba(16, 15, 18, 0.76);
+        color: #fff7ef;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.92rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .partner-link:hover {
+        border-color: rgba(255, 204, 128, 0.52);
+        color: #ffffff;
+      }
+
+      .aou-link {
+        min-height: 58px;
+        width: 250px;
+        max-width: 100%;
+        align-items: center;
+        flex-direction: row;
+        border-color: rgba(255, 204, 128, 0.5);
+        background: rgba(20, 18, 20, 0.82);
+        isolation: isolate;
+        overflow: hidden;
+      }
+
+      .aou-link::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        border-radius: inherit;
+        background: linear-gradient(
+          110deg,
+          transparent 0%,
+          rgba(255, 232, 184, 0.05) 34%,
+          rgba(255, 224, 150, 0.24) 50%,
+          rgba(255, 232, 184, 0.05) 66%,
+          transparent 100%
+        );
+        opacity: 0;
+        transform: translateX(-42%);
+        transition: opacity 0.18s ease, transform 0.18s ease;
+        pointer-events: none;
+      }
+
+      .aou-link::after {
+        content: "";
+        position: absolute;
+        inset: 1px;
+        z-index: 1;
+        display: block;
+        border: 1px solid rgba(255, 224, 164, 0);
+        border-radius: 7px;
+        background: transparent;
+        box-shadow: inset 0 0 0 rgba(255, 224, 150, 0);
+        opacity: 0;
+        transition: opacity 0.18s ease;
+        pointer-events: none;
+      }
+
+      .aou-link .region-label {
+        position: relative;
+        z-index: 2;
+      }
+
+      .aou-link:hover {
+        border-color: rgba(255, 224, 164, 0.72);
+        background: rgba(35, 29, 30, 0.9);
+        animation: aouButtonPulse 1.75s ease-in-out infinite;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          inset 0 0 18px rgba(255, 224, 150, 0.16),
+          0 12px 28px rgba(0, 0, 0, 0.36);
+      }
+
+      .aou-link:hover::before {
+        opacity: 1;
+        animation: aouHighlightSweep 1.75s ease-in-out infinite;
+      }
+
+      .aou-link:hover::after {
+        opacity: 1;
+        animation: aouInnerGlow 1.75s ease-in-out infinite;
+      }
+
+      @keyframes aouButtonPulse {
+        0%, 100% {
+          border-color: rgba(255, 204, 128, 0.46);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            inset 0 0 12px rgba(255, 224, 150, 0.11),
+            0 12px 28px rgba(0, 0, 0, 0.36);
+        }
+        50% {
+          border-color: rgba(255, 230, 176, 0.86);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            inset 0 0 24px rgba(255, 224, 150, 0.24),
+            0 12px 28px rgba(0, 0, 0, 0.36);
+        }
+      }
+
+      @keyframes aouHighlightSweep {
+        0% {
+          transform: translateX(-54%);
+          opacity: 0.1;
+        }
+        50% {
+          opacity: 0.52;
+        }
+        100% {
+          transform: translateX(54%);
+          opacity: 0.14;
+        }
+      }
+
+      @keyframes aouInnerGlow {
+        0%, 100% {
+          border-color: rgba(255, 224, 164, 0.3);
+          box-shadow: inset 0 0 10px rgba(255, 224, 150, 0.08);
+        }
+        50% {
+          border-color: rgba(255, 234, 190, 0.68);
+          box-shadow: inset 0 0 20px rgba(255, 224, 150, 0.22);
+        }
+      }
+
+      .exclusive-tag {
+        color: #f7d7ad;
+        font-size: 0.74rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .region-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.05rem;
+      }
+
+      .ownership-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 16px;
+      }
+
+      .ownership-item {
+        padding: 18px;
+        border: 1px solid rgba(255, 204, 128, 0.14);
+        border-left: 3px solid rgba(255, 204, 128, 0.36);
+        border-radius: 8px;
+        background: rgba(16, 15, 18, 0.7);
+      }
+
+      .ownership-details {
+        display: grid;
+        gap: 10px;
+        margin: 14px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .ownership-details li {
+        display: grid;
+        gap: 3px;
+        min-width: 0;
+        color: rgba(250, 240, 232, 0.78);
+        font-size: 0.95rem;
+        line-height: 1.45;
+      }
+
+      .ownership-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        color: rgba(255, 204, 128, 0.82);
+        font-family: "Poppins", sans-serif;
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .ownership-details a {
+        overflow-wrap: anywhere;
+      }
+
+      @media (max-width: 760px) {
+        .header {
+          grid-template-columns: 1fr;
+          min-height: 0;
+          padding: 74px 24px 24px;
+        }
+
+        .header::before {
+          display: none;
+        }
+
+        .hero-art {
+          min-height: 0;
+        }
+
+        .method-grid,
+        .ownership-grid,
+        .shoutout-section,
+        .niko-feature {
+          grid-template-columns: 1fr;
+        }
+
+        .method-card.featured-method {
+          grid-column: auto;
+        }
+
+        .method-images.four-images {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .niko-portrait {
+          justify-self: start;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .page-wrapper {
+          padding: 84px 14px 48px;
+        }
+
+        .header {
+          min-height: 0;
+          padding: 68px 16px 18px;
+        }
+
+        .join-maul-link {
+          right: 18px;
+          top: 18px;
+        }
+
+        .header h1 {
+          font-size: clamp(2.55rem, 14vw, 4rem);
+        }
+
+        .content-panel {
+          padding: 22px 16px 24px;
+        }
+
+        .method-images,
+        .method-images.four-images {
+          grid-template-columns: 1fr;
+        }
+
+        .partner-tag {
+          width: fit-content;
+        }
+      }
+    
+
+      .policy-panel {
+        margin-top: 24px;
+      }
+
+      .policy-intro {
+        margin-bottom: 24px;
+        padding: 18px 20px;
+        border: 1px solid rgba(255, 204, 128, 0.18);
+        border-left: 3px solid rgba(255, 204, 128, 0.48);
+        border-radius: 8px;
+        background: rgba(16, 15, 18, 0.68);
+        color: rgba(250, 240, 232, 0.82);
+        line-height: 1.7;
+      }
+
+      .policy-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .policy-card {
+        min-width: 0;
+        padding: 22px;
+        border: 1px solid rgba(255, 204, 128, 0.14);
+        border-left: 3px solid rgba(255, 204, 128, 0.36);
+        border-radius: 8px;
+        background: rgba(16, 15, 18, 0.7);
+      }
+
+      .policy-card.wide {
+        grid-column: 1 / -1;
+      }
+
+      .policy-card h3 {
+        margin: 0 0 10px;
+        color: #fff7ef;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.08rem;
+      }
+
+      .policy-card p,
+      .policy-card li {
+        color: rgba(250, 240, 232, 0.78);
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      .policy-card p {
+        margin: 0;
+      }
+
+      .policy-card p + p {
+        margin-top: 10px;
+      }
+
+      .policy-card ul {
+        margin: 10px 0 0;
+        padding-left: 20px;
+      }
+
+      .policy-card li + li {
+        margin-top: 7px;
+      }
+
+      .policy-card li::marker {
+        color: #f7d7ad;
+      }
+
+      .policy-card a,
+      .policy-intro a {
+        color: #f7d7ad;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .policy-card a:hover,
+      .policy-intro a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+
+      .policy-date {
+        display: inline-flex;
+        width: fit-content;
+        margin-top: 14px;
+        padding: 5px 10px;
+        border: 1px solid rgba(255, 204, 128, 0.2);
+        border-radius: 999px;
+        background: rgba(255, 204, 128, 0.07);
+        color: #ffcc80;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
+      .policy-divider {
+        margin: 28px 0;
+        border: 0;
+        border-top: 1px solid rgba(229, 161, 91, 0.16);
+      }
+
+      @media (max-width: 760px) {
+        .policy-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .policy-card.wide {
+          grid-column: auto;
+        }
+      }
+</style>
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <div class="page-wrapper">
+      <header class="header">
+        <a class="join-maul-link" href="https://discord.gg/maul" target="_blank" rel="noopener">Join MAUL</a>
+
+        <div class="hero-copy">
+          <p class="hero-eyebrow">MAUL custom regions</p>
+          <h1>Privacy &amp; <span>Terms</span></h1>
+          <p class="hero-subtitle">
+            Privacy information and terms covering MAUL-operated custom Among Us regions and related region services.
+          </p>
+
+          <div class="top-actions">
+            <div class="action-row">
+              <a class="action-button" href="/regions.html">
+                Back to Regions <i class="fa-solid fa-server"></i>
+              </a>
+              <a class="action-button secondary-action" href="#privacy">
+                Privacy Policy <i class="fa-solid fa-shield-halved"></i>
+              </a>
+              <a class="action-button secondary-action" href="#terms">
+                Terms of Service <i class="fa-solid fa-file-contract"></i>
+              </a>
+            </div>
+            <span class="policy-date">Last updated September 4, 2026</span>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true"></div>
+      </header>
+
+      <main class="content-panel policy-panel">
+        <section class="server-section" id="privacy">
+          <h2>Privacy Policy</h2>
+
+          <div class="policy-intro">
+            This Privacy Policy explains information that may be processed when you connect to or use a custom Among Us
+            region operated by MAUL. Use of the MAUL custom regions is optional.
+          </div>
+
+          <div class="policy-grid">
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-database"></i> Information processed</h3>
+              <p>To operate the region, the server may process technical, account, connection, and gameplay information, including:</p>
+              <ul>
+                <li>IP addresses and network connection information.</li>
+                <li>Among Us player or account identifiers, including PUID-related information and friend codes where provided by the game.</li>
+                <li>Player names, game versions, platform or client information made available to the server.</li>
+                <li>Lobby information, game codes, player counts, game events, and server events.</li>
+                <li>Moderation, abuse-prevention, security, and diagnostic information.</li>
+                <li>Server logs generated while operating or troubleshooting the service.</li>
+              </ul>
+            </article>
+
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-gears"></i> How information is used</h3>
+              <p>Information may be processed to:</p>
+              <ul>
+                <li>Connect players and operate Among Us lobbies.</li>
+                <li>Maintain the availability, performance, and security of the regions.</li>
+                <li>Route connections between MAUL-operated region nodes.</li>
+                <li>Prevent abuse and enforce applicable MAUL rules.</li>
+                <li>Investigate crashes, connection problems, exploits, or other technical issues.</li>
+                <li>Diagnose and improve the reliability of the service.</li>
+              </ul>
+            </article>
+
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-shuffle"></i> Inter-node relay</h3>
+              <p>
+                MAUL operates regional server nodes. When inter-node relay is enabled for a lobby, information needed to
+                locate, register, and route that lobby may be exchanged between MAUL-operated nodes. Players connecting
+                through another MAUL node may have their game traffic relayed to the node hosting the lobby.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-clock-rotate-left"></i> Logs &amp; retention</h3>
+              <p>
+                Technical, security, moderation, and diagnostic logs may be retained when reasonably necessary to operate,
+                secure, troubleshoot, or maintain the service. Retention may vary depending on the information and why it
+                is needed.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-cloud"></i> Infrastructure</h3>
+              <p>
+                MAUL may use third-party hosting, networking, DNS, security, certificate, or infrastructure providers to
+                operate the regions. Those providers may process network or service information according to their own
+                terms and privacy practices.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-user-shield"></i> Your choices</h3>
+              <p>
+                Connecting to a MAUL custom region is optional. If you do not want your information processed as described
+                here, do not connect to or use a MAUL-operated custom region.
+              </p>
+            </article>
+
+            <article class="policy-card wide">
+              <h3><i class="fa-solid fa-lock"></i> Security</h3>
+              <p>
+                MAUL may use reasonable technical and operational measures intended to protect the region and information
+                processed by it. No internet-connected service can guarantee absolute security or uninterrupted operation.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <hr class="policy-divider" />
+
+        <section class="server-section" id="terms">
+          <h2>Terms of Service</h2>
+
+          <div class="policy-intro">
+            By connecting to or using a MAUL-operated custom Among Us region, you agree to these terms. If you do not
+            agree, do not use the region.
+          </div>
+
+          <div class="policy-grid">
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-gamepad"></i> Use of the service</h3>
+              <p>
+                The regions are provided for custom and modded Among Us gameplay. You are responsible for how you use the
+                service and for following applicable MAUL rules and any rules established by a lobby host.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-ban"></i> Prohibited use</h3>
+              <p>You may not intentionally use the region to:</p>
+              <ul>
+                <li>Attack, disrupt, overload, exploit, or interfere with the servers or other players.</li>
+                <li>Attempt unauthorized access to server systems, administrative functions, or other users' information.</li>
+                <li>Evade bans, technical restrictions, security controls, or abuse-prevention measures.</li>
+                <li>Use automation, malformed traffic, exploits, or other methods intended to damage or destabilize the service.</li>
+                <li>Use the service for unlawful activity.</li>
+              </ul>
+            </article>
+
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-scale-balanced"></i> Behavior &amp; Region Admin discretion</h3>
+              <p>
+                Players are expected to behave appropriately while using MAUL-operated regions. Region Admins may,
+                at their discretion, warn, remove, restrict, or ban players from the regions when their behavior is
+                disruptive, abusive, unsafe, or otherwise inappropriate.
+              </p>
+              <p>This may include, but is not limited to:</p>
+              <ul>
+                <li>Hacking, cheating, exploiting, or intentionally abusing game or server mechanics.</li>
+                <li>Using slurs, hate speech, harassment, threats, or other abusive language.</li>
+                <li>Inappropriate, disruptive, or intentionally offensive behavior.</li>
+                <li>Attempting to interfere with lobbies, players, Region Admins, or region services.</li>
+                <li>Evading a region ban or other restriction.</li>
+              </ul>
+              <p>
+                Region Admins may consider the circumstances and severity of the behavior when taking action.
+                Not every form of inappropriate behavior can be specifically listed in this policy, and enforcement
+                is not limited only to the examples above.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-user-slash"></i> Access &amp; enforcement</h3>
+              <p>
+                MAUL may restrict, suspend, or block access to the regions when reasonably necessary to protect the service,
+                enforce rules, address abuse, or maintain server stability.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-triangle-exclamation"></i> Availability</h3>
+              <p>
+                The regions are provided as available. Servers may be restarted, changed, limited, moved, temporarily
+                unavailable, or discontinued. Compatibility may also change when Among Us or supported mods are updated.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-puzzle-piece"></i> Mods &amp; third parties</h3>
+              <p>
+                MAUL custom regions may be used with third-party Among Us mods, launchers, tools, or services. Unless
+                specifically stated otherwise, those third-party projects are independently operated and are governed by
+                their own terms, policies, and support practices.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-code"></i> Service changes</h3>
+              <p>
+                Features, commands, relay behavior, supported versions, networking, and other parts of the region may
+                change as the service is developed or maintained.
+              </p>
+            </article>
+
+            <article class="policy-card wide">
+              <h3><i class="fa-solid fa-circle-info"></i> Disclaimer</h3>
+              <p>
+                MAUL is a community-operated service and is not affiliated with, endorsed by, or operated by Innersloth.
+                Among Us and related trademarks belong to their respective owners.
+              </p>
+              <p>
+                The custom regions are provided without a guarantee that they will always be available, error-free, or
+                compatible with every game version, mod, launcher, platform, or network configuration.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <hr class="policy-divider" />
+
+        <section class="server-section" id="contact">
+          <h2>Questions &amp; Contact</h2>
+          <div class="policy-grid">
+            <article class="policy-card wide">
+              <h3><i class="fa-brands fa-discord"></i> MAUL</h3>
+              <p>
+                For questions about these policies or the MAUL custom regions, contact MAUL through
+                <a href="https://discord.gg/maul" target="_blank" rel="noopener">discord.gg/maul</a>.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <p class="footer-note">MAUL • Modded Among Us Lobbies</p>
+      <p class="help-link"><a href="/regions.html">Back to Regions</a></p>
+    </div>
+
+    <script src="/scripts/navbar.js"></script>
+  </body>
+</html>
