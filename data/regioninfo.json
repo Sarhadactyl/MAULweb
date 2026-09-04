@@ -190,13 +190,13 @@
     },
     {
       "$type": "StaticHttpRegionInfo, Assembly-CSharp",
-      "Name": "Jarne's Modded Region EU",
-      "PingServer": "eu.allofus.dev",
+      "Name": "Jarne's MEU",
+      "PingServer": "modmanagere.eu.amongusclub.cn",
       "Servers": [
         {
           "Name": "http-1",
-          "Ip": "http://185.228.81.170",
-          "Port": 22023,
+          "Ip": "https://modmanagere.eu.amongusclub.cn",
+          "Port": 443,
           "UseDtls": false,
           "Players": 0,
           "ConnectionFailures": 0
