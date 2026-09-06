@@ -1133,6 +1133,144 @@
         overflow-wrap: anywhere;
       }
 
+      .region-builder {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 6px;
+        padding: 16px;
+        border: 1px solid rgba(255, 204, 128, 0.2);
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.22);
+      }
+
+      .region-builder-heading {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .region-builder-heading h4 {
+        margin: 0;
+        color: #fff7ef;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+      }
+
+      .region-builder-heading p {
+        margin: 5px 0 0;
+        color: rgba(250, 240, 232, 0.7);
+        font-size: 0.88rem;
+        line-height: 1.5;
+      }
+
+      .region-builder-count {
+        flex: 0 0 auto;
+        color: #ffcc80;
+        font-size: 0.82rem;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .region-builder-actions,
+      .region-builder-footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .region-builder-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        min-height: 36px;
+        padding: 8px 11px;
+        border: 1px solid rgba(255, 204, 128, 0.25);
+        border-radius: 7px;
+        background: rgba(32, 24, 25, 0.92);
+        color: rgba(250, 240, 232, 0.86);
+        font: inherit;
+        font-size: 0.84rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .region-builder-button:hover:not(:disabled) {
+        border-color: rgba(255, 204, 128, 0.62);
+        background: rgba(90, 30, 39, 0.9);
+      }
+
+      .region-builder-button.primary {
+        border-color: rgba(255, 204, 128, 0.55);
+        background: rgba(128, 0, 0, 0.72);
+        color: #ffffff;
+      }
+
+      .region-builder-button:disabled {
+        cursor: not-allowed;
+        opacity: 0.45;
+      }
+
+      .region-picker {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 10px;
+      }
+
+      .region-picker-group {
+        min-width: 0;
+        padding: 12px;
+        border: 1px solid rgba(255, 204, 128, 0.14);
+        border-radius: 7px;
+        background: rgba(17, 13, 15, 0.72);
+      }
+
+      .region-picker-group h5 {
+        margin: 0 0 9px;
+        color: #f7d7ad;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.86rem;
+      }
+
+      .region-picker-option {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 5px 0;
+        color: rgba(250, 240, 232, 0.82);
+        font-size: 0.88rem;
+        line-height: 1.35;
+        cursor: pointer;
+      }
+
+      .region-picker-option input {
+        flex: 0 0 auto;
+        width: 16px;
+        height: 16px;
+        margin: 1px 0 0;
+        accent-color: #d34d5b;
+      }
+
+      .region-builder-status {
+        flex: 1 1 220px;
+        color: rgba(250, 240, 232, 0.66);
+        font-size: 0.84rem;
+      }
+
+      @media (max-width: 750px) {
+        .region-builder-heading {
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .region-builder-count {
+          white-space: normal;
+        }
+      }
+
       .method-download {
         display: inline-flex;
         width: fit-content;
@@ -1885,41 +2023,92 @@
           <h2>Setup Methods</h2>
           <div class="setup-tabs" role="tablist" aria-label="Setup methods">
             <button class="setup-tab" type="button" role="tab" aria-selected="false" aria-controls="setup-windows" data-setup-tab="setup-windows">
-              01 Windows installer
+              01 Windows / Microsoft Store
+            </button>
+            <button class="setup-tab" type="button" role="tab" aria-selected="false" aria-controls="setup-linux" data-setup-tab="setup-linux">
+              02 Linux
             </button>
             <button class="setup-tab" type="button" role="tab" aria-selected="false" aria-controls="setup-manual" data-setup-tab="setup-manual">
-              02 Manual JSON
-            </button>
-            <button class="setup-tab" type="button" role="tab" aria-selected="false" aria-controls="setup-store" data-setup-tab="setup-store">
-              03 Microsoft Store
+              03 Manual fallback
             </button>
           </div>
 
           <div class="setup-panel" id="setup-windows" role="tabpanel" hidden>
             <article class="method-card">
               <span class="method-number">01</span>
-              <h3>Windows installer</h3>
-              <p class="method-credit"><i class="fa-solid fa-heart"></i> MAUL custom region installer.</p>
-              <p>Fastest setup for most Windows players. Download the script, run it, then restart Among Us.</p>
+              <h3>Windows / Microsoft Store installer</h3>
+              <p class="method-credit"><i class="fa-solid fa-heart"></i> Installer provided by Theta at Project Lotus.</p>
+              <p>Download and run the script. It finds the correct Among Us region file, including Microsoft Store installs, backs up the existing file, and installs the latest region list.</p>
               <p class="method-warning">
-                The .bat file installs MAUL's regionInfo.json and backs up the current file first. You can open it in
-                Notepad before running it if you want to review exactly what it does.
+                Close Among Us before running the script, then restart the game when it finishes. You can open the .bat file in Notepad first if you want to review it.
               </p>
               <a
                 class="method-download"
-                href="data/customserver.bat"
-                download="customserver.bat"
+                href="https://media.lotusau.top/files/AUCustomServers.bat"
+                download="AUCustomServers.bat"
+                target="_blank"
+                rel="noopener"
               >
-                Download installer <i class="fa-brands fa-windows"></i>
+                Download Windows installer <i class="fa-brands fa-windows"></i>
+              </a>
+            </article>
+          </div>
+
+          <div class="setup-panel" id="setup-linux" role="tabpanel" hidden>
+            <article class="method-card">
+              <span class="method-number">02</span>
+              <h3>Linux installer</h3>
+              <p class="method-credit"><i class="fa-solid fa-heart"></i> Installer provided by Theta at Project Lotus.</p>
+              <p>Download the shell script, make it executable, run it, then restart Among Us.</p>
+              <ol class="method-steps">
+                <li>Download the script.</li>
+                <li>Run <code>chmod +x AUCustomServers.sh</code>.</li>
+                <li>Run <code>./AUCustomServers.sh</code>.</li>
+              </ol>
+              <a
+                class="method-download"
+                href="https://media.lotusau.top/files/AUCustomServers.sh"
+                download="AUCustomServers.sh"
+                target="_blank"
+                rel="noopener"
+              >
+                Download Linux installer <i class="fa-brands fa-linux"></i>
               </a>
             </article>
           </div>
 
           <div class="setup-panel" id="setup-manual" role="tabpanel" hidden>
             <article class="method-card">
-              <span class="method-number">02</span>
+              <span class="method-number">03</span>
               <h3>Replace regioninfo.json manually</h3>
-              <p>For a transparent, manual setup:</p>
+              <p>Use this only if the installer cannot run on your system:</p>
+              <div class="region-builder" id="region-builder">
+                <div class="region-builder-heading">
+                  <div>
+                    <h4>Build a smaller regioninfo.json</h4>
+                    <p>Select only the regions you use, then download a trimmed region file.</p>
+                  </div>
+                  <span class="region-builder-count" id="region-builder-count">Loading regions...</span>
+                </div>
+                <div class="region-builder-actions" aria-label="Region selection actions">
+                  <button class="region-builder-button" id="select-maul-regions" type="button">
+                    <i class="fa-solid fa-flag"></i> Select MAUL
+                  </button>
+                  <button class="region-builder-button" id="select-all-regions" type="button">
+                    <i class="fa-solid fa-check-double"></i> Select all
+                  </button>
+                  <button class="region-builder-button" id="clear-regions" type="button">
+                    <i class="fa-solid fa-eraser"></i> Clear
+                  </button>
+                </div>
+                <div class="region-picker" id="region-picker" aria-live="polite">Loading available regions...</div>
+                <div class="region-builder-footer">
+                  <span class="region-builder-status" id="region-builder-status">Loading region data...</span>
+                  <button class="region-builder-button primary" id="download-regioninfo" type="button" disabled>
+                    <i class="fa-solid fa-download"></i> Download selected regioninfo.json
+                  </button>
+                </div>
+              </div>
               <ol class="method-steps">
                 <li>Download <a href="data/regioninfo.json" target="_blank" rel="noopener">regioninfo.json</a>.</li>
                 <li>Press Win + R and open <code>%userprofile%\AppData\LocalLow\Innersloth\Among Us</code>.</li>
@@ -1932,25 +2121,6 @@
             </article>
           </div>
 
-          <div class="setup-panel" id="setup-store" role="tabpanel" hidden>
-            <article class="method-card">
-              <span class="method-number">03</span>
-              <h3>Microsoft Store version</h3>
-              <p>If the script does not work on the Microsoft Store version, follow the save-file route:</p>
-              <ol class="method-steps">
-                <li>Download <a href="data/regioninfo.json" target="_blank" rel="noopener">regioninfo.json</a>.</li>
-                <li>Open <code>%userprofile%\AppData\Local\Packages\Innersloth.AmongUs_fw5x688tam7rm\SystemAppData\wgs</code>.</li>
-                <li>Find the folder with long numeric names and open the JSON-like save file inside.</li>
-                <li>Paste the contents of regioninfo.json, save, and restart.</li>
-              </ol>
-              <div class="method-images four-images">
-                <img src="images/microsoft-data-folder.png" alt="Microsoft Store Among Us wgs folder path" />
-                <img src="images/microsoft-data-folder-2.png" alt="Long numeric save folders inside the Microsoft Store wgs folder" />
-                <img src="images/microsoft-data-folder-3.png" alt="JSON-like save file opened from the Microsoft Store save folder" />
-                <img src="images/microsoft-data-folder-4.png" alt="Copying regioninfo.json contents into the Microsoft Store save file" />
-              </div>
-            </article>
-          </div>
         </section>
       </main>
 
@@ -1982,6 +2152,19 @@
         { id: "modded", pattern: /^Modded/i, icon: "fa-globe" },
         { id: "jarne", pattern: /^Jarne/i, icon: "fa-globe" },
       ];
+
+      const regionGroupLabels = new Map([
+        ["maul", "MAUL"],
+        ["niko", "NikoCat"],
+        ["aou", "All Of Us"],
+        ["modded", "Modded"],
+        ["jarne", "Jarne's"],
+        ["other", "Other regions"],
+      ]);
+
+      let regionInfoPromise = null;
+      let regionInfoData = null;
+      let selectedRegionIndexes = new Set();
 
       function escapeHtml(value) {
         return String(value).replace(/[&<>"']/g, (char) => ({
@@ -2059,15 +2242,150 @@
         return `<a class="${linkClass}" href="${href}">${content}</a>`;
       }
 
+      function getRegionGroup(region) {
+        return regionGroups.find((group) => group.pattern.test(region.Name || "")) || {
+          id: "other",
+          pattern: /.*/i,
+          icon: "globe",
+        };
+      }
+
+      function getRegionInfoData() {
+        if (!regionInfoPromise) {
+          regionInfoPromise = fetch("data/regioninfo.json", { cache: "no-store" }).then((response) => {
+            if (!response.ok) {
+              throw new Error(`regioninfo.json returned ${response.status}`);
+            }
+
+            return response.json();
+          });
+        }
+
+        return regionInfoPromise;
+      }
+
+      function updateRegionBuilderState() {
+        const regions = Array.isArray(regionInfoData?.Regions) ? regionInfoData.Regions : [];
+        const count = selectedRegionIndexes.size;
+        const countElement = document.getElementById("region-builder-count");
+        const statusElement = document.getElementById("region-builder-status");
+        const downloadButton = document.getElementById("download-regioninfo");
+
+        if (countElement) {
+          countElement.textContent = `${count} of ${regions.length} selected`;
+        }
+
+        if (statusElement) {
+          statusElement.textContent = count > 0
+            ? "Ready to download a trimmed regioninfo.json."
+            : "Select at least one region to create the file.";
+        }
+
+        if (downloadButton) {
+          downloadButton.disabled = count === 0;
+        }
+      }
+
+      function setRegionSelection(indexes) {
+        selectedRegionIndexes = new Set(indexes);
+        document.querySelectorAll("#region-picker input[data-region-index]").forEach((input) => {
+          input.checked = selectedRegionIndexes.has(Number(input.dataset.regionIndex));
+        });
+        updateRegionBuilderState();
+      }
+
+      function renderRegionPicker(data) {
+        const picker = document.getElementById("region-picker");
+        const regions = Array.isArray(data.Regions) ? data.Regions : [];
+
+        if (!picker || regions.length === 0) {
+          if (picker) {
+            picker.textContent = "No regions were found in regioninfo.json.";
+          }
+          updateRegionBuilderState();
+          return;
+        }
+
+        const maulIndexes = regions
+          .map((region, index) => (/^MAUL/i.test(region.Name || "") ? index : -1))
+          .filter((index) => index >= 0);
+        selectedRegionIndexes = new Set(maulIndexes.length > 0 ? maulIndexes : regions.map((_, index) => index));
+
+        const groupedRegions = new Map();
+        regions.forEach((region, index) => {
+          const group = getRegionGroup(region);
+          if (!groupedRegions.has(group.id)) {
+            groupedRegions.set(group.id, []);
+          }
+          groupedRegions.get(group.id).push({ region, index });
+        });
+
+        picker.innerHTML = "";
+        groupedRegions.forEach((items, groupId) => {
+          const groupElement = document.createElement("section");
+          groupElement.className = "region-picker-group";
+
+          const heading = document.createElement("h5");
+          heading.textContent = regionGroupLabels.get(groupId) || groupId;
+          groupElement.appendChild(heading);
+
+          items.forEach(({ region, index }) => {
+            const label = document.createElement("label");
+            label.className = "region-picker-option";
+
+            const input = document.createElement("input");
+            input.type = "checkbox";
+            input.dataset.regionIndex = String(index);
+            input.checked = selectedRegionIndexes.has(index);
+            input.setAttribute("aria-label", getDisplayName(region));
+            input.addEventListener("change", () => {
+              if (input.checked) {
+                selectedRegionIndexes.add(index);
+              } else {
+                selectedRegionIndexes.delete(index);
+              }
+              updateRegionBuilderState();
+            });
+
+            label.append(input, document.createTextNode(getDisplayName(region)));
+            groupElement.appendChild(label);
+          });
+
+          picker.appendChild(groupElement);
+        });
+
+        updateRegionBuilderState();
+      }
+
+      function downloadSelectedRegionInfo() {
+        const regions = Array.isArray(regionInfoData?.Regions) ? regionInfoData.Regions : [];
+        const indexes = [...selectedRegionIndexes].sort((left, right) => left - right);
+
+        if (indexes.length === 0) {
+          return;
+        }
+
+        const currentRegionIndex = indexes.indexOf(Number(regionInfoData.CurrentRegionIdx));
+        const output = {
+          ...regionInfoData,
+          CurrentRegionIdx: currentRegionIndex >= 0 ? currentRegionIndex : 0,
+          Regions: indexes.map((index) => regions[index]),
+        };
+        const blob = new Blob([`${JSON.stringify(output, null, 2)}\n`], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "regioninfo.json";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
+
       async function loadRegionButtons() {
         try {
-          const response = await fetch("data/regioninfo.json", { cache: "no-store" });
-
-          if (!response.ok) {
-            throw new Error(`regioninfo.json returned ${response.status}`);
-          }
-
-          const data = await response.json();
+          const data = await getRegionInfoData();
+          regionInfoData = data;
           const regions = Array.isArray(data.Regions) ? data.Regions : [];
 
           regionGroups.forEach((group) => {
@@ -2083,7 +2401,43 @@
         }
       }
 
+      async function loadRegionPicker() {
+        try {
+          regionInfoData = await getRegionInfoData();
+          renderRegionPicker(regionInfoData);
+        } catch (error) {
+          console.warn("Could not load region data for the region builder.", error);
+          const picker = document.getElementById("region-picker");
+          const status = document.getElementById("region-builder-status");
+          if (picker) {
+            picker.textContent = "Could not load regioninfo.json. Download it manually instead.";
+          }
+          if (status) {
+            status.textContent = "Region data could not be loaded.";
+          }
+        }
+      }
+
       loadRegionButtons();
+      loadRegionPicker();
+
+      document.getElementById("select-maul-regions")?.addEventListener("click", () => {
+        const regions = Array.isArray(regionInfoData?.Regions) ? regionInfoData.Regions : [];
+        setRegionSelection(regions
+          .map((region, index) => (/^MAUL/i.test(region.Name || "") ? index : -1))
+          .filter((index) => index >= 0));
+      });
+
+      document.getElementById("select-all-regions")?.addEventListener("click", () => {
+        const regions = Array.isArray(regionInfoData?.Regions) ? regionInfoData.Regions : [];
+        setRegionSelection(regions.map((_, index) => index));
+      });
+
+      document.getElementById("clear-regions")?.addEventListener("click", () => {
+        setRegionSelection([]);
+      });
+
+      document.getElementById("download-regioninfo")?.addEventListener("click", downloadSelectedRegionInfo);
 
       document.querySelectorAll("[data-setup-tab]").forEach((tab) => {
         tab.addEventListener("click", () => {
