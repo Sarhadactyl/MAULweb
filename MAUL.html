@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MAUL Rankings</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:title" content="MAUL Rankings" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/MAUL.html" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta property="og:description" content="Public MAUL region rankings and live lobby counts." />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://moddedamong.us/MAUL.html" />
+
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --accent: #b00022;
+        --accent-soft: rgba(176, 0, 34, 0.25);
+        --gold: #ffcc80;
+        --orange: #ff8a3d;
+        --yellow: #ffe36a;
+        --red-hot: #ff3349;
+        --cyan: #68e7ff;
+        --green: #74f0a7;
+        --bg-card: rgba(18, 12, 15, 0.88);
+        --bg-soft: rgba(34, 18, 22, 0.86);
+        --text-main: #fff7f2;
+        --text-muted: rgba(255, 247, 242, 0.72);
+        --line: rgba(255, 255, 255, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        color: var(--text-main);
+        overflow-x: hidden;
+      }
+
+      body {
+        background: #030101 url("images/maulredbg.png") no-repeat top center fixed;
+        background-size: auto 100%;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(circle at 18% 8%, rgba(255, 204, 128, 0.12), transparent 30%),
+          radial-gradient(circle at 78% 18%, rgba(104, 231, 255, 0.12), transparent 26%),
+          linear-gradient(180deg, rgba(60, 0, 9, 0.78), rgba(5, 0, 0, 0.92));
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .page-wrapper {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 96px 0 54px;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 340px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 390px);
+        gap: 28px;
+        align-items: stretch;
+        padding: 42px;
+        border: 1px solid rgba(255, 204, 128, 0.18);
+        border-radius: 8px;
+        background:
+          linear-gradient(115deg, rgba(0, 0, 0, 0.72), rgba(50, 0, 10, 0.56)),
+          url("images/banner.png") center / cover no-repeat;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.72);
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        left: 42px;
+        right: 42px;
+        bottom: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--red-hot), var(--orange), var(--gold), transparent);
+        opacity: 0.88;
+      }
+
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 650px;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--gold);
+        font-family: "Poppins", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 16px;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(3rem, 6vw, 5.2rem);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      h1 span {
+        color: var(--gold);
+      }
+
+      .hero-copy p {
+        max-width: 580px;
+        color: rgba(255, 247, 242, 0.8);
+        font-size: 1rem;
+        line-height: 1.65;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .action-button,
+      .mode-button,
+      .refresh-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 44px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        padding: 10px 16px;
+        color: var(--text-main);
+        background: rgba(14, 10, 12, 0.74);
+        font: inherit;
+        font-weight: 700;
+        text-decoration: none;
+        cursor: pointer;
+        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .action-button:hover,
+      .mode-button:hover,
+      .refresh-button:hover {
+        transform: translateY(-1px);
+        border-color: rgba(255, 204, 128, 0.45);
+        background: rgba(36, 18, 20, 0.92);
+      }
+
+      .action-button.primary {
+        background: linear-gradient(135deg, #ff3349, #b70924 48%, #3b0509);
+        border-color: transparent;
+      }
+
+      .hero-panel {
+        display: grid;
+        gap: 12px;
+        align-content: center;
+      }
+
+      .region-status {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(22, 10, 13, 0.92), rgba(7, 3, 5, 0.84)),
+          rgba(8, 6, 8, 0.68);
+        padding: 20px;
+        backdrop-filter: blur(10px);
+      }
+
+      .status-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 10px;
+        color: var(--gold);
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+      }
+
+      .status-heading i {
+        color: var(--cyan);
+      }
+
+      .status-row,
+      .stat-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 7px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .status-row:first-child,
+      .stat-row:first-child {
+        border-top: none;
+      }
+
+      .status-heading + .status-row {
+        border-top: none;
+      }
+
+      .status-row span:first-child,
+      .stat-row span:first-child {
+        color: var(--text-muted);
+      }
+
+      .status-dot {
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        margin-right: 7px;
+        border-radius: 999px;
+        background: #787878;
+      }
+
+      .status-dot.online {
+        background: var(--green);
+        box-shadow: 0 0 14px rgba(116, 240, 167, 0.75);
+      }
+
+      .section-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin: 18px 0;
+      }
+
+      .stat-card,
+      .leaderboard-panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--bg-card);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.42);
+      }
+
+      .stat-card {
+        position: relative;
+        overflow: hidden;
+        padding: 18px;
+        background:
+          linear-gradient(180deg, rgba(34, 16, 20, 0.92), rgba(10, 5, 7, 0.9)),
+          var(--bg-card);
+      }
+
+      .stat-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto;
+        height: 3px;
+        background: linear-gradient(90deg, var(--red-hot), var(--orange), var(--gold));
+        opacity: 0.72;
+      }
+
+      .stat-card .label {
+        color: var(--text-muted);
+        font-size: 0.88rem;
+      }
+
+      .stat-card .value {
+        margin-top: 8px;
+        color: var(--gold);
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(1.7rem, 3vw, 2.5rem);
+        font-weight: 700;
+      }
+
+      .leaderboard-panel {
+        margin-top: 18px;
+        overflow: hidden;
+        background:
+          linear-gradient(180deg, rgba(19, 10, 14, 0.96), rgba(8, 5, 8, 0.92)),
+          var(--bg-card);
+      }
+
+      .toolbar {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        gap: 12px;
+        align-items: center;
+        padding: 18px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(0, 0, 0, 0.24);
+      }
+
+      .search-box {
+        position: relative;
+      }
+
+      .search-box i {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        color: var(--text-muted);
+        transform: translateY(-50%);
+      }
+
+      .search-box input {
+        width: 100%;
+        min-height: 44px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        padding: 10px 14px 10px 42px;
+        color: var(--text-main);
+        background: rgba(255, 255, 255, 0.08);
+        font: inherit;
+      }
+
+      .mode-toggle {
+        display: inline-flex;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .mode-button {
+        min-height: 42px;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+      }
+
+      .mode-button.active {
+        background: rgba(255, 204, 128, 0.18);
+        color: var(--gold);
+      }
+
+      .leaderboard-heading {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 20px 18px 0;
+      }
+
+      .leaderboard-heading h2 {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(1.4rem, 3vw, 2.15rem);
+      }
+
+      .leaderboard-heading p {
+        margin: 6px 0 0;
+        color: var(--text-muted);
+      }
+
+      .leaderboard-pill {
+        flex: 0 0 auto;
+        border: 1px solid rgba(255, 204, 128, 0.22);
+        border-radius: 999px;
+        padding: 8px 12px;
+        color: var(--gold);
+        background: rgba(255, 204, 128, 0.08);
+        font-weight: 700;
+      }
+
+      .lookup-result {
+        padding: 18px 18px 0;
+      }
+
+      .lookup-result[hidden] {
+        display: none;
+      }
+
+      .lookup-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) repeat(3, minmax(110px, auto));
+        gap: 16px;
+        align-items: center;
+        border: 1px solid rgba(255, 204, 128, 0.22);
+        border-left: 4px solid var(--red-hot);
+        border-radius: 8px;
+        padding: 18px;
+        background: linear-gradient(135deg, rgba(58, 9, 16, 0.88), rgba(15, 7, 9, 0.94));
+        box-shadow: 0 16px 42px rgba(0, 0, 0, 0.38);
+      }
+
+      .lookup-main {
+        min-width: 0;
+      }
+
+      .lookup-kicker {
+        margin: 0 0 4px;
+        color: var(--gold);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .lookup-card h3 {
+        overflow: hidden;
+        margin: 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.35rem;
+      }
+
+      .lookup-region {
+        margin: 6px 0 14px;
+        color: var(--text-muted);
+      }
+
+      .progress-track {
+        width: 100%;
+        height: 10px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .progress-fill {
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--red-hot), var(--orange), var(--gold));
+      }
+
+      .lookup-stat {
+        min-width: 0;
+        text-align: right;
+      }
+
+      .lookup-stat span {
+        display: block;
+        color: var(--text-muted);
+        font-size: 0.78rem;
+      }
+
+      .lookup-stat strong {
+        display: block;
+        margin-top: 5px;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.05rem;
+      }
+
+      .leaderboard-list {
+        display: grid;
+        gap: 10px;
+        padding: 18px;
+      }
+
+      .leaderboard-row {
+        display: grid;
+        grid-template-columns: 64px minmax(180px, 1fr) repeat(4, minmax(92px, auto));
+        gap: 14px;
+        align-items: center;
+        min-height: 72px;
+        padding: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        background: var(--bg-soft);
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .leaderboard-row:hover {
+        transform: translateY(-1px);
+        border-color: rgba(255, 204, 128, 0.24);
+      }
+
+      .leaderboard-row.podium-1 {
+        border-color: rgba(255, 51, 73, 0.78);
+        background: linear-gradient(135deg, rgba(78, 5, 16, 0.96), rgba(20, 7, 10, 0.94));
+        box-shadow: 0 0 28px rgba(255, 51, 73, 0.34), inset 0 0 18px rgba(255, 51, 73, 0.1);
+      }
+
+      .leaderboard-row.podium-2 {
+        border-color: rgba(255, 138, 61, 0.72);
+        background: linear-gradient(135deg, rgba(68, 28, 8, 0.94), rgba(18, 9, 6, 0.94));
+        box-shadow: 0 0 22px rgba(255, 138, 61, 0.22);
+      }
+
+      .leaderboard-row.podium-3 {
+        border-color: rgba(255, 227, 106, 0.68);
+        background: linear-gradient(135deg, rgba(60, 47, 11, 0.9), rgba(16, 13, 7, 0.94));
+        box-shadow: 0 0 20px rgba(255, 227, 106, 0.18);
+      }
+
+      .rank {
+        color: var(--gold);
+        font-family: "Poppins", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+
+      .podium-1 .rank {
+        color: var(--red-hot);
+        text-shadow: 0 0 18px rgba(255, 51, 73, 0.82);
+      }
+
+      .podium-2 .rank {
+        color: var(--orange);
+        text-shadow: 0 0 14px rgba(255, 138, 61, 0.6);
+      }
+
+      .podium-3 .rank {
+        color: var(--yellow);
+        text-shadow: 0 0 14px rgba(255, 227, 106, 0.48);
+      }
+
+      .player-name {
+        min-width: 0;
+      }
+
+      .player-name strong {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+      }
+
+      .player-name span {
+        display: block;
+        margin-top: 4px;
+        color: var(--text-muted);
+        font-size: 0.86rem;
+      }
+
+      .metric {
+        text-align: right;
+      }
+
+      .metric span {
+        display: block;
+        color: var(--text-muted);
+        font-size: 0.78rem;
+      }
+
+      .metric strong {
+        display: block;
+        margin-top: 4px;
+        color: var(--text-main);
+        font-size: 0.98rem;
+      }
+
+      .empty-state {
+        padding: 28px;
+        color: var(--text-muted);
+        text-align: center;
+      }
+
+      .footer-note {
+        margin: 18px 0 0;
+        color: rgba(255, 247, 242, 0.62);
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      @media (max-width: 960px) {
+        .hero {
+          grid-template-columns: 1fr;
+          padding: 32px 24px;
+        }
+
+        .section-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .toolbar {
+          grid-template-columns: 1fr;
+        }
+
+        .mode-toggle {
+          width: 100%;
+        }
+
+        .mode-button {
+          flex: 1;
+        }
+
+        .leaderboard-heading {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .lookup-card {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .lookup-main {
+          grid-column: 1 / -1;
+        }
+
+        .lookup-stat {
+          text-align: left;
+        }
+
+        .leaderboard-row {
+          grid-template-columns: 54px minmax(0, 1fr) minmax(86px, auto);
+        }
+
+        .leaderboard-row .metric:nth-of-type(n + 5) {
+          display: none;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .page-wrapper {
+          width: min(100% - 24px, 1180px);
+          padding-top: 86px;
+        }
+
+        .hero {
+          padding: 28px 18px;
+        }
+
+        .section-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .leaderboard-heading,
+        .lookup-result,
+        .leaderboard-list {
+          padding-left: 14px;
+          padding-right: 14px;
+        }
+
+        .lookup-card {
+          grid-template-columns: 1fr;
+        }
+
+        .leaderboard-row {
+          grid-template-columns: 44px minmax(0, 1fr);
+        }
+
+        .leaderboard-row .metric {
+          grid-column: 2;
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <div class="page-wrapper">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">MAUL region progress</p>
+          <h1>MAUL <span>Rankings</span></h1>
+          <p>
+            Public region stats for active lobbies, lifetime lobby counts, XP, hosted time, and games finished. Rankings
+            show display names only.
+          </p>
+          <div class="hero-actions">
+            <a class="action-button primary" href="regions.html">
+              Region Links <i class="fa-solid fa-globe"></i>
+            </a>
+            <a class="action-button" href="https://discord.gg/maul" target="_blank" rel="noopener">
+              Join MAUL <i class="fa-brands fa-discord"></i>
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="MAUL live region status">
+          <div class="region-status" id="regionStatus">
+            <div class="status-heading"><span>Live regions</span><i class="fa-solid fa-signal"></i></div>
+            <div class="status-row"><span><span class="status-dot"></span>NA</span><b>Loading</b></div>
+            <div class="status-row"><span><span class="status-dot"></span>EU</span><b>Loading</b></div>
+          </div>
+        </aside>
+      </header>
+
+      <section class="section-grid" aria-label="Live MAUL stats">
+        <article class="stat-card">
+          <div class="label">Active NA Lobbies</div>
+          <div class="value" id="naActive">-</div>
+        </article>
+        <article class="stat-card">
+          <div class="label">Active EU Lobbies</div>
+          <div class="value" id="euActive">-</div>
+        </article>
+        <article class="stat-card">
+          <div class="label">Lifetime Lobbies</div>
+          <div class="value" id="totalLobbies">-</div>
+        </article>
+        <article class="stat-card">
+          <div class="label">Finished Games</div>
+          <div class="value" id="finishedGames">-</div>
+        </article>
+      </section>
+
+      <main class="leaderboard-panel">
+        <div class="toolbar">
+          <label class="search-box" for="leaderboardSearch">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="leaderboardSearch" type="search" placeholder="Search public display names" autocomplete="off" />
+          </label>
+          <div class="mode-toggle" role="group" aria-label="Leaderboard mode">
+            <button class="mode-button active" type="button" data-mode="xp">XP</button>
+            <button class="mode-button" type="button" data-mode="hosted">Hosted</button>
+            <button class="mode-button" type="button" data-mode="games">Games</button>
+          </div>
+          <button class="refresh-button" type="button" id="refreshButton">
+            <i class="fa-solid fa-rotate"></i> Refresh
+          </button>
+        </div>
+
+        <div class="leaderboard-heading">
+          <div>
+            <h2 id="leaderboardTitle">Top 10 by XP</h2>
+            <p id="leaderboardHint">Search a display name to show that player's MAUL Level card.</p>
+          </div>
+          <span class="leaderboard-pill" id="leaderboardCount">Top 10</span>
+        </div>
+
+        <section class="lookup-result" id="lookupResult" hidden></section>
+
+        <div class="leaderboard-list" id="leaderboardList">
+          <div class="empty-state">Loading MAUL rankings...</div>
+        </div>
+      </main>
+
+      <p class="footer-note" id="updatedNote">Stats refresh when the page loads.</p>
+    </div>
+
+    <script src="/scripts/navbar.js"></script>
+    <script>
+      const REGIONS = [
+        { key: "na", label: "MAUL NA", url: "https://au.moddedamong.us/api/manage/maul/public" },
+        { key: "eu", label: "MAUL EU", url: "https://eu.moddedamong.us/api/manage/maul/public" },
+      ];
+
+      const state = {
+        mode: "xp",
+        query: "",
+        snapshots: [],
+        combined: [],
+      };
+
+      const numberFormat = new Intl.NumberFormat();
+      const modeLabels = {
+        xp: "XP",
+        hosted: "hosted time",
+        games: "finished games",
+      };
+
+      function read(obj, camel, pascal, fallback = 0) {
+        return obj?.[camel] ?? obj?.[pascal] ?? fallback;
+      }
+
+      function cleanName(value) {
+        const text = String(value || "Unknown host").trim();
+        return text || "Unknown host";
+      }
+
+      function levelFromXp(totalXp) {
+        return Math.max(1, Math.floor(totalXp / 150) + 1);
+      }
+
+      function combineRows(snapshots) {
+        const byName = new Map();
+
+        for (const snapshot of snapshots) {
+          const rows = read(snapshot, "leaderboardByXp", "LeaderboardByXp", []);
+          for (const row of rows) {
+            const name = cleanName(read(row, "name", "Name", "Unknown host"));
+            const key = name.toLowerCase();
+            const existing = byName.get(key) || {
+              name,
+              regions: new Set(),
+              totalXp: 0,
+              hostedSeconds: 0,
+              hostedHours: 0,
+              gamesFinished: 0,
+              lobbiesCreated: 0,
+            };
+
+            existing.regions.add(snapshot.__label);
+            existing.totalXp += Number(read(row, "totalXp", "TotalXp", 0));
+            existing.hostedSeconds += Number(read(row, "hostedSeconds", "HostedSeconds", 0));
+            existing.gamesFinished += Number(read(row, "gamesFinished", "GamesFinished", 0));
+            existing.lobbiesCreated += Number(read(row, "lobbiesCreated", "LobbiesCreated", 0));
+            byName.set(key, existing);
+          }
+        }
+
+        return [...byName.values()].map((row) => ({
+          ...row,
+          level: levelFromXp(row.totalXp),
+          hostedHours: Math.round((row.hostedSeconds / 3600) * 10) / 10,
+          regionsText: [...row.regions].join(" + "),
+        }));
+      }
+
+      function sortRows(rows) {
+        const metric =
+          state.mode === "hosted"
+            ? "hostedSeconds"
+            : state.mode === "games"
+              ? "gamesFinished"
+              : "totalXp";
+
+        return [...rows].sort((a, b) => {
+          const delta = b[metric] - a[metric];
+          if (delta !== 0) return delta;
+          return a.name.localeCompare(b.name);
+        });
+      }
+
+      function renderStats() {
+        const totals = state.snapshots.reduce(
+          (sum, snapshot) => {
+            sum.lobbies += Number(read(snapshot, "totalLobbiesCreated", "TotalLobbiesCreated", 0));
+            sum.finished += Number(read(snapshot, "totalGamesFinished", "TotalGamesFinished", 0));
+            return sum;
+          },
+          { lobbies: 0, finished: 0 }
+        );
+
+        const na = state.snapshots.find((snapshot) => snapshot.__key === "na");
+        const eu = state.snapshots.find((snapshot) => snapshot.__key === "eu");
+
+        document.getElementById("naActive").textContent = numberFormat.format(Number(read(na, "activeLobbies", "ActiveLobbies", 0)));
+        document.getElementById("euActive").textContent = numberFormat.format(Number(read(eu, "activeLobbies", "ActiveLobbies", 0)));
+        document.getElementById("totalLobbies").textContent = numberFormat.format(totals.lobbies);
+        document.getElementById("finishedGames").textContent = numberFormat.format(totals.finished);
+
+        const statusRows = REGIONS.map((region) => {
+          const snapshot = state.snapshots.find((item) => item.__key === region.key);
+          const online = Boolean(snapshot);
+          const count = Number(read(snapshot, "activeRooms", "ActiveRooms", 0));
+          return `
+            <div class="status-row">
+              <span><span class="status-dot ${online ? "online" : ""}"></span>${region.label}</span>
+              <b>${online ? `${numberFormat.format(count)} rooms` : "Offline"}</b>
+            </div>
+          `;
+        }).join("");
+        document.getElementById("regionStatus").innerHTML = `
+          <div class="status-heading"><span>Live regions</span><i class="fa-solid fa-signal"></i></div>
+          ${statusRows}
+        `;
+      }
+
+      function renderLookup(rows, query) {
+        const panel = document.getElementById("lookupResult");
+        if (!query || rows.length === 0) {
+          panel.hidden = true;
+          panel.innerHTML = "";
+          return;
+        }
+
+        const exactMatch = rows.find((row) => row.name.toLowerCase() === query);
+        const row = exactMatch || rows[0];
+        const nextLevelXp = row.level * 150;
+        const progress = Math.max(0, Math.min(100, (row.totalXp / nextLevelXp) * 100));
+
+        panel.hidden = false;
+        panel.innerHTML = `
+          <article class="lookup-card">
+            <div class="lookup-main">
+              <p class="lookup-kicker">MAUL Level lookup</p>
+              <h3>${escapeHtml(row.name)}</h3>
+              <p class="lookup-region">${escapeHtml(row.regionsText)} &bull; Rank #${numberFormat.format(row.rank)}</p>
+              <div class="progress-track" aria-label="Progress to next level">
+                <div class="progress-fill" style="width: ${progress}%"></div>
+              </div>
+            </div>
+            <div class="lookup-stat">
+              <span>Level</span>
+              <strong>${numberFormat.format(row.level)}</strong>
+            </div>
+            <div class="lookup-stat">
+              <span>XP</span>
+              <strong>${numberFormat.format(row.totalXp)} / ${numberFormat.format(nextLevelXp)}</strong>
+            </div>
+            <div class="lookup-stat">
+              <span>Games Finished</span>
+              <strong>${numberFormat.format(row.gamesFinished)}</strong>
+            </div>
+          </article>
+        `;
+      }
+
+      function renderLeaderboard() {
+        const list = document.getElementById("leaderboardList");
+        const title = document.getElementById("leaderboardTitle");
+        const hint = document.getElementById("leaderboardHint");
+        const count = document.getElementById("leaderboardCount");
+        const query = state.query.trim().toLowerCase();
+        const sortedRows = sortRows(state.combined).map((row, index) => ({ ...row, rank: index + 1 }));
+        const filteredRows = sortedRows.filter((row) => !query || row.name.toLowerCase().includes(query));
+        const limit = query ? 25 : 10;
+        const rows = filteredRows.slice(0, limit);
+        const modeLabel = modeLabels[state.mode] || "XP";
+
+        title.textContent = query ? `Search results by ${modeLabel}` : `Top 10 by ${modeLabel}`;
+        hint.textContent = query
+          ? "Showing matching public display names. The level card uses the best match."
+          : "Search a display name to show that player's MAUL Level card.";
+        count.textContent = query ? `${numberFormat.format(filteredRows.length)} match${filteredRows.length === 1 ? "" : "es"}` : "Top 10";
+
+        renderLookup(filteredRows, query);
+
+        if (rows.length === 0) {
+          const message = query
+            ? `No public players found for "${escapeHtml(state.query.trim())}".`
+            : "No public ranking rows found.";
+          list.innerHTML = `<div class="empty-state">${message}</div>`;
+          return;
+        }
+
+        list.innerHTML = rows.map((row) => {
+          const xpText = `${numberFormat.format(row.totalXp)} / ${numberFormat.format(row.level * 150)}`;
+          const podiumClass = row.rank <= 3 ? ` podium-${row.rank}` : "";
+          return `
+            <article class="leaderboard-row${podiumClass}">
+              <div class="rank">#${numberFormat.format(row.rank)}</div>
+              <div class="player-name">
+                <strong>${escapeHtml(row.name)}</strong>
+                <span>${escapeHtml(row.regionsText)}</span>
+              </div>
+              <div class="metric">
+                <span>Level</span>
+                <strong>${numberFormat.format(row.level)}</strong>
+              </div>
+              <div class="metric">
+                <span>XP</span>
+                <strong>${xpText}</strong>
+              </div>
+              <div class="metric">
+                <span>Hosted</span>
+                <strong>${numberFormat.format(row.hostedHours)}h</strong>
+              </div>
+              <div class="metric">
+                <span>Finished</span>
+                <strong>${numberFormat.format(row.gamesFinished)}</strong>
+              </div>
+            </article>
+          `;
+        }).join("");
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      async function loadStats() {
+        const button = document.getElementById("refreshButton");
+        button.disabled = true;
+
+        const results = await Promise.allSettled(REGIONS.map(async (region) => {
+          const response = await fetch(region.url, { cache: "no-store" });
+          if (!response.ok) {
+            throw new Error(`${region.label} returned HTTP ${response.status}`);
+          }
+          const payload = await response.json();
+          const data = payload.Data ?? payload.data;
+          if (!data) {
+            throw new Error(`${region.label} did not return stats`);
+          }
+          data.__key = region.key;
+          data.__label = region.label;
+          return data;
+        }));
+
+        state.snapshots = results
+          .filter((result) => result.status === "fulfilled")
+          .map((result) => result.value);
+        state.combined = combineRows(state.snapshots);
+
+        renderStats();
+        renderLeaderboard();
+
+        const failures = results.filter((result) => result.status === "rejected").length;
+        const note = document.getElementById("updatedNote");
+        note.textContent = failures
+          ? `Updated ${new Date().toLocaleString()}. ${failures} region${failures === 1 ? "" : "s"} did not respond.`
+          : `Updated ${new Date().toLocaleString()}.`;
+
+        button.disabled = false;
+      }
+
+      document.querySelectorAll(".mode-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          state.mode = button.dataset.mode;
+          document.querySelectorAll(".mode-button").forEach((item) => {
+            item.classList.toggle("active", item === button);
+          });
+          renderLeaderboard();
+        });
+      });
+
+      document.getElementById("leaderboardSearch").addEventListener("input", (event) => {
+        state.query = event.target.value;
+        renderLeaderboard();
+      });
+
+      document.getElementById("refreshButton").addEventListener("click", loadStats);
+      document.addEventListener("DOMContentLoaded", loadStats);
+    </script>
+  </body>
+</html>
