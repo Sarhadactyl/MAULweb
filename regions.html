@@ -245,12 +245,15 @@
       }
 
       .page-wrapper {
+        display: flex;
+        flex-direction: column;
         max-width: 1040px;
         margin: 0 auto;
         padding: 76px 20px 58px;
       }
 
       .header {
+        order: 1;
         position: relative;
         text-align: center;
         padding: 26px 20px 26px;
@@ -331,7 +334,59 @@
       }
 
       .region-panel {
+        order: 3;
         margin-top: 24px;
+      }
+
+      .ownership-panel {
+        order: 4;
+      }
+
+      .setup-panel-wrap {
+        order: 2;
+        position: relative;
+        top: auto;
+        margin-top: 24px;
+      }
+
+      .regions-layout .content-panel,
+      .page-wrapper > .content-panel {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .setup-panel-wrap .server-section {
+        margin: 0;
+      }
+
+      .setup-panel-wrap h2 {
+        font-size: clamp(1.8rem, 3vw, 2.25rem);
+      }
+
+      .setup-panel-wrap .setup-tabs {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .setup-panel-wrap .setup-tab {
+        width: auto;
+        text-align: center;
+      }
+
+      .setup-panel-wrap .method-card {
+        padding: 22px;
+      }
+
+      .setup-panel-wrap .method-download {
+        width: fit-content;
+      }
+
+      .footer-note {
+        order: 5;
+      }
+
+      .help-link {
+        order: 6;
       }
 
       @keyframes slideIn {
@@ -656,7 +711,7 @@
       }
 
       .page-wrapper {
-        max-width: 1440px;
+        max-width: 1280px;
         padding: 40px 28px 64px;
       }
 
@@ -1722,7 +1777,7 @@
           <p class="hero-eyebrow">MAUL region list</p>
           <h1>Regions for <span>modded lobbies</span></h1>
           <p class="hero-subtitle">
-            Use the links below on mobile, or use the setup notes at the bottom if you need to replace your region file
+            Use the links below on mobile, or use the setup panel below if you need to replace your region file
             on Windows.
           </p>
 
@@ -1731,11 +1786,13 @@
               <a class="action-button" href="index.html">
                 Back to Home <i class="fa-solid fa-house"></i>
               </a>
+              <a class="action-button" href="MAUL.html">
+                MAUL Rankings <i class="fa-solid fa-ranking-star"></i>
+              </a>
               <a class="action-button secondary-action" href="#setup-methods">
                 Setup Help <i class="fa-solid fa-screwdriver-wrench"></i>
               </a>
             </div>
-            <p class="hero-note">Prepared for the next region launch while keeping the existing MAUL region list easy to reach.</p>
           </div>
         </div>
         <div class="hero-art" aria-hidden="true"></div>
@@ -1751,10 +1808,6 @@
               <p>
                 Huge shoutout to <strong>NikoCat233</strong>. He has been such a major part of the MAUL and modded
                 community since I joined in 2023, and he has been there to support all of us from the beginning.
-              </p>
-              <p>
-                MAUL - NA and MAUL - EU are powered by NikoCat233. This is shared as clear attribution, not as a claim that
-                NikoCat233 sponsors, endorses, operates, guarantees, or commercially partners with MAUL.
               </p>
               <p>
                 The region buttons on this page are loaded from
@@ -1801,7 +1854,10 @@
           <h2>MAUL Regions <span class="partner-tag">Powered by NikoCat233</span></h2>
           <p class="section-copy">
             MAUL - NA and MAUL - EU are the MAUL-hosted region options for modded lobbies, with backend support powered by
-            NikoCat233. Join MAUL for updates, help, and region support.
+            NikoCat233. 
+          </p>
+          <p>
+            Join MAUL for updates, help, and region support.
           </p>
           <a class="partner-link" href="https://discord.gg/maul" target="_blank" rel="noopener">
             Join MAUL Discord <i class="fa-brands fa-discord"></i>
@@ -2020,7 +2076,7 @@
 
       <main class="content-panel setup-panel-wrap" id="setup-methods">
         <section class="server-section">
-          <h2>Setup Methods</h2>
+          <h2>Setup Methods for PC</h2>
           <div class="setup-tabs" role="tablist" aria-label="Setup methods">
             <button class="setup-tab" type="button" role="tab" aria-selected="false" aria-controls="setup-windows" data-setup-tab="setup-windows">
               01 Windows / Microsoft Store
