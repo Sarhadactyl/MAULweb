@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MAUL Lobbies</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:title" content="MAUL Lobbies" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/lobbies.html" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta property="og:description" content="Login-gated MAUL lobby list for public modded Among Us lobbies." />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://moddedamong.us/lobbies.html" />
+
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --accent: #c0132f;
+        --accent-bright: #ff3354;
+        --gold: #ffcc80;
+        --green: #65f0a1;
+        --bg-card: rgba(14, 9, 12, 0.9);
+        --bg-soft: rgba(34, 15, 20, 0.86);
+        --line: rgba(255, 255, 255, 0.11);
+        --text-main: #fff7f2;
+        --text-muted: rgba(255, 247, 242, 0.72);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        color: var(--text-main);
+        background: #030101 url("images/maulredbg.png") no-repeat top center fixed;
+        background-size: auto 100%;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 20% 12%, rgba(255, 204, 128, 0.12), transparent 28%),
+          radial-gradient(circle at 80% 10%, rgba(255, 51, 84, 0.15), transparent 24%),
+          linear-gradient(180deg, rgba(64, 0, 9, 0.78), rgba(6, 0, 0, 0.94));
+      }
+
+      button,
+      input {
+        font: inherit;
+      }
+
+      .page {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 116px 0 48px;
+      }
+
+      .topbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 18px;
+        align-items: end;
+        margin-bottom: 18px;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: var(--gold);
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(2.4rem, 6vw, 5rem);
+        line-height: 0.92;
+      }
+
+      h1 span {
+        color: var(--gold);
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .btn {
+        min-height: 44px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 0 16px;
+        color: var(--text-main);
+        background: rgba(255, 255, 255, 0.045);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .btn.primary {
+        border-color: rgba(255, 51, 84, 0.8);
+        background: linear-gradient(135deg, var(--accent), #8c0718);
+      }
+
+      .btn:disabled {
+        cursor: not-allowed;
+        opacity: 0.58;
+      }
+
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: linear-gradient(180deg, var(--bg-card), rgba(8, 4, 7, 0.92));
+        box-shadow: 0 16px 42px rgba(0, 0, 0, 0.5);
+      }
+
+      .login-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 410px);
+        gap: 18px;
+        padding: 22px;
+        margin-bottom: 18px;
+      }
+
+      .login-panel[hidden] {
+        display: none;
+      }
+
+      .login-copy h2,
+      .lobby-panel h2 {
+        margin: 0 0 8px;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.45rem;
+      }
+
+      .login-copy p,
+      .muted {
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      .token-row,
+      .form-grid {
+        display: grid;
+        gap: 10px;
+      }
+
+      .token-box {
+        min-height: 48px;
+        border: 1px solid rgba(255, 204, 128, 0.28);
+        border-radius: 8px;
+        padding: 12px;
+        background: rgba(255, 204, 128, 0.08);
+        color: var(--gold);
+        font-weight: 700;
+        word-break: break-word;
+      }
+
+      .field {
+        display: grid;
+        gap: 6px;
+      }
+
+      .field span {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        font-weight: 700;
+      }
+
+      input {
+        width: 100%;
+        min-height: 44px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text-main);
+        padding: 0 12px;
+      }
+
+      .lobby-panel {
+        padding: 18px;
+      }
+
+      .lobby-toolbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 14px;
+      }
+
+      .session-badge {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 780px;
+      }
+
+      th,
+      td {
+        padding: 13px 14px;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        vertical-align: middle;
+      }
+
+      th {
+        color: var(--gold);
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      .code {
+        color: #ffffff;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+
+      .pill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .pill {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 999px;
+        padding: 4px 8px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text-muted);
+        font-size: 0.82rem;
+      }
+
+      .players {
+        color: var(--green);
+        font-weight: 800;
+      }
+
+      .empty {
+        padding: 32px;
+        color: var(--text-muted);
+        text-align: center;
+      }
+
+      .notice {
+        min-height: 22px;
+        color: var(--gold);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 760px) {
+        .page {
+          width: min(100% - 24px, 1180px);
+          padding-top: 94px;
+        }
+
+        .topbar,
+        .login-panel,
+        .lobby-toolbar {
+          grid-template-columns: 1fr;
+        }
+
+        .actions {
+          justify-content: flex-start;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+
+    <main class="page">
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">MAUL public lobbies</p>
+          <h1>Live <span>Lobbies</span></h1>
+        </div>
+        <div class="actions">
+          <a class="btn" href="MAUL.html"><i class="fa-solid fa-ranking-star"></i> Rankings</a>
+          <button class="btn primary" type="button" id="refreshBtn"><i class="fa-solid fa-rotate"></i> Refresh</button>
+        </div>
+      </section>
+
+      <section class="panel login-panel" id="loginPanel">
+        <div class="login-copy">
+          <h2>Login to see lobbies</h2>
+          <p>
+            Access is limited to verified MAUL members. Generate a token, run the Discord command in
+            <a href="https://discord.com/channels/995954559044304896/1088754299263258735">in Maul</a>,
+            set your password in the private prompt, then log in here.
+          </p>
+          <div class="token-row">
+            <button class="btn primary" type="button" id="tokenBtn"><i class="fa-solid fa-key"></i> Get Login Token</button>
+            <div class="token-box" id="tokenBox">No token generated yet.</div>
+            <button class="btn" type="button" id="copyTokenBtn" disabled><i class="fa-solid fa-copy"></i> Copy Command</button>
+          </div>
+        </div>
+
+        <form class="form-grid" id="loginForm">
+          <label class="field">
+            <span>Discord username or ID</span>
+            <input id="identifierInput" autocomplete="username" required />
+          </label>
+          <label class="field">
+            <span>Password</span>
+            <input id="passwordInput" type="password" autocomplete="current-password" required />
+          </label>
+          <button class="btn primary" type="submit"><i class="fa-solid fa-right-to-bracket"></i> Log In</button>
+          <div class="notice" id="loginNotice"></div>
+        </form>
+      </section>
+
+      <section class="panel lobby-panel">
+        <div class="lobby-toolbar">
+          <input id="searchInput" type="search" placeholder="Search host, code, region, or mod" autocomplete="off" />
+          <span class="session-badge" id="sessionBadge">Not logged in</span>
+          <button class="btn" type="button" id="logoutBtn" hidden><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</button>
+        </div>
+
+        <div class="table-wrap" id="tableWrap" hidden>
+          <table>
+            <thead>
+              <tr>
+                <th>Host Name</th>
+                <th>Game Code</th>
+                <th>Region</th>
+                <th>Mods Used</th>
+                <th>Players</th>
+              </tr>
+            </thead>
+            <tbody id="lobbyBody"></tbody>
+          </table>
+        </div>
+        <div class="empty" id="emptyState">Log in to see MAUL public lobbies.</div>
+      </section>
+    </main>
+
+    <script src="/scripts/navbar.js"></script>
+    <script>
+      const defaultApiBase =
+        location.hostname === "127.0.0.1" || location.hostname === "localhost"
+          ? "http://127.0.0.1:8094/api/maulpost"
+          : "https://api.moddedamong.us/api/maulpost";
+      const API_BASE = localStorage.getItem("maulLobbiesApiBase") || window.MAUL_LOBBIES_API_BASE || defaultApiBase;
+      const sessionKey = "maulLobbiesSession";
+      const state = {
+        tokenCommand: "",
+        session: localStorage.getItem(sessionKey) || "",
+        user: null,
+        lobbies: [],
+        query: "",
+      };
+
+      const els = {
+        loginPanel: document.getElementById("loginPanel"),
+        tokenBtn: document.getElementById("tokenBtn"),
+        tokenBox: document.getElementById("tokenBox"),
+        copyTokenBtn: document.getElementById("copyTokenBtn"),
+        loginForm: document.getElementById("loginForm"),
+        identifierInput: document.getElementById("identifierInput"),
+        passwordInput: document.getElementById("passwordInput"),
+        loginNotice: document.getElementById("loginNotice"),
+        refreshBtn: document.getElementById("refreshBtn"),
+        searchInput: document.getElementById("searchInput"),
+        sessionBadge: document.getElementById("sessionBadge"),
+        logoutBtn: document.getElementById("logoutBtn"),
+        tableWrap: document.getElementById("tableWrap"),
+        lobbyBody: document.getElementById("lobbyBody"),
+        emptyState: document.getElementById("emptyState"),
+      };
+
+      function setNotice(message) {
+        els.loginNotice.textContent = message || "";
+      }
+
+      async function api(path, options = {}) {
+        const headers = { "Content-Type": "application/json", ...(options.headers || {}) };
+        if (state.session) {
+          headers.Authorization = `Bearer ${state.session}`;
+        }
+        const response = await fetch(`${API_BASE}${path}`, { ...options, headers });
+        const data = await response.json().catch(() => ({ ok: false, message: "Invalid server response." }));
+        if (!response.ok || data.ok === false) {
+          throw new Error(data.message || `Request failed with HTTP ${response.status}`);
+        }
+        return data;
+      }
+
+      async function getToken() {
+        els.tokenBtn.disabled = true;
+        try {
+          const data = await api("/lobbies/token", { method: "POST", body: "{}" });
+          state.tokenCommand = data.command;
+          els.tokenBox.textContent = data.command;
+          els.copyTokenBtn.disabled = false;
+          setNotice("Run that command in the MAUL Discord website-login channel, then set your password.");
+        } catch (error) {
+          setNotice(error.message);
+        } finally {
+          els.tokenBtn.disabled = false;
+        }
+      }
+
+      async function login(event) {
+        event.preventDefault();
+        setNotice("");
+        try {
+          const data = await api("/lobbies/login", {
+            method: "POST",
+            body: JSON.stringify({
+              identifier: els.identifierInput.value.trim(),
+              password: els.passwordInput.value,
+            }),
+          });
+          state.session = data.sessionToken;
+          state.user = data.user;
+          localStorage.setItem(sessionKey, state.session);
+          els.passwordInput.value = "";
+          await loadLobbies();
+        } catch (error) {
+          setNotice(error.message);
+        }
+      }
+
+      async function logout() {
+        try {
+          if (state.session) {
+            await api("/lobbies/logout", { method: "POST", body: "{}" });
+          }
+        } catch (error) {
+          setNotice("Signed out locally. The server session may expire on its own.");
+        } finally {
+          state.session = "";
+          state.user = null;
+          state.lobbies = [];
+          localStorage.removeItem(sessionKey);
+          render();
+        }
+      }
+
+      async function loadLobbies() {
+        if (!state.session) {
+          render();
+          return;
+        }
+        try {
+          const data = await api("/lobbies");
+          state.user = data.user;
+          state.lobbies = Array.isArray(data.lobbies) ? data.lobbies : [];
+          render();
+        } catch (error) {
+          localStorage.removeItem(sessionKey);
+          state.session = "";
+          state.user = null;
+          state.lobbies = [];
+          setNotice(error.message);
+          render();
+        }
+      }
+
+      function render() {
+        const loggedIn = Boolean(state.session && state.user);
+        els.loginPanel.hidden = loggedIn;
+        els.logoutBtn.hidden = !loggedIn;
+        els.sessionBadge.textContent = loggedIn ? `Logged in as ${state.user.username}` : "Not logged in";
+
+        if (!loggedIn) {
+          els.tableWrap.hidden = true;
+          els.emptyState.hidden = false;
+          els.emptyState.textContent = "Log in to see MAUL public lobbies.";
+          return;
+        }
+
+        const query = state.query.trim().toLowerCase();
+        const rows = state.lobbies.filter((lobby) => {
+          if (!query) return true;
+          const haystack = [
+            lobby.hostName,
+            lobby.discordUsername,
+            lobby.gameCode,
+            lobby.region,
+            ...(Array.isArray(lobby.mods) ? lobby.mods : []),
+          ]
+            .join(" ")
+            .toLowerCase();
+          return haystack.includes(query);
+        });
+
+        els.lobbyBody.innerHTML = "";
+        for (const lobby of rows) {
+          const mods = Array.isArray(lobby.mods) && lobby.mods.length ? lobby.mods : ["Unknown"];
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${escapeHtml(lobby.hostName || "Unknown host")}</td>
+            <td><span class="code">${escapeHtml(lobby.gameCode || "-")}</span></td>
+            <td>${escapeHtml(lobby.region || "MAUL")}</td>
+            <td><div class="pill-list">${mods.map((mod) => `<span class="pill">${escapeHtml(mod)}</span>`).join("")}</div></td>
+            <td><span class="players">${Number(lobby.playerCount || 0)}/${Number(lobby.maxPlayers || 0)}</span></td>
+          `;
+          els.lobbyBody.appendChild(tr);
+        }
+
+        els.tableWrap.hidden = rows.length === 0;
+        els.emptyState.hidden = rows.length > 0;
+        els.emptyState.textContent =
+          state.lobbies.length === 0
+            ? "No public MAUL lobbies are listed right now. You can also check discord.gg/maul for 24/7 lobbies."
+            : "No matching lobbies found.";
+      }
+
+      function escapeHtml(value) {
+        return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        })[char]);
+      }
+
+      els.tokenBtn.addEventListener("click", getToken);
+      els.copyTokenBtn.addEventListener("click", async () => {
+        if (!state.tokenCommand) return;
+        await navigator.clipboard.writeText(state.tokenCommand);
+        setNotice("Command copied.");
+      });
+      els.loginForm.addEventListener("submit", login);
+      els.logoutBtn.addEventListener("click", logout);
+      els.refreshBtn.addEventListener("click", loadLobbies);
+      els.searchInput.addEventListener("input", (event) => {
+        state.query = event.target.value;
+        render();
+      });
+
+      loadLobbies();
+      window.setInterval(loadLobbies, 30000);
+    </script>
+  </body>
+</html>
