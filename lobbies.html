@@ -13,6 +13,11 @@
     <meta property="og:description" content="Login-gated MAUL lobby list for public modded Among Us lobbies." />
     <meta property="og:site_name" content="Modded Among Us Lobbies" />
     <meta property="og:locale" content="en_US" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; connect-src 'self' https://maullobby.sparked.network http://127.0.0.1:8094 http://localhost:8094; img-src 'self' https://moddedamong.us data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="canonical" href="https://moddedamong.us/lobbies.html" />
 
     <link rel="icon" type="image/png" href="images/favicon.png" />
@@ -498,8 +503,8 @@
         <div class="login-copy">
           <h2>Login to see lobbies</h2>
           <p>
-            Access is limited to verified MAUL members. Generate a token, run the command in
-            <a href="https://discord.com/channels/995954559044304896/1088754299263258735">in Maul</a>,
+            Access is limited to verified MAUL members. Generate a token, run the command in Maul in the
+            <a href="https://discord.com/channels/995954559044304896/1088754299263258735"> channel </a>,
             set your password in the private prompt, then log in here.
           </p>
           <div class="token-row">
@@ -556,9 +561,14 @@
           : "https://maullobby.sparked.network/api/maulpost";
       const API_BASE = localStorage.getItem("maulLobbiesApiBase") || window.MAUL_LOBBIES_API_BASE || defaultApiBase;
       const sessionKey = "maulLobbiesSession";
+      const legacySession = localStorage.getItem(sessionKey) || "";
+      if (legacySession) {
+        sessionStorage.setItem(sessionKey, legacySession);
+        localStorage.removeItem(sessionKey);
+      }
       const state = {
         tokenCommand: "",
-        session: localStorage.getItem(sessionKey) || "",
+        session: sessionStorage.getItem(sessionKey) || "",
         user: null,
         lobbies: [],
         query: "",
@@ -627,7 +637,7 @@
           });
           state.session = data.sessionToken;
           state.user = data.user;
-          localStorage.setItem(sessionKey, state.session);
+          sessionStorage.setItem(sessionKey, state.session);
           els.passwordInput.value = "";
           await loadLobbies();
         } catch (error) {
@@ -646,7 +656,7 @@
           state.session = "";
           state.user = null;
           state.lobbies = [];
-          localStorage.removeItem(sessionKey);
+          sessionStorage.removeItem(sessionKey);
           render();
         }
       }
@@ -662,7 +672,7 @@
           state.lobbies = Array.isArray(data.lobbies) ? data.lobbies : [];
           render();
         } catch (error) {
-          localStorage.removeItem(sessionKey);
+          sessionStorage.removeItem(sessionKey);
           state.session = "";
           state.user = null;
           state.lobbies = [];
