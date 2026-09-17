@@ -15,7 +15,7 @@
     <meta property="og:locale" content="en_US" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; connect-src 'self' https://maullobby.sparked.network http://127.0.0.1:8094 http://localhost:8094; img-src 'self' https://moddedamong.us data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'"
+      content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; connect-src 'self' https://api.moddedamong.us http://127.0.0.1:8094 http://localhost:8094; img-src 'self' https://moddedamong.us data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline'"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="canonical" href="https://moddedamong.us/lobbies.html" />
@@ -503,8 +503,8 @@
         <div class="login-copy">
           <h2>Login to see lobbies</h2>
           <p>
-            Access is limited to verified MAUL members. Generate a token, run the command in Maul in the
-            <a href="https://discord.com/channels/995954559044304896/1088754299263258735"> channel </a>,
+            Access is limited to verified MAUL members. Generate a token, run the command in
+            <a href="https://discord.com/channels/995954559044304896/1088754299263258735"> in Maul</a>,
             set your password in the private prompt, then log in here.
           </p>
           <div class="token-row">
@@ -555,20 +555,17 @@
 
     <script src="scripts/navbar.js"></script>
     <script>
-      const defaultApiBase =
-        location.hostname === "127.0.0.1" || location.hostname === "localhost"
-          ? "http://127.0.0.1:8094/api/maulpost"
-          : "https://maullobby.sparked.network/api/maulpost";
-      const API_BASE = localStorage.getItem("maulLobbiesApiBase") || window.MAUL_LOBBIES_API_BASE || defaultApiBase;
-      const sessionKey = "maulLobbiesSession";
-      const legacySession = localStorage.getItem(sessionKey) || "";
-      if (legacySession) {
-        sessionStorage.setItem(sessionKey, legacySession);
-        localStorage.removeItem(sessionKey);
+      const isLocal = location.hostname === "127.0.0.1" || location.hostname === "localhost";
+      const defaultApiBase = isLocal ? "http://127.0.0.1:8094/api/maulpost" : "https://api.moddedamong.us/api/maulpost";
+      const API_BASE = (isLocal && localStorage.getItem("maulLobbiesApiBase")) || window.MAUL_LOBBIES_API_BASE || defaultApiBase;
+      if (!isLocal) {
+        localStorage.removeItem("maulLobbiesApiBase");
       }
+      const sessionKey = "maulLobbiesSession";
+      localStorage.removeItem(sessionKey);
+      sessionStorage.removeItem(sessionKey);
       const state = {
         tokenCommand: "",
-        session: sessionStorage.getItem(sessionKey) || "",
         user: null,
         lobbies: [],
         query: "",
@@ -598,10 +595,7 @@
 
       async function api(path, options = {}) {
         const headers = { "Content-Type": "application/json", ...(options.headers || {}) };
-        if (state.session) {
-          headers.Authorization = `Bearer ${state.session}`;
-        }
-        const response = await fetch(`${API_BASE}${path}`, { ...options, headers });
+        const response = await fetch(`${API_BASE}${path}`, { ...options, headers, credentials: "include" });
         const data = await response.json().catch(() => ({ ok: false, message: "Invalid server response." }));
         if (!response.ok || data.ok === false) {
           throw new Error(data.message || `Request failed with HTTP ${response.status}`);
@@ -635,11 +629,9 @@
               password: els.passwordInput.value,
             }),
           });
-          state.session = data.sessionToken;
           state.user = data.user;
-          sessionStorage.setItem(sessionKey, state.session);
           els.passwordInput.value = "";
-          await loadLobbies();
+          await loadLobbies({ quiet: true });
         } catch (error) {
           setNotice(error.message);
         }
@@ -647,42 +639,40 @@
 
       async function logout() {
         try {
-          if (state.session) {
+          if (state.user) {
             await api("/lobbies/logout", { method: "POST", body: "{}" });
           }
         } catch (error) {
           setNotice("Signed out locally. The server session may expire on its own.");
         } finally {
-          state.session = "";
           state.user = null;
           state.lobbies = [];
-          sessionStorage.removeItem(sessionKey);
           render();
         }
       }
 
-      async function loadLobbies() {
-        if (!state.session) {
-          render();
-          return;
-        }
+      async function loadLobbies(options = {}) {
+        const quiet = Boolean(options.quiet);
         try {
           const data = await api("/lobbies");
           state.user = data.user;
           state.lobbies = Array.isArray(data.lobbies) ? data.lobbies : [];
+          if (!quiet) {
+            setNotice("");
+          }
           render();
         } catch (error) {
-          sessionStorage.removeItem(sessionKey);
-          state.session = "";
           state.user = null;
           state.lobbies = [];
-          setNotice(error.message);
+          if (!quiet && error.message !== "Login required.") {
+            setNotice(error.message);
+          }
           render();
         }
       }
 
       function render() {
-        const loggedIn = Boolean(state.session && state.user);
+        const loggedIn = Boolean(state.user);
         els.loginPanel.hidden = loggedIn;
         els.logoutBtn.hidden = !loggedIn;
         els.sessionBadge.textContent = loggedIn ? `Logged in as ${state.user.username}` : "Not logged in";
@@ -755,8 +745,12 @@
         render();
       });
 
-      loadLobbies();
-      window.setInterval(loadLobbies, 30000);
+      loadLobbies({ quiet: true });
+      window.setInterval(() => {
+        if (state.user) {
+          loadLobbies({ quiet: true });
+        }
+      }, 30000);
     </script>
   </body>
 </html>
