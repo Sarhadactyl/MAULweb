@@ -1001,6 +1001,259 @@
           scroll-behavior: auto !important;
         }
       }
+
+      :root {
+        --accent: #ff3349;
+        --accent-soft: rgba(255, 204, 128, 0.24);
+        --accent-strong: #ffcc80;
+        --gold: #ffcc80;
+        --line: rgba(255, 204, 128, 0.16);
+        --line-strong: rgba(255, 204, 128, 0.3);
+        --paper: #fff7ef;
+        --text-main: #fff7ef;
+        --text-muted: rgba(250, 240, 232, 0.78);
+      }
+
+      body {
+        background-color: #030000;
+        background-image:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.88) 64%, rgba(0, 0, 0, 0.96)),
+          radial-gradient(circle at 22% 18%, rgba(186, 28, 42, 0.24), transparent 34%),
+          url("images/Modded-among-us.jpg");
+        background-position: center top, center top, center top;
+        background-size: cover, cover, cover;
+      }
+
+      body::before {
+        background:
+          radial-gradient(circle at 18% 8%, rgba(219, 42, 58, 0.28), transparent 30%),
+          radial-gradient(circle at 78% 12%, rgba(255, 204, 128, 0.14), transparent 32%),
+          linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+        background-size: auto, auto, 44px 44px, 44px 44px;
+        mix-blend-mode: normal;
+        opacity: 1;
+      }
+
+      body::after {
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.88) 76%),
+          radial-gradient(circle at center, rgba(30, 0, 0, 0.48), rgba(0, 0, 0, 0.84));
+      }
+
+      .page-wrapper {
+        max-width: 1280px;
+        padding: 40px 28px 64px;
+      }
+
+      .page-wrapper > .page-wrapper {
+        max-width: none;
+        padding: 0;
+      }
+
+      .page-header {
+        grid-template-columns: minmax(0, 1fr);
+        min-height: 0;
+        padding: 46px 44px;
+        border: 1px solid rgba(255, 204, 128, 0.3);
+        border-radius: 8px;
+        background:
+          linear-gradient(105deg, rgba(8, 7, 9, 0.96) 0%, rgba(13, 12, 15, 0.88) 48%, rgba(8, 7, 9, 0.7) 100%),
+          radial-gradient(circle at 18% 16%, rgba(170, 28, 42, 0.54), transparent 34%);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 30px 80px rgba(0, 0, 0, 0.78);
+      }
+
+      .page-header::before {
+        inset: 0;
+        background:
+          linear-gradient(115deg, rgba(255, 255, 255, 0.08), transparent 25%),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.48), transparent 64%),
+          radial-gradient(circle at 75% 50%, rgba(255, 204, 128, 0.1), transparent 31%);
+        pointer-events: none;
+      }
+
+      .page-header::after {
+        display: none;
+      }
+
+      .join-maul-link {
+        min-height: 44px;
+        padding: 8px 4px;
+        color: #fff7ef;
+        text-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+      }
+
+      .join-maul-link::after {
+        background: linear-gradient(90deg, #ff3048, #ff9e54, #f6d675);
+        box-shadow: 0 0 18px rgba(255, 72, 72, 0.62);
+      }
+
+      .header-badge {
+        margin-bottom: 14px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: #ffcc80;
+        box-shadow: none;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+      }
+
+      .header-badge-dot {
+        display: none;
+      }
+
+      .page-header h1 {
+        max-width: 760px;
+        color: #fff7ef;
+        font-size: clamp(3rem, 5.9vw, 5.3rem);
+        line-height: 0.96;
+      }
+
+      .page-header h1 span {
+        color: #ffcc80;
+        background: none;
+        -webkit-background-clip: initial;
+        background-clip: initial;
+      }
+
+      .page-header-subtitle {
+        max-width: 760px;
+        margin-top: 18px;
+        color: rgba(250, 240, 232, 0.82);
+        font-weight: 500;
+      }
+
+      .hero-stats {
+        margin-top: 24px;
+      }
+
+      .hero-stat,
+      .glass-card,
+      .directory-shell,
+      .staff-card,
+      .modal-content {
+        border-color: rgba(255, 204, 128, 0.16);
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(21, 20, 23, 0.94), rgba(11, 11, 13, 0.96));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 18px 44px rgba(0, 0, 0, 0.6);
+      }
+
+      .staff-card::before {
+        background:
+          linear-gradient(115deg, rgba(255, 255, 255, 0.07), transparent 24%),
+          radial-gradient(circle at 20% 0%, rgba(255, 204, 128, 0.1), transparent 38%);
+      }
+
+      .staff-card:hover {
+        border-color: rgba(255, 204, 128, 0.48);
+        background: rgba(33, 29, 31, 0.88);
+      }
+
+      .section-kicker,
+      .search-label,
+      .role-eyebrow,
+      .staff-more summary,
+      .group-description a {
+        color: #ffcc80;
+      }
+
+      .lead,
+      .requirements,
+      .results-status,
+      .empty-state,
+      .group-description,
+      .staff-more,
+      .hero-stat span {
+        color: rgba(250, 240, 232, 0.78);
+      }
+
+      .jump-link,
+      .filter-btn,
+      .apply-pill,
+      .status-pill,
+      .jump-count,
+      .card-badge {
+        border-color: rgba(255, 204, 128, 0.2);
+        background: rgba(255, 204, 128, 0.08);
+        color: rgba(250, 240, 232, 0.86);
+      }
+
+      .jump-link:hover,
+      .filter-btn:hover,
+      .apply-pill:hover {
+        border-color: rgba(255, 204, 128, 0.52);
+        background: rgba(90, 30, 39, 0.9);
+        color: #ffffff;
+      }
+
+      .filter-btn.is-active {
+        border-color: transparent;
+        background: linear-gradient(135deg, #ff3349, #b70924 48%, #3b0509);
+      }
+
+      .apply-pill.is-open {
+        border-color: rgba(143, 240, 182, 0.32);
+        background: linear-gradient(135deg, rgba(13, 77, 47, 0.78), rgba(9, 42, 31, 0.9));
+      }
+
+      .apply-pill.is-closed {
+        border-color: rgba(255, 204, 128, 0.16);
+        background: rgba(48, 10, 14, 0.72);
+      }
+
+      .search-input {
+        border-color: rgba(255, 204, 128, 0.16);
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.36);
+        color: #ffffff;
+      }
+
+      .search-input:focus {
+        border-color: rgba(255, 204, 128, 0.58);
+        box-shadow: 0 0 0 3px rgba(255, 204, 128, 0.12);
+      }
+
+      .staff-avatar {
+        border-radius: 8px;
+        border-color: rgba(255, 204, 128, 0.3);
+      }
+
+      .staff-group {
+        border-top-color: rgba(255, 204, 128, 0.16);
+      }
+
+      @media (max-width: 940px) {
+        .page-header {
+          min-height: 0;
+          padding: 72px 32px 34px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .page-wrapper {
+          padding: 84px 14px 52px;
+        }
+
+        .page-wrapper > .page-wrapper {
+          padding: 0;
+        }
+
+        .page-header {
+          padding: 72px 18px 30px;
+        }
+
+        .page-header h1 {
+          font-size: clamp(2.8rem, 14vw, 4.4rem);
+        }
+      }
     </style>
   </head>
   <body>
@@ -1012,34 +1265,19 @@
         <div class="hero-copy">
           <div class="header-badge">
             <span class="header-badge-dot"></span>
-            Meet the Team Behind MAUL
+            MAUL Staff
           </div>
           <h1>Our <span>Staff</span></h1>
           <p class="page-header-subtitle">
-            Owners, admins, moderators, verification, events, and giveaways all in one clean directory.
-            Search by name, jump to a team, and open a card when you want the details.
+            The people keeping MAUL running.
           </p>
-          <div class="hero-stats" aria-label="Staff directory summary">
-            <div class="hero-stat">
-              <strong>24</strong>
-              <span>Staff Cards</span>
-            </div>
-            <div class="hero-stat">
-              <strong>5</strong>
-              <span>Teams</span>
-            </div>
-            <div class="hero-stat">
-              <strong>30K+</strong>
-              <span>Members</span>
-            </div>
-          </div>
         </div>
       </header>
 
       <div class="staff-hub">
         <section class="glass-card jump-section" aria-labelledby="quickJumpTitle">
-          <p class="section-kicker">Quick Jump</p>
-          <h2 id="quickJumpTitle" class="directory-title">Browse by Team</h2>
+          <p class="section-kicker">Teams</p>
+          <h2 id="quickJumpTitle" class="directory-title">Browse</h2>
           <nav class="jump-grid" aria-label="Staff section shortcuts">
             <a class="jump-link" href="#owners"><span>Owners</span><span class="jump-count">2</span></a>
             <a class="jump-link" href="#admins"><span>Admins</span><span class="jump-count">4</span></a>
@@ -1050,10 +1288,10 @@
         </section>
 
         <section class="glass-card apply-section" aria-labelledby="applyTitle">
-          <p class="section-kicker">Applications</p>
-          <h2 id="applyTitle">Apply for Staff</h2>
+          <p class="section-kicker">Apply</p>
+          <h2 id="applyTitle">Staff Apps</h2>
           <p class="lead">
-            Interested in helping run the server, guide new hosts, or support events? 
+            Want to help? Check open roles.
           </p>
           <div class="apply-links">
             <button id="moderation-apply" class="apply-pill is-closed" type="button" aria-disabled="true" data-role-name="Moderation">
@@ -1073,18 +1311,17 @@
             </a>
           </div>
           <ul class="requirements">
-            <li>Open event roles apply through a Discord ticket.</li>
-            <li>If you are unsure where you fit, ask staff in the server before applying.</li>
+            <li>Open roles use Discord tickets.</li>
           </ul>
         </section>
 
         <section class="glass-card controls-section" aria-labelledby="directoryControlsTitle">
-          <p class="section-kicker">Directory Tools</p>
+          <p class="section-kicker">Find</p>
           <div class="controls-layout">
             <div>
-              <h2 id="directoryControlsTitle" class="controls-title">Search and Filter</h2>
-              <label class="search-label" for="staffSearch">Search staff by name, team, or keywords</label>
-              <input id="staffSearch" class="search-input" type="search" placeholder="Try Ghoul, verification, artist, owner..." autocomplete="off" />
+              <h2 id="directoryControlsTitle" class="controls-title">Search</h2>
+              <label class="search-label" for="staffSearch">Name, role, or team</label>
+              <input id="staffSearch" class="search-input" type="search" placeholder="Search staff..." autocomplete="off" />
             </div>
             <div>
               <span class="search-label">Show team</span>
@@ -1102,15 +1339,15 @@
       </div>
 
       <section class="directory-section directory-shell" aria-labelledby="directoryTitle">
-        <h2 id="directoryTitle" class="directory-title">Staff Directory</h2>
-        <p id="resultsStatus" class="results-status" aria-live="polite">Showing all 24 staff cards.</p>
-        <p id="emptyState" class="empty-state">No staff matched that search. Try a broader name, role, or team.</p>
+        <h2 id="directoryTitle" class="directory-title">Directory</h2>
+        <p id="resultsStatus" class="results-status" aria-live="polite">All 24 staff.</p>
+        <p id="emptyState" class="empty-state">No matches.</p>
 
         <section id="owners" class="staff-group" data-section>
           <div class="staff-group-head">
             <div>
               <h3 class="staff-group-title">Owners</h3>
-              <p class="group-description">The top-level leadership team for MAUL.</p>
+              <p class="group-description">Server leadership.</p>
             </div>
             <span class="status-pill">2</span>
           </div>
@@ -1127,7 +1364,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <ul class="fact-list">
                     <li>Self skuller.</li>
@@ -1148,7 +1385,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <ul class="fact-list">
                     <li>Works a lot.</li>
@@ -1165,7 +1402,7 @@
           <div class="staff-group-head">
             <div>
               <h3 class="staff-group-title">Admins</h3>
-              <p class="group-description">Core admin leadership helping shape decisions and keep the server stable.</p>
+              <p class="group-description">Admin leadership.</p>
             </div>
             <span class="status-pill">4</span>
           </div>
@@ -1182,7 +1419,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <p>What do I have to say? I am not good at things like this.</p>
                 </div>
@@ -1201,7 +1438,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <p>I am just happy to be here.</p>
                 </div>
@@ -1220,7 +1457,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <ul class="fact-list">
                     <li>Cat enthusiast.</li>
@@ -1243,7 +1480,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <ul class="fact-list">
                     <li>Puns and bad dad jokes for life.</li>
@@ -1260,7 +1497,7 @@
           <div class="staff-group-head">
             <div>
               <h3 class="staff-group-title">Moderation</h3>
-              <p class="group-description">Senior moderators, moderators, and trial mods helping keep games fair and chat healthy.</p>
+              <p class="group-description">Keeping games and chat fair.</p>
             </div>
             <span class="status-pill">9</span>
           </div>
@@ -1277,7 +1514,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <ul class="fact-list">
                     <li>Loves music and gaming.</li>
@@ -1299,7 +1536,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <ul class="fact-list">
                     <li>Just a tree.</li>
@@ -1322,7 +1559,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <ul class="fact-list">
                     <li>Senior contributor for TOHE and coded Coven and Neutral Apocalypse.</li>
@@ -1345,7 +1582,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <ul class="fact-list">
                     <li>Dad.</li>
@@ -1369,7 +1606,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <ul class="fact-list">
                     <li>Two-spirited and feeling the urge to explore these lands.</li>
@@ -1394,7 +1631,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <p>What is up. I am Ghoul. I am a student living in the Netherlands. I am a fan of reading, movies, and sports.</p>
                 </div>
@@ -1413,7 +1650,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <p>Supports moderation and helps keep the community comfortable.</p>
                 </div>
@@ -1432,7 +1669,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <p>Supports moderation and helps keep the community comfortable.</p>
                 </div>
@@ -1451,7 +1688,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <p>This slot represents the current trial moderation group while they settle into the team.</p>
                 </div>
@@ -1464,7 +1701,7 @@
           <div class="staff-group-head">
             <div>
               <h3 class="staff-group-title">Verification</h3>
-              <p class="group-description">Staff handling verification, application review, and safer lobby access.</p>
+              <p class="group-description">Host checks and verification.</p>
             </div>
             <span class="status-pill">4</span>
           </div>
@@ -1481,7 +1718,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <p>Helps guide the verification team and keep host review standards consistent.</p>
                 </div>
@@ -1501,7 +1738,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <p>A student who hosts stuff and watches way too much anime.</p>
                 </div>
@@ -1520,7 +1757,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <p>Supports verification work and helps keep host checks organized.</p>
                 </div>
@@ -1541,7 +1778,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <p>What is up. I am Ghoul. I am a student living in the Netherlands. I am a fan of reading, movies, and sports.</p>
                 </div>
@@ -1554,7 +1791,7 @@
           <div class="staff-group-head">
             <div>
               <h3 class="staff-group-title">Events and Giveaways</h3>
-              <p class="group-description">The team handling event nights, themed activities, and giveaway planning.</p>
+              <p class="group-description">Events and giveaways.</p>
             </div>
             <span class="status-pill">5</span>
           </div>
@@ -1571,7 +1808,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <p>I am This Dude, the giveaway manager for the Discord server. I like to read and play video games, especially Among Us and Minecraft. I also like trying digital drawing every now and then.</p>
                 </div>
@@ -1592,7 +1829,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <p>What is up. I am Ghoul. I am a student living in the Netherlands. I am a fan of reading, movies, and sports.</p>
                 </div>
@@ -1612,7 +1849,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <p>A student who hosts stuff and watches way too much anime.</p>
                 </div>
@@ -1631,7 +1868,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <ul class="fact-list">
                     <li>Silly Brazilian guy.</li>
@@ -1655,7 +1892,7 @@
                 </div>
               </div>
               <details class="staff-more">
-                <summary>View more</summary>
+                <summary>More</summary>
                 <div class="staff-more-body">
                   <ul class="fact-list">
                     <li>Gamer and creator.</li>
@@ -1681,15 +1918,15 @@
       >
         <div class="modal-top">
           <div>
-            <h2 id="modalTitle" class="modal-title">Applications Closed</h2>
-            <p id="modalDescription" class="lead">Applications for this role are currently closed.</p>
+            <h2 id="modalTitle" class="modal-title">Closed</h2>
+            <p id="modalDescription" class="lead">Applications are closed.</p>
           </div>
           <button id="close-modal" class="modal-close" type="button" aria-label="Close application status dialog">
             &times;
           </button>
         </div>
         <p class="lead" style="margin-top: 8px;">
-          For questions about reopening applications, please ask in the server or wait for the status here to change.
+          Ask in the server for updates.
         </p>
       </div>
     </div>
@@ -1736,8 +1973,8 @@
           if (resultsStatus) {
             resultsStatus.textContent =
               visibleCards === cards.length
-                ? `Showing all ${cards.length} staff cards.`
-                : `Showing ${visibleCards} of ${cards.length} staff cards.`;
+                ? `All ${cards.length} staff.`
+                : `${visibleCards} of ${cards.length} staff.`;
           }
 
           if (emptyState) {
@@ -1761,9 +1998,9 @@
 
         function openModal(roleName) {
           if (!modal) return;
-          if (modalTitle) modalTitle.textContent = `${roleName} Applications Closed`;
+          if (modalTitle) modalTitle.textContent = `${roleName}: Closed`;
           if (modalDescription) {
-            modalDescription.textContent = `Applications for ${roleName.toLowerCase()} are currently closed.`;
+            modalDescription.textContent = "Applications are closed.";
           }
           modal.classList.add("is-open");
           modal.setAttribute("aria-hidden", "false");
