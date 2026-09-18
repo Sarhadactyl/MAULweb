@@ -4,20 +4,21 @@
 }
 
 .dropdown {
-  --nav-bg: rgba(18, 6, 10, 0.88);
-  --nav-panel: rgba(20, 7, 12, 0.96);
-  --nav-ink: #fff7f7;
-  --nav-muted: rgba(255, 247, 247, 0.62);
-  --nav-line: rgba(255, 255, 255, 0.12);
-  --nav-soft-line: rgba(255, 255, 255, 0.07);
-  --nav-accent: #ff4f6d;
-  --nav-accent-2: #ffc15d;
-  --nav-hover: rgba(255, 255, 255, 0.075);
+  --nav-bg: rgba(12, 12, 14, 0.9);
+  --nav-panel: rgba(8, 8, 10, 0.96);
+  --nav-ink: #fff7ef;
+  --nav-muted: rgba(250, 240, 232, 0.66);
+  --nav-line: rgba(255, 204, 128, 0.18);
+  --nav-soft-line: rgba(255, 204, 128, 0.1);
+  --nav-accent: #ffcc80;
+  --nav-accent-2: #f2d7a4;
+  --nav-hover: rgba(255, 204, 128, 0.08);
   position: fixed;
-  top: 18px;
-  left: 18px;
-  z-index: 1000;
+  top: max(16px, env(safe-area-inset-top));
+  left: max(16px, env(safe-area-inset-left));
+  z-index: 9999;
   font-family: inherit;
+  max-width: calc(100vw - 24px);
 }
 
 .dropbtn {
@@ -30,8 +31,8 @@
   overflow: hidden;
   cursor: pointer;
   background:
-    linear-gradient(145deg, rgba(56, 16, 23, 0.96), var(--nav-bg)),
-    rgba(35, 10, 10, 0.92);
+    linear-gradient(145deg, rgba(26, 25, 28, 0.96), var(--nav-bg)),
+    rgba(6, 6, 7, 0.92);
   border: 1px solid var(--nav-line);
   border-radius: 999px;
   box-shadow:
@@ -57,10 +58,10 @@
 .dropbtn:hover,
 .dropdown.open .dropbtn {
   transform: translateY(-1px);
-  border-color: rgba(255, 193, 93, 0.38);
+  border-color: rgba(255, 204, 128, 0.52);
   box-shadow:
     0 18px 42px rgba(0, 0, 0, 0.58),
-    0 0 0 4px rgba(255, 79, 109, 0.11),
+    0 0 0 4px rgba(255, 204, 128, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
@@ -86,7 +87,7 @@
   height: 2px;
   background: linear-gradient(90deg, var(--nav-accent-2), var(--nav-accent));
   border-radius: 999px;
-  box-shadow: 0 0 10px rgba(255, 79, 109, 0.38);
+  box-shadow: 0 0 10px rgba(255, 204, 128, 0.34);
   transform-origin: center;
   transition:
     opacity 0.18s ease,
@@ -111,18 +112,20 @@
   top: calc(100% + 12px);
   left: 0;
   display: block;
-  width: min(356px, calc(100vw - 32px));
-  max-height: calc(100vh - 88px);
+  width: min(386px, calc(100vw - 24px));
+  max-height: calc(100vh - 96px);
+  max-height: calc(100dvh - 96px);
   overflow: hidden;
   color: var(--nav-ink);
   background:
+    radial-gradient(circle at 18% 0%, rgba(255, 204, 128, 0.09), transparent 36%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0) 34%),
-    linear-gradient(145deg, rgba(31, 9, 15, 0.98), var(--nav-panel));
+    linear-gradient(145deg, rgba(20, 19, 22, 0.98), var(--nav-panel));
   border: 1px solid var(--nav-line);
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow:
     0 26px 70px rgba(0, 0, 0, 0.72),
-    0 0 0 1px rgba(255, 79, 109, 0.04),
+    0 0 0 1px rgba(255, 204, 128, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(18px);
   opacity: 0;
@@ -156,11 +159,12 @@
 
 .menu-view {
   display: none;
-  max-height: calc(100vh - 88px);
-  padding: 10px;
+  max-height: calc(100vh - 96px);
+  max-height: calc(100dvh - 96px);
+  padding: 12px;
   overflow-y: auto;
   overscroll-behavior: contain;
-  scrollbar-color: rgba(255, 79, 109, 0.65) rgba(255, 255, 255, 0.04);
+  scrollbar-color: rgba(255, 204, 128, 0.56) rgba(255, 255, 255, 0.04);
   scrollbar-width: thin;
 }
 
@@ -178,7 +182,7 @@
 }
 
 .menu-view::-webkit-scrollbar-thumb {
-  background: rgba(255, 79, 109, 0.6);
+  background: rgba(255, 204, 128, 0.58);
   border-radius: 999px;
 }
 
@@ -194,15 +198,19 @@
 .menu-logo {
   display: grid;
   place-items: center;
-  flex: 0 0 36px;
-  width: 36px;
-  height: 36px;
-  color: #21080d;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  color: #11100f;
   font-size: 0.95rem;
   font-weight: 900;
   background: linear-gradient(145deg, var(--nav-accent-2), var(--nav-accent));
   border-radius: 50%;
-  box-shadow: 0 10px 24px rgba(255, 79, 109, 0.26);
+  box-shadow: 0 10px 24px rgba(255, 204, 128, 0.18);
+}
+
+.menu-copy {
+  min-width: 0;
 }
 
 .menu-brand strong {
@@ -229,11 +237,11 @@
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  min-height: 48px;
+  min-height: 46px;
   margin: 2px 0;
-  padding: 8px 12px;
+  padding: 10px 12px;
   gap: 10px;
-  color: rgba(255, 247, 247, 0.9);
+  color: rgba(255, 247, 239, 0.9);
   font: inherit;
   font-size: 0.96rem;
   font-weight: 700;
@@ -241,7 +249,8 @@
   text-align: left;
   text-decoration: none;
   white-space: normal;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  word-break: normal;
   background: transparent;
   border: 0;
   border-radius: 8px;
@@ -276,7 +285,7 @@
   display: inline-block;
   flex: 0 0 22px;
   width: 22px;
-  color: #f7f8ff;
+  color: #fff7ef;
   font-size: 1rem;
   text-align: center;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.16);
@@ -301,7 +310,7 @@
 .menu-nav-btn .fa-chevron-right {
   flex: 0 0 auto;
   margin-left: auto;
-  color: rgba(255, 247, 247, 0.92);
+  color: rgba(255, 247, 239, 0.76);
   font-size: 0.95rem;
   transition:
     color 0.18s ease,
@@ -356,28 +365,28 @@
 
 .beta-glow,
 .highlight-glow {
-  color: #f7f8ff !important;
+  color: #fff7ef !important;
   background: transparent !important;
   box-shadow: none;
   text-shadow:
-    0 0 8px rgba(255, 255, 255, 0.75),
-    0 0 15px rgba(255, 255, 255, 0.45);
+    0 0 8px rgba(255, 204, 128, 0.55),
+    0 0 15px rgba(255, 204, 128, 0.32);
 }
 
 .beta-glow > i:first-child,
 .highlight-glow span > i:first-child {
-  color: #f7f8ff;
+  color: #ffcc80;
   text-shadow:
-    0 0 8px rgba(255, 255, 255, 0.8),
-    0 0 15px rgba(255, 255, 255, 0.48);
+    0 0 8px rgba(255, 204, 128, 0.62),
+    0 0 15px rgba(255, 204, 128, 0.36);
 }
 
 .beta-glow:hover,
 .highlight-glow:hover {
-  background: rgba(255, 255, 255, 0.075) !important;
+  background: rgba(255, 204, 128, 0.08) !important;
   text-shadow:
-    0 0 10px rgba(255, 255, 255, 0.9),
-    0 0 18px rgba(255, 255, 255, 0.55);
+    0 0 10px rgba(255, 204, 128, 0.72),
+    0 0 18px rgba(255, 204, 128, 0.42);
 }
 
 @keyframes menuLift {
@@ -394,8 +403,9 @@
 
 @media (max-width: 480px) {
   .dropdown {
-    top: 14px;
-    left: 14px;
+    top: max(12px, env(safe-area-inset-top));
+    left: max(12px, env(safe-area-inset-left));
+    max-width: calc(100vw - 20px);
   }
 
   .dropbtn {
@@ -404,8 +414,15 @@
   }
 
   .dropdown-content {
-    width: calc(100vw - 28px);
-    max-height: calc(100vh - 78px);
+    width: calc(100vw - 24px);
+    max-height: calc(100vh - 84px);
+    max-height: calc(100dvh - 84px);
+  }
+
+  .menu-view {
+    max-height: calc(100vh - 84px);
+    max-height: calc(100dvh - 84px);
+    padding: 10px;
   }
 
   .dropdown-content a,
