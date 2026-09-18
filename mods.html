@@ -541,8 +541,6 @@
           scroll-behavior: auto !important;
         }
       }
-
-      /* MAUL rich refresh */
       :root {
         --accent: #e50914;
         --accent-soft: rgba(229, 9, 20, 0.3);
@@ -1504,6 +1502,384 @@
         #featured-grid .featured-card .thumb {
           border-right: 0;
           border-bottom: 1px solid rgba(255, 211, 122, 0.16);
+        }
+      }
+
+      :root {
+        --accent: #ff3349;
+        --accent-soft: rgba(255, 204, 128, 0.24);
+        --accent-strong: #ffcc80;
+        --gold: #ffcc80;
+        --line: rgba(255, 204, 128, 0.16);
+        --line-strong: rgba(255, 204, 128, 0.3);
+        --paper: #fff7ef;
+        --text-main: #fff7ef;
+        --text-muted: rgba(250, 240, 232, 0.78);
+      }
+
+      body {
+        background-color: #030000;
+        background-image:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.88) 64%, rgba(0, 0, 0, 0.96)),
+          radial-gradient(circle at 22% 18%, rgba(186, 28, 42, 0.24), transparent 34%),
+          url("images/Modded-among-us.jpg");
+        background-position: center top, center top, center top;
+        background-size: cover, cover, cover;
+      }
+
+      body::before {
+        background:
+          radial-gradient(circle at 18% 8%, rgba(219, 42, 58, 0.28), transparent 30%),
+          radial-gradient(circle at 78% 12%, rgba(255, 204, 128, 0.14), transparent 32%),
+          linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+        background-size: auto, auto, 44px 44px, 44px 44px;
+        mix-blend-mode: normal;
+        opacity: 1;
+      }
+
+      body::after {
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.88) 76%),
+          radial-gradient(circle at center, rgba(30, 0, 0, 0.48), rgba(0, 0, 0, 0.84));
+      }
+
+      .page-wrapper {
+        max-width: 1280px;
+        padding: 40px 28px 64px;
+      }
+
+      .page-header {
+        min-height: 0;
+        padding: 46px 44px;
+        border: 1px solid rgba(255, 204, 128, 0.3);
+        border-radius: 8px;
+        background:
+          linear-gradient(105deg, rgba(8, 7, 9, 0.96) 0%, rgba(13, 12, 15, 0.88) 48%, rgba(8, 7, 9, 0.7) 100%),
+          radial-gradient(circle at 18% 16%, rgba(170, 28, 42, 0.54), transparent 34%);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 30px 80px rgba(0, 0, 0, 0.78);
+      }
+
+      .page-header::before {
+        display: none;
+      }
+
+      .page-header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 0;
+        border-radius: inherit;
+        background:
+          linear-gradient(115deg, rgba(255, 255, 255, 0.08), transparent 25%),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.48), transparent 64%),
+          radial-gradient(circle at 75% 50%, rgba(255, 204, 128, 0.1), transparent 31%);
+        pointer-events: none;
+      }
+
+      .page-header h1 {
+        max-width: 760px;
+        color: #fff7ef;
+        font-size: clamp(3rem, 5.9vw, 5.3rem);
+        line-height: 0.96;
+      }
+
+      .page-header h1 span {
+        color: #ffcc80;
+        background: none;
+        -webkit-background-clip: initial;
+        background-clip: initial;
+      }
+
+      .page-header-subtitle {
+        max-width: 760px;
+        color: rgba(250, 240, 232, 0.82);
+      }
+
+      .hero-join-link {
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        color: #fff7ef;
+        text-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+      }
+
+      .hero-join-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 3px;
+        height: 4px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #ff3048, #ff9e54, #f6d675);
+        box-shadow: 0 0 18px rgba(255, 72, 72, 0.62);
+      }
+
+      .mods-category-nav,
+      .mod-search,
+      .link-warning-card,
+      .featured-spotlight-panel {
+        border-color: rgba(255, 204, 128, 0.16);
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(21, 20, 23, 0.94), rgba(11, 11, 13, 0.96));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 18px 44px rgba(0, 0, 0, 0.6);
+      }
+
+      .mods-category-nav a,
+      .mod-search-count,
+      .featured-highlight-pill,
+      .mod-status-tag,
+      .site-corner-icon {
+        border-color: rgba(255, 204, 128, 0.2);
+        background: rgba(255, 204, 128, 0.08);
+        color: rgba(250, 240, 232, 0.86);
+      }
+
+      .mods-category-nav a:hover {
+        border-color: rgba(255, 204, 128, 0.52);
+        background: rgba(90, 30, 39, 0.9);
+        color: #ffffff;
+      }
+
+      .mod-search-field input {
+        border-color: rgba(255, 204, 128, 0.16);
+        background: rgba(0, 0, 0, 0.36);
+        color: #ffffff;
+      }
+
+      .mod-search-field input:focus {
+        border-color: rgba(255, 204, 128, 0.58);
+        box-shadow: 0 0 0 3px rgba(255, 204, 128, 0.12);
+      }
+
+      .featured-highlight-label,
+      .mods-section-title,
+      .title,
+      .link-warning-title,
+      .featured-spotlight-title {
+        color: #fff7ef;
+      }
+
+      .featured-heading,
+      .featured-highlight-label,
+      .mods-section-title::after,
+      .link-warning-icon,
+      .site-corner-icon i {
+        color: #ffcc80;
+      }
+
+      .mods-section-subtitle,
+      .sub,
+      .link-warning-message,
+      .no-mod-results {
+        color: rgba(250, 240, 232, 0.78);
+      }
+
+      .card,
+      #featured-grid .featured-card {
+        border-radius: 8px;
+        border-color: rgba(255, 204, 128, 0.16);
+        background:
+          linear-gradient(180deg, rgba(21, 20, 23, 0.94), rgba(11, 11, 13, 0.96));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 18px 44px rgba(0, 0, 0, 0.6);
+      }
+
+      .card::before {
+        background: linear-gradient(90deg, #ff3048, #ff9e54, #f6d675);
+      }
+
+      .card:hover {
+        border-color: rgba(255, 204, 128, 0.48);
+        background: rgba(33, 29, 31, 0.88);
+      }
+
+      .thumb {
+        border-bottom-color: rgba(255, 204, 128, 0.14);
+        background:
+          radial-gradient(circle at 50% 38%, rgba(255, 204, 128, 0.12), transparent 42%),
+          linear-gradient(135deg, rgba(4, 2, 3, 0.94), rgba(47, 7, 12, 0.76));
+      }
+
+      .btn,
+      .featured-spotlight-dismiss {
+        border-color: rgba(229, 161, 91, 0.27);
+        border-radius: 8px;
+        background: rgba(16, 15, 18, 0.74);
+        color: #fff7ef;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .download-btn,
+      .release-btn {
+        border-color: transparent;
+        background: linear-gradient(135deg, #ff3349, #b70924 48%, #3b0509);
+        color: #ffffff;
+      }
+
+      .btn:hover,
+      .featured-spotlight-dismiss:hover {
+        border-color: rgba(255, 204, 128, 0.52);
+        background: linear-gradient(135deg, rgba(177, 27, 42, 0.7), rgba(30, 26, 28, 0.95));
+        color: #ffffff;
+      }
+
+      .link-warning-destination {
+        border-color: rgba(255, 204, 128, 0.16);
+        background: rgba(0, 0, 0, 0.36);
+        color: #f7d7ad;
+      }
+
+      @media (max-width: 900px), (hover: none), (pointer: coarse) {
+        html {
+          background: #030000 !important;
+        }
+
+        body {
+          background-color: #030000 !important;
+          background-image:
+            linear-gradient(180deg, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.88) 64%, rgba(0, 0, 0, 0.96)),
+            radial-gradient(circle at 22% 18%, rgba(186, 28, 42, 0.24), transparent 34%),
+            url("images/Modded-among-us.jpg") !important;
+          background-position: center top, center top, center top !important;
+          background-size: cover, cover, cover !important;
+          background-attachment: scroll !important;
+        }
+
+        body::before,
+        body::after {
+          content: "" !important;
+          display: block !important;
+        }
+
+        body::before {
+          background:
+            radial-gradient(circle at 18% 8%, rgba(219, 42, 58, 0.24), transparent 30%),
+            radial-gradient(circle at 78% 12%, rgba(255, 204, 128, 0.12), transparent 32%) !important;
+        }
+
+        body::after {
+          background:
+            linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.88) 76%),
+            radial-gradient(circle at center, rgba(30, 0, 0, 0.42), rgba(0, 0, 0, 0.82)) !important;
+        }
+
+        .page-wrapper {
+          padding: 84px 14px 56px !important;
+        }
+
+        .page-header {
+          padding: 72px 20px 26px;
+        }
+      }
+
+      .preset-actions,
+      .card > .card-body > .preset-actions,
+      #featured-grid .featured-card .preset-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        align-items: stretch;
+      }
+
+      .preset-actions .btn {
+        min-width: 0;
+        min-height: 42px;
+        padding: 9px 13px;
+        border: 1px solid rgba(255, 204, 128, 0.24);
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(18, 17, 20, 0.94), rgba(10, 10, 12, 0.96));
+        color: #fff7ef;
+        font-size: 0.83rem;
+        font-weight: 800;
+        line-height: 1.15;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          inset -2px 0 0 rgba(255, 204, 128, 0.08);
+        order: 2;
+      }
+
+      .preset-actions .release-btn {
+        border-color: rgba(255, 204, 128, 0.26);
+        background:
+          linear-gradient(180deg, rgba(18, 17, 20, 0.94), rgba(10, 10, 12, 0.96));
+        color: #fff7ef;
+      }
+
+      .preset-actions .download-btn {
+        min-height: 56px;
+        padding: 13px 15px;
+        border-color: rgba(255, 204, 128, 0.24);
+        background:
+          linear-gradient(180deg, rgba(18, 17, 20, 0.94), rgba(10, 10, 12, 0.96));
+        color: #fff7ef;
+        font-size: 0.96rem;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          inset -2px 0 0 rgba(255, 204, 128, 0.08);
+        order: 1;
+      }
+
+      .preset-actions .btn:hover {
+        border-color: rgba(255, 204, 128, 0.68);
+        background:
+          linear-gradient(180deg, rgba(25, 24, 27, 0.98), rgba(14, 13, 15, 0.98));
+        color: #ffffff;
+        transform: translateY(-1px);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 0 0 1px rgba(255, 204, 128, 0.18),
+          0 14px 30px rgba(0, 0, 0, 0.52);
+      }
+
+      .preset-actions .download-btn:hover {
+        border-color: rgba(255, 204, 128, 0.76);
+        background:
+          linear-gradient(180deg, rgba(25, 24, 27, 0.98), rgba(14, 13, 15, 0.98));
+        animation: downloadButtonPulse 1.15s ease-in-out infinite;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 0 0 1px rgba(255, 204, 128, 0.2),
+          0 0 18px rgba(255, 204, 128, 0.28),
+          0 16px 34px rgba(0, 0, 0, 0.56);
+      }
+
+      @keyframes downloadButtonPulse {
+        0%,
+        100% {
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            0 0 0 1px rgba(255, 204, 128, 0.18),
+            0 0 12px rgba(255, 204, 128, 0.18),
+            0 16px 34px rgba(0, 0, 0, 0.56);
+        }
+        50% {
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            0 0 0 1px rgba(255, 204, 128, 0.36),
+            0 0 28px rgba(255, 204, 128, 0.48),
+            0 18px 38px rgba(0, 0, 0, 0.62);
+        }
+      }
+
+      .preset-actions .btn:focus-visible {
+        outline: 3px solid rgba(255, 204, 128, 0.42);
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 520px) {
+        .preset-actions,
+        .card > .card-body > .preset-actions,
+        #featured-grid .featured-card .preset-actions {
+          grid-template-columns: 1fr;
         }
       }
     </style>
@@ -3793,4 +4169,3 @@
     <script src="/scripts/navbar.js"></script>
   </body>
 </html>
-
