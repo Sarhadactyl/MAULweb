@@ -1882,15 +1882,21 @@
           grid-template-columns: 1fr;
         }
       }
+
+      #navbar {
+        --accent: #ffcc80;
+        --accent-soft: rgba(255, 204, 128, 0.18);
+        --accent-strong: #f2d7a4;
+        --bg-card: rgba(12, 12, 14, 0.92);
+        --bg-soft: rgba(18, 17, 20, 0.9);
+        --text-main: #fff7ef;
+        --text-muted: rgba(250, 240, 232, 0.78);
+      }
     </style>
   </head>
 
   <body>
     <div id="navbar"></div>
-    <a class="site-corner-icon" href="/" aria-label="MAUL home" title="MAUL home">
-      <img src="images/favicon.png" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-      <i class="fa-solid fa-house" aria-hidden="true"></i>
-    </a>
 
     <div class="page-wrapper">
       <header class="page-header">
