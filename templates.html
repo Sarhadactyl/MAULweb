@@ -1136,6 +1136,144 @@
         }
       }
 
+      .cta-primary,
+      .cta-secondary,
+      .btn,
+      .reset-filters {
+        border-color: rgba(255, 204, 128, 0.24);
+        background:
+          linear-gradient(180deg, rgba(18, 17, 20, 0.94), rgba(10, 10, 12, 0.96));
+        color: #fff7ef;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          inset -2px 0 0 rgba(255, 204, 128, 0.08);
+        filter: none;
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease,
+          background 0.18s ease,
+          box-shadow 0.2s ease,
+          color 0.18s ease;
+      }
+
+      .cta-primary:hover,
+      .cta-secondary:hover,
+      .btn:hover,
+      .reset-filters:hover {
+        border-color: rgba(255, 204, 128, 0.68);
+        background:
+          linear-gradient(180deg, rgba(25, 24, 27, 0.98), rgba(14, 13, 15, 0.98));
+        color: #ffffff;
+        filter: none;
+        transform: translateY(-1px);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 0 0 1px rgba(255, 204, 128, 0.18),
+          0 14px 30px rgba(0, 0, 0, 0.52);
+      }
+
+      .download-btn:hover {
+        border-color: rgba(255, 204, 128, 0.76);
+        animation: templateDownloadButtonPulse 1.15s ease-in-out infinite;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 0 0 1px rgba(255, 204, 128, 0.2),
+          0 0 18px rgba(255, 204, 128, 0.28),
+          0 16px 34px rgba(0, 0, 0, 0.56);
+      }
+
+      .btn.disabled,
+      .btn.disabled:hover {
+        transform: none;
+        animation: none;
+        opacity: 0.55;
+      }
+
+      @keyframes templateDownloadButtonPulse {
+        0%,
+        100% {
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            0 0 0 1px rgba(255, 204, 128, 0.18),
+            0 0 12px rgba(255, 204, 128, 0.18),
+            0 16px 34px rgba(0, 0, 0, 0.56);
+        }
+
+        50% {
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            0 0 0 1px rgba(255, 204, 128, 0.36),
+            0 0 28px rgba(255, 204, 128, 0.48),
+            0 18px 38px rgba(0, 0, 0, 0.62);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .download-btn:hover {
+          animation: none;
+        }
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 50% 0%, rgba(255, 204, 128, 0.08), transparent 32%),
+          linear-gradient(180deg, #050505 0%, #020202 56%, #000000 100%);
+        background-attachment: fixed;
+      }
+
+      body::before {
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+        background-size: 52px 52px;
+        opacity: 0.22;
+        mix-blend-mode: normal;
+      }
+
+      .header,
+      .template-controls,
+      .templates-section,
+      .info-paragraph,
+      .mini-steps-wrap {
+        background:
+          linear-gradient(135deg, rgba(24, 23, 26, 0.94), rgba(8, 8, 10, 0.97) 58%, rgba(0, 14, 13, 0.7)),
+          rgba(6, 6, 7, 0.92);
+      }
+
+      .header::before,
+      .template-controls::before,
+      .templates-section::before {
+        background:
+          linear-gradient(90deg, rgba(5, 5, 6, 0.74), rgba(0, 0, 0, 0.84)),
+          url("images/banner-transparent-cropped.png") no-repeat center / 88% auto;
+        opacity: 0.12;
+      }
+
+      .header::before {
+        background:
+          radial-gradient(circle at 70% 44%, rgba(255, 204, 128, 0.1), transparent 40%),
+          linear-gradient(90deg, rgba(5, 5, 6, 0.82), rgba(0, 0, 0, 0.88));
+        opacity: 1;
+      }
+
+      .grid .card {
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.01)),
+          linear-gradient(145deg, rgba(30, 29, 32, 0.88), rgba(5, 5, 5, 0.92) 52%, rgba(0, 14, 13, 0.54)),
+          rgba(7, 7, 8, 0.92);
+      }
+
+      .hero-panel::before {
+        background:
+          radial-gradient(circle, rgba(255, 211, 110, 0.2), transparent 58%),
+          conic-gradient(from 210deg, rgba(255, 204, 128, 0), rgba(255, 204, 128, 0.22), rgba(110, 249, 255, 0.12), rgba(255, 204, 128, 0));
+        opacity: 0.72;
+      }
+
+      .hero-panel > img {
+        filter: drop-shadow(0 38px 42px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 28px rgba(255, 204, 128, 0.12));
+      }
+
       @media (min-width: 720px) {
         .template-controls {
           padding-left: 64px;
@@ -1569,7 +1707,7 @@
         const actions = el('div', 'preset-actions');
 
         if (tpl.file) {
-          const dl = el('a', 'btn', 'Download .txt');
+          const dl = el('a', 'btn download-btn', 'Download .txt');
           dl.href = tpl.file;
           dl.setAttribute('download', '');
           actions.appendChild(dl);
