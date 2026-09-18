@@ -4,8 +4,8 @@
 }
 
 .dropdown {
-  --nav-bg: rgba(6, 6, 7, 0.98);
-  --nav-panel: rgba(3, 3, 4, 0.99);
+  --nav-bg: #050505;
+  --nav-panel: #050505;
   --nav-ink: #fff7ef;
   --nav-muted: rgba(250, 240, 232, 0.66);
   --nav-line: rgba(255, 204, 128, 0.18);
@@ -118,15 +118,14 @@
   overflow: hidden;
   color: var(--nav-ink);
   background:
-    linear-gradient(180deg, rgba(18, 18, 20, 0.98), rgba(5, 5, 6, 0.99)),
-    #050505;
+    linear-gradient(180deg, #080808 0%, #050505 50%, #030303 100%);
   border: 1px solid var(--nav-line);
   border-radius: 12px;
   box-shadow:
     0 26px 70px rgba(0, 0, 0, 0.72),
     0 0 0 1px rgba(255, 204, 128, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(18px);
+  backdrop-filter: none;
   opacity: 0;
   pointer-events: none;
   transform: translateY(-6px) scale(0.985);
@@ -362,7 +361,32 @@
   border-bottom: 1px solid var(--nav-soft-line);
 }
 
-.beta-glow,
+.dropdown-content a.beta-glow {
+  color: #ff6570 !important;
+  background: transparent !important;
+  box-shadow: none;
+  text-shadow:
+    0 0 6px rgba(255, 48, 65, 0.95),
+    0 0 14px rgba(255, 32, 50, 0.65),
+    0 0 24px rgba(255, 20, 40, 0.36);
+}
+
+.dropdown-content a.beta-glow > i:first-child {
+  color: #ff4555;
+  text-shadow:
+    0 0 8px rgba(255, 48, 65, 0.85),
+    0 0 16px rgba(255, 32, 50, 0.5);
+}
+
+.dropdown-content a.beta-glow:hover {
+  color: #ff8790 !important;
+  background: rgba(255, 36, 52, 0.09) !important;
+  text-shadow:
+    0 0 9px rgba(255, 48, 65, 1),
+    0 0 20px rgba(255, 32, 50, 0.78),
+    0 0 30px rgba(255, 20, 40, 0.44);
+}
+
 .highlight-glow {
   color: #fff7ef !important;
   background: transparent !important;
@@ -372,7 +396,6 @@
     0 0 15px rgba(255, 204, 128, 0.32);
 }
 
-.beta-glow > i:first-child,
 .highlight-glow span > i:first-child {
   color: #ffcc80;
   text-shadow:
@@ -380,7 +403,6 @@
     0 0 15px rgba(255, 204, 128, 0.36);
 }
 
-.beta-glow:hover,
 .highlight-glow:hover {
   background: rgba(255, 204, 128, 0.08) !important;
   text-shadow:
