@@ -1127,6 +1127,350 @@
           scroll-behavior: auto !important;
         }
       }
+      
+      :root {
+        --accent: #ff3349;
+        --accent-soft: rgba(255, 204, 128, 0.24);
+        --accent-strong: #ffcc80;
+        --gold: #ffcc80;
+        --line: rgba(255, 204, 128, 0.16);
+        --line-strong: rgba(255, 204, 128, 0.3);
+        --paper: #fff7ef;
+        --panel: rgba(21, 20, 23, 0.94);
+        --panel-strong: rgba(16, 15, 18, 0.96);
+        --text-main: #fff7ef;
+        --text-muted: rgba(250, 240, 232, 0.78);
+      }
+
+      body {
+        background-color: #030000;
+        background-image:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.36), rgba(0, 0, 0, 0.88) 64%, rgba(0, 0, 0, 0.96)),
+          radial-gradient(circle at 22% 18%, rgba(186, 28, 42, 0.24), transparent 34%),
+          url("images/Modded-among-us.jpg");
+        background-position: center top, center top, center top;
+        background-size: cover, cover, cover;
+      }
+
+      body::before {
+        background:
+          radial-gradient(circle at 18% 8%, rgba(219, 42, 58, 0.28), transparent 30%),
+          radial-gradient(circle at 78% 12%, rgba(255, 204, 128, 0.14), transparent 32%),
+          linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+        background-size: auto, auto, 44px 44px, 44px 44px;
+        mix-blend-mode: normal;
+        opacity: 1;
+      }
+
+      body::after {
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.88) 76%),
+          radial-gradient(circle at center, rgba(30, 0, 0, 0.48), rgba(0, 0, 0, 0.84));
+      }
+
+      .page-wrapper {
+        max-width: 1280px;
+        padding: 40px 28px 64px;
+      }
+
+      .page-header {
+        grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.72fr);
+        min-height: 0;
+        gap: 36px;
+        padding: 46px 44px;
+        border: 1px solid rgba(255, 204, 128, 0.3);
+        border-radius: 8px;
+        background:
+          linear-gradient(105deg, rgba(8, 7, 9, 0.96) 0%, rgba(13, 12, 15, 0.88) 48%, rgba(8, 7, 9, 0.7) 100%),
+          radial-gradient(circle at 18% 16%, rgba(170, 28, 42, 0.54), transparent 34%);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 30px 80px rgba(0, 0, 0, 0.78);
+      }
+
+      .page-header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(115deg, rgba(255, 255, 255, 0.08), transparent 25%),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.48), transparent 64%),
+          radial-gradient(circle at 75% 50%, rgba(255, 204, 128, 0.1), transparent 31%);
+        pointer-events: none;
+      }
+
+      .header-badge {
+        margin: 0 0 14px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: #ffcc80;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+      }
+
+      .header-badge-dot {
+        display: none;
+      }
+
+      .page-header h1 {
+        max-width: 760px;
+        color: #fff7ef;
+        font-size: clamp(3rem, 5.9vw, 5.3rem);
+        line-height: 0.96;
+      }
+
+      .page-header h1 .hero-line {
+        color: #fff7ef;
+        background: none;
+        -webkit-background-clip: initial;
+        background-clip: initial;
+      }
+
+      .page-header h1 .hero-line:last-child {
+        color: #ffcc80;
+      }
+
+      .page-header-subtitle {
+        max-width: 620px;
+        margin-top: 18px;
+        color: rgba(250, 240, 232, 0.82);
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.65;
+      }
+
+      .page-header-subtitle .header-highlight {
+        color: #f7d7ad;
+      }
+
+      .hero-art {
+        align-self: center;
+        aspect-ratio: 16 / 9;
+        min-height: 0;
+        border: 1px solid rgba(255, 204, 128, 0.18);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #050505 url("images/banner.png") center / contain no-repeat;
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.58);
+      }
+
+      .hero-art::before {
+        display: none;
+      }
+
+      .hero-art::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, transparent 42%, rgba(0, 0, 0, 0.54)),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.22), transparent 46%);
+        pointer-events: none;
+      }
+
+      .hero-bean {
+        display: none;
+      }
+
+      .cta-primary,
+      .cta-secondary,
+      .btn {
+        border-radius: 8px;
+        border-color: rgba(229, 161, 91, 0.27);
+        background: rgba(16, 15, 18, 0.74);
+        color: #fff7ef;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .cta-primary,
+      .download-btn {
+        border-color: transparent;
+        background: linear-gradient(135deg, #ff3349, #b70924 48%, #3b0509);
+        color: #ffffff;
+      }
+
+      .cta-secondary {
+        background: rgba(255, 204, 128, 0.1);
+      }
+
+      .cta-primary:hover,
+      .cta-secondary:hover,
+      .btn:hover,
+      .download-btn:hover {
+        border-color: rgba(255, 204, 128, 0.52);
+        background: linear-gradient(135deg, rgba(177, 27, 42, 0.7), rgba(30, 26, 28, 0.95));
+        color: #ffffff;
+        filter: none;
+        transform: translateY(-1px);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.95);
+      }
+
+      .card,
+      #featured-grid .card,
+      .mini-steps-wrap,
+      .modal {
+        border-radius: 8px;
+        border-color: rgba(255, 204, 128, 0.16);
+        background:
+          linear-gradient(180deg, rgba(21, 20, 23, 0.94), rgba(11, 11, 13, 0.96));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 18px 44px rgba(0, 0, 0, 0.6);
+      }
+
+      .card::before {
+        background: linear-gradient(90deg, #ff3048, #ff9e54, #f6d675);
+      }
+
+      .card:hover {
+        border-color: rgba(255, 204, 128, 0.48);
+        background: rgba(33, 29, 31, 0.88);
+      }
+
+      .thumb {
+        border-bottom-color: rgba(255, 204, 128, 0.14);
+        background:
+          radial-gradient(circle at 50% 38%, rgba(255, 204, 128, 0.12), transparent 42%),
+          linear-gradient(135deg, rgba(4, 2, 3, 0.94), rgba(47, 7, 12, 0.76));
+      }
+
+      .featured-highlight-label,
+      .featured-highlight-pill,
+      .mods-section-title,
+      .mini-steps-title,
+      .modal-title,
+      .modal-body h4 {
+        color: #ffcc80;
+      }
+
+      .mods-section-subtitle,
+      .sub,
+      .mini-note,
+      .presets-footer-note,
+      .modal-body {
+        color: rgba(250, 240, 232, 0.78);
+      }
+
+      .featured-highlight-pill,
+      details,
+      details[open],
+      .mini-steps code {
+        border-color: rgba(255, 204, 128, 0.16);
+        background: rgba(255, 204, 128, 0.08);
+      }
+
+      .modal-header {
+        background: rgba(16, 15, 18, 0.94);
+        border-bottom-color: rgba(255, 204, 128, 0.16);
+      }
+
+      .modal-close {
+        border-color: rgba(255, 204, 128, 0.2);
+        background: rgba(255, 204, 128, 0.08);
+        color: #fff7ef;
+      }
+
+      /* No-red button treatment */
+      .cta-primary,
+      .cta-secondary,
+      .btn,
+      .btn.secondary,
+      .download-btn,
+      .btn.secondary.download-btn {
+        border-color: rgba(255, 204, 128, 0.24);
+        background:
+          linear-gradient(180deg, rgba(18, 17, 20, 0.94), rgba(10, 10, 12, 0.96));
+        color: #fff7ef;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          inset -2px 0 0 rgba(255, 204, 128, 0.08);
+        filter: none;
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease,
+          background 0.18s ease,
+          box-shadow 0.2s ease,
+          color 0.18s ease;
+      }
+
+      .cta-primary:hover,
+      .cta-secondary:hover,
+      .btn:hover,
+      .btn.secondary:hover,
+      .download-btn:hover,
+      .btn.secondary.download-btn:hover {
+        border-color: rgba(255, 204, 128, 0.68);
+        background:
+          linear-gradient(180deg, rgba(25, 24, 27, 0.98), rgba(14, 13, 15, 0.98));
+        color: #ffffff;
+        filter: none;
+        transform: translateY(-1px);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 0 0 1px rgba(255, 204, 128, 0.18),
+          0 14px 30px rgba(0, 0, 0, 0.52);
+      }
+
+      .download-btn:hover,
+      .btn.secondary.download-btn:hover {
+        border-color: rgba(255, 204, 128, 0.76);
+        animation: presetDownloadButtonPulse 1.15s ease-in-out infinite;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 0 0 1px rgba(255, 204, 128, 0.2),
+          0 0 18px rgba(255, 204, 128, 0.28),
+          0 16px 34px rgba(0, 0, 0, 0.56);
+      }
+
+      @keyframes presetDownloadButtonPulse {
+        0%,
+        100% {
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            0 0 0 1px rgba(255, 204, 128, 0.18),
+            0 0 12px rgba(255, 204, 128, 0.18),
+            0 16px 34px rgba(0, 0, 0, 0.56);
+        }
+
+        50% {
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            0 0 0 1px rgba(255, 204, 128, 0.36),
+            0 0 28px rgba(255, 204, 128, 0.48),
+            0 18px 38px rgba(0, 0, 0, 0.62);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .download-btn:hover,
+        .btn.secondary.download-btn:hover {
+          animation: none;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .page-wrapper {
+          padding: 84px 14px 56px;
+        }
+
+        .page-header {
+          grid-template-columns: 1fr;
+          padding: 32px 22px 30px;
+        }
+
+        .page-header h1 {
+          font-size: clamp(2.8rem, 14vw, 4.4rem);
+        }
+
+        .hero-art {
+          width: 100%;
+          margin-top: 0;
+        }
+      }
     </style>
   </head>
 
