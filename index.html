@@ -31,6 +31,8 @@
       referrerpolicy="no-referrer"
     />
 
+    <link rel="stylesheet" href="/styles/navbar.css" />
+
     <style>
       :root {
         --red: #ec2537;
@@ -110,184 +112,6 @@
       ::selection {
         background: rgba(255, 211, 110, 0.34);
         color: #fff;
-      }
-
-      .dropdown {
-        position: fixed;
-        top: 22px;
-        left: 22px;
-        z-index: 1000;
-        animation: navIntro 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) 0.35s backwards;
-      }
-
-      .dropbtn {
-        width: 54px;
-        height: 54px;
-        padding: 0;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: 50%;
-        background: linear-gradient(145deg, rgba(36, 15, 18, 0.9), rgba(8, 4, 6, 0.82));
-        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.56), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-        cursor: pointer;
-        backdrop-filter: blur(16px);
-        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .dropbtn:hover {
-        transform: translateY(-2px);
-        border-color: rgba(255, 211, 110, 0.38);
-        box-shadow: 0 22px 54px rgba(0, 0, 0, 0.72), 0 0 36px rgba(236, 37, 55, 0.22);
-      }
-
-      .site-corner-icon {
-        position: fixed;
-        top: max(22px, env(safe-area-inset-top));
-        right: max(22px, env(safe-area-inset-right));
-        z-index: 1000;
-        width: 54px;
-        height: 54px;
-        display: grid;
-        place-items: center;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: 50%;
-        background: linear-gradient(145deg, rgba(36, 15, 18, 0.9), rgba(8, 4, 6, 0.82));
-        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.56), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-        backdrop-filter: blur(16px);
-        color: var(--gold);
-        text-decoration: none;
-        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-        animation: navIntro 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) 0.42s backwards;
-      }
-
-      .site-corner-icon:hover,
-      .site-corner-icon:focus-visible {
-        transform: translateY(-2px);
-        border-color: rgba(255, 211, 110, 0.38);
-        box-shadow: 0 22px 54px rgba(0, 0, 0, 0.72), 0 0 36px rgba(236, 37, 55, 0.22);
-        outline: none;
-      }
-
-      .site-corner-icon img {
-        width: 32px;
-        height: 32px;
-        display: block;
-        object-fit: contain;
-      }
-
-      .site-corner-icon i {
-        display: none;
-        font-size: 1.12rem;
-      }
-
-      .hamburger {
-        width: 24px;
-        height: 16px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .hamburger span {
-        display: block;
-        height: 2px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, var(--gold), var(--red));
-        box-shadow: 0 0 12px rgba(236, 37, 55, 0.42);
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        top: calc(100% + 12px);
-        left: 0;
-        width: 360px;
-        max-width: calc(100vw - 32px);
-        max-height: calc(100vh - 44px);
-        overflow: hidden;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        background: linear-gradient(160deg, rgba(35, 14, 17, 0.96), rgba(8, 4, 6, 0.96));
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(20px);
-      }
-
-      .dropdown.open .dropdown-content {
-        display: block;
-      }
-
-      .menu-view {
-        display: none;
-        max-height: calc(100vh - 66px);
-        padding: 8px 0;
-        overflow-y: auto;
-        overscroll-behavior: contain;
-      }
-
-      .menu-view.active {
-        display: block;
-      }
-
-      .dropdown-content a,
-      .menu-nav-btn,
-      .menu-back-btn {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 11px;
-        padding: 15px 22px;
-        border: 0;
-        background: transparent;
-        color: var(--paper);
-        font: inherit;
-        font-size: 0.96rem;
-        text-align: left;
-        text-decoration: none;
-        cursor: pointer;
-        transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
-      }
-
-      .dropdown-content a i:first-child,
-      .menu-nav-btn span,
-      .menu-back-btn span {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .menu-nav-btn .fa-chevron-right {
-        margin-left: auto;
-      }
-
-      .dropdown-content a:hover,
-      .menu-nav-btn:hover,
-      .menu-back-btn:hover {
-        padding-left: 27px;
-        color: var(--gold);
-        background: linear-gradient(90deg, rgba(236, 37, 55, 0.16), rgba(255, 255, 255, 0.04));
-      }
-
-      .menu-back-btn {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        margin-bottom: 4px;
-      }
-
-      .submenu-title {
-        margin-bottom: 4px;
-        padding: 13px 22px 10px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        color: rgba(255, 255, 255, 0.62);
-        font-size: 0.76rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      .beta-glow,
-      .highlight-glow {
-        color: #ff727d !important;
-        font-weight: 700;
-        text-shadow: 0 0 14px rgba(236, 37, 55, 0.7);
       }
 
       .page-shell {
@@ -941,18 +765,6 @@
         }
       }
 
-      @keyframes navIntro {
-        from {
-          opacity: 0;
-          transform: translateY(-10px) scale(0.96);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-      }
-
       .reveal-item {
         opacity: 0;
         filter: blur(6px);
@@ -1112,23 +924,6 @@
           width: min(100% - 28px, 1180px);
         }
 
-        .dropdown {
-          top: 18px;
-          left: 18px;
-        }
-
-        .site-corner-icon {
-          top: max(18px, env(safe-area-inset-top));
-          right: max(18px, env(safe-area-inset-right));
-          width: 48px;
-          height: 48px;
-        }
-
-        .site-corner-icon img {
-          width: 29px;
-          height: 29px;
-        }
-
         .hero {
           min-height: auto;
           padding: 86px 0 38px;
@@ -1225,10 +1020,6 @@
 
   <body>
     <div id="navbar"></div>
-    <a class="site-corner-icon" href="/" aria-label="MAUL home" title="MAUL home">
-      <img src="images/favicon.png" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-      <i class="fa-solid fa-house" aria-hidden="true"></i>
-    </a>
 
     <main class="page-shell">
       <section class="hero" aria-labelledby="hero-title">
