@@ -794,6 +794,139 @@
         display: none !important;
       }
 
+      :root {
+        --accent: #ffcc80;
+        --accent-soft: rgba(255, 204, 128, 0.18);
+        --accent-strong: #f2d7a4;
+        --bg-card: rgba(12, 12, 14, 0.92);
+        --bg-soft: rgba(18, 17, 20, 0.9);
+        --text-main: #fff7ef;
+        --text-muted: rgba(250, 240, 232, 0.78);
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 50% 0%, rgba(255, 204, 128, 0.08), transparent 32%),
+          linear-gradient(180deg, #050505 0%, #020202 56%, #000000 100%);
+        background-attachment: fixed;
+      }
+
+      body::before {
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+        background-size: 52px 52px;
+        opacity: 0.22;
+        mix-blend-mode: normal;
+      }
+
+      body::after {
+        background:
+          radial-gradient(circle at top, rgba(255, 204, 128, 0.08), transparent 36%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.78));
+      }
+
+      .header,
+      .info-paragraph,
+      .panel,
+      .language-icon-section,
+      .font-card,
+      .footer-inner {
+        border-color: rgba(255, 204, 128, 0.16);
+        background:
+          linear-gradient(135deg, rgba(24, 23, 26, 0.94), rgba(8, 8, 10, 0.97) 58%, rgba(0, 14, 13, 0.7)),
+          rgba(6, 6, 7, 0.92);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          0 18px 44px rgba(0, 0, 0, 0.62);
+      }
+
+      .header-badge {
+        border-color: rgba(255, 204, 128, 0.26);
+        background: rgba(12, 10, 11, 0.74);
+        color: rgba(250, 240, 232, 0.78);
+      }
+
+      .header h1 span {
+        background: none;
+        -webkit-background-clip: initial;
+        background-clip: initial;
+        color: #ffcc80;
+      }
+
+      .header-highlight,
+      .info-paragraph strong,
+      .info-paragraph a,
+      .panel h2,
+      .footer-inner a {
+        color: #ffcc80;
+      }
+
+      .info-paragraph a:hover,
+      .footer-inner a:hover {
+        color: #f2d7a4;
+      }
+
+      .icon-search-box,
+      .gen-card,
+      .gen-controls label,
+      .gen-stop,
+      .gen-output code {
+        border-color: rgba(255, 204, 128, 0.16);
+        background: rgba(16, 15, 18, 0.66);
+      }
+
+      .icon-card {
+        border-color: rgba(255, 204, 128, 0.14);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.01)),
+          linear-gradient(145deg, rgba(30, 29, 32, 0.88), rgba(5, 5, 5, 0.92) 52%, rgba(0, 14, 13, 0.54)),
+          rgba(7, 7, 8, 0.92);
+      }
+
+      .icon-card:hover {
+        border-color: rgba(255, 204, 128, 0.48);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.015)),
+          linear-gradient(145deg, rgba(38, 36, 39, 0.94), rgba(6, 6, 7, 0.94) 52%, rgba(0, 16, 15, 0.62));
+      }
+
+      .icon-count {
+        border: 1px solid rgba(255, 204, 128, 0.16);
+        background: rgba(255, 204, 128, 0.08);
+        color: #ffcc80;
+      }
+
+      .cta-primary,
+      .cta-secondary,
+      .action-btn,
+      .action-btn-sm {
+        border-color: rgba(255, 204, 128, 0.24);
+        background:
+          linear-gradient(180deg, rgba(18, 17, 20, 0.94), rgba(10, 10, 12, 0.96));
+        color: #fff7ef;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          inset -2px 0 0 rgba(255, 204, 128, 0.08);
+        filter: none;
+      }
+
+      .cta-primary:hover,
+      .cta-secondary:hover,
+      .action-btn:hover,
+      .action-btn-sm:hover {
+        border-color: rgba(255, 204, 128, 0.68);
+        background:
+          linear-gradient(180deg, rgba(25, 24, 27, 0.98), rgba(14, 13, 15, 0.98));
+        color: #ffffff;
+        filter: none;
+        transform: translateY(-1px);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          0 0 0 1px rgba(255, 204, 128, 0.18),
+          0 14px 30px rgba(0, 0, 0, 0.52);
+      }
+
       @media (max-width: 700px) {
         .content-grid {
           padding: 0 14px 10px;
