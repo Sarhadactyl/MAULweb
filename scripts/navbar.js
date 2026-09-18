@@ -21,7 +21,7 @@ async function loadNavbar() {
 
       const html = await response.text();
       navbarContainer.innerHTML = html;
-      initNavbar();
+      initNavbar(navbarContainer);
       loaded = true;
       console.log("Navbar loaded from:", path);
       break;
@@ -34,18 +34,20 @@ async function loadNavbar() {
   if (!loaded) {
     console.error("Navbar failed to load.", lastError);
     navbarContainer.innerHTML = `
-      <div style="position:fixed;top:20px;left:20px;z-index:1000;
-                  background:#300;color:#fff;padding:10px 14px;border-radius:8px;
-                  border:1px solid rgba(255,255,255,0.15);font-family:Arial,sans-serif;">
+      <div style="position:fixed;top:20px;left:20px;z-index:9999;
+                  background:#08080a;color:#fff7ef;padding:10px 14px;border-radius:8px;
+                  border:1px solid rgba(255,204,128,0.24);font-family:Arial,sans-serif;">
         Navbar failed to load
       </div>
     `;
   }
 }
 
-function initNavbar() {
-  const dropdown = document.querySelector(".dropdown");
+function initNavbar(root = document) {
+  const dropdown = root.querySelector(".dropdown");
   if (!dropdown) return;
+  if (dropdown.dataset.navbarReady === "true") return;
+  dropdown.dataset.navbarReady = "true";
 
   const button = dropdown.querySelector(".dropbtn");
   const menu = dropdown.querySelector("#singlePanelMenu");
@@ -73,6 +75,7 @@ function initNavbar() {
     dropdown.classList.toggle("open", isOpen);
     button.setAttribute("aria-expanded", String(isOpen));
     button.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+    menu.setAttribute("aria-hidden", String(!isOpen));
 
     if (!isOpen) {
       resetMenuView();
