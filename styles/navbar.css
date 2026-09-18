@@ -4,8 +4,8 @@
 }
 
 .dropdown {
-  --nav-bg: rgba(12, 12, 14, 0.9);
-  --nav-panel: rgba(8, 8, 10, 0.96);
+  --nav-bg: rgba(6, 6, 7, 0.98);
+  --nav-panel: rgba(3, 3, 4, 0.99);
   --nav-ink: #fff7ef;
   --nav-muted: rgba(250, 240, 232, 0.66);
   --nav-line: rgba(255, 204, 128, 0.18);
@@ -31,8 +31,8 @@
   overflow: hidden;
   cursor: pointer;
   background:
-    linear-gradient(145deg, rgba(26, 25, 28, 0.96), var(--nav-bg)),
-    rgba(6, 6, 7, 0.92);
+    linear-gradient(145deg, rgba(13, 13, 15, 0.98), var(--nav-bg)),
+    rgba(4, 4, 5, 0.96);
   border: 1px solid var(--nav-line);
   border-radius: 999px;
   box-shadow:
@@ -118,9 +118,8 @@
   overflow: hidden;
   color: var(--nav-ink);
   background:
-    radial-gradient(circle at 18% 0%, rgba(255, 204, 128, 0.09), transparent 36%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0) 34%),
-    linear-gradient(145deg, rgba(20, 19, 22, 0.98), var(--nav-panel));
+    linear-gradient(180deg, rgba(18, 18, 20, 0.98), rgba(5, 5, 6, 0.99)),
+    #050505;
   border: 1px solid var(--nav-line);
   border-radius: 12px;
   box-shadow:
