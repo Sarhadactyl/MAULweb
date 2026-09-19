@@ -502,7 +502,6 @@
         }
       }
 
-      /* Elevated gallery pass */
       :root {
         --accent: #ff3f5f;
         --accent-soft: rgba(255, 63, 95, 0.2);
@@ -1257,7 +1256,6 @@
         }
       }
 
-      /* Cinematic art-stage polish */
       .slideshow-card {
         position: relative;
       }
@@ -1425,7 +1423,6 @@
         }
       }
 
-      /* Borderless refinement: let the art float instead of boxing it in. */
       .slideshow-card::after {
         display: none;
       }
@@ -1497,7 +1494,6 @@
         border-color: rgba(245, 201, 107, 0.52);
       }
 
-      /* Open dark-room gallery: no casing, just art under a spotlight. */
       body {
         background:
           radial-gradient(circle at 50% 18%, rgba(118, 0, 20, 0.2), transparent 30%),
@@ -1676,6 +1672,323 @@
           filter: blur(18px);
         }
       }
+      :root {
+        --accent: #ffcc80;
+        --accent-soft: rgba(255, 204, 128, 0.18);
+        --accent-strong: #f2d7a4;
+        --gold: #ffcc80;
+        --bg-card: rgba(12, 12, 14, 0.92);
+        --bg-soft: rgba(18, 17, 20, 0.9);
+        --text-main: #fff7ef;
+        --text-muted: rgba(250, 240, 232, 0.78);
+      }
+      body {
+        min-height: 100%;
+        height: auto;
+        background: radial-gradient(circle at 50% 0%, rgba(255, 204, 128, 0.08), transparent 32%),
+                    linear-gradient(180deg, #050505 0%, #020202 56%, #000000 100%);
+        background-attachment: fixed;
+      }
+      body::before {
+        background: linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+        background-size: 52px 52px;
+        opacity: 0.22;
+        mix-blend-mode: normal;
+      }
+      body::after {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.88) 76%);
+        pointer-events: none;
+      }
+      .page-wrapper {
+        max-width: 1280px;
+        width: min(1280px, calc(100% - 40px));
+        padding: 86px 0 0;
+      }
+      .header {
+        position: relative;
+        isolation: isolate;
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+        align-items: center;
+        gap: clamp(12px, 2.2vw, 28px);
+        min-height: 435px;
+        padding: clamp(26px, 3vw, 38px);
+        border: 1px solid rgba(255, 204, 128, 0.3);
+        border-radius: 10px;
+        text-align: left;
+        overflow: hidden;
+        background: linear-gradient(135deg, rgba(24, 23, 26, 0.94), rgba(8, 8, 10, 0.97) 58%, rgba(0, 14, 13, 0.7)),
+                    rgba(6, 6, 7, 0.92);
+        box-shadow: 0 34px 80px rgba(0, 0, 0, 0.58), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      }
+      .header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: linear-gradient(115deg, rgba(255, 255, 255, 0.08), transparent 25%),
+                    linear-gradient(90deg, rgba(0, 0, 0, 0.48), transparent 64%),
+                    radial-gradient(circle at 75% 50%, rgba(255, 69, 88, 0.12), transparent 31%);
+        pointer-events: none;
+      }
+      .header .hero-copy {
+        position: relative;
+        z-index: 2;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .header .header-badge {
+        display: inline-flex;
+        width: fit-content;
+        margin: 0 0 14px;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        color: #ffcc80;
+        font: 700 0.82rem "Poppins", sans-serif;
+        letter-spacing: 0.18em;
+      }
+      .header .header-badge-dot { display: none; }
+      .header h1 {
+        max-width: 760px;
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(3rem, 5.9vw, 5.3rem);
+        font-weight: 700;
+        line-height: 1.12;
+        letter-spacing: 0;
+        color: #ffffff;
+        text-shadow: none;
+      }
+      .header h1 span {
+        display: block;
+        width: fit-content;
+        max-width: 100%;
+        line-height: 1.12;
+        padding-bottom: 0.12em;
+        background: linear-gradient(90deg, #ffe8eb 0%, #ff6d80 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        text-shadow: none;
+      }
+      .header-subtitle {
+        max-width: 620px;
+        margin: 18px 0 0;
+        color: rgba(255, 248, 239, 0.78);
+        font-size: 1.02rem;
+        line-height: 1.6;
+        font-weight: 400;
+      }
+      .header-highlight, .info-paragraph strong, .info-paragraph a, .panel h2, .footer-inner a {
+        color: #ffcc80;
+      }
+      .info-paragraph a:hover, .footer-inner a:hover { color: #f2d7a4; }
+      .header-actions {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 26px;
+      }
+      .header-actions a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 42px;
+        padding: 9px 14px;
+        border: 1px solid rgba(255, 204, 128, 0.24);
+        border-radius: 999px;
+        background: linear-gradient(180deg, rgba(18, 17, 20, 0.94), rgba(10, 10, 12, 0.96));
+        color: #fff7ef;
+        font: 700 0.87rem "Roboto", sans-serif;
+        text-decoration: none;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+        transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+      .header-actions a:hover {
+        border-color: rgba(255, 204, 128, 0.68);
+        background: linear-gradient(180deg, rgba(25, 24, 27, 0.98), rgba(14, 13, 15, 0.98));
+        transform: translateY(-1px);
+        filter: none;
+        box-shadow: 0 14px 30px rgba(0,0,0,0.52);
+      }
+      .hero-panel {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 520px);
+        min-width: 0;
+        height: clamp(318px, 33vw, 392px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-self: center;
+        align-self: center;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        overflow: visible;
+        isolation: isolate;
+      }
+      .hero-panel::before {
+        content: "";
+        position: absolute;
+        width: min(44vw, 530px);
+        max-width: 118%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 211, 110, 0.2), transparent 58%),
+                    conic-gradient(from 210deg, rgba(255, 204, 128, 0), rgba(255, 204, 128, 0.22), rgba(110, 249, 255, 0.12), rgba(255, 204, 128, 0));
+        filter: blur(4px);
+        opacity: 0.72;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .hero-panel::after {
+        content: "";
+        position: absolute;
+        inset: 17% 6% 13% 8%;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 26px;
+        transform: rotate(-5deg);
+        background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02)), rgba(10,4,6,0.28);
+        box-shadow: 0 26px 70px rgba(0,0,0,0.55);
+        pointer-events: none;
+        z-index: 1;
+      }
+      .hero-banner-card {
+        position: absolute;
+        inset: 17% 6% 13% 8%;
+        z-index: 2;
+        transform: rotate(-5deg);
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .hero-banner-card img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        display: block;
+        width: 90%;
+        height: auto;
+        transform: translate(-50%, -50%);
+        opacity: 0.26;
+        filter: saturate(1.12) drop-shadow(0 16px 34px rgba(0,0,0,0.72));
+      }
+      .hero-panel > img {
+        position: relative;
+        z-index: 3;
+        display: block;
+        width: min(74%, 330px);
+        max-height: 430px;
+        object-fit: contain;
+        margin-top: 10px;
+        filter: drop-shadow(0 38px 42px rgba(0,0,0,0.65)) drop-shadow(0 0 28px rgba(255,204,128,0.12));
+      }
+      
+      .page-wrapper { width: min(1280px, calc(100% - 40px)); max-width: 1280px; gap: 22px; padding: 86px 0 64px; }
+      .gallery-hero.header { width: 100%; max-width: none; margin: 0; align-items: center; gap: clamp(12px, 2.2vw, 28px); }
+      .header h1 { max-width: 720px; }
+      .header .header-subtitle { max-width: 610px; margin-top: 18px; }
+      .header .header-actions { display: flex; }
+      .hero-art-count {
+        display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 7px;
+        margin-top: 25px; color: rgba(250, 240, 232, 0.68);
+        font-size: 0.86rem; letter-spacing: 0.02em;
+      }
+      .hero-art-count strong { color: #ffcc80; font: 700 1.08rem "Poppins", sans-serif; }
+      #gallery { scroll-margin-top: 90px; }
+      .slideshow-card {
+        width: 100%; max-width: none; padding: clamp(12px, 2.2vw, 24px);
+        border: 1px solid rgba(255, 204, 128, 0.16); border-radius: 10px;
+        background: linear-gradient(180deg, rgba(20, 19, 22, 0.94), rgba(6, 6, 8, 0.92));
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 24px 62px rgba(0,0,0,0.5);
+        backdrop-filter: none;
+      }
+      .slideshow-card::before, .slideshow-card::after { display: none; }
+      .gallery-toolbar { width: 100%; max-width: 1080px; margin: 0 auto 12px; padding: 6px 4px 14px; }
+      .gallery-toolbar span, .hero-panel span, .viewer-info span, .browse-head span {
+        color: rgba(250, 240, 232, 0.67);
+      }
+      .gallery-toolbar strong, .viewer-info strong { color: #fff7ef; }
+      .gallery-actions { gap: 9px; }
+      .gallery-action, .viewer-close, .viewer-nav, .prev, .next {
+        border: 1px solid rgba(255, 204, 128, 0.28);
+        color: #fff7ef;
+        background: linear-gradient(180deg, rgba(25, 24, 27, 0.95), rgba(10, 10, 12, 0.96));
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 18px rgba(0,0,0,0.32);
+      }
+      .gallery-action.primary {
+        border-color: rgba(255, 204, 128, 0.44);
+        background: linear-gradient(180deg, rgba(76, 55, 30, 0.91), rgba(25, 22, 20, 0.98));
+        color: #ffdeab; box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+      }
+      .gallery-action:hover, .gallery-action:focus-visible,
+      .viewer-close:hover, .viewer-close:focus-visible,
+      .viewer-nav:hover, .viewer-nav:focus-visible,
+      .prev:hover, .prev:focus-visible, .next:hover, .next:focus-visible {
+        border-color: rgba(255, 204, 128, 0.7);
+        background: linear-gradient(180deg, rgba(43, 38, 33, 0.98), rgba(15, 14, 16, 0.98));
+        box-shadow: 0 0 17px rgba(255,204,128,0.12), 0 10px 23px rgba(0,0,0,0.42);
+        outline: none;
+      }
+      .join-link { color: #ffcc80; }
+      .join-link::after { background: linear-gradient(90deg, rgba(255,204,128,0.36), #ffcc80); box-shadow: 0 0 14px rgba(255,204,128,0.28); }
+      .slideshow-container { background: transparent; border: 0; box-shadow: none; }
+      .slide-counter, .artist-badge { border: 1px solid rgba(255,204,128,0.19); background: rgba(8,8,11,0.8); }
+      .artist-badge { box-shadow: 0 12px 28px rgba(0,0,0,0.42); }
+      .progress-bar { background: linear-gradient(90deg, #72ded9, #ffcc80, #ff8a9a); box-shadow: 0 0 13px rgba(255,204,128,0.26); }
+      .thumb-strip { border: 1px solid rgba(255,204,128,0.12); border-radius: 10px; background: rgba(12,12,15,0.76); }
+      .thumb-btn { background: rgba(8,8,10,0.92); }
+      .thumb-btn.active, .browse-tile.active, .viewer-tile.active { border-color: rgba(255,204,128,0.63); }
+      .browse-panel { border: 1px solid rgba(255,204,128,0.16); border-radius: 10px; background: rgba(12,12,15,0.97); }
+      .browse-tile, .viewer-tile { background: #070708; }
+      .viewer-backdrop { background: rgba(0,0,0,0.86); }
+      .viewer-shell {
+        border: 1px solid rgba(255,204,128,0.24); border-radius: 10px;
+        background: linear-gradient(180deg, rgba(21,20,24,0.97), rgba(5,5,7,0.98));
+      }
+      .viewer-stage { border-radius: 8px; }
+      .gallery-footer {
+        width: 100%; max-width: none; margin: 0; border: 1px solid rgba(255,204,128,0.16);
+        border-radius: 10px; background: rgba(12,12,15,0.94); box-shadow: none;
+      }
+      .gallery-footer a { color: #ffcc80; text-decoration-color: rgba(255,204,128,0.6); transition: color .18s, text-shadow .18s; }
+      .gallery-footer a:hover, .gallery-footer a:focus-visible { color: #ffe5b5; text-shadow: 0 0 12px rgba(255,204,128,0.38); }
+      @media (max-width: 900px) {
+        .gallery-hero.header { grid-template-columns: minmax(0,1fr); min-height: 0; gap: 0; padding: 32px 26px; }
+        .hero-panel { width: min(100%, 500px); height: 305px; margin-top: 4px; }
+        .hero-panel::before { width: min(76vw, 480px); }
+        .hero-panel > img { width: min(74%, 285px); }
+      }
+      @media (max-width: 760px) {
+        .page-wrapper { width: calc(100% - 28px); padding: 84px 0 48px; gap: 18px; }
+        .gallery-hero.header { padding: 28px 20px; }
+        .header h1 { font-size: clamp(2.8rem, 12vw, 4.4rem); }
+        .hero-panel { height: 260px; }
+        .hero-panel::after, .hero-banner-card { inset: 14% 5% 10%; }
+        .hero-panel > img { width: min(76%, 240px); }
+        .slideshow-card { padding: 12px 10px 16px; }
+        .gallery-toolbar { gap: 12px; }
+        .gallery-actions { justify-content: flex-start; }
+        .slide { min-height: 385px; }
+        .slideshow-meta { margin-top: 12px; }
+        .artist-badge { left: 10px; top: 10px; right: auto; max-width: calc(100% - 20px); }
+        .thumb-strip { height: 98px; }
+        .viewer-shell { max-height: calc(100vh - 20px); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .gallery-action, .slide.active, .slide img { transition: none; animation: none; }
+      }
     </style>
   </head>
 
@@ -1683,20 +1996,26 @@
     <div id="navbar"></div>
 
     <div class="page-wrapper">
-      <header class="gallery-hero">
+      <header class="gallery-hero header">
         <div class="hero-copy">
-          <div class="eyebrow">MAUL Community Art</div>
-          <h1><span>User Art Gallery</span></h1>
-          <p class="subtitle">A showcase of the best pieces made by the Modded Among Us Lobbies community.</p>
+          <div class="header-badge">MAUL · COMMUNITY ART</div>
+          <h1>User Art <span>Gallery</span></h1>
+          <p class="subtitle header-subtitle">A showcase of the best pieces made by the Modded Among Us Lobbies community.</p>
+          <div class="header-actions">
+            <a href="https://moddedamong.us/" class="cta-secondary"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Home</a>
+            <a href="#gallery" class="cta-primary"><i class="fa-regular fa-images" aria-hidden="true"></i> View Artwork</a>
+          </div>
+          <div class="hero-art-count"><strong id="artCount">32</strong> artworks from the community</div>
         </div>
-        <div class="hero-panel" aria-label="Gallery summary">
-          <span>Featured pieces</span>
-          <strong id="artCount">32</strong>
-          <small>Community submissions</small>
+        <div class="hero-panel" aria-label="MAUL mascot illustration">
+          <div class="hero-banner-card" aria-hidden="true">
+            <img src="images/banner-transparent-cropped.png" alt="" loading="lazy" decoding="async" />
+          </div>
+          <img src="images/maulnobg.png" alt="MAUL mascot" loading="eager" decoding="async" />
         </div>
       </header>
 
-      <div class="slideshow-card">
+      <div class="slideshow-card" id="gallery">
         <div class="gallery-toolbar">
           <div>
             <span>Now showing</span>
@@ -1840,8 +2159,8 @@
             <img src="images/niru%20featuring%20rosa.webp" alt="User Art - niru featuring rosa" />
           </div>
 
-          <button class="prev">&#10094;</button>
-          <button class="next">&#10095;</button>
+          <button class="prev" type="button" aria-label="Previous artwork">&#10094;</button>
+          <button class="next" type="button" aria-label="Next artwork">&#10095;</button>
           <div class="slide-counter" id="slideCounter"></div>
         </div>
         <div class="slideshow-meta">
