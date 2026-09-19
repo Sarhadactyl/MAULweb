@@ -514,7 +514,6 @@
         color: var(--accent);
       }
 
-      /* MAUL rich refresh */
       :root {
         --accent: #ff384d;
         --accent-soft: rgba(255, 56, 77, 0.2);
@@ -815,6 +814,433 @@
           padding: 18px;
         }
       }
+
+      :root {
+        --accent: #ffcc80;
+        --accent-soft: rgba(255, 204, 128, 0.18);
+        --accent-strong: #f2d7a4;
+        --gold: #ffcc80;
+        --bg-card: rgba(12, 12, 14, 0.92);
+        --bg-soft: rgba(18, 17, 20, 0.9);
+        --text-main: #fff7ef;
+        --text-muted: rgba(250, 240, 232, 0.78);
+        --border-soft: rgba(255, 204, 128, 0.16);
+        --line-warm: rgba(255, 204, 128, 0.3);
+      }
+      html { scroll-padding-top: 88px; }
+      body {
+        min-height: 100%;
+        height: auto;
+        background: radial-gradient(circle at 50% 0%, rgba(255,204,128,.08), transparent 32%),
+                    linear-gradient(180deg, #050505 0%, #020202 56%, #000 100%);
+        background-attachment: fixed;
+      }
+      body::before {
+        background: linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,.012) 1px, transparent 1px);
+        background-size: 52px 52px;
+        opacity: .22;
+        mix-blend-mode: normal;
+        pointer-events: none;
+      }
+      body::after {
+        background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.88) 76%);
+        pointer-events: none;
+      }
+      a { color: #ffcc80; }
+      a:hover { color: #ffe8b7; }
+      a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+        outline: 2px solid #ffcc80;
+        outline-offset: 3px;
+      }
+      .page-wrapper {
+        max-width: 1280px;
+        width: min(1280px, calc(100% - 40px));
+        padding: 86px 0 64px;
+      }
+      .hero {
+        position: relative;
+        isolation: isolate;
+        display: grid;
+        grid-template-columns: minmax(0,1.15fr) minmax(300px,.85fr);
+        align-items: center;
+        align-content: center;
+        gap: clamp(12px,2.2vw,28px);
+        min-height: 435px;
+        padding: clamp(26px,3vw,38px);
+        border: 1px solid rgba(255,204,128,.3);
+        border-radius: 10px;
+        text-align: left;
+        overflow: hidden;
+        background: linear-gradient(135deg, rgba(24,23,26,.94),rgba(8,8,10,.97) 58%,rgba(0,14,13,.7)), rgba(6,6,7,.92);
+        box-shadow: 0 34px 80px rgba(0,0,0,.58), inset 0 1px 0 rgba(255,255,255,.07);
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: linear-gradient(115deg,rgba(255,255,255,.08),transparent 25%),
+                    linear-gradient(90deg,rgba(0,0,0,.48),transparent 64%),
+                    radial-gradient(circle at 75% 50%,rgba(255,69,88,.12),transparent 31%);
+        pointer-events: none;
+      }
+      .hero::after { content: none; }
+      .hero .hero-copy {
+        position: relative;
+        z-index: 2;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .hero .header-badge {
+        width: fit-content;
+        margin: 0 0 14px;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        color: #ffcc80;
+        font: 700 .82rem "Poppins",sans-serif;
+        letter-spacing: .18em;
+      }
+      .header-badge-dot { display: none; }
+      .hero h1 {
+        max-width: 760px;
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins",sans-serif;
+        font-size: clamp(2.55rem,4.5vw,4.25rem);
+        font-weight: 700;
+        line-height: 1.12;
+        letter-spacing: 0;
+        color: #fff;
+        text-shadow: none;
+        text-wrap: balance;
+      }
+      .hero h1 span {
+        display: block;
+        width: fit-content;
+        max-width: 100%;
+        line-height: 1.12;
+        padding-bottom: .12em;
+        background: linear-gradient(90deg,#ffe8eb 0%,#ff6d80 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        text-shadow: none;
+      }
+      .hero-subtitle {
+        max-width: 620px;
+        margin: 18px 0 0;
+        color: rgba(255,248,239,.78);
+        font-size: 1.02rem;
+        line-height: 1.6;
+        font-weight: 400;
+      }
+      .hero-actions { justify-content: flex-start; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+      .hero-actions a, .faq-accordion-tools button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 42px;
+        padding: 9px 14px;
+        border: 1px solid rgba(255,204,128,.24);
+        border-radius: 999px;
+        background: linear-gradient(180deg,rgba(18,17,20,.94),rgba(10,10,12,.96));
+        color: #fff7ef;
+        font: 700 .87rem "Roboto",sans-serif;
+        text-decoration: none;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+        cursor: pointer;
+        transition: transform .18s ease,border-color .18s ease,box-shadow .2s ease,background .2s ease;
+      }
+      .hero-actions a:hover, .faq-accordion-tools button:hover {
+        border-color: rgba(255,204,128,.68);
+        background: linear-gradient(180deg,rgba(25,24,27,.98),rgba(14,13,15,.98));
+        transform: translateY(-1px);
+        box-shadow: 0 14px 30px rgba(0,0,0,.52);
+      }
+      .hero-join-link {
+        position: absolute;
+        top: 24px;
+        right: 30px;
+        z-index: 4;
+        padding: 7px 0 10px;
+        color: #fff7ef;
+        font: 700 .92rem "Poppins",sans-serif;
+        letter-spacing: .04em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+      .hero-join-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 2px;
+        height: 3px;
+        border-radius: 999px;
+        background: linear-gradient(90deg,#ff3048,#ff9e54,#f6d675);
+        box-shadow: 0 0 18px rgba(255,72,72,.62);
+        transition: box-shadow .2s ease;
+      }
+      .hero-join-link:hover { color: #fff; }
+      .hero-join-link:hover::after { box-shadow: 0 0 22px rgba(255,204,128,.58); }
+      .hero-panel {
+        position: relative;
+        z-index: 1;
+        width: min(100%,520px);
+        min-width: 0;
+        height: clamp(318px,33vw,392px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-self: center;
+        align-self: center;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+        overflow: visible;
+        isolation: isolate;
+      }
+      .hero-panel::before {
+        content: "";
+        position: absolute;
+        width: min(44vw,530px);
+        max-width: 118%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(circle,rgba(255,211,110,.2),transparent 58%),
+                    conic-gradient(from 210deg,rgba(255,204,128,0),rgba(255,204,128,.22),rgba(110,249,255,.12),rgba(255,204,128,0));
+        filter: blur(4px);
+        opacity: .72;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .hero-panel::after {
+        content: "";
+        position: absolute;
+        inset: 17% 6% 13% 8%;
+        border: 1px solid rgba(255,255,255,.14);
+        border-radius: 26px;
+        transform: rotate(-5deg);
+        background: linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.02)),rgba(10,4,6,.28);
+        box-shadow: 0 26px 70px rgba(0,0,0,.55);
+        pointer-events: none;
+        z-index: 1;
+      }
+      .hero-banner-card {
+        position: absolute;
+        inset: 17% 6% 13% 8%;
+        z-index: 2;
+        transform: rotate(-5deg);
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .hero-banner-card img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        display: block;
+        width: 90%;
+        height: auto;
+        transform: translate(-50%,-50%);
+        opacity: .26;
+        filter: saturate(1.12) drop-shadow(0 16px 34px rgba(0,0,0,.72));
+      }
+      .hero-panel > img {
+        position: relative;
+        z-index: 3;
+        display: block;
+        width: min(74%,330px);
+        max-height: 430px;
+        object-fit: contain;
+        margin-top: 10px;
+        filter: drop-shadow(0 38px 42px rgba(0,0,0,.65)) drop-shadow(0 0 28px rgba(255,204,128,.12));
+      }
+      .faq-search, .faq-sidebar-inner, .overview-card, .mini-card, .step-card, .link-card,
+      .faq-item, .section-shell {
+        border: 1px solid rgba(255,204,128,.16);
+        border-radius: 8px;
+        background: linear-gradient(180deg,rgba(21,20,23,.94),rgba(11,11,13,.96));
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.08),0 18px 44px rgba(0,0,0,.6);
+        backdrop-filter: none;
+      }
+      .faq-search {
+        display: grid;
+        grid-template-columns: minmax(0,1fr) auto;
+        align-items: center;
+        gap: 12px 18px;
+        padding: 19px 22px;
+        margin: 24px 0;
+      }
+      .faq-search-field { position: relative; display: flex; align-items: center; min-width: 0; }
+      .faq-search-field > i {
+        position: absolute;
+        left: 17px;
+        z-index: 1;
+        color: #ffcc80;
+        pointer-events: none;
+      }
+      #faqSearch {
+        width: 100%;
+        min-height: 50px;
+        padding: 11px 75px 11px 46px;
+        border: 1px solid rgba(255,204,128,.3);
+        border-radius: 8px;
+        background: rgba(3,3,5,.86);
+        color: #fff7ef;
+        font: 400 1rem "Roboto",sans-serif;
+        outline: none;
+      }
+      #faqSearch:focus { border-color: rgba(255,204,128,.68); box-shadow: 0 0 0 3px rgba(255,204,128,.12); }
+      #faqSearch::placeholder { color: rgba(250,240,232,.53); }
+      .faq-clear { position: absolute; right: 9px; border: 0; border-radius: 5px; padding: 8px 10px; background: rgba(255,204,128,.12); color: #ffcc80; cursor: pointer; }
+      .faq-search-status { grid-column: 1 / 2; grid-row: 2; margin: 0; color: var(--text-muted); font-size: .84rem; }
+      .faq-accordion-tools { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; grid-column: 2; grid-row: 1 / 3; }
+      .faq-accordion-tools button { min-height: 40px; padding: 9px 12px; font-size: .78rem; }
+      .faq-layout { display: grid; grid-template-columns: 220px minmax(0,1fr); align-items: start; gap: 24px; }
+      .faq-sidebar { min-width: 0; position: sticky; top: 88px; align-self: start; }
+      .faq-sidebar-inner { padding: 22px 14px 16px; }
+      .sidebar-kicker { margin: 0 8px 5px; color: #ffcc80; font: 700 .69rem "Poppins",sans-serif; letter-spacing: .13em; }
+      .faq-sidebar h2 { margin: 0 8px 18px; color: #fff7ef; font: 700 1.12rem "Poppins",sans-serif; }
+      .jump-links {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: stretch;
+        gap: 5px;
+        max-width: none;
+        margin: 0;
+      }
+      .jump-links a {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        min-height: 44px;
+        padding: 10px 11px;
+        border: 1px solid transparent;
+        border-radius: 7px;
+        background: transparent;
+        color: rgba(250,240,232,.83);
+        text-decoration: none;
+        font-size: .88rem;
+        font-weight: 600;
+        box-shadow: none;
+        transition: background .18s ease,border-color .18s ease,color .18s ease;
+      }
+      .jump-links a i:first-child { width: 16px; text-align: center; color: #ffcc80; }
+      .jump-links a i:last-child { margin-left: auto; color: rgba(250,240,232,.38); font-size: .7rem; }
+      .jump-links a:hover, .jump-links a[aria-current="location"] {
+        transform: none;
+        background: rgba(255,204,128,.09);
+        border-color: rgba(255,204,128,.28);
+        color: #fff7ef;
+      }
+      .sidebar-top { display: inline-flex; align-items: center; gap: 9px; margin: 18px 9px 2px; color: #ffcc80; text-decoration: none; font-size: .82rem; font-weight: 700; }
+      .faq-main { min-width: 0; }
+      .overview-grid { grid-template-columns: repeat(2,minmax(0,1fr)); margin: 0 0 20px; gap: 12px; }
+      .overview-card { display: flex; flex-direction: column; gap: 8px; position: relative; padding: 18px; text-decoration: none; color: #fff7ef; transition: transform .18s ease,border-color .18s ease,background .18s ease; }
+      .overview-card:hover { transform: translateY(-2px); border-color: rgba(255,204,128,.45); background: rgba(29,27,29,.96); color: #fff; }
+      .overview-card::before { background: radial-gradient(circle at top left,rgba(255,204,128,.08),transparent 55%); }
+      .overview-card h2 { position: relative; font-size: 1.01rem; margin: 0; }
+      .overview-card p { position: relative; font-size: .85rem; flex: 1; }
+      .overview-arrow { position: relative; color: #ffcc80; font-size: .76rem; font-weight: 700; margin-top: 4px; }
+      .section-shell { padding: 24px; margin-top: 20px; }
+      .faq-section + .faq-section, .section-shell + .section-shell { margin-top: 20px; }
+      .faq-section { scroll-margin-top: 88px; }
+      .faq-section h2 { font-size: clamp(1.55rem,2.5vw,2.2rem); line-height: 1.15; letter-spacing: 0; }
+      .section-intro { font-size: .93rem; margin-bottom: 18px; }
+      .faq-list { gap: 9px; }
+      .faq-item { scroll-margin-top: 96px; overflow: hidden; }
+      .faq-item summary { padding: 17px 18px; line-height: 1.45; font-size: .96rem; }
+      .faq-item summary:hover { color: #ffcc80; }
+      .faq-item summary::after { color: #ffcc80; }
+      .faq-item[open] { border-color: rgba(255,204,128,.35); }
+      .faq-item[open] summary { color: #fff7ef; }
+      .faq-item-content { border-top: 1px solid rgba(255,204,128,.13); padding: 0 18px 18px; }
+      .faq-item-content p, .faq-item-content li { color: rgba(250,240,232,.82); }
+      .faq-item-content code, .step-card code, .mini-card code, .link-card code, .tip-pill code {
+        border-color: rgba(255,204,128,.18);
+        background: rgba(255,204,128,.08);
+        color: #ffe3b0;
+      }
+      .command-grid,.links-grid { gap: 12px; }
+      .step-card,.mini-card,.link-card { padding: 18px; }
+      .step-number { border-radius: 8px; background: linear-gradient(135deg,#ff3349,#8d0718); }
+      .tips-list { gap: 9px; }
+      .tip-pill,.media-placeholder {
+        border-radius: 8px;
+        border-color: rgba(255,204,128,.16);
+        background: rgba(12,12,14,.85);
+      }
+      .media-placeholder img { border-radius: 8px; }
+      .resource-link { padding: 4px 0; }
+      .resource-link i,.accent { color: #ffcc80; }
+      .footnote { max-width: 840px; margin: 32px auto 0; }
+      .faq-no-results {
+        margin: 0 0 20px;
+        padding: 22px;
+        border: 1px solid rgba(255,204,128,.3);
+        border-radius: 8px;
+        background: rgba(21,20,23,.94);
+        color: #fff7ef;
+      }
+      .faq-no-results button { border: 0; background: none; padding: 0; color: #ffcc80; font: inherit; text-decoration: underline; cursor: pointer; }
+      .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+      [hidden] { display: none !important; }
+      #navbar { --accent: #ff4558; --accent-soft: rgba(255,69,88,.18); --accent-strong: #ff6f81; }
+      @media (max-width: 1050px) {
+        .faq-layout { grid-template-columns: 188px minmax(0,1fr); gap: 16px; }
+        .hero { grid-template-columns: minmax(0,1fr); gap: 0; min-height: 0; padding: 34px 30px; }
+        .hero-panel { width: min(100%,500px); height: 280px; margin-top: 4px; }
+        .hero-panel::before { width: min(76vw,480px); }
+        .hero-panel > img { width: min(74%,270px); }
+      }
+      @media (max-width: 780px) {
+        .faq-layout { display: flex; flex-direction: column; gap: 14px; }
+        .faq-sidebar { position: static; width: 100%; }
+        .faq-sidebar-inner { padding: 18px; }
+        .faq-sidebar h2 { margin-bottom: 12px; }
+        .jump-links { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 7px; }
+        .jump-links a { min-width: 0; min-height: 46px; padding: 9px; font-size: .81rem; }
+        .jump-links a i:last-child { display: none; }
+        .sidebar-top { margin-top: 12px; }
+        .faq-main { width: 100%; }
+        .faq-search { grid-template-columns: 1fr; gap: 12px; }
+        .faq-search-status { grid-column: 1; grid-row: 2; }
+        .faq-accordion-tools { grid-column: 1; grid-row: 3; justify-content: flex-start; }
+      }
+      @media (max-width: 560px) {
+        html { scroll-padding-top: 76px; }
+        .page-wrapper { width: min(100% - 28px,1280px); padding-top: 84px; }
+        .hero { padding: 72px 20px 24px; }
+        .hero h1 { font-size: clamp(2.28rem,9.5vw,3.65rem); }
+        .hero h1 span { font-size: clamp(3.25rem,13vw,4.4rem); }
+        .hero-subtitle { margin-top: 10px; }
+        .hero-join-link { top: 17px; right: 20px; font-size: .8rem; }
+        .hero-panel { height: 225px; }
+        .hero-panel::after,.hero-banner-card { inset: 14% 5% 10%; }
+        .hero-panel > img { width: min(76%,220px); }
+        .faq-search { padding: 15px; margin: 16px 0; }
+        #faqSearch { font-size: .91rem; }
+        .jump-links { grid-template-columns: repeat(2,minmax(0,1fr)); }
+        .overview-grid,.steps-grid,.command-grid,.links-grid { grid-template-columns: minmax(0,1fr); }
+        .section-shell { padding: 17px 14px; }
+        .faq-item summary { padding: 14px; }
+        .faq-item-content { padding: 0 14px 16px; }
+        .faq-accordion-tools button { font-size: .75rem; }
+      }
+      @media (prefers-reduced-motion:reduce) {
+        html,body { scroll-behavior: auto; }
+        .overview-card,.faq-accordion-tools button,.hero-actions a { transition: none; }
+      }
+
     </style>
   </head>
 
@@ -822,57 +1248,75 @@
     <div id="navbar"></div>
 
     <div class="page-wrapper">
-      <header class="hero">
-        <a class="hero-join-link" href="https://discord.gg/MAUL" target="_blank" rel="noopener">
-          Join MAUL
-        </a>
-        <div class="header-badge">
-          <span class="header-badge-dot"></span>
-          Player + Host Quick Reference
+      <header class="hero" id="top">
+        <div class="hero-copy">
+          <div class="header-badge">Player + Host Quick Reference</div>
+          <h1>Modded Among Us <span>FAQ</span></h1>
+          <p class="hero-subtitle">A general how-to page for players and hosts.</p>
+          <div class="hero-actions">
+            <a href="#players" class="cta-primary"><i class="fa-solid fa-gamepad" aria-hidden="true"></i> Player Help</a>
+            <a href="#hosts" class="cta-secondary"><i class="fa-solid fa-server" aria-hidden="true"></i> Host Help</a>
+          </div>
         </div>
-        <h1>Modded Among Us <span>FAQ</span></h1>
-        <p class="hero-subtitle">
-          A general how-to page for players and hosts.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#players" class="cta-primary">
-            <i class="fa-solid fa-gamepad"></i>
-            Player Help
-          </a>
-          <a href="#hosts" class="cta-secondary">
-            <i class="fa-solid fa-server"></i>
-            Host Help
-          </a>
+        <div class="hero-panel" aria-label="MAUL mascot illustration">
+          <div class="hero-banner-card" aria-hidden="true">
+            <img src="images/banner-transparent-cropped.png" alt="" loading="lazy" decoding="async" />
+          </div>
+          <img src="images/maulnobg.png" alt="MAUL mascot" loading="eager" decoding="async" />
         </div>
-
-        <nav class="jump-links" aria-label="FAQ sections">
-          <a href="#players">Players</a>
-          <a href="#hosts">Hosts</a>
-          <a href="#tags">Custom Tags</a>
-          <a href="#commands">Commands</a>
-          <a href="#fixes">Fixes</a>
-          <a href="#links">Useful Links</a>
-        </nav>
+        <a class="hero-join-link" href="https://discord.gg/MAUL" target="_blank" rel="noopener">Join MAUL</a>
       </header>
 
+      <section class="faq-search" role="search" aria-label="Search the FAQ">
+        <div class="faq-search-field">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <label class="sr-only" for="faqSearch">Search questions, answers, commands, and links</label>
+          <input id="faqSearch" type="search" placeholder="Search questions, commands, errors, regions..." autocomplete="off" />
+          <button id="faqClear" class="faq-clear" type="button" hidden>Clear</button>
+        </div>
+        <p id="faqSearchStatus" class="faq-search-status" aria-live="polite">Find an answer or choose a topic below.</p>
+        <div class="faq-accordion-tools" aria-label="FAQ display controls">
+          <button id="faqExpand" type="button">Expand all questions</button>
+          <button id="faqCollapse" type="button">Collapse all</button>
+        </div>
+      </section>
+
+      <div class="faq-layout">
+        <aside class="faq-sidebar" aria-label="FAQ topic navigation">
+          <div class="faq-sidebar-inner">
+            <p class="sidebar-kicker">QUICK NAVIGATION</p>
+            <h2>Browse topics</h2>
+            <nav class="jump-links" aria-label="FAQ sections">
+              <a href="#players"><i class="fa-solid fa-gamepad" aria-hidden="true"></i> Players <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
+              <a href="#hosts"><i class="fa-solid fa-server" aria-hidden="true"></i> Hosts <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
+              <a href="#tags"><i class="fa-solid fa-tag" aria-hidden="true"></i> Custom Tags <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
+              <a href="#commands"><i class="fa-solid fa-terminal" aria-hidden="true"></i> Commands <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
+              <a href="#fixes"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Fixes <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
+              <a href="#links"><i class="fa-solid fa-link" aria-hidden="true"></i> Useful Links <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
+            </nav>
+            <a class="sidebar-top" href="#top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i> Back to top</a>
+          </div>
+        </aside>
+        <div class="faq-main">
+          <p id="faqNoResults" class="faq-no-results" role="status" hidden>No matches found. Try another keyword or <button type="button" id="faqEmptyClear">clear your search</button>.</p>
+
       <section class="overview-grid" aria-label="Quick overview">
-        <article class="overview-card">
+        <a class="overview-card" href="#players">
           <h2><i class="fa-solid fa-circle-play accent"></i> Join Faster</h2>
           <p>Learn what modded regions are, when you need one, and the quickest way for mobile and PC players to join.</p>
-        </article>
-        <article class="overview-card">
+        <span class="overview-arrow" aria-hidden="true">Explore &rarr;</span></a>
+        <a class="overview-card" href="#hosts">
           <h2><i class="fa-solid fa-gears accent"></i> Host Cleaner</h2>
           <p>Keep a short checklist for updating the mod, enabling autostart, queue tools, and handling known lobby issues.</p>
-        </article>
-        <article class="overview-card">
+        <span class="overview-arrow" aria-hidden="true">Explore &rarr;</span></a>
+        <a class="overview-card" href="#tags">
           <h2><i class="fa-solid fa-tag accent"></i> Add Custom Tags</h2>
           <p>Learn about adding custom tags to your mod if it supports them, then place the finished file in the correct data folder.</p>
-        </article>
-        <article class="overview-card">
+        <span class="overview-arrow" aria-hidden="true">Explore &rarr;</span></a>
+        <a class="overview-card" href="#fixes">
           <h2><i class="fa-solid fa-life-ring accent"></i> Fix Problems</h2>
           <p>Use the black-screen fix, the Niko region notes, and the log tools before assuming the mod is broken.</p>
-        </article>
+        <span class="overview-arrow" aria-hidden="true">Explore &rarr;</span></a>
       </section>
 
       <section id="players" class="section-shell faq-section">
@@ -1394,10 +1838,108 @@
         </div>
       </section>
 
+        </div>
+      </div>
+
       <p class="footnote">
         This FAQ is a condensed quick-reference based on the notes provided by myslef, or mod support users. Exact commands, file paths, and region behavior can vary by mod, platform, and version.
       </p>
     </div>
+
+
+    <script>
+      (() => {
+        "use strict";
+        const input = document.getElementById("faqSearch");
+        const clear = document.getElementById("faqClear");
+        const emptyClear = document.getElementById("faqEmptyClear");
+        const status = document.getElementById("faqSearchStatus");
+        const empty = document.getElementById("faqNoResults");
+        const overview = document.querySelector(".overview-grid");
+        const sections = [...document.querySelectorAll(".faq-main .faq-section")];
+        const allFaq = [...document.querySelectorAll(".faq-item")];
+        const searchableSelector = ".faq-item,.step-card,.mini-card,.link-card";
+        const cards = [...document.querySelectorAll(searchableSelector)];
+        const initialOpenState = new Map(allFaq.map(item => [item, item.open]));
+        let searchWasActive = false;
+
+        function normalize(value) {
+          return value.toLocaleLowerCase().normalize("NFKC").replace(/\s+/g, " ").trim();
+        }
+        function updateSearch() {
+          const term = normalize(input.value);
+          const searching = Boolean(term);
+          if (searching && !searchWasActive) {
+            allFaq.forEach(item => initialOpenState.set(item, item.open));
+          }
+          clear.hidden = !searching;
+          overview.hidden = searching;
+          let total = 0;
+          for (const card of cards) {
+            const matched = !searching || normalize(card.textContent).includes(term);
+            card.hidden = !matched;
+            if (searching && matched) {
+              total += 1;
+              if (card.matches(".faq-item")) card.open = true;
+            }
+          }
+          for (const section of sections) {
+            const count = [...section.querySelectorAll(searchableSelector)].filter(card => !card.hidden).length;
+            section.hidden = searching && count === 0;
+            section.querySelectorAll(".tips-list,.section-credit").forEach(el => el.hidden = searching);
+          }
+          if (!searching && searchWasActive) {
+            allFaq.forEach(item => { item.open = initialOpenState.get(item) || false; });
+          }
+          empty.hidden = !searching || total !== 0;
+          status.textContent = searching
+            ? `${total} matching ${total === 1 ? "result" : "results"} across questions, guides, commands, and links.`
+            : "Find an answer or choose a topic below.";
+          searchWasActive = searching;
+        }
+        function clearSearch() {
+          input.value = "";
+          updateSearch();
+          input.focus();
+        }
+        input.addEventListener("input", updateSearch);
+        input.addEventListener("keydown", event => {
+          if (event.key === "Escape" && input.value) { event.preventDefault(); clearSearch(); }
+        });
+        clear.addEventListener("click", clearSearch);
+        emptyClear.addEventListener("click", clearSearch);
+        document.getElementById("faqExpand").addEventListener("click", () => {
+          allFaq.filter(item => !item.hidden && !item.closest(".faq-section").hidden).forEach(item => { item.open = true; });
+        });
+        document.getElementById("faqCollapse").addEventListener("click", () => {
+          allFaq.filter(item => !item.hidden && !item.closest(".faq-section").hidden).forEach(item => { item.open = false; });
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+          link.addEventListener("click", () => {
+            if (searchWasActive) {
+              input.value = "";
+              updateSearch();
+            }
+          });
+        });
+        const navLinks = [...document.querySelectorAll('.jump-links a')];
+        function markActive(id) {
+          navLinks.forEach(link => {
+            if (link.getAttribute("href") === `#${id}`) link.setAttribute("aria-current", "location");
+            else link.removeAttribute("aria-current");
+          });
+        }
+        navLinks.forEach(link => link.addEventListener("click", () => markActive(link.hash.slice(1))));
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(entries => {
+            const visible = entries.filter(entry => entry.isIntersecting && !entry.target.hidden);
+            if (visible.length) markActive(visible.sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top)[0].target.id);
+          }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
+          sections.forEach(section => observer.observe(section));
+        }
+        updateSearch();
+      })();
+    </script>
 
     <script src="/scripts/navbar.js"></script>
   </body>
