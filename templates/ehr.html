@@ -695,6 +695,344 @@
       .accent {
         color: var(--accent);
       }
+      :root {
+        --accent: #ffcc80;
+        --accent-soft: rgba(255, 204, 128, 0.18);
+        --accent-strong: #f2d7a4;
+        --gold: #ffcc80;
+        --bg-card: rgba(12, 12, 14, 0.92);
+        --bg-soft: rgba(18, 17, 20, 0.9);
+        --text-main: #fff7ef;
+        --text-muted: rgba(250, 240, 232, 0.78);
+      }
+      body {
+        min-height: 100%;
+        height: auto;
+        background: radial-gradient(circle at 50% 0%, rgba(255, 204, 128, 0.08), transparent 32%),
+                    linear-gradient(180deg, #050505 0%, #020202 56%, #000000 100%);
+        background-attachment: fixed;
+      }
+      body::before {
+        background: linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+        background-size: 52px 52px;
+        opacity: 0.22;
+        mix-blend-mode: normal;
+      }
+      body::after {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.88) 76%);
+        pointer-events: none;
+      }
+      .page-wrapper {
+        max-width: 1280px;
+        width: min(1280px, calc(100% - 40px));
+        padding: 86px 0 0;
+      }
+      .header {
+        position: relative;
+        isolation: isolate;
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+        align-items: center;
+        gap: clamp(12px, 2.2vw, 28px);
+        min-height: 435px;
+        padding: clamp(26px, 3vw, 38px);
+        border: 1px solid rgba(255, 204, 128, 0.3);
+        border-radius: 10px;
+        text-align: left;
+        overflow: hidden;
+        background: linear-gradient(135deg, rgba(24, 23, 26, 0.94), rgba(8, 8, 10, 0.97) 58%, rgba(0, 14, 13, 0.7)),
+                    rgba(6, 6, 7, 0.92);
+        box-shadow: 0 34px 80px rgba(0, 0, 0, 0.58), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      }
+      .header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: linear-gradient(115deg, rgba(255, 255, 255, 0.08), transparent 25%),
+                    linear-gradient(90deg, rgba(0, 0, 0, 0.48), transparent 64%),
+                    radial-gradient(circle at 75% 50%, rgba(255, 69, 88, 0.12), transparent 31%);
+        pointer-events: none;
+      }
+      .header .hero-copy {
+        position: relative;
+        z-index: 2;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .header .header-badge {
+        display: inline-flex;
+        width: fit-content;
+        margin: 0 0 14px;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        color: #ffcc80;
+        font: 700 0.82rem "Poppins", sans-serif;
+        letter-spacing: 0.18em;
+      }
+      .header .header-badge-dot { display: none; }
+      .header h1 {
+        max-width: 760px;
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(3rem, 5.9vw, 5.3rem);
+        font-weight: 700;
+        line-height: 1.12;
+        letter-spacing: 0;
+        color: #ffffff;
+        text-shadow: none;
+      }
+      .header h1 span {
+        display: block;
+        width: fit-content;
+        max-width: 100%;
+        line-height: 1.12;
+        padding-bottom: 0.12em;
+        background: linear-gradient(90deg, #ffe8eb 0%, #ff6d80 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        text-shadow: none;
+      }
+      .header-subtitle {
+        max-width: 620px;
+        margin: 18px 0 0;
+        color: rgba(255, 248, 239, 0.78);
+        font-size: 1.02rem;
+        line-height: 1.6;
+        font-weight: 400;
+      }
+      .header-highlight, .info-paragraph strong, .info-paragraph a, .panel h2, .footer-inner a {
+        color: #ffcc80;
+      }
+      .info-paragraph a:hover, .footer-inner a:hover { color: #f2d7a4; }
+      .header-actions {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 26px;
+      }
+      .header-actions a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 42px;
+        padding: 9px 14px;
+        border: 1px solid rgba(255, 204, 128, 0.24);
+        border-radius: 999px;
+        background: linear-gradient(180deg, rgba(18, 17, 20, 0.94), rgba(10, 10, 12, 0.96));
+        color: #fff7ef;
+        font: 700 0.87rem "Roboto", sans-serif;
+        text-decoration: none;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+        transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+      .header-actions a:hover {
+        border-color: rgba(255, 204, 128, 0.68);
+        background: linear-gradient(180deg, rgba(25, 24, 27, 0.98), rgba(14, 13, 15, 0.98));
+        transform: translateY(-1px);
+        filter: none;
+        box-shadow: 0 14px 30px rgba(0,0,0,0.52);
+      }
+      .hero-panel {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 520px);
+        min-width: 0;
+        height: clamp(318px, 33vw, 392px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-self: center;
+        align-self: center;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        overflow: visible;
+        isolation: isolate;
+      }
+      .hero-panel::before {
+        content: "";
+        position: absolute;
+        width: min(44vw, 530px);
+        max-width: 118%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 211, 110, 0.2), transparent 58%),
+                    conic-gradient(from 210deg, rgba(255, 204, 128, 0), rgba(255, 204, 128, 0.22), rgba(110, 249, 255, 0.12), rgba(255, 204, 128, 0));
+        filter: blur(4px);
+        opacity: 0.72;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .hero-panel::after {
+        content: "";
+        position: absolute;
+        inset: 17% 6% 13% 8%;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 26px;
+        transform: rotate(-5deg);
+        background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02)), rgba(10,4,6,0.28);
+        box-shadow: 0 26px 70px rgba(0,0,0,0.55);
+        pointer-events: none;
+        z-index: 1;
+      }
+      .hero-banner-card {
+        position: absolute;
+        inset: 17% 6% 13% 8%;
+        z-index: 2;
+        transform: rotate(-5deg);
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .hero-banner-card img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        display: block;
+        width: 90%;
+        height: auto;
+        transform: translate(-50%, -50%);
+        opacity: 0.26;
+        filter: saturate(1.12) drop-shadow(0 16px 34px rgba(0,0,0,0.72));
+      }
+      .hero-panel > img {
+        position: relative;
+        z-index: 3;
+        display: block;
+        width: min(74%, 330px);
+        max-height: 430px;
+        object-fit: contain;
+        margin-top: 10px;
+        filter: drop-shadow(0 38px 42px rgba(0,0,0,0.65)) drop-shadow(0 0 28px rgba(255,204,128,0.12));
+      }
+
+      html { background: #050505; }
+      :root {
+        --accent: #ffcc80;
+        --accent-strong: #ffe2aa;
+        --accent-soft: rgba(255,204,128,.18);
+        --bg-card: rgba(12,12,14,.94);
+        --bg-soft: rgba(18,18,20,.94);
+        --text-main: #fff7ef;
+        --text-muted: rgba(255,248,239,.8);
+        --text-soft: rgba(255,248,239,.67);
+        --border-soft: rgba(255,204,128,.16);
+        --shadow-strong: 0 14px 36px rgba(0,0,0,.32);
+      }
+      a {color:#ffcc80;}
+      a:hover {color:#ffe3af;}
+      .page-wrapper {padding-bottom:76px;}
+      .header {margin-bottom:28px;}
+      .header .hero-copy {text-align:left;}
+      .header .hero-actions {justify-content:flex-start;}
+      .header .hero-actions a {color:#fff7ef;box-shadow:none;font-weight:700;}
+      .header .hero-actions a:hover {color:#fff;}
+      .header h1 {font-size:clamp(3rem,5.5vw,5rem);}
+      .header .hero-subtitle {max-width:570px;margin-left:0;}
+      .guide-layout {display:grid;grid-template-columns:minmax(220px,248px) minmax(0,1fr);align-items:start;gap:22px;}
+      .guide-sidebar {position:sticky;top:82px;max-height:calc(100vh - 100px);overflow:auto;padding:20px 14px 18px;border:1px solid rgba(255,204,128,.2);border-radius:9px;background:rgba(12,12,14,.94);box-shadow:0 18px 48px rgba(0,0,0,.38);scrollbar-width:thin;scrollbar-color:#6e6150 transparent;}
+      .guide-sidebar-heading {padding:0 6px 10px;color:#ffcc80;font:700 .8rem 'Poppins',sans-serif;text-transform:uppercase;letter-spacing:.1em;}
+      .guide-sidebar .find-box {max-width:none;margin:0;gap:7px;}
+      .guide-sidebar .find-box label {padding:0 5px;color:#fff7ef;font-size:.9rem;}
+      .guide-sidebar .find-box input {min-height:44px;background:rgba(0,0,0,.5);border-color:rgba(255,204,128,.25);font-size:.88rem;}
+      .guide-sidebar .find-box input:focus-visible,.helper-field input:focus-visible,.helper-field select:focus-visible,.helper-field textarea:focus-visible {outline:2px solid rgba(255,204,128,.8);outline-offset:2px;}
+      .guide-sidebar .search-help {padding:0 5px;font-size:.78rem;line-height:1.5;}
+      .jump-links {display:grid;justify-content:stretch;gap:2px;max-width:none;margin:19px 0 0;}
+      .jump-group {padding:14px 8px 6px;color:#ffcc80;font-size:.71rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;}
+      .jump-links a {display:block;min-width:0;padding:10px 10px;border:1px solid transparent;border-radius:6px;background:transparent;color:rgba(255,248,239,.82);font-size:.88rem;font-weight:500;box-shadow:none;}
+      .jump-links a:hover,.jump-links a:focus-visible {transform:none;border-color:rgba(255,204,128,.25);background:rgba(255,204,128,.08);color:#fff7ef;outline:none;}
+      .guide-content {min-width:0;display:grid;gap:20px;}
+      .guide-content .section-shell,.guide-content .section-shell + .section-shell {margin-top:0;min-width:0;}
+      .section-shell {padding:clamp(19px,2.5vw,28px);border:1px solid rgba(255,204,128,.18);border-radius:9px;background:rgba(8,8,10,.88);box-shadow:0 18px 48px rgba(0,0,0,.36);backdrop-filter:none;scroll-margin-top:92px;}
+      .faq-section h2 {font-size:clamp(1.35rem,2.25vw,1.85rem);letter-spacing:0;line-height:1.25;}
+      .section-intro {margin-bottom:18px;font-size:.96rem;line-height:1.65;max-width:720px;}
+      .overview-grid,.steps-grid {grid-template-columns:repeat(2,minmax(0,1fr));margin:18px 0 0;gap:12px;}
+      .mini-grid,.placeholder-grid,.helper-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+      .overview-card,.mini-card,.step-card,.placeholder-card {padding:17px;border:1px solid rgba(255,204,128,.16);background:rgba(17,17,19,.94);box-shadow:none;backdrop-filter:none;min-width:0;}
+      .overview-card::before {display:none;}
+      .overview-card h2,.mini-card h3,.step-card h3,.placeholder-card h3 {font-size:1.02rem;letter-spacing:0;line-height:1.35;}
+      .overview-card p,.mini-card p,.step-card p,.placeholder-card p {font-size:.92rem;line-height:1.6;}
+      .overview-card a {color:#ffcc80;font-size:.89rem;}
+      .overview-card a:hover {color:#ffe8bf;}
+      .step-number {background:#242018;border:1px solid rgba(255,204,128,.42);color:#ffcc80;box-shadow:none;}
+      .tip-pill {padding:10px 12px;background:rgba(17,17,19,.9);border-color:rgba(255,204,128,.12);font-size:.92rem;line-height:1.55;}
+      .faq-list {gap:9px;}
+      .faq-item {background:rgba(17,17,19,.93);border:1px solid rgba(255,204,128,.16);box-shadow:none;}
+      .faq-item summary {padding:15px 17px;font-weight:700;line-height:1.45;}
+      .faq-item summary:hover,.faq-item summary:focus-visible {background:rgba(255,204,128,.055);outline:none;}
+      .faq-item summary::after {color:#ffcc80;}
+      .faq-item-content {padding:1px 17px 18px;border-top-color:rgba(255,204,128,.12);}
+      .faq-item-content p,.faq-item-content li {line-height:1.65;}
+      .faq-item-content table,.placeholder-card table {display:table;max-width:100%;font-size:.91rem;}
+      .faq-item-content td,.faq-item-content th,.placeholder-card th,.placeholder-card td {padding:10px 8px 10px 0;line-height:1.55;vertical-align:top;overflow-wrap:anywhere;}
+      pre {max-width:100%;padding:17px;white-space:pre;overflow-x:auto;color:#f7efe5;background:#080809;border:1px solid rgba(255,204,128,.16);font: .89rem/1.65 Consolas,'Courier New',monospace;scrollbar-width:thin;scrollbar-color:#8b7052 transparent;}
+      code {overflow-wrap:anywhere;}
+      pre code {overflow-wrap:normal;}
+      .faq-item-content code,.step-card code,.mini-card code,.placeholder-card code,.tip-pill code,.quick-example code {border-color:rgba(255,204,128,.16);background:rgba(255,204,128,.065);color:#ffdda7;}
+      .faq-item-content pre code,.quick-example pre code {border:0;background:transparent;color:#f7efe5;}
+      .copy-code {border-color:rgba(255,204,128,.38);background:rgba(14,14,16,.96);color:#ffdda7;}
+      .copy-code:hover,.copy-code:focus-visible {border-color:rgba(255,204,128,.75);background:#242018;color:#fff7ef;}
+      .helper-field input,.helper-field select,.helper-field textarea {background:#0d0d0f;border-color:rgba(255,204,128,.2);}
+      .helper-field input:focus,.helper-field select:focus,.helper-field textarea:focus,.find-box input:focus {border-color:rgba(255,204,128,.7);box-shadow:0 0 0 3px rgba(255,204,128,.10);}
+      .helper-toggle input {accent-color:#d9b56d;}
+      .accent {color:#ffcc80;}
+      .no-results {margin-top:12px;text-align:left;border-color:rgba(255,204,128,.3);background:rgba(255,204,128,.07);font-size:.86rem;}
+      .quick-example {margin-top:18px;padding:18px;border:1px solid rgba(255,204,128,.33);border-radius:8px;background:linear-gradient(130deg,rgba(255,204,128,.09),transparent 72%),#0d0d0f;}
+      .quick-example-top {display:flex;flex-wrap:wrap;align-items:center;gap:5px 14px;}
+      .quick-example-top span {color:#ffcc80;font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;}
+      .quick-example-top strong {color:#fff7ef;font-size:.95rem;}
+      .quick-example pre {margin:12px 0 10px;border-color:rgba(255,204,128,.25);font-size:1rem;}
+      .quick-example p {margin:0;color:var(--text-muted);font-size:.91rem;line-height:1.6;}
+      .guide-content > section.search-empty {display:none;}
+      .footnote {color:var(--text-soft);}
+      @media (max-width:1050px) {
+        .guide-layout {grid-template-columns:1fr;}
+        .guide-sidebar {position:static;max-height:none;overflow:visible;padding:16px 18px;}
+        .guide-sidebar .find-box {max-width:620px;}
+        .jump-links {display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
+        .jump-links .jump-group {flex-basis:100%;padding:8px 0 1px;}
+        .jump-links a {display:inline-flex;width:auto;padding:8px 11px;border:1px solid rgba(255,204,128,.18);border-radius:999px;font-size:.84rem;}
+      }
+      @media (max-width:900px) {
+        .header {grid-template-columns:1fr;min-height:0;padding:28px;}
+        .header .hero-panel {height:285px;width:min(100%,420px);}
+        .header .hero-panel > img {width:min(68%,265px);}
+        .header h1 {font-size:clamp(2.65rem,8vw,4.15rem);}
+      }
+      @media (max-width:620px) {
+        .page-wrapper {width:calc(100% - 28px);padding-top:86px;padding-bottom:48px;}
+        .header {padding:24px 19px 12px;gap:0;}
+        .header h1 {font-size:clamp(2.35rem,10.4vw,3.3rem);}
+        .header .hero-panel {height:240px;}
+        .header .hero-panel > img {width:min(65%,220px);}
+        .header .hero-actions {gap:8px;}
+        .header .hero-actions a {font-size:.8rem;padding:8px 10px;min-height:38px;}
+        .guide-layout,.guide-content {gap:14px;}
+        .guide-sidebar {padding:15px 13px;}
+        .section-shell {padding:18px 14px;}
+        .overview-grid,.steps-grid,.mini-grid,.placeholder-grid,.helper-grid {grid-template-columns:1fr;}
+        .overview-card,.mini-card,.step-card,.placeholder-card {padding:15px;}
+        .faq-item summary {padding:14px;}
+        .faq-item-content {padding:1px 13px 16px;}
+        .faq-item-content table {display:block;overflow-x:auto;}
+        .quick-example {padding:14px;}
+        .quick-example pre {font-size:.83rem;}
+        pre {font-size:.81rem;padding:13px;}
+        .copy-code + pre {padding-top:44px;}
+      }
+      @media (prefers-reduced-motion:reduce) {html,body {scroll-behavior:auto;} .header a,.jump-links a {transition:none;}}
     </style>
   </head>
 
@@ -702,118 +1040,118 @@
     <div id="navbar"></div>
 
     <div class="page-wrapper">
-      <header class="hero">
-        <div class="header-badge">
-          <span class="header-badge-dot"></span>
-          EHR Template How-To
-        </div>
-        <h1>How to Use <span>EHR Templates</span></h1>
-        <p class="hero-subtitle">
-          Set up automatic lobby messages one step at a time. Start with the thing you want to do, copy an
-          example, then add timing, filters, variables, and placeholders only when you need them.
-        </p>
-
-        <div class="hero-actions">
-          <a href="https://moddedamong.us/" class="cta-primary">
-            <i class="fa-solid fa-house"></i>
-            Home
-          </a>
-          <a href="https://discord.gg/maul" target="_blank" rel="noopener" class="cta-secondary">
-            <i class="fa-brands fa-discord"></i>
-            Join Our Discord
-          </a>
-        </div>
-
-        <div class="find-box">
-          <label for="template-search">What are you trying to make?</label>
-          <div class="search-wrap">
-            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-            <input
-              id="template-search"
-              type="search"
-              placeholder="Search welcome, tag, delay, map, role, meeting, regex, variable..."
-              autocomplete="off"
-            />
+      <header class="hero header">
+        <div class="hero-copy">
+          <div class="header-badge">MAUL · EHR GUIDE</div>
+          <h1>EHR <span>Templates</span></h1>
+          <p class="hero-subtitle header-subtitle">Create a welcome message, set up reminders, or make a chat reply. Start with a ready-to-copy example. The extra options are there when you need them.</p>
+          <div class="hero-actions header-actions">
+            <a href="#basics" class="cta-primary"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Get started</a>
+            <a href="https://moddedamong.us/" class="cta-secondary"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a>
+            <a href="https://discord.gg/maul" target="_blank" rel="noopener" class="cta-secondary"><i class="fa-brands fa-discord" aria-hidden="true"></i> Join MAUL</a>
           </div>
-          <div class="search-help">Search filters the guide as you type. Clear it to show everything again.</div>
         </div>
-
-        <nav class="jump-links" aria-label="Template how-to sections">
-          <a href="#basics">Start Here</a>
-          <a href="#words">Template Words</a>
-          <a href="#triggers">When It Sends</a>
-          <a href="#properties">Add Rules</a>
-          <a href="#regex">Regex</a>
-          <a href="#variables">Reuse Text</a>
-          <a href="#examples">Copy Examples</a>
-          <a href="#full-example">Full Example</a>
-          <a href="#placeholders">Placeholders</a>
-          <a href="#help">Troubleshooting</a>
-        </nav>
+        <div class="hero-panel" aria-label="MAUL mascot illustration">
+          <div class="hero-banner-card" aria-hidden="true"><img src="images/banner-transparent-cropped.png" alt="" loading="lazy" decoding="async" /></div>
+          <img src="images/maulnobg.png" alt="MAUL mascot" loading="eager" decoding="async" />
+        </div>
       </header>
 
-      <section class="section-shell faq-section">
-        <h2>Pick Your Goal</h2>
+      <div class="guide-layout">
+        <aside class="guide-sidebar" aria-label="Find your way around the EHR template guide">
+          <div class="guide-sidebar-heading">Find something</div>
+          <div class="find-box">
+            <label for="template-search">Search the guide</label>
+            <div class="search-wrap">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input id="template-search" type="search" placeholder="Try welcome, delay, roles…" autocomplete="off" />
+            </div>
+            <div class="search-help">Search examples, options, and commands.</div>
+          </div>
+          <div class="no-results" id="no-results" role="status">No matches. Try a shorter word like “map” or “welcome”.</div>
+          <nav class="jump-links" aria-label="Guide sections">
+            <span class="jump-group">Get started</span>
+            <a href="#choose">What do you want to make?</a>
+            <a href="#basics">Your first template</a>
+            <a href="#examples">Copy examples</a>
+            <a href="#full-example">Full file example</a>
+            <span class="jump-group">Learn the options</span>
+            <a href="#words">Template basics</a>
+            <a href="#triggers">When messages send</a>
+            <a href="#properties">Conditions and delays</a>
+            <a href="#variables">Reusable text</a>
+            <a href="#placeholders">Live game info</a>
+            <a href="#regex">Chat auto-replies / regex</a>
+            <a href="#help">Troubleshooting</a>
+          </nav>
+        </aside>
+        <main class="guide-content" id="guide-content">
+
+      <section id="choose" class="section-shell faq-section">
+        <h2>What do you want to make?</h2>
         <p class="section-intro">
-          Most people only need one of these patterns. Choose the closest one, copy it, and change the words.
+          Choose what you need. Each link takes you to an example you can copy.
         </p>
 
         <div class="overview-grid">
           <article class="overview-card">
-            <h2>Welcome Players</h2>
-            <p>Greet each person as they join and include the room code, map, or Discord link.</p>
-            <a href="#triggers"><i class="fa-solid fa-arrow-right"></i> See welcome examples</a>
+            <h2>Welcome messages</h2>
+            <p>Send a greeting when someone joins, with their name or the lobby code.</p>
+            <a href="#triggers"><i class="fa-solid fa-arrow-right"></i> Welcome examples</a>
           </article>
           <article class="overview-card">
-            <h2>Send Reminders</h2>
-            <p>Post lobby notifications, first-meeting notes, or meeting-specific instructions.</p>
-            <a href="#triggers"><i class="fa-solid fa-arrow-right"></i> Choose a trigger</a>
+            <h2>Reminders</h2>
+            <p>Send reminders in the lobby or at a meeting.</p>
+            <a href="#triggers"><i class="fa-solid fa-arrow-right"></i> See reminder options</a>
           </article>
           <article class="overview-card">
-            <h2>Target A Situation</h2>
-            <p>Only send a message for certain maps, roles, ranks, lobby sizes, presets, or meetings.</p>
-            <a href="#properties"><i class="fa-solid fa-arrow-right"></i> Add bracket rules</a>
+            <h2>Only send it when…</h2>
+            <p>Only send a message on certain maps, to certain roles, or in bigger lobbies.</p>
+            <a href="#properties"><i class="fa-solid fa-arrow-right"></i> See conditions</a>
           </article>
           <article class="overview-card">
-            <h2>Personalize Text</h2>
-            <p>Use placeholders like player name, host name, map, player count, date, and time.</p>
-            <a href="#placeholders"><i class="fa-solid fa-arrow-right"></i> View placeholders</a>
+            <h2>Use live game info</h2>
+            <p>Add the player name, room code, map, or other live info automatically.</p>
+            <a href="#placeholders"><i class="fa-solid fa-arrow-right"></i> See live values</a>
           </article>
         </div>
 
-        <div class="no-results" id="no-results">
-          No matching guide items yet. Try a shorter word like "role", "map", "delay", or "welcome".
-        </div>
       </section>
 
 
       <section id="basics" class="section-shell faq-section">
-        <h2>Start Here</h2>
+        <h2>Your first template</h2>
         <p class="section-intro">
-          If you have never made a template before, do this first. You can make more advanced templates later.
+          You only need one line to get started.
         </p>
 
         <div class="steps-grid">
           <article class="step-card">
             <div class="step-number">1</div>
             <h3>Open <code>template.txt</code></h3>
-            <p>This is where your lobby messages live. Each template starts on its own line with a tag.</p>
+            <p>Find this file in your EHR data folder. It holds your lobby messages.</p>
           </article>
           <article class="step-card">
             <div class="step-number">2</div>
             <h3>Add a welcome</h3>
-            <p>Paste <code>welcome:Welcome to the lobby!</code>. The word before the colon is the tag.</p>
+            <p>Add <code>welcome:Welcome to the lobby!</code> on its own line.</p>
           </article>
           <article class="step-card">
             <div class="step-number">3</div>
             <h3>Save the file</h3>
-            <p>Save your changes, then trigger the tag in game or let the automatic event happen.</p>
+            <p>Save <code>template.txt</code>.</p>
           </article>
           <article class="step-card">
             <div class="step-number">4</div>
             <h3>Test it</h3>
-            <p>Use <code>/template welcome</code> or <code>/t welcome</code> to send that template manually.</p>
+            <p>Join the lobby to check the welcome, or use <code>/template welcome</code> to send it manually.</p>
           </article>
+        </div>
+
+        <div class="quick-example">
+          <div class="quick-example-top"><span>Try this first</span><strong>Copy one line into template.txt</strong></div>
+          <pre><code>welcome:Welcome to the lobby!</code></pre>
+          <p>Save the file, then join the lobby to test the welcome. For a manual message, use the tag <code>rules</code> instead and send it with <code>/template rules</code>.</p>
         </div>
 
         <div class="tips-list">
@@ -826,10 +1164,9 @@
       </section>
 
       <section id="words" class="section-shell faq-section">
-        <h2>Template Words</h2>
+        <h2>What the parts mean</h2>
         <p class="section-intro">
-          These are the words people use when talking about templates. Once these click, the rest of the guide is much
-          easier to read.
+          A quick explanation of the names used in the examples.
         </p>
 
         <div class="mini-grid">
@@ -1013,9 +1350,9 @@ welcome[delay=10]:This sends 10 seconds later.</code></pre>
       </section>
 
       <section id="triggers" class="section-shell faq-section">
-        <h2>Choose When It Sends</h2>
+        <h2>When does it send?</h2>
         <p class="section-intro">
-          Some tag names are automatic. Other tags are only sent when you run them manually.
+          Some messages send automatically. Others wait for a command.
         </p>
 
         <div class="tips-list">
@@ -1066,9 +1403,9 @@ OnMeeting[meeting=2]:Second meeting. Start narrowing it down.</code></pre>
       </section>
 
       <section id="properties" class="section-shell faq-section">
-        <h2>Add Rules With Brackets</h2>
+        <h2>Conditions and delays</h2>
         <p class="section-intro">
-          Brackets are optional. Use them when a message should only send in a specific situation.
+          Add brackets only when a message needs a delay or a condition.
         </p>
 
         <div class="tips-list">
@@ -1116,7 +1453,7 @@ mapinfo[map=Polus|Fungle]:You are on Polus or Fungle.</code></pre>
 strategy[role=!Impostor]:You are not an Impostor. Work together and find them.
 strategy:A generic tip for anyone else.
 
-access[rank=Mod|Admin|Host]:Welcome, prestigious member!</code></pre>
+access[rank=Mod|Admin|Host]:Welcome back!</code></pre>
               <p>You can add a fallback template with no role or rank condition for everyone else.</p>
             </div>
           </details>
@@ -1144,10 +1481,9 @@ OnMeeting[meeting=3|4]:Meeting 3 or 4. Time is running out.</code></pre>
       </section>
 
       <section id="regex" class="section-shell faq-section">
-        <h2>Regex Message Triggers</h2>
+        <h2>Automatic chat replies</h2>
         <p class="section-intro">
-          The <code>regex</code> property watches incoming chat messages and fires a template entry automatically when
-          the message matches. It is just a way to describe what a chat message should look like.
+          Use <code>regex</code> when you want EHR to reply to something someone types in chat. The builder below makes a working example for you.
         </p>
 
         <div class="tips-list">
@@ -1163,8 +1499,7 @@ OnMeeting[meeting=3|4]:Meeting 3 or 4. Time is running out.</code></pre>
             <summary>Build an autoresponder</summary>
             <div class="faq-item-content regex-helper">
               <p>
-                Fill this out to make a template that watches chat and answers automatically. The generated line can
-                go directly into <code>template.txt</code>.
+                Enter a trigger and your reply. Copy the generated line into <code>template.txt</code>.
               </p>
 
               <div class="helper-grid">
@@ -1216,7 +1551,7 @@ OnMeeting[meeting=3|4]:Meeting 3 or 4. Time is running out.</code></pre>
           </details>
 
           <details class="faq-item" open>
-            <summary>What is regex?</summary>
+            <summary>What does regex mean?</summary>
             <div class="faq-item-content">
               <p>
                 Regex, short for regular expression, is a compact way to describe text. Instead of checking only one
@@ -1232,7 +1567,7 @@ OnMeeting[meeting=3|4]:Meeting 3 or 4. Time is running out.</code></pre>
           </details>
 
           <details class="faq-item">
-            <summary>Regex for dummies</summary>
+            <summary>Common regex patterns</summary>
             <div class="faq-item-content">
               <p>Start with normal words, then add symbols only when you need more control.</p>
               <table>
@@ -1598,9 +1933,9 @@ countdown[regex="^\\d+$"]:Numbers are not votes. Use the meeting buttons.</code>
       </section>
 
       <section id="variables" class="section-shell faq-section">
-        <h2>Reuse Text With Variables</h2>
+        <h2>Reuse the same text</h2>
         <p class="section-intro">
-          Variables are handy for links, lobby summaries, and repeated lines you do not want to type over and over.
+          Make a shortcut for text you use in more than one message.
         </p>
 
         <div class="faq-list">
@@ -1636,9 +1971,9 @@ welcome: Greetings!</code></pre>
       </section>
 
       <section id="examples" class="section-shell faq-section">
-        <h2>Copy-Friendly Examples</h2>
+        <h2>Examples you can copy</h2>
         <p class="section-intro">
-          Start with one of these, then edit the message text for your lobby.
+          Copy an example, then change the message to suit your lobby.
         </p>
 
         <div class="faq-list">
@@ -1700,9 +2035,9 @@ Join the lobby Discord: discord.gg/maul</code></pre>
       </section>
 
       <section id="full-example" class="section-shell faq-section">
-        <h2>Full Template File Example</h2>
+        <h2>A complete template.txt example</h2>
         <p class="section-intro">
-          This small <code>template.txt</code> example puts most features together in one place.
+          Here is what the features look like together in one file. Copy only the parts you need.
         </p>
 
         <pre><code>@discord = discord.gg/ehr
@@ -1712,7 +2047,7 @@ welcome[weight=7]:Welcome to {{HostName}}'s lobby! Join our Discord: @discord
 welcome[weight=3]:Glad you joined! Find us at @discord
 
 # Send a message 10 seconds after the welcome fires
-welcome[delay=10]:Hope you have an unforgettable experience in my lobby!
+welcome[delay=10]:Need help? Ask in chat.
 
 # Auto-message shown in lobby every X seconds
 notification:{{PlayerCount}} players | {{Map}} | Preset: {{Preset}}
@@ -1740,9 +2075,9 @@ ping[rank=Mod|Admin|Host, hidden]:Lobby check | {{PlayerCount}} players | {{Map}
       </section>
 
       <section id="placeholders" class="section-shell faq-section">
-        <h2>Placeholders</h2>
+        <h2>Live game information</h2>
         <p class="section-intro">
-          Placeholders are wrapped in double braces and filled dynamically when a message is sent.
+          Use these inside messages. EHR replaces them with current game information when it sends the message.
         </p>
 
         <div class="placeholder-grid">
@@ -1812,7 +2147,7 @@ ping[rank=Mod|Admin|Host, hidden]:Lobby check | {{PlayerCount}} players | {{Map}
       <section id="help" class="section-shell faq-section">
         <h2>Troubleshooting</h2>
         <p class="section-intro">
-          If a template does not send the way you expected, check these first.
+          If something is not working, check these first.
         </p>
 
         <div class="mini-grid">
@@ -1841,6 +2176,8 @@ ping[rank=Mod|Admin|Host, hidden]:Lobby check | {{PlayerCount}} players | {{Map}
           Made with reference to Zypherus' EHR template guide and code.
         </p>
       </section>
+        </main>
+      </div>
     </div>
 
     <script>
@@ -1973,8 +2310,12 @@ ping[rank=Mod|Admin|Host, hidden]:Lobby check | {{PlayerCount}} players | {{Map}
 
       updateRegexHelper();
 
+      let openBeforeSearch = null;
       function filterGuide() {
         const query = searchInput.value.trim().toLowerCase();
+        if (query && openBeforeSearch === null) {
+          openBeforeSearch = new Set(document.querySelectorAll('.faq-item[open]'));
+        }
         let matches = 0;
         document.body.classList.toggle("is-filtering", query.length > 0);
 
@@ -1984,18 +2325,36 @@ ping[rank=Mod|Admin|Host, hidden]:Lobby check | {{PlayerCount}} players | {{Map}
           if (query && isMatch) matches += 1;
 
           if (item.matches("details")) {
-            item.open = Boolean(query && isMatch);
+            if (query) item.open = Boolean(isMatch);
+            else if (openBeforeSearch !== null) item.open = openBeforeSearch.has(item);
           }
+        });
+
+        document.querySelectorAll(".guide-content > section").forEach((section) => {
+          const matchesContent = section.querySelector(".match") !== null;
+          const matchesHeading = section.querySelector("h2")?.innerText.toLowerCase().includes(query);
+          const matchesStandaloneExample = section.id === "full-example" && section.innerText.toLowerCase().includes(query);
+          const show = !query || matchesContent || matchesHeading || matchesStandaloneExample;
+          section.classList.toggle("search-empty", !show);
+          if (query && show && !matchesContent) matches++;
         });
 
         if (noResults) {
           noResults.style.display = query && matches === 0 ? "block" : "none";
         }
+        if (!query) openBeforeSearch = null;
       }
 
       if (searchInput) {
         searchInput.addEventListener("input", filterGuide);
       }
+      document.querySelectorAll('.jump-links a, .overview-card a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (!searchInput.value) return;
+          searchInput.value = '';
+          filterGuide();
+        });
+      });
     </script>
     <script src="/scripts/navbar.js"></script>
   </body>
