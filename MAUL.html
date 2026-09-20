@@ -51,6 +51,10 @@
         box-sizing: border-box;
       }
 
+      html {
+        background: #030101;
+      }
+
       html,
       body {
         min-height: 100%;
@@ -1164,7 +1168,7 @@
           <div class="header-badge">MAUL · REGION PROGRESS</div>
           <h1>MAUL <span>Rankings</span></h1>
           <p>
-            Public region stats for active lobbies, lifetime lobby counts, XP, hosted time, and games finished. Rankings
+            Public region stats for active lobbies, lifetime lobby counts, XP, games hosted, and games played. Rankings
             show display names only.
           </p>
           <div class="hero-actions header-actions">
@@ -1219,8 +1223,8 @@
           </label>
           <div class="mode-toggle" role="group" aria-label="Leaderboard mode">
             <button class="mode-button active" type="button" data-mode="xp">XP</button>
-            <button class="mode-button" type="button" data-mode="hosted">Hosted</button>
-            <button class="mode-button" type="button" data-mode="games">Games</button>
+            <button class="mode-button" type="button" data-mode="hosted">Games Hosted</button>
+            <button class="mode-button" type="button" data-mode="games">Games Played</button>
           </div>
           <button class="refresh-button" type="button" id="refreshButton">
             <i class="fa-solid fa-rotate"></i> Refresh
@@ -1262,8 +1266,8 @@
       const numberFormat = new Intl.NumberFormat();
       const modeLabels = {
         xp: "XP",
-        hosted: "hosted time",
-        games: "finished games",
+        hosted: "games hosted",
+        games: "games played",
       };
 
       function read(obj, camel, pascal, fallback = 0) {
@@ -1280,20 +1284,30 @@
       }
 
       function combineRows(snapshots) {
-        const byName = new Map();
+        const byIdentity = new Map();
 
         for (const snapshot of snapshots) {
-          const rows = read(snapshot, "leaderboardByXp", "LeaderboardByXp", []);
+          const rows = [
+            ...read(snapshot, "leaderboardByXp", "LeaderboardByXp", []),
+            ...read(snapshot, "leaderboardByHosted", "LeaderboardByHosted", []),
+            ...read(snapshot, "leaderboardByGames", "LeaderboardByGames", []),
+          ];
+          const seen = new Set();
           for (const row of rows) {
             const name = cleanName(read(row, "name", "Name", "Unknown host"));
-            const key = name.toLowerCase();
-            const existing = byName.get(key) || {
+            const playerId = read(row, "playerId", "PlayerId", "");
+            const key = playerId || `legacy:${snapshot.__key}:${name.toLowerCase()}`;
+            if (seen.has(key)) continue;
+            seen.add(key);
+            const existing = byIdentity.get(key) || {
               name,
               regions: new Set(),
               totalXp: 0,
               hostedSeconds: 0,
               hostedHours: 0,
               gamesFinished: 0,
+              gamesHosted: 0,
+              gamesPlayed: 0,
               lobbiesCreated: 0,
             };
 
@@ -1301,12 +1315,14 @@
             existing.totalXp += Number(read(row, "totalXp", "TotalXp", 0));
             existing.hostedSeconds += Number(read(row, "hostedSeconds", "HostedSeconds", 0));
             existing.gamesFinished += Number(read(row, "gamesFinished", "GamesFinished", 0));
+            existing.gamesHosted += Number(read(row, "gamesHosted", "GamesHosted", read(row, "gamesFinished", "GamesFinished", 0)));
+            existing.gamesPlayed += Number(read(row, "gamesPlayed", "GamesPlayed", read(row, "gamesFinished", "GamesFinished", 0)));
             existing.lobbiesCreated += Number(read(row, "lobbiesCreated", "LobbiesCreated", 0));
-            byName.set(key, existing);
+            byIdentity.set(key, existing);
           }
         }
 
-        return [...byName.values()].map((row) => ({
+        return [...byIdentity.values()].map((row) => ({
           ...row,
           level: levelFromXp(row.totalXp),
           hostedHours: Math.round((row.hostedSeconds / 3600) * 10) / 10,
@@ -1317,9 +1333,9 @@
       function sortRows(rows) {
         const metric =
           state.mode === "hosted"
-            ? "hostedSeconds"
+            ? "gamesHosted"
             : state.mode === "games"
-              ? "gamesFinished"
+              ? "gamesPlayed"
               : "totalXp";
 
         return [...rows].sort((a, b) => {
@@ -1375,7 +1391,7 @@
         const exactMatch = rows.find((row) => row.name.toLowerCase() === query);
         const row = exactMatch || rows[0];
         const nextLevelXp = row.level * 150;
-        const progress = Math.max(0, Math.min(100, (row.totalXp / nextLevelXp) * 100));
+        const progress = Math.max(0, Math.min(100, ((row.totalXp - (row.level - 1) * 150) / 150) * 100));
 
         panel.hidden = false;
         panel.innerHTML = `
@@ -1397,8 +1413,8 @@
               <strong>${numberFormat.format(row.totalXp)} / ${numberFormat.format(nextLevelXp)}</strong>
             </div>
             <div class="lookup-stat">
-              <span>Games Finished</span>
-              <strong>${numberFormat.format(row.gamesFinished)}</strong>
+              <span>Played / Hosted</span>
+              <strong>${numberFormat.format(row.gamesPlayed)} / ${numberFormat.format(row.gamesHosted)}</strong>
             </div>
           </article>
         `;
@@ -1451,12 +1467,12 @@
                 <strong>${xpText}</strong>
               </div>
               <div class="metric">
-                <span>Hosted</span>
-                <strong>${numberFormat.format(row.hostedHours)}h</strong>
+                <span>Games Hosted</span>
+                <strong>${numberFormat.format(row.gamesHosted)}</strong>
               </div>
               <div class="metric">
-                <span>Finished</span>
-                <strong>${numberFormat.format(row.gamesFinished)}</strong>
+                <span>Games Played</span>
+                <strong>${numberFormat.format(row.gamesPlayed)}</strong>
               </div>
             </article>
           `;
