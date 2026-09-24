@@ -17,7 +17,7 @@
     <meta property="og:locale" content="en_US" />
     <meta
       name="description"
-      content="Privacy policy for the Modded Among Us Games Discord bot, including data use, Discord intents, PingMe lobby notifications, retention, message content, presence data, and contact details."
+      content="Privacy policy for the Modded Among Us Games Discord bot, including data use, Discord intents, PingMe lobby notifications, transcription and OpenAI processing, retention, message content, presence data, and contact details."
     />
     <link rel="canonical" href="https://moddedamong.us/privacy.html" />
     <link rel="icon" type="image/png" href="https://moddedamong.us/images/favicon.png" />
@@ -984,6 +984,7 @@
           <a href="#usage">Use</a>
           <a href="#intents">Intents</a>
           <a href="#message-content">Message Content</a>
+          <a href="#transcription">Transcription</a>
           <a href="#presence">Presence</a>
           <a href="#pingme-data">PingMe Data</a>
           <a href="#retention">Retention</a>
@@ -1012,7 +1013,7 @@
 
         <article class="overview-card">
           <h2><i class="fa-solid fa-calendar-days accent"></i> Updated</h2>
-          <p>Effective June 11, 2026. Last updated July 11, 2026.</p>
+          <p>Effective June 11, 2026. Last updated September 24, 2026.</p>
         </article>
       </section>
 
@@ -1028,8 +1029,9 @@
             <h3>Community Management</h3>
             <p>
               The bot helps staff and members with moderation, role management, verification-related workflows,
-              giveaways, events, minigames, Mafia and Among Us community tools, host tracking, warning systems,
-              member support, server notifications, and activity tracking.
+              giveaways, events, minigames, Mafia and Among Us community tools, lobby tools, transcription
+              utilities, host tracking, warning systems, member support, server notifications, and activity
+              tracking.
             </p>
           </article>
 
@@ -1069,6 +1071,7 @@
               <li>Economy and minigame data, including balances, inventory, rewards, cooldowns, participation, and transaction logs.</li>
               <li>User opt-in preferences for role panels, notifications, pings, stream alerts, and related features.</li>
               <li>PingMe / DCD lobby notification settings, subscriber lists, forum thread settings, and optional thread emoji suffixes.</li>
+              <li>Transcription-related data when users or staff request audio transcription, such as the uploaded audio file, generated transcript text, request metadata, and delivery/status information.</li>
             </ul>
           </article>
         </div>
@@ -1081,8 +1084,8 @@
             <h3>Operational Use</h3>
             <p>
               Information is used to run commands, manage roles, enforce server requirements, support moderation,
-              operate giveaways, track game hosting, run minigames, manage server notifications, and maintain
-              server configuration.
+              operate giveaways, track game hosting, run minigames, process requested transcriptions, manage
+              server notifications, and maintain server configuration.
             </p>
           </article>
 
@@ -1110,7 +1113,7 @@
             <p>
               Used when message text is needed for prefix commands, custom commands, autoresponders, sticky
               messages, Mafia or game log parsing, chat activity tracking, economy rewards, moderation tools,
-              and other chat-based server features.
+              transcription-related workflows, and other chat-based server features.
             </p>
           </article>
 
@@ -1169,16 +1172,17 @@
                 <code>cogs.MAULtag</code>, <code>cogs.quote</code>, <code>cogs.type</code>,
                 <code>cogs.translation</code>, <code>cogs.banned_responder</code>, <code>cogs.delete</code>,
                 <code>cogs.guildmanager</code>, <code>cogs.starlightcv2</code>,
-                <code>cogs.FeaturedMod</code>, <code>cogs.adminusertools</code>, and
+                <code>cogs.FeaturedMod</code>, <code>cogs.addemoji</code>, <code>cogs.autoreact</code>,
+                <code>cogs.adminusertools</code>, and
                 <code>cogs.dashboard_deploy</code>) process message content, command metadata, channel/thread
-                data, and member permissions for prefix commands, help responses, custom tags, translations,
-                moderation utilities, and dashboard or responder workflows.
+                data, attachments, and member permissions for prefix commands, help responses, custom tags,
+                translations, emoji tools, moderation utilities, and dashboard or responder workflows.
               </li>
               <li>
                 <strong>Economy, leveling, games, and event tools</strong> (<code>cogs.beans</code>,
-                <code>cogs.leveling</code>, <code>cogs.giveaways</code>, <code>cogs.EasterHunt</code>,
-                <code>cogs.bombevent</code>, <code>cogs.valentine</code>, <code>cogs.autoreact</code>,
-                <code>cogs.upvotes</code>, <code>cogs.skullboard</code>, and
+                <code>cogs.drop</code>, <code>cogs.leveling</code>, <code>cogs.giveaway</code>,
+                <code>cogs.giveaways</code>, <code>cogs.EasterHunt</code>, <code>cogs.bombevent</code>,
+                <code>cogs.valentine</code>, <code>cogs.upvotes</code>, <code>cogs.skullboard</code>, and
                 <code>cogs.reaction_logger</code>) process message, reaction, member, role, voice, and thread
                 events for rewards, participation, leaderboards, giveaway eligibility, reaction logging,
                 event progress, and anti-abuse checks.
@@ -1186,11 +1190,12 @@
               <li>
                 <strong>Lobby, voice, presence, stream, and timer tools</strong> (<code>cogs.pingme</code>,
                 <code>cogs.vc_lobby_tracker</code>, <code>cogs.vc_bcl_hosting_leaderboard</code>,
-                <code>cogs.MobileLobby</code>, <code>cogs.no_among_us</code>, <code>cogs.status</code>,
-                <code>cogs.blvc</code>, <code>cogs.streamping</code>, and <code>cogs.lmstimer</code>) process
-                presence, voice state, member, channel, thread, and role events to detect Among Us lobby
-                activity, track hosts, create or update lobby posts, restrict voice access, run timers, and
-                notify opted-in members.
+                <code>cogs.mobile_lobby</code>, <code>cogs.maul_lobby_post</code>,
+                <code>cogs.maul_server_status</code>, <code>cogs.region</code>, <code>cogs.no_among_us</code>,
+                <code>cogs.status</code>, <code>cogs.blvc</code>, <code>cogs.streamping</code>, and
+                <code>cogs.lmstimer</code>) process presence, voice state, member, channel, thread, and role
+                events to detect Among Us lobby activity, track hosts, create or update lobby posts, restrict
+                voice access, run timers, show region/server status, and notify opted-in members.
               </li>
               <li>
                 <strong>Mafia, moderation, and staff safety tools</strong> (<code>cogs.mafiapanel</code>,
@@ -1198,12 +1203,13 @@
                 <code>cogs.mafia_host_tracking</code>, <code>cogs.mafia_private_chats</code>,
                 <code>cogs.mafia_points</code>, <code>cogs.mafia_mutes</code>,
                 <code>cogs.mafia_warnings</code>, <code>cogs.mafiafaqpanel</code>,
-                <code>cogs.maulmafia</code>, <code>cogs.maulnotes</code>, <code>cogs.ncic</code>,
+                <code>cogs.mafia_auto_logs</code>, <code>cogs.maulmafia</code>, <code>cogs.maulnotes</code>,
+                <code>cogs.ncic</code>,
                 <code>cogs.punishments</code>, <code>cogs.warn</code>, <code>cogs.banemoji</code>,
-                <code>cogs.skull_ban</code>, and <code>cogs.rename</code>) process message, member, role,
-                invite, reaction, and thread events for Mafia logs, private game channels, host stats, points,
-                mutes, warnings, invite history, member join/leave records, nickname enforcement, and staff
-                review tools.
+                <code>cogs.skull_ban</code>, <code>cogs.force_rename</code>, and <code>cogs.rename</code>)
+                process message, member, role, invite, reaction, and thread events for Mafia logs, private game
+                channels, host stats, points, mutes, warnings, invite history, member join/leave records,
+                nickname enforcement, auto logs, and staff review tools.
               </li>
               <li>
                 <strong>Scheduling and community utilities</strong> (<code>cogs.calendar</code>,
@@ -1225,15 +1231,63 @@
               The bot may read message content in server channels where it has access when message content is
               required for enabled features. This includes prefix commands, custom commands, autoresponders,
               sticky messages, Mafia or game log parsing, chat activity tracking, economy rewards, and chat-based
-              minigames.
+              minigames. Message content may also be used to identify transcription requests, read command
+              arguments, and return transcription results to the correct channel, thread, or user.
             </p>
           </article>
 
           <article class="policy-card">
             <h3>Limits</h3>
             <p>
-              Message content is used for bot functionality only. It is not sold, used for advertising, or shared
-              with unrelated third parties.
+              Message content is used for bot functionality only. It is not sold, used for advertising, or used
+              to train AI or machine learning models. It is not shared with unrelated third parties.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell policy-section" id="transcription">
+        <h2>Transcription And OpenAI</h2>
+        <p class="section-intro">
+          Some enabled bot features may transcribe user-provided audio or voice-related files when a user or
+          staff member requests that workflow.
+        </p>
+
+        <div class="policy-list">
+          <article class="policy-card">
+            <h3>What Is Processed</h3>
+            <p>
+              Transcription features may process Discord message metadata, the requesting user's Discord ID,
+              channel or thread IDs, attached audio files or supported media, and the generated transcript text.
+              These features are used to convert requested audio content into readable text for server workflows.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>OpenAI Processing</h3>
+            <p>
+              Audio or related content may be sent to OpenAI only when needed to generate a transcript or operate
+              the requested transcription feature. OpenAI processing is used for transcription and bot
+              functionality, not for advertising or unrelated profiling. OpenAI states that API inputs and
+              outputs are not used to train OpenAI models by default unless the API customer explicitly opts in.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>No AI Training</h3>
+            <p>
+              Message content, audio content, transcript text, presence data, activity data, and other bot data
+              are not used by us to train AI or machine learning models. Transcription data is used to provide
+              the requested transcript and related moderation or support workflow only.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Transcription Storage</h3>
+            <p>
+              Transcripts, request metadata, temporary processing files, or links to source Discord messages may
+              be stored when needed for delivery, troubleshooting, moderation, audit history, or abuse prevention.
+              Temporary processing files are removed when they are no longer needed where practical.
             </p>
           </article>
         </div>
@@ -1316,7 +1370,8 @@
             <p>
               Bot data may be stored in local databases, configuration files, logs, or other storage used to
               operate the bot. Stored data may include moderation records, giveaway records, economy data,
-              game statistics, server settings, and user opt-in preferences.
+              game statistics, server settings, user opt-in preferences, transcription records, transcript text,
+              and temporary transcription processing files.
             </p>
           </article>
 
@@ -1337,7 +1392,8 @@
             <h3>Retention</h3>
             <p>
               Data is kept only as long as needed for bot functionality, server administration, moderation
-              history, audit logs, giveaways, game statistics, or abuse prevention.
+              history, audit logs, giveaways, game statistics, transcription delivery or troubleshooting, or
+              abuse prevention.
             </p>
           </article>
 
@@ -1358,7 +1414,17 @@
             <h3>No Sale Of Data</h3>
             <p>
               We do not sell user data. We do not share collected data with advertisers or unrelated third
-              parties.
+              parties. We do not use collected message content, audio content, transcripts, presence data, or
+              activity data to train AI or machine learning models.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Service Providers</h3>
+            <p>
+              Some data may be processed by service providers only when needed to operate bot features. For
+              example, requested audio transcription may be processed through OpenAI to generate transcript text.
+              These providers are used to deliver the requested feature, not to sell data or advertise to users.
             </p>
           </article>
 
@@ -1415,7 +1481,7 @@
       </section>
 
       <p class="footnote">
-        Last updated July 11, 2026. This policy applies to the Modded Among Us Games Discord bot in Modded Among Us Lobbies.
+        Last updated September 24, 2026. This policy applies to the Modded Among Us Games Discord bot in Modded Among Us Lobbies.
       </p>
     </div>
 
