@@ -1,16 +1,572 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Crewmate AI Privacy Policy &middot; Modded Among Us Lobbies</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content="0; url=/crewmate/" />
+
+    <meta property="og:title" content="Crewmate AI Privacy Policy" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moddedamong.us/crewmate/" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta
+      property="og:description"
+      content="Privacy policy for the MAUL crewmate AI Discord bot, including AI use, memory, teaching, data controls, and user deletion options."
+    />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      name="description"
+      content="Privacy policy for the MAUL crewmate AI Discord bot, including AI use, memory, teaching, data controls, and user deletion options."
+    />
     <link rel="canonical" href="https://moddedamong.us/crewmate/" />
-    <title>Crewmate AI Privacy Policy</title>
+    <link rel="icon" type="image/png" href="https://moddedamong.us/images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://moddedamong.us/styles/navbar.css" />
+
+    <style>
+      :root {
+        --red: #ec2537;
+        --red-dark: #74070f;
+        --gold: #ffd36e;
+        --cyan: #6ef9ff;
+        --ink: #070407;
+        --paper: #fff8ef;
+        --muted: #d8c8ca;
+        --line: rgba(255, 255, 255, 0.14);
+        --panel: rgba(22, 9, 12, 0.88);
+        --panel-soft: rgba(35, 14, 17, 0.82);
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.72);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--paper);
+        background:
+          linear-gradient(115deg, rgba(5, 2, 4, 0.86), rgba(17, 3, 6, 0.68) 45%, rgba(4, 1, 3, 0.96)),
+          url("https://moddedamong.us/images/maulredbg.png") center top / cover fixed no-repeat,
+          #030203;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 16% 18%, rgba(236, 37, 55, 0.32), transparent 32%),
+          radial-gradient(circle at 82% 10%, rgba(255, 211, 110, 0.14), transparent 28%),
+          radial-gradient(circle at 72% 78%, rgba(110, 249, 255, 0.1), transparent 30%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0), #030203 78%);
+      }
+
+      a {
+        color: #ffb4b4;
+      }
+
+      a:hover {
+        color: #ffffff;
+      }
+
+      code {
+        padding: 2px 6px;
+        border-radius: 7px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .page-wrapper {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 96px 0 68px;
+      }
+
+      .hero {
+        padding: 24px 0 18px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 16px;
+        padding: 7px 12px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(22, 9, 12, 0.78);
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow span {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--cyan);
+        box-shadow: 0 0 18px rgba(110, 249, 255, 0.7);
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Outfit", sans-serif;
+      }
+
+      h1 {
+        max-width: 840px;
+        margin: 0;
+        font-size: clamp(2.45rem, 6vw, 4.9rem);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .hero-copy {
+        max-width: 780px;
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 1.03rem;
+        line-height: 1.75;
+      }
+
+      .hero-actions,
+      .jump-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .hero-actions {
+        margin-top: 24px;
+      }
+
+      .button,
+      .jump-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        border-radius: 999px;
+        transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      }
+
+      .button {
+        padding: 11px 17px;
+        font-weight: 800;
+      }
+
+      .button.primary {
+        background: linear-gradient(135deg, var(--red), var(--red-dark));
+        color: #fff;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.55);
+      }
+
+      .button.secondary,
+      .jump-links a {
+        border: 1px solid var(--line);
+        background: rgba(18, 8, 10, 0.78);
+        color: var(--paper);
+      }
+
+      .button.secondary {
+        padding: 10px 16px;
+      }
+
+      .jump-links {
+        margin-top: 24px;
+      }
+
+      .jump-links a {
+        padding: 9px 13px;
+        font-size: 0.92rem;
+      }
+
+      .button:hover,
+      .jump-links a:hover {
+        transform: translateY(-1px);
+        border-color: rgba(255, 211, 110, 0.38);
+        background: rgba(35, 14, 17, 0.92);
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin: 34px 0;
+      }
+
+      .summary-card,
+      .policy-section {
+        border: 1px solid var(--line);
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(14px);
+      }
+
+      .summary-card {
+        min-height: 142px;
+        padding: 18px;
+        border-radius: 8px;
+      }
+
+      .summary-card h2 {
+        display: flex;
+        gap: 9px;
+        align-items: center;
+        margin: 0 0 10px;
+        font-size: 1.05rem;
+      }
+
+      .summary-card p,
+      .policy-section p,
+      .policy-section li {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .summary-card p {
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .policy-section {
+        margin-top: 18px;
+        padding: 26px;
+        border-radius: 8px;
+      }
+
+      .policy-section h2 {
+        margin: 0 0 12px;
+        font-size: 1.65rem;
+      }
+
+      .policy-section h3 {
+        margin: 22px 0 8px;
+        font-size: 1.12rem;
+      }
+
+      .policy-section p {
+        margin: 0 0 12px;
+      }
+
+      .policy-section ul {
+        margin: 8px 0 0;
+        padding-left: 22px;
+      }
+
+      .callout {
+        margin-top: 16px;
+        padding: 16px;
+        border-left: 4px solid var(--gold);
+        background: var(--panel-soft);
+        border-radius: 0 8px 8px 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .contact-item {
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(18, 8, 10, 0.78);
+        overflow-wrap: anywhere;
+      }
+
+      .contact-item strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .footnote {
+        margin: 28px 0 0;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 920px) {
+        .summary-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page-wrapper {
+          padding-top: 92px;
+        }
+
+        .summary-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .policy-section {
+          padding: 20px;
+        }
+      }
+    </style>
   </head>
+
   <body>
-    <p>
-      Crewmate AI privacy policy:
-      <a href="/crewmate/">https://moddedamong.us/crewmate/</a>
-    </p>
+    <div id="navbar"></div>
+
+    <main class="page-wrapper">
+      <header class="hero">
+        <div class="eyebrow"><span></span> Crewmate AI Bot Policy</div>
+        <h1>Bean should feel friendly, not mysterious.</h1>
+        <p class="hero-copy">
+          This page explains how the MAUL crewmate AI bot uses Discord information, OpenAI API requests,
+          opt-in memories, support knowledge, and deletion controls. Please read it before using the bot.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="https://discord.gg/maul">
+            <i class="fa-brands fa-discord"></i>
+            MAUL Discord
+          </a>
+          <a class="button secondary" href="mailto:admin@modded-au.org">
+            <i class="fa-solid fa-envelope"></i>
+            Contact Admin
+          </a>
+        </div>
+
+        <nav class="jump-links" aria-label="Crewmate privacy sections">
+          <a href="#summary">Summary</a>
+          <a href="#ai">AI Use</a>
+          <a href="#memory">Memory</a>
+          <a href="#teaching">Teaching</a>
+          <a href="#controls">Controls</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <section class="summary-grid" id="summary" aria-label="Policy summary">
+        <article class="summary-card">
+          <h2><i class="fa-solid fa-user-check"></i> First Use</h2>
+          <p>The bot sends a one-time notice linking here when a user first interacts with it.</p>
+        </article>
+
+        <article class="summary-card">
+          <h2><i class="fa-solid fa-brain"></i> Memory</h2>
+          <p>Long-term user memory is based on explicit bot commands, not silent profiling.</p>
+        </article>
+
+        <article class="summary-card">
+          <h2><i class="fa-solid fa-robot"></i> AI</h2>
+          <p>OpenAI is used for responses. Discord messages are not used to train or fine-tune a model.</p>
+        </article>
+
+        <article class="summary-card">
+          <h2><i class="fa-solid fa-shield-halved"></i> Safety</h2>
+          <p>The bot blocks role, everyone, and here pings and limits user mentions in generated replies.</p>
+        </article>
+      </section>
+
+      <section class="policy-section" id="what">
+        <h2>What The Crewmate Bot Does</h2>
+        <p>
+          The crewmate AI bot is a Discord bot for the Modded Among Us Lobbies community. It is designed to
+          act like a silly Among Us crewmate friend, answer MAUL support-style questions, remember harmless
+          preferences users choose to save, and build a configurable friendship-style experience.
+        </p>
+        <p>
+          The bot is not intended to replace staff decisions, moderation judgment, or official announcements.
+          If a question is account-specific, moderation-related, ban-related, or unclear, the bot should direct
+          the user to the correct support or ticket route.
+        </p>
+      </section>
+
+      <section class="policy-section" id="data">
+        <h2>Information The Bot May Store</h2>
+        <h3>User profile and preference data</h3>
+        <ul>
+          <li>Discord user ID and server ID, used to attach bot settings to the correct user and server.</li>
+          <li>Optional nickname, favorite color, preferred crewmate color, personality setting, and harmless preferences.</li>
+          <li>Optional friendship score or relationship-style game progress calculated by bot code.</li>
+          <li>Explicit memories users save with memory commands.</li>
+        </ul>
+
+        <h3>Conversation and support data</h3>
+        <ul>
+          <li>Short recent conversation context may be used so replies make sense.</li>
+          <li>Staff-taught support facts may be stored with the staff member ID, source message ID, category, title, body, and timestamps.</li>
+          <li>Command usage, cooldowns, safety events, and basic logs may be stored to keep the bot working and prevent abuse.</li>
+        </ul>
+
+        <div class="callout">
+          The bot should not silently build psychological profiles, infer protected traits, or store sensitive
+          personal information from ordinary server chat.
+        </div>
+      </section>
+
+      <section class="policy-section" id="ai">
+        <h2>How AI Responses Work</h2>
+        <p>
+          When a user talks to the bot, the bot may send the user's message, a small amount of recent context,
+          selected explicit memories, and relevant support knowledge to the OpenAI API so a response can be generated.
+        </p>
+        <ul>
+          <li>Discord messages are not used to train or fine-tune AI models for this bot.</li>
+          <li>The bot should use OpenAI API settings such as <code>store: false</code> where supported.</li>
+          <li>The bot should only send information needed for the requested response.</li>
+          <li>The bot should not send full server history or unrelated channel history to the AI provider.</li>
+        </ul>
+        <p>
+          AI responses can be wrong. Users should treat the bot as a helpful crewmate, not an official final
+          source for moderation decisions, policy exceptions, or private staff matters.
+        </p>
+      </section>
+
+      <section class="policy-section" id="memory">
+        <h2>User Memory</h2>
+        <p>
+          The bot may remember users only through explicit memory and profile features. These memories are stored
+          by the bot so it can feel more personal without needing to train on Discord messages.
+        </p>
+        <h3>Allowed memory examples</h3>
+        <ul>
+          <li>"My favorite crewmate color is cyan."</li>
+          <li>"Call me Sarha."</li>
+          <li>"Use chaotic personality mode with me."</li>
+          <li>"Do not joke about this topic with me."</li>
+        </ul>
+        <h3>User controls</h3>
+        <ul>
+          <li><code>/memories</code> should show saved memories.</li>
+          <li><code>/forget</code> should remove a selected memory.</li>
+          <li><code>/forgetme</code> should wipe bot-specific user profile and memory data where eligible.</li>
+          <li><code>/data</code> should explain or export what the bot stores about the user.</li>
+        </ul>
+      </section>
+
+      <section class="policy-section" id="teaching">
+        <h2>Staff Teaching And Support Knowledge</h2>
+        <p>
+          Approved support users may teach the bot server facts, setup instructions, event notes, or support
+          answers. This is stored as a bot knowledge base, not as model training.
+        </p>
+        <ul>
+          <li>Support role ID allowed to teach: <code>1115553042150981686</code>.</li>
+          <li>Teaching can be done through a command such as <code>/teach</code> or a staff-approved teach message.</li>
+          <li>Taught facts should be searchable, editable, expirable, and deletable by approved staff.</li>
+          <li>Event facts should be treated as time-sensitive and not presented as current forever.</li>
+        </ul>
+      </section>
+
+      <section class="policy-section" id="mentions">
+        <h2>Mentions, Pings, And Safety Limits</h2>
+        <p>
+          Generated bot messages should not be able to mass ping the server.
+        </p>
+        <ul>
+          <li>The bot should never ping roles, <code>@everyone</code>, or <code>@here</code>.</li>
+          <li>The bot should not mention more than two users in one generated response.</li>
+          <li>Generated output should be sanitized before sending.</li>
+          <li>Discord <code>allowed_mentions</code> should be set to suppress unsafe mentions by default.</li>
+        </ul>
+      </section>
+
+      <section class="policy-section" id="controls">
+        <h2>Server And User Controls</h2>
+        <h3>User controls</h3>
+        <ul>
+          <li>Users should be able to view, reset, or delete their bot-specific memory data.</li>
+          <li>Users should be able to choose personality settings and opt out of memory-style personalization.</li>
+          <li>Users can avoid the bot by not mentioning it or using its commands.</li>
+        </ul>
+
+        <h3>Server controls</h3>
+        <ul>
+          <li>Admins should be able to choose enabled channels.</li>
+          <li>Admins should be able to control spontaneous messages, reactions, cooldowns, and AI features.</li>
+          <li>Admins should have access to an AI kill switch if the feature needs to be disabled quickly.</li>
+        </ul>
+      </section>
+
+      <section class="policy-section" id="retention">
+        <h2>Retention And Deletion</h2>
+        <p>
+          Bot data should be kept only as long as needed for the feature it supports, safety, abuse prevention,
+          troubleshooting, or server administration. Eligible user profile and memory data should be deleted when
+          a user uses deletion commands or contacts staff with a valid request.
+        </p>
+        <p>
+          Some limited records may be retained when needed for security, abuse prevention, audit logs, unresolved
+          disputes, or legal/compliance reasons.
+        </p>
+      </section>
+
+      <section class="policy-section" id="contact">
+        <h2>Contact</h2>
+        <p>
+          For privacy questions, data requests, or concerns about the crewmate AI bot, contact the MAUL owner or
+          use the support route provided in the Discord server.
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <strong>Discord Server</strong>
+            <a href="https://discord.gg/maul">discord.gg/maul</a>
+          </div>
+
+          <div class="contact-item">
+            <strong>Email</strong>
+            <a href="mailto:admin@modded-au.org">admin@modded-au.org</a>
+          </div>
+
+          <div class="contact-item">
+            <strong>Website</strong>
+            <a href="https://moddedamong.us">moddedamong.us</a>
+          </div>
+
+          <div class="contact-item">
+            <strong>Policy URL</strong>
+            <a href="https://moddedamong.us/crewmate">moddedamong.us/crewmate</a>
+          </div>
+        </div>
+      </section>
+
+      <p class="footnote">
+        Last updated September 24, 2026. This policy applies to the MAUL crewmate AI Discord bot.
+      </p>
+    </main>
+
+    <script src="https://moddedamong.us/scripts/navbar.js"></script>
   </body>
 </html>
