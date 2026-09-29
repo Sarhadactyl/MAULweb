@@ -716,6 +716,43 @@
       border-radius:12px !important;
       background:rgba(255,255,255,.04) !important;
     }
+    .gradient-summary-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      min-height:42px;
+    }
+    .gradient-title{
+      display:flex;
+      align-items:baseline;
+      gap:10px;
+      flex-wrap:wrap;
+      min-width:0;
+    }
+    .gradient-title strong{
+      font-family:"Barlow",var(--sans);
+      letter-spacing:.3px;
+      text-transform:uppercase;
+    }
+    .gradient-title small{
+      color:rgba(255,255,255,.68);
+      font-weight:600;
+    }
+    .gradient-quick-actions{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
+    }
+    .gradient-drawer{
+      display:grid;
+      gap:8px;
+      margin-top:10px;
+      padding-top:10px;
+      border-top:1px solid rgba(255,255,255,.1);
+    }
     .compact-gradient .row{
       gap:6px;
     }
@@ -726,11 +763,24 @@
     .compact-gradient .field{
       padding:6px 8px;
     }
+    .compact-gradient.gradient-collapsed .gradient-drawer{
+      display:none !important;
+    }
     .compact-gradient.gradient-collapsed .gradient-controls,
     .compact-gradient.gradient-collapsed .preview-bar,
     .compact-gradient.gradient-collapsed .stops-wrap,
     .compact-gradient.gradient-collapsed > .row:last-child{
       display:none !important;
+    }
+    @media (max-width:620px){
+      .gradient-summary-row{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+      .gradient-quick-actions{
+        width:100%;
+        justify-content:flex-start;
+      }
     }
 
     #icon-palette{
@@ -1147,11 +1197,377 @@
         .toolbar { justify-content: flex-start; }
         .stop-row { gap: 4px; }
       }
+
+      :root {
+        --accent: #ff6d80;
+        --accent-soft: rgba(255, 109, 128, 0.18);
+        --accent-strong: #ff8fa0;
+        --gold: #ffd1d9;
+        --bg-card: rgba(10, 10, 12, 0.94);
+        --bg-soft: rgba(16, 15, 18, 0.92);
+        --text-main: #fff7f4;
+        --text-muted: rgba(255, 242, 239, 0.74);
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 18% 0%, rgba(255, 109, 128, 0.15), transparent 30%),
+          radial-gradient(circle at 82% 10%, rgba(255, 187, 154, 0.08), transparent 28%),
+          linear-gradient(180deg, #030303 0%, #080708 48%, #101012 100%);
+        color: var(--text-main);
+      }
+
+      .header {
+        background:
+          radial-gradient(circle at 12% 0%, rgba(255, 109, 128, 0.16), transparent 36%),
+          linear-gradient(135deg, rgba(11, 11, 13, 0.98), rgba(17, 12, 15, 0.95));
+        border-color: rgba(255, 109, 128, 0.2);
+        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      }
+
+      .header::before {
+        background: linear-gradient(90deg, transparent, rgba(255, 109, 128, 0.6), transparent);
+      }
+
+      .header::after {
+        background: radial-gradient(circle, rgba(255, 109, 128, 0.14), transparent 65%);
+      }
+
+      .header .header-badge,
+      .header-highlight,
+      .info-paragraph strong,
+      .info-paragraph a,
+      .panel h2,
+      .footer-inner a {
+        color: #ffd1d9;
+      }
+
+      .header h1 span {
+        background: linear-gradient(90deg, #ffe8eb 0%, #ff8fa0 45%, #ff5d73 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .header-actions a,
+      .btn,
+      .prop-btn,
+      .small-btn,
+      .copy-btn {
+        background: linear-gradient(180deg, rgba(18, 18, 21, 0.98), rgba(8, 8, 10, 0.98));
+        border-color: rgba(255, 109, 128, 0.24);
+        color: #fff7f4;
+        box-shadow: none;
+      }
+
+      .header-actions a:hover,
+      .btn:hover,
+      .prop-btn:hover,
+      .small-btn:hover,
+      .copy-btn:hover {
+        border-color: rgba(255, 109, 128, 0.58);
+        box-shadow: 0 0 0 1px rgba(255, 109, 128, 0.16), 0 0 22px rgba(255, 109, 128, 0.18);
+        transform: translateY(-1px);
+      }
+
+      .header-actions a.primary {
+        color: #ffffff;
+        border-color: rgba(255, 109, 128, 0.42);
+        background: linear-gradient(180deg, rgba(32, 17, 21, 0.96), rgba(12, 10, 12, 0.98));
+      }
+
+      .hero-panel,
+      .panel,
+      .footer-inner,
+      textarea,
+      .preview-box,
+      .gradient-card,
+      .export-card,
+      .template-row,
+      .preset-card {
+        border-color: rgba(255, 109, 128, 0.18);
+        background-color: rgba(10, 10, 12, 0.9);
+      }
+
+      .hero-panel::before,
+      .panel::before,
+      .gradient-card::before,
+      .template-row::before,
+      .preset-card::before,
+      .export-card::before {
+        background: linear-gradient(90deg, rgba(255, 109, 128, 0.75), rgba(255, 209, 217, 0.18), transparent);
+      }
+
+      .hero-aurora {
+        background:
+          radial-gradient(circle at 25% 20%, rgba(255, 109, 128, 0.45), transparent 34%),
+          radial-gradient(circle at 78% 14%, rgba(255, 198, 168, 0.2), transparent 28%),
+          linear-gradient(135deg, rgba(255, 109, 128, 0.14), rgba(255, 255, 255, 0.03));
+      }
+
+      .hero-mascot {
+        filter: drop-shadow(0 14px 30px rgba(255, 109, 128, 0.26));
+      }
+
+      input,
+      select,
+      textarea {
+        border-color: rgba(255, 109, 128, 0.2);
+        background: rgba(5, 5, 7, 0.82);
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: rgba(255, 109, 128, 0.58);
+        box-shadow: 0 0 0 3px rgba(255, 109, 128, 0.13);
+      }
+
+      input.is-invalid {
+        border-color: rgba(255, 92, 114, 0.78);
+        box-shadow: 0 0 0 3px rgba(255, 92, 114, 0.13);
+      }
+
+      .dropbtn {
+        background: rgba(8, 8, 10, 0.96);
+        border-color: rgba(255, 109, 128, 0.26);
+        color: #ffd1d9;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      }
+
+      .dropbtn:hover,
+      .dropbtn:focus-visible {
+        border-color: rgba(255, 109, 128, 0.55);
+        box-shadow: 0 0 0 1px rgba(255, 109, 128, 0.16), 0 0 26px rgba(255, 109, 128, 0.18);
+      }
+
+      .dropdown-content {
+        background: linear-gradient(180deg, rgba(13, 11, 13, 0.98), rgba(7, 7, 9, 0.98));
+        border-color: rgba(255, 109, 128, 0.22);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.62);
+      }
+
+      .dropdown-content .menu-brand,
+      .dropdown-content a {
+        color: #f8eeee;
+      }
+
+      .dropdown-content a:hover,
+      .dropdown-content a[aria-current="page"] {
+        color: #ffd1d9;
+        background: rgba(255, 109, 128, 0.12);
+      }
+
+      .icon-grid button.is-selected,
+      .preset-card:hover,
+      .template-row:hover,
+      .export-card:hover {
+        border-color: rgba(255, 109, 128, 0.48);
+        box-shadow: 0 0 24px rgba(255, 109, 128, 0.14);
+      }
+
+      .advanced-panel {
+        min-width: min(100%, 560px);
+        flex: 1 1 520px;
+      }
+
+      .advanced-value-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+      }
+
+      .advanced-button-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+      }
+
+      .advanced-help {
+        color: var(--text-muted);
+        font-size: 0.82rem;
+        line-height: 1.45;
+      }
+
+      .advanced-button-grid .btn {
+        justify-content: center;
+        min-height: 38px;
+        padding-inline: 10px;
+      }
+
+      .advanced-output-glow {
+        animation: advancedOutputGlow 820ms ease;
+      }
+
+      @keyframes advancedOutputGlow {
+        0%,
+        100% { box-shadow: 0 0 0 rgba(255, 109, 128, 0); }
+        45% { box-shadow: 0 0 0 3px rgba(255, 109, 128, 0.14), 0 0 24px rgba(255, 109, 128, 0.24); }
+      }
+
+      @media (max-width: 700px) {
+        .advanced-value-row,
+        .advanced-button-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 460px) {
+        .advanced-value-row,
+        .advanced-button-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .advanced-collapsible {
+        flex: 1 1 100%;
+        min-width: 0;
+        display: block;
+        position: relative;
+        padding: 0;
+        overflow: hidden;
+        border: 1px solid rgba(255, 109, 128, 0.18);
+        border-radius: 14px;
+        background: rgba(8, 8, 10, 0.78);
+      }
+
+      .advanced-collapsible summary {
+        min-height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 9px 12px;
+        cursor: pointer;
+        color: #fff7f4;
+        font-family: "Barlow", var(--sans);
+        font-weight: 800;
+        letter-spacing: 0;
+        list-style: none;
+      }
+
+      .advanced-collapsible summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .advanced-collapsible summary small {
+        margin-right: auto;
+        color: var(--text-muted);
+        font-family: var(--sans);
+        font-weight: 600;
+      }
+
+      .advanced-collapsible summary::after {
+        content: "Show";
+        min-width: 54px;
+        padding: 5px 10px;
+        border: 1px solid rgba(255, 109, 128, 0.28);
+        border-radius: 999px;
+        color: #ffd1d9;
+        font-size: 0.78rem;
+        text-align: center;
+        background: rgba(255, 109, 128, 0.08);
+      }
+
+      .advanced-collapsible[open] summary::after {
+        content: "Hide";
+      }
+
+      .advanced-collapsible[open] summary {
+        border-bottom: 1px solid rgba(255, 109, 128, 0.14);
+      }
+
+      .advanced-panel-body {
+        display: grid;
+        grid-template-columns: minmax(220px, 320px) 1fr;
+        gap: 10px 12px;
+        align-items: start;
+        padding: 10px 12px 12px;
+      }
+
+      .advanced-panel-body .advanced-value-row {
+        grid-template-columns: minmax(82px, 1fr) 42px 72px;
+        gap: 7px;
+        align-items: center;
+      }
+
+      .advanced-panel-body .advanced-value-row input {
+        min-height: 34px;
+        padding: 6px 9px;
+      }
+
+      .advanced-panel-body .advanced-value-row input[type="color"] {
+        width: 42px;
+        min-width: 42px;
+        padding: 3px;
+      }
+
+      .advanced-panel-body .advanced-button-grid {
+        grid-template-columns: repeat(auto-fit, minmax(74px, 1fr));
+        gap: 6px;
+      }
+
+      .advanced-panel-body .advanced-button-grid .btn {
+        min-height: 32px;
+        padding: 6px 8px;
+        font-size: 0.82rem;
+      }
+
+      .advanced-panel-body .advanced-help {
+        grid-column: 1 / -1;
+        font-size: 0.78rem;
+      }
+
+      @media (max-width: 780px) {
+        .advanced-panel-body {
+          grid-template-columns: 1fr;
+        }
+
+        .advanced-collapsible summary {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .advanced-collapsible summary::after {
+          position: absolute;
+          right: 12px;
+          top: 9px;
+        }
+      }
   </style>
 </head>
 
 <body>
-  <div id="navbar"></div>
+  <div id="navbar">
+    <div class="dropdown editor-fallback-nav">
+      <button class="dropbtn" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+      <div class="dropdown-content" role="menu">
+        <div class="menu-view active">
+          <div class="menu-brand">
+            <span class="menu-brand-icon">M</span>
+            <span>
+              <small>MAUL</small>
+              <strong>Modded Among Us</strong>
+            </span>
+          </div>
+          <a href="https://moddedamong.us/">Home</a>
+          <a href="https://moddedamong.us/lobbies.html">Lobby Help</a>
+          <a href="https://moddedamong.us/mods.html">Mods</a>
+          <a href="https://moddedamong.us/templates.html">Templates</a>
+          <a href="https://moddedamong.us/tags.html">Tags</a>
+          <a href="https://moddedamong.us/editor.html" aria-current="page">Template Editor</a>
+          <a href="https://moddedamong.us/icons.html">Icons &amp; Fonts</a>
+          <a href="https://moddedamong.us/ourstaff.html">Our Staff</a>
+          <a href="https://moddedamong.us/regions.html">Modded Regions</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="page-wrapper">
     <div class="header">
@@ -1217,6 +1633,12 @@
           <li>Stops have a <strong>position</strong> now (0–100%).</li>
           <li><strong>Distribute</strong> spaces stop positions evenly.</li>
           <li>Applying gradient assigns per-character colors (tokens and <code>\n</code> are skipped).</li>
+        </ul>
+
+        <p><strong>Advanced TMP</strong></p>
+        <ul>
+          <li>Select text in Output, then wrap it with tags like <code>mark</code>, <code>rotate</code>, <code>width</code>, <code>nobr</code>, <code>alpha</code>, and <code>smallcaps</code>.</li>
+          <li>If no Output text is selected, the advanced tag wraps the whole generated markup.</li>
         </ul>
 
         <p><strong>Editing fixes</strong></p>
@@ -1374,29 +1796,72 @@
             <div id="icon-grid"></div>
           </div>
 
-          <div class="panel compact-gradient gradient-collapsed">
-            <div class="row" style="justify-content:space-between">
-              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-                <strong style="font-family:'Barlow',var(--sans);letter-spacing:.3px;text-transform:uppercase">Gradient stops</strong>
-                <button class="btn small ghost" id="toggleGradient" type="button">Show</button>
+          <details class="advanced-panel advanced-collapsible">
+            <summary>
+              <span>Advanced TMP</span>
+              <small>Optional output wrappers</small>
+            </summary>
+            <div class="advanced-panel-body">
+              <div class="advanced-value-row">
+                <input id="advancedValue" type="text" value="120%" aria-label="Advanced tag value" />
+                <input id="advancedColor" type="color" value="#FF6D80" aria-label="Advanced highlight color" />
+                <input id="advancedAlpha" type="number" min="5" max="100" step="5" value="35" aria-label="Advanced highlight opacity" />
               </div>
+              <div class="advanced-button-grid">
+                <button class="btn small" type="button" data-advanced-wrap data-open="&lt;sub&gt;" data-close="&lt;/sub&gt;">Sub</button>
+                <button class="btn small" type="button" data-advanced-wrap data-open="&lt;sup&gt;" data-close="&lt;/sup&gt;">Sup</button>
+                <button class="btn small" type="button" data-advanced-wrap data-open="&lt;allcaps&gt;" data-close="&lt;/allcaps&gt;">Allcaps</button>
+                <button class="btn small" type="button" data-advanced-wrap data-open="&lt;lowercase&gt;" data-close="&lt;/lowercase&gt;">Lowercase</button>
+                <button class="btn small" type="button" data-advanced-dynamic="mark">Mark</button>
+                <button class="btn small" type="button" data-advanced-dynamic="width">Width</button>
+                <button class="btn small" type="button" data-advanced-dynamic="mspace">M Space</button>
+                <button class="btn small" type="button" data-advanced-dynamic="cspace">C Space</button>
+                <button class="btn small" type="button" data-advanced-dynamic="rotate">Rotate</button>
+                <button class="btn small" type="button" data-advanced-dynamic="voffset">V Offset</button>
+                <button class="btn small" type="button" data-advanced-wrap data-open="&lt;nobr&gt;" data-close="&lt;/nobr&gt;">No Break</button>
+                <button class="btn small" type="button" data-advanced-wrap data-open="&lt;s&gt;" data-close="&lt;/s&gt;">Strike</button>
+                <button class="btn small" type="button" data-advanced-wrap data-open="&lt;smallcaps&gt;" data-close="&lt;/smallcaps&gt;">Smallcaps</button>
+                <button class="btn small" type="button" data-advanced-wrap data-open="&lt;uppercase&gt;" data-close="&lt;/uppercase&gt;">Uppercase</button>
+                <button class="btn small" type="button" data-advanced-dynamic="alpha">Alpha</button>
+                <button class="btn small" type="button" data-advanced-dynamic="line-height">Line Height</button>
+                <button class="btn small" type="button" data-advanced-dynamic="indent">Indent</button>
+                <button class="btn small" type="button" data-advanced-dynamic="margin">Margin</button>
+                <button class="btn small" type="button" data-advanced-dynamic="link">Link</button>
+                <button class="btn small" type="button" data-advanced-wrap data-open="&lt;noparse&gt;" data-close="&lt;/noparse&gt;">No Parse</button>
+              </div>
+              <small class="advanced-help">Select Output text first. If nothing is selected, the tag wraps the whole output.</small>
+            </div>
+          </details>
+
+          <div class="panel compact-gradient gradient-collapsed">
+            <div class="gradient-summary-row">
+              <div class="gradient-title">
+                <strong>Gradient</strong>
+                <small>Apply to selected text</small>
+              </div>
+              <div class="gradient-quick-actions">
+                <button class="btn small red" id="applyGradient" type="button">Apply gradient</button>
+                <button class="btn small ghost" id="toggleGradient" type="button">Edit stops</button>
+              </div>
+            </div>
+
+            <div class="gradient-drawer">
               <div class="gradient-controls" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
                 <button class="btn small" id="addStop" type="button">Add</button>
                 <button class="btn small" id="randomizeStops" type="button">Randomize</button>
                 <button class="btn small" id="reverseStops" type="button">Reverse</button>
                 <button class="btn small" id="distributeStops" type="button">Distribute</button>
-                <button class="btn small red" id="applyGradient" type="button">Apply gradient</button>
               </div>
-            </div>
 
-            <div class="preview-bar" id="gradPreview" aria-label="Gradient preview"></div>
-            <div class="stops-wrap" id="stopsWrap"></div>
+              <div class="preview-bar" id="gradPreview" aria-label="Gradient preview"></div>
+              <div class="stops-wrap" id="stopsWrap"></div>
 
-            <div class="row" style="justify-content:flex-end">
-              <div class="field">
-                <label for="presetSelect">Preset</label>
-                <select id="presetSelect"></select>
-                <button class="btn small" id="loadPreset" type="button">Load</button>
+              <div class="row" style="justify-content:flex-end">
+                <div class="field">
+                  <label for="presetSelect">Preset</label>
+                  <select id="presetSelect"></select>
+                  <button class="btn small" id="loadPreset" type="button">Load</button>
+                </div>
               </div>
             </div>
           </div>
@@ -1557,6 +2022,9 @@
     const iconPalette = $("icon-palette");
     const iconGrid = $("icon-grid");
     const safeIconsToggle = $("safeIcons");
+    const advancedValue = $("advancedValue");
+    const advancedColor = $("advancedColor");
+    const advancedAlpha = $("advancedAlpha");
 
     const stopsWrap = $("stopsWrap");
     const gradPreview = $("gradPreview");
@@ -1610,6 +2078,8 @@
       if(s.length<6) s=(s+"FFFFFF").slice(0,6);
       return (withHash?"#":"")+s.toUpperCase();
     };
+
+    const isCompleteHex = (s)=>/^#?(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.test(String(s || "").trim());
 
     const hexToRgb = (h)=>{
       h=normHex(h,true).slice(1);
@@ -1848,6 +2318,7 @@
     }
 
     function sortStops(){ STOPS.sort((a,b)=>a.pos-b.pos); }
+    function orderedStops(){ return [...STOPS].sort((a,b)=>a.pos-b.pos); }
 
     function distributeStops(){
       if(STOPS.length<=2) return;
@@ -1872,28 +2343,29 @@
     }
 
     function colorAtT(t01){
-      sortStops();
+      const stops = orderedStops();
       const t = clamp(t01,0,1)*100;
-      if(STOPS.length===1) return STOPS[0].color;
-      if(t<=STOPS[0].pos) return STOPS[0].color;
-      if(t>=STOPS[STOPS.length-1].pos) return STOPS[STOPS.length-1].color;
+      if(stops.length===1) return stops[0].color;
+      if(t<=stops[0].pos) return stops[0].color;
+      if(t>=stops[stops.length-1].pos) return stops[stops.length-1].color;
 
-      for(let i=0;i<STOPS.length-1;i++){
-        const a=STOPS[i], b=STOPS[i+1];
+      for(let i=0;i<stops.length-1;i++){
+        const a=stops[i], b=stops[i+1];
         if(t>=a.pos && t<=b.pos){
           const span = (b.pos-a.pos)||1;
           const lt = (t-a.pos)/span;
           return normHex(lerpColor(a.color, b.color, lt), true);
         }
       }
-      return STOPS[STOPS.length-1].color;
+      return stops[stops.length-1].color;
     }
 
-    function renderGradientPreview(){
-      sortStops();
-      const parts = STOPS.map(s=>`${normHex(s.color,true)} ${clamp(s.pos,0,100)}%`);
+    function renderGradientPreview(options = {}){
+      const { persist = true } = options;
+      const stops = orderedStops();
+      const parts = stops.map(s=>`${normHex(s.color,true)} ${clamp(s.pos,0,100)}%`);
       gradPreview.style.background = `linear-gradient(90deg, ${parts.join(", ")})`;
-      saveLS("stopsPosV2", STOPS);
+      if(persist) saveLS("stopsPosV2", stops.map(s=>({...s})));
     }
 
     function renderStopsUI(){
@@ -1941,15 +2413,28 @@
         dn.type="button";
         dn.textContent="▼";
 
-        const setIdx = ()=>{
-          const current = STOPS[idx];
-          return current ? idx : STOPS.findIndex(x=>x===s);
-        };
+        const setIdx = ()=>STOPS.findIndex(x=>x===s);
 
         hex.addEventListener("input", ()=>{
           const i=setIdx(); if(i<0) return;
+          if(!isCompleteHex(hex.value)){
+            hex.classList.add("is-invalid");
+            return;
+          }
+          hex.classList.remove("is-invalid");
           STOPS[i].color = normHex(hex.value,true);
           col.value = STOPS[i].color;
+          renderGradientPreview();
+        });
+
+        hex.addEventListener("blur", ()=>{
+          const i=setIdx(); if(i<0) return;
+          if(isCompleteHex(hex.value)){
+            STOPS[i].color = normHex(hex.value,true);
+          }
+          hex.value = normHex(STOPS[i].color,true);
+          col.value = hex.value;
+          hex.classList.remove("is-invalid");
           renderGradientPreview();
         });
 
@@ -1957,6 +2442,7 @@
           const i=setIdx(); if(i<0) return;
           STOPS[i].color = normHex(col.value,true);
           hex.value = STOPS[i].color;
+          hex.classList.remove("is-invalid");
           renderGradientPreview();
         });
 
@@ -1964,13 +2450,20 @@
           const i=setIdx(); if(i<0) return;
           STOPS[i].pos = clamp(parseFloat(range.value),0,100);
           pos.textContent = `${Math.round(STOPS[i].pos)}%`;
+          renderGradientPreview({ persist:false });
+        });
+
+        range.addEventListener("change", ()=>{
+          sortStops();
+          renderStopsUI();
           renderGradientPreview();
         });
 
         rm.addEventListener("click", ()=>{
           pushHistory();
           if(STOPS.length<=1) return;
-          STOPS.splice(idx,1);
+          const i=setIdx(); if(i<0) return;
+          STOPS.splice(i,1);
           if(STOPS.length>1) distributeStops();
           renderStopsUI();
           renderGradientPreview();
@@ -1978,17 +2471,19 @@
         });
 
         up.addEventListener("click", ()=>{
-          if(idx<=0) return;
+          const i=setIdx();
+          if(i<=0) return;
           pushHistory();
-          const tmp=STOPS[idx-1]; STOPS[idx-1]=STOPS[idx]; STOPS[idx]=tmp;
+          const tmp=STOPS[i-1]; STOPS[i-1]=STOPS[i]; STOPS[i]=tmp;
           renderStopsUI();
           renderGradientPreview();
         });
 
         dn.addEventListener("click", ()=>{
-          if(idx>=STOPS.length-1) return;
+          const i=setIdx();
+          if(i<0 || i>=STOPS.length-1) return;
           pushHistory();
-          const tmp=STOPS[idx+1]; STOPS[idx+1]=STOPS[idx]; STOPS[idx]=tmp;
+          const tmp=STOPS[i+1]; STOPS[i+1]=STOPS[i]; STOPS[i]=tmp;
           renderStopsUI();
           renderGradientPreview();
         });
@@ -2081,6 +2576,45 @@
       return String(markup).replace(/<#([0-9a-fA-F]{6})>/g, "<color=#$1>");
     }
 
+    function safePreviewColor(raw, fallback = "#ff6d80"){
+      const value = String(raw || "").trim();
+      if(/^#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$/.test(value)) return value;
+      if(/^[a-zA-Z]+$/.test(value)) return value;
+      return fallback;
+    }
+
+    function safePreviewLength(raw, fallback = "0.12em"){
+      const value = String(raw || "").trim();
+      if(/^-?\d+(\.\d+)?(px|em|rem|%)?$/.test(value)){
+        return /[a-z%]$/i.test(value) ? value : `${value}em`;
+      }
+      return fallback;
+    }
+
+    function safePreviewAngle(raw, fallback = "8deg"){
+      const value = String(raw || "").trim();
+      if(/^-?\d+(\.\d+)?(deg|rad|turn)?$/.test(value)){
+        return /[a-z]$/i.test(value) ? value : `${value}deg`;
+      }
+      return fallback;
+    }
+
+    function safePreviewScale(raw, fallback = 1.2){
+      const value = String(raw || "").trim();
+      const number = parseFloat(value);
+      if(!Number.isFinite(number)) return fallback;
+      return clamp(value.includes("%") ? number / 100 : number, 0.2, 4);
+    }
+
+    function safePreviewOpacity(raw, fallback = 0.72){
+      const value = String(raw || "").trim().replace(/^#/, "");
+      if(/^[0-9a-fA-F]{2}$/.test(value)) return clamp(parseInt(value, 16) / 255, 0, 1);
+      if(/^[0-9a-fA-F]{8}$/.test(value)) return clamp(parseInt(value.slice(6), 16) / 255, 0, 1);
+      const number = parseFloat(value);
+      if(Number.isFinite(number)) return clamp(number > 1 ? number / 100 : number, 0, 1);
+      return fallback;
+    }
+
     function toPreviewHTML(markup){
       let html = escapeHtml(normalizeColorShorthand(markup));
 
@@ -2105,6 +2639,28 @@
         .replace(/&lt;i&gt;/g,"<i>").replace(/&lt;\/i&gt;/g,"</i>")
         .replace(/&lt;u&gt;/g,"<u>").replace(/&lt;\/u&gt;/g,"</u>");
 
+      html = html
+        .replace(/&lt;sub&gt;/g,"<sub>").replace(/&lt;\/sub&gt;/g,"</sub>")
+        .replace(/&lt;sup&gt;/g,"<sup>").replace(/&lt;\/sup&gt;/g,"</sup>")
+        .replace(/&lt;s&gt;/g,"<s>").replace(/&lt;\/s&gt;/g,"</s>")
+        .replace(/&lt;nobr&gt;/g, "<span style=\"white-space:nowrap\">").replace(/&lt;\/nobr&gt;/g, "</span>")
+        .replace(/&lt;allcaps&gt;/g, "<span style=\"text-transform:uppercase\">").replace(/&lt;\/allcaps&gt;/g, "</span>")
+        .replace(/&lt;uppercase&gt;/g, "<span style=\"text-transform:uppercase\">").replace(/&lt;\/uppercase&gt;/g, "</span>")
+        .replace(/&lt;lowercase&gt;/g, "<span style=\"text-transform:lowercase\">").replace(/&lt;\/lowercase&gt;/g, "</span>")
+        .replace(/&lt;smallcaps&gt;/g, "<span style=\"font-variant:small-caps;letter-spacing:.06em\">").replace(/&lt;\/smallcaps&gt;/g, "</span>")
+        .replace(/&lt;alpha=([^&<>]+)&gt;/g, (_,v)=>`<span style="opacity:${safePreviewOpacity(v)}">`).replace(/&lt;\/alpha&gt;/g, "</span>")
+        .replace(/&lt;mark=([^&<>]+)&gt;/g, (_,c)=>`<span style="background:${safePreviewColor(c, "#ff6d8059")};border-radius:3px;padding:0 .12em">`).replace(/&lt;\/mark&gt;/g, "</span>")
+        .replace(/&lt;cspace=([^&<>]+)&gt;/g, (_,v)=>`<span style="letter-spacing:${safePreviewLength(v, "0.12em")}">`).replace(/&lt;\/cspace&gt;/g, "</span>")
+        .replace(/&lt;mspace=([^&<>]+)&gt;/g, (_,v)=>`<span style="word-spacing:${safePreviewLength(v, "0.35em")}">`).replace(/&lt;\/mspace&gt;/g, "</span>")
+        .replace(/&lt;line-height=([^&<>]+)&gt;/g, (_,v)=>`<span style="line-height:${safePreviewLength(v, "1.2em")}">`).replace(/&lt;\/line-height&gt;/g, "</span>")
+        .replace(/&lt;indent=([^&<>]+)&gt;/g, (_,v)=>`<span style="display:inline-block;margin-left:${safePreviewLength(v, "1em")}">`).replace(/&lt;\/indent&gt;/g, "</span>")
+        .replace(/&lt;margin=([^&<>]+)&gt;/g, (_,v)=>`<span style="display:inline-block;margin-inline:${safePreviewLength(v, "0.5em")}">`).replace(/&lt;\/margin&gt;/g, "</span>")
+        .replace(/&lt;link=([^&<>]+)&gt;/g, "<span style=\"text-decoration:underline;text-decoration-color:#ff8fa0\">").replace(/&lt;\/link&gt;/g, "</span>")
+        .replace(/&lt;noparse&gt;/g, "<span>").replace(/&lt;\/noparse&gt;/g, "</span>")
+        .replace(/&lt;voffset=([^&<>]+)&gt;/g, (_,v)=>`<span style="position:relative;top:${safePreviewLength(v, "-0.25em")}">`).replace(/&lt;\/voffset&gt;/g, "</span>")
+        .replace(/&lt;rotate=([^&<>]+)&gt;/g, (_,v)=>`<span style="display:inline-block;transform:rotate(${safePreviewAngle(v)});transform-origin:center">`).replace(/&lt;\/rotate&gt;/g, "</span>")
+        .replace(/&lt;width=([^&<>]+)&gt;/g, (_,v)=>`<span style="display:inline-block;transform:scaleX(${safePreviewScale(v)});transform-origin:left center">`).replace(/&lt;\/width&gt;/g, "</span>");
+
       html = html.replace(/\\n/g,"<br/>").replace(/\n/g,"<br/>");
       return html;
     }
@@ -2115,6 +2671,90 @@
       output.value = cleanMarkup(output.value || buildMarkup());
       preview.innerHTML = toPreviewHTML(output.value);
       status("Output normalized.");
+    }
+
+    function hexWithAlpha(hex, alphaPercent){
+      const base = normHex(hex || "#FF6D80", true);
+      const alpha = clamp(parseInt(alphaPercent || "35", 10), 5, 100);
+      const alphaHex = Math.round(alpha * 2.55).toString(16).padStart(2, "0").toUpperCase();
+      return `${base}${alphaHex}`;
+    }
+
+    function alphaHex(alphaPercent){
+      return hexWithAlpha("#FFFFFF", alphaPercent).slice(-2);
+    }
+
+    function cleanTmpValue(raw, fallback){
+      const value = String(raw || "").replace(/[<>"']/g, "").trim();
+      return value || fallback;
+    }
+
+    function advancedValueFor(kind){
+      const raw = (advancedValue.value || "").trim();
+      if(kind === "width") return cleanTmpValue(raw, "120%");
+      if(kind === "rotate") return cleanTmpValue(raw && !raw.includes("%") ? raw : "8", "8");
+      if(kind === "voffset") return cleanTmpValue(raw && !raw.includes("%") ? raw : "0.25em", "0.25em");
+      if(kind === "mspace") return cleanTmpValue(raw && !raw.includes("%") ? raw : "0.35em", "0.35em");
+      if(kind === "cspace") return cleanTmpValue(raw && !raw.includes("%") ? raw : "0.08em", "0.08em");
+      if(kind === "line-height") return cleanTmpValue(raw || "120%", "120%");
+      if(kind === "indent") return cleanTmpValue(raw || "1em", "1em");
+      if(kind === "margin") return cleanTmpValue(raw || "0.5em", "0.5em");
+      if(kind === "link") return cleanTmpValue(raw || "maul", "maul");
+      return cleanTmpValue(raw, "120%");
+    }
+
+    function flashOutput(){
+      output.classList.remove("advanced-output-glow");
+      void output.offsetWidth;
+      output.classList.add("advanced-output-glow");
+    }
+
+    function wrapOutputSelection(openTag, closeTag, label = "Tag"){
+      if(!output.value.trim()) output.value = buildMarkup();
+      const value = output.value;
+      if(!value){ status("Nothing to wrap yet."); return; }
+
+      let s = output.selectionStart | 0;
+      let e = output.selectionEnd | 0;
+      if(s === e){ s = 0; e = value.length; }
+
+      output.value = value.slice(0, s) + openTag + value.slice(s, e) + closeTag + value.slice(e);
+      preview.innerHTML = toPreviewHTML(output.value);
+      output.focus();
+      output.selectionStart = s + openTag.length;
+      output.selectionEnd = e + openTag.length;
+      flashOutput();
+      status(`${label} applied to output.`);
+    }
+
+    function wrapAdvancedDynamic(kind){
+      if(kind === "mark"){
+        wrapOutputSelection(`<mark=${hexWithAlpha(advancedColor.value, advancedAlpha.value)}>`, "</mark>", "Highlight");
+        return;
+      }
+
+      if(kind === "alpha"){
+        wrapOutputSelection(`<alpha=#${alphaHex(advancedAlpha.value)}>`, "</alpha>", "Alpha");
+        return;
+      }
+
+      const value = advancedValueFor(kind);
+      if(kind === "link"){
+        wrapOutputSelection(`<link="${value}">`, "</link>", "Link");
+        return;
+      }
+
+      const labels = {
+        width: "Width",
+        mspace: "Word spacing",
+        cspace: "Character spacing",
+        rotate: "Rotate",
+        voffset: "Vertical offset",
+        "line-height": "Line height",
+        indent: "Indent",
+        margin: "Margin"
+      };
+      wrapOutputSelection(`<${kind}=${value}>`, `</${kind}>`, labels[kind] || "Advanced tag");
     }
 
     function cleanMarkup(markup){
@@ -2362,7 +3002,7 @@
         }
       }
 
-      const tokenRe = /<\/?(?:align|font|size|color|b|i|u)(?:=(?:"[^"]*"|[^>]*))?>/gi;
+      const tokenRe = /<\/?(?:align|font|size|color|b|i|u|sub|sup|s|nobr|allcaps|uppercase|lowercase|smallcaps|alpha|mark|width|mspace|cspace|rotate|voffset|line-height|indent|margin|link|noparse)(?:=(?:"[^"]*"|'[^']*'|[^>]*))?>/gi;
       let last = 0;
       let match;
 
@@ -2677,12 +3317,7 @@
       const next = val.slice(0,s) + text + val.slice(e);
       editor.value = next;
       editor.selectionStart = editor.selectionEnd = s + text.length;
-      lastEditorValue = next;
-      TEXT = next;
-      MAP = buildVisibleMap(TEXT);
-      ensureStyleLength(MAP.visLen);
-      autosizeEditor();
-      renderAll();
+      onEditorInput();
     }
 
     function insertLiteralNL(){
@@ -2770,6 +3405,32 @@
       modal.classList.remove("open");
     }
 
+    function initFallbackNavbar(){
+      const nav = document.querySelector("#navbar .editor-fallback-nav");
+      if(!nav || nav.dataset.ready === "true") return;
+      nav.dataset.ready = "true";
+
+      const button = nav.querySelector(".dropbtn");
+      const closeNav = () => {
+        nav.classList.remove("open");
+        button?.setAttribute("aria-expanded", "false");
+      };
+
+      button?.addEventListener("click", (e)=>{
+        e.stopPropagation();
+        const open = nav.classList.toggle("open");
+        button.setAttribute("aria-expanded", String(open));
+      });
+
+      document.addEventListener("click", (e)=>{
+        if(!nav.contains(e.target)) closeNav();
+      });
+
+      document.addEventListener("keydown", (e)=>{
+        if(e.key === "Escape") closeNav();
+      });
+    }
+
     openHelpTop?.addEventListener("click", (e)=>{ e.preventDefault(); openHelp(); });
     openHelpInline?.addEventListener("click", openHelp);
 
@@ -2845,10 +3506,22 @@
       preview.innerHTML = toPreviewHTML(output.value);
     });
 
+    document.querySelectorAll("[data-advanced-wrap]").forEach((button)=>{
+      button.addEventListener("click", ()=>{
+        wrapOutputSelection(button.dataset.open || "", button.dataset.close || "", button.textContent.trim() || "Advanced tag");
+      });
+    });
+
+    document.querySelectorAll("[data-advanced-dynamic]").forEach((button)=>{
+      button.addEventListener("click", ()=>{
+        wrapAdvancedDynamic(button.dataset.advancedDynamic);
+      });
+    });
+
     toggleGradientBtn.addEventListener("click", ()=>{
       const collapsed = compactGradient.classList.toggle("gradient-collapsed");
-      toggleGradientBtn.textContent = collapsed ? "Show" : "Hide";
-      saveLS("gradientCollapsedV1", collapsed);
+      toggleGradientBtn.textContent = collapsed ? "Edit stops" : "Hide stops";
+      saveLS("gradientCollapsedV2", collapsed);
     });
 
     btnUndo.addEventListener("click", undo);
@@ -2873,10 +3546,14 @@
 
     addStopBtn.addEventListener("click", ()=>{
       pushHistory();
-      const last = STOPS.length ? STOPS[STOPS.length-1].pos : 100;
-      const pos = clamp(last + 5, 0, 100);
-      STOPS.push({color:randHex(), pos});
-      distributeStops();
+      const stops = orderedStops();
+      const lastStop = stops[stops.length - 1] || { color: normHex(solidColor.value, true), pos: 0 };
+      const prevStop = stops[stops.length - 2];
+      const pos = lastStop.pos >= 95 && prevStop
+        ? clamp((prevStop.pos + lastStop.pos) / 2, 0, 100)
+        : clamp(lastStop.pos + 5, 0, 100);
+      STOPS.push({color:normHex(lastStop.color || solidColor.value, true), pos});
+      sortStops();
       renderStopsUI();
       renderGradientPreview();
       status("Stop added.");
@@ -3072,6 +3749,8 @@
     });
 
     function boot(){
+      initFallbackNavbar();
+
       const bc = loadLS("baseColorV2", "#FFFFFF");
       const fs = loadLS("fontSelV2", "");
       const sz = loadLS("sizeCtlV2", 100);
@@ -3079,9 +3758,9 @@
       solidColor.value = normHex(bc,true);
       fontSel.value = fs;
       sizePct.value = clamp(parseInt(sz||"100",10),50,300);
-      const gradientCollapsed = loadLS("gradientCollapsedV1", true);
+      const gradientCollapsed = loadLS("gradientCollapsedV2", true);
       compactGradient.classList.toggle("gradient-collapsed", gradientCollapsed);
-      toggleGradientBtn.textContent = gradientCollapsed ? "Show" : "Hide";
+      toggleGradientBtn.textContent = gradientCollapsed ? "Edit stops" : "Hide stops";
 
       syncPreviewBaseFont();
 
