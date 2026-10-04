@@ -145,6 +145,12 @@
                 "position": 9,
                 "name": "Other Resources",
                 "url": "https://moddedamong.us/mods.html#other-resources"
+              },
+              {
+                "@type": "ListItem",
+                "position": 10,
+                "name": "Deprecated Mods",
+                "url": "https://moddedamong.us/mods.html#deprecated-mods"
               }
             ]
           }
@@ -1801,6 +1807,10 @@
         font-size: 0.83rem;
         font-weight: 800;
         line-height: 1.15;
+        white-space: normal;
+        overflow: visible;
+        overflow-wrap: anywhere;
+        text-overflow: clip;
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.06),
           inset -2px 0 0 rgba(255, 204, 128, 0.08);
@@ -2261,6 +2271,7 @@
         <a href="#apis">APIs</a>
         <a href="#mod-managers">Mod managers</a>
         <a href="#other-resources">Other resources</a>
+        <a href="#deprecated-mods">Deprecated mods</a>
       </nav>
 
       <section class="mod-search" aria-label="Search mods">
@@ -2337,29 +2348,6 @@
 
         <div class="grid">
           <article class="card">
-            <img src="images/TownOfHost-Title.png" alt="Town of Host Mod" class="thumb" />
-            <div class="card-body">
-              <div class="title-row">
-                <h3 class="title">Town of Host</h3>
-                <span class="mod-status-tag deprecated-tag">Deprecated</span>
-              </div>
-              <p class="sub">
-                A classic Among Us framework that many other role mods are built on. The host controls roles, rules, and balance.
-              </p>
-              <div class="preset-actions">
-                <a
-                  class="btn"
-                  href="https://github.com/tukasa0001/TownOfHost?dhc-id=80397386291089414"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
             <img src="images/Project lotus.jpg" alt="Project Lotus" class="thumb" />
             <div class="card-body">
               <h3 class="title">Project Lotus</h3>
@@ -2374,29 +2362,6 @@
                   rel="noopener"
                 >
                   <i class="fa-brands fa-github"></i> Github
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
-            <img src="images/TOHY.jpg" alt="Town of Host: Y Mod" class="thumb" />
-            <div class="card-body">
-              <div class="title-row">
-                <h3 class="title">Town of Host: Y</h3>
-                <span class="mod-status-tag deprecated-tag">Deprecated</span>
-              </div>
-              <p class="sub">
-                An expanded fork of Town of Host, adding even more roles and configuration options while keeping the host-only structure.
-              </p>
-              <div class="preset-actions">
-                <a
-                  class="btn"
-                  href="https://github.com/Yumenopai/TownOfHost_Y?dhc-id=80399802046615554"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-brands fa-github"></i> GitHub
                 </a>
               </div>
             </div>
@@ -2454,29 +2419,6 @@
           </article>
 
           <article class="card">
-            <img src="images/moregamemodes.png" alt="More GameModes Mod" class="thumb" />
-            <div class="card-body">
-              <div class="title-row">
-                <h3 class="title">More GameModes</h3>
-                <span class="mod-status-tag deprecated-tag">Deprecated</span>
-              </div>
-              <p class="sub">
-                Adds new gamemodes like Bomb Tag and Battle Royale, giving hosts more ways to mix up the pace of a lobby.
-              </p>
-              <div class="preset-actions">
-                <a
-                  class="btn"
-                  href="https://github.com/Rabek009/MoreGamemodes?dhc-id=80407194301894658"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <article class="card">
             <img src="images/EHR_logo0.png" alt="Endless Host Roles" class="thumb" />
             <div class="card-body">
               <h3 class="title">Endless Host Roles</h3>
@@ -2496,28 +2438,6 @@
             </div>
           </article>
 
-          <article class="card">
-            <img src="images/TOHE-BG.jpg" alt="Town of Host: Enhanced" class="thumb" />
-            <div class="card-body">
-              <div class="title-row">
-                <h3 class="title">Town of Host: Enhanced</h3>
-                <span class="mod-status-tag deprecated-tag">Deprecated</span>
-              </div>
-              <p class="sub">
-                A host only mod with more game modes and features.
-              </p>
-              <div class="preset-actions">
-                <a
-                  class="btn"
-                  href="https://github.com/0xDrMoe/TownofHost-Enhanced?dhc-id=80389830512480262"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <i class="fa-brands fa-github"></i> GitHub
-                </a>
-              </div>
-            </div>
-          </article>
         </div>
       </section>
 
@@ -4012,6 +3932,107 @@
         </div>
       </section>
 
+      <section class="mods-section" id="deprecated-mods">
+        <h2 class="mods-section-title">Deprecated Mods</h2>
+        <p class="mods-section-subtitle">
+          Historical Among Us mods kept for reference and discovery.
+        </p>
+
+        <div class="grid">
+          <article class="card deprecated-card">
+            <img src="images/TownOfHost-Title.png" alt="Town of Host Mod" class="thumb" />
+            <div class="card-body">
+              <div class="title-row">
+                <h3 class="title">Town of Host</h3>
+                <span class="mod-status-tag deprecated-tag">Deprecated</span>
+              </div>
+              <p class="sub">
+                A classic Among Us framework that many other role mods are built on. The host controls roles, rules, and balance.
+              </p>
+              <div class="preset-actions">
+                <a
+                  class="btn"
+                  href="https://github.com/tukasa0001/TownOfHost?dhc-id=80397386291089414"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card deprecated-card">
+            <img src="images/TOHY.jpg" alt="Town of Host: Y Mod" class="thumb" />
+            <div class="card-body">
+              <div class="title-row">
+                <h3 class="title">Town of Host: Y</h3>
+                <span class="mod-status-tag deprecated-tag">Deprecated</span>
+              </div>
+              <p class="sub">
+                An expanded fork of Town of Host, adding even more roles and configuration options while keeping the host-only structure.
+              </p>
+              <div class="preset-actions">
+                <a
+                  class="btn"
+                  href="https://github.com/Yumenopai/TownOfHost_Y?dhc-id=80399802046615554"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card deprecated-card">
+            <img src="images/moregamemodes.png" alt="More GameModes Mod" class="thumb" />
+            <div class="card-body">
+              <div class="title-row">
+                <h3 class="title">More GameModes</h3>
+                <span class="mod-status-tag deprecated-tag">Deprecated</span>
+              </div>
+              <p class="sub">
+                Adds new gamemodes like Bomb Tag and Battle Royale, giving hosts more ways to mix up the pace of a lobby.
+              </p>
+              <div class="preset-actions">
+                <a
+                  class="btn"
+                  href="https://github.com/Rabek009/MoreGamemodes?dhc-id=80407194301894658"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card deprecated-card">
+            <img src="images/TOHE-BG.jpg" alt="Town of Host: Enhanced" class="thumb" />
+            <div class="card-body">
+              <div class="title-row">
+                <h3 class="title">Town of Host: Enhanced</h3>
+                <span class="mod-status-tag deprecated-tag">Deprecated</span>
+              </div>
+              <p class="sub">
+                A host only mod with more game modes and features.
+              </p>
+              <div class="preset-actions">
+                <a
+                  class="btn"
+                  href="https://github.com/0xDrMoe/TownofHost-Enhanced?dhc-id=80389830512480262"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="fa-brands fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <p class="mods-footer-note">
         Want your mod featured here?
         <a
@@ -4077,11 +4098,13 @@
           ["Latest release", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-tag", "release-btn"],
           ["Steam", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-download", "download-btn"],
           ["Epic", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-download", "download-btn"],
+          ["DLL", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-download", "download-btn"],
         ],
         "TOHO": [
           ["Latest release", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-tag", "release-btn"],
           ["Steam", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-download", "download-btn"],
           ["Epic", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-download", "download-btn"],
+          ["DLL", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-download", "download-btn"],
         ],
         "More GameModes": [
           ["Latest release", "https://github.com/Rabek009/MoreGamemodes/releases/latest", "fa-solid fa-tag", "release-btn"],
@@ -4286,23 +4309,27 @@
       };
 
       /*
-        note for Sixie:
-        Download buttons are now a two step system. The starlightReleaseLinks table still creates fallback
-        buttons first, so the page has usable buttons even if gitHub rate-limits blocks or a repo has no assets
-        GitHub backed fallbaclk buttons get data auto download="fallback" plus data-github-repo/data-asset-flavor
-        metadata after the cards render hydrateGithubDownloadButtons() fetches each repos latest release once
-        classifyReleaseAsset() reads the asset filenames, and replaceFallbackDownloadButtons() swaps only those
-        fallback buttons for buttons that match the real release assets
+         note for Sixie:
+        Download buttons are now a twostep system the starlightReleaseLinks table still creates fallback
+        buttons first, so the page has usable buttons even if GitHub rate limits, blocks or a repo has no assets
+        GitHub backed fallback buttons get data-auto-download="fallback" plus data-github-repo/data-asset-flavor
+        metadata. After the cards render hydrateGithubDownloadButtons() fetches each repos latest release once
+        classifyReleaseAsset() reads the asset filenames and replaceFallbackDownloadButtons() swaps platform
+        fallback buttons for buttons that match the real release assets repoFallbackLabelOverides is the audited
+        offline fallback map for repos whose current release assets do not match the older hardcoded labels. cards
+        with platform fallbacks still get a DLL fallback automatically when they are not covered by an override
+        utility fallbacks like as DLL, Itch, and Steam / Itch stay visible unless GitHub provides the same label.
 
-        Filename markers
-        - Itch or Itchio => Itch
-        - Steam + Epic + MS/Microsoft/MSStore/Xbox in one filename => Epic / MS / Steam
-        - Separate Steam or Epic assets stay as separate Steam/Epic buttons
-        - DLL ZIP x64/x86 Windows and cosmetics remain utility style buttons
+        Filename markers drive the labels:
+        - Itch or Itchio alone > Itch
+        - Steam plus Itch/Itchio > Steam / Itch
+        - Steam + Epic + MS/Microsoft/MSStore/Xbox in one filename > Epic / MS / Steam
+        - Separate Steam or Epic assets stay as separate Steam/Eic buttons
+        - DL ZIP x64/x86 Windows, and Cosmetics remain utility-style buttons
 
-        The external link warning still handles the final click if a button points at /releases/latest, the
-        warning resolves the freshest asset URL from data githubnrepo and data-asset-flavor before opening it
-        existiing links are left alone only auto generated fallback buttons are removed/replaced
+        The external link warning still handles the final click. If a button points at /releases/latest the
+        warning resolves the freshest asset URL from data-github-repo and data-asset-flavor before opening it
+        existing links are left alone only autofallback buttons are removed/replaced
       */
       const githubDownloadCards = [];
       const compactLabels = {
@@ -4313,11 +4340,11 @@
         "Epic": "Epic / MS / Steam",
         "Epic / MS": "Epic / MS / Steam",
         "Epic / MS / Xbox": "Epic / MS / Steam",
-        "MS Store": "Epic / MS / Steam",
-        "Steam / Itch": "Itch"
+        "MS Store": "Epic / MS / Steam"
       };
       const autoDownloadOrder = [
         "Itch",
+        "Steam / Itch",
         "Epic / MS / Steam",
         "Steam / Epic",
         "Epic / MS",
@@ -4333,6 +4360,45 @@
         "ZIP",
         "Download"
       ];
+      const preservedFallbackDownloadLabels = new Set(["DLL", "Itch", "Steam / Itch"]);
+      const platformFallbackDownloadLabels = new Set([
+        "Steam",
+        "Epic",
+        "Epic / MS",
+        "Epic / MS / Xbox",
+        "MS Store",
+        "Steam / Itch"
+      ]);
+      const repoFallbackLabelOverrides = {
+        "AU-Avengers/TOU-Mira": ["Steam / Itch", "Epic / MS", "x32", "DLL"],
+        "ApeMV/AmongUsRevamped": ["Itch", "Epic / MS / Steam", "DLL"],
+        "CallOfCreator/NewMod": ["DLL"],
+        "D1GQ/BetterAmongUs": ["Itch", "Epic / MS / Steam", "DLL"],
+        "Dolly1016/Nebula": ["ZIP", "DLL"],
+        "EnhancedNetwork/TownofHost-Enhanced": ["Steam / Itch", "Epic / MS", "DLL"],
+        "Gurge44/EndlessHostRoles": ["Itch", "Epic / MS / Steam", "Windows", "DLL"],
+        "LimeShep/Town-Of-Us": ["x64", "x32", "DLL"],
+        "Limeau/RemongUs": ["Steam", "Epic / MS", "DLL"],
+        "Limeau/TownofHost-Optimized": ["ZIP", "DLL"],
+        "Lotus-AU/LotusContinued": ["Steam", "Epic / MS", "DLL"],
+        "Mr-Fluuff/StellarRolesAU": ["Steam", "Epic", "DLL"],
+        "Rabek009/MoreGamemodes": ["Steam / Itch", "Epic / MS", "DLL"],
+        "SubmergedAmongUs/Submerged": ["Steam / Itch", "Epic / MS", "DLL"],
+        "SuperNewRoles/SuperNewRoles": ["Steam", "Epic", "DLL"],
+        "TheOtherRolesAU/TheOtherRoles": ["ZIP", "MS Store", "DLL"],
+        "ThetaHalo/FlashlightUs": ["Steam", "Epic / MS", "DLL"],
+        "Yumenopai/TownOfHost_Y": ["ZIP", "DLL"],
+        "Zeo666/AllTheRoles": ["Steam / Itch", "Epic / MS", "Cosmetics"],
+        "astra1dev/AUnlocker": ["Steam / Itch", "Epic / MS", "DLL"],
+        "eDonnes124/Town-Of-Us-R": ["ZIP", "DLL"],
+        "rewalo/TownOfUsMiraRolesExtension": ["Steam / Itch", "Epic / MS", "x32", "DLL"],
+        "tukasa0001/TownOfHost": ["Steam", "Epic", "DLL"]
+      };
+      const repoFallbackAssetHints = {
+        "AU-Avengers/TOU-Mira": { "DLL": "TownOfUsMira.dll" },
+        "Lotus-AU/LotusContinued": { "DLL": "Lotus.dll" },
+        "ThetaHalo/FlashlightUs": { "DLL": "FlashlightUs.dll" }
+      };
 
       const normalizeFallbackDownloadLabel = (label) =>
         fallbackPlatformDownloadLabels[label] || compactLabels[label] || label;
@@ -4376,8 +4442,8 @@
 
         const wantsItch = assetHas(name, /(^|[^a-z0-9])itch(io)?([^a-z0-9]|$)|itchio/i);
         const wantsSteam = assetHas(name, /(^|[^a-z0-9])steam([^a-z0-9]|$)/i);
-        const wantsEpic = assetHas(name, /(^|[^a-z0-9])epic([^a-z0-9]|$)/i);
-        const wantsMs = assetHas(name, /(^|[^a-z0-9])(ms|msstore|microsoft|xbox)([^a-z0-9]|$)|microsoftstore/i);
+        const wantsEpic = assetHas(name, /(^|[^a-z0-9])epic(games?)?([^a-z0-9]|$)|epicgames/i);
+        const wantsMs = assetHas(name, /(^|[^a-z0-9])(ms|msstore|microsoft|xbox)([^a-z0-9]|$)|microsoftstore|xboxapp/i);
         const wantsX64 = assetHas(name, /(^|[^a-z0-9])(x64|win64|64bit|64-bit)([^a-z0-9]|$)/i);
         const wantsX32 = assetHas(name, /(^|[^a-z0-9])(x32|x86|win32|32bit|32-bit)([^a-z0-9]|$)/i);
         const wantsCosmetics = name.includes("cosmetic");
@@ -4386,7 +4452,8 @@
         const wantsZip = /\.(zip|rar|7z)$/i.test(rawName);
 
         let label = "";
-        if (wantsItch) label = "Itch";
+        if (wantsItch && wantsSteam && !wantsEpic && !wantsMs) label = "Steam / Itch";
+        else if (wantsItch && !wantsSteam) label = "Itch";
         else if (wantsSteam && wantsEpic && wantsMs) label = "Epic / MS / Steam";
         else if (wantsSteam && wantsEpic) label = "Steam / Epic";
         else if (wantsEpic && wantsMs) label = "Epic / MS";
@@ -4397,8 +4464,8 @@
         else if (wantsX64) label = "x64";
         else if (wantsX32) label = "x32";
         else if (wantsWindows) label = "Windows";
-        else if (wantsCosmetics) label = "Cosmetics";
         else if (wantsDll) label = "DLL";
+        else if (wantsCosmetics) label = "Cosmetics";
         else if (wantsZip) label = rawName.toLowerCase().endsWith(".zip") ? "ZIP" : "Download";
         if (!label) return null;
 
@@ -4429,8 +4496,12 @@
 
       const replaceFallbackDownloadButtons = (actions, repo, buttons) => {
         if (!buttons.length) return false;
+        const githubLabels = new Set(buttons.map((button) => button.label));
         actions.querySelectorAll("a[data-auto-download='fallback']").forEach((link) => {
-          if (link.dataset.githubRepo === repo) link.remove();
+          if (link.dataset.githubRepo !== repo) return;
+          const label = link.dataset.assetFlavor || link.textContent.trim();
+          const shouldPreserve = preservedFallbackDownloadLabels.has(label) && !githubLabels.has(label);
+          if (!shouldPreserve) link.remove();
         });
         const existing = new Set([...actions.querySelectorAll("a")].map((link) => `${link.href}|${link.textContent.trim()}`));
         buttons.forEach((button) => {
@@ -4445,6 +4516,7 @@
 
       document.querySelectorAll(".card").forEach((card) => {
         const title = card.querySelector(".title")?.textContent.trim();
+        if (card.querySelector(".deprecated-tag") || card.closest("#deprecated-mods")) return;
         const links = starlightReleaseLinks[title];
         if (!links) return;
         let actions = card.querySelector(".preset-actions");
@@ -4455,6 +4527,8 @@
         }
         const existing = new Set([...actions.querySelectorAll("a")].map((link) => `${link.href}|${link.textContent.trim()}`));
         const cardRepos = new Set();
+        const platformCardRepos = new Set();
+        const overrideCardRepos = new Set();
         links.forEach(([label, href, icon, extraClass]) => {
           const displayLabel = extraClass?.includes("download-btn")
             ? normalizeFallbackDownloadLabel(label)
@@ -4465,7 +4539,14 @@
           const linkHref = downloadDetails
             ? `https://github.com/${downloadDetails.repo}/releases/latest`
             : href;
-          if (downloadDetails) cardRepos.add(downloadDetails.repo);
+          if (downloadDetails) {
+            cardRepos.add(downloadDetails.repo);
+            if (repoFallbackLabelOverrides[downloadDetails.repo]) {
+              overrideCardRepos.add(downloadDetails.repo);
+              return;
+            }
+            if (platformFallbackDownloadLabels.has(label)) platformCardRepos.add(downloadDetails.repo);
+          }
           appendActionLink(actions, existing, {
             label: displayLabel,
             href: linkHref,
@@ -4476,6 +4557,36 @@
             assetFlavor: downloadDetails ? displayLabel : "",
             assetName: downloadDetails?.assetName,
             autoDownload: downloadDetails ? "fallback" : ""
+          });
+        });
+        overrideCardRepos.forEach((repo) => {
+          repoFallbackLabelOverrides[repo].forEach((label) => {
+            const assetName = repoFallbackAssetHints[repo]?.[label] || "";
+            appendActionLink(actions, existing, {
+              label,
+              href: `https://github.com/${repo}/releases/latest`,
+              icon: "fa-solid fa-download",
+              extraClass: "download-btn",
+              title: `Latest ${label}`,
+              repo,
+              assetFlavor: label,
+              assetName,
+              autoDownload: "fallback"
+            });
+          });
+        });
+        platformCardRepos.forEach((repo) => {
+          if (overrideCardRepos.has(repo)) return;
+          appendActionLink(actions, existing, {
+            label: "DLL",
+            href: `https://github.com/${repo}/releases/latest`,
+            icon: "fa-solid fa-download",
+            extraClass: "download-btn",
+            title: "Latest DLL",
+            repo,
+            assetFlavor: "DLL",
+            assetName: repoFallbackAssetHints[repo]?.DLL || "",
+            autoDownload: "fallback"
           });
         });
         cardRepos.forEach((repo) => githubDownloadCards.push({ card, actions, repo }));
