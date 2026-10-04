@@ -4285,6 +4285,164 @@
         return latestMatch ? { repo: latestMatch[1], assetName: "" } : null;
       };
 
+      /*
+        note for Sixie:
+        Download buttons are now a two step system. The starlightReleaseLinks table still creates fallback
+        buttons first, so the page has usable buttons even if gitHub rate-limits blocks or a repo has no assets
+        GitHub backed fallbaclk buttons get data auto download="fallback" plus data-github-repo/data-asset-flavor
+        metadata after the cards render hydrateGithubDownloadButtons() fetches each repos latest release once
+        classifyReleaseAsset() reads the asset filenames, and replaceFallbackDownloadButtons() swaps only those
+        fallback buttons for buttons that match the real release assets
+
+        Filename markers
+        - Itch or Itchio => Itch
+        - Steam + Epic + MS/Microsoft/MSStore/Xbox in one filename => Epic / MS / Steam
+        - Separate Steam or Epic assets stay as separate Steam/Epic buttons
+        - DLL ZIP x64/x86 Windows and cosmetics remain utility style buttons
+
+        The external link warning still handles the final click if a button points at /releases/latest, the
+        warning resolves the freshest asset URL from data githubnrepo and data-asset-flavor before opening it
+        existiing links are left alone only auto generated fallback buttons are removed/replaced
+      */
+      const githubDownloadCards = [];
+      const compactLabels = {
+        "Latest release": "Latest"
+      };
+      const fallbackPlatformDownloadLabels = {
+        "Steam": "Epic / MS / Steam",
+        "Epic": "Epic / MS / Steam",
+        "Epic / MS": "Epic / MS / Steam",
+        "Epic / MS / Xbox": "Epic / MS / Steam",
+        "MS Store": "Epic / MS / Steam",
+        "Steam / Itch": "Itch"
+      };
+      const autoDownloadOrder = [
+        "Itch",
+        "Epic / MS / Steam",
+        "Steam / Epic",
+        "Epic / MS",
+        "MS / Steam",
+        "Steam",
+        "Epic",
+        "MS Store",
+        "x64",
+        "x32",
+        "Windows",
+        "Cosmetics",
+        "DLL",
+        "ZIP",
+        "Download"
+      ];
+
+      const normalizeFallbackDownloadLabel = (label) =>
+        fallbackPlatformDownloadLabels[label] || compactLabels[label] || label;
+
+      const appendActionLink = (actions, existing, {
+        label,
+        href,
+        icon,
+        extraClass,
+        title,
+        repo,
+        assetFlavor,
+        assetName,
+        autoDownload
+      }) => {
+        const absoluteHref = new URL(href, window.location.href).href;
+        if (existing.has(`${absoluteHref}|${label}`)) return null;
+
+        const link = document.createElement("a");
+        link.className = `btn ${extraClass}`.trim();
+        link.href = href;
+        link.target = "_blank";
+        link.rel = "noopener";
+        if (repo) link.dataset.githubRepo = repo;
+        if (assetFlavor) link.dataset.assetFlavor = assetFlavor;
+        if (assetName) link.dataset.assetName = assetName;
+        if (autoDownload) link.dataset.autoDownload = autoDownload;
+        link.innerHTML = `<i class="${icon}"></i> ${label}`;
+        link.title = title || label;
+        existing.add(`${absoluteHref}|${label}`);
+        actions.appendChild(link);
+        return link;
+      };
+
+      const assetHas = (name, pattern) => pattern.test(name);
+
+      const classifyReleaseAsset = (asset) => {
+        const rawName = String(asset?.name || "");
+        const name = rawName.toLowerCase();
+        if (!rawName || !asset?.browser_download_url) return null;
+
+        const wantsItch = assetHas(name, /(^|[^a-z0-9])itch(io)?([^a-z0-9]|$)|itchio/i);
+        const wantsSteam = assetHas(name, /(^|[^a-z0-9])steam([^a-z0-9]|$)/i);
+        const wantsEpic = assetHas(name, /(^|[^a-z0-9])epic([^a-z0-9]|$)/i);
+        const wantsMs = assetHas(name, /(^|[^a-z0-9])(ms|msstore|microsoft|xbox)([^a-z0-9]|$)|microsoftstore/i);
+        const wantsX64 = assetHas(name, /(^|[^a-z0-9])(x64|win64|64bit|64-bit)([^a-z0-9]|$)/i);
+        const wantsX32 = assetHas(name, /(^|[^a-z0-9])(x32|x86|win32|32bit|32-bit)([^a-z0-9]|$)/i);
+        const wantsCosmetics = name.includes("cosmetic");
+        const wantsWindows = /\.(exe|msi)$/i.test(rawName) || name.includes("setup") || name.includes("windows");
+        const wantsDll = /\.dll$/i.test(rawName);
+        const wantsZip = /\.(zip|rar|7z)$/i.test(rawName);
+
+        let label = "";
+        if (wantsItch) label = "Itch";
+        else if (wantsSteam && wantsEpic && wantsMs) label = "Epic / MS / Steam";
+        else if (wantsSteam && wantsEpic) label = "Steam / Epic";
+        else if (wantsEpic && wantsMs) label = "Epic / MS";
+        else if (wantsSteam && wantsMs) label = "MS / Steam";
+        else if (wantsSteam) label = "Steam";
+        else if (wantsEpic) label = "Epic";
+        else if (wantsMs) label = "MS Store";
+        else if (wantsX64) label = "x64";
+        else if (wantsX32) label = "x32";
+        else if (wantsWindows) label = "Windows";
+        else if (wantsCosmetics) label = "Cosmetics";
+        else if (wantsDll) label = "DLL";
+        else if (wantsZip) label = rawName.toLowerCase().endsWith(".zip") ? "ZIP" : "Download";
+        if (!label) return null;
+
+        return {
+          label,
+          href: asset.browser_download_url,
+          icon: "fa-solid fa-download",
+          extraClass: "download-btn",
+          title: `Latest ${label}: ${rawName}`,
+          assetFlavor: label,
+          assetName: rawName,
+          order: autoDownloadOrder.indexOf(label)
+        };
+      };
+
+      const getReleaseDownloadButtons = (release) => {
+        const assets = Array.isArray(release?.assets) ? release.assets : [];
+        const byLabel = new Map();
+        assets.map(classifyReleaseAsset).filter(Boolean).forEach((button) => {
+          if (!byLabel.has(button.label)) byLabel.set(button.label, button);
+        });
+        return [...byLabel.values()].sort((a, b) => {
+          const aOrder = a.order < 0 ? Number.MAX_SAFE_INTEGER : a.order;
+          const bOrder = b.order < 0 ? Number.MAX_SAFE_INTEGER : b.order;
+          return aOrder - bOrder || a.label.localeCompare(b.label);
+        });
+      };
+
+      const replaceFallbackDownloadButtons = (actions, repo, buttons) => {
+        if (!buttons.length) return false;
+        actions.querySelectorAll("a[data-auto-download='fallback']").forEach((link) => {
+          if (link.dataset.githubRepo === repo) link.remove();
+        });
+        const existing = new Set([...actions.querySelectorAll("a")].map((link) => `${link.href}|${link.textContent.trim()}`));
+        buttons.forEach((button) => {
+          appendActionLink(actions, existing, {
+            ...button,
+            repo,
+            autoDownload: "github"
+          });
+        });
+        return true;
+      };
+
       document.querySelectorAll(".card").forEach((card) => {
         const title = card.querySelector(".title")?.textContent.trim();
         const links = starlightReleaseLinks[title];
@@ -4296,35 +4454,31 @@
           card.querySelector(".card-body")?.appendChild(actions);
         }
         const existing = new Set([...actions.querySelectorAll("a")].map((link) => `${link.href}|${link.textContent.trim()}`));
+        const cardRepos = new Set();
         links.forEach(([label, href, icon, extraClass]) => {
-          const link = document.createElement("a");
-          const compactLabels = {
-            "Latest release": "Latest",
-            "Epic / MS / Xbox": "Epic / MS",
-            "Epic / MS / Xbox": "Epic / MS"
-          };
-          const displayLabel = compactLabels[label] || label;
+          const displayLabel = extraClass?.includes("download-btn")
+            ? normalizeFallbackDownloadLabel(label)
+            : (compactLabels[label] || label);
           const downloadDetails = extraClass?.includes("download-btn")
             ? getGitHubDownloadDetails(href)
             : null;
           const linkHref = downloadDetails
             ? `https://github.com/${downloadDetails.repo}/releases/latest`
             : href;
-          const absoluteHref = new URL(linkHref, window.location.href).href;
-          if (existing.has(`${absoluteHref}|${displayLabel}`)) return;
-          link.className = `btn ${extraClass}`;
-          link.href = linkHref;
-          link.target = "_blank";
-          link.rel = "noopener";
-          if (downloadDetails) {
-            link.dataset.githubRepo = downloadDetails.repo;
-            link.dataset.assetFlavor = label;
-            link.dataset.assetName = downloadDetails.assetName;
-          }
-          link.innerHTML = `<i class="${icon}"></i> ${displayLabel}`;
-          link.title = downloadDetails ? `Latest ${label}` : label;
-          actions.appendChild(link);
+          if (downloadDetails) cardRepos.add(downloadDetails.repo);
+          appendActionLink(actions, existing, {
+            label: displayLabel,
+            href: linkHref,
+            icon,
+            extraClass,
+            title: downloadDetails ? `Latest ${displayLabel}` : label,
+            repo: downloadDetails?.repo,
+            assetFlavor: downloadDetails ? displayLabel : "",
+            assetName: downloadDetails?.assetName,
+            autoDownload: downloadDetails ? "fallback" : ""
+          });
         });
+        cardRepos.forEach((repo) => githubDownloadCards.push({ card, actions, repo }));
       });
 
       const featuredScheduleNode = document.querySelector("#featured-mod-schedule");
@@ -4453,7 +4607,7 @@
         featuredSpotlightDismiss?.focus();
       };
 
-      const setupFeaturedMod = async () => {
+      const setupFeaturedMod = async ({ openSpotlightOnReady = true } = {}) => {
         const entry = await activeFeaturedEntry();
         const sourceCard = findFeaturedSourceCard(entry.mod);
         if (!sourceCard) {
@@ -4466,7 +4620,7 @@
         if (featuredPeriod) featuredPeriod.textContent = entry.label || getMonthLabel(entry.date);
         cloneFeaturedCardInto(featuredGrid, sourceCard);
         cloneFeaturedCardInto(featuredSpotlightGrid, sourceCard);
-        window.requestAnimationFrame(openFeaturedSpotlight);
+        if (openSpotlightOnReady) window.requestAnimationFrame(openFeaturedSpotlight);
       };
 
       featuredSpotlightDismiss?.addEventListener("click", closeFeaturedSpotlight);
@@ -4640,6 +4794,7 @@
         const wantsItch = /itch/i.test(flavor);
         const wantsEpic = /epic/i.test(flavor);
         const wantsMs = /\bms\b|microsoft|xbox/i.test(flavor);
+        const wantsSharedStore = wantsSteam && wantsEpic && wantsMs;
         const wantsDll = /dll/i.test(flavor);
         const wantsZip = /zip/i.test(flavor);
         const wantsWindows = /windows/i.test(flavor);
@@ -4661,8 +4816,13 @@
         if (wantsX32 && (name.includes("x32") || name.includes("x86") || name.includes("32"))) score += 18;
         if (/download/i.test(flavor) && name.endsWith(".zip")) score += 8;
 
-        if ((wantsSteam || wantsItch) && (name.includes("epic") || name.includes("microsoft") || name.includes("msstore") || name.includes("xbox"))) score -= 25;
-        if ((wantsEpic || wantsMs) && (name.includes("steam") || name.includes("itch"))) score -= 25;
+        if (wantsSharedStore) {
+          if (name.includes("itch") || name.includes("itchio")) score -= 35;
+        } else {
+          if (wantsItch && (name.includes("steam") || name.includes("epic") || name.includes("microsoft") || name.includes("msstore") || name.includes("xbox"))) score -= 25;
+          if (wantsSteam && (name.includes("itch") || name.includes("epic") || name.includes("microsoft") || name.includes("msstore") || name.includes("xbox"))) score -= 25;
+          if ((wantsEpic || wantsMs) && (name.includes("steam") || name.includes("itch"))) score -= 25;
+        }
         if (wantsDll && !name.endsWith(".dll")) score -= 20;
         if (wantsZip && !name.endsWith(".zip")) score -= 12;
         if (/download/i.test(flavor) && (name.includes("msstore") || name.includes("microsoft"))) score -= 8;
@@ -4683,6 +4843,21 @@
           .sort((a, b) => b.score - a.score);
         return ranked[0]?.score > 0 ? ranked[0].asset.browser_download_url : null;
       };
+
+      const hydrateGithubDownloadButtons = async () => {
+        if (!githubDownloadCards.length) return;
+        const updates = await Promise.allSettled(
+          githubDownloadCards.map(async ({ actions, repo }) => {
+            const release = await getLatestRelease(repo);
+            const buttons = getReleaseDownloadButtons(release);
+            return replaceFallbackDownloadButtons(actions, repo, buttons);
+          })
+        );
+        const changed = updates.some((update) => update.status === "fulfilled" && update.value);
+        if (changed) setupFeaturedMod({ openSpotlightOnReady: false });
+      };
+
+      hydrateGithubDownloadButtons();
 
       const closeLinkWarning = () => {
         pendingExternalLink = null;
