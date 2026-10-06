@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MAUA Privacy Policy</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Privacy Policy for MAUA, a Discord bot used for moderation, verification, user safety, reports, warnings, quarantine actions, and server administration."
+    />
+
+    <meta property="og:title" content="MAUA Privacy Policy" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+    <meta
+      property="og:description"
+      content="How MAUA collects, uses, stores, and protects Discord data for moderation, verification, safety, and server-management features."
+    />
+    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+    <meta property="og:locale" content="en_US" />
+
+    <link rel="icon" type="image/png" href="https://moddedamong.us/images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      :root {
+        --red: #ec2537;
+        --red-dark: #74070f;
+        --gold: #ffd36e;
+        --cyan: #6ef9ff;
+        --violet: #a88bff;
+        --paper: #fff8ef;
+        --muted: #cdbfc0;
+        --line: rgba(255, 255, 255, 0.14);
+        --glass: rgba(17, 8, 11, 0.74);
+        --glass-strong: rgba(28, 12, 15, 0.9);
+        --shadow: 0 28px 80px rgba(0, 0, 0, 0.72);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--paper);
+        background:
+          radial-gradient(circle at 18% -8%, rgba(28, 79, 115, 0.08), transparent 28rem),
+          radial-gradient(circle at 86% 12%, rgba(79, 16, 28, 0.07), transparent 26rem),
+          linear-gradient(180deg, #000000 0%, #010103 54%, #000000 100%);
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: -160vh;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        z-index: -2;
+        pointer-events: none;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow:
+          3vw 8vh 0 0 #fff,
+          6vw 57vh 0 0 #fff,
+          9vw 122vh 0 0 #fff,
+          11vw 215vh 0 0 #fff,
+          14vw 303vh 0 0 #fff,
+          17vw 34vh 0 0 #fff,
+          19vw 186vh 0 0 #fff,
+          22vw 269vh 0 0 #fff,
+          25vw 78vh 0 0 #fff,
+          27vw 147vh 0 0 #fff,
+          29vw 241vh 0 0 #fff,
+          31vw 318vh 0 0 #fff,
+          34vw 18vh 0 0 #fff,
+          36vw 101vh 0 0 #fff,
+          38vw 207vh 0 0 #fff,
+          41vw 286vh 0 0 #fff,
+          43vw 64vh 0 0 #fff,
+          45vw 158vh 0 0 #fff,
+          48vw 226vh 0 0 #fff,
+          50vw 311vh 0 0 #fff,
+          52vw 42vh 0 0 #fff,
+          54vw 133vh 0 0 #fff,
+          57vw 197vh 0 0 #fff,
+          59vw 276vh 0 0 #fff,
+          61vw 88vh 0 0 #fff,
+          63vw 171vh 0 0 #fff,
+          65vw 252vh 0 0 #fff,
+          68vw 6vh 0 0 #fff,
+          70vw 116vh 0 0 #fff,
+          72vw 221vh 0 0 #fff,
+          74vw 296vh 0 0 #fff,
+          76vw 51vh 0 0 #fff,
+          79vw 139vh 0 0 #fff,
+          81vw 233vh 0 0 #fff,
+          83vw 314vh 0 0 #fff,
+          85vw 27vh 0 0 #fff,
+          87vw 96vh 0 0 #fff,
+          89vw 182vh 0 0 #fff,
+          91vw 265vh 0 0 #fff,
+          93vw 74vh 0 0 #fff,
+          95vw 154vh 0 0 #fff,
+          97vw 244vh 0 0 #fff,
+          99vw 309vh 0 0 #fff,
+          4vw 173vh 0 0 #fff,
+          8vw 261vh 0 0 #fff,
+          12vw 91vh 0 0 #fff,
+          16vw 229vh 0 0 #fff,
+          21vw 14vh 0 0 #fff,
+          24vw 291vh 0 0 #fff,
+          28vw 112vh 0 0 #fff,
+          33vw 248vh 0 0 #fff,
+          37vw 44vh 0 0 #fff,
+          40vw 301vh 0 0 #fff,
+          46vw 11vh 0 0 #fff,
+          49vw 263vh 0 0 #fff,
+          55vw 71vh 0 0 #fff,
+          58vw 238vh 0 0 #fff,
+          62vw 23vh 0 0 #fff,
+          67vw 203vh 0 0 #fff,
+          71vw 83vh 0 0 #fff,
+          75vw 259vh 0 0 #fff,
+          80vw 37vh 0 0 #fff,
+          84vw 211vh 0 0 #fff,
+          88vw 121vh 0 0 #fff,
+          92vw 289vh 0 0 #fff,
+          96vw 58vh 0 0 #fff;
+        animation: starFallFast 4.95s linear infinite;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        top: -160vh;
+        left: 0;
+        width: 4px;
+        height: 4px;
+        z-index: -1;
+        pointer-events: none;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow:
+          2vw 23vh 0 0 #fff,
+          4vw 141vh 0 0 #fff,
+          5vw 292vh 0 0 #fff,
+          7vw 68vh 0 0 #fff,
+          8vw 211vh 0 0 #fff,
+          10vw 317vh 0 0 #fff,
+          13vw 35vh 0 0 #fff,
+          15vw 156vh 0 0 #fff,
+          18vw 263vh 0 0 #fff,
+          20vw 96vh 0 0 #fff,
+          23vw 229vh 0 0 #fff,
+          26vw 5vh 0 0 #fff,
+          28vw 181vh 0 0 #fff,
+          30vw 306vh 0 0 #fff,
+          32vw 47vh 0 0 #fff,
+          35vw 128vh 0 0 #fff,
+          37vw 254vh 0 0 #fff,
+          39vw 89vh 0 0 #fff,
+          42vw 219vh 0 0 #fff,
+          44vw 333vh 0 0 #fff,
+          47vw 72vh 0 0 #fff,
+          49vw 164vh 0 0 #fff,
+          51vw 282vh 0 0 #fff,
+          53vw 13vh 0 0 #fff,
+          56vw 113vh 0 0 #fff,
+          58vw 244vh 0 0 #fff,
+          60vw 323vh 0 0 #fff,
+          62vw 54vh 0 0 #fff,
+          64vw 197vh 0 0 #fff,
+          66vw 271vh 0 0 #fff,
+          69vw 28vh 0 0 #fff,
+          71vw 146vh 0 0 #fff,
+          73vw 236vh 0 0 #fff,
+          76vw 309vh 0 0 #fff,
+          78vw 84vh 0 0 #fff,
+          80vw 172vh 0 0 #fff,
+          82vw 296vh 0 0 #fff,
+          85vw 39vh 0 0 #fff,
+          87vw 124vh 0 0 #fff,
+          89vw 214vh 0 0 #fff,
+          91vw 337vh 0 0 #fff,
+          94vw 62vh 0 0 #fff,
+          96vw 153vh 0 0 #fff,
+          98vw 278vh 0 0 #fff,
+          1vw 196vh 0 0 #fff,
+          6vw 254vh 0 0 #fff,
+          9vw 12vh 0 0 #fff,
+          12vw 275vh 0 0 #fff,
+          16vw 79vh 0 0 #fff,
+          19vw 311vh 0 0 #fff,
+          22vw 133vh 0 0 #fff,
+          25vw 288vh 0 0 #fff,
+          29vw 59vh 0 0 #fff,
+          33vw 233vh 0 0 #fff,
+          36vw 17vh 0 0 #fff,
+          40vw 304vh 0 0 #fff,
+          43vw 106vh 0 0 #fff,
+          46vw 258vh 0 0 #fff,
+          50vw 43vh 0 0 #fff,
+          54vw 221vh 0 0 #fff,
+          57vw 152vh 0 0 #fff,
+          61vw 291vh 0 0 #fff,
+          65vw 76vh 0 0 #fff,
+          68vw 316vh 0 0 #fff,
+          72vw 187vh 0 0 #fff,
+          75vw 26vh 0 0 #fff,
+          79vw 269vh 0 0 #fff,
+          83vw 117vh 0 0 #fff,
+          86vw 301vh 0 0 #fff,
+          90vw 49vh 0 0 #fff,
+          93vw 242vh 0 0 #fff,
+          97vw 101vh 0 0 #fff;
+        opacity: 0.96;
+        animation: starFall 7.18s linear infinite;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      ::selection {
+        background: rgba(255, 211, 110, 0.34);
+        color: #fff;
+      }
+
+      .page-shell {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        padding-bottom: 72px;
+      }
+
+      .page-shell::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 1900;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 50% 42%, rgba(236, 37, 55, 0.2), transparent 34%),
+          #03040a;
+        animation: pageVeil 0.8s cubic-bezier(0.16, 0.86, 0.2, 1) forwards;
+      }
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 22px 0;
+      }
+
+      .brand-mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 11px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+
+      .brand-icon {
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 211, 110, 0.34);
+        border-radius: 13px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02)),
+          rgba(16, 7, 10, 0.82);
+        color: var(--gold);
+        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.42);
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .nav-link,
+      .button {
+        min-height: 42px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        padding: 0 15px;
+        border-radius: 999px;
+        color: var(--paper);
+        text-decoration: none;
+        font-weight: 800;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .nav-link {
+        border: 1px solid rgba(255, 211, 110, 0.22);
+        background: rgba(14, 7, 9, 0.58);
+      }
+
+      .button-primary {
+        min-height: 50px;
+        color: #fff;
+        background: linear-gradient(135deg, #ffcf73, #ff394b 42%, #821018);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.52), 0 0 22px rgba(236, 37, 55, 0.22);
+      }
+
+      .button-secondary {
+        min-height: 50px;
+        border: 1px solid rgba(255, 211, 110, 0.28);
+        background: rgba(14, 7, 9, 0.62);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .nav-link:hover,
+      .button:hover {
+        transform: translateY(-3px);
+      }
+
+      .button-primary:hover {
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.62), 0 0 30px rgba(236, 37, 55, 0.28);
+      }
+
+      .nav-link:hover,
+      .button-secondary:hover {
+        border-color: rgba(255, 211, 110, 0.5);
+        background: rgba(36, 14, 18, 0.86);
+      }
+
+      .hero {
+        min-height: 62vh;
+        display: flex;
+        align-items: center;
+        padding: 52px 0 38px;
+        position: relative;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 22px -6vw 10px;
+        z-index: -1;
+        border-radius: 28px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 38%),
+          rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-copy {
+        opacity: 0;
+        transform: translateY(12px);
+        animation: introRise 1s cubic-bezier(0.16, 0.86, 0.2, 1) 0.2s forwards;
+      }
+
+      .eyebrow {
+        width: fit-content;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        padding: 8px 13px;
+        border: 1px solid rgba(255, 211, 110, 0.32);
+        border-radius: 999px;
+        background: rgba(19, 8, 11, 0.66);
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #32f59b;
+        box-shadow: 0 0 16px rgba(50, 245, 155, 0.85);
+      }
+
+      .hero h1 {
+        max-width: 900px;
+        margin: 0;
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(3.45rem, 7vw, 7.25rem);
+        line-height: 0.85;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        text-wrap: balance;
+      }
+
+      .hero h1 span {
+        display: block;
+      }
+
+      .hero h1 .brand {
+        background: linear-gradient(95deg, #fff 4%, #ffe1a1 30%, #ff3447 63%, #9b131d);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero-text {
+        max-width: 760px;
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 1.6vw, 1.12rem);
+        line-height: 1.78;
+      }
+
+      .hero-text strong {
+        color: #fff;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 26px;
+      }
+
+      .overview-card,
+      .policy-card,
+      .contact-card {
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.025)),
+          rgba(17, 7, 10, 0.75);
+        box-shadow: 0 18px 46px rgba(0, 0, 0, 0.42);
+        backdrop-filter: blur(18px);
+      }
+
+      .section {
+        padding: 34px 0;
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 22px;
+      }
+
+      .section-heading h2,
+      .policy-section h2 {
+        margin: 0;
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(2rem, 4vw, 3.35rem);
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .section-heading p,
+      .section-intro {
+        max-width: 560px;
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.72;
+      }
+
+      .overview-grid,
+      .policy-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .overview-card,
+      .policy-card {
+        position: relative;
+        overflow: hidden;
+        padding: 22px;
+        border-radius: 18px;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .overview-card {
+        min-height: 178px;
+      }
+
+      .policy-card::before,
+      .overview-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 16% 10%, rgba(255, 211, 110, 0.18), transparent 36%),
+          radial-gradient(circle at 88% 88%, rgba(236, 37, 55, 0.18), transparent 38%);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .overview-card:hover,
+      .policy-card:hover,
+      .contact-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 211, 110, 0.28);
+      }
+
+      .overview-card:hover::before,
+      .policy-card:hover::before {
+        opacity: 1;
+      }
+
+      .icon-box {
+        width: 48px;
+        height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--gold);
+        font-size: 1.18rem;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        position: relative;
+      }
+
+      .overview-card h3,
+      .policy-card h3,
+      .contact-card h3 {
+        position: relative;
+        margin: 0 0 10px;
+        color: #fff;
+        font-size: 1.08rem;
+        line-height: 1.28;
+      }
+
+      .overview-card p,
+      .policy-card p,
+      .policy-card li,
+      .contact-card p {
+        position: relative;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.94rem;
+        line-height: 1.66;
+      }
+
+      .policy-card ul {
+        position: relative;
+        margin: 10px 0 0;
+        padding-left: 20px;
+      }
+
+      .policy-section {
+        margin-top: 30px;
+        padding: 30px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025)),
+          var(--glass);
+        box-shadow: var(--shadow);
+      }
+
+      .section-intro {
+        max-width: 860px;
+        margin: 16px 0 20px;
+      }
+
+      .policy-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .policy-card.wide {
+        grid-column: 1 / -1;
+      }
+
+      code {
+        padding: 2px 6px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.06);
+        color: #fff;
+        font-size: 0.92em;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .contact-card {
+        min-height: 116px;
+        padding: 20px;
+        border-radius: 18px;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease;
+        overflow-wrap: anywhere;
+      }
+
+      .contact-card a {
+        color: #fff;
+        font-weight: 800;
+        text-decoration-color: rgba(255, 211, 110, 0.55);
+      }
+
+      .footnote {
+        margin: 28px 0 0;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .reveal-item {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+        transition-delay: var(--reveal-delay, 0ms);
+      }
+
+      .reveal-item.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @keyframes pageVeil {
+        0% {
+          opacity: 1;
+          transform: scale(1);
+        }
+
+        72% {
+          opacity: 0.92;
+        }
+
+        100% {
+          opacity: 0;
+          visibility: hidden;
+          transform: scale(1.025);
+        }
+      }
+
+      @keyframes introRise {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes introArt {
+        from {
+          opacity: 0;
+          transform: translateY(28px) scale(0.975);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes starFallFast {
+        from {
+          transform: translate3d(0, 160vh, 0);
+        }
+
+        to {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+      @keyframes starFall {
+        from {
+          transform: translate3d(0, 160vh, 0);
+        }
+
+        to {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+
+        .hero-copy,
+        .reveal-item {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @media (max-width: 1020px) {
+        .hero {
+          padding-top: 42px;
+        }
+
+        .overview-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .page-shell {
+          width: min(100% - 28px, 1180px);
+        }
+
+        .site-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .nav-actions,
+        .hero-actions {
+          width: 100%;
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .nav-link,
+        .button {
+          width: 100%;
+        }
+
+        .hero {
+          min-height: auto;
+          padding: 36px 0 26px;
+        }
+
+        .hero::before {
+          inset: 20px -16px 4px;
+          border-radius: 22px;
+        }
+
+        .hero h1 {
+          font-size: clamp(2.85rem, 15.2vw, 4.25rem);
+        }
+
+        .section-heading {
+          display: block;
+        }
+
+        .section-heading p {
+          margin-top: 14px;
+        }
+
+        .overview-grid,
+        .policy-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .policy-section {
+          padding: 22px;
+          border-radius: 18px;
+        }
+
+        .overview-card,
+        .policy-card,
+        .contact-card,
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="page-shell">
+      <header class="site-header" aria-label="Page header">
+        <a class="brand-mark" href="https://moddedamong.us/">
+          <span class="brand-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+          <span>MAUA</span>
+        </a>
+        <nav class="nav-actions" aria-label="Policy navigation">
+          <a class="nav-link" href="#data"><i class="fa-solid fa-database" aria-hidden="true"></i> Data</a>
+          <a class="nav-link" href="#intents"><i class="fa-solid fa-key" aria-hidden="true"></i> Intents</a>
+          <a class="nav-link" href="#contact"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact</a>
+        </nav>
+      </header>
+
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow">Discord Bot Privacy Policy</div>
+          <h1 id="hero-title">
+            <span>MAUA</span>
+            <span class="brand">Privacy</span>
+            <span>Policy</span>
+          </h1>
+          <p class="hero-text">
+            MAUA is a Discord bot used for <strong>moderation, verification, reports, safety tools, warnings,
+            quarantine actions, direct-message support, and server administration</strong> inside Modded Among Us
+            Lobbies and related community workflows.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contact">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+              Privacy Contact
+            </a>
+            <a class="button button-secondary" href="#retention">
+              <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>
+              Retention Details
+            </a>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="section" id="overview">
+        <div class="section-heading">
+          <h2>Policy At A Glance</h2>
+          <p>
+            MAUA only processes Discord information needed to operate server features, protect members, support
+            staff, and keep records that help prevent abuse.
+          </p>
+        </div>
+
+        <div class="overview-grid">
+          <article class="overview-card">
+            <span class="icon-box"><i class="fa-solid fa-user-check" aria-hidden="true"></i></span>
+            <h3>Verification</h3>
+            <p>MAUA may process Discord IDs, roles, join dates, verification status, and submitted answers.</p>
+          </article>
+
+          <article class="overview-card">
+            <span class="icon-box"><i class="fa-solid fa-gavel" aria-hidden="true"></i></span>
+            <h3>Moderation</h3>
+            <p>Warnings, punishments, bans, staff notes, reports, and quarantine records may be stored.</p>
+          </article>
+
+          <article class="overview-card">
+            <span class="icon-box"><i class="fa-solid fa-comments" aria-hidden="true"></i></span>
+            <h3>Messages</h3>
+            <p>Message content is used only when needed for commands, reports, logging, safety, or moderation.</p>
+          </article>
+
+          <article class="overview-card">
+            <span class="icon-box"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
+            <h3>Access Limits</h3>
+            <p>Bot records are limited to authorized staff, bot maintainers, and administrators with a need to know.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="policy-section" id="data">
+        <h2>Information We Collect</h2>
+        <p class="section-intro">
+          MAUA may collect or process the following Discord information only when needed for enabled bot features.
+        </p>
+
+        <div class="policy-grid">
+          <article class="policy-card">
+            <h3>Discord Account And Server Data</h3>
+            <ul>
+              <li>Discord user IDs, usernames, display names, avatars, mentions, and server nicknames.</li>
+              <li>Server IDs, channel IDs, thread IDs, role IDs, message IDs, command IDs, and interaction IDs.</li>
+              <li>Member role information, join dates, verification status, and access eligibility.</li>
+            </ul>
+          </article>
+
+          <article class="policy-card">
+            <h3>Moderation And Safety Records</h3>
+            <ul>
+              <li>Warnings, bans, mutes, quarantines, punishments, reports, staff notes, and appeal history.</li>
+              <li>Evidence or context voluntarily submitted through reports, forms, direct messages, or commands.</li>
+              <li>Emergency or safety-tool submissions when a user or staff member uses those workflows.</li>
+            </ul>
+          </article>
+
+          <article class="policy-card">
+            <h3>Message And Command Data</h3>
+            <ul>
+              <li>Command usage, command arguments, form submissions, button/menu interactions, and timestamps.</li>
+              <li>Message content, embeds, attachments, or links when needed for moderation, reports, logs, or bot commands.</li>
+              <li>Direct messages sent to MAUA when users contact the bot or use DM-based support features.</li>
+            </ul>
+          </article>
+
+          <article class="policy-card">
+            <h3>What MAUA Does Not Collect</h3>
+            <ul>
+              <li>MAUA does not collect Discord passwords, private tokens, payment information, or unrelated account credentials.</li>
+              <li>MAUA does not intentionally collect data from servers where the bot is not installed or has no access.</li>
+              <li>MAUA does not sell collected user data.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="policy-section" id="use">
+        <h2>How Information Is Used</h2>
+        <div class="policy-grid">
+          <article class="policy-card">
+            <h3>Bot Operation</h3>
+            <p>
+              Information is used to run commands, verify users, manage roles, answer support requests, process
+              reports, send notices, maintain bot configuration, and troubleshoot bugs.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Moderation And Safety</h3>
+            <p>
+              Information may be used to investigate reports, enforce server rules, identify abuse patterns,
+              prevent spam, reduce ban or punishment evasion, and protect community members.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Staff Review</h3>
+            <p>
+              Authorized staff may review MAUA records when making moderation, verification, appeal, safety, or
+              administrative decisions.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Reliability</h3>
+            <p>
+              Logs and command metadata may be used to debug errors, audit bot behavior, recover failed actions,
+              and keep moderation or verification workflows accurate.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="policy-section" id="intents">
+        <h2>Discord Gateway Intents</h2>
+        <p class="section-intro">
+          MAUA may use Discord gateway intents so Discord can send events required for moderation, verification,
+          commands, reports, logging, role checks, member safety, and administrative workflows.
+        </p>
+
+        <div class="policy-grid">
+          <article class="policy-card">
+            <h3>Message Content Intent</h3>
+            <p>
+              Used when message text, embeds, attachments, or command arguments are needed for prefix commands,
+              moderation tools, report handling, deletion tools, warning systems, verification flows, support
+              workflows, safety reports, or staff logs.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Server Members Intent</h3>
+            <p>
+              Used to read member join, leave, update, role, nickname, and profile events needed for verification,
+              access control, quarantine, warnings, moderation actions, role management, and user lookup tools.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Presence Intent</h3>
+            <p>
+              MAUA only uses presence data if an enabled feature requires it. If used, presence or activity data
+              is limited to bot functionality and is not sold, profiled for advertising, or shared with unrelated
+              third parties.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Default Discord Events</h3>
+            <p>
+              MAUA also processes normal Discord events where it has permission, including channels, threads,
+              roles, messages, reactions, interactions, invites, and voice state events needed for server tools.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="policy-section" id="sharing">
+        <h2>Sharing And Disclosure</h2>
+        <div class="policy-grid">
+          <article class="policy-card">
+            <h3>No Sale Of Data</h3>
+            <p>
+              MAUA does not sell user data, use collected data for third-party advertising, or share collected
+              data with unrelated third parties.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Authorized Staff</h3>
+            <p>
+              Data may be visible to authorized server staff, bot owners, maintainers, or administrators when
+              needed for moderation, safety, appeals, support, troubleshooting, or bot operation.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Service Providers</h3>
+            <p>
+              Data may be processed by Discord and by hosting, database, logging, or infrastructure providers
+              used to run MAUA. Providers are used to operate bot features, not to sell user data.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Normal Server Visibility</h3>
+            <p>
+              Some output may be visible in server channels as part of normal bot behavior, such as verification
+              prompts, moderation notices, report acknowledgements, role panels, or staff logs.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="policy-section" id="retention">
+        <h2>Storage, Retention, And Deletion</h2>
+        <div class="policy-grid">
+          <article class="policy-card">
+            <h3>Storage</h3>
+            <p>
+              MAUA data may be stored in local databases, MySQL databases, SQLite databases, configuration files,
+              logs, or other storage used to operate the bot.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Retention</h3>
+            <p>
+              Data is kept only as long as needed for bot functionality, server administration, moderation
+              history, safety, audit logs, abuse prevention, troubleshooting, or legal/security reasons.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Deletion Requests</h3>
+            <p>
+              Users may request access, correction, or deletion of eligible personal data. Requests should include
+              the user's Discord ID so the correct records can be located.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Limits On Deletion</h3>
+            <p>
+              Some records may be retained when deletion would affect active investigations, moderation history,
+              abuse prevention, ban evasion tracking, unresolved disputes, audit logs, or server security.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="policy-section" id="security">
+        <h2>Security And Updates</h2>
+        <div class="policy-grid">
+          <article class="policy-card">
+            <h3>Security</h3>
+            <p>
+              Reasonable steps are taken to restrict MAUA data to authorized people and protect stored records.
+              No online system can guarantee perfect security.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <h3>Children's Privacy</h3>
+            <p>
+              MAUA is intended for use on Discord and follows Discord's age requirements. MAUA is not intended to
+              knowingly collect information from children under the age required to use Discord.
+            </p>
+          </article>
+
+          <article class="policy-card wide">
+            <h3>Policy Changes</h3>
+            <p>
+              This Privacy Policy may be updated as MAUA, Discord requirements, server workflows, or applicable
+              rules change. Continued use of MAUA after updates means the revised policy applies.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="policy-section" id="contact">
+        <h2>Contact</h2>
+        <p class="section-intro">
+          For privacy questions, data requests, bot-related concerns, or priority support, contact the server
+          owner or admin contact for Modded Among Us Lobbies.
+        </p>
+
+        <div class="contact-grid">
+          <article class="contact-card">
+            <h3>Discord Contact</h3>
+            <p>
+              <a href="https://discord.com/users/1067220560972628058" target="_blank" rel="noopener">@sarhadactyl</a><br />
+              User ID: <code>1067220560972628058</code>
+            </p>
+          </article>
+
+          <article class="contact-card">
+            <h3>Email</h3>
+            <p>
+              <a href="mailto:admin@modded-au.org">admin@modded-au.org</a>
+            </p>
+          </article>
+
+          <article class="contact-card">
+            <h3>Server</h3>
+            <p>
+              Modded Among Us Lobbies<br />
+              Use the server's staff or priority support channels when available.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <p class="footnote">
+        Last updated October 6, 2026. This policy applies to MAUA's Discord bot features in Modded Among Us
+        Lobbies and related community workflows.
+      </p>
+    </main>
+
+    <script>
+      const revealTargets = document.querySelectorAll(
+        ".overview-card, .policy-section, .policy-card, .contact-card"
+      );
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      revealTargets.forEach((target) => {
+        const siblingIndex = Array.from(target.parentElement?.children || []).indexOf(target);
+        const staggerDelay = target.matches(".overview-card, .policy-card, .contact-card")
+          ? Math.max(siblingIndex, 0) * 70
+          : 0;
+
+        target.classList.add("reveal-item");
+        target.style.setProperty("--reveal-delay", `${Math.min(staggerDelay, 360)}ms`);
+      });
+
+      if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+        revealTargets.forEach((target) => target.classList.add("is-visible"));
+      } else {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            rootMargin: "0px 0px -8% 0px",
+            threshold: 0.16
+          }
+        );
+
+        revealTargets.forEach((target) => revealObserver.observe(target));
+      }
+    </script>
+  </body>
+</html>
