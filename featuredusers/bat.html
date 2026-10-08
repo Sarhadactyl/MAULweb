@@ -26,7 +26,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
+    <link rel="stylesheet" href="/styles/navbar.css">
+    
     <style>
       :root {
         --accent: #800000;
@@ -79,151 +80,6 @@
         inset: 0;
         background: radial-gradient(circle at center, rgba(20, 0, 0, 0.75), rgba(5, 0, 0, 0.9));
         z-index: -1;
-      }
-
-      .dropdown {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1000;
-      }
-
-      .dropbtn {
-        background: rgba(35, 10, 10, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        cursor: pointer;
-        transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-        padding: 10px;
-        border-radius: 999px;
-        backdrop-filter: blur(10px);
-      }
-
-      .dropbtn:hover {
-        transform: translateY(-1px) scale(1.03);
-        background: rgba(50, 16, 16, 0.98);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
-      }
-
-      .hamburger {
-        width: 26px;
-        height: 18px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .hamburger span {
-        display: block;
-        height: 3px;
-        background: linear-gradient(90deg, var(--accent), #ff0040);
-        border-radius: 999px;
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        top: calc(100% + 8px);
-        left: 0;
-        background-color: rgba(35, 10, 10, 0.96);
-        width: 350px;
-        max-width: calc(100vw - 32px);
-        max-height: calc(100vh - 40px);
-        overflow: hidden;
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
-        border-radius: 20px;
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .dropdown.open .dropdown-content {
-        display: block;
-      }
-
-      .menu-view {
-        display: none;
-        padding: 8px 0;
-        max-height: calc(100vh - 56px);
-        overflow-y: auto;
-        overscroll-behavior: contain;
-      }
-
-      .menu-view.active {
-        display: block;
-      }
-
-      .dropdown-content a,
-      .menu-nav-btn,
-      .menu-back-btn {
-        width: 100%;
-        color: var(--text-main);
-        padding: 16px 22px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 10px;
-        font-size: 0.98rem;
-        transition: background 0.22s ease, color 0.22s ease, padding-left 0.22s ease;
-        background: transparent;
-        border: none;
-        font-family: inherit;
-        text-align: left;
-        cursor: pointer;
-      }
-
-      .dropdown-content a i:first-child,
-      .menu-nav-btn span,
-      .menu-back-btn span {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .menu-nav-btn .fa-chevron-right {
-        margin-left: auto;
-      }
-
-      .dropdown-content a:hover,
-      .menu-nav-btn:hover,
-      .menu-back-btn:hover {
-        background: rgba(255, 255, 255, 0.045);
-        color: var(--accent);
-        padding-left: 26px;
-      }
-
-      .menu-back-btn {
-        justify-content: flex-start;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        margin-bottom: 4px;
-      }
-
-      .submenu-title {
-        padding: 13px 22px 10px;
-        font-size: 0.78rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.62);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        margin-bottom: 4px;
-      }
-
-      .beta-glow,
-      .highlight-glow {
-        color: #ff4d4d !important;
-        font-weight: 700;
-        text-shadow:
-          0 0 8px rgba(255, 0, 0, 0.75),
-          0 0 12px rgba(255, 0, 0, 0.55);
-        animation: betaPulse 1.6s ease-in-out infinite;
-      }
-
-      .beta-glow:hover,
-      .highlight-glow:hover {
-        background: rgba(255, 0, 0, 0.12) !important;
-        color: #ff8080 !important;
-        text-shadow:
-          0 0 10px rgba(255, 50, 50, 1),
-          0 0 16px rgba(255, 0, 0, 0.9);
       }
 
       @keyframes betaPulse {
@@ -740,91 +596,8 @@
   </head>
 
   <body data-host-id="1148338311576961054" data-host-slug="bat">
-    <div class="dropdown">
-      <button class="dropbtn" type="button" aria-label="Open navigation menu">
-        <div class="hamburger">
-          <span></span><span></span><span></span>
-        </div>
-      </button>
 
-      <div class="dropdown-content single-panel-menu" id="singlePanelMenu">
-        <div class="menu-view active" data-menu="root">
-          <a href="../"><i class="fa-solid fa-house"></i> Home</a>
-          <button type="button" class="menu-nav-btn" data-target="lobby-help">
-            <span><i class="fa-solid fa-life-ring"></i> Lobby Help</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-          <button type="button" class="menu-nav-btn" data-target="events">
-            <span><i class="fa-regular fa-calendar"></i> Events</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-          <button type="button" class="menu-nav-btn" data-target="mods">
-            <span><i class="fa-solid fa-code-branch"></i> Mods</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-          <a href="../art.html"><i class="fa-solid fa-paintbrush"></i> User Art</a>
-          <a href="../wrapped"><i class="fa-solid fa-gift"></i> 2025 Wrapped</a>
-          <a href="../roletest"><i class="fa-solid fa-brain"></i> Personality Test</a>
-          <button type="button" class="menu-nav-btn highlight-glow" data-target="highlighted-users">
-            <span><i class="fa-solid fa-star"></i> Highlighted Users</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-          <a href="../BETAtemplates" class="beta-glow"><i class="fa-solid fa-flask"></i> BETA Templates</a>
-        </div>
-
-        <div class="menu-view" data-menu="lobby-help">
-          <button type="button" class="menu-back-btn" data-back="root">
-            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
-          </button>
-          <div class="submenu-title">Lobby Help</div>
-          <a href="../tags.html"><i class="fa-solid fa-ticket"></i> Tag Generator</a>
-          <a href="../lobbytemplates"><i class="fa-solid fa-list"></i> Lobby Templates</a>
-          <a href="../icons.html"><i class="fa-regular fa-face-smile"></i> Icons and Fonts</a>
-        </div>
-
-        <div class="menu-view" data-menu="events">
-          <button type="button" class="menu-back-btn" data-back="root">
-            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
-          </button>
-          <div class="submenu-title">Events</div>
-          <a href="../calendar.html"><i class="fa-regular fa-calendar"></i> Event Calendar</a>
-          <a href="../eventpics.html"><i class="fa-regular fa-images"></i> Past Events</a>
-        </div>
-
-        <div class="menu-view" data-menu="mods">
-          <button type="button" class="menu-back-btn" data-back="root">
-            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
-          </button>
-          <div class="submenu-title">Mods</div>
-          <a href="../mods.html"><i class="fa-solid fa-code-branch"></i> Featured Mods</a>
-          <a href="../presets.html"><i class="fa-solid fa-sliders"></i> Mod Presets</a>
-        </div>
-
-        <div class="menu-view" data-menu="highlighted-users">
-          <button type="button" class="menu-back-btn" data-back="root">
-            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
-          </button>
-          <div class="submenu-title">Highlighted Users</div>
-          <a href="../VH/"><i class="fa-solid fa-star"></i> Star Users</a>
-          <button type="button" class="menu-nav-btn" data-target="verified-hosts">
-            <span><i class="fa-solid fa-check-circle"></i> Verified Hosts</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-        </div>
-
-        <div class="menu-view" data-menu="verified-hosts">
-          <button type="button" class="menu-back-btn" data-back="highlighted-users">
-            <span><i class="fa-solid fa-chevron-left"></i> Back</span>
-          </button>
-          <div class="submenu-title">Verified Hosts</div>
-          <a href="bat.html"><i class="fa-solid fa-user"></i> Bat</a>
-          <a href="pancake.html"><i class="fa-solid fa-user"></i> Pancake</a>
-          <a href="wyzeris.html"><i class="fa-solid fa-user"></i> Wyzeris</a>
-          <a href="crowy.html"><i class="fa-solid fa-user"></i> Crowy</a>
-          <a href="citrion.html"><i class="fa-solid fa-user"></i> Citrion</a>
-        </div>
-      </div>
-    </div>
+    <div id="navbar"></div>
 
     <div class="page-wrapper">
       <header class="page-header">
@@ -1219,5 +992,6 @@
         }
       });
     </script>
+    <script src="/scripts/navbar.js"></script>
   </body>
 </html>
