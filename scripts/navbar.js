@@ -2,6 +2,8 @@ async function loadNavbar() {
   const navbarContainer = document.getElementById("navbar");
   if (!navbarContainer) return;
 
+  ensureNavbarIconFont();
+
   const possiblePaths = [
     "/components/navbar.html",
     "./components/navbar.html",
@@ -41,6 +43,18 @@ async function loadNavbar() {
       </div>
     `;
   }
+}
+
+function ensureNavbarIconFont() {
+  if (document.getElementById("navbar-fontawesome-css")) return;
+
+  const link = document.createElement("link");
+  link.id = "navbar-fontawesome-css";
+  link.rel = "stylesheet";
+  link.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css";
+  link.crossOrigin = "anonymous";
+  link.referrerPolicy = "no-referrer";
+  document.head.appendChild(link);
 }
 
 function initNavbar(root = document) {
