@@ -45,6 +45,7 @@ async function loadNavbar() {
   }
 }
 
+
 function ensureNavbarIconFont() {
   if (document.getElementById("navbar-fontawesome-css")) return;
 
