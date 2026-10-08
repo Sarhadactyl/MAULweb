@@ -4,16 +4,16 @@
 }
 
 .dropdown {
-  --nav-bg: #090506;
-  --nav-panel: rgba(17, 8, 10, 0.96);
-  --nav-row: rgba(5, 6, 10, 0.48);
-  --nav-row-hover: rgba(16, 10, 15, 0.58);
-  --nav-border: rgba(255, 183, 194, 0.18);
-  --nav-border-strong: rgba(255, 183, 194, 0.32);
-  --nav-text: #fff6f7;
-  --nav-muted: rgba(255, 226, 230, 0.6);
-  --nav-accent: #ffadb8;
-  --nav-accent-strong: #ff7f91;
+  --nav-bg: #050506;
+  --nav-panel: rgba(5, 6, 8, 0.97);
+  --nav-row: rgba(9, 10, 13, 0.74);
+  --nav-row-hover: rgba(18, 19, 23, 0.88);
+  --nav-border: rgba(255, 255, 255, 0.14);
+  --nav-border-strong: rgba(255, 255, 255, 0.24);
+  --nav-text: #f8f8fb;
+  --nav-muted: rgba(229, 231, 237, 0.62);
+  --nav-accent: #800000;
+  --nav-accent-strong: #800000;
   --nav-gold: #f6c56f;
   --nav-gold-soft: rgba(255, 205, 91, 0.64);
   --nav-gold-line: rgba(255, 205, 91, 0.72);
@@ -34,15 +34,9 @@
   --nav-bean-9: url("https://cdn.discordapp.com/emojis/1557602254360547338.webp?size=96");
   --nav-bean-10: url("https://cdn.discordapp.com/emojis/1557606789770379304.webp?size=96");
   --nav-row-sheen:
-    linear-gradient(112deg, transparent 57%, rgba(255, 255, 255, 0.052) 68%, transparent 80%);
-  --nav-system-gloss:
-    radial-gradient(circle at 82% 43%, rgba(255, 255, 255, 0.62) 0 1px, transparent 2px),
-    radial-gradient(ellipse 76px 24px at 98% 57%, rgba(255, 255, 255, 0.15), transparent 68%),
-    linear-gradient(105deg, transparent 58%, rgba(255, 244, 214, 0.085) 66%, transparent 74%);
-  --nav-row-art:
-    radial-gradient(circle at 82% 43%, var(--nav-star) 0 2px, transparent 3px),
-    radial-gradient(ellipse 166px 92px at 116% 34%, transparent 61%, var(--nav-gold-line) 62%, transparent 63%),
-    radial-gradient(ellipse 124px 84px at 104% 76%, transparent 62%, var(--nav-pink-line) 63%, transparent 64%);
+    linear-gradient(110deg, transparent 58%, rgba(255, 255, 255, 0.045) 68%, transparent 80%);
+  --nav-system-gloss: linear-gradient(110deg, transparent 58%, rgba(255, 255, 255, 0.035) 70%, transparent 82%);
+  --nav-row-art: linear-gradient(90deg, rgba(128, 0, 0, 0.16), transparent 58%);
   --nav-bean-veil:
     linear-gradient(90deg, transparent 53%, rgba(5, 6, 10, 0.38) 66%, rgba(5, 6, 10, 0.28));
   --nav-runner: var(--nav-bean-1);
@@ -63,7 +57,7 @@
   height: 44px;
   padding: 0;
   cursor: pointer;
-  background: rgba(17, 8, 10, 0.9);
+  background: rgba(6, 7, 9, 0.92);
   border: 1px solid var(--nav-border-strong);
   border-radius: 50%;
   box-shadow: 0 16px 38px rgba(0, 0, 0, 0.48);
@@ -78,11 +72,11 @@
 .dropbtn:hover,
 .dropdown.open .dropbtn {
   transform: translateY(-1px);
-  background: rgba(28, 12, 16, 0.95);
-  border-color: rgba(255, 173, 184, 0.55);
+  background: rgba(14, 15, 18, 0.96);
+  border-color: rgba(128, 0, 0, 0.74);
   box-shadow:
     0 18px 42px rgba(0, 0, 0, 0.55),
-    0 0 0 4px rgba(255, 127, 145, 0.1);
+    0 0 0 4px rgba(128, 0, 0, 0.18);
 }
 
 .dropbtn:focus-visible,
@@ -135,7 +129,7 @@
   max-height: calc(100dvh - 78px);
   overflow: hidden;
   color: var(--nav-text);
-  background: linear-gradient(180deg, rgba(24, 10, 14, 0.96), rgba(10, 5, 7, 0.97));
+  background: linear-gradient(180deg, rgba(7, 8, 10, 0.98), rgba(2, 3, 4, 0.98));
   border: 1px solid var(--nav-border);
   border-radius: 14px;
   box-shadow:
@@ -167,7 +161,7 @@
   padding: 10px;
   overflow-y: auto;
   overscroll-behavior: contain;
-  scrollbar-color: rgba(255, 127, 145, 0.48) rgba(255, 255, 255, 0.04);
+  scrollbar-color: rgba(128, 0, 0, 0.68) rgba(255, 255, 255, 0.04);
   scrollbar-width: thin;
 }
 
@@ -185,7 +179,7 @@
 }
 
 .menu-view::-webkit-scrollbar-thumb {
-  background: rgba(255, 127, 145, 0.52);
+  background: rgba(128, 0, 0, 0.78);
   border-radius: 999px;
 }
 
@@ -198,7 +192,7 @@
   padding: 5px 5px 11px;
   overflow: hidden;
   border-radius: 10px;
-  border-bottom: 1px solid rgba(255, 183, 194, 0.14);
+  border-bottom: 1px solid rgba(128, 0, 0, 0.38);
 }
 
 .menu-brand::before,
@@ -213,6 +207,7 @@
 }
 
 .menu-brand::after {
+  display: none;
   right: 8px;
   bottom: 8px;
   width: 4px;
@@ -237,9 +232,9 @@
   padding: 0;
   overflow: hidden;
   background:
-    radial-gradient(circle at 48% 42%, rgba(246, 197, 111, 0.14), transparent 60%),
-    rgba(255, 173, 184, 0.08);
-  border: 1px solid rgba(255, 183, 194, 0.38);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent 62%),
+    rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(128, 0, 0, 0.66);
   border-radius: 50%;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
@@ -299,18 +294,15 @@
   overflow: hidden;
   overflow-wrap: break-word;
   background:
-    var(--nav-system-gloss),
-    var(--nav-row-art),
     var(--nav-row-sheen),
     linear-gradient(var(--nav-row), var(--nav-row));
-  background-blend-mode: screen, screen, screen, normal;
-  border: 1px solid rgba(255, 183, 194, 0.13);
+  background-blend-mode: screen, normal;
+  border: 1px solid rgba(255, 255, 255, 0.11);
   border-radius: 9px;
   box-shadow:
-    inset 3px 0 0 rgba(255, 205, 91, 0.38),
-    inset 0 1px 0 rgba(255, 255, 255, 0.075),
-    inset -42px 0 74px rgba(246, 197, 111, 0.045),
-    inset 42px 0 72px rgba(255, 118, 157, 0.035);
+    inset 3px 0 0 rgba(128, 0, 0, 0.82),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    inset 44px 0 80px rgba(255, 255, 255, 0.018);
   cursor: pointer;
   transition:
     background-color 0.16s ease,
@@ -319,108 +311,72 @@
 }
 
 .menu-view > :is(a, .menu-nav-btn):nth-child(3n) {
-  --nav-row-art:
-    radial-gradient(circle at 80% 31%, var(--nav-star) 0 2px, transparent 3px),
-    radial-gradient(ellipse 148px 90px at 113% 70%, transparent 61%, var(--nav-gold-line) 62%, transparent 63%),
-    radial-gradient(ellipse 116px 78px at 102% 24%, transparent 63%, var(--nav-pink-line) 64%, transparent 65%);
+  --nav-row-art: none;
   --nav-runner: var(--nav-bean-1);
   --nav-runner-size: 42px;
 }
 
 .menu-view > :is(a, .menu-nav-btn):nth-child(3n + 1) {
-  --nav-row-art:
-    radial-gradient(circle at 84% 62%, rgba(255, 129, 166, 0.92) 0 2px, transparent 3px),
-    radial-gradient(ellipse 168px 68px at 113% 39%, transparent 60%, var(--nav-pink-line) 61%, transparent 62%),
-    radial-gradient(ellipse 112px 108px at 99% 86%, transparent 62%, var(--nav-gold-line) 63%, transparent 64%);
+  --nav-row-art: none;
   --nav-runner: var(--nav-bean-2);
   --nav-runner-size: 42px;
 }
 
 .menu-view > :is(a, .menu-nav-btn):nth-child(3n + 2) {
-  --nav-row-art:
-    radial-gradient(circle at 82% 42%, rgba(143, 211, 248, 0.9) 0 2px, transparent 3px),
-    radial-gradient(ellipse 128px 116px at 101% 53%, transparent 62%, var(--nav-blue-line) 63%, transparent 64%),
-    radial-gradient(ellipse 84px 130px at 89% -32%, transparent 61%, rgba(255, 205, 91, 0.36) 62%, transparent 63%);
+  --nav-row-art: none;
   --nav-runner: var(--nav-bean-3);
   --nav-runner-size: 42px;
 }
 
 .menu-view[data-menu="root"] > :is(a, .menu-nav-btn):nth-child(2) {
-  --nav-row-art:
-    radial-gradient(circle at 105% 8%, rgba(124, 137, 156, 0.34) 0 50px, rgba(226, 236, 255, 0.72) 51px 53px, transparent 54px),
-    radial-gradient(ellipse 210px 90px at 101% 18%, transparent 60%, rgba(255, 205, 91, 0.68) 61%, transparent 62%),
-    radial-gradient(circle at 79% 48%, var(--nav-star) 0 2px, transparent 3px);
+  --nav-row-art: none;
   --nav-runner: var(--nav-bean-1);
   --nav-runner-size: 42px;
 }
 
 .menu-view[data-menu="root"] > :is(a, .menu-nav-btn):nth-child(3) {
-  --nav-row-art:
-    radial-gradient(circle at 79% 69%, var(--nav-star) 0 2px, transparent 3px),
-    radial-gradient(circle at 90% 50%, rgba(255, 205, 91, 0.36) 0 16px, transparent 17px),
-    radial-gradient(ellipse 142px 96px at 105% 56%, transparent 62%, var(--nav-gold-line) 63%, transparent 64%),
-    radial-gradient(ellipse 92px 90px at 97% -16%, transparent 61%, var(--nav-pink-line) 62%, transparent 63%);
+  --nav-row-art: none;
   --nav-runner: var(--nav-bean-3);
   --nav-runner-size: 42px;
 }
 
 .menu-view[data-menu="root"] > :is(a, .menu-nav-btn):nth-child(4) {
-  --nav-row-art:
-    radial-gradient(circle at 83% 57%, rgba(143, 211, 248, 0.86) 0 2px, transparent 3px),
-    radial-gradient(ellipse 132px 112px at 101% 51%, transparent 62%, var(--nav-blue-line) 63%, transparent 64%),
-    radial-gradient(ellipse 92px 90px at 87% 116%, transparent 60%, rgba(255, 111, 153, 0.32) 61%, transparent 62%);
+  --nav-row-art: none;
   --nav-runner: var(--nav-bean-8);
   --nav-runner-size: 42px;
 }
 
 .menu-view[data-menu="root"] > :is(a, .menu-nav-btn):nth-child(5) {
-  --nav-row-art:
-    radial-gradient(circle at 80% 43%, rgba(199, 162, 255, 0.94) 0 2px, transparent 3px),
-    radial-gradient(circle at 100% 74%, rgba(69, 38, 78, 0.82) 0 42px, transparent 43px),
-    radial-gradient(ellipse 144px 96px at 105% 76%, transparent 62%, var(--nav-purple-line) 63%, transparent 64%);
+  --nav-row-art: none;
   --nav-runner: var(--nav-bean-10);
   --nav-runner-size: 42px;
 }
 
 .menu-view[data-menu="root"] > :is(a, .menu-nav-btn):nth-child(6) {
-  --nav-row-art:
-    radial-gradient(circle at 80% 52%, rgba(119, 235, 216, 0.92) 0 2px, transparent 3px),
-    radial-gradient(ellipse 126px 136px at 100% 49%, transparent 62%, var(--nav-teal-line) 63%, transparent 64%),
-    radial-gradient(ellipse 90px 84px at 87% -22%, transparent 61%, rgba(255, 205, 91, 0.32) 62%, transparent 63%);
+  --nav-row-art: none;
   --nav-runner: var(--nav-bean-9);
   --nav-runner-size: 42px;
 }
 
 .menu-view[data-menu="root"] > :is(a, .menu-nav-btn):nth-child(7) {
-  --nav-row-art:
-    radial-gradient(circle at 80% 49%, rgba(255, 154, 181, 0.96) 0 2px, transparent 3px),
-    radial-gradient(ellipse 138px 112px at 106% 54%, transparent 61%, var(--nav-pink-line) 62%, transparent 63%),
-    radial-gradient(ellipse 76px 86px at 88% 113%, transparent 62%, var(--nav-gold-line) 63%, transparent 64%);
+  --nav-row-art: none;
   --nav-runner: var(--nav-bean-2);
   --nav-runner-size: 42px;
 }
 
 .menu-view[data-menu="root"] > :is(a, .menu-nav-btn):nth-child(8) {
-  --nav-row-art:
-    radial-gradient(circle at 82% 38%, rgba(143, 211, 248, 0.86) 0 2px, transparent 3px),
-    radial-gradient(ellipse 164px 82px at 111% 58%, transparent 62%, rgba(143, 211, 248, 0.38) 63%, transparent 64%),
-    radial-gradient(ellipse 122px 80px at 98% 118%, transparent 62%, var(--nav-purple-line) 63%, transparent 64%);
+  --nav-row-art: none;
   --nav-runner: var(--nav-bean-5);
   --nav-runner-size: 42px;
 }
 
 .menu-view[data-menu="root"] > :is(a, .menu-nav-btn):nth-child(9) {
-  --nav-row-art:
-    radial-gradient(ellipse 208px 48px at 98% 82%, transparent 49%, rgba(255, 205, 91, 0.82) 50%, transparent 52%),
-    radial-gradient(circle at 99% 83%, rgba(255, 205, 91, 0.36) 0 34px, rgba(255, 118, 157, 0.28) 35px 54px, transparent 55px),
-    radial-gradient(circle at 79% 42%, var(--nav-star) 0 2px, transparent 3px);
+  --nav-row-art: none;
   --nav-runner: var(--nav-bean-7);
   --nav-runner-size: 42px;
 }
 
-.dropdown-content a::before,
-.menu-nav-btn::before,
-.menu-back-btn::before {
+.menu-view[data-menu="root"] > :is(a, .menu-nav-btn)::before {
   content: "";
   position: absolute;
   right: calc(-1 * var(--nav-runner-size, 42px) - 14px);
@@ -467,7 +423,7 @@
   font-size: 0.92rem;
   text-align: center;
   background: rgba(255, 255, 255, 0.055);
-  border: 1px solid rgba(255, 183, 194, 0.12);
+  border: 1px solid rgba(128, 0, 0, 0.32);
   border-radius: 8px;
   transition:
     background-color 0.16s ease,
@@ -508,21 +464,17 @@
 .menu-back-btn:hover {
   color: #ffffff;
   background:
-    var(--nav-system-gloss),
-    var(--nav-row-art),
     var(--nav-row-sheen),
     linear-gradient(var(--nav-row-hover), var(--nav-row-hover));
-  border-color: rgba(255, 183, 194, 0.26);
+  border-color: rgba(255, 255, 255, 0.22);
   box-shadow:
-    inset 3px 0 0 rgba(255, 216, 135, 0.7),
+    inset 3px 0 0 rgba(128, 0, 0, 1),
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset -48px 0 82px rgba(246, 197, 111, 0.075),
-    0 0 16px rgba(255, 139, 169, 0.075);
+    inset 44px 0 80px rgba(255, 255, 255, 0.024),
+    0 0 14px rgba(128, 0, 0, 0.14);
 }
 
-.dropdown-content a:hover::before,
-.menu-nav-btn:hover::before,
-.menu-back-btn:hover::before {
+.menu-view[data-menu="root"] > :is(a, .menu-nav-btn):hover::before {
   animation: beanRun 1.28s cubic-bezier(0.18, 0.82, 0.24, 1) both;
 }
 
@@ -541,9 +493,9 @@
 .menu-back-btn:hover span > i:first-child {
   color: #ffffff;
   background:
-    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.13), transparent 55%),
-    rgba(255, 173, 184, 0.13);
-  border-color: rgba(246, 197, 111, 0.24);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 58%),
+    rgba(128, 0, 0, 0.2);
+  border-color: rgba(128, 0, 0, 0.54);
 }
 
 .menu-back-btn {
@@ -554,7 +506,7 @@
 }
 
 .menu-back-btn::before {
-  opacity: 0.72;
+  opacity: 0;
 }
 
 .submenu-title {
@@ -565,23 +517,21 @@
   font-weight: 850;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  border-bottom: 1px solid rgba(255, 183, 194, 0.12);
+  border-bottom: 1px solid rgba(128, 0, 0, 0.32);
 }
 
 .beta-glow,
 .highlight-glow {
   color: #fff8f9 !important;
   background:
-    var(--nav-system-gloss),
-    var(--nav-row-art),
     var(--nav-row-sheen),
-    linear-gradient(rgba(246, 197, 111, 0.09), rgba(255, 127, 145, 0.08)) !important;
-  border-color: rgba(246, 197, 111, 0.28) !important;
+    linear-gradient(rgba(255, 255, 255, 0.04), rgba(128, 0, 0, 0.14)) !important;
+  border-color: rgba(128, 0, 0, 0.44) !important;
 }
 
 .beta-glow::before,
 .highlight-glow::before {
-  opacity: 1;
+  opacity: 0;
 }
 
 .beta-glow span > i:first-child,
@@ -589,8 +539,8 @@
 .dropdown-content a.beta-glow > i:first-child,
 .dropdown-content a.highlight-glow > i:first-child {
   color: #fff8f9;
-  background: rgba(246, 197, 111, 0.14);
-  border-color: rgba(246, 197, 111, 0.24);
+  background: rgba(128, 0, 0, 0.22);
+  border-color: rgba(128, 0, 0, 0.46);
 }
 
 @keyframes menuFade {
@@ -698,18 +648,14 @@
   .dropdown-content a,
   .menu-nav-btn,
   .menu-back-btn,
-  .dropdown-content a::before,
+  .menu-view[data-menu="root"] > :is(a, .menu-nav-btn)::before,
   .dropdown-content a::after,
-  .menu-nav-btn::before,
-  .menu-back-btn::before,
   .menu-nav-btn .fa-chevron-right {
     animation: none;
     transition: none;
   }
 
-  .dropdown-content a:hover::before,
-  .menu-nav-btn:hover::before,
-  .menu-back-btn:hover::before {
+  .menu-view[data-menu="root"] > :is(a, .menu-nav-btn):hover::before {
     opacity: 0;
   }
 }
