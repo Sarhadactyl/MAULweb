@@ -1,0 +1,715 @@
+.dropdown,
+.dropdown * {
+  box-sizing: border-box;
+}
+
+.dropdown {
+  --nav-bg: #090506;
+  --nav-panel: rgba(17, 8, 10, 0.96);
+  --nav-row: rgba(5, 6, 10, 0.48);
+  --nav-row-hover: rgba(16, 10, 15, 0.58);
+  --nav-border: rgba(255, 183, 194, 0.18);
+  --nav-border-strong: rgba(255, 183, 194, 0.32);
+  --nav-text: #fff6f7;
+  --nav-muted: rgba(255, 226, 230, 0.6);
+  --nav-accent: #ffadb8;
+  --nav-accent-strong: #ff7f91;
+  --nav-gold: #f6c56f;
+  --nav-gold-soft: rgba(255, 205, 91, 0.64);
+  --nav-gold-line: rgba(255, 205, 91, 0.72);
+  --nav-pink-planet: rgba(255, 118, 157, 0.5);
+  --nav-pink-line: rgba(255, 111, 153, 0.58);
+  --nav-blue-line: rgba(143, 211, 248, 0.56);
+  --nav-purple-line: rgba(199, 162, 255, 0.6);
+  --nav-teal-line: rgba(119, 235, 216, 0.58);
+  --nav-star: rgba(255, 246, 211, 0.98);
+  --nav-bean-1: url("https://cdn.discordapp.com/emojis/1433339155219222569.webp?size=96");
+  --nav-bean-2: url("https://cdn.discordapp.com/emojis/1462871101607514299.webp?size=96");
+  --nav-bean-3: url("https://cdn.discordapp.com/emojis/1262218043442860127.webp?size=96");
+  --nav-bean-4: url("https://cdn.discordapp.com/emojis/1457640987492089897.webp?size=96");
+  --nav-bean-5: url("https://cdn.discordapp.com/emojis/1557597359905705984.webp?size=96");
+  --nav-bean-6: url("https://cdn.discordapp.com/attachments/1085831488303534090/1557595117601169478/image.png?ex=6ac85efe&is=6ac70d7e&hm=51f8e101bee4d3b0fa4f4c2622d579ffef2159e4db11110df0e5e93348460ca3&");
+  --nav-bean-7: url("https://cdn.discordapp.com/emojis/1557598539784265758.webp?size=96");
+  --nav-bean-8: url("https://cdn.discordapp.com/emojis/1557604725598453791.webp?size=96");
+  --nav-bean-9: url("https://cdn.discordapp.com/emojis/1557602254360547338.webp?size=96");
+  --nav-bean-10: url("https://cdn.discordapp.com/emojis/1557606789770379304.webp?size=96");
+  --nav-row-sheen:
+    linear-gradient(112deg, transparent 57%, rgba(255, 255, 255, 0.052) 68%, transparent 80%);
+  --nav-system-gloss:
+    radial-gradient(circle at 82% 43%, rgba(255, 255, 255, 0.62) 0 1px, transparent 2px),
+    radial-gradient(ellipse 76px 24px at 98% 57%, rgba(255, 255, 255, 0.15), transparent 68%),
+    linear-gradient(105deg, transparent 58%, rgba(255, 244, 214, 0.085) 66%, transparent 74%);
+  --nav-row-art:
+    radial-gradient(circle at 82% 43%, var(--nav-star) 0 2px, transparent 3px),
+    radial-gradient(ellipse 166px 92px at 116% 34%, transparent 61%, var(--nav-gold-line) 62%, transparent 63%),
+    radial-gradient(ellipse 124px 84px at 104% 76%, transparent 62%, var(--nav-pink-line) 63%, transparent 64%);
+  --nav-bean-veil:
+    linear-gradient(90deg, transparent 53%, rgba(5, 6, 10, 0.38) 66%, rgba(5, 6, 10, 0.28));
+  --nav-runner: var(--nav-bean-1);
+  --nav-runner-size: 50px;
+  position: fixed;
+  top: max(18px, env(safe-area-inset-top));
+  left: max(18px, env(safe-area-inset-left));
+  z-index: 9999;
+  max-width: calc(100vw - 24px);
+  font-family: inherit;
+}
+
+.dropbtn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(17, 8, 10, 0.9);
+  border: 1px solid var(--nav-border-strong);
+  border-radius: 50%;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(12px);
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    background-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.dropbtn:hover,
+.dropdown.open .dropbtn {
+  transform: translateY(-1px);
+  background: rgba(28, 12, 16, 0.95);
+  border-color: rgba(255, 173, 184, 0.55);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.55),
+    0 0 0 4px rgba(255, 127, 145, 0.1);
+}
+
+.dropbtn:focus-visible,
+.dropdown-content a:focus-visible,
+.menu-nav-btn:focus-visible,
+.menu-back-btn:focus-visible {
+  outline: 2px solid var(--nav-accent);
+  outline-offset: 3px;
+}
+
+.hamburger {
+  position: relative;
+  width: 22px;
+  height: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--nav-accent);
+  border-radius: 999px;
+  transform-origin: center;
+  transition:
+    opacity 0.16s ease,
+    transform 0.2s ease;
+}
+
+.dropdown.open .hamburger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.dropdown.open .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.dropdown.open .hamburger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.dropdown-content {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  display: block;
+  width: min(386px, calc(100vw - 24px));
+  max-height: calc(100vh - 96px);
+  max-height: calc(100dvh - 96px);
+  overflow: hidden;
+  color: var(--nav-text);
+  background: linear-gradient(180deg, rgba(24, 10, 14, 0.96), rgba(10, 5, 7, 0.97));
+  border: 1px solid var(--nav-border);
+  border-radius: 18px;
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.64),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transform-origin: top left;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.dropdown.open .dropdown-content {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.menu-view {
+  display: none;
+  max-height: calc(100vh - 96px);
+  max-height: calc(100dvh - 96px);
+  padding: 14px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: rgba(255, 127, 145, 0.48) rgba(255, 255, 255, 0.04);
+  scrollbar-width: thin;
+}
+
+.menu-view.active {
+  display: block;
+  animation: menuFade 0.16s ease both;
+}
+
+.menu-view::-webkit-scrollbar {
+  width: 8px;
+}
+
+.menu-view::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.menu-view::-webkit-scrollbar-thumb {
+  background: rgba(255, 127, 145, 0.52);
+  border-radius: 999px;
+}
+
+.menu-brand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 0 0 12px;
+  padding: 7px 6px 15px;
+  overflow: hidden;
+  border-radius: 12px;
+  border-bottom: 1px solid rgba(255, 183, 194, 0.14);
+}
+
+.menu-brand::before,
+.menu-brand::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.menu-brand::before {
+  display: none;
+}
+
+.menu-brand::after {
+  right: 10px;
+  bottom: 10px;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 246, 211, 0.76);
+  border-radius: 50%;
+  box-shadow:
+    -42px -8px 0 -1px rgba(255, 205, 91, 0.56),
+    -68px 20px 0 -1px rgba(143, 211, 248, 0.45),
+    0 0 9px rgba(255, 246, 211, 0.45);
+  opacity: 0.7;
+}
+
+.menu-logo {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  flex: 0 0 54px;
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 48% 42%, rgba(246, 197, 111, 0.14), transparent 60%),
+    rgba(255, 173, 184, 0.08);
+  border: 1px solid rgba(255, 183, 194, 0.38);
+  border-radius: 50%;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.menu-logo img {
+  display: block;
+  width: 112%;
+  height: 112%;
+  object-fit: cover;
+  border-radius: 50%;
+  transform: scale(1.03);
+}
+
+.menu-copy {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.menu-brand strong {
+  display: block;
+  color: var(--nav-text);
+  font-size: 1.08rem;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.menu-kicker {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--nav-muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+}
+
+.dropdown-content a,
+.menu-nav-btn,
+.menu-back-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 58px;
+  margin: 8px 0;
+  padding: 9px 42px 9px 12px;
+  gap: 13px;
+  color: rgba(255, 246, 247, 0.94);
+  font: inherit;
+  font-size: 0.98rem;
+  font-weight: 750;
+  line-height: 1.2;
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  background:
+    var(--nav-system-gloss),
+    var(--nav-row-art),
+    var(--nav-row-sheen),
+    linear-gradient(var(--nav-row), var(--nav-row));
+  background-blend-mode: screen, screen, screen, normal;
+  border: 1px solid rgba(255, 183, 194, 0.13);
+  border-radius: 11px;
+  box-shadow:
+    inset 3px 0 0 rgba(255, 205, 91, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.075),
+    inset -42px 0 74px rgba(246, 197, 111, 0.045),
+    inset 42px 0 72px rgba(255, 118, 157, 0.035);
+  cursor: pointer;
+  transition:
+    background-color 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease;
+}
+
+.menu-view > :is(a, .menu-nav-btn):nth-child(3n) {
+  --nav-row-art:
+    radial-gradient(circle at 80% 31%, var(--nav-star) 0 2px, transparent 3px),
+    radial-gradient(ellipse 148px 90px at 113% 70%, transparent 61%, var(--nav-gold-line) 62%, transparent 63%),
+    radial-gradient(ellipse 116px 78px at 102% 24%, transparent 63%, var(--nav-pink-line) 64%, transparent 65%);
+  --nav-runner: var(--nav-bean-1);
+  --nav-runner-size: 50px;
+}
+
+.menu-view > :is(a, .menu-nav-btn):nth-child(3n + 1) {
+  --nav-row-art:
+    radial-gradient(circle at 84% 62%, rgba(255, 129, 166, 0.92) 0 2px, transparent 3px),
+    radial-gradient(ellipse 168px 68px at 113% 39%, transparent 60%, var(--nav-pink-line) 61%, transparent 62%),
+    radial-gradient(ellipse 112px 108px at 99% 86%, transparent 62%, var(--nav-gold-line) 63%, transparent 64%);
+  --nav-runner: var(--nav-bean-2);
+  --nav-runner-size: 50px;
+}
+
+.menu-view > :is(a, .menu-nav-btn):nth-child(3n + 2) {
+  --nav-row-art:
+    radial-gradient(circle at 82% 42%, rgba(143, 211, 248, 0.9) 0 2px, transparent 3px),
+    radial-gradient(ellipse 128px 116px at 101% 53%, transparent 62%, var(--nav-blue-line) 63%, transparent 64%),
+    radial-gradient(ellipse 84px 130px at 89% -32%, transparent 61%, rgba(255, 205, 91, 0.36) 62%, transparent 63%);
+  --nav-runner: var(--nav-bean-10);
+  --nav-runner-size: 50px;
+}
+
+.menu-view[data-menu="root"] > :is(a, .menu-nav-btn):nth-child(2) {
+  --nav-row-art:
+    radial-gradient(circle at 105% 8%, rgba(124, 137, 156, 0.34) 0 50px, rgba(226, 236, 255, 0.72) 51px 53px, transparent 54px),
+    radial-gradient(ellipse 210px 90px at 101% 18%, transparent 60%, rgba(255, 205, 91, 0.68) 61%, transparent 62%),
+    radial-gradient(circle at 79% 48%, var(--nav-star) 0 2px, transparent 3px);
+  --nav-runner: var(--nav-bean-1);
+  --nav-runner-size: 50px;
+}
+
+.menu-view[data-menu="root"] > :is(a, .menu-nav-btn):nth-child(3) {
+  --nav-row-art:
+    radial-gradient(circle at 79% 69%, var(--nav-star) 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 50%, rgba(255, 205, 91, 0.36) 0 16px, transparent 17px),
+    radial-gradient(ellipse 142px 96px at 105% 56%, transparent 62%, var(--nav-gold-line) 63%, transparent 64%),
+    radial-gradient(ellipse 92px 90px at 97% -16%, transparent 61%, var(--nav-pink-line) 62%, transparent 63%);
+  --nav-runner: var(--nav-bean-3);
+  --nav-runner-size: 50px;
+}
+
+.menu-view[data-menu="root"] > :is(a, .menu-nav-btn):nth-child(4) {
+  --nav-row-art:
+    radial-gradient(circle at 83% 57%, rgba(143, 211, 248, 0.86) 0 2px, transparent 3px),
+    radial-gradient(ellipse 132px 112px at 101% 51%, transparent 62%, var(--nav-blue-line) 63%, transparent 64%),
+    radial-gradient(ellipse 92px 90px at 87% 116%, transparent 60%, rgba(255, 111, 153, 0.32) 61%, transparent 62%);
+  --nav-runner: var(--nav-bean-8);
+  --nav-runner-size: 50px;
+}
+
+.menu-view[data-menu="root"] > :is(a, .menu-nav-btn):nth-child(5) {
+  --nav-row-art:
+    radial-gradient(circle at 80% 43%, rgba(199, 162, 255, 0.94) 0 2px, transparent 3px),
+    radial-gradient(circle at 100% 74%, rgba(69, 38, 78, 0.82) 0 42px, transparent 43px),
+    radial-gradient(ellipse 144px 96px at 105% 76%, transparent 62%, var(--nav-purple-line) 63%, transparent 64%);
+  --nav-runner: var(--nav-bean-3);
+  --nav-runner-size: 50px;
+}
+
+.menu-view[data-menu="root"] > :is(a, .menu-nav-btn):nth-child(6) {
+  --nav-row-art:
+    radial-gradient(circle at 80% 52%, rgba(119, 235, 216, 0.92) 0 2px, transparent 3px),
+    radial-gradient(ellipse 126px 136px at 100% 49%, transparent 62%, var(--nav-teal-line) 63%, transparent 64%),
+    radial-gradient(ellipse 90px 84px at 87% -22%, transparent 61%, rgba(255, 205, 91, 0.32) 62%, transparent 63%);
+  --nav-runner: var(--nav-bean-9);
+  --nav-runner-size: 50px;
+}
+
+.menu-view[data-menu="root"] > :is(a, .menu-nav-btn):nth-child(7) {
+  --nav-row-art:
+    radial-gradient(circle at 80% 49%, rgba(255, 154, 181, 0.96) 0 2px, transparent 3px),
+    radial-gradient(ellipse 138px 112px at 106% 54%, transparent 61%, var(--nav-pink-line) 62%, transparent 63%),
+    radial-gradient(ellipse 76px 86px at 88% 113%, transparent 62%, var(--nav-gold-line) 63%, transparent 64%);
+  --nav-runner: var(--nav-bean-2);
+  --nav-runner-size: 50px;
+}
+
+.menu-view[data-menu="root"] > :is(a, .menu-nav-btn):nth-child(8) {
+  --nav-row-art:
+    radial-gradient(circle at 82% 38%, rgba(143, 211, 248, 0.86) 0 2px, transparent 3px),
+    radial-gradient(ellipse 164px 82px at 111% 58%, transparent 62%, rgba(143, 211, 248, 0.38) 63%, transparent 64%),
+    radial-gradient(ellipse 122px 80px at 98% 118%, transparent 62%, var(--nav-purple-line) 63%, transparent 64%);
+  --nav-runner: var(--nav-bean-5);
+  --nav-runner-size: 50px;
+}
+
+.menu-view[data-menu="root"] > :is(a, .menu-nav-btn):nth-child(9) {
+  --nav-row-art:
+    radial-gradient(ellipse 208px 48px at 98% 82%, transparent 49%, rgba(255, 205, 91, 0.82) 50%, transparent 52%),
+    radial-gradient(circle at 99% 83%, rgba(255, 205, 91, 0.36) 0 34px, rgba(255, 118, 157, 0.28) 35px 54px, transparent 55px),
+    radial-gradient(circle at 79% 42%, var(--nav-star) 0 2px, transparent 3px);
+  --nav-runner: var(--nav-bean-7);
+  --nav-runner-size: 50px;
+}
+
+.dropdown-content a::before,
+.menu-nav-btn::before,
+.menu-back-btn::before {
+  content: "";
+  position: absolute;
+  right: calc(-1 * var(--nav-runner-size, 50px) - 18px);
+  top: 50%;
+  width: var(--nav-runner-size, 50px);
+  height: var(--nav-runner-size, 50px);
+  background: var(--nav-runner) center / contain no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  filter:
+    drop-shadow(0 0 10px rgba(255, 216, 135, 0.28))
+    drop-shadow(0 0 14px rgba(255, 111, 153, 0.2));
+  transform: translateY(-50%) scale(0.82) rotate(-10deg);
+}
+
+.dropdown-content a::after {
+  content: "\f054";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  color: rgba(255, 226, 230, 0.62);
+  font-family: "Font Awesome 6 Free";
+  font-size: 0.86rem;
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: none;
+  transform: translateY(-50%);
+  transition:
+    color 0.16s ease,
+    filter 0.16s ease,
+    text-shadow 0.16s ease,
+    transform 0.16s ease;
+}
+
+.dropdown-content a > i:first-child,
+.menu-nav-btn span > i:first-child,
+.menu-back-btn span > i:first-child {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  color: #ffe6ea;
+  font-size: 1.04rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 183, 194, 0.12);
+  border-radius: 9px;
+  transition:
+    background-color 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease;
+}
+
+.menu-nav-btn span,
+.menu-back-btn span {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  gap: 13px;
+}
+
+.menu-nav-btn span {
+  flex: 1;
+}
+
+.menu-nav-btn .fa-chevron-right {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  flex: 0 0 auto;
+  color: rgba(255, 226, 230, 0.62);
+  font-size: 0.86rem;
+  text-shadow: none;
+  transform: translateY(-50%);
+  transition:
+    color 0.16s ease,
+    filter 0.16s ease,
+    text-shadow 0.16s ease,
+    transform 0.16s ease;
+}
+
+.dropdown-content a:hover,
+.menu-nav-btn:hover,
+.menu-back-btn:hover {
+  color: #ffffff;
+  background:
+    var(--nav-system-gloss),
+    var(--nav-row-art),
+    var(--nav-row-sheen),
+    linear-gradient(var(--nav-row-hover), var(--nav-row-hover));
+  border-color: rgba(255, 183, 194, 0.26);
+  box-shadow:
+    inset 3px 0 0 rgba(255, 216, 135, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset -48px 0 82px rgba(246, 197, 111, 0.075),
+    0 0 16px rgba(255, 139, 169, 0.075);
+}
+
+.dropdown-content a:hover::before,
+.menu-nav-btn:hover::before,
+.menu-back-btn:hover::before {
+  animation: beanRun 1.28s cubic-bezier(0.18, 0.82, 0.24, 1) both;
+}
+
+.dropdown-content a:hover::after,
+.menu-nav-btn:hover .fa-chevron-right {
+  color: #ffd887;
+  filter: drop-shadow(0 0 7px rgba(255, 216, 135, 0.82));
+  text-shadow:
+    0 0 8px rgba(255, 216, 135, 0.86),
+    0 0 16px rgba(255, 111, 153, 0.5);
+  transform: translate(2px, -50%);
+}
+
+.dropdown-content a:hover > i:first-child,
+.menu-nav-btn:hover span > i:first-child,
+.menu-back-btn:hover span > i:first-child {
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.13), transparent 55%),
+    rgba(255, 173, 184, 0.13);
+  border-color: rgba(246, 197, 111, 0.24);
+}
+
+.menu-back-btn {
+  min-height: 50px;
+  margin-bottom: 11px;
+  padding-right: 16px;
+  color: rgba(255, 226, 230, 0.78);
+}
+
+.menu-back-btn::before {
+  opacity: 0.72;
+}
+
+.submenu-title {
+  margin: 2px 0 11px;
+  padding: 3px 4px 9px;
+  color: var(--nav-muted);
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 183, 194, 0.12);
+}
+
+.beta-glow,
+.highlight-glow {
+  color: #fff8f9 !important;
+  background:
+    var(--nav-system-gloss),
+    var(--nav-row-art),
+    var(--nav-row-sheen),
+    linear-gradient(rgba(246, 197, 111, 0.09), rgba(255, 127, 145, 0.08)) !important;
+  border-color: rgba(246, 197, 111, 0.28) !important;
+}
+
+.beta-glow::before,
+.highlight-glow::before {
+  opacity: 1;
+}
+
+.beta-glow span > i:first-child,
+.highlight-glow span > i:first-child,
+.dropdown-content a.beta-glow > i:first-child,
+.dropdown-content a.highlight-glow > i:first-child {
+  color: #fff8f9;
+  background: rgba(246, 197, 111, 0.14);
+  border-color: rgba(246, 197, 111, 0.24);
+}
+
+@keyframes menuFade {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes beanRun {
+  0% {
+    right: calc(-1 * var(--nav-runner-size, 50px) - 18px);
+    opacity: 0;
+    transform: translateY(-50%) scale(0.76) rotate(-10deg);
+  }
+
+  16% {
+    opacity: 0.9;
+  }
+
+  72% {
+    right: clamp(76px, 30%, 112px);
+    opacity: 1;
+    transform: translateY(-50%) scale(0.98) rotate(-3deg);
+  }
+
+  100% {
+    right: clamp(76px, 30%, 112px);
+    opacity: 1;
+    transform: translateY(-50%) scale(1) rotate(0deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .dropdown {
+    top: max(12px, env(safe-area-inset-top));
+    left: max(12px, env(safe-area-inset-left));
+    max-width: calc(100vw - 20px);
+  }
+
+  .dropbtn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .dropdown-content {
+    width: calc(100vw - 24px);
+    max-height: calc(100vh - 84px);
+    max-height: calc(100dvh - 84px);
+    border-radius: 16px;
+  }
+
+  .menu-view {
+    max-height: calc(100vh - 84px);
+    max-height: calc(100dvh - 84px);
+    padding: 12px;
+  }
+
+  .menu-logo {
+    flex-basis: 50px;
+    width: 50px;
+    height: 50px;
+    font-size: 0.66rem;
+  }
+
+  .menu-brand strong {
+    font-size: 1rem;
+  }
+
+  .dropdown-content a,
+  .menu-nav-btn,
+  .menu-back-btn {
+    min-height: 55px;
+    padding-left: 11px;
+    padding-right: 40px;
+    gap: 12px;
+    font-size: 0.94rem;
+  }
+
+  .dropdown-content a > i:first-child,
+  .menu-nav-btn span > i:first-child,
+  .menu-back-btn span > i:first-child {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+    font-size: 0.98rem;
+  }
+
+  .menu-nav-btn span,
+  .menu-back-btn span {
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dropbtn,
+  .hamburger span,
+  .dropdown-content,
+  .menu-view.active,
+  .dropdown-content a,
+  .menu-nav-btn,
+  .menu-back-btn,
+  .dropdown-content a::before,
+  .dropdown-content a::after,
+  .menu-nav-btn::before,
+  .menu-back-btn::before,
+  .menu-nav-btn .fa-chevron-right {
+    animation: none;
+    transition: none;
+  }
+
+  .dropdown-content a:hover::before,
+  .menu-nav-btn:hover::before,
+  .menu-back-btn:hover::before {
+    opacity: 0;
+  }
+}
