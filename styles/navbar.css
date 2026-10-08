@@ -713,3 +713,67 @@
     opacity: 0;
   }
 }
+
+/* Compact navigation and self-contained icon support */
+.dropdown-content {
+  width: min(324px, calc(100vw - 28px));
+  max-height: min(514px, calc(100dvh - 92px));
+  border-radius: 15px;
+}
+.menu-view {
+  max-height: min(512px, calc(100dvh - 94px));
+  padding: 10px;
+}
+.menu-brand { gap: 10px; margin-bottom: 6px; padding: 5px 5px 10px; }
+.menu-logo { flex-basis: 42px; width: 42px; height: 42px; }
+.menu-brand strong { font-size: .94rem; }
+.menu-kicker { font-size: .6rem; margin-bottom: 3px; }
+.dropdown-content a, .menu-nav-btn, .menu-back-btn {
+  min-height: 43px;
+  margin: 5px 0;
+  padding: 5px 34px 5px 8px;
+  gap: 9px;
+  font-size: .85rem;
+  border-radius: 9px;
+}
+.menu-back-btn { min-height: 40px; margin-bottom: 5px; }
+.dropdown-content a > svg:first-child,
+.menu-nav-btn span > svg:first-child,
+.menu-back-btn span > svg:first-child {
+  display: block;
+  flex: 0 0 31px;
+  width: 31px;
+  height: 31px;
+  padding: 7px;
+  color: #ffe6ea;
+  background: rgba(255,255,255,.075);
+  border: 1px solid rgba(255,183,194,.18);
+  border-radius: 8px;
+}
+.menu-nav-btn span, .menu-back-btn span { gap: 9px; }
+.menu-nav-btn > svg.nav-icon-chevron-right {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  width: 15px;
+  height: 15px;
+  color: rgba(255,226,230,.72);
+  transform: translateY(-50%);
+}
+.dropdown-content a::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-top: 1.8px solid currentColor;
+  border-right: 1.8px solid currentColor;
+  transform: translateY(-50%) rotate(45deg);
+  opacity: .7;
+}
+.dropdown-content a:hover::after { transform: translate(2px, -50%) rotate(45deg); }
+.submenu-title { margin: 0 0 7px; padding-bottom: 6px; }
+@media (max-width:480px) {
+  .dropdown-content { width: min(324px, calc(100vw - 24px)); max-height: min(514px, calc(100dvh - 84px)); }
+  .menu-view { max-height: min(512px, calc(100dvh - 86px)); padding: 10px; }
+  .dropdown-content a, .menu-nav-btn, .menu-back-btn { min-height: 43px; padding: 5px 34px 5px 8px; font-size: .85rem; gap: 9px; }
+  .dropdown-content a > svg:first-child, .menu-nav-btn span > svg:first-child, .menu-back-btn span > svg:first-child { flex-basis:31px;width:31px;height:31px; }
+}
