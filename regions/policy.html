@@ -395,6 +395,180 @@
       }
       @media(prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
 
+      body {
+        background: #050505;
+      }
+      body::before,
+      body::after,
+      .header::after {
+        display: none;
+      }
+      .page-wrapper {
+        max-width: 1040px;
+        width: min(1040px, calc(100% - 48px));
+        padding-top: 96px;
+      }
+      .header {
+        display: block;
+        min-height: 0;
+        padding: 0 0 24px;
+        border: 0;
+        border-bottom: 1px solid rgba(255, 204, 128, 0.22);
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        overflow: visible;
+      }
+      .header .header-badge {
+        margin-bottom: 10px;
+        color: rgba(255, 204, 128, 0.86);
+        font-size: 0.76rem;
+        letter-spacing: 0.11em;
+      }
+      .header h1 {
+        max-width: none;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.15;
+        color: #fff7ef;
+      }
+      .header h1 span {
+        display: inline;
+        width: auto;
+        background: none;
+        -webkit-text-fill-color: currentColor;
+        color: inherit;
+      }
+      .header-subtitle {
+        max-width: 820px;
+        margin-top: 12px;
+        font-size: 1rem;
+        line-height: 1.65;
+      }
+      .header-actions {
+        gap: 14px;
+        margin-top: 16px;
+      }
+      .header-actions a {
+        min-height: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        color: #ffdcaa;
+        font-size: 0.93rem;
+        font-weight: 500;
+        box-shadow: none;
+      }
+      .header-actions a:hover {
+        background: transparent;
+        box-shadow: none;
+        transform: none;
+        text-decoration: underline;
+      }
+      .policy-date {
+        margin-top: 14px;
+      }
+      .hero-panel {
+        display: none;
+      }
+      .policy-layout {
+        grid-template-columns: 210px minmax(0, 1fr);
+        gap: 34px;
+        margin-top: 30px;
+      }
+      .policy-sidebar {
+        top: 96px;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+      .policy-sidebar h2 {
+        margin: 0 0 12px;
+        color: rgba(255, 204, 128, 0.88);
+      }
+      .policy-sidebar a,
+      .policy-sidebar a.sidebar-sub {
+        padding: 5px 0;
+        border: 0;
+        border-radius: 0;
+        color: rgba(255, 248, 239, 0.76);
+        font-size: 0.9rem;
+      }
+      .policy-sidebar a.sidebar-sub {
+        padding-left: 14px;
+      }
+      .policy-sidebar a:hover,
+      .policy-sidebar a:focus-visible {
+        background: transparent;
+        border-color: transparent;
+        color: #ffdcaa;
+        text-decoration: underline;
+      }
+      .policy-main {
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+      .server-section h2 {
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(255, 204, 128, 0.2);
+        font-size: clamp(1.45rem, 2vw, 1.8rem);
+      }
+      .policy-intro {
+        margin-bottom: 8px;
+        padding-bottom: 16px;
+        color: rgba(255, 249, 242, 0.82);
+      }
+      .policy-card,
+      .policy-card.wide {
+        padding: 17px 0 18px;
+        border-bottom-color: rgba(255, 204, 128, 0.12);
+      }
+      .policy-card h3 {
+        margin-bottom: 8px;
+        font-size: 1.04rem;
+      }
+      .policy-card h3 i {
+        display: none;
+      }
+      .policy-card p,
+      .policy-card li {
+        font-size: 0.98rem;
+        line-height: 1.72;
+      }
+      .policy-divider {
+        margin: 34px 0;
+        border-top-color: rgba(255, 204, 128, 0.24);
+      }
+
+      @media(max-width: 850px) {
+        .page-wrapper {
+          width: min(100% - 32px, 1040px);
+        }
+        .policy-layout {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 22px;
+        }
+        .policy-sidebar {
+          position: static;
+          padding-bottom: 18px;
+          border-bottom: 1px solid rgba(255, 204, 128, 0.16);
+        }
+        .policy-sidebar nav {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 4px 18px;
+        }
+        .policy-sidebar a.sidebar-sub {
+          display: block;
+        }
+      }
+
     </style>
   </head>
 
@@ -412,7 +586,7 @@
             <a href="#terms"><i class="fa-solid fa-file-contract" aria-hidden="true"></i> Terms of Service</a>
             <a href="https://discord.gg/maul" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord" aria-hidden="true"></i> Join MAUL</a>
           </div>
-          <span class="policy-date">Last updated September 17, 2026</span>
+          <span class="policy-date">Last updated October 12, 2026</span>
         </div>
         <div class="hero-panel" aria-label="MAUL mascot illustration">
           <div class="hero-banner-card" aria-hidden="true"><img src="/images/banner-transparent-cropped.png" alt="" loading="lazy" decoding="async" /></div>
@@ -423,167 +597,57 @@
         <aside class="policy-sidebar" aria-label="Policy navigation">
           <h2>On this page</h2>
           <nav aria-label="Jump to policy sections">
-            <a class="sidebar-heading" href="#privacy">Privacy Policy</a>
-            <a class="sidebar-sub" href="#data-collection">Information we use</a>
-            <a class="sidebar-sub" href="#visible-information">What others can see</a>
-            <a class="sidebar-sub" href="#data-retention">How long it's kept</a>
-            <a class="sidebar-sub" href="#privacy-choices">Your choices</a>
-            <a class="sidebar-heading" href="#terms">Terms of Service</a>
-            <a class="sidebar-sub" href="#prohibited-use">Prohibited use</a>
-            <a class="sidebar-sub" href="#enforcement">Conduct &amp; enforcement</a>
+            <a class="sidebar-heading" href="#overview">Overview</a>
+            <a class="sidebar-sub" href="#definitions">Definitions</a>
+            <a class="sidebar-sub" href="#changes">Changes</a>
+            <a class="sidebar-heading" href="#terms">Terms</a>
+            <a class="sidebar-sub" href="#region-use">Region use</a>
+            <a class="sidebar-sub" href="#user-responsibilities">Your responsibilities</a>
+            <a class="sidebar-sub" href="#enforcement">Enforcement</a>
+            <a class="sidebar-heading" href="#privacy">Privacy</a>
+            <a class="sidebar-sub" href="#data-collection">Information collected</a>
+            <a class="sidebar-sub" href="#eu-privacy">NA/EU privacy</a>
+            <a class="sidebar-sub" href="#data-retention">Retention</a>
+            <a class="sidebar-heading" href="#legal">Legal Terms</a>
             <a class="sidebar-heading" href="#contact">Contact</a>
           </nav>
         </aside>
       <main class="policy-main" id="policy-content">
-        <section class="server-section" id="privacy">
-          <h2>Privacy Policy</h2>
+        <section class="server-section" id="overview">
+          <h2>Overview</h2>
 
           <div class="policy-intro">
-            This policy explains what information MAUL uses when you connect to our custom Among Us regions or use related
-            features such as lobby posting, the live lobby page, reports, notifications, and rankings.
+            Effective Date: October 12, 2026<br />
+            Last Updated: October 12, 2026
           </div>
 
           <div class="policy-grid">
-            <article class="policy-card" id="data-collection">
-              <h3><i class="fa-solid fa-database"></i> Information we use</h3>
-              <p>Depending on what you use, MAUL may receive or store:</p>
+            <article class="policy-card" id="definitions">
+              <h3><i class="fa-solid fa-book"></i> Definitions</h3>
               <ul>
-                <li>Connection and technical information, including IP addresses and request or connection details.</li>
-                <li>Among Us information such as player names, friend codes, account or player identifiers, game version, region, game code, lobby status, player count, language, and mod information.</li>
-                <li>Discord information used for verification or website access, including your user ID, username, and display name.</li>
-                <li>Information created by MAUL features, including lobby posts, notification opt-ins, reports, hosting statistics, cooldowns, moderation records, and abuse-prevention records.</li>
+                <li>"MAUL" means the Modded Among Us Lobbies community, region operators, and authorized staff who operate MAUL services.</li>
+                <li>"Website" means moddedamong.us and MAUL web pages, including region pages, lobby pages, ranking pages, and related tools.</li>
+                <li>"Regions" means MAUL-operated custom Among Us region servers.</li>
+                <li>"Service" means the Website, Regions, Discord-connected features, lobby posting, rankings, moderation tools, and related MAUL services.</li>
+                <li>"You" means any person who uses, accesses, connects to, or attempts to use the Service.</li>
               </ul>
             </article>
 
             <article class="policy-card">
-              <h3><i class="fa-solid fa-gears"></i> What we use it for</h3>
-              <p>We use this information to run MAUL services, including to:</p>
-              <ul>
-                <li>Operate the custom regions and route players between MAUL region nodes.</li>
-                <li>Verify members and lobby hosts.</li>
-                <li>Create, update, and remove lobby advertisements and live lobby listings.</li>
-                <li>Provide notifications, rankings, and hosting statistics.</li>
-                <li>Prevent abuse, enforce bans and MAUL rules, review reports, and protect MAUL systems.</li>
-                <li>Troubleshoot connection problems, crashes, exploits, and other service issues.</li>
-              </ul>
-            </article>
-
-            <article class="policy-card">
-              <h3><i class="fa-solid fa-right-to-bracket"></i> Live lobby website</h3>
+              <h3><i class="fa-solid fa-check"></i> Agreement to these policies</h3>
               <p>
-                The live lobby page is limited to verified MAUL members. Account setup is confirmed through Discord and is
-                linked to your Discord account.
-              </p>
-              <p>
-                Passwords are not stored in plain text. MAUL stores a salted password hash instead. When you log in, the
-                site uses an HTTP-only session cookie so you can stay signed in. Sessions expire and can also be revoked.
+                By using the Website, joining a MAUL Region, using lobby posting, logging into a MAUL website feature, or
+                using any related MAUL Service, you agree to these Privacy &amp; Terms. If you do not agree, do not use the
+                Service.
               </p>
             </article>
 
-            <article class="policy-card" id="visible-information">
-              <h3><i class="fa-solid fa-eye"></i> What other users can see</h3>
+            <article class="policy-card" id="changes">
+              <h3><i class="fa-solid fa-file-pen"></i> Changes to this document</h3>
               <p>
-                Discord lobby posts can show the host, region, game code, language, mods, player count, and lobby status.
-                The live lobby page can show the host name, Discord username, game code, region, mods, player count, and
-                status to logged-in MAUL members.
-              </p>
-              <p>
-                The MAUL rankings page is public and can show public display names with activity statistics such as XP,
-                hosted time, games finished, and lobby totals.
-              </p>
-            </article>
-
-            <article class="policy-card">
-              <h3><i class="fa-solid fa-bullhorn"></i> Lobby posting</h3>
-              <p>
-                When a supported MAUL region offers to post a lobby, or a host requests a post, MAUL receives the lobby
-                details needed to verify the host and create the listing. This can include the game code, region, host name,
-                friend code, linked Discord account, mods, player count, language, game version, and lobby status.
-              </p>
-              <p>
-                Lobby listings are updated while the lobby is active and can be removed automatically when the lobby closes,
-                starts, expires, or is removed by the host.
-              </p>
-            </article>
-
-            <article class="policy-card">
-              <h3><i class="fa-solid fa-bell"></i> Notifications</h3>
-              <p>
-                If you choose a lobby notification option, MAUL stores the Discord user ID, game code, and time needed to
-                manage that notification.
-              </p>
-            </article>
-
-            <article class="policy-card">
-              <h3><i class="fa-solid fa-flag"></i> Reports &amp; moderation</h3>
-              <p>
-                Reports can include the reporter and reported player's in-game identifiers, names, friend codes, report
-                reason, and lobby information. Where possible, MAUL may match those identifiers to verified Discord accounts
-                so staff can review the report.
-              </p>
-              <p>
-                MAUL also keeps records needed for moderation and abuse prevention, such as cooldowns, temporary blocks,
-                whitelists, bans, and related staff actions.
-              </p>
-            </article>
-
-            <article class="policy-card">
-              <h3><i class="fa-solid fa-chart-line"></i> Hosting statistics</h3>
-              <p>
-                MAUL can track hosting activity from lobby posts, including how long a verified host keeps a lobby active.
-                Player counts may be used when calculating hosting totals, and staff can make documented corrections when
-                needed for errors or downtime.
-              </p>
-            </article>
-
-            <article class="policy-card">
-              <h3><i class="fa-solid fa-shuffle"></i> Region relay</h3>
-              <p>
-                MAUL operates more than one region node. When relay is enabled, the nodes exchange the information needed to
-                locate and route a lobby. A player connecting through one MAUL node may have their game traffic relayed to
-                another MAUL node where the lobby is hosted.
-              </p>
-            </article>
-
-            <article class="policy-card" id="data-retention">
-              <h3><i class="fa-solid fa-clock-rotate-left"></i> How long information is kept</h3>
-              <p>
-                Some records are intentionally short-lived. Live lobby entries expire unless they are refreshed, website
-                sessions expire, and login setup tokens are removed after they expire or are used.
-              </p>
-              <p>
-                Other records, including accounts, verification data, moderation records, reports, and cumulative statistics,
-                may be kept longer when they are needed to operate MAUL, maintain accurate statistics, or enforce rules. The
-                current report system keeps a limited number of recent reports rather than an unlimited history.
-              </p>
-            </article>
-
-            <article class="policy-card">
-              <h3><i class="fa-solid fa-cloud"></i> Service providers</h3>
-              <p>
-                MAUL relies on services such as Discord and third-party hosting, networking, DNS, security, certificate, and
-                storage providers. Those services may process information according to their own terms and privacy policies.
-              </p>
-            </article>
-
-            <article class="policy-card" id="privacy-choices">
-              <h3><i class="fa-solid fa-user-shield"></i> Your choices</h3>
-              <p>
-                Using MAUL regions and related features is optional. You can log out of the lobby website, remove an active
-                lobby post through supported controls, decline lobby posting, avoid notification features, or stop using the
-                service.
-              </p>
-              <p>
-                Some records may still be kept when needed for moderation, security, ban enforcement, or the integrity of
-                MAUL statistics.
-              </p>
-            </article>
-
-            <article class="policy-card wide">
-              <h3><i class="fa-solid fa-lock"></i> Security</h3>
-              <p>
-                MAUL uses reasonable measures to protect its services and stored information, but no online service can
-                guarantee perfect security or uninterrupted availability.
+                MAUL may update these policies as the Website, Regions, bot features, moderation tools, or legal needs
+                change. When a meaningful change is made, the "Last Updated" date may be changed and notice may be posted
+                through the Website, Discord, or in-game region messages.
               </p>
             </article>
           </div>
@@ -595,100 +659,91 @@
           <h2>Terms of Service</h2>
 
           <div class="policy-intro">
-            By using a MAUL custom region or a related MAUL service, you agree to these terms and the rules that apply to the
-            service you are using.
+            These terms explain how MAUL Regions and related services may be used.
           </div>
 
           <div class="policy-grid">
-            <article class="policy-card">
-              <h3><i class="fa-solid fa-gamepad"></i> Using MAUL services</h3>
+            <article class="policy-card" id="region-use">
+              <h3><i class="fa-solid fa-gamepad"></i> Region use and mods</h3>
               <p>
-                MAUL regions and related services are provided for custom Among Us gameplay and MAUL community features.
-                Follow MAUL rules, region rules, and reasonable lobby rules set by the host.
+                MAUL Regions are provided for custom Among Us gameplay and MAUL community features. You are responsible for
+                using mods, tools, and game clients that do not disrupt the Service, unfairly affect other players, bypass
+                moderation, or violate applicable rules.
+              </p>
+              <p>
+                MAUL may block, restrict, or remove mods, tools, clients, traffic, or behavior that disrupts Regions,
+                creates abuse risk, causes compatibility problems, or is used to exploit the game or Service.
               </p>
             </article>
 
-            <article class="policy-card">
-              <h3><i class="fa-solid fa-user-lock"></i> Website accounts</h3>
-              <p>
-                Live lobby website access is for verified MAUL members. Do not use another person's account, share access to
-                bypass verification, evade a disabled account, or attempt to access restricted website or API functions.
-              </p>
-              <p>You are responsible for keeping your password private and signing out of devices you no longer control.</p>
+            <article class="policy-card" id="user-responsibilities">
+              <h3><i class="fa-solid fa-user-check"></i> Your responsibilities</h3>
+              <p>You agree to:</p>
+              <ul>
+                <li>Follow MAUL rules, lobby rules, and reasonable instructions from authorized MAUL staff.</li>
+                <li>Use your own accounts and keep website passwords, sessions, and Discord access private.</li>
+                <li>Use reports, lobby posting, rankings, and website tools honestly and in good faith.</li>
+                <li>Comply with applicable laws and platform rules, including rules from Discord, Innersloth, and any services you use.</li>
+                <li>Not evade bans, cooldowns, verification, account restrictions, or other abuse-prevention controls.</li>
+              </ul>
             </article>
 
             <article class="policy-card">
-              <h3><i class="fa-solid fa-bullhorn"></i> Lobby posts</h3>
+              <h3><i class="fa-solid fa-bullhorn"></i> Lobby posting, accounts, and rankings</h3>
               <p>
-                Lobby posting is for genuine, active lobbies. Do not knowingly submit false information, impersonate another
-                host, spam posting requests, misuse reserved or whitelisted codes, or try to bypass posting cooldowns or
-                restrictions.
+                Lobby posting is for genuine, active lobbies. Do not knowingly submit false lobby information, impersonate
+                another host, misuse reserved codes, spam posting requests, or bypass posting controls.
               </p>
-            </article>
-
-            <article class="policy-card">
-              <h3><i class="fa-solid fa-flag"></i> Reports</h3>
               <p>
-                Use reporting tools in good faith. Do not knowingly submit false reports, impersonate another player,
-                manipulate report information, or use reports to harass or spam users or staff.
-              </p>
-            </article>
-
-            <article class="policy-card">
-              <h3><i class="fa-solid fa-ranking-star"></i> Rankings &amp; statistics</h3>
-              <p>
-                Activity on MAUL regions can contribute to public rankings and service statistics. Staff may correct hosting
-                totals or related records when needed to fix tracking errors, outages, or other obvious inaccuracies.
+                Live lobby website access is limited to verified MAUL members. Public rankings and statistics may be
+                corrected by staff when needed to fix downtime, errors, abuse, or obvious inaccuracies.
               </p>
             </article>
 
             <article class="policy-card" id="prohibited-use">
               <h3><i class="fa-solid fa-ban"></i> Prohibited use</h3>
-              <p>Do not use MAUL services to:</p>
+              <p>Do not use the Service to:</p>
               <ul>
                 <li>Attack, overload, disrupt, exploit, or intentionally interfere with MAUL systems or other users.</li>
-                <li>Access accounts, sessions, admin functions, APIs, systems, or information you are not authorized to use.</li>
-                <li>Evade bans, verification requirements, cooldowns, account restrictions, or other abuse-prevention controls.</li>
-                <li>Use malicious automation, malformed traffic, cheats, exploits, or deceptive requests to damage or misuse the service.</li>
+                <li>Access accounts, sessions, admin functions, APIs, systems, logs, or information you are not authorized to use.</li>
+                <li>Cheat, exploit bugs, use malicious automation, send malformed traffic, or damage the gameplay experience.</li>
+                <li>Harass, threaten, impersonate, discriminate against, or target users or staff.</li>
+                <li>Share illegal, harmful, stolen, or malicious content.</li>
                 <li>Engage in unlawful activity.</li>
               </ul>
             </article>
 
             <article class="policy-card" id="enforcement">
-              <h3><i class="fa-solid fa-scale-balanced"></i> Conduct &amp; enforcement</h3>
+              <h3><i class="fa-solid fa-scale-balanced"></i> Monitoring and enforcement</h3>
               <p>
-                Region Admins and authorized MAUL staff may warn, remove, restrict, disable, or ban users when necessary to
-                deal with cheating, harassment, hate speech, threats, disruptive behavior, ban evasion, abuse of MAUL
-                systems, or other serious rule violations.
+                MAUL may monitor Region activity, logs, reports, lobby posts, website activity, and related Service activity
+                to operate the Service, investigate abuse, enforce rules, prevent exploits, and protect users and systems.
               </p>
               <p>
-                Enforcement depends on the situation and is not limited to the examples listed here. Access to regions,
-                website accounts, lobby posting, APIs, or other MAUL features may be restricted when needed to protect the
-                community or the service.
+                Authorized MAUL staff may warn, remove, restrict, disable, temporarily ban, permanently ban, or otherwise
+                limit access when needed. Circumventing sanctions may result in additional restrictions.
               </p>
             </article>
 
             <article class="policy-card">
-              <h3><i class="fa-solid fa-triangle-exclamation"></i> Availability</h3>
+              <h3><i class="fa-solid fa-triangle-exclamation"></i> Availability and third parties</h3>
               <p>
-                MAUL services can change, restart, move, be limited, or become temporarily unavailable. Compatibility may
-                also change when Among Us, a mod, or another dependency is updated.
+                MAUL Services are provided as available. Regions, website features, bots, panels, rankings, lobby posting,
+                and compatibility with game versions or mods may change, restart, move, break, or become temporarily
+                unavailable.
+              </p>
+              <p>
+                Third-party services such as Discord, hosting providers, DNS providers, storage providers, security tools,
+                mods, launchers, and game services are operated separately from MAUL unless MAUL specifically says otherwise.
               </p>
             </article>
 
             <article class="policy-card">
-              <h3><i class="fa-solid fa-puzzle-piece"></i> Mods &amp; third parties</h3>
+              <h3><i class="fa-solid fa-door-open"></i> Ending access</h3>
               <p>
-                Third-party mods, launchers, tools, and services are operated separately from MAUL unless we specifically say
-                otherwise. Their own terms, policies, and support rules apply to them.
-              </p>
-            </article>
-
-            <article class="policy-card">
-              <h3><i class="fa-solid fa-code"></i> Changes to the service</h3>
-              <p>
-                Features and technical behavior may change as MAUL is updated. If a policy change is significant, the
-                "Last updated" date on this page may be changed as well.
+                You may stop using the Service at any time. MAUL may suspend or end access to any part of the Service when
+                needed for rule enforcement, abuse prevention, service integrity, security, or technical operations. Certain
+                moderation and security records may survive the end of access.
               </p>
             </article>
 
@@ -699,8 +754,181 @@
                 Among Us and related trademarks belong to their respective owners.
               </p>
               <p>
-                MAUL services are provided as available. We cannot guarantee that every region, website feature, bot,
+                The Service is provided as available and without any promise that every Region, website feature, bot,
                 ranking, mod, game version, browser, or network setup will always work without interruption or errors.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <hr class="policy-divider" />
+
+        <section class="server-section" id="privacy">
+          <h2>Privacy Policy</h2>
+
+          <div class="policy-intro">
+            This section explains what information MAUL may receive, use, store, display, and retain when you use the Service.
+          </div>
+
+          <div class="policy-grid">
+            <article class="policy-card" id="data-collection">
+              <h3><i class="fa-solid fa-database"></i> Information MAUL may collect</h3>
+              <p>Depending on what you use, MAUL may receive or store:</p>
+              <ul>
+                <li>Connection and technical information, including IP addresses, request details, connection details, timestamps, and region node information.</li>
+                <li>Among Us information, including player names, friend codes, account or player identifiers, PUIDs, data IDs, game version, region, game code, lobby status, player count, language, and mod information.</li>
+                <li>Discord information used for verification, login, moderation, or website access, including user IDs, usernames, display names, and linked account status.</li>
+                <li>Information created by MAUL features, including lobby posts, notification opt-ins, reports, hosting statistics, rankings, cooldowns, bans, whitelists, and related staff actions.</li>
+              </ul>
+            </article>
+
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-gears"></i> How MAUL uses information</h3>
+              <p>MAUL uses information to operate and protect the Service, including to:</p>
+              <ul>
+                <li>Run MAUL Regions and route players between MAUL region nodes.</li>
+                <li>Verify members and lobby hosts.</li>
+                <li>Create, update, and remove lobby advertisements and live lobby listings.</li>
+                <li>Provide notifications, rankings, hosting statistics, and public service statistics.</li>
+                <li>Review reports, enforce bans and MAUL rules, prevent abuse, and protect MAUL systems.</li>
+                <li>Troubleshoot crashes, connection problems, exploits, and other service issues.</li>
+              </ul>
+            </article>
+
+            <article class="policy-card" id="visible-information">
+              <h3><i class="fa-solid fa-eye"></i> Public and member-visible information</h3>
+              <p>
+                Discord lobby posts can show the host, region, game code, language, mods, player count, and lobby status.
+                The live lobby page can show the host name, Discord username, game code, region, mods, player count, and
+                status to logged-in MAUL members.
+              </p>
+              <p>
+                The MAUL rankings page is public and can show public display names with activity statistics such as XP,
+                hosted time, games finished, and lobby totals. MAUL does not show admin-only identifiers, including IP
+                addresses, on public website pages or post them in public Discord channels.
+              </p>
+            </article>
+
+            <article class="policy-card" id="eu-privacy">
+              <h3><i class="fa-solid fa-earth-europe"></i> NA/EU privacy and region logs</h3>
+              <p>
+                MAUL uses the same privacy controls across both MAUL NA and MAUL EU and works to keep those practices
+                aligned with GDPR principles. MAUL treats IP addresses, friend codes, PUIDs, data IDs, Discord IDs, and
+                similar account or player identifiers as personal data. These identifiers are used to operate the Service,
+                investigate reports, prevent abuse, enforce bans, and troubleshoot connection or exploit issues.
+              </p>
+              <p>
+                MAUL limits access to management panels, ban tools, raw logs, and lookup tools to the MAUL operator by
+                default. If access is later given to trusted staff, it is limited to people who need it for moderation,
+                security, or technical support. MAUL avoids collecting or displaying more personal information than is
+                reasonably needed for those purposes.
+              </p>
+              <p>
+                Where raw IP addresses are not needed, MAUL pseudonymizes them with server-side keyed hashes in logs and
+                management views. Active IP-ban records may store the raw IP address when it is reasonably needed to enforce
+                a ban or protect the Service.
+              </p>
+            </article>
+
+            <article class="policy-card" id="data-retention">
+              <h3><i class="fa-solid fa-clock-rotate-left"></i> Retention</h3>
+              <p>
+                Some records are intentionally short-lived. Live lobby entries expire unless they are refreshed, website
+                sessions expire, and login setup tokens are removed after they expire or are used.
+              </p>
+              <p>
+                Raw client logs, chat logs, flag logs, and similar admin logs are intended for moderation, abuse prevention,
+                ban appeals, troubleshooting, and service security. By default, MAUL deletes raw client, chat, and flag log
+                files after 30 days. Records needed for an active report, ban appeal, security issue, rule enforcement, or
+                service integrity may be kept longer when reasonably necessary.
+              </p>
+              <p>
+                Other records, including accounts, verification data, moderation records, reports, and cumulative statistics,
+                may be kept longer when they are needed to operate MAUL, maintain accurate statistics, enforce rules, or
+                protect the Service.
+              </p>
+            </article>
+
+            <article class="policy-card" id="privacy-choices">
+              <h3><i class="fa-solid fa-user-shield"></i> Choices and requests</h3>
+              <p>
+                Using MAUL Regions and related features is optional. You can log out of the lobby website, remove an active
+                lobby post through supported controls, decline lobby posting, avoid notification features, opt out of
+                supported ranking features, or stop using the Service.
+              </p>
+              <p>
+                You may contact MAUL to ask about data linked to you, request correction, ask for deletion where possible,
+                or raise a privacy concern. Some limited records may still be kept when they are needed for ban enforcement,
+                abuse prevention, legal compliance, security, or the integrity of MAUL Services.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-cloud"></i> Service providers</h3>
+              <p>
+                MAUL relies on services such as Discord and third-party hosting, networking, DNS, security, certificate, and
+                storage providers. Those services may process information according to their own terms and privacy policies.
+              </p>
+            </article>
+
+            <article class="policy-card wide" id="security">
+              <h3><i class="fa-solid fa-lock"></i> Security</h3>
+              <p>
+                MAUL uses reasonable measures to protect its services and stored information, but no online service can
+                guarantee perfect security or uninterrupted availability.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <hr class="policy-divider" />
+
+        <section class="server-section" id="legal">
+          <h2>Additional Legal Terms</h2>
+
+          <div class="policy-intro">
+            These terms apply to the fullest extent permitted by applicable law.
+          </div>
+
+          <div class="policy-grid">
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-copyright"></i> Ownership and user content</h3>
+              <p>
+                MAUL owns or controls its own website code, region configuration, bot configuration, branding, documentation,
+                and original service materials. Do not copy, modify, distribute, or interfere with MAUL systems without
+                permission.
+              </p>
+              <p>
+                Content you submit through the Service, such as chat messages, reports, lobby information, usernames, and
+                gameplay-related information, remains yours where applicable. You allow MAUL to use that content as needed
+                to operate, moderate, secure, display, and troubleshoot the Service.
+              </p>
+            </article>
+
+            <article class="policy-card">
+              <h3><i class="fa-solid fa-handshake-simple"></i> Liability and indemnity</h3>
+              <p>
+                To the fullest extent permitted by law, MAUL is not responsible for indirect, incidental, special, or
+                consequential damages, including lost data, lost access, service interruption, mod issues, or third-party
+                service problems.
+              </p>
+              <p>
+                You agree to hold MAUL harmless from claims, damages, or expenses arising from your violation of these
+                policies, your misuse of the Service, your mods or tools, or content you submit through the Service.
+              </p>
+            </article>
+
+            <article class="policy-card wide">
+              <h3><i class="fa-solid fa-list-check"></i> General terms</h3>
+              <ul>
+                <li>These policies are the main terms for MAUL Regions, the Website, and related MAUL Services.</li>
+                <li>If part of these policies cannot be enforced, the rest remains in effect.</li>
+                <li>MAUL not enforcing a rule immediately does not waive the right to enforce it later.</li>
+                <li>MAUL is not responsible for failures caused by events outside its reasonable control, including outages, attacks, provider issues, game updates, or network failures.</li>
+                <li>Donations or voluntary support do not create special access rights, moderation immunity, ownership, or a guarantee of continued Service.</li>
+              </ul>
+              <p>
+                Nothing in these policies limits rights that cannot legally be limited.
               </p>
             </article>
           </div>
@@ -715,7 +943,7 @@
               <h3><i class="fa-brands fa-discord"></i> MAUL</h3>
               <p>
                 For questions about these policies, MAUL custom regions, or related MAUL services, contact MAUL through
-                <a href="https://discord.gg/maul" target="_blank" rel="noopener">discord.gg/maul</a>.
+                <a href="https://discord.gg/maul" target="_blank" rel="noopener">discord.gg/maul or admin@modded-au.org</a>.
               </p>
             </article>
           </div>
