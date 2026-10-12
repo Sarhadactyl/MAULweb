@@ -30,7 +30,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
+    <link rel="stylesheet" href="/styles/navbar.css" />
     <style>
       :root {
         --paper: #ffffff;
@@ -107,132 +107,79 @@
       a {
         color: inherit;
       }
-
-      .dropdown {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1000;
+      #navbar .dropbtn {
+        background: linear-gradient(155deg, #FFFFFF 0%, #C0C0C3 50%, #A8A9AD 100%);
+        border: 2px solid #3ddc84;
+        box-shadow: 0 6px 20px rgba(91, 59, 6, .22);
       }
-
-      .dropbtn {
-        background: rgba(0, 0, 0, 0.88);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        cursor: pointer;
-        transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
-        padding: 10px;
-        border-radius: 999px;
-        backdrop-filter: blur(12px);
+      #navbar .hamburger span { background: #2a2f36; }
+      #navbar .dropdown-content {
+        color: #22262b;
+        background: linear-gradient(165deg, #FFFFFF 0%, #C0C0C3 50%, #A8A9AD 100%);
+        border: 2px solid #8a938d;
+        box-shadow: 0 22px 50px rgb(37 40 46);
       }
-
-      .dropbtn:hover {
-        transform: translateY(-1px);
-        background: rgba(20, 21, 24, 0.98);
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.78);
+      #navbar .menu-brand { border-bottom-color: rgb(42 47 54); }
+      #navbar .menu-brand strong {
+        background: linear-gradient(135deg, #c0c0c0 0%, #7dcea0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
-
-      .hamburger {
-        width: 26px;
-        height: 18px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .hamburger span {
-        display: block;
-        height: 3px;
-        background: linear-gradient(90deg, #ffffff, #7f8288);
-        border-radius: 999px;
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        top: calc(100% + 8px);
-        left: 0;
-        width: 350px;
-        max-width: calc(100vw - 32px);
-        max-height: calc(100vh - 40px);
-        overflow: hidden;
-        background-color: rgba(5, 6, 8, 0.97);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        box-shadow: 0 20px 46px rgba(0, 0, 0, 0.9);
-        backdrop-filter: blur(12px);
-      }
-
-      .dropdown.open .dropdown-content {
-        display: block;
-      }
-
-      .menu-view {
-        display: none;
-        padding: 8px 0;
-        max-height: calc(100vh - 56px);
-        overflow-y: auto;
-        overscroll-behavior: contain;
-      }
-
-      .menu-view.active {
-        display: block;
-      }
-
-      .dropdown-content a,
-      .menu-nav-btn,
-      .menu-back-btn {
-        width: 100%;
-        color: var(--text);
-        padding: 15px 20px;
-        text-decoration: none;
+      #navbar .menu-kicker, #navbar .submenu-title { color: #176b42; }
+      #navbar .menu-logo { background: #fff4d1; border-color: #8a938d; }
+      #navbar .dropdown-content :is(a, .menu-nav-btn, .menu-back-btn) {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         gap: 10px;
-        font-size: 0.96rem;
-        transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
-        background: transparent;
-        border: none;
-        font-family: inherit;
+        min-height: 48px;
+        padding: 8px 36px 8px 10px;
+        margin: 6px 0;
+        color: #f2f7f4;
+        font-family: "Inter", sans-serif;
+        font-size: .89rem;
+        font-weight: 800;
+        line-height: 1.25;
         text-align: left;
-        cursor: pointer;
+        border: 1px solid rgb(31 107 69);
+        border-radius: 10px;
+        background: #0f1512;
+        box-shadow: inset 4px 0 0 var(--tab-edge, #1F6B45);
       }
-
-      .dropdown-content a i:first-child,
-      .menu-nav-btn span,
-      .menu-back-btn span {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
+      #navbar .dropdown-content a:hover > i:first-child,
+      .menu-nav-btn:hover span > i:first-child,
+      .menu-back-btn:hover span > i:first-child {
+        color: #f4f5f4;
+        background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent 58%),
+                rgba(138, 147, 141, 0.2);
+        border-color: rgb(23 35 29);
       }
-
-      .menu-nav-btn .fa-chevron-right {
-        margin-left: auto;
+      #navbar .dropdown-content a > i:first-child,
+      .menu-nav-btn span > i:first-child,
+      .menu-back-btn span > i:first-child {
+        display: inline-grid;
+        place-items: center;
+        flex: 0 0 32px;
+        width: 32px;
+        height: 32px;
+        color: #ffe6ea;
+        font-size: 0.92rem;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.055);
+        border: 1px solid rgb(23 35 29);
+        border-radius: 8px;
+        transition:
+                background-color 0.16s ease,
+                border-color 0.16s ease,
+                color 0.16s ease;
       }
-
-      .dropdown-content a:hover,
-      .menu-nav-btn:hover,
-      .menu-back-btn:hover {
-        background: rgba(255, 255, 255, 0.06);
-        color: #ffffff;
-        padding-left: 24px;
+      #navbar .dropdown-content :is(.beta-glow, .highlight-glow) {
+        color: #f2f7f4 !important;
+        background: rgb(15 21 18) !important;
+        border-color: #17231d !important;
       }
-
-      .menu-back-btn {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        margin-bottom: 4px;
-      }
-
-      .submenu-title {
-        padding: 13px 20px 10px;
-        font-size: 0.78rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.64);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        margin-bottom: 4px;
-      }
-
       .beta-glow,
       .highlight-glow {
         color: #ffffff !important;
