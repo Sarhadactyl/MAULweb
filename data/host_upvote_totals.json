@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T10:28:44.409499+00:00",
+  "generated_at": "2026-10-18T08:00:03.229122+00:00",
   "hosts": {
     "1175886799227322463": {
       "host_id": 1175886799227322463,
@@ -121,6 +121,22 @@
       "upvoted_times": 12,
       "last_upvoted_at": "2026-05-26T16:12:03.758789+00:00"
     },
+    "989306149813780540": {
+      "host_id": 989306149813780540,
+      "host_name": "TheRapidShow\u2661",
+      "slug": "therapidshow\u2661",
+      "upvoted_by_users": 6,
+      "upvoted_times": 6,
+      "last_upvoted_at": "2026-10-18T08:00:03.178784+00:00"
+    },
+    "therapidshow\u2661": {
+      "host_id": 989306149813780540,
+      "host_name": "TheRapidShow\u2661",
+      "slug": "therapidshow\u2661",
+      "upvoted_by_users": 6,
+      "upvoted_times": 6,
+      "last_upvoted_at": "2026-10-18T08:00:03.178784+00:00"
+    },
     "978665815735959643": {
       "host_id": 978665815735959643,
       "host_name": "\ud835\udcac\ud835\udcca\ud835\udcb6\ud835\udcb8\ud835\udcc0\ud835\udcce\ud835\udcb9\ud835\udcb6\ud835\udcb8\ud835\udcc9\ud835\udcce\ud835\udcc1\u22c6\u02da \u2740",
@@ -152,22 +168,6 @@
       "upvoted_by_users": 5,
       "upvoted_times": 5,
       "last_upvoted_at": "2026-03-07T07:46:15.564809+00:00"
-    },
-    "989306149813780540": {
-      "host_id": 989306149813780540,
-      "host_name": "TheRapidShow \ud80c\udd9d \ud80c\udd9f \ud80c\udd9e",
-      "slug": "therapidshow-\ud80c\udd9d-\ud80c\udd9f-\ud80c\udd9e",
-      "upvoted_by_users": 5,
-      "upvoted_times": 5,
-      "last_upvoted_at": "2026-09-30T15:21:07.869632+00:00"
-    },
-    "therapidshow-\ud80c\udd9d-\ud80c\udd9f-\ud80c\udd9e": {
-      "host_id": 989306149813780540,
-      "host_name": "TheRapidShow \ud80c\udd9d \ud80c\udd9f \ud80c\udd9e",
-      "slug": "therapidshow-\ud80c\udd9d-\ud80c\udd9f-\ud80c\udd9e",
-      "upvoted_by_users": 5,
-      "upvoted_times": 5,
-      "last_upvoted_at": "2026-09-30T15:21:07.869632+00:00"
     },
     "1204867588753203262": {
       "host_id": 1204867588753203262,
