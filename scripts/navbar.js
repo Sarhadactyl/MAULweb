@@ -142,3 +142,11 @@ function initNavbar(root = document) {
 }
 
 document.addEventListener("DOMContentLoaded", loadNavbar);
+
+// Share Home Screen support across pages without changing their existing content.
+if (!document.querySelector("script[data-maul-pwa]") && !window.Capacitor?.isNativePlatform?.()) {
+  const pwaScript = document.createElement("script");
+  pwaScript.src = "/scripts/pwa.js";
+  pwaScript.dataset.maulPwa = "";
+  document.head.appendChild(pwaScript);
+}
