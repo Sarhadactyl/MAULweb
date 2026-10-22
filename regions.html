@@ -1907,6 +1907,12 @@
             >
               <i class="fa-solid fa-globe"></i> Niko NA
             </a>
+              <a
+                      class="region-link"
+                      href="amongus://init?servername=Niko233(EU)&serverport=443&serverip=https%3A%2F%2Fau-eu.niko233.top&usedtls=false"
+              >
+                  <i class="fa-solid fa-globe"></i> Niko EU
+              </a>
             <a
               class="region-link"
               href="amongus://init?servername=Niko233(AS)&serverport=443&serverip=https%3A%2F%2Fau-as.niko233.top&usedtls=false"
@@ -2047,7 +2053,7 @@
                 </li>
                 <li>
                   <span class="ownership-label"><i class="fa-solid fa-server"></i> Region Names</span>
-                  Niko NA, Niko Asia
+                  Niko NA, Niko Asia, Niko EU
                 </li>
                 <li>
                   <span class="ownership-label"><i class="fa-brands fa-github"></i> GitHub</span>
@@ -2261,8 +2267,10 @@
     <script>
       const regionDisplayNames = new Map([
         ["Niko233(NA)", "Niko NA"],
+        ["Niko233(EU)", "Niko EU"]
         ["Niko233(AS)", "Niko Asia"],
         ["Niko-NA", "Niko NA"],
+        ["Niko-EU", "Niko EU"],
         ["Niko-AS", "Niko Asia"],
         ["Modded NA (MNA)", "Modded NA"],
         ["Modded EU (MEU)", "Modded EU"],
@@ -2270,7 +2278,7 @@
         ["Jarne's Modded Region EU", "Jarne's MEU"],
       ]);
 
-      const activeNikoRegionNames = new Set(["Niko233(NA)", "Niko233(AS)", "Niko-NA", "Niko-AS"]);
+      const activeNikoRegionNames = new Set(["Niko233(NA)", "Niko233(AS)","Niko233(EU)", "Niko-NA","Niko-EU", "Niko-AS"]);
       const nikoRegionPattern = /^(Niko233|Niko-|NikoCN)/i;
 
       const regionGroups = [
