@@ -32,6 +32,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    
+    <meta name="theme-color" content="#000000">
+
     <link rel="stylesheet" href="/styles/navbar.css" />
 
     <style>
@@ -1239,6 +1242,18 @@
       @media (prefers-reduced-motion:reduce) {
         html,body { scroll-behavior: auto; }
         .overview-card,.faq-accordion-tools button,.hero-actions a { transition: none; }
+      }
+
+      html,
+      body {
+          background: #000000 !important;
+          background-image: none !important;
+          min-height: 100%;
+          color-scheme: dark;
+      }
+
+      html {
+          background-color: #000000 !important;
       }
 
     </style>
