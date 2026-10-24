@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Privacy & Terms • MAUL</title>
+    <title>Privacy &amp; Terms | MAUL</title>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -366,7 +366,7 @@
       .help-link { margin: 0 0 36px; }
       .help-link a { color: #ffcc80; text-decoration: none; }
       .help-link a:hover { color: #fff; text-decoration: underline; }
-      media(max-width: 950px) {
+      @media(max-width: 950px) {
         .header { grid-template-columns: minmax(0,1fr); min-height: 0; padding: 30px 26px; gap: 0; }
         .hero-panel { width: min(100%,500px); height: 290px; margin-top: 2px; }
         .hero-panel::before { width: min(76vw,480px); }
@@ -378,7 +378,7 @@
         .policy-sidebar a,.policy-sidebar a.sidebar-sub { padding: 8px 10px; font-size: .85rem; }
         .policy-sidebar a.sidebar-heading { margin: 0; }
       }
-      media(max-width: 560px) {
+      @media(max-width: 560px) {
         .page-wrapper { width: min(100% - 28px, 1280px); padding: 84px 0 32px; }
         .header { padding: 28px 20px; }
         .header h1 { font-size: clamp(2.8rem, 12vw, 4.4rem); }
@@ -393,7 +393,7 @@
         .policy-card p,.policy-card li,.policy-intro { font-size: .95rem; line-height: 1.69; }
         .policy-card ul { padding-left: 23px; }
       }
-      media(prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+      @media(prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
 
       body {
         background: #050505;
@@ -546,7 +546,7 @@
         border-top-color: rgba(255, 204, 128, 0.24);
       }
 
-      media(max-width: 850px) {
+      @media(max-width: 850px) {
         .page-wrapper {
           width: min(100% - 32px, 1040px);
         }
@@ -569,6 +569,61 @@
         }
       }
 
+      .policy-card h4 {
+        margin: 20px 0 8px;
+        color: #fff7ef;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+      .policy-card dl { margin: 12px 0 0; }
+      .policy-card dt { margin-top: 12px; font-weight: 700; color: #fff7ef; }
+      .policy-card dd { margin: 4px 0 0; line-height: 1.72; color: rgba(255,249,242,.85); overflow-wrap: anywhere; }
+      .policy-card code { color: inherit; font-size: .94em; overflow-wrap: anywhere; }
+      .policy-table { width: 100%; margin-top: 14px; border-collapse: collapse; table-layout: fixed; }
+      .policy-table caption { text-align: left; padding-bottom: 10px; line-height: 1.65; color: rgba(255,249,242,.85); }
+      .policy-table th, .policy-table td {
+        padding: 12px 10px;
+        border-bottom: 1px solid rgba(255,204,128,.18);
+        text-align: left;
+        vertical-align: top;
+        overflow-wrap: anywhere;
+        font-size: .94rem;
+        line-height: 1.65;
+      }
+      .policy-table th { color: #fff7ef; font-weight: 700; }
+      .policy-table td { color: rgba(255,249,242,.85); }
+      .policy-table th:first-child { width: 29%; }
+      .policy-table td p { font-size: inherit; line-height: inherit; }
+      .policy-table td p + p { margin-top: 8px; }
+      .policy-source { margin-top: 14px !important; font-size: .88rem !important; }
+      .policy-card h3, .server-section h2, .policy-sidebar h2, .header .header-badge { letter-spacing: 0; }
+      .policy-card, .server-section { scroll-margin-top: 0; }
+      @media(min-width: 851px) {
+        .policy-sidebar { max-height: calc(100dvh - 112px); overflow-y: auto; scrollbar-gutter: stable; }
+      }
+      @media(max-width: 650px) {
+        .header h1 { font-size: 2rem; }
+        .policy-table, .policy-table caption, .policy-table tbody, .policy-table tr, .policy-table td { display: block; width: 100%; }
+        .policy-table thead { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); }
+        .policy-table tr { padding: 8px 0; border-bottom: 1px solid rgba(255,204,128,.24); }
+        .policy-table td { border-bottom: 0; padding: 6px 0; }
+        .policy-table td::before { content: attr(data-label); display: block; margin-bottom: 3px; font-weight: 700; color: #fff7ef; }
+        .policy-sidebar nav { grid-template-columns: minmax(0,1fr); }
+      }
+      @media print {
+        body { background: white; color: black; }
+        #navbar, .policy-sidebar, .header-actions, .help-link { display: none; }
+        .page-wrapper { width: 100%; max-width: none; padding-top: 0; }
+        .policy-layout { display: block; }
+        .policy-main, .header { border: 0; }
+        .policy-card p, .policy-card li, .policy-card dt, .policy-card dd, .policy-card h3, .policy-card h4,
+        .server-section h2, .header h1, .header-subtitle, .policy-intro, .policy-date, .policy-table td, .policy-table th,
+        .policy-table caption, .policy-table td::before, .footer-note { color: black; }
+        a { color: black !important; }
+        .policy-card li::marker { color: black; }
+        .policy-table th, .policy-table td, .policy-table tr { border-color: #bbb; }
+        .policy-table tr { break-inside: avoid; }
+      }
     </style>
   </head>
 
@@ -586,7 +641,7 @@
             <a href="#terms"><i class="fa-solid fa-file-contract" aria-hidden="true"></i> Terms of Service</a>
             <a href="https://discord.gg/maul" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord" aria-hidden="true"></i> Join MAUL</a>
           </div>
-          <span class="policy-date">Last updated October 12, 2026</span>
+          <span class="policy-date">Last updated October 24, 2026</span>
         </div>
         <div class="hero-panel" aria-label="MAUL mascot illustration">
           <div class="hero-banner-card" aria-hidden="true"><img src="/images/banner-transparent-cropped.png" alt="" loading="lazy" decoding="async" /></div>
@@ -598,7 +653,9 @@
           <h2>On this page</h2>
           <nav aria-label="Jump to policy sections">
             <a class="sidebar-heading" href="#overview">Overview</a>
+            <a class="sidebar-sub" href="#non-affiliation">Non-affiliation notice</a>
             <a class="sidebar-sub" href="#definitions">Definitions</a>
+            <a class="sidebar-sub" href="#controller">Who is responsible</a>
             <a class="sidebar-sub" href="#changes">Changes</a>
             <a class="sidebar-heading" href="#terms">Terms</a>
             <a class="sidebar-sub" href="#region-use">Region use</a>
@@ -606,8 +663,16 @@
             <a class="sidebar-sub" href="#enforcement">Enforcement</a>
             <a class="sidebar-heading" href="#privacy">Privacy</a>
             <a class="sidebar-sub" href="#data-collection">Information collected</a>
+            <a class="sidebar-sub" href="#legal-bases">Purposes and legal bases</a>
+            <a class="sidebar-sub" href="#visible-information">Who can see information</a>
             <a class="sidebar-sub" href="#eu-privacy">NA/EU privacy</a>
+            <a class="sidebar-sub" href="#service-providers">Service providers</a>
+            <a class="sidebar-sub" href="#international-transfers">International transfers</a>
             <a class="sidebar-sub" href="#data-retention">Retention</a>
+            <a class="sidebar-sub" href="#privacy-choices">Feature choices</a>
+            <a class="sidebar-sub" href="#gdpr-rights">GDPR rights</a>
+            <a class="sidebar-sub" href="#privacy-requests">Requests and complaints</a>
+            <a class="sidebar-sub" href="#automated-moderation">Automated moderation</a>
             <a class="sidebar-heading" href="#legal">Legal Terms</a>
             <a class="sidebar-heading" href="#contact">Contact</a>
           </nav>
@@ -617,37 +682,66 @@
           <h2>Overview</h2>
 
           <div class="policy-intro">
-            Effective Date: October 12, 2026<br />
-            Last Updated: October 12, 2026
+            Last updated: October 24, 2026<br />
+            Effective: October 24, 2026
           </div>
 
           <div class="policy-grid">
+            <article class="policy-card" id="non-affiliation">
+              <h3>Non-affiliation notice</h3>
+              <p><strong>This server is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. &copy; Innersloth LLC.</strong></p>
+            </article>
+
             <article class="policy-card" id="definitions">
               <h3><i class="fa-solid fa-book"></i> Definitions</h3>
               <ul>
-                <li>"MAUL" means the Modded Among Us Lobbies community, region operators, and authorized staff who operate MAUL services.</li>
+                <li>"MAUL", "we", and "us" mean the MAUL services operated by Sarha (Sarhadactyl), as described under <a href="#controller">Who is responsible</a>. A lobby host or Discord member does not become the MAUL operator by using the Service.</li>
                 <li>"Website" means moddedamong.us and MAUL web pages, including region pages, lobby pages, ranking pages, and related tools.</li>
                 <li>"Regions" means MAUL-operated custom Among Us region servers.</li>
                 <li>"Service" means the Website, Regions, Discord-connected features, lobby posting, rankings, moderation tools, and related MAUL services.</li>
                 <li>"You" means any person who uses, accesses, connects to, or attempts to use the Service.</li>
               </ul>
+              <dl>
+                <dt>Personal data</dt>
+                <dd>Information that identifies someone or can be linked to them. A real name is not required: friend codes, Discord IDs, PUIDs, IP addresses, and persistent account-derived keys can be personal data.</dd>
+                <dt>PUID, friend code, and platform account ID</dt>
+                <dd>A PUID is a Product User ID used by the game's account/authentication system. A friend code is the game's visible account label, such as <code>example#1234</code>. An external or platform account ID, sometimes called an EAID in region tools, identifies an account on a connected game platform. These are different identifiers for accounts, not passwords.</dd>
+                <dt>Data ID and temporary player IDs</dt>
+                <dd>A data ID is an internal database record number. A region client ID identifies a connection; an in-game player ID identifies a player inside a match. Temporary IDs can change or be reused, so an ID alone is not reliable proof that two events involve the same account.</dd>
+                <dt>Client logs</dt>
+                <dd>Records of connection attempts or connections, with the time, account identifiers, client/game version, reported platform/mod details, and connection information available to the region.</dd>
+                <dt>Chat logs</dt>
+                <dd>Text messages and associated timestamps, lobby details, and sender information received through region chat. This can include commands and messages addressed to a specific player where the region records them. These are not a copy of all your Discord messages or other conversations outside MAUL.</dd>
+                <dt>Flag logs</dt>
+                <dd>Technical or anti-cheat observations: the rule or check triggered, context, severity, time, and associated account/lobby details. A flag is an indicator for investigation, not proof that someone cheated.</dd>
+                <dt>Reports, ban history, and moderation/admin logs</dt>
+                <dd>A report is a complaint submitted about an incident. Ban history records blocked connection attempts. Moderation/admin logs record actions such as adding or removing bans, reviewing reports or flags, saving private notes, and generating evidence exports. An audit credential label identifies the access used, not necessarily a separately authenticated staff member.</dd>
+                <dt>IP hash and pseudonymization</dt>
+                <dd>An IP hash is a derived value used instead of a readable IP address in some stored records. Pseudonymization reduces direct exposure but does not make linked records anonymous. A live server and its network provider still need to process the connection's IP address.</dd>
+              </dl>
+            </article>
+
+            <article class="policy-card" id="controller">
+              <h3>Who is responsible</h3>
+              <p>MAUL is the Modded Among Us Lobbies community service, operated by Sarha (Sarhadactyl). The MAUL operator decides how the MAUL region services use personal data and is the data controller for that processing.</p>
+              <p>Contact the operator at <a href="mailto:admin@moddedamong.us">admin@moddedamong.us</a>. The website is <a href="https://moddedamong.us">moddedamong.us</a> and the Discord community is <a href="https://discord.gg/maul" target="_blank" rel="noopener noreferrer">discord.gg/maul</a>. You do not need to join Discord or submit a public message to make a privacy request.</p>
+              <p>This notice covers MAUL NA/EU regions, region-linked lobby posting, the region lobby website, rankings, and region moderation. The Discord bot also runs community events, administration, and verification. This notice explains how the regions use its existing verification records. For information about unrelated Discord-only features, contact the operator.</p>
             </article>
 
             <article class="policy-card">
-              <h3><i class="fa-solid fa-check"></i> Agreement to these policies</h3>
+              <h3><i class="fa-solid fa-check"></i> Agreement to the terms</h3>
               <p>
                 By using the Website, joining a MAUL Region, using lobby posting, logging into a MAUL website feature, or
-                using any related MAUL Service, you agree to these Privacy &amp; Terms. If you do not agree, do not use the
-                Service.
+                using a related MAUL Service, you agree to the Terms of Service. If you do not agree to the terms, do not use the Service.
               </p>
+              <p>The Privacy Policy explains data processing; it does not turn every use of MAUL into consent. Accepting the terms does not waive your data-protection rights. Where consent is the legal basis for a feature, it must be a separate, informed choice that you can withdraw.</p>
             </article>
 
             <article class="policy-card" id="changes">
               <h3><i class="fa-solid fa-file-pen"></i> Changes to this document</h3>
               <p>
                 MAUL may update these policies as the Website, Regions, bot features, moderation tools, or legal needs
-                change. When a meaningful change is made, the "Last Updated" date may be changed and notice may be posted
-                through the Website, Discord, or in-game region messages.
+                change. A published revision will show its effective date. Material changes to data uses or recipients will be explained through the Website, Discord, or region notices before they take effect where required. A new use that requires consent needs a new consent choice; a changed policy date is not enough.
               </p>
             </article>
           </div>
@@ -743,16 +837,12 @@
               <p>
                 You may stop using the Service at any time. MAUL may suspend or end access to any part of the Service when
                 needed for rule enforcement, abuse prevention, service integrity, security, or technical operations. Certain
-                moderation and security records may survive the end of access.
+                moderation and security records can remain after access ends, under the limits and criteria in <a href="#data-retention">Retention</a>.
               </p>
             </article>
 
             <article class="policy-card wide">
               <h3><i class="fa-solid fa-circle-info"></i> Disclaimer</h3>
-              <p>
-                MAUL is a community-operated service and is not affiliated with, endorsed by, or operated by Innersloth.
-                Among Us and related trademarks belong to their respective owners.
-              </p>
               <p>
                 The Service is provided as available and without any promise that every Region, website feature, bot,
                 ranking, mod, game version, browser, or network setup will always work without interruption or errors.
@@ -767,116 +857,193 @@
           <h2>Privacy Policy</h2>
 
           <div class="policy-intro">
-            This section explains what information MAUL may receive, use, store, display, and retain when you use the Service.
+            This section explains what the region services process, where it comes from, who receives it, and the choices and rights available to you. NA and EU are server labels, not a guarantee that every record stays in one country.
           </div>
 
           <div class="policy-grid">
             <article class="policy-card" id="data-collection">
-              <h3><i class="fa-solid fa-database"></i> Information MAUL may collect</h3>
-              <p>Depending on what you use, MAUL may receive or store:</p>
-              <ul>
-                <li>Connection and technical information, including IP addresses, request details, connection details, timestamps, and region node information.</li>
-                <li>Among Us information, including player names, friend codes, account or player identifiers, PUIDs, data IDs, game version, region, game code, lobby status, player count, language, and mod information.</li>
-                <li>Discord information used for verification, login, moderation, or website access, including user IDs, usernames, display names, and linked account status.</li>
-                <li>Information created by MAUL features, including lobby posts, notification opt-ins, reports, hosting statistics, rankings, cooldowns, bans, whitelists, and related staff actions.</li>
-              </ul>
+              <h3><i class="fa-solid fa-database"></i> Information collected and its sources</h3>
+              <table class="policy-table">
+                <caption>The information depends on the feature you use. A connection attempt can produce a record even if you never enter a lobby.</caption>
+                <thead><tr><th scope="col">Information</th><th scope="col">When it is obtained and where it comes from</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Information">Connection and technical information</td><td data-label="When and source">IP address, request and connection details, timestamps, and region/node information are obtained when you try to connect or successfully connect to a region, use a MAUL API, or request a website page. They come from the connection and the game client or browser. For example, a failed login or blocked connection can create a security record.</td></tr>
+                  <tr><td data-label="Information">Game account and client information</td><td data-label="When and source">Names, friend codes, PUIDs, platform IDs, internal data IDs, game version, language, and reported mod identifiers/versions come from the client handshake, game messages, authentication services, and MAUL's account database. For example, the region checks an account identifier against a ban when you connect. Reported mod details are not a general inventory of files on your device.</td></tr>
+                  <tr><td data-label="Information">Lobby and gameplay information</td><td data-label="When and source">Lobby code, host, region, status, player count, start/end events, and elapsed hosting/game time come from the running region. For example, starting or ending a round updates lobby status and can update XP and activity totals.</td></tr>
+                  <tr><td data-label="Information">Region chat</td><td data-label="When and source">Message text, time, lobby details, and available sender/recipient identifiers come from chat messages and commands that the region receives. A retained message can later be used to investigate a report or explain an automatic moderation action.</td></tr>
+                  <tr><td data-label="Information">Verification status and Discord account links</td><td data-label="When and source">The regions and posting service consult existing Discord verification records to check status or resolve an account link. Those records originate in MAUL's separate Discord verification process; the region does not ask you to upload fresh verification proof as part of a connection. Discord supplies account IDs, usernames, display names, and interaction details when you use the connected bot features.</td></tr>
+                  <tr><td data-label="Information">Website account and login information</td><td data-label="When and source">A login setup token, Discord account link, chosen password, and session information are processed when you set up or use lobby website access. The bot's account database stores a salted password hash rather than the readable password. Setup uses a Discord modal, so Discord also processes that submission. Use a password you do not use for Discord or another account.</td></tr>
+                  <tr><td data-label="Information">Reports, flags, bans, and appeals</td><td data-label="When and source">Reports and submitted evidence come from players, witnesses, and the operator. Flags and blocked-connection records come from region checks. Bans, review notes, and action outcomes come from moderation tools. Appeals come from the email or Discord message you send. A report about you can therefore contain information supplied by someone else, not only information you submitted.</td></tr>
+                  <tr><td data-label="Information">Preferences and feature records</td><td data-label="When and source">Posting preferences, notification opt-ins, custom-code assignments, account eligibility, ranking profiles, and opt-out keys are created when you use those features or the operator changes an assignment. Examples include enabling <code>#post always</code>, clicking Notify, or confirming <code>#level optout</code>.</td></tr>
+                  <tr><td data-label="Information">External ban-list entries</td><td data-label="When and source">The regions check maintained ban lists containing friend codes, PUIDs or derived account identifiers, and ban information. Some entries originate in earlier imports from another region provider. A match identifies a listed account; it does not establish that every allegation about that account is correct. Contact MAUL to challenge an inaccurate entry.</td></tr>
+                </tbody>
+              </table>
             </article>
 
-            <article class="policy-card">
-              <h3><i class="fa-solid fa-gears"></i> How MAUL uses information</h3>
-              <p>MAUL uses information to operate and protect the Service, including to:</p>
+            <article class="policy-card" id="legal-bases">
+              <h3><i class="fa-solid fa-gears"></i> Purposes and GDPR legal bases</h3>
+              <p>Where EU GDPR or UK GDPR applies, each use of personal data needs an applicable legal basis. A server rule, a privacy-policy link, or a player's continued use of MAUL does not supply every legal basis.</p>
+              <table class="policy-table">
+                <thead><tr><th scope="col">Purpose</th><th scope="col">Basis and limits</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Purpose">Provide the service or feature you request</td><td data-label="Basis and limits">Article 6(1)(b), contract, where the processing is objectively needed to provide the requested service under valid terms. Examples are authenticating a game connection, routing a lobby, providing a requested lobby post, and maintaining a website login. Merely writing a data use into the terms does not make it necessary.</td></tr>
+                  <tr><td data-label="Purpose">Protect the region and investigate incidents</td><td data-label="Basis and limits">Article 6(1)(f), legitimate interests, subject to a necessity and balancing assessment. The specific interests are listed below. This is not permission to collect unrelated data or keep entire histories indefinitely.</td></tr>
+                  <tr><td data-label="Purpose">Optional uses that rely on consent</td><td data-label="Basis and limits">Article 6(1)(a), consent, where MAUL asks for an informed opt-in for that use. You can withdraw through the feature's available controls or by contacting <a href="mailto:admin@moddedamong.us">admin@moddedamong.us</a>. Withdrawal does not affect processing that was lawful before consent was withdrawn.</td></tr>
+                  <tr><td data-label="Purpose">Comply with a specific legal duty</td><td data-label="Basis and limits">Article 6(1)(c), legal obligation, only where an applicable law imposes that duty. MAUL's own lobby rules are not a legal obligation. Any required disclosure or legal hold must identify the relevant obligation and affected records.</td></tr>
+                </tbody>
+              </table>
+              <h4>The legitimate interests at issue</h4>
               <ul>
-                <li>Run MAUL Regions and route players between MAUL region nodes.</li>
-                <li>Verify members and lobby hosts.</li>
-                <li>Create, update, and remove lobby advertisements and live lobby listings.</li>
-                <li>Provide notifications, rankings, hosting statistics, and public service statistics.</li>
-                <li>Review reports, enforce bans and MAUL rules, prevent abuse, and protect MAUL systems.</li>
-                <li>Troubleshoot crashes, connection problems, exploits, and other service issues.</li>
+                <li>Keep servers available by identifying floods, malformed traffic, repeated connection failures, and unauthorized use of management functions.</li>
+                <li>Reduce cheating, harassment, and ban evasion by checking relevant account identifiers and reviewing incident evidence.</li>
+                <li>Reach consistent moderation decisions, correct mistakes, and answer appeals using the records of the particular incident.</li>
+                <li>Diagnose client compatibility, relay, connection, and lobby-posting failures using relevant technical events.</li>
+                <li>Maintain accurate community XP and hosting totals and detect manipulated results, while allowing players to remove their region ranking profile and stop further tracking.</li>
               </ul>
+              <p>Reliance on legitimate interests requires the information to be necessary for the stated purpose and the use to respect players' rights, including the particular interests of younger players. You can object to a use based on your situation. <a href="#privacy-choices">Feature choices</a> explain the controls available to you.</p>
+              <p class="policy-source">Legal references: <a href="https://europa.eu/youreurope/business/governance-and-sustainability/digital-and-data-compliance/data-protection-gdpr/index_en.htm" target="_blank" rel="noopener noreferrer">Your Europe: data protection under GDPR</a> and <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/a-guide-to-lawful-basis/legitimate-interests/" target="_blank" rel="noopener noreferrer">ICO guidance on legitimate interests</a> for UK processing.</p>
             </article>
 
             <article class="policy-card" id="visible-information">
-              <h3><i class="fa-solid fa-eye"></i> Public and member-visible information</h3>
-              <p>
-                Discord lobby posts can show the host, region, game code, language, mods, player count, and lobby status.
-                The live lobby page can show the host name, Discord username, game code, region, mods, player count, and
-                status to logged-in MAUL members.
-              </p>
-              <p>
-                The MAUL rankings page is public and can show public display names with activity statistics such as XP,
-                hosted time, games finished, and lobby totals. MAUL does not show admin-only identifiers, including IP
-                addresses, on public website pages or post them in public Discord channels.
-              </p>
+              <h3><i class="fa-solid fa-eye"></i> Who can see information</h3>
+              <p>Discord lobby advertisements show host details, game code, region, language, mods, player count, and lobby status to people who can access the posting channel. The live lobby website shows similar details to members allowed to log in. A logged-in viewer can still copy or share what they see.</p>
+              <p>The public rankings and their related API show player names and activity totals. The response can also include a persistent account-derived ranking key and last-activity time. These can relate to a player even without showing the player's readable PUID. Use <code>#level optout</code> to remove your region ranking profile as explained below.</p>
+              <p>Region logs, private review notes, IP-match lookup tools, and management functions are restricted to Sarha at present. If another person is given access later, their access must be limited to the tasks they need to perform. Evidence shared for an incident can contain relevant messages, times, reasons, and identifiers; unrelated people and credentials must be excluded.</p>
+              <p>MAUL NA and EU can exchange ban information through configured synchronization. That is a data flow between MAUL services, not a promise that the records remain on only the region where they originated.</p>
+              <p>The MAUL ban list is public. It can disclose banned accounts' friend codes, PUIDs or derived account identifiers, and a short ban category so regions and compatible moderation tools can recognize listed accounts. These identifiers are personal data, even without a real name. Public exports exclude IP addresses, private notes, report text, and chat evidence. Previously imported bans are not automatically republished in new exports unless their origin is confirmed.</p>
+              <p>A public list can be copied, indexed, or retained in repository history. MAUL can correct or remove its own published entries, but cannot guarantee removal of every third-party copy. When the law requires it, MAUL will take reasonable steps to notify recipients or other controllers about a correction or erasure request. Contact <a href="mailto:admin@moddedamong.us">admin@moddedamong.us</a> to challenge an entry.</p>
             </article>
 
             <article class="policy-card" id="eu-privacy">
-              <h3><i class="fa-solid fa-earth-europe"></i> NA/EU privacy and region logs</h3>
-              <p>
-                MAUL uses the same privacy controls across both MAUL NA and MAUL EU and works to keep those practices
-                aligned with GDPR principles. MAUL treats IP addresses, friend codes, PUIDs, data IDs, Discord IDs, and
-                similar account or player identifiers as personal data. These identifiers are used to operate the Service,
-                investigate reports, prevent abuse, enforce bans, and troubleshoot connection or exploit issues.
-              </p>
-              <p>
-                MAUL limits access to management panels, ban tools, raw logs, and lookup tools to the MAUL operator by
-                default. If access is later given to trusted staff, it is limited to people who need it for moderation,
-                security, or technical support. MAUL avoids collecting or displaying more personal information than is
-                reasonably needed for those purposes.
-              </p>
-              <p>
-                Where raw IP addresses are not needed, MAUL pseudonymizes them with server-side keyed hashes in logs and
-                management views. Active IP-ban records may store the raw IP address when it is reasonably needed to enforce
-                a ban or protect the Service.
-              </p>
+              <h3><i class="fa-solid fa-earth-europe"></i> IP addresses and region logs</h3>
+              <p>MAUL NA and EU use a private-key IP hash in saved client and flag records, IP-ban fields, and blocked-connection history. The management panel displays that hash rather than the readable address. Authorized lookup tools can hash an address entered by the operator to compare it with saved records. A shared private key allows matching between the two MAUL regions.</p>
+              <p>The region still processes your live IP address to receive and return game traffic. Linode, Cloudflare, and other providers handling a connection can also process the readable address. Their network and access logs are separate from MAUL's hashed region records. Older console logs, backups, or IP addresses someone types into message text are not automatically changed by hashing a connection field.</p>
+              <p>A keyed hash reduces exposure but remains pseudonymized personal data; it is not a claim of anonymity. MAUL restricts access to the hash key and applies the same retention rules to hashed identifiers. <a href="https://www.edpb.europa.eu/system/files/2025-02/edpb_summary_202501_pseudonymisation_en.pdf" target="_blank" rel="noopener noreferrer">EDPB: pseudonymisation</a>.</p>
+              <p>These privacy rules cover both MAUL NA and MAUL EU. The region label does not change your rights under applicable data-protection law.</p>
             </article>
 
             <article class="policy-card" id="data-retention">
               <h3><i class="fa-solid fa-clock-rotate-left"></i> Retention</h3>
-              <p>
-                Some records are intentionally short-lived. Live lobby entries expire unless they are refreshed, website
-                sessions expire, and login setup tokens are removed after they expire or are used.
-              </p>
-              <p>
-                Raw client logs, chat logs, flag logs, and similar admin logs are intended for moderation, abuse prevention,
-                ban appeals, troubleshooting, and service security. By default, MAUL deletes raw client, chat, and flag log
-                files after 30 days. Records needed for an active report, ban appeal, security issue, rule enforcement, or
-                service integrity may be kept longer when reasonably necessary.
-              </p>
-              <p>
-                Other records, including accounts, verification data, moderation records, reports, and cumulative statistics,
-                may be kept longer when they are needed to operate MAUL, maintain accurate statistics, enforce rules, or
-                protect the Service.
-              </p>
+              <p>MAUL uses the schedule below for records it controls. A limit starts from the event shown, not from the date a record is viewed, copied, or exported. Automated stores are checked hourly; records reaching their limit are removed on the next successful pass, normally within one additional hour. Sarha handles copies outside those stores, including mail, staff messages, transcripts, and downloads.</p>
+              <table class="policy-table">
+                <caption>Retention periods. An open report does not automatically extend its deadline.</caption>
+                <thead><tr><th scope="col">Record</th><th scope="col">Retention period</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Record">Ordinary session chat and connection records</td><td data-label="Period">Delete when the round ends or the lobby closes. Connection registration records are also removed on disconnect. Low-level diagnostic flags for those players are removed unless they are being investigated, have a private review note, or have been actioned. This does not remove account verification, active bans, feature preferences, or activity totals needed for the features described here.</td></tr>
+                  <tr><td data-label="Record">Incident flags and other non-essential technical records</td><td data-label="Period">30 days from the recorded event. Serious anti-cheat flags and reviewed incident records follow this limit unless one relevant record is separately attached to an active ban. A later write to the same file does not restart an older entry's period.</td></tr>
+                  <tr><td data-label="Record">Reports, attached evidence, and case notes</td><td data-label="Period">30 calendar days from submission, with older source messages removed sooner under their event-date limit. A report can save up to five recent messages sent by the reported player from the current session. This includes MAUL-controlled exports and earlier versions of notes. A necessary ban identifier and one relevant evidence line can remain separately under the active-ban rule.</td></tr>
+                  <tr><td data-label="Record">Appeals and attachments</td><td data-label="Period">MAUL-controlled case copies are deleted 30 days after the final reply, and no later than 90 days after receipt. The seven-day deadline for submitting an appeal is separate. Platform-held conversations and delivered transcripts are explained below.</td></tr>
+                  <tr><td data-label="Record">Active ban enforcement and one evidence record</td><td data-label="Period">Keep the friend code, PUID or derived matching identifier, necessary ban category, dates, status, and one relevant triggering message or flag record while the ban is active. The evidence record stays private. Any IP or other matching identifier is kept only where needed to enforce that restriction. An active permanent ban has no fixed end date, so these limited records may be retained indefinitely while the ban remains necessary. Remove them within 30 days after expiry or revocation; a minimal action audit may remain for its separate period.</td></tr>
+                  <tr><td data-label="Record">Blocked-connection history and surrounding incident logs</td><td data-label="Period">30 days from the blocked attempt or recorded event. The active-ban exception covers one relevant evidence record, not the whole chat history, all flags, or every rejected connection. Keeping a report open does not extend retention of its other contents.</td></tr>
+                  <tr><td data-label="Record">Moderation action history</td><td data-label="Period">12 calendar months from the action. After 30 days, keep the action type, necessary account reference, ban category, dates, and outcome rather than copied incident text. Report and flag notes follow their shorter evidence deadline.</td></tr>
+                  <tr><td data-label="Record">Website accounts and personal statistics</td><td data-label="Period">12 calendar months without that user's relevant activity, or earlier where a valid deletion request applies. Relevant activity means the user's login, authenticated website use, connection, or recorded hosting/game activity, depending on the record. Background synchronization does not count as new user activity. This does not delete separate Discord verification records or an active custom-code assignment.</td></tr>
+                  <tr><td data-label="Record">Region rankings and opt-outs</td><td data-label="Period">Confirming <code>#level optout</code> deletes the current region profile and stops further tracking. A minimal derived suppression key remains while needed to honor that choice; it is removed when the feature ends or an applicable request requires removal. This key is still personal data. The command does not delete separate bot hosting statistics.</td></tr>
+                </tbody>
+              </table>
+              <h4>Short-lived feature records</h4>
+              <p>Ordinary session deletion does not preserve the rest of a lobby's chat because one player was reported or banned. Report an incident while the lobby is active; later reports may no longer have surrounding chat available. Cleanup failures are retried hourly. Files left by an interrupted process follow the 30-day event-date backstop; new-format abandoned session chat files are also cleared on restart.</p>
+              <p>The normal validity periods are 15 minutes for website setup tokens, seven days for website sessions, and ten minutes for an unrefreshed website lobby listing. A listing stays active while the region refreshes it. Used or expired token records, expired sessions, and stale listings are removed on the next hourly cleanup. Logging out deletes the current session. Pending lobby confirmations expire after five minutes; notification opt-ins end when the notification is sent or the related post is removed, with a 30-day backstop for stale records.</p>
+              <h4>Discord conversations and ticket transcripts</h4>
+              <p>Deleting a report from MAUL's stores does not delete the original conversation from everyone's Discord history. Ticket bots can deliver a transcript to MAUL and to the person who opened the ticket. MAUL's downloaded or archived transcript follows the relevant report or appeal deadline. Copies already delivered to another person are outside MAUL's control.</p>
+              <p>Sarha removes MAUL's own messages and stored attachments where the platform allows this. Discord does not let a recipient delete another person's messages from a direct-message conversation. Those messages can remain in Discord's history until the sender or Discord removes them; MAUL stops using them as an active case record after the applicable deadline. You can ask MAUL to review accessible copies and can use Discord's controls or contact Discord about platform-held records. This limitation does not exempt MAUL's separate archives, exports, or bot-controlled channels from deletion.</p>
+              <h4>Updates, backups, and copies</h4>
+              <p>Maintenance and upgrade backups can contain user data as well as source code. Copies on MAUL's devices, in staff channels, and in evidence exports keep the original deletion deadline. Copying, renaming, or restoring a file does not restart it. A backup that cannot be selectively cleared must be removed by the earliest applicable deadline, and restored data must be checked before it is used again.</p>
+              <h4>Specific legal holds</h4>
+              <p>An exception needs a named legal obligation, court order, or specific legal claim and only the records needed for that matter. An open report, a general concern about security, or the phrase "service integrity" is not a blanket extension.</p>
+              <p>The operator records the reason, scope, and review date for a hold, reviews it every 30 days, and deletes the held copy within 30 days after the obligation or claim ends unless a specific law sets a different period.</p>
+              <p>Providers may retain separate records for their own legal or security purposes. Their independent records have their own policies. That does not remove MAUL's responsibility to arrange deletion of data a processor holds on MAUL's instructions.</p>
             </article>
 
             <article class="policy-card" id="privacy-choices">
-              <h3><i class="fa-solid fa-user-shield"></i> Choices and requests</h3>
-              <p>
-                Using MAUL Regions and related features is optional. You can log out of the lobby website, remove an active
-                lobby post through supported controls, decline lobby posting, avoid notification features, opt out of
-                supported ranking features, or stop using the Service.
-              </p>
-              <p>
-                You may contact MAUL to ask about data linked to you, request correction, ask for deletion where possible,
-                or raise a privacy concern. Some limited records may still be kept when they are needed for ban enforcement,
-                abuse prevention, legal compliance, security, or the integrity of MAUL Services.
-              </p>
+              <h3><i class="fa-solid fa-user-shield"></i> Feature choices and opt-outs</h3>
+              <p>These controls apply to different features. Removing a Discord post does not automatically delete ranking data, and hiding a website listing does not erase region logs.</p>
+              <table class="policy-table">
+                <thead><tr><th scope="col">Feature</th><th scope="col">How to use it or stop it</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Feature">Discord lobby posting</td><td data-label="Control">Use <code>#post</code> as the eligible host, or reply Yes when the region prompts you. Reply No to decline that prompt. Before a game starts, <code>#post always</code> toggles remembered automatic posting; read the response to see whether it is enabled or disabled. Use <code>#post remove</code> to close/remove the current advertisement. Disabling future automatic posting and removing the current post are separate actions.</td></tr>
+                  <tr><td data-label="Feature">Website lobby listing</td><td data-label="Control">A lobby can become visible when it is public in-game, when the host uses <code>#public</code>, or through <code>#public always</code>. The host can use <code>#private</code> before the game starts to hide the current website listing and clear the remembered always-public setting. A future lobby made public in-game can still be eligible. This command does not remove a Discord post or hide traffic from the region.</td></tr>
+                  <tr><td data-label="Feature">Lobby notifications</td><td data-label="Control">Click Notify on the Discord lobby post to request an alert for that lobby. Clicking again does not unsubscribe you. To cancel a pending alert, contact Sarha through Discord or <a href="mailto:admin@moddedamong.us">admin@moddedamong.us</a> with the lobby code.</td></tr>
+                  <tr><td data-label="Feature">Region XP and rankings</td><td data-label="Control">Region tracking is currently on by default for eligible accounts. Run <code>#level optout</code>, then reply Yes to the confirmation, to delete the current region level profile and stop new tracking. This is permanent in the current command interface; there is no self-service opt-in/recovery command. A minimal derived opt-out key remains. Check each region separately; do not assume the choice synchronizes between NA and EU.</td></tr>
+                  <tr><td data-label="Feature">Bot auto-post hosting statistics</td><td data-label="Control">These are separate from the region level profile. <code>#level optout</code> does not erase them. Contact Sarha to request removal or raise an objection. Deleting these records can affect evidence of custom-code eligibility.</td></tr>
+                  <tr><td data-label="Feature">Lobby website account</td><td data-label="Control">You can avoid creating the account, log out to end the current session, or request account/link deletion by email. Logging out or clearing cookies alone does not delete the server-side account or every record associated with it. Blocking the login cookie prevents authenticated lobby access.</td></tr>
+                  <tr><td data-label="Feature">Verification, custom codes, and identifiers</td><td data-label="Control">Do not submit Discord verification proof unless you want the related verified access. Ask the operator to correct or remove an account link, remembered preference, or custom-code assignment. Removing information needed to establish eligibility can remove access to that optional feature; it does not erase unrelated ban evidence automatically.</td></tr>
+                </tbody>
+              </table>
+              <p>Basic connection, authentication, and necessary security processing cannot all be switched off while keeping a working connection to the region. You can stop connecting, and you can still exercise the rights below, including objecting to a use based on legitimate interests. A rights request is assessed on its facts, not rejected merely because you used MAUL.</p>
             </article>
 
-            <article class="policy-card">
-              <h3><i class="fa-solid fa-cloud"></i> Service providers</h3>
-              <p>
-                MAUL relies on services such as Discord and third-party hosting, networking, DNS, security, certificate, and
-                storage providers. Those services may process information according to their own terms and privacy policies.
-              </p>
+            <article class="policy-card" id="service-providers">
+              <h3><i class="fa-solid fa-cloud"></i> Service providers and data flows</h3>
+              <p>MAUL decides how its region records are used. Infrastructure providers handle data needed to deliver their services; some also process separate account, network, or security records for their own purposes. A provider is not automatically an independent controller for every record, or automatically a processor for every purpose.</p>
+              <table class="policy-table">
+                <thead><tr><th scope="col">Provider</th><th scope="col">Role and information involved</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Provider">Linode / Akamai Cloud</td><td data-label="Role and information">Hosts the NA/EU region infrastructure and handles player connections, network addresses, and traffic. Region databases and files stored on those servers are also on that infrastructure. MAUL controls the application records; provider network/security records are a separate layer. <a href="https://www.akamai.com/legal/privacy-statement" target="_blank" rel="noopener noreferrer">Akamai privacy information</a>.</td></tr>
+                  <tr><td data-label="Provider">Sparked Host</td><td data-label="Role and information">Hosts the existing MAUL Discord bot and the lobby-posting API. The regions send lobby metadata and posting requests to that API; this is separate from their read of existing verification records. Data stored by the bot and its application logs remain on the configured bot/database infrastructure. <a href="https://sparkedhost.com/privacy-policy" target="_blank" rel="noopener noreferrer">Sparked Host privacy information</a>.</td></tr>
+                  <tr><td data-label="Provider">Cloudflare</td><td data-label="Role and information">Provides domain/DNS management and reverse-proxy/security protection for the website and bot API. It handles request metadata such as network addresses, timestamps, paths, and security signals for proxied requests. HTTPS requests terminated by the proxy can also be processed there as needed to deliver the request. Managing the domain's email DNS records does not itself give Cloudflare the email body; the current public mail-routing records point directly to iCloud Mail. <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare privacy information</a>.</td></tr>
+                  <tr><td data-label="Provider">GitHub Pages</td><td data-label="Role and information">Hosts the static website files, reached through Cloudflare. GitHub processes information needed to serve requests and protect its platform. Website hosting does not mean region logs or verification databases are automatically stored in the website repository. Any deliberately published ban-list file is a separate disclosure. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub privacy statement</a>.</td></tr>
+                  <tr><td data-label="Provider">Discord</td><td data-label="Role and information">Handles Discord identities, messages, bot interactions, login setup submissions, lobby advertisements, notifications, and DMs used for appeals. MAUL receives the relevant account IDs and interaction content through the bot. Discord also controls its own platform processing under its privacy policy. <a href="https://discord.com/privacy" target="_blank" rel="noopener noreferrer">Discord privacy policy</a>.</td></tr>
+                  <tr><td data-label="Provider">Apple iCloud Mail</td><td data-label="Role and information">Receives contact and appeal emails for <a href="mailto:admin@moddedamong.us">admin@moddedamong.us</a> in the operator's iCloud mailbox. The domain's public mail-routing records point to Apple's iCloud Mail servers. Apple handles your email address, message, attachments, and delivery metadata to provide the mailbox service. Do not send a password or unrelated sensitive documents. <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple privacy information</a>.</td></tr>
+                  <tr><td data-label="Provider">Epic Online Services and Innersloth</td><td data-label="Role and information">The region authentication code uses these services to validate game credentials and resolve game account/friend-code information. Relevant authentication tokens/account identifiers and the server's request metadata are processed for those checks. Their game/platform services also operate under their own privacy notices.</td></tr>
+                  <tr><td data-label="Provider">Page fonts and icon CDN</td><td data-label="Role and information">This HTML loads Google Fonts and Font Awesome styles from cdnjs. Loading them makes requests from your browser to those providers, with the network/browser information needed for delivery. These requests are separate from the region's IP-hashed logs. Browser blocking can prevent these requests but can change how the page looks.</td></tr>
+                </tbody>
+              </table>
+              <p>Discord verification records originate in the separate Discord verification process. The region uses the result needed to check access or eligibility; it does not collect new verification proof when you connect. Contact the operator about the underlying Discord verification records as well as any region copy linked to you.</p>
+              <p>Sharing relevant evidence with another region operator is a separate disclosure, not an automatic entitlement to receive an IP address. It needs a specific incident, an appropriate legal basis, a limited recipient and data set, and a record of why the disclosure was needed.</p>
+            </article>
+
+            <article class="policy-card" id="international-transfers">
+              <h3>Where information is processed</h3>
+              <p>A player using EU can still use a Discord service, bot API, email provider, or synchronized ban service processed elsewhere. Cloudflare and the other providers can use international infrastructure. Selecting EU does not by itself keep every related record inside the EEA.</p>
+              <p>Where applicable law restricts an international transfer, the transfer needs a valid legal mechanism. This can include an applicable adequacy decision or appropriate contractual safeguards and any required additional assessment. Contact <a href="mailto:admin@moddedamong.us">admin@moddedamong.us</a> for information about the recipients, locations, and safeguards relevant to your records, including how to obtain a copy of applicable safeguards.</p>
+              <p class="policy-source">Legal reference: <a href="https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/rules-international-data-transfers_en" target="_blank" rel="noopener noreferrer">European Commission: rules on international data transfers</a>.</p>
+            </article>
+
+            <article class="policy-card" id="gdpr-rights">
+              <h3>Your GDPR rights</h3>
+              <p>Where the GDPR applies, you can:</p>
+              <ul>
+                <li>Ask what MAUL holds about you and obtain a copy of your personal data.</li>
+                <li>Ask for inaccurate information to be corrected or incomplete information completed.</li>
+                <li>Request erasure when the legal conditions are met, or restriction of processing in qualifying circumstances.</li>
+                <li>Object to processing based on legitimate interests because of your particular situation. MAUL must assess that objection; continuing requires overriding grounds permitted by law.</li>
+                <li>Receive applicable data in a structured, commonly used, machine-readable form where automated processing is based on consent or contract and the portability conditions apply.</li>
+                <li>Withdraw consent for processing that relies on consent. Withdrawal does not make earlier lawful processing unlawful.</li>
+                <li>Use the protections for solely automated decisions with legal or similarly significant effects, where applicable.</li>
+                <li>Complain to a competent data protection authority.</li>
+              </ul>
+              <p>These rights have legal conditions and exceptions. They are not limited by the seven-day ban-appeal window. The same contact route is available to users in other locations; the law that applies can differ.</p>
+              <p class="policy-source">Official explanation: <a href="https://commission.europa.eu/law/law-topic/data-protection/information-individuals_en" target="_blank" rel="noopener noreferrer">European Commission: information for individuals</a>.</p>
+            </article>
+
+            <article class="policy-card" id="privacy-requests">
+              <h3>Making a request or complaint</h3>
+              <p>Email <a href="mailto:admin@moddedamong.us?subject=MAUL%20privacy%20request">admin@moddedamong.us</a> with what you want reviewed and an account reference that helps locate the records, such as a friend code or Discord ID. Do not send a password, game login token, or government ID with the first message.</p>
+              <p>MAUL can ask for proportionate proof that the account or records are yours where there is a reasonable doubt. Information about other people can be redacted from an access response; "private staff note" alone is not a blanket reason to exclude personal data about you.</p>
+              <p>For requests covered by GDPR, MAUL must respond without undue delay and within one month. Complex or numerous requests can justify up to two additional months, with an explanation within the first month. A refusal needs reasons and information about complaint and court remedies. Requests are normally free; any permitted fee or refusal for a manifestly unfounded or excessive request needs a specific justification.</p>
+              <p>You do not have to use a ban appeal to exercise a privacy right. You can complain to the authority for your habitual residence, place of work, or place of an alleged infringement where applicable. The <a href="https://www.edpb.europa.eu/about-edpb/our-members_en" target="_blank" rel="noopener noreferrer">EDPB authority directory</a> lists EEA regulators; the <a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener noreferrer">ICO</a> handles UK data-protection complaints.</p>
+              <p class="policy-source">Request-handling reference: <a href="https://www.edpb.europa.eu/sme/be-compliant/respect-individuals-rights_en" target="_blank" rel="noopener noreferrer">EDPB: respecting individuals' rights</a>.</p>
+            </article>
+
+            <article class="policy-card" id="automated-moderation">
+              <h3>Automatic checks and human review</h3>
+              <p>Region checks can automatically reject or disconnect a connection, enforce a listed ban, or create a chat/name autoban when a configured rule matches. They use submitted text, account/connection information, and the relevant rule or ban entry. The consequence can be losing access without a person first reviewing that specific event. A flag can be wrong or lack context.</p>
+              <p>To appeal a ban, contact <a href="mailto:admin@moddedamong.us?subject=MAUL%20ban%20appeal">admin@moddedamong.us</a> or Sarha through Discord within <strong>seven calendar days after receiving the ban notice</strong>. Include the ban ID if available, relevant account details, and your explanation. Do not send someone else's private information unless it is needed as evidence.</p>
+              <p>Ask for Sarha to review the actual rule match and evidence rather than repeat the automatic result. That review route is available even where a game-access decision does not meet GDPR Article 22's threshold for legal or similarly significant effects. The seven-day community appeal window does not shorten a statutory right or privacy-request deadline.</p>
+            </article>
+
+            <article class="policy-card" id="younger-players">
+              <h3>Younger players</h3>
+              <p>Users must meet the game and Discord age requirements that apply to them. Public usernames, activity records, and moderation evidence can concern younger players too. Their privacy interests need particular care; a public display name or a game account does not remove that protection.</p>
+              <p>A parent or guardian can contact the operator about a child's information. Any authority or account check must be proportionate. If a feature needs parental authorization under applicable law, publishing a policy or assuming that every player is an adult does not supply it.</p>
             </article>
 
             <article class="policy-card wide" id="security">
               <h3><i class="fa-solid fa-lock"></i> Security</h3>
               <p>
-                MAUL uses reasonable measures to protect its services and stored information, but no online service can
-                guarantee perfect security or uninterrupted availability.
+                Management access uses authenticated credentials. The current operator is Sarha. Credentials and raw records must not be posted in public repositories, lobby messages, or public support channels. A redacted evidence export is still checked before it is shared, because free text can contain personal information.
               </p>
+              <p>Access restrictions, IP pseudonymization, and log cleanup address different risks; none guarantees that every copy is protected or deleted. There is no guarantee of perfect security. Where GDPR requires notice of a personal-data breach, the operator must assess and make the required regulator and affected-person notifications.</p>
             </article>
           </div>
         </section>
@@ -940,10 +1107,11 @@
           <h2>Questions &amp; Contact</h2>
           <div class="policy-grid">
             <article class="policy-card wide">
-              <h3><i class="fa-brands fa-discord"></i> MAUL</h3>
+              <h3><i class="fa-brands fa-discord"></i> MAUL, operated by Sarha (Sarhadactyl)</h3>
               <p>
                 For questions about these policies, MAUL custom regions, or related MAUL services, contact MAUL through
-                <a href="https://discord.gg/maul" target="_blank" rel="noopener">discord.gg/maul</a> or admin@moddedamong.us.
+                <a href="https://discord.gg/maul" target="_blank" rel="noopener noreferrer">discord.gg/maul</a> or
+                <a href="mailto:admin@moddedamong.us">admin@moddedamong.us</a>. Use email for privacy requests if you cannot access Discord. Privacy rights and ban appeals are separate processes.
               </p>
             </article>
           </div>
