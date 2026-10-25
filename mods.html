@@ -568,7 +568,6 @@ body.spotlight-open { overflow: hidden; }
   body::before, body::after { animation: none !important; transform: translate3d(0, 160vh, 0); }
   .hero-copy, .hero-panel { opacity: 1; transform: none; }
 }
-
 :root {
   --gold: #ffcc80;
   --accent: #ffcc80;
@@ -607,7 +606,7 @@ body.spotlight-open { overflow: hidden; }
 .modal-title,
 .modal-body h4,
 #modal-dialog h2 {
-  color: #ffdc9e;
+  color: #ffffff;
 }
 .mods-section-title::before { color: #cfab77; }
 .mods-section-title,
@@ -2754,29 +2753,6 @@ body.spotlight-open { overflow: hidden; }
         return latestMatch ? { repo: latestMatch[1], assetName: "" } : null;
       };
 
-      /*
-         note for Sixie:
-        Download buttons are now a twostep system the starlightReleaseLinks table still creates fallback
-        buttons first, so the page has usable buttons even if GitHub rate limits, blocks or a repo has no assets
-        GitHub backed fallback buttons get data-auto-download="fallback" plus data-github-repo/data-asset-flavor
-        metadata. After the cards render hydrateGithubDownloadButtons() fetches each repos latest release once
-        classifyReleaseAsset() reads the asset filenames and replaceFallbackDownloadButtons() swaps platform
-        fallback buttons for buttons that match the real release assets repoFallbackLabelOverides is the audited
-        offline fallback map for repos whose current release assets do not match the older hardcoded labels. cards
-        with platform fallbacks still get a DLL fallback automatically when they are not covered by an override
-        utility fallbacks like as DLL, Itch, and Steam / Itch stay visible unless GitHub provides the same label.
-
-        Filename markers drive the labels:
-        - Itch or Itchio alone > Itch
-        - Steam plus Itch/Itchio > Steam / Itch
-        - Steam + Epic + MS/Microsoft/MSStore/Xbox in one filename > Epic / MS / Steam
-        - Separate Steam or Epic assets stay as separate Steam/Eic buttons
-        - DL ZIP x64/x86 Windows, and Cosmetics remain utility-style buttons
-
-        The external link warning still handles the final click. If a button points at /releases/latest the
-        warning resolves the freshest asset URL from data-github-repo and data-asset-flavor before opening it
-        existing links are left alone only autofallback buttons are removed/replaced
-      */
       const githubDownloadCards = [];
       const compactLabels = {
         "Latest release": "Latest"
