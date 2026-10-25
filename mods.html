@@ -409,8 +409,7 @@ body::after {
 .mod-search { margin: 0 0 34px; padding: 14px; border: 1px solid var(--line); border-radius: 6px; background: var(--glass-fill), var(--glass); box-shadow: 0 14px 32px rgba(0, 0, 0, 0.32); }
 .mod-search-inner { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; }
 .mod-search-field { position: relative; min-width: 0; }
-.mod-search-field i { position: absolute; left: 17px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
-#mods-search { width: 100%; min-width: 0; min-height: 50px; padding: 12px 18px 12px 44px; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 4px; background: rgba(0, 0, 0, 0.4); color: var(--text-main); font-size: 0.94rem; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+#mods-search { width: 100%; min-width: 0; min-height: 50px; padding: 12px 18px; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 4px; background: rgba(0, 0, 0, 0.4); color: var(--text-main); font-size: 0.94rem; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
 #mods-search::placeholder { color: #95929b; }
 #mods-search:focus { outline: none; border-color: rgba(255, 255, 255, 0.55); box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1); }
 .mod-search-count { min-width: 88px; padding: 10px 13px; border: 1px solid var(--line); border-radius: 4px; background: rgba(255, 255, 255, 0.05); color: var(--text-muted); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.06em; text-align: center; text-transform: uppercase; white-space: nowrap; }
@@ -437,7 +436,6 @@ body::after {
 .sub { margin: 0; color: var(--text-muted); font-size: 0.9rem; line-height: 1.65; }
 .preset-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; gap: 12px; margin-top: auto; padding-top: 6px; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; width: 100%; min-width: 0; min-height: 44px; padding: 10px 13px; border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 4px; background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)), #0d0c10; color: var(--text-main); font-size: 0.78rem; font-weight: 800; line-height: 1.2; text-align: center; text-decoration: none; overflow-wrap: anywhere; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08); transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; }
-.btn i { flex: 0 0 auto; }
 .preset-actions .btn { order: 2;  border-radius: 4px;  min-height: 42px;  padding: 9px 13px;  border: 1px solid rgba(255, 255, 255, 0.24);  background: linear-gradient(180deg, rgba(18, 17, 20, 0.94), rgba(10, 10, 12, 0.96));  font-size: 0.83rem;  line-height: 1.15;  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), inset -2px 0 0 rgba(255, 255, 255, 0.08); }
 .preset-actions .download-btn { order: 1; min-height: 56px; font-size: 0.96rem;  padding: 13px 15px; }
 .btn:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.65); background: linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.04)), #0e0d12; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 18px rgba(255, 255, 255, 0.14), 0 14px 30px rgba(0, 0, 0, 0.5); }
@@ -486,7 +484,6 @@ body.spotlight-open { overflow: hidden; }
 #featured-spotlight-grid .title { font-size: 1.6rem; }
 .link-warning { z-index: 2000; }
 .link-warning-card { width: min(440px, 100%); max-height: calc(100dvh - 48px); overflow-y: auto; padding: 26px; border: 1px solid rgba(255, 255, 255, 0.24); border-radius: 6px; background: var(--glass-fill), #100c11; box-shadow: 0 28px 80px rgba(0, 0, 0, 0.72); }
-.link-warning-icon { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 16px; border: 1px solid var(--line); border-radius: 50%; background: rgba(255, 255, 255, 0.06); }
 .link-warning-title { margin: 0 0 10px; font-family: "Outfit", sans-serif; font-size: 1.6rem; line-height: 1.1; }
 .link-warning-message { margin: 0; color: var(--text-muted); font-size: 0.92rem; line-height: 1.7; }
 .link-warning-destination { margin: 16px 0 0; padding: 12px; overflow: hidden; border: 1px solid var(--line); border-radius: 4px; background: rgba(0, 0, 0, 0.25); color: var(--text-muted); font-size: 0.8rem; text-overflow: ellipsis; white-space: nowrap; }
@@ -530,8 +527,7 @@ body.spotlight-open { overflow: hidden; }
   .mods-category-nav a { flex-shrink: 0; min-height: 44px; }
   .mod-search { padding: 11px; border-radius: 6px; }
   .mod-search-inner { gap: 8px; }
-  #mods-search { font-size: 1rem; padding-left: 38px; }
-  .mod-search-field i { left: 14px; }
+  #mods-search { font-size: 1rem; padding-left: 18px; }
   .mod-search-count { min-width: 70px; padding: 10px 8px; font-size: 0.65rem; }
   .featured-highlight,
   .mods-section { margin-bottom: 48px; }
@@ -585,7 +581,7 @@ body.spotlight-open { overflow: hidden; }
           </p>
           <div class="header-actions">
             <a class="hero-join-link" href="https://discord.gg/MAUL" target="_blank" rel="noopener">
-              <i class="fa-brands fa-discord" aria-hidden="true"></i> Join MAUL
+              Join MAUL
             </a>
           </div>
         </div>
@@ -613,7 +609,7 @@ body.spotlight-open { overflow: hidden; }
       <section class="mod-search" aria-label="Search mods">
         <div class="mod-search-inner">
           <label class="mod-search-field" for="mods-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            
             <input id="mods-search" type="search" placeholder="Search mods or aliases..." autocomplete="off" />
           </label>
           <span class="mod-search-count" id="mods-search-count">77 items</span>
@@ -644,7 +640,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> Github
+                  Github
                 </a>
                 <a
                   class="btn release-btn"
@@ -652,7 +648,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-solid fa-tag"></i> Latest
+                  Latest
                 </a>
                 <a
                   class="btn download-btn"
@@ -660,7 +656,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-solid fa-download"></i> Itch
+                  Itch
                 </a>
                 <a
                   class="btn download-btn"
@@ -668,7 +664,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-solid fa-download"></i> Epic / MS / Steam
+                  Epic / MS / Steam
                 </a>
               </div>
             </div>
@@ -692,13 +688,13 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/Niko-s-Impostor-Server/TownofHost-Enhanced-Enhanced" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn release-btn" href="https://github.com/Niko-s-Impostor-Server/TownofHost-Enhanced-Enhanced/releases/latest" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-tag" aria-hidden="true"></i> Latest
+                  Latest
                 </a>
                 <a class="btn download-btn" href="https://github.com/Niko-s-Impostor-Server/TownofHost-Enhanced-Enhanced/releases/latest/download/TOHE.dll" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-download" aria-hidden="true"></i> DLL
+                  DLL
                 </a>
               </div>
             </div>
@@ -718,7 +714,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> Github
+                  Github
                 </a>
               </div>
             </div>
@@ -738,7 +734,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a
                   class="btn"
@@ -746,7 +742,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-solid fa-globe"></i> Website
+                  Website
                 </a>
               </div>
             </div>
@@ -763,13 +759,13 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/qin-qwq/TownofNext-Edited" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://tone2.top/" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-globe"></i> Website
+                  Website
                 </a>
                 <a class="btn" href="https://discord.com/invite/jg4a2Xqrbb" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -789,7 +785,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -819,7 +815,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a
                   class="btn"
@@ -827,7 +823,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-solid fa-heart"></i> Support
+                  Support
                 </a>
                 <a
                   class="btn"
@@ -835,7 +831,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-solid fa-book"></i> Wiki
+                  Wiki
                 </a>
               </div>
             </div>
@@ -855,7 +851,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -875,7 +871,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -895,7 +891,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a
                   class="btn"
@@ -903,7 +899,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -923,7 +919,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a
                   class="btn"
@@ -931,7 +927,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -951,7 +947,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -971,7 +967,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
                 <a
                   class="btn"
@@ -979,7 +975,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-steam"></i> Steam
+                  Steam
                 </a>
                 <a
                   class="btn"
@@ -987,7 +983,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-solid fa-chart-line"></i> Leaderboard
+                  Leaderboard
                 </a>
               </div>
             </div>
@@ -1002,13 +998,13 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/CallOfCreator/NewMod" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://newmodau.vercel.app/home" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-globe"></i> Website
+                  Website
                 </a>
                 <a class="btn" href="https://discord.gg/7UKG528WxZ" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -1028,7 +1024,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1048,7 +1044,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a
                   class="btn"
@@ -1056,7 +1052,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
                 <a 
                 class="btn release-btn" 
@@ -1064,7 +1060,7 @@ body.spotlight-open { overflow: hidden; }
                 target="_blank" 
                 rel="noopener"
                 >
-                  <i class="fa-brands fa-tag"></i> Latest
+                  Latest
                 </a>
               </div>
             </div>
@@ -1093,7 +1089,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1108,19 +1104,19 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://levelimposter.net/" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-globe"></i> Website
+                  Website
                 </a>
                 <a class="btn release-btn" href="https://github.com/DigiWorm0/LevelImposter/releases/tag/v1.0.1" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-tag"></i> Release
+                  Release
                 </a>
                 <a class="btn download-btn" href="https://github.com/DigiWorm0/LevelImposter/releases/download/v1.0.1/LevelImposter.dll" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-download"></i> DLL
+                  DLL
                 </a>
                 <a class="btn download-btn" href="https://github.com/DigiWorm0/LevelImposter/releases/download/v1.0.1/LevelImposter.zip" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-file-zipper"></i> ZIP
+                  ZIP
                 </a>
                 <a class="btn" href="https://discord.gg/9PmZfufzNj" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -1149,7 +1145,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1164,19 +1160,19 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/OvernightAU/MoveMod" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn release-btn" href="https://github.com/OvernightAU/MoveMod/releases/tag/1.0.3" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-tag"></i> Release
+                  Release
                 </a>
                 <a class="btn download-btn" href="https://github.com/OvernightAU/MoveMod/releases/download/1.0.3/MoveModPublic.dll" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-download"></i> DLL
+                  DLL
                 </a>
                 <a class="btn" href="https://discord.gg/6RBQHqtqVx" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
                 <a class="btn" href="https://ko-fi.com/pietro420" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-mug-hot"></i> Ko-Fi
+                  Ko-Fi
                 </a>
               </div>
             </div>
@@ -1196,7 +1192,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1211,10 +1207,10 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/All-Of-Us-Mods/Overloaded" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://discord.gg/7p99epZ34c" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -1229,7 +1225,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/HayashiUme/TranslateUs" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub info
+                  GitHub info
                 </a>
               </div>
             </div>
@@ -1249,7 +1245,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1269,7 +1265,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-solid fa-globe"></i> Website
+                  Website
                 </a>
               </div>
             </div>
@@ -1289,7 +1285,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
                 <a
                   class="btn"
@@ -1297,7 +1293,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-solid fa-globe"></i> Website
+                  Website
                 </a>
               </div>
             </div>
@@ -1317,7 +1313,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a
                   class="btn"
@@ -1325,7 +1321,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -1354,7 +1350,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1374,7 +1370,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1389,13 +1385,13 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://automute.us/" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-globe"></i> Website
+                  Website
                 </a>
                 <a class="btn" href="https://discord.com/invite/vwWXs8Z" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
                 <a class="btn" href="https://automute.us/premium" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-star"></i> Premium
+                  Premium
                 </a>
               </div>
             </div>
@@ -1410,7 +1406,7 @@ body.spotlight-open { overflow: hidden; }
         </p>
 
         <div class="section-chip">
-          <i class="fa-solid fa-star"></i>
+          
           Core and role mods
         </div>
 
@@ -1424,16 +1420,16 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/AU-Avengers/TOU-Mira" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://discord.gg/A5eyxVjPMr" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
                 <a class="btn" href="https://au-avengers.github.io/docs.toum.gg/" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-book"></i> Wiki
+                  Wiki
                 </a>
                 <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-mug-hot"></i> Ko-Fi
+                  Ko-Fi
                 </a>
               </div>
             </div>
@@ -1448,16 +1444,16 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/All-Of-Us-Mods/LaunchpadReloaded" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://launchpad.allofus.dev/index.php/Main_Page" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-book"></i> Wiki
+                  Wiki
                 </a>
                 <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-mug-hot"></i> Ko-Fi
+                  Ko-Fi
                 </a>
                 <a class="btn" href="https://discord.gg/7p99epZ34c" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -1472,13 +1468,13 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/CallOfCreator/NewMod" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://newmodau.vercel.app/home" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-globe"></i> Website
+                  Website
                 </a>
                 <a class="btn" href="https://discord.gg/7UKG528WxZ" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -1493,7 +1489,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/XiezibanWrite/Cursed-Among-Us-Continued" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1510,13 +1506,13 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/qin-qwq/TownofNext-Edited" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://tone2.top/" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-globe"></i> Website
+                  Website
                 </a>
                 <a class="btn" href="https://discord.com/invite/jg4a2Xqrbb" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -1531,10 +1527,10 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/LimeShep/Town-Of-Us" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://discord.gg/VUyBhVhKVy" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -1549,16 +1545,16 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/SuperNewRoles/SuperNewRoles" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://discord.gg/s27fUArwXn" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
                 <a class="btn" href="https://www.patreon.com/cw/SuperNewRoles" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-heart"></i> Patreon
+                  Patreon
                 </a>
                 <a class="btn" href="https://wiki.supernewroles.com/ja/home" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-book"></i> Wiki
+                  Wiki
                 </a>
               </div>
             </div>
@@ -1575,7 +1571,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://starlight.allofus.dev/api/v3/mods/com.missingpixel.stargazer" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-star"></i> Starlight
+                  Starlight
                 </a>
               </div>
             </div>
@@ -1590,16 +1586,16 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/Dolly1016/Nebula" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://dolly1016.github.io/NebulaWiki" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-book"></i> Wiki
+                  Wiki
                 </a>
                 <a class="btn" href="https://ofuse.me/nebulaontheship" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-mug-hot"></i> Support
+                  Support
                 </a>
                 <a class="btn" href="https://discord.gg/kHNZD4pq9E" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -1614,7 +1610,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/TechDevOfficial/TrollMod17" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1629,7 +1625,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/yanpla/yanplaRoles" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1644,7 +1640,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/Lotus-AU/LotusContinued?dhc-id=80400832587108366" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1669,7 +1665,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/astra1dev/AUnlocker" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1684,13 +1680,13 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/GMIA-Nexus/TheOtherRolesGMIA" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://discord.com/invite/w7msq53dq7" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
                 <a class="btn release-btn" href="https://github.com/GMIA-Nexus/TheOtherRolesGMIA/releases/latest" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-tag"></i> Latest
+                  Latest
                 </a>
               </div>
             </div>
@@ -1698,7 +1694,7 @@ body.spotlight-open { overflow: hidden; }
         </div>
 
         <div class="section-chip">
-          <i class="fa-solid fa-plug"></i>
+          
           Extension mods
         </div>
 
@@ -1712,7 +1708,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/rewalo/TownOfUsMiraRolesExtension" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> Extension GitHub
+                  Extension GitHub
                 </a>
               </div>
             </div>
@@ -1727,7 +1723,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/idkimneil/DraftMode-TOUM/releases/tag/v1.0.8" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1744,10 +1740,10 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/DivaniNL/TownOfUsMiraDivaniModsAddOn" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://discord.gg/uBfH4sNtVF" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -1764,10 +1760,10 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/WanderingPix/Wilder-Draft" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://discord.gg/dHH6DR5kBZ" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -1775,7 +1771,7 @@ body.spotlight-open { overflow: hidden; }
         </div>
 
         <div class="section-chip">
-          <i class="fa-solid fa-desktop"></i>
+          
           Client-side mods
         </div>
 
@@ -1789,19 +1785,19 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/AU-Avengers/TouMiraLegacy" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://au-avengers.org/" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-globe"></i> Website
+                  Website
                 </a>
                 <a class="btn" href="https://au-avengers.github.io/docs.toum.gg/" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-book"></i> Docs
+                  Docs
                 </a>
                 <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-mug-hot"></i> Ko-Fi
+                  Ko-Fi
                 </a>
                 <a class="btn" href="https://discord.gg/A5eyxVjPMr" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -1816,16 +1812,16 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/XtraCube/SmolMod" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://www.xtracube.dev/" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-globe"></i> Website
+                  Website
                 </a>
                 <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-mug-hot"></i> Ko-Fi
+                  Ko-Fi
                 </a>
                 <a class="btn" href="https://discord.gg/NxdE43Gw" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -1840,10 +1836,10 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/townofus-pl/AleLuduMod" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://discord.com/invite/JRAJCASAzN" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -1858,7 +1854,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/WanderingPix/Emojis-in-the-mogus-chat" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1873,7 +1869,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/Reach-For-Stars-Team/Emotes-Mod" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1890,13 +1886,13 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/AU-Avengers/LocalizeUs" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://au-avengers.org/" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-globe"></i> Website
+                  Website
                 </a>
                 <a class="btn" href="https://discord.gg/7p99epZ34c" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -1913,13 +1909,13 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/ThetaHalo/FlashlightUs" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://discord.com/users/216404071253278720" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
                 <a class="btn" href="https://github.com/sponsors/ThetaHalo" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-heart"></i> Sponsor
+                  Sponsor
                 </a>
               </div>
             </div>
@@ -1936,7 +1932,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/WanderingPix/Host-Utility" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1953,7 +1949,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/D1GQ/BetterAmongUs" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -1970,10 +1966,10 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/Limeau/RemongUs/" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://discord.gg/JE2JKBabEy" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -1981,7 +1977,7 @@ body.spotlight-open { overflow: hidden; }
         </div>
 
         <div class="section-chip">
-          <i class="fa-solid fa-plug"></i>
+          
           Miscellaneous mods
         </div>
 
@@ -1995,10 +1991,10 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/yanpla/Entropy" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://github.com/sponsors/yanpla/" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-heart"></i> Sponsor
+                  Sponsor
                 </a>
               </div>
             </div>
@@ -2015,7 +2011,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/XtraCube/CorsacCosmetics" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -2032,7 +2028,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/Maxi0fc/Mira-NotePad" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -2056,10 +2052,10 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/All-Of-Us-Mods/MiraAPI/" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://discord.gg/7p99epZ34c" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -2074,10 +2070,10 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/am-clonec/Achievements-API" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://discord.gg/RJyNm9UaT7" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -2092,10 +2088,10 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/NuclearPowered/Reactor" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://reactor.gg/discord" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -2110,7 +2106,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/Team-Mess-Hall/MessHallAPI" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -2125,10 +2121,10 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/Lotus-AU/VentFramework-Continued" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://discord.gg/projectlotus" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -2143,7 +2139,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/CallOfCreator/PathfindingAPI" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -2167,7 +2163,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://allofus.dev/starlight/" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-globe"></i> Website
+                  Website
                 </a>
               </div>
             </div>
@@ -2187,7 +2183,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a
                   class="btn release-btn"
@@ -2195,10 +2191,10 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-solid fa-tag"></i> Release
+                  Release
                 </a>
                 <a class="btn" href="https://discord.gg/7p99epZ34c" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -2218,10 +2214,10 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-solid fa-tag"></i> Releases
+                  Releases
                 </a>
                 <a class="btn" href="https://discord.gg/ayjhHYwj4E" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -2236,13 +2232,13 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/JarneDEVsys/ModManager/" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
                 <a class="btn" href="https://ko-fi.com/jarnemm" target="_blank" rel="noopener">
-                  <i class="fa-solid fa-mug-hot"></i> Ko-Fi
+                  Ko-Fi
                 </a>
                 <a class="btn" href="https://discord.gg/pn3JM9RbsK" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-discord"></i> Discord
+                  Discord
                 </a>
               </div>
             </div>
@@ -2266,7 +2262,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/astra1dev/awesome-among-us" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -2281,7 +2277,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/Innersloth-LLC/AmongUsModdingInformation" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -2313,7 +2309,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -2336,7 +2332,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -2359,7 +2355,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -2382,7 +2378,7 @@ body.spotlight-open { overflow: hidden; }
                   target="_blank"
                   rel="noopener"
                 >
-                  <i class="fa-brands fa-github"></i> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -2415,9 +2411,6 @@ body.spotlight-open { overflow: hidden; }
 
     <div class="link-warning" id="link-warning" role="dialog" aria-modal="true" aria-labelledby="link-warning-title" aria-hidden="true">
       <div class="link-warning-card">
-        <div class="link-warning-icon" id="link-warning-icon">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </div>
         <h2 class="link-warning-title" id="link-warning-title">Leaving MAUL</h2>
         <p class="link-warning-message" id="link-warning-message">
           This link opens an external page.
@@ -2792,7 +2785,7 @@ body.spotlight-open { overflow: hidden; }
         if (assetFlavor) link.dataset.assetFlavor = assetFlavor;
         if (assetName) link.dataset.assetName = assetName;
         if (autoDownload) link.dataset.autoDownload = autoDownload;
-        link.innerHTML = `<i class="${icon}"></i> ${label}`;
+        link.textContent = label;
         link.title = title || label;
         existing.add(`${absoluteHref}|${label}`);
         actions.appendChild(link);
@@ -3231,7 +3224,6 @@ body.spotlight-open { overflow: hidden; }
       const linkWarningTitle = document.querySelector("#link-warning-title");
       const linkWarningMessage = document.querySelector("#link-warning-message");
       const linkWarningDestination = document.querySelector("#link-warning-destination");
-      const linkWarningIcon = document.querySelector("#link-warning-icon i");
       const linkWarningCancel = document.querySelector("#link-warning-cancel");
       const linkWarningContinue = document.querySelector("#link-warning-continue");
       let pendingExternalLink = null;
@@ -3371,7 +3363,6 @@ body.spotlight-open { overflow: hidden; }
           ? `You are about to open a download for ${linkText}. You are able to go to github for assurance. These links are provided for convenience.`
           : `You are about to open ${linkText} on an external site.`;
         linkWarningDestination.textContent = url.hostname;
-        linkWarningIcon.className = download ? "fa-solid fa-download" : "fa-solid fa-arrow-up-right-from-square";
         linkWarningContinue.textContent = download ? "Download" : "Continue";
         linkWarning.classList.add("open");
         linkWarning.setAttribute("aria-hidden", "false");
