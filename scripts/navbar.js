@@ -1,5 +1,25 @@
 (() => {
   const navbarScript = document.currentScript;
+  const NAVBAR_VERSION = '20261028-nav-6';
+
+  async function ensureNavbarStyles() {
+    if (!navbarScript?.src || location.protocol === 'file:') return;
+    const url = new URL('../styles/navbar.css', navbarScript.src);
+    url.searchParams.set('v', NAVBAR_VERSION);
+    const existing = [...document.querySelectorAll('link[rel="stylesheet"]')].find(link => {
+      const target = new URL(link.href, location.href);
+      return target.origin === url.origin && target.pathname === url.pathname;
+    });
+    if (existing?.href === url.href && existing.sheet) return;
+    await new Promise(resolve => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = url.href;
+      link.addEventListener('load', () => { existing?.remove(); resolve(); }, { once: true });
+      link.addEventListener('error', () => { link.remove(); console.warn('Navbar stylesheet could not load.'); resolve(); }, { once: true });
+      document.head.appendChild(link);
+    });
+  }
 
   function initSiteSearch(nav, closeMenus) {
     const trigger = nav.querySelector('.maul-nav-search');
@@ -226,11 +246,16 @@
     const links = nav.querySelector('.maul-nav-items');
     if (!toggle || !links) return { close: () => false };
     const mobile = matchMedia('(max-width: 980px)');
+    const regions = nav.querySelector('.maul-nav-region-feature, .maul-nav-regions-link');
+    const more = nav.querySelector('[data-nav-group="more"], .maul-nav-more-link');
     let expanded = false;
     const render = () => {
       const collapsed = mobile.matches && !expanded;
       nav.classList.toggle('is-mobile-collapsed', collapsed);
       links.inert = collapsed;
+      if (regions) regions.inert = collapsed;
+      if (more) more.inert = mobile.matches;
+      toggle.hidden = !mobile.matches;
       toggle.setAttribute('aria-expanded', String(!collapsed));
       toggle.setAttribute('aria-label', collapsed ? 'Open navigation' : 'Close navigation');
     };
@@ -361,6 +386,7 @@
   async function loadNavbar() {
     const container = document.getElementById("navbar");
     if (!container) return;
+    await ensureNavbarStyles();
     if (container.querySelector(".maul-nav")) {
       initNavbar(container);
       return;
@@ -371,7 +397,9 @@
     ])];
     for (const path of paths) {
       try {
-        const response = await fetch(path, { cache: "no-store" });
+        const versionedPath = new URL(path, location.href);
+        versionedPath.searchParams.set('v', NAVBAR_VERSION);
+        const response = await fetch(versionedPath.href, { cache: "no-store" });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const html = await response.text();
         if (!html.includes('class="maul-nav"')) throw new Error("Missing navigation component");
@@ -388,11 +416,11 @@
         <a class="maul-nav-link" href="https://moddedamong.us/mods.html">Mods</a>
         <a class="maul-nav-link" href="https://moddedamong.us/customize.html">Customize</a>
         <a class="maul-nav-link" href="https://moddedamong.us/featuredusers.html">Community</a>
-        <a class="maul-nav-link" href="https://moddedamong.us/faq.html">More</a>
+        <a class="maul-nav-link maul-nav-more-link" href="https://moddedamong.us/faq.html">More</a>
       </div>
-        <a class="maul-nav-link maul-nav-regions-link" href="https://moddedamong.us/regions.html">MAUL Regions</a>
+        <a class="maul-nav-link maul-nav-regions-link" id="maul-regions-menu" href="https://moddedamong.us/regions.html">MAUL Regions</a>
         <button class="maul-nav-link maul-nav-search" type="button" aria-label="Search site" aria-haspopup="dialog" aria-controls="maul-site-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.75"/><path d="m16 16 4.5 4.5"/></svg></button>
-      <button class="maul-nav-toggle" type="button" aria-label="Open navigation" aria-controls="maul-primary-links" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></nav>`;
+      <button class="maul-nav-toggle" type="button" aria-label="Open navigation" aria-controls="maul-primary-links maul-regions-menu" aria-expanded="false" hidden><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></nav>`;
     initNavbar(container);
   }
 
