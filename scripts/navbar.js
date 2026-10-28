@@ -108,7 +108,7 @@
               body.querySelectorAll('p,div,section,article,li,h1,h2,h3,h4,br').forEach(node => node.append(doc.createTextNode('\n')));
               const text = body.textContent.split('\n').map(line => line.replace(/\s+/g, ' ').trim()).filter(Boolean).join('\n').slice(0, 100000);
               updated.push({ url, title, description, headings, text });
-            } catch { /* Idk if youll look but this keeps the text bundled together */ }
+            } catch { /* Idk if youll look but this keeps the text bundled together*/ }
           }
         }));
         merge(updated);
@@ -180,6 +180,10 @@
       if (!activeControl?.isConnected) return;
       const navRect = nav.getBoundingClientRect();
       let rect = activeControl.getBoundingClientRect();
+      if (!rect.width || !rect.height) {
+        indicator.style.opacity = '0';
+        return;
+      }
       if (activeControl.classList.contains('maul-nav-brand')) {
         const range = document.createRange();
         range.selectNodeContents(activeControl);
@@ -217,6 +221,44 @@
     return { select };
   }
 
+  function initMobileMenu(nav, closeMenus) {
+    const toggle = nav.querySelector('.maul-nav-toggle');
+    const links = nav.querySelector('.maul-nav-items');
+    if (!toggle || !links) return { close: () => false };
+    const mobile = matchMedia('(max-width: 980px)');
+    let expanded = false;
+    const render = () => {
+      const collapsed = mobile.matches && !expanded;
+      nav.classList.toggle('is-mobile-collapsed', collapsed);
+      links.inert = collapsed;
+      toggle.setAttribute('aria-expanded', String(!collapsed));
+      toggle.setAttribute('aria-label', collapsed ? 'Open navigation' : 'Close navigation');
+    };
+    toggle.addEventListener('click', event => {
+      if (!mobile.matches) return;
+      expanded = !expanded;
+      closeMenus();
+      render();
+      if (expanded && event.detail === 0) links.querySelector('summary, a')?.focus({ preventScroll: true });
+    });
+    mobile.addEventListener('change', () => {
+      expanded = false;
+      closeMenus();
+      render();
+    });
+    render();
+    return {
+      toggle,
+      close() {
+        if (!mobile.matches || !expanded) return false;
+        expanded = false;
+        closeMenus();
+        render();
+        return true;
+      }
+    };
+  }
+
   function initNavbar(root) {
     const nav = root.querySelector(".maul-nav");
     if (!nav || nav.dataset.navbarReady === "true") return;
@@ -236,6 +278,7 @@
     const closeMenus = (except) => groups.forEach((group) => {
       if (group !== except) group.open = false;
     });
+    const mobileMenu = initMobileMenu(nav, closeMenus);
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const spotlight = document.querySelector('.featured-spotlight');
       let entranceFinished = false;
@@ -290,7 +333,7 @@
       }
       link.addEventListener("click", () => closeMenus());
     });
-    highlight.select(nav.querySelector('.is-current'));
+    highlight.select(nav.querySelector('.maul-nav-items .is-current, .maul-nav-region-feature .is-current, .maul-nav-regions-link.is-current'));
 
     document.addEventListener("click", (event) => {
       if (!nav.contains(event.target)) closeMenus();
@@ -301,7 +344,13 @@
     nav.addEventListener("keydown", (event) => {
       if (event.key !== "Escape") return;
       const openGroup = groups.find((group) => group.open);
-      if (!openGroup) return;
+      if (!openGroup) {
+        if (mobileMenu.close()) {
+          event.preventDefault();
+          mobileMenu.toggle.focus({ preventScroll: true });
+        }
+        return;
+      }
       event.preventDefault();
       closeMenus();
       openGroup.querySelector("summary").focus({ preventScroll: true });
@@ -335,14 +384,15 @@
     }
     container.innerHTML = `<nav class="maul-nav" aria-label="Primary navigation">
       <a class="maul-nav-brand" href="https://moddedamong.us/" aria-label="MAUL home">MAUL</a>
-      <div class="maul-nav-items">
+      <div class="maul-nav-items" id="maul-primary-links">
         <a class="maul-nav-link" href="https://moddedamong.us/mods.html">Mods</a>
         <a class="maul-nav-link" href="https://moddedamong.us/customize.html">Customize</a>
         <a class="maul-nav-link" href="https://moddedamong.us/featuredusers.html">Community</a>
         <a class="maul-nav-link" href="https://moddedamong.us/faq.html">More</a>
+      </div>
         <a class="maul-nav-link maul-nav-regions-link" href="https://moddedamong.us/regions.html">MAUL Regions</a>
         <button class="maul-nav-link maul-nav-search" type="button" aria-label="Search site" aria-haspopup="dialog" aria-controls="maul-site-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.75" cy="10.75" r="6.75"/><path d="m16 16 4.5 4.5"/></svg></button>
-      </div></nav>`;
+      <button class="maul-nav-toggle" type="button" aria-label="Open navigation" aria-controls="maul-primary-links" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></nav>`;
     initNavbar(container);
   }
 
