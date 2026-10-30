@@ -2864,6 +2864,332 @@ input[type="radio"] { accent-color: #d4d4d8; }
   .copy-btn.download-glow:hover { animation: none; }
 }
     </style>
+    <style>
+.info-paragraph.bulk-launch { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+.bulk-launch p { margin:0; }
+.bulk-open { flex:0 0 auto; width:auto; min-width:220px; border-color:rgba(255,71,90,.6); }
+.bulk-open[aria-expanded="true"] { border-color:#ff6d80; background:#341018; }
+#bulk-converter { margin:0 0 28px; padding:26px; border:1px solid rgba(255,109,128,.4); border-radius:6px; background:linear-gradient(155deg,#180d12,#0c0c10 65%); color:#f4f4f5; }
+#bulk-converter[hidden], #bulk-converter [hidden] { display:none !important; }
+.bulk-heading { display:flex; gap:16px; align-items:flex-start; justify-content:space-between; margin-bottom:22px; }
+.bulk-kicker { margin:0 0 8px; color:#ff8999; font-size:.72rem; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+#bulk-converter h2 { font-family:Outfit,Inter,sans-serif; font-size:1.8rem; margin:0 0 9px; }
+#bulk-converter h3 { font-size:1.05rem; margin:0 0 8px; }
+.bulk-muted { color:#c4bec8; font-size:.9rem; line-height:1.6; margin:0; }
+.bulk-close { color:#e5dce4; background:transparent; border:1px solid #65505a; border-radius:4px; width:36px; height:36px; font-size:1.3rem; cursor:pointer; flex-shrink:0; }
+.bulk-fields { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:20px; }
+.bulk-field { display:flex; flex-direction:column; gap:8px; font-size:.88rem; font-weight:700; min-width:0; }
+#bulk-converter select, #bulk-converter input[type="number"], #bulk-converter input[type="password"] { width:100%; min-height:44px; border:1px solid #62515e; border-radius:4px; background:#111015; color:#fff; padding:10px 12px; font:inherit; }
+#bulk-converter input[type="checkbox"] { width:19px; height:19px; accent-color:#ec455f; cursor:pointer; }
+#bulk-converter :focus-visible, .bulk-open:focus-visible { outline:2px solid #ff8295; outline-offset:4px; }
+.bulk-drop { display:flex; flex-direction:column; justify-content:center; padding:24px; gap:9px; margin:0 0 20px; border:1px dashed #927580; border-radius:5px; background:rgba(255,255,255,.025); }
+.bulk-drop strong { font-size:1.05rem; }
+.bulk-drop input { font:inherit; width:100%; color:#e8dce3; }
+.bulk-drop input::file-selector-button { background:#32212b; color:#fff; border:1px solid #957280; padding:9px 12px; border-radius:3px; margin-right:12px; cursor:pointer; }
+.bulk-settings { margin:24px 0; padding:20px; background:rgba(0,0,0,.2); border:1px solid #45313c; border-radius:5px; }
+.bulk-permission-guide dl { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px 20px; margin:16px 0; }
+.bulk-permission-guide dl > div { min-width:0; padding:12px; border:1px solid rgba(var(--rose-gold-rgb),.18); border-radius:4px; background:rgba(var(--rose-gold-rgb),.035); }
+.bulk-permission-guide dt { color:var(--rose-gold-light); font-size:.88rem; font-weight:700; }
+.bulk-permission-guide dd { margin:6px 0 0; color:var(--text-muted); font-size:.85rem; line-height:1.6; }
+.bulk-permission-guide code { color:var(--rose-gold-light); font-size:1em; }
+@media(max-width:500px) { .bulk-permission-guide dl { grid-template-columns:minmax(0,1fr); } }
+.bulk-table-wrap { overflow-x:auto; margin-top:16px; max-height:430px; border:1px solid #48333f; border-radius:4px; }
+.bulk-table { width:100%; border-collapse:collapse; font-size:.86rem; }
+.bulk-table th { text-align:left; background:#271a23; color:#eacdd7; font-size:.75rem; font-weight:700; letter-spacing:.04em; }
+.bulk-table th, .bulk-table td { padding:12px 14px; border-bottom:1px solid #3c2b35; vertical-align:middle; }
+.bulk-table tr:last-child td { border-bottom:0; }
+.bulk-table td:not(:first-child), .bulk-table th:not(:first-child) { text-align:center; }
+.bulk-table input[type="number"] { min-width:64px; max-width:85px; }
+.bulk-table th abbr { text-decoration:none; }
+.bulk-check { display:inline-flex; gap:8px; align-items:center; }
+.bulk-actions { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top:20px; }
+.bulk-actions button { width:auto; min-width:170px; }
+.bulk-primary { background:linear-gradient(115deg,#9e1d38,#551226) !important; border-color:#c4425e !important; }
+.bulk-actions button:disabled { opacity:.45; cursor:not-allowed; transform:none; }
+.bulk-status { margin:16px 0 0; min-height:1.5em; font-size:.9rem; line-height:1.6; color:#e5c8d2; overflow-wrap:anywhere; }
+.bulk-status[data-kind="error"] { color:#ff9caa; }
+.bulk-status[data-kind="success"] { color:#a9e4ca; }
+.bulk-errors { margin-top:16px; padding:16px; border:1px solid rgba(255,156,170,.35); border-radius:5px; background:rgba(95,25,42,.12); color:#ffbec7; }
+.bulk-errors h3 { margin:0 0 8px; }
+.bulk-error-list { margin:12px 0; padding-left:26px; font-size:.86rem; line-height:1.6; }
+.bulk-error-list li { margin:9px 0; overflow-wrap:anywhere; }
+.bulk-error-list strong { color:#f5d5c9; }
+.bulk-error-nav { display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin-top:14px; }
+.bulk-error-nav button { width:auto; }
+.bulk-error-nav button:disabled { opacity:.4; cursor:not-allowed; transform:none; }
+.bulk-error-page { font-size:.8rem; color:var(--text-muted); }
+.bulk-token-note { font-size:.8rem; color:#bdb0bd; margin:10px 0 0; line-height:1.5; }
+.bulk-preview { margin-top:24px; }
+.bulk-summary { display:flex; flex-wrap:wrap; gap:10px; margin:14px 0; }
+.bulk-pill { background:#281c25; border:1px solid #61404f; border-radius:4px; padding:8px 12px; font-size:.82rem; }
+.bulk-warning { padding:12px 14px; border-left:3px solid #d89950; background:#2b2017; color:#f4d6aa; font-size:.85rem; line-height:1.6; margin-top:14px; }
+.bulk-preview .bulk-table td:first-child { white-space:nowrap; }
+.bulk-preview details { min-width:170px; text-align:left; }
+.bulk-preview pre { white-space:pre-wrap; overflow-wrap:anywhere; max-width:450px; font-size:.75rem; color:#e2d3df; }
+@media(max-width:700px) {
+  .info-paragraph.bulk-launch { flex-direction:column; align-items:stretch; gap:14px; }
+  .bulk-open { width:100%; min-width:0; }
+  #bulk-converter { padding:19px 15px; }
+  #bulk-converter h2 { font-size:1.45rem; }
+  .bulk-fields { grid-template-columns:1fr; }
+  .bulk-settings { padding:14px 10px; }
+  .bulk-table th, .bulk-table td { padding:10px; }
+  .bulk-actions button { flex:1 1 100%; }
+}
+@media(prefers-reduced-motion:reduce) { #bulk-converter *, .bulk-open { animation:none !important; transition:none !important; } }
+
+</style>
+    <style>
+.page-wrapper {
+  position: relative;
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 28px 0 76px;
+}
+.page-header {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  min-height: 580px;
+  padding: clamp(28px, 3.6vw, 46px);
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  isolation: isolate;
+}
+.hero-copy { position: relative; z-index: 2; min-width: 0; animation: maulIntroRise 0.7s ease both; }
+.page-header h1 {
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(3.25rem, 6.1vw, 6rem);
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.hero-title-line { display: block; }
+.hero-title-accent {
+  background: linear-gradient(95deg, #fff 4%, #f5d5c9 32%, #e9b4ac 68%, #b76e79);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.page-header-subtitle {
+  max-width: 630px;
+  margin: 22px 0 0;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.78;
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
+.hero-join-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 12px 22px;
+  border: 1px solid rgba(var(--rose-gold-rgb), 0.24);
+  border-radius: 4px;
+  background: var(--glass-fill), rgba(14, 10, 14, 0.9);
+  color: var(--text-main);
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: inset 0 1px 0 rgba(var(--rose-gold-rgb), 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.hero-join-link:hover { transform: translateY(-3px); border-color: rgba(var(--rose-gold-rgb), 0.55); box-shadow: 0 0 22px rgba(var(--rose-gold-rgb), 0.14), 0 14px 32px rgba(0, 0, 0, 0.52); }
+.hero-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 420px;
+  isolation: isolate;
+  animation: maulIntroRise 0.9s ease both;
+}
+.hero-panel::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(44vw, 530px);
+  max-width: 120%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle, rgba(var(--rose-gold-rgb), 0.28), transparent 58%),
+    conic-gradient(from 210deg, rgba(var(--rose-gold-deep-rgb), 0), rgba(var(--rose-gold-deep-rgb), 0.34), rgba(var(--rose-gold-light-rgb), 0.16), rgba(var(--rose-gold-deep-rgb), 0));
+  opacity: 0.72;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-panel::after {
+  content: "";
+  position: absolute;
+  inset: 17% 6% 13% 8%;
+  z-index: 1;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  transform: rotate(-5deg);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02)), rgba(10, 4, 6, 0.28);
+  box-shadow: 0 24px 58px rgba(0, 0, 0, 0.58);
+}
+.hero-banner-card { position: absolute; inset: 17% 6% 13% 8%; display: grid; place-items: center; padding: 24px; transform: rotate(-5deg); overflow: hidden; pointer-events: none;  z-index: 2; border-radius: 26px; }
+.hero-banner-card img { display: block; width: 104%; max-height: 68%; object-fit: contain; opacity: 0.38; }
+.hero-panel > img { position: relative; display: block; width: min(88%, 410px); max-height: 500px; object-fit: contain; filter: drop-shadow(0 28px 32px rgba(0, 0, 0, 0.56));  z-index: 3; }
+
+
+:root {
+  --rose-gold: #e9b4ac;
+  --rose-gold-rgb: 233, 180, 172;
+  --rose-gold-light: #f5d5c9;
+  --rose-gold-light-rgb: 245, 213, 201;
+  --rose-gold-deep: #b76e79;
+  --rose-gold-deep-rgb: 183, 110, 121;
+  --accent: var(--rose-gold);
+  --accent-soft: rgba(var(--rose-gold-rgb), 0.18);
+  --accent-strong: var(--rose-gold-light);
+  --neutral-accent: var(--rose-gold-light);
+  --line: rgba(var(--rose-gold-rgb), 0.2);
+  --line-strong: rgba(var(--rose-gold-rgb), 0.36);
+  --line-warm: rgba(var(--rose-gold-rgb), 0.24);
+  --glass-fill: linear-gradient(145deg, rgba(var(--rose-gold-light-rgb), 0.085), rgba(var(--rose-gold-rgb), 0.02));
+}
+.page-wrapper > .page-header {
+  border: 2px solid rgba(213, 143, 147, 0.55);
+  border-top-color: rgba(242, 200, 186, 0.88);
+  border-left-color: rgba(220, 160, 142, 0.72);
+  border-bottom-color: rgba(152, 86, 98, 0.60);
+  border-radius: 10px;
+  margin-bottom: 32px;
+  box-shadow: inset 0 1px 0 rgba(245, 213, 201, 0.12), inset 1px 0 0 rgba(220, 160, 142, 0.08), 0 18px 48px rgba(0, 0, 0, 0.38);
+}
+.page-header .hero-title-context,
+.header-highlight,
+.featured-highlight-label,
+.featured-highlight-pill,
+.mod-search-count,
+.section-chip,
+.default-preset-selected,
+.template-pill {
+  color: var(--rose-gold);
+}
+.mods-section-title,
+.templates-section h2,
+.mini-steps-title,
+.section-title,
+.panel h2,
+.modal-title,
+.modal-body h4,
+#modal-dialog h2 {
+  color: #ffffff;
+}
+.mods-section-title::before { color: var(--rose-gold-deep); }
+.mods-section-title,
+.templates-section > h2,
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2vw, 28px);
+}
+.mods-section-title::after,
+.templates-section > h2::after,
+.section-title::after {
+  content: "";
+  display: block;
+  flex: 1 1 48px;
+  min-width: 24px;
+  height: 1px;
+  margin-left: 0;
+  border: 0;
+  background: linear-gradient(90deg, rgba(var(--rose-gold-rgb), 0.65), rgba(var(--rose-gold-rgb), 0.14));
+  pointer-events: none;
+}
+.mods-section .card::after { background: linear-gradient(90deg, transparent, rgba(var(--rose-gold-light-rgb), 0.65), transparent); }
+.page-header .hero-join-link { color: #f5d5c9; border-color: rgba(213, 143, 147, 0.44); background: linear-gradient(145deg, rgba(233, 180, 172, 0.09), rgba(183, 110, 121, 0.025)), #100c0e; box-shadow: inset 0 1px 0 rgba(245, 213, 201, 0.1); }
+.page-header .hero-join-link:hover { color: #ffe8df; border-color: #d99c95; box-shadow: 0 0 22px rgba(183, 110, 121, 0.18), 0 14px 32px rgba(0, 0, 0, 0.52); }
+.page-header .hero-browse-link { border-color: var(--rose-gold-light); background: linear-gradient(150deg, #f5d5c9, var(--rose-gold) 55%, #b76e79); color: #29191f; box-shadow: inset 0 1px 0 #ffe8df, 0 0 24px rgba(var(--rose-gold-rgb), 0.16); }
+.page-header .hero-browse-link:hover { color: #1c1016; background: linear-gradient(150deg, #ffe8df, var(--rose-gold-light)); box-shadow: 0 0 30px rgba(var(--rose-gold-rgb), 0.3); }
+.page-wrapper .mods-category-nav a:hover,
+.page-wrapper .mods-category-nav a:focus-visible,
+.page-wrapper .filter-chip.active {
+  color: var(--rose-gold-light);
+  background: rgba(var(--rose-gold-rgb), 0.09);
+}
+.page-wrapper .filter-chip::before { background-color: var(--rose-gold); }
+.page-wrapper .field input,
+.page-wrapper input[type="range"],
+.page-wrapper input[type="checkbox"],
+.page-wrapper input[type="radio"],
+.page-wrapper .gen-stop input[type="range"] { accent-color: var(--rose-gold); }
+.page-wrapper .advanced-collapsible summary::after { border-color: rgba(var(--rose-gold-rgb), 0.3); color: var(--rose-gold-light); background: rgba(var(--rose-gold-rgb), 0.06); }
+.page-wrapper .default-preset-btn.selected,
+.page-wrapper .default-color-btn.selected { border-color: rgba(var(--rose-gold-rgb), 0.76); box-shadow: 0 0 0 2px rgba(var(--rose-gold-rgb), 0.16); }
+.page-wrapper .default-preset-selected { border-color: rgba(var(--rose-gold-rgb), 0.3); background: rgba(var(--rose-gold-rgb), 0.07); }
+.page-wrapper .featured-spotlight-dismiss { color: #f5d5c9; }
+:root { --gold: var(--rose-gold); }
+body { background: radial-gradient(circle at 18% -8%, rgba(var(--rose-gold-deep-rgb), .08), transparent 28rem), radial-gradient(circle at 86% 12%, rgba(116,68,78,.07), transparent 26rem), linear-gradient(180deg,#000,#010103 54%,#000); }
+#navbar { --accent:var(--rose-gold); --accent-soft:rgba(var(--rose-gold-deep-rgb),.2); --accent-strong:var(--rose-gold-light); }
+#navbar .dropbtn { background:#1c1419; border-color:rgba(var(--rose-gold-rgb),.3); }
+#navbar .hamburger span { background:linear-gradient(90deg,var(--rose-gold-deep),var(--rose-gold-light)); }
+#navbar .dropdown-content { background:#151015; border-color:rgba(var(--rose-gold-rgb),.25); }
+#navbar .dropdown-content a:hover, #navbar .menu-nav-btn:hover, #navbar .menu-back-btn:hover { color:var(--rose-gold-light); background:rgba(var(--rose-gold-rgb),.08); }
+#navbar .beta-glow { color:var(--rose-gold) !important; animation:none; text-shadow:0 0 12px rgba(var(--rose-gold-rgb),.2); }
+.page-header h1 { max-width:100%; }
+.page-header .hero-title-accent { background-image:linear-gradient(95deg,#fff 4%,#f5d5c9 32%,#e9b4ac 68%,#b76e79); }
+.info-paragraph, .panel, .inline-preview-panel, .collapsible-card, .default-presets, .advanced-panel, .icon-picker-menu { border-color:var(--line); }
+.gen-controls .field, .gen-stop, .advanced-adjustment, .copy-btn, .default-preset-btn, .default-color-btn, .icon-btn { border-color:rgba(var(--rose-gold-rgb),.24); }
+.copy-btn { color:var(--rose-gold-light); box-shadow:inset 0 1px 0 rgba(var(--rose-gold-rgb),.08); }
+.copy-btn:hover, .copy-btn:focus-visible { border-color:var(--rose-gold); box-shadow:0 0 18px rgba(var(--rose-gold-rgb),.14); }
+.copy-btn.download-glow { color:var(--rose-gold-light); border-color:rgba(var(--rose-gold-rgb),.3); }
+.copy-btn.download-glow:hover { border-color:var(--rose-gold); }
+.gen-controls input:focus-visible, .gen-controls select:focus-visible, .gen-controls textarea:focus-visible { border-color:var(--rose-gold); box-shadow:0 0 0 3px rgba(var(--rose-gold-rgb),.1); }
+.bulk-open, .bulk-open[aria-expanded="true"] { color:var(--rose-gold-light); border-color:rgba(var(--rose-gold-rgb),.55); background:linear-gradient(145deg,rgba(var(--rose-gold-rgb),.1),rgba(var(--rose-gold-deep-rgb),.04)),#100c0e; }
+#bulk-converter { border-color:rgba(var(--rose-gold-rgb),.4); background:linear-gradient(155deg,#1b1216,#0c0c10 65%); }
+.bulk-kicker { color:var(--rose-gold); }
+.bulk-close, .bulk-drop, .bulk-settings, .bulk-table-wrap { border-color:rgba(var(--rose-gold-rgb),.3); }
+.bulk-table th { background:#2a1e24; color:var(--rose-gold-light); }
+.bulk-table th, .bulk-table td { border-bottom-color:rgba(var(--rose-gold-rgb),.17); }
+.bulk-drop input::file-selector-button { background:#302127; border-color:rgba(var(--rose-gold-rgb),.5); color:var(--rose-gold-light); }
+#bulk-converter input[type="checkbox"] { accent-color:var(--rose-gold); }
+#bulk-converter :focus-visible, .bulk-open:focus-visible { outline-color:var(--rose-gold); }
+.bulk-primary { color:#29191f !important; border-color:var(--rose-gold-light) !important; background:linear-gradient(150deg,#f5d5c9,#e9b4ac 55%,#b76e79) !important; box-shadow:inset 0 1px 0 #ffe8df; }
+.bulk-primary:hover { background:linear-gradient(150deg,#ffe8df,#f5d5c9) !important; }
+.bulk-pill { color:var(--rose-gold-light); border-color:rgba(var(--rose-gold-rgb),.3); background:rgba(var(--rose-gold-rgb),.06); }
+@media(max-width:1020px) {
+  .page-header { grid-template-columns:minmax(0,1fr); min-height:0; gap:20px; }
+  .page-header h1 { font-size:clamp(3.5rem,8vw,5.5rem); }
+  .hero-panel { min-height:330px; }
+  .hero-panel > img { width:min(74%,330px); max-height:370px; }
+  .hero-panel::before { width:min(76vw,480px); }
+  .hero-panel::after, .hero-banner-card { inset:12% 14% 8%; }
+}
+@media (max-width: 680px) {
+  .page-wrapper { width:calc(100% - 28px); padding:22px 0 56px; }
+  .page-header { gap:14px; padding:26px 22px; }
+  .page-header h1 { font-size:clamp(2.6rem,12vw,4.25rem); }
+  .page-header-subtitle { margin-top:20px; font-size:.95rem; }
+  .header-actions { display:grid; grid-template-columns:1fr; }
+  .hero-join-link { width:100%; }
+  .hero-panel { min-height:250px; }
+  .hero-panel::before { width:min(96%,340px); }
+  .hero-panel > img { width:min(76%,252px); max-height:290px; }
+  .hero-panel::after, .hero-banner-card { inset:14% 5% 10%; border-radius:20px; }
+  .page-wrapper > .page-header { border-radius: 8px; margin-bottom: 28px; }
+}
+@media(max-width:380px) { .page-header { padding:24px 18px; } .page-header h1 { font-size:clamp(2.3rem,11.5vw,2.75rem); } }
+@media(prefers-reduced-motion:reduce) { .hero-copy,.hero-panel { animation:none; opacity:1; transform:none; } }
+
+
+</style>
   </head>
 
   <body>
@@ -2900,9 +3226,98 @@ input[type="radio"] { accent-color: #d4d4d8; }
         </div>
       </header>
 
-      <p class="info-paragraph">
-        Generate <strong>ready-to-paste tags</strong> with colors, fonts, permissions, presets, and mod-specific output.
-      </p>
+      <div class="info-paragraph bulk-launch">
+        <p>Generate <strong>ready-to-paste tags</strong> with colors, fonts, permissions, presets, and mod-specific output.</p>
+        <button type="button" class="copy-btn bulk-open" id="bulk-toggle" aria-expanded="false" aria-controls="bulk-panel">Convert tags between mods <span aria-hidden="true">↔</span></button>
+      </div>
+
+      <section id="bulk-panel" aria-labelledby="bulk-title" hidden>
+        <div id="bulk-converter">
+          <div class="bulk-heading">
+            <div>
+              <p class="bulk-kicker">Bulk tag converter</p>
+              <h2 id="bulk-title" tabindex="-1">Move your tags to a different mod.</h2>
+              <p class="bulk-muted">Move your collection between EHR and TONE / TOHE:E. Keep the colors and choose who gets access to what.</p>
+            </div>
+            <button id="bulk-close" class="bulk-close" type="button" aria-label="Close bulk tag converter">×</button>
+          </div>
+          <form id="bulk-form">
+            <fieldset id="bulk-fields" style="border:0;padding:0;margin:0;min-width:0">
+              <legend class="bulk-kicker">1 · Choose your mods</legend>
+              <div class="bulk-fields">
+                <label class="bulk-field" for="bulk-source">Convert from
+                  <select id="bulk-source"><option value="ehr">EHR</option><option value="tone">TONE / TOHE:E</option></select>
+                </label>
+                <label class="bulk-field" for="bulk-target">Convert to
+                  <select id="bulk-target"><option value="tone">TONE / TOHE:E</option><option value="ehr">EHR</option></select>
+                </label>
+              </div>
+              <label class="bulk-drop" for="bulk-file">
+                <strong>2 · Choose your tag ZIP</strong>
+                <span class="bulk-muted">Up to 5 MB · 500 tags · friend-code .txt files, with or without a folder</span>
+                <input type="file" id="bulk-file" accept=".zip,application/zip" required />
+              </label>
+              <aside class="bulk-settings bulk-permission-guide" aria-labelledby="bulk-permission-guide-title">
+                <h3 id="bulk-permission-guide-title">TOHE:E permission levels (0–5)</h3>
+                <p class="bulk-muted">Choose a level using the permissions listed in the default TOHE:E tag file:</p>
+                <dl>
+                  <div><dt>0 — Cosmetic only</dt><dd>Displays the tag without granting command access through the permission level.</dd></div>
+                  <div><dt>1 — VIP</dt><dd>Access to <code>/color</code> and <code>/rn</code>.</dd></div>
+                  <div><dt>2 — Warn</dt><dd>Access to <code>/warn</code>.</dd></div>
+                  <div><dt>3 — Start</dt><dd>Access to <code>/start</code>.</dd></div>
+                  <div><dt>4 — Kick</dt><dd>Access to <code>/kick</code>.</dd></div>
+                  <div><dt>5 — Ban</dt><dd>Access to <code>/ban</code>.</dd></div>
+                </dl>
+                <p class="bulk-muted"><strong>Separate settings:</strong> Say, End, Execute, and Game Master access use their own switches. Choose those separately from the permission level.</p>
+              </aside>
+              <div class="bulk-settings" id="bulk-forward">
+                <h3>3 · Set permissions for each role</h3>
+                <p class="bulk-muted">When several EHR flags are enabled, Admin takes priority, then Moderator, then VIP. Gradients and other TextMeshPro markup go in TagName; TagColor stays blank.</p>
+                <div class="bulk-table-wrap">
+                  <table class="bulk-table">
+                    <thead><tr><th scope="col">EHR role</th><th scope="col">Permission<br />0–5</th><th scope="col">Say</th><th scope="col">End</th><th scope="col">Execute</th><th scope="col">Game<br />Master</th></tr></thead>
+                    <tbody id="bulk-forward-rows"></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="bulk-settings" id="bulk-reverse" hidden>
+                <h3>3 · Choose the EHR roles</h3>
+                <p class="bulk-muted">Match each TOHE:E permission level to an EHR role. You can change individual players after checking the ZIP.</p>
+                <p class="bulk-warning">A permission level does not identify a role by itself. Level 5 defaults to Moderator; select Admin for the right players in the preview. Individual command access and Game Master settings cannot be carried over to EHR.</p>
+                <div class="bulk-table-wrap">
+                  <table class="bulk-table"><thead><tr><th scope="col">TOHE:E permission</th><th scope="col">EHR role</th></tr></thead><tbody id="bulk-reverse-rows"></tbody></table>
+                </div>
+              </div>
+              <p class="bulk-token-note">Your ZIP stays on your device. Checking and converting happen entirely in your browser.</p>
+              <div id="bulk-preview" class="bulk-preview" hidden>
+                <h3>Review your tags</h3>
+                <div id="bulk-summary" class="bulk-summary"></div>
+                <p id="bulk-warnings" class="bulk-warning" hidden></p>
+                <div class="bulk-table-wrap">
+                  <table class="bulk-table"><thead><tr><th scope="col">Friend-code file</th><th scope="col" id="bulk-role-heading">Source role</th><th scope="col">Permission</th><th scope="col">Tag</th></tr></thead><tbody id="bulk-preview-rows"></tbody></table>
+                </div>
+                <p class="bulk-token-note">Original friend-code filenames are kept. The download contains the converted .txt files at the top level.</p>
+              </div>
+            </fieldset>
+            <div class="bulk-actions">
+              <button id="bulk-inspect" type="submit" class="copy-btn">Check ZIP &amp; preview</button>
+              <button id="bulk-convert" type="button" class="copy-btn bulk-primary" disabled>Convert &amp; download ZIP</button>
+              <a id="bulk-download" class="copy-btn" style="width:auto" hidden>Download ZIP again</a>
+            </div>
+            <p id="bulk-status" class="bulk-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            <section id="bulk-errors" class="bulk-errors" aria-labelledby="bulk-errors-title" hidden>
+              <h3 id="bulk-errors-title">Files that need attention</h3>
+              <p id="bulk-errors-summary" class="bulk-muted" role="status" aria-live="polite" aria-atomic="true"></p>
+              <ol id="bulk-error-list" class="bulk-error-list"></ol>
+              <div id="bulk-error-nav" class="bulk-error-nav" hidden>
+                <button id="bulk-errors-prev" class="copy-btn" type="button" aria-label="Previous 10 file errors">Previous</button>
+                <span id="bulk-error-page" class="bulk-error-page"></span>
+                <button id="bulk-errors-next" class="copy-btn" type="button" aria-label="Next 10 file errors">Next</button>
+              </div>
+            </section>
+          </form>
+        </div>
+      </section>
 
       <main class="content-grid">
         <section class="panel" id="name-tag-generator">
@@ -3950,7 +4365,7 @@ input[type="radio"] { accent-color: #d4d4d8; }
         const m = currentMod();
         ehrPerms.hidden = m !== "ehr";
         tonePerms.hidden = m !== "tone";
-        trailWrap.hidden = !(m === "ehr" || m === "toho");
+        trailWrap.hidden = !["ehr", "tone", "toho"].includes(m);
         tohoInstructions.hidden = m !== "toho";
         mainConfig.hidden = m === "lotus";
         lotusConfig.hidden = m !== "lotus";
@@ -7072,7 +7487,7 @@ LowerText:
       function playerNamePreviewHtml(mod) {
         const playerName = sanitizeTagText(playerNameInput.value || "YourName");
         const playerColor =
-          (mod === "ehr" || mod === "toho") && trailEnabled?.checked
+          ["ehr", "tone", "toho"].includes(mod) && trailEnabled?.checked
             ? readHexValue(trailHexInput, trailColorInput, "#98FB98", true)
             : "#FFFFFF";
         return `<span style="color:${playerColor}; font-family:&quot;Roboto&quot;, sans-serif">${escapeHtml(
@@ -7102,7 +7517,7 @@ LowerText:
         baseTagText = buildAdvancedTagText(text, mode, fontName, materialName, tagSize);
         exportTagText = baseTagText;
 
-        if ((mod === "ehr" || mod === "toho") && trailEnabled && trailEnabled.checked) {
+        if (["ehr", "tone", "toho"].includes(mod) && trailEnabled && trailEnabled.checked) {
           const tHex = readHexValue(trailHexInput, trailColorInput, "#98FB98", true);
           exportTagText += `<color=${tHex}>`;
         }
@@ -7147,7 +7562,7 @@ LowerText:
               ? "y"
               : "n";
 
-          const tagNameLine = `TagName: ${baseTagText}`;
+          const tagNameLine = `TagName: ${exportTagText}`;
           const tagColorLine =
             mode === "solid"
               ? `TagColor: ${readHexValue(solidHexIn, solidColIn, "#FFB6C1", false)}`
@@ -7248,6 +7663,398 @@ LowerText:
       })();
     </script>
     <script src="/scripts/navbar.js"></script>
+    <script>
+(() => {
+  'use strict';
+const LIMITS = Object.freeze({ upload: 5 * 1024 * 1024, expanded: 10 * 1024 * 1024,
+  file: 64 * 1024, files: 500, entries: 1000, ratio: 200 });
+class InputError extends Error { constructor(message, status = 400) { super(message); this.status = status; } }
+class BatchInputError extends InputError {
+  constructor(errors, totalFiles) {
+    super(`${errors.length} file${errors.length === 1 ? ' needs' : 's need'} attention. Fix the errors below and check the ZIP again.`);
+    this.errors = errors;
+    this.totalFiles = totalFiles;
+  }
+}
+const fail = message => { throw new InputError(message); };
+const enc = new TextEncoder();
+const dec = new TextDecoder('utf-8', { fatal: true });
+const ROLES = ['None', 'VIP', 'Mod', 'Admin'];
+const FIELDS = ['TagName', 'TagColor', 'PermissionLevel', 'SayCommandAccess', 'EndCommandAccess', 'ExecuteCommandAccess', 'AssignGameMaster'];
+const DEFAULT_FORWARD = {
+  None: { level: 0, say: false, end: false, execute: false, gm: false },
+  VIP: { level: 1, say: true, end: false, execute: false, gm: false },
+  Mod: { level: 5, say: true, end: false, execute: false, gm: false },
+  Admin: { level: 5, say: true, end: true, execute: true, gm: false }
+};
+const DEFAULT_REVERSE = ['None', 'VIP', 'VIP', 'Mod', 'Mod', 'Mod'];
+const crcTable = Uint32Array.from({ length: 256 }, (_, n) => {
+  for (let j = 0; j < 8; j++) n = (n & 1) ? 0xedb88320 ^ (n >>> 1) : n >>> 1;
+  return n >>> 0;
+});
+function crc32(bytes) {
+  let n = 0xffffffff;
+  for (const b of bytes) n = crcTable[(n ^ b) & 255] ^ (n >>> 8);
+  return (n ^ 0xffffffff) >>> 0;
+}
+async function readLimited(stream, max) {
+  if (!stream) return new Uint8Array();
+  const reader = stream.getReader();
+  const chunks = [];
+  let size = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      size += value.byteLength;
+      if (size > max) { await reader.cancel(); throw new InputError('File or request exceeds the size limit.', 413); }
+      chunks.push(value);
+    }
+  } finally { reader.releaseLock(); }
+  const bytes = new Uint8Array(size);
+  let offset = 0;
+  for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
+  return bytes;
+}
+function text(bytes) {
+  try { return dec.decode(bytes); } catch { fail('Tag files and filenames must use UTF-8 text.'); }
+}
+async function unzip(input) {
+  const bytes = input instanceof Uint8Array ? input : new Uint8Array(input);
+  if (bytes.length > LIMITS.upload) throw new InputError('ZIP must be 5 MB or smaller.', 413);
+  if (bytes.length < 22) fail('This is not a valid ZIP.');
+  const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+  const u16 = p => view.getUint16(p, true), u32 = p => view.getUint32(p, true);
+  let end = -1;
+  for (let p = bytes.length - 22; p >= Math.max(0, bytes.length - 65557); p--) {
+    if (u32(p) === 0x06054b50 && p + 22 + u16(p + 20) === bytes.length) { end = p; break; }
+  }
+  if (end < 0) fail('ZIP directory is missing or damaged.');
+  if (u16(end + 4) || u16(end + 6) || u16(end + 8) !== u16(end + 10)) fail('Split ZIPs are not supported.');
+  const count = u16(end + 10), directorySize = u32(end + 12), directory = u32(end + 16);
+  if (count === 65535 || directory === 0xffffffff || directorySize === 0xffffffff) fail('ZIP64 archives are not supported.');
+  if (count > LIMITS.entries || directory + directorySize !== end) fail('ZIP has too many entries or an invalid directory.');
+  const entries = [], names = new Set(), ranges = [];
+  let cursor = directory, total = 0;
+  for (let i = 0; i < count; i++) {
+    if (cursor + 46 > end || u32(cursor) !== 0x02014b50) fail('ZIP directory entry is damaged.');
+    const flags = u16(cursor + 8), method = u16(cursor + 10), crc = u32(cursor + 16);
+    const compressed = u32(cursor + 20), expanded = u32(cursor + 24);
+    const nameLength = u16(cursor + 28), extra = u16(cursor + 30), comment = u16(cursor + 32);
+    const offset = u32(cursor + 42), mode = u32(cursor + 38) >>> 16;
+    const next = cursor + 46 + nameLength + extra + comment;
+    if (next > end || !nameLength || u16(cursor + 34)) fail('ZIP directory entry is invalid.');
+    const name = text(bytes.subarray(cursor + 46, cursor + 46 + nameLength));
+    if (name.length > 240 || /[\\\x00-\x1f:]/.test(name) || name.startsWith('/') || name.split('/').some(p => p === '..' || p === '.')) fail('ZIP contains an unsafe path.');
+    if ((mode & 0xf000) === 0xa000) fail('ZIP symbolic links are not allowed.');
+    if ((flags & ~0x080e) || ![0, 8].includes(method)) fail('Encrypted ZIPs and this compression method are not supported.');
+    if (expanded === 0xffffffff || compressed === 0xffffffff || offset === 0xffffffff) fail('ZIP64 entries are not supported.');
+    if (offset + 30 > directory || u32(offset) !== 0x04034b50) fail('ZIP local header is damaged.');
+    const localName = u16(offset + 26), localExtra = u16(offset + 28);
+    const start = offset + 30 + localName + localExtra;
+    if (start + compressed > directory || text(bytes.subarray(offset + 30, offset + 30 + localName)) !== name || u16(offset + 6) !== flags || u16(offset + 8) !== method) fail('ZIP headers do not agree.');
+    if (!(flags & 8) && (u32(offset + 14) !== crc || u32(offset + 18) !== compressed || u32(offset + 22) !== expanded)) fail('ZIP size or checksum headers do not agree.');
+    ranges.push([offset, start + compressed]);
+    cursor = next;
+    if (name.endsWith('/')) { if (expanded || compressed) fail('ZIP directory entry contains data.'); continue; }
+    const basename = name.split('/').at(-1);
+    if (!/^[a-z0-9][a-z0-9_-]{0,47}#[0-9]{4,10}\.txt$/i.test(basename)) fail(`Only friend-code .txt files are accepted: ${name}`);
+    const normalized = basename.toLowerCase();
+    if (names.has(normalized)) fail(`Duplicate friend code: ${basename}`);
+    names.add(normalized);
+    total += expanded;
+    if (expanded > LIMITS.file || total > LIMITS.expanded || entries.length >= LIMITS.files) throw new InputError('ZIP exceeds 500 tags, 64 KB per tag, or 10 MB expanded.', 413);
+    if (expanded > Math.max(compressed, 1) * LIMITS.ratio) fail('ZIP expansion ratio is too high.');
+    if (method === 0 && compressed !== expanded) fail('Stored ZIP entry size is invalid.');
+    entries.push({ name: basename, start, compressed, expanded, crc, method });
+  }
+  if (cursor !== end || !entries.length) fail('ZIP contains no supported tags or has an invalid directory.');
+  ranges.sort((a, b) => a[0] - b[0]);
+  for (let i = 1; i < ranges.length; i++) if (ranges[i][0] < ranges[i - 1][1]) fail('ZIP entries overlap.');
+  const files = [];
+  for (const entry of entries) {
+    const compressed = bytes.subarray(entry.start, entry.start + entry.compressed);
+    let content;
+    try {
+      content = entry.method === 0 ? compressed : await readLimited(new Blob([compressed]).stream().pipeThrough(new DecompressionStream('deflate-raw')), entry.expanded);
+    } catch (error) {
+      if (error instanceof InputError) throw error;
+      fail(`Cannot decompress ${entry.name}.`);
+    }
+    if (content.length !== entry.expanded || crc32(content) !== entry.crc) fail(`ZIP checksum or size mismatch: ${entry.name}`);
+    files.push({ name: entry.name, text: text(content) });
+  }
+  return files;
+}
+function object(value) { return value && typeof value === 'object' && !Array.isArray(value); }
+function validateSettings(settings, source, target) {
+  if (!['ehr', 'tone'].includes(source) || !['ehr', 'tone'].includes(target) || source === target) fail('Select different supported source and destination mods.');
+  if (!object(settings)) fail('Permission settings are missing.');
+  if (target === 'tone') {
+    for (const role of ROLES) {
+      const row = settings.forward?.[role];
+      if (!object(row) || !Number.isInteger(row.level) || row.level < 0 || row.level > 5 || ['say', 'end', 'execute', 'gm'].some(k => typeof row[k] !== 'boolean')) fail(`Invalid settings for ${role}.`);
+    }
+  } else {
+    if (!Array.isArray(settings.reverse) || settings.reverse.length !== 6 || settings.reverse.some(role => !ROLES.includes(role))) fail('Choose an EHR role for each permission level.');
+    if (settings.overrides !== undefined && (!object(settings.overrides) || Object.keys(settings.overrides).length > LIMITS.files || Object.values(settings.overrides).some(role => !ROLES.includes(role)))) fail('Invalid individual role selections.');
+  }
+}
+function parseEhr(file) {
+  let data;
+  try { data = JSON.parse(file.text.replace(/^\uFEFF/, '')); } catch { fail(`${file.name}: expected EHR JSON.`); }
+  if (!object(data) || ['Vip', 'Moderator', 'Admin'].some(key => typeof data[key] !== 'boolean') || typeof data.Tag !== 'string') fail(`${file.name}: missing EHR role flags or Tag.`);
+  if (/[\r\n\x00]/.test(data.Tag)) fail(`${file.name}: Tag must be a single line; use TMP markup for line breaks.`);
+  const known = ['Vip', 'Moderator', 'Admin', 'Tag'];
+  return { name: file.name, tag: data.Tag, role: data.Admin ? 'Admin' : data.Moderator ? 'Mod' : data.Vip ? 'VIP' : 'None',
+    warnings: Object.keys(data).some(k => !known.includes(k)) ? ['Additional EHR fields are not exported.'] : [] };
+}
+function parseTone(file) {
+  const fields = Object.create(null), warnings = [];
+  for (const line of file.text.replace(/^\uFEFF/, '').split(/\r?\n/)) {
+    if (!line.trim() || line.trimStart().startsWith('#') || line.trimStart().startsWith('//')) continue;
+    const colon = line.indexOf(':');
+    if (colon < 0) fail(`${file.name}: expected TOHE:E Key: Value format.`);
+    const key = line.slice(0, colon).trim();
+    if (Object.hasOwn(fields, key)) fail(`${file.name}: duplicate ${key}.`);
+    fields[key] = line.slice(colon + 1).replace(/^ /, '');
+  }
+  const missing = FIELDS.filter(k => k !== 'AssignGameMaster' && !Object.hasOwn(fields, k));
+  if (missing.length) fail(`${file.name}: missing TOHE:E fields: ${missing.join(', ')}.`);
+  if (!Object.hasOwn(fields, 'AssignGameMaster')) {
+    fields.AssignGameMaster = 'n';
+    warnings.push('AssignGameMaster was omitted and treated as no.');
+  }
+  const level = fields.PermissionLevel.trim();
+  if (!/^[0-5]$/.test(level)) fail(`${file.name}: permission level must be 0–5.`);
+  const access = {};
+  for (const key of FIELDS.slice(3)) {
+    const value = fields[key].trim().toLowerCase();
+    if (!['y', 'yes', 'n', 'no'].includes(value)) fail(`${file.name}: ${key} must be y/yes or n/no.`);
+    access[key] = value === 'y' || value === 'yes';
+  }
+  if (/[\r\n\x00]/.test(fields.TagName)) fail(`${file.name}: invalid tag text.`);
+  let tag = fields.TagName;
+  const color = fields.TagColor.trim();
+  if (color) {
+    if (!/^#?[0-9a-f]{6}([0-9a-f]{2})?$/i.test(color)) fail(`${file.name}: TagColor must be a hex color or blank.`);
+    tag = `<color=#${color.replace(/^#/, '')}>${tag}</color>`;
+  }
+  if (Object.keys(fields).some(k => !FIELDS.includes(k))) warnings.push('Additional TOHE:E fields are not exported.');
+  warnings.push('EHR uses role flags; individual command access and Game Master settings have no direct equivalent.');
+  return { name: file.name, tag, level: Number(level), access, warnings };
+}
+async function inspectArchive(bytes, source) {
+  if (!['ehr', 'tone'].includes(source)) fail('Select a supported source mod.');
+  const files = await unzip(bytes);
+  const records = [], errors = [];
+  for (const file of files) {
+    try { records.push(source === 'ehr' ? parseEhr(file) : parseTone(file)); }
+    catch (error) {
+      if (!(error instanceof InputError)) throw error;
+      const prefix = file.name + ': ';
+      errors.push({ file: file.name, message: error.message.startsWith(prefix) ? error.message.slice(prefix.length) : error.message });
+    }
+  }
+  if (errors.length) throw new BatchInputError(errors, files.length);
+  return records;
+}
+function convertRecords(records, source, target, settings) {
+  validateSettings(settings, source, target);
+  if (settings.overrides && Object.keys(settings.overrides).some(name => !records.some(r => r.name === name))) fail('Role overrides reference a file outside this ZIP.');
+  const files = records.map(record => {
+    if (target === 'tone') {
+      const rule = settings.forward[record.role];
+      const values = [record.tag, '', rule.level, rule.say ? 'y' : 'n', rule.end ? 'y' : 'n', rule.execute ? 'y' : 'n', rule.gm ? 'y' : 'n'];
+      return { name: record.name, text: FIELDS.map((key, i) => `${key}:${values[i] === '' ? '' : ' ' + values[i]}`).join('\r\n') + '\r\n' };
+    }
+    const role = settings.overrides?.[record.name] ?? settings.reverse[record.level];
+    return { name: record.name, text: JSON.stringify({ Vip: role !== 'None', Moderator: ['Mod', 'Admin'].includes(role), Admin: role === 'Admin', Tag: record.tag }, null, 2) + '\r\n' };
+  });
+  return zip(files);
+}
+function zip(files) {
+  const chunks = [], central = [];
+  let offset = 0, centralSize = 0;
+  for (const file of files) {
+    const name = enc.encode(file.name), data = enc.encode(file.text), crc = crc32(data);
+    const local = new Uint8Array(30 + name.length), lv = new DataView(local.buffer);
+    lv.setUint32(0, 0x04034b50, true); lv.setUint16(4, 20, true); lv.setUint16(6, 0x800, true);
+    lv.setUint16(12, 33, true); lv.setUint32(14, crc, true); lv.setUint32(18, data.length, true); lv.setUint32(22, data.length, true); lv.setUint16(26, name.length, true); local.set(name, 30);
+    const cd = new Uint8Array(46 + name.length), cv = new DataView(cd.buffer);
+    cv.setUint32(0, 0x02014b50, true); cv.setUint16(4, 20, true); cv.setUint16(6, 20, true); cv.setUint16(8, 0x800, true);
+    cv.setUint16(14, 33, true); cv.setUint32(16, crc, true); cv.setUint32(20, data.length, true); cv.setUint32(24, data.length, true); cv.setUint16(28, name.length, true); cv.setUint32(42, offset, true); cd.set(name, 46);
+    chunks.push(local, data); central.push(cd); offset += local.length + data.length; centralSize += cd.length;
+  }
+  const end = new Uint8Array(22), ev = new DataView(end.buffer);
+  ev.setUint32(0, 0x06054b50, true); ev.setUint16(8, files.length, true); ev.setUint16(10, files.length, true); ev.setUint32(12, centralSize, true); ev.setUint32(16, offset, true);
+  const result = new Uint8Array(offset + centralSize + 22);
+  let cursor = 0;
+  for (const chunk of [...chunks, ...central, end]) { result.set(chunk, cursor); cursor += chunk.length; }
+  return result;
+}
+
+  const $ = id => document.getElementById('bulk-' + id);
+  const roles = ['None', 'VIP', 'Mod', 'Admin'];
+  const labels = { None: 'No role', VIP: 'VIP', Mod: 'Moderator', Admin: 'Admin' };
+  const defaults = { None: [0, false, false, false, false], VIP: [1, true, false, false, false], Mod: [5, true, false, false, false], Admin: [5, true, true, true, false] };
+  const reverseDefaults = ['None', 'VIP', 'VIP', 'Mod', 'Mod', 'Mod'];
+  let records = [], overrides = {}, busy = false, downloadUrl = null;
+  const ERROR_PAGE_SIZE = 10;
+  let fileErrors = [], errorPage = 0;
+  const setStatus = (message, kind = '') => { $('status').textContent = message; $('status').dataset.kind = kind; };
+  function clearErrors() {
+    fileErrors = []; errorPage = 0;
+    $('errors').hidden = true; $('error-list').replaceChildren();
+    $('errors-summary').textContent = ''; $('error-page').textContent = ''; $('error-nav').hidden = true;
+  }
+  function renderErrors() {
+    const pages = Math.ceil(fileErrors.length / ERROR_PAGE_SIZE);
+    errorPage = Math.max(0, Math.min(errorPage, pages - 1));
+    const first = errorPage * ERROR_PAGE_SIZE;
+    $('error-list').replaceChildren(); $('error-list').start = first + 1;
+    for (const error of fileErrors.slice(first, first + ERROR_PAGE_SIZE)) {
+      const item = document.createElement('li'), name = document.createElement('strong');
+      name.textContent = error.file;
+      item.append(name, document.createTextNode(': ' + error.message));
+      $('error-list').append(item);
+    }
+    $('errors-summary').textContent = `Showing errors ${first + 1}–${Math.min(first + ERROR_PAGE_SIZE, fileErrors.length)} of ${fileErrors.length}.`;
+    $('error-page').textContent = `Page ${errorPage + 1} of ${pages}`;
+    $('errors-prev').disabled = errorPage === 0;
+    $('errors-next').disabled = errorPage === pages - 1;
+    $('error-nav').hidden = pages <= 1;
+    $('errors').hidden = false;
+  }
+  function showError(error, fallback) {
+    clearErrors();
+    setStatus(error.message || fallback, 'error');
+    if (error instanceof BatchInputError) { fileErrors = error.errors; renderErrors(); }
+  }
+  $('errors-prev').addEventListener('click', () => { if (errorPage > 0) { errorPage--; renderErrors(); } });
+  $('errors-next').addEventListener('click', () => { if ((errorPage + 1) * ERROR_PAGE_SIZE < fileErrors.length) { errorPage++; renderErrors(); } });
+  function roleSelect(value, onChange, label) {
+    const select = document.createElement('select');
+    select.setAttribute('aria-label', label);
+    for (const role of roles) { const option = document.createElement('option'); option.value = role; option.textContent = labels[role]; select.append(option); }
+    select.value = value;
+    select.addEventListener('change', () => onChange(select.value));
+    return select;
+  }
+  function cell(row, text) { const td = row.insertCell(); if (text !== undefined) td.textContent = text; return td; }
+  for (const role of roles) {
+    const row = $('forward-rows').insertRow();
+    cell(row, labels[role]);
+    const level = document.createElement('input');
+    level.type = 'number'; level.min = 0; level.max = 5; level.step = 1; level.required = true; level.value = defaults[role][0]; level.id = 'bulk-level-' + role;
+    level.setAttribute('aria-label', labels[role] + ' permission level'); cell(row).append(level);
+    ['say', 'end', 'execute', 'gm'].forEach((key, i) => {
+      const checkbox = document.createElement('input'); checkbox.type = 'checkbox'; checkbox.checked = defaults[role][i + 1]; checkbox.id = 'bulk-' + key + '-' + role;
+      checkbox.setAttribute('aria-label', labels[role] + ' ' + key + ' access'); cell(row).append(checkbox);
+    });
+  }
+  for (let level = 0; level < 6; level++) {
+    const row = $('reverse-rows').insertRow(); cell(row, 'Permission ' + level);
+    const select = roleSelect(reverseDefaults[level], () => { if (records.length) renderPreview(); }, 'EHR role for permission ' + level);
+    select.id = 'bulk-reverse-' + level; cell(row).append(select);
+  }
+  function settings() {
+    const forward = {};
+    for (const role of roles) forward[role] = { level: Number($('level-' + role).value), ...Object.fromEntries(['say', 'end', 'execute', 'gm'].map(key => [key, $(key + '-' + role).checked])) };
+    return { forward, reverse: Array.from({ length: 6 }, (_, i) => $('reverse-' + i).value), overrides };
+  }
+  function targetRole(record) { return overrides[record.name] ?? $('reverse-' + record.level).value; }
+  function destinationChanged() {
+    $('forward').hidden = $('target').value !== 'tone';
+    $('reverse').hidden = $('target').value !== 'ehr';
+    $('forward').querySelectorAll('input').forEach(input => { input.disabled = $('target').value !== 'tone'; });
+    $('reverse').querySelectorAll('select').forEach(select => { select.disabled = $('target').value !== 'ehr'; });
+  }
+  function clearPreview() {
+    clearErrors();
+    records = []; overrides = {}; $('preview').hidden = true; $('preview-rows').replaceChildren(); $('convert').disabled = true;
+    if (downloadUrl) { URL.revokeObjectURL(downloadUrl); downloadUrl = null; }
+    $('download').hidden = true;
+  }
+  function chooseDirection(changed) {
+    const other = changed === 'source' ? 'target' : 'source';
+    if ($(changed).value === $(other).value) $(other).value = $(changed).value === 'ehr' ? 'tone' : 'ehr';
+    clearPreview(); destinationChanged(); setStatus('');
+  }
+  $('source').addEventListener('change', () => chooseDirection('source'));
+  $('target').addEventListener('change', () => chooseDirection('target'));
+  $('file').addEventListener('change', () => { clearPreview(); setStatus(''); });
+  $('toggle').addEventListener('click', () => {
+    const open = $('panel').hidden;
+    $('panel').hidden = !open; $('toggle').setAttribute('aria-expanded', String(open));
+    if (open) $('title').focus();
+  });
+  $('close').addEventListener('click', () => { $('panel').hidden = true; $('toggle').setAttribute('aria-expanded', 'false'); $('toggle').focus(); });
+  function setBusy(value) {
+    busy = value; $('form').setAttribute('aria-busy', String(value));
+    $('fields').disabled = value;
+    $('inspect').disabled = value;
+    $('convert').disabled = value || !records.length;
+  }
+  async function readSelectedZip() {
+    const file = $('file').files[0];
+    if (!file || !file.name.toLowerCase().endsWith('.zip')) throw new Error('Choose a .zip file first.');
+    if (file.size > LIMITS.upload) throw new Error('Choose a ZIP no larger than 5 MB.');
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    return file.arrayBuffer();
+  }
+  function renderPreview() {
+    const config = settings();
+    $('preview-rows').replaceChildren(); $('summary').replaceChildren();
+    const counts = Object.fromEntries(roles.map(role => [role, 0]));
+    records.forEach(record => counts[$('target').value === 'tone' ? record.role : targetRole(record)]++);
+    for (const [label, count] of [['Tags', records.length], ...roles.map(role => [labels[role], counts[role]])]) {
+      const pill = document.createElement('span'); pill.className = 'bulk-pill'; pill.textContent = `${label}: ${count}`; $('summary').append(pill);
+    }
+    const reverse = $('target').value === 'ehr';
+    $('role-heading').textContent = reverse ? 'EHR role' : 'Source role';
+    for (const record of records) {
+      const row = $('preview-rows').insertRow(); cell(row, record.name);
+      const roleCell = cell(row);
+      if (reverse) roleCell.append(roleSelect(targetRole(record), value => { overrides[record.name] = value; renderPreview(); }, 'EHR role for ' + record.name));
+      else roleCell.textContent = labels[record.role];
+      cell(row, reverse ? String(record.level) : String(config.forward[record.role].level));
+      const details = document.createElement('details'), summary = document.createElement('summary'), pre = document.createElement('pre');
+      summary.textContent = 'View tag markup'; pre.textContent = record.tag; details.append(summary, pre); cell(row).append(details);
+    }
+    const warnings = [...new Set(records.flatMap(record => record.warnings))];
+    $('warnings').hidden = !warnings.length; $('warnings').textContent = warnings.join(' ');
+    $('preview').hidden = false; $('convert').disabled = busy;
+  }
+  $('forward').addEventListener('input', () => { if (records.length) renderPreview(); });
+  $('form').addEventListener('submit', async event => {
+    event.preventDefault(); if (busy) return;
+    clearPreview(); setBusy(true); setStatus('Checking your ZIP and reading tags…');
+    try {
+      const source = $('source').value, target = $('target').value;
+      validateSettings(settings(), source, target);
+      records = await inspectArchive(await readSelectedZip(), source); renderPreview(); setStatus(`${records.length} tags checked. Review the permissions, then convert.`, 'success');
+    } catch (error) { showError(error, 'Could not read this ZIP.'); }
+    finally { setBusy(false); }
+  });
+  $('convert').addEventListener('click', async () => {
+    if (busy || !records.length || !$('form').reportValidity()) return;
+    clearErrors(); setBusy(true); setStatus('Converting your tags…'); $('download').hidden = true;
+    try {
+      await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+      const archive = convertRecords(records, $('source').value, $('target').value, settings());
+      if (downloadUrl) URL.revokeObjectURL(downloadUrl);
+      downloadUrl = URL.createObjectURL(new Blob([archive], { type: 'application/zip' }));
+      $('download').href = downloadUrl; $('download').download = $('target').value === 'tone' ? 'TOHE-Tags.zip' : 'EHR-Tags.zip'; $('download').hidden = false; $('download').click();
+      setStatus(`Converted ${records.length} tags. Your ZIP is ready; use the download link if it did not start automatically.`, 'success');
+    } catch (error) { showError(error, 'Could not convert these tags.'); }
+    finally { setBusy(false); }
+  });
+  window.addEventListener('pagehide', () => { if (downloadUrl) URL.revokeObjectURL(downloadUrl); });
+  destinationChanged();
+})();
+
+    </script>
   </body>
 </html>
 
