@@ -3269,6 +3269,7 @@ body { background: radial-gradient(circle at 18% -8%, rgba(var(--rose-gold-deep-
                   <div><dt>5 — Ban</dt><dd>Access to <code>/ban</code>.</dd></div>
                 </dl>
                 <p class="bulk-muted"><strong>Separate settings:</strong> Say, End, Execute, and Game Master access use their own switches. Choose those separately from the permission level.</p>
+                <p class="bulk-token-note">Blank or missing command-access settings default to no. A blank or missing permission level defaults to 0.</p>
               </aside>
               <div class="bulk-settings" id="bulk-forward">
                 <h3>3 · Set permissions for each role</h3>
@@ -7819,17 +7820,13 @@ function parseTone(file) {
     if (Object.hasOwn(fields, key)) fail(`${file.name}: duplicate ${key}.`);
     fields[key] = line.slice(colon + 1).replace(/^ /, '');
   }
-  const missing = FIELDS.filter(k => k !== 'AssignGameMaster' && !Object.hasOwn(fields, k));
+  const missing = ['TagName', 'TagColor'].filter(k => !Object.hasOwn(fields, k));
   if (missing.length) fail(`${file.name}: missing TOHE:E fields: ${missing.join(', ')}.`);
-  if (!Object.hasOwn(fields, 'AssignGameMaster')) {
-    fields.AssignGameMaster = 'n';
-    warnings.push('AssignGameMaster was omitted and treated as no.');
-  }
-  const level = fields.PermissionLevel.trim();
+  const level = (fields.PermissionLevel ?? '').trim() || '0';
   if (!/^[0-5]$/.test(level)) fail(`${file.name}: permission level must be 0–5.`);
   const access = {};
   for (const key of FIELDS.slice(3)) {
-    const value = fields[key].trim().toLowerCase();
+    const value = (fields[key] ?? '').trim().toLowerCase() || 'no';
     if (!['y', 'yes', 'n', 'no'].includes(value)) fail(`${file.name}: ${key} must be y/yes or n/no.`);
     access[key] = value === 'y' || value === 'yes';
   }
