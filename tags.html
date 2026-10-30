@@ -2887,6 +2887,12 @@ input[type="radio"] { accent-color: #d4d4d8; }
 .bulk-drop input { font:inherit; width:100%; color:#e8dce3; }
 .bulk-drop input::file-selector-button { background:#32212b; color:#fff; border:1px solid #957280; padding:9px 12px; border-radius:3px; margin-right:12px; cursor:pointer; }
 .bulk-settings { margin:24px 0; padding:20px; background:rgba(0,0,0,.2); border:1px solid #45313c; border-radius:5px; }
+.bulk-permission-guide dl { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px 20px; margin:16px 0; }
+.bulk-permission-guide dl > div { min-width:0; padding:12px; border:1px solid rgba(var(--rose-gold-rgb),.18); border-radius:4px; background:rgba(var(--rose-gold-rgb),.035); }
+.bulk-permission-guide dt { color:var(--rose-gold-light); font-size:.88rem; font-weight:700; }
+.bulk-permission-guide dd { margin:6px 0 0; color:var(--text-muted); font-size:.85rem; line-height:1.6; }
+.bulk-permission-guide code { color:var(--rose-gold-light); font-size:1em; }
+@media(max-width:500px) { .bulk-permission-guide dl { grid-template-columns:minmax(0,1fr); } }
 .bulk-table-wrap { overflow-x:auto; margin-top:16px; max-height:430px; border:1px solid #48333f; border-radius:4px; }
 .bulk-table { width:100%; border-collapse:collapse; font-size:.86rem; }
 .bulk-table th { text-align:left; background:#271a23; color:#eacdd7; font-size:.75rem; font-weight:700; letter-spacing:.04em; }
@@ -2903,6 +2909,15 @@ input[type="radio"] { accent-color: #d4d4d8; }
 .bulk-status { margin:16px 0 0; min-height:1.5em; font-size:.9rem; line-height:1.6; color:#e5c8d2; overflow-wrap:anywhere; }
 .bulk-status[data-kind="error"] { color:#ff9caa; }
 .bulk-status[data-kind="success"] { color:#a9e4ca; }
+.bulk-errors { margin-top:16px; padding:16px; border:1px solid rgba(255,156,170,.35); border-radius:5px; background:rgba(95,25,42,.12); color:#ffbec7; }
+.bulk-errors h3 { margin:0 0 8px; }
+.bulk-error-list { margin:12px 0; padding-left:26px; font-size:.86rem; line-height:1.6; }
+.bulk-error-list li { margin:9px 0; overflow-wrap:anywhere; }
+.bulk-error-list strong { color:#f5d5c9; }
+.bulk-error-nav { display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin-top:14px; }
+.bulk-error-nav button { width:auto; }
+.bulk-error-nav button:disabled { opacity:.4; cursor:not-allowed; transform:none; }
+.bulk-error-page { font-size:.8rem; color:var(--text-muted); }
 .bulk-token-note { font-size:.8rem; color:#bdb0bd; margin:10px 0 0; line-height:1.5; }
 .bulk-preview { margin-top:24px; }
 .bulk-summary { display:flex; flex-wrap:wrap; gap:10px; margin:14px 0; }
@@ -3242,6 +3257,19 @@ body { background: radial-gradient(circle at 18% -8%, rgba(var(--rose-gold-deep-
                 <span class="bulk-muted">Up to 5 MB · 500 tags · friend-code .txt files, with or without a folder</span>
                 <input type="file" id="bulk-file" accept=".zip,application/zip" required />
               </label>
+              <aside class="bulk-settings bulk-permission-guide" aria-labelledby="bulk-permission-guide-title">
+                <h3 id="bulk-permission-guide-title">TOHE:E permission levels (0–5)</h3>
+                <p class="bulk-muted">Choose a level using the permissions listed in the default TOHE:E tag file:</p>
+                <dl>
+                  <div><dt>0 — Cosmetic only</dt><dd>Displays the tag without granting command access through the permission level.</dd></div>
+                  <div><dt>1 — VIP</dt><dd>Access to <code>/color</code> and <code>/rn</code>.</dd></div>
+                  <div><dt>2 — Warn</dt><dd>Access to <code>/warn</code>.</dd></div>
+                  <div><dt>3 — Start</dt><dd>Access to <code>/start</code>.</dd></div>
+                  <div><dt>4 — Kick</dt><dd>Access to <code>/kick</code>.</dd></div>
+                  <div><dt>5 — Ban</dt><dd>Access to <code>/ban</code>.</dd></div>
+                </dl>
+                <p class="bulk-muted"><strong>Separate settings:</strong> Say, End, Execute, and Game Master access use their own switches. Choose those separately from the permission level.</p>
+              </aside>
               <div class="bulk-settings" id="bulk-forward">
                 <h3>3 · Set permissions for each role</h3>
                 <p class="bulk-muted">When several EHR flags are enabled, Admin takes priority, then Moderator, then VIP. Gradients and other TextMeshPro markup go in TagName; TagColor stays blank.</p>
@@ -3277,6 +3305,16 @@ body { background: radial-gradient(circle at 18% -8%, rgba(var(--rose-gold-deep-
               <a id="bulk-download" class="copy-btn" style="width:auto" hidden>Download ZIP again</a>
             </div>
             <p id="bulk-status" class="bulk-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            <section id="bulk-errors" class="bulk-errors" aria-labelledby="bulk-errors-title" hidden>
+              <h3 id="bulk-errors-title">Files that need attention</h3>
+              <p id="bulk-errors-summary" class="bulk-muted" role="status" aria-live="polite" aria-atomic="true"></p>
+              <ol id="bulk-error-list" class="bulk-error-list"></ol>
+              <div id="bulk-error-nav" class="bulk-error-nav" hidden>
+                <button id="bulk-errors-prev" class="copy-btn" type="button" aria-label="Previous 10 file errors">Previous</button>
+                <span id="bulk-error-page" class="bulk-error-page"></span>
+                <button id="bulk-errors-next" class="copy-btn" type="button" aria-label="Next 10 file errors">Next</button>
+              </div>
+            </section>
           </form>
         </div>
       </section>
@@ -7631,6 +7669,13 @@ LowerText:
 const LIMITS = Object.freeze({ upload: 5 * 1024 * 1024, expanded: 10 * 1024 * 1024,
   file: 64 * 1024, files: 500, entries: 1000, ratio: 200 });
 class InputError extends Error { constructor(message, status = 400) { super(message); this.status = status; } }
+class BatchInputError extends InputError {
+  constructor(errors, totalFiles) {
+    super(`${errors.length} file${errors.length === 1 ? ' needs' : 's need'} attention. Fix the errors below and check the ZIP again.`);
+    this.errors = errors;
+    this.totalFiles = totalFiles;
+  }
+}
 const fail = message => { throw new InputError(message); };
 const enc = new TextEncoder();
 const dec = new TextDecoder('utf-8', { fatal: true });
@@ -7767,21 +7812,26 @@ function parseEhr(file) {
 function parseTone(file) {
   const fields = Object.create(null), warnings = [];
   for (const line of file.text.replace(/^\uFEFF/, '').split(/\r?\n/)) {
-    if (!line.trim() || line.trimStart().startsWith('#')) continue;
+    if (!line.trim() || line.trimStart().startsWith('#') || line.trimStart().startsWith('//')) continue;
     const colon = line.indexOf(':');
     if (colon < 0) fail(`${file.name}: expected TOHE:E Key: Value format.`);
     const key = line.slice(0, colon).trim();
     if (Object.hasOwn(fields, key)) fail(`${file.name}: duplicate ${key}.`);
     fields[key] = line.slice(colon + 1).replace(/^ /, '');
   }
-  if (FIELDS.some(k => !Object.hasOwn(fields, k))) fail(`${file.name}: missing TOHE:E fields.`);
+  const missing = FIELDS.filter(k => k !== 'AssignGameMaster' && !Object.hasOwn(fields, k));
+  if (missing.length) fail(`${file.name}: missing TOHE:E fields: ${missing.join(', ')}.`);
+  if (!Object.hasOwn(fields, 'AssignGameMaster')) {
+    fields.AssignGameMaster = 'n';
+    warnings.push('AssignGameMaster was omitted and treated as no.');
+  }
   const level = fields.PermissionLevel.trim();
   if (!/^[0-5]$/.test(level)) fail(`${file.name}: permission level must be 0–5.`);
   const access = {};
   for (const key of FIELDS.slice(3)) {
     const value = fields[key].trim().toLowerCase();
-    if (!['y', 'n'].includes(value)) fail(`${file.name}: ${key} must be y or n.`);
-    access[key] = value === 'y';
+    if (!['y', 'yes', 'n', 'no'].includes(value)) fail(`${file.name}: ${key} must be y/yes or n/no.`);
+    access[key] = value === 'y' || value === 'yes';
   }
   if (/[\r\n\x00]/.test(fields.TagName)) fail(`${file.name}: invalid tag text.`);
   let tag = fields.TagName;
@@ -7797,7 +7847,17 @@ function parseTone(file) {
 async function inspectArchive(bytes, source) {
   if (!['ehr', 'tone'].includes(source)) fail('Select a supported source mod.');
   const files = await unzip(bytes);
-  return files.map(file => source === 'ehr' ? parseEhr(file) : parseTone(file));
+  const records = [], errors = [];
+  for (const file of files) {
+    try { records.push(source === 'ehr' ? parseEhr(file) : parseTone(file)); }
+    catch (error) {
+      if (!(error instanceof InputError)) throw error;
+      const prefix = file.name + ': ';
+      errors.push({ file: file.name, message: error.message.startsWith(prefix) ? error.message.slice(prefix.length) : error.message });
+    }
+  }
+  if (errors.length) throw new BatchInputError(errors, files.length);
+  return records;
 }
 function convertRecords(records, source, target, settings) {
   validateSettings(settings, source, target);
@@ -7840,7 +7900,39 @@ function zip(files) {
   const defaults = { None: [0, false, false, false, false], VIP: [1, true, false, false, false], Mod: [5, true, false, false, false], Admin: [5, true, true, true, false] };
   const reverseDefaults = ['None', 'VIP', 'VIP', 'Mod', 'Mod', 'Mod'];
   let records = [], overrides = {}, busy = false, downloadUrl = null;
+  const ERROR_PAGE_SIZE = 10;
+  let fileErrors = [], errorPage = 0;
   const setStatus = (message, kind = '') => { $('status').textContent = message; $('status').dataset.kind = kind; };
+  function clearErrors() {
+    fileErrors = []; errorPage = 0;
+    $('errors').hidden = true; $('error-list').replaceChildren();
+    $('errors-summary').textContent = ''; $('error-page').textContent = ''; $('error-nav').hidden = true;
+  }
+  function renderErrors() {
+    const pages = Math.ceil(fileErrors.length / ERROR_PAGE_SIZE);
+    errorPage = Math.max(0, Math.min(errorPage, pages - 1));
+    const first = errorPage * ERROR_PAGE_SIZE;
+    $('error-list').replaceChildren(); $('error-list').start = first + 1;
+    for (const error of fileErrors.slice(first, first + ERROR_PAGE_SIZE)) {
+      const item = document.createElement('li'), name = document.createElement('strong');
+      name.textContent = error.file;
+      item.append(name, document.createTextNode(': ' + error.message));
+      $('error-list').append(item);
+    }
+    $('errors-summary').textContent = `Showing errors ${first + 1}–${Math.min(first + ERROR_PAGE_SIZE, fileErrors.length)} of ${fileErrors.length}.`;
+    $('error-page').textContent = `Page ${errorPage + 1} of ${pages}`;
+    $('errors-prev').disabled = errorPage === 0;
+    $('errors-next').disabled = errorPage === pages - 1;
+    $('error-nav').hidden = pages <= 1;
+    $('errors').hidden = false;
+  }
+  function showError(error, fallback) {
+    clearErrors();
+    setStatus(error.message || fallback, 'error');
+    if (error instanceof BatchInputError) { fileErrors = error.errors; renderErrors(); }
+  }
+  $('errors-prev').addEventListener('click', () => { if (errorPage > 0) { errorPage--; renderErrors(); } });
+  $('errors-next').addEventListener('click', () => { if ((errorPage + 1) * ERROR_PAGE_SIZE < fileErrors.length) { errorPage++; renderErrors(); } });
   function roleSelect(value, onChange, label) {
     const select = document.createElement('select');
     select.setAttribute('aria-label', label);
@@ -7879,6 +7971,7 @@ function zip(files) {
     $('reverse').querySelectorAll('select').forEach(select => { select.disabled = $('target').value !== 'ehr'; });
   }
   function clearPreview() {
+    clearErrors();
     records = []; overrides = {}; $('preview').hidden = true; $('preview-rows').replaceChildren(); $('convert').disabled = true;
     if (downloadUrl) { URL.revokeObjectURL(downloadUrl); downloadUrl = null; }
     $('download').hidden = true;
@@ -7941,12 +8034,12 @@ function zip(files) {
       const source = $('source').value, target = $('target').value;
       validateSettings(settings(), source, target);
       records = await inspectArchive(await readSelectedZip(), source); renderPreview(); setStatus(`${records.length} tags checked. Review the permissions, then convert.`, 'success');
-    } catch (error) { setStatus(error.message || 'Could not read this ZIP.', 'error'); }
+    } catch (error) { showError(error, 'Could not read this ZIP.'); }
     finally { setBusy(false); }
   });
   $('convert').addEventListener('click', async () => {
     if (busy || !records.length || !$('form').reportValidity()) return;
-    setBusy(true); setStatus('Converting your tags…'); $('download').hidden = true;
+    clearErrors(); setBusy(true); setStatus('Converting your tags…'); $('download').hidden = true;
     try {
       await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
       const archive = convertRecords(records, $('source').value, $('target').value, settings());
@@ -7954,7 +8047,7 @@ function zip(files) {
       downloadUrl = URL.createObjectURL(new Blob([archive], { type: 'application/zip' }));
       $('download').href = downloadUrl; $('download').download = $('target').value === 'tone' ? 'TOHE-Tags.zip' : 'EHR-Tags.zip'; $('download').hidden = false; $('download').click();
       setStatus(`Converted ${records.length} tags. Your ZIP is ready; use the download link if it did not start automatically.`, 'success');
-    } catch (error) { setStatus(error.message || 'Could not convert these tags.', 'error'); }
+    } catch (error) { showError(error, 'Could not convert these tags.'); }
     finally { setBusy(false); }
   });
   window.addEventListener('pagehide', () => { if (downloadUrl) URL.revokeObjectURL(downloadUrl); });
