@@ -1,0 +1,2550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Create a mini-blog with HTML and CSS."><meta name="theme-color" content="#050505">
+<title>Blogs | MAUL</title><link rel="icon" href="/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/navbar.css?v=20261028-nav-6">
+<style>
+:root {
+  color-scheme: dark;
+  --rose: #e9b4ac;
+  --rose-light: #f5d5c9;
+  --rose-deep: #b76e79;
+  --bg: #050506;
+  --panel: #0c0b0e;
+  --muted: #bdb9c1;
+  --line: rgba(233,180,172,.23);
+  --text: #f4f4f5;
+  --highlight: rgba(233,180,172,.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 95px;
+}
+
+a {
+  color: inherit;
+}
+
+button,input,textarea,select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 3px;
+}
+
+.wrap {
+  width: min(1160px,calc(100% - 36px));
+  margin: auto;
+}
+
+.blog-section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 26px 0 22px;
+  padding: 14px;
+  border: 1px solid rgba(233,180,172,.2);
+  border-radius: 6px;
+  background: linear-gradient(145deg,rgba(245,213,201,.085),rgba(233,180,172,.02)),rgba(17,12,16,.88);
+  box-shadow: 0 14px 32px rgba(0,0,0,.32);
+}
+.blog-section-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 9px 13px;
+  border: 1px solid rgba(233,180,172,.16);
+  border-radius: 4px;
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+  font-size: .76rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .2s ease,border-color .2s ease,transform .2s ease;
+}
+.blog-section-nav a:hover,
+.blog-section-nav a:focus-visible,
+.blog-section-nav a.active {
+  border-color: rgba(233,180,172,.4);
+  background: rgba(233,180,172,.09);
+  color: var(--rose-light);
+}
+.blog-section-nav a:hover { transform: translateY(-2px); }
+@media(max-width:560px) {
+  .blog-section-nav { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; padding: 11px; scrollbar-width: thin; }
+  .blog-section-nav a { flex-shrink: 0; min-height: 44px; }
+}
+
+.section {
+  padding: 38px 0 20px;
+  scroll-margin-top: 90px;
+}
+
+.eyebrow,.kicker {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-weight: 800;
+  color: var(--rose);
+}
+
+h1,h2,h3 {
+  font-family: Outfit,sans-serif;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(3rem,6vw,5.8rem);
+  line-height: .97;
+  letter-spacing: -.025em;
+  margin: 15px 0 20px;
+  text-transform: uppercase;
+}
+
+h1 .accent {
+  background: linear-gradient(95deg,#fff 4%,#f2c6ce 32%,#e9b4ac 70%,#b76e79);
+  color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: clamp(1.8rem,3.5vw,2.65rem);
+  margin: 0 0 15px;
+}
+
+h3 {
+  font-size: 1.28rem;
+  margin: 12px 0;
+}
+
+.lead,.muted {
+  color: var(--muted);
+}
+
+.lead {
+  max-width: 68ch;
+  font-size: .98rem;
+  line-height: 1.8;
+}
+
+.actions,.toolbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.actions {
+  margin-top: 25px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  min-height: 43px;
+  padding: 10px 17px;
+  border: 1px solid rgba(233,180,172,.35);
+  border-radius: 4px;
+  color: var(--rose-light);
+  background: linear-gradient(145deg,rgba(233,180,172,.09),transparent),#100d10;
+  text-decoration: none;
+  font-size: .83rem;
+  font-weight: 800;
+  transition: transform .2s,border-color .2s,box-shadow .2s;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--rose);
+  box-shadow: 0 0 20px rgba(183,110,121,.12);
+}
+
+.btn.primary {
+  background: linear-gradient(145deg,#f5d5c9,#e9b4ac 55%,#b76e79);
+  color: #211217;
+  border-color: var(--rose-light);
+}
+
+.btn.small {
+  min-height: 37px;
+  padding: 7px 12px;
+  font-size: .76rem;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 13px;
+  background: #0b0a0d;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+
+.categories a {
+  padding: 9px 13px;
+  font-size: .76rem;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.categories a:hover {
+  background: var(--highlight);
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 12px;
+}
+
+.section-head:after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg,rgba(233,180,172,.6),transparent);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 17px;
+}
+
+.card {
+  min-width: 0;
+  padding: 23px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: linear-gradient(180deg,rgba(24,22,26,.95),rgba(10,10,12,.96));
+  box-shadow: 0 12px 30px #0006;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+.pill {
+  font-size: .68rem;
+  color: var(--rose);
+  border: 1px solid var(--line);
+  background: var(--highlight);
+  padding: 5px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.view {
+  display: none;
+  animation: rise .2s ease;
+}
+
+.view.active {
+  display: block;
+}
+
+@keyframes rise {
+  from {
+    opacity: .5;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 15px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.field.full {
+  grid-column: 1/-1;
+}
+
+label {
+  font-size: .79rem;
+  font-weight: 700;
+  color: #e9d9de;
+}
+
+input,textarea,select {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  background: #07070a;
+  color: var(--text);
+  border-radius: 4px;
+  min-width: 0;
+}
+
+input[type=color] {
+  height: 45px;
+  padding: 3px;
+}
+
+.note {
+  font-size: .78rem;
+  color: var(--muted);
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap: 16px;
+}
+
+.preview {
+  width: 100%;
+  height: 377px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+}
+
+.hint,.answer {
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: rgba(233,180,172,.055);
+  margin: 12px 0;
+  font-size: .88rem;
+}
+
+.hint strong,.answer strong {
+  color: var(--rose-light);
+}
+
+
+.stack-tools { display:flex; flex-wrap:wrap; align-items:center; gap:9px; margin-top:14px; }
+.stack-status { font-size:.78rem; color:var(--muted); }
+.stack-source { display:block; margin:10px 0; color:var(--rose-light); overflow-wrap:anywhere; }
+.stack-result { margin-top:13px; padding-top:13px; border-top:1px solid var(--line); }
+.stack-result p { white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.65; }
+.stack-result .ref-code { max-height:250px; overflow:auto; }
+.stack-result .note { margin-top:8px; }
+
+.ref-code {
+  font: 12px/1.6 ui-monospace,Consolas,monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: #050509;
+  border: 1px solid var(--line);
+  padding: 12px;
+  color: #ddc1cc;
+  border-radius: 4px;
+}
+
+.coach {
+  margin: 15px 0;
+  border: 1px solid rgba(233,180,172,.4);
+  border-radius: 7px;
+  background: linear-gradient(145deg,#211b22,#100e12);
+  padding: 17px;
+}
+
+.coach h4 {
+  font: 700 1rem Outfit;
+  margin: 0 0 5px;
+}
+
+.coach p {
+  font-size: .84rem;
+  margin: 5px 0 10px;
+  color: var(--muted);
+}
+
+.coach-top {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.coach select {
+  max-width: 100%;
+  width: min(100%,340px);
+  font-size: .83rem;
+}
+
+.coach-code .typed {
+  color: #e9d8ee;
+}
+
+.coach-code .remaining {
+  color: #918b98;
+}
+
+.coach-progress {
+  font-size: .76rem;
+  color: #edc9c0;
+}
+
+.coach-help {
+  padding: 10px 12px;
+  background: #0c0b10;
+  border-left: 2px solid var(--rose);
+  margin-top: 9px;
+  color: #e9dde2;
+  font-size: .82rem;
+}
+
+.coach-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.coach-actions button {
+  font-size: .75rem;
+}
+
+.mini-label {
+  font-weight: 800;
+  font-size: .7rem;
+  color: var(--rose);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.editor-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 5px 0 9px;
+}
+
+.editor-tools button {
+  border: 1px solid var(--line);
+  color: var(--rose-light);
+  background: #100e12;
+  padding: 7px 10px;
+  border-radius: 4px;
+  font-size: .75rem;
+}
+
+.coach-status-done {
+  color: #b4e5c7;
+}
+
+.ask-prompts {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 8px 0;
+}
+
+.ask-prompts button {
+  padding: 6px 9px;
+  font-size: .73rem;
+  border: 1px solid var(--line);
+  background: #141116;
+  color: var(--rose-light);
+  border-radius: 4px;
+}
+
+.status {
+  font-size: .77rem;
+  color: var(--rose-light);
+  min-height: 24px;
+}
+
+.searchbar {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 175px 175px;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.blog-card {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-thumb {
+  height: 152px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 800 1.25rem Outfit,sans-serif;
+  color: #352a3d;
+  text-align: center;
+  padding: 15px;
+}
+
+.blog-info {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-info h3 {
+  margin: 0 0 7px;
+}
+
+.blog-info .btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.empty {
+  padding: 30px;
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+  color: var(--muted);
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.dialog-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #000c;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.dialog-backdrop.open {
+  display: flex;
+}
+
+.dialog-panel {
+  width: min(620px,100%);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.callout {
+  border-left: 3px solid var(--rose);
+  padding: 12px 16px;
+  background: #151015;
+  margin: 15px 0;
+  font-size: .88rem;
+}
+
+.checkrow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.checkrow input {
+  width: auto;
+  margin-top: 5px;
+}
+
+.checkrow label {
+  font-weight: 400;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#navbar {
+  --accent: var(--rose);
+  --accent-strong: var(--rose-light);
+  --bg-card: #100c10;
+  --text-main: var(--text);
+  --text-muted: var(--muted);
+}
+
+@media (max-width:850px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .searchbar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .searchbar input {
+    grid-column: 1/-1;
+  }
+}
+
+@media (max-width:560px) {
+  .wrap {
+    width: calc(100% - 28px);
+  }
+
+  .hero {
+    margin-top: 18px;
+    padding: 22px;
+  }
+
+  .grid,.fields {
+    grid-template-columns: 1fr;
+  }
+
+  .searchbar {
+    grid-template-columns: 1fr;
+  }
+
+  .searchbar input {
+    grid-column: auto;
+  }
+
+  .section {
+    padding-top: 30px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  *,*:before,*:after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.teacher-header,.teacher-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.teacher-header h3 {
+  margin: 6px 0 4px;
+  font-size: 1.1rem;
+}
+
+.teacher-panel>p {
+  font-size: .87rem;
+  color: #c9bac2;
+}
+
+.teacher-next {
+  background: #08080b;
+  border: 1px solid rgba(233,180,172,.24);
+  padding: 13px;
+  border-radius: 6px;
+  margin: 13px 0;
+}
+
+.teacher-next pre {
+  font: 600 14px/1.65 ui-monospace,Consolas,monospace;
+  color: #ac9fa9;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 8px 0;
+}
+
+.teacher-next .already {
+  color: #f5d5c9;
+}
+
+.teacher-next .todo {
+  color: #96939e;
+}
+
+.teacher-live {
+  font-size: .77rem;
+  color: #d2b4b2;
+  min-height: 1.2em;
+}
+
+.teacher-explain {
+  border-left: 2px solid var(--rose);
+  padding: 4px 12px;
+  margin: 12px 0;
+}
+
+.teacher-explain strong {
+  color: var(--rose-light);
+  font-size: .85rem;
+}
+
+.teacher-explain p {
+  margin: 4px 0;
+  font-size: .85rem;
+  color: #d8cbd1;
+}
+
+.teacher-buttons {
+  justify-content: flex-start;
+  margin-top: 14px;
+}
+
+.teacher-buttons .btn {
+  font-size: .75rem;
+}
+
+.teacher-panel[data-finished="true"] {
+  border-color: #659b7d;
+}
+
+.teacher-panel[data-paused="true"] .teacher-next {
+  opacity: .6;
+}
+
+.editor {
+  font: 13px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;
+  resize: vertical;
+  white-space: pre;
+  overflow: auto;
+  min-height: 440px;
+  tab-size: 2;
+}
+
+.coach-code {
+  font: 12px/1.7 ui-monospace,Consolas,monospace;
+  background: #08070a;
+  padding: 13px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  border: 1px solid rgba(233,180,172,.22);
+  border-radius: 5px;
+  color: #98939e;
+  margin: 10px 0;
+  max-height: 240px;
+  overflow: auto;
+}
+
+.where-indicator {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  color: var(--rose-light);
+  font-size: .79rem;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.editor:focus {
+  border-color: var(--rose);
+  box-shadow: 0 0 0 2px rgba(233,180,172,.12);
+}
+
+.editor-shell:focus-within {
+  border-color: var(--rose);
+  box-shadow: 0 0 0 2px rgba(233,180,172,.1);
+}
+
+.inline-switch input {
+  width: auto;
+  accent-color: var(--rose);
+  margin: 0;
+}
+
+.caret-anchor {
+  display: inline-block;
+  width: 0;
+  height: 1em;
+  vertical-align: -.15em;
+}
+
+.meaning-bubble::before {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: #251c24;
+  transform: rotate(45deg);
+  border-top: 1px solid rgba(233,180,172,.5);
+  border-left: 1px solid rgba(233,180,172,.5);
+  top: -5px;
+  left: var(--tail-left,20px);
+}
+
+.meaning-bubble[data-side="right"]::before {
+  top: 14px;
+  left: -5px;
+  transform: rotate(-45deg);
+}
+
+.meaning-bubble[data-side="above"]::before {
+  top: auto;
+  bottom: -5px;
+  transform: rotate(225deg);
+}
+
+.bubble-kicker {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-weight: 700;
+  color: var(--rose);
+  margin-bottom: 4px;
+}
+
+.editor-viewport {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.editor-viewport .editor,.editor-mirror {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 14px;
+  font: 13px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;
+  letter-spacing: normal;
+  word-spacing: normal;
+  tab-size: 2;
+  text-align: left;
+  text-indent: 0;
+  text-transform: none;
+  white-space: pre;
+  overflow-wrap: normal;
+  word-break: normal;
+  direction: ltr;
+}
+
+.editor-viewport .editor {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 440px;
+  min-height: 280px;
+  max-height: 80vh;
+  resize: vertical;
+  background: transparent;
+  color: var(--text);
+  caret-color: var(--rose-light);
+  outline: none;
+  box-shadow: none;
+  overflow: auto;
+}
+
+.editor-viewport .editor:focus {
+  border: 0;
+  box-shadow: none;
+  outline: none;
+}
+
+.editor-mirror {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  color: transparent;
+}
+
+.editor-mirror-text {
+  display: block;
+  min-width: max-content;
+}
+
+.ghost-tail {
+  color: #9c939f;
+}
+
+.ghost-enter {
+  color: #b9a3af;
+  font-size: 11px;
+}
+
+.editor-help {
+  padding: 12px 14px;
+  border-top: 1px solid var(--line);
+  background: #100d12;
+  font-size: .8rem;
+  line-height: 1.6;
+}
+
+.editor-help strong {
+  color: var(--rose-light);
+}
+
+.editor-help .note {
+  margin-top: 6px;
+  font-size: .74rem;
+}
+
+.backup-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+  font-size: .75rem;
+}
+
+.backup-tools select {
+  width: auto;
+  max-width: 100%;
+  flex: 1;
+  min-width: 150px;
+  font-size: .75rem;
+  padding: 7px;
+}
+
+.backup-tools button {
+  font-size: .73rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.teacher-panel {
+  border: 1px solid rgba(233,180,172,.48);
+  background: linear-gradient(155deg,#211a21,#110e13);
+  border-radius: 8px;
+  padding: 18px;
+  margin: 12px 0 18px;
+  margin-bottom: 15px;
+}
+
+@media (prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (max-width:560px) {
+  .editor-viewport .editor {
+    height: 360px;
+  }
+
+  .editor-topline {
+    align-items: flex-start;
+  }
+
+  .editor-help {
+    padding: 10px;
+  }
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: Inter,sans-serif;
+  line-height: 1.6;
+  background: radial-gradient(circle at 18% 0%,rgba(183,110,121,.09),transparent 30rem),linear-gradient(#000,#060507 45%,#000);
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+.hero .actions {
+  justify-content: center;
+}
+
+body::before, body::after {
+  content: "";
+  position: fixed;
+  top: -160vh;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  background: #fff;
+  animation: maulStarDrift 24s linear infinite;
+}
+
+body::before {
+  width: 2px;
+  height: 2px;
+  opacity: 0.7;
+  box-shadow: 3vw 8vh #fff, 6vw 57vh #fff, 9vw 122vh #fff, 11vw 215vh #fff,
+    14vw 303vh #fff, 17vw 34vh #fff, 19vw 186vh #fff, 22vw 269vh #fff,
+    25vw 78vh #fff, 27vw 147vh #fff, 29vw 241vh #fff, 31vw 318vh #fff,
+    34vw 18vh #fff, 36vw 101vh #fff, 38vw 207vh #fff, 41vw 286vh #fff,
+    43vw 64vh #fff, 45vw 158vh #fff, 48vw 226vh #fff, 50vw 311vh #fff,
+    52vw 42vh #fff, 54vw 133vh #fff, 57vw 197vh #fff, 59vw 276vh #fff,
+    61vw 88vh #fff, 63vw 171vh #fff, 65vw 252vh #fff, 68vw 6vh #fff,
+    70vw 116vh #fff, 72vw 221vh #fff, 74vw 296vh #fff, 76vw 51vh #fff,
+    79vw 139vh #fff, 81vw 233vh #fff, 83vw 314vh #fff, 85vw 27vh #fff,
+    87vw 96vh #fff, 89vw 182vh #fff, 91vw 265vh #fff, 93vw 74vh #fff,
+    95vw 154vh #fff, 97vw 244vh #fff, 99vw 309vh #fff,
+    12vw 24vh #fff,
+    23vw 114vh #fff,
+    39vw 152vh #fff,
+    54vw 26vh #fff,
+    66vw 132vh #fff,
+    82vw 54vh #fff,
+    94vw 188vh #fff,
+    8vw 302vh #fff,
+    32vw 278vh #fff,
+    47vw 72vh #fff,
+    73vw 314vh #fff,
+    91vw 228vh #fff;
+}
+
+body::after {
+  width: 1px;
+  height: 1px;
+  opacity: 0.5;
+  animation-duration: 36s;
+  box-shadow: 2vw 23vh #fff, 4vw 141vh #fff, 5vw 292vh #fff, 7vw 68vh #fff,
+    8vw 211vh #fff, 10vw 317vh #fff, 13vw 35vh #fff, 15vw 156vh #fff,
+    18vw 263vh #fff, 20vw 96vh #fff, 23vw 229vh #fff, 26vw 5vh #fff,
+    28vw 181vh #fff, 30vw 306vh #fff, 32vw 47vh #fff, 35vw 128vh #fff,
+    37vw 254vh #fff, 39vw 89vh #fff, 42vw 219vh #fff, 44vw 310vh #fff,
+    47vw 58vh #fff, 51vw 150vh #fff, 53vw 271vh #fff, 56vw 16vh #fff,
+    60vw 101vh #fff, 64vw 237vh #fff, 67vw 315vh #fff, 69vw 44vh #fff,
+    73vw 169vh #fff, 77vw 281vh #fff, 82vw 76vh #fff, 86vw 197vh #fff,
+    90vw 49vh #fff, 93vw 242vh #fff, 97vw 101vh #fff,
+    5vw 39vh #fff,
+    18vw 118vh #fff,
+    31vw 8vh #fff,
+    44vw 192vh #fff,
+    58vw 94vh #fff,
+    72vw 27vh #fff,
+    88vw 142vh #fff,
+    98vw 276vh #fff,
+    15vw 242vh #fff,
+    41vw 322vh #fff,
+    63vw 216vh #fff,
+    79vw 303vh #fff;
+}
+
+@keyframes maulStarDrift {
+  from {
+    transform: translate3d(0, 160vh, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  body::before,body::after {
+    animation: none;
+    transform: translate3d(0,160vh,0);
+  }
+}
+
+.design-studio {
+  display: grid;
+  grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr);
+  gap: 32px;
+  margin-bottom: 18px;
+  padding: 28px;
+}
+
+.design-conversation h3 {
+  font-size: 1.65rem;
+  margin: 10px 0;
+}
+
+.design-progress progress {
+  flex: 1;
+  min-width: 0;
+  height: 5px;
+  accent-color: var(--rose);
+  border: 0;
+  border-radius: 9px;
+}
+
+.design-progress progress::-webkit-progress-bar {
+  background: #2b232d;
+  border-radius: 9px;
+}
+
+.design-progress progress::-webkit-progress-value {
+  background: var(--rose);
+  border-radius: 9px;
+}
+
+.design-studio fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.design-studio fieldset[hidden] {
+  display: none;
+}
+
+.design-studio .field {
+  margin-bottom: 13px;
+}
+
+.design-choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 17px;
+}
+
+.design-choices label {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 13px;
+  background: #0d0b10;
+  cursor: pointer;
+}
+
+.design-choices label:has(input:checked) {
+  border-color: var(--rose);
+  background: #251c24;
+}
+
+.design-choices input {
+  width: auto;
+  margin-top: 4px;
+  accent-color: var(--rose);
+}
+
+.design-choices strong,.design-choices small {
+  display: block;
+}
+
+.design-choices strong {
+  font-size: .8rem;
+}
+
+.design-choices small {
+  font-size: .73rem;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-top: 4px;
+}
+
+.text-button {
+  border: 0;
+  padding: 0;
+  color: var(--rose-light);
+  background: none;
+  text-decoration: underline;
+  font-size: .74rem;
+  cursor: pointer;
+}
+
+.design-sketch {
+  --sketch-bg: #f3edf8;
+  --sketch-surface: #fff;
+  --sketch-ink: #382743;
+  --sketch-accent: #7954a1;
+  --sketch-button-ink: #fff;
+  --sketch-radius: 18px;
+  padding: 24px;
+  background: linear-gradient(145deg,var(--sketch-bg),var(--sketch-secondary,#f9e8f0));
+  color: var(--sketch-ink);
+  border-radius: 10px;
+  min-height: 330px;
+  line-height: 1.65;
+}
+
+.design-sketch h3 {
+  font: 700 1.65rem/1.15 Outfit,sans-serif;
+  margin: 12px 0 9px;
+  overflow-wrap: anywhere;
+}
+
+.design-sketch p {
+  font-size: .78rem;
+  color: inherit;
+  margin: 8px 0;
+  overflow-wrap: anywhere;
+}
+
+.sketch-welcome {
+  padding: 0;
+}
+
+.design-sketch[data-layout="cards"] .sketch-welcome,.design-sketch[data-layout="cards"] article {
+  padding: 20px;
+  background: var(--sketch-surface);
+  border: 1px solid var(--sketch-border,#e3d8eb);
+  border-radius: min(var(--sketch-radius),34px);
+}
+
+.design-sketch article {
+  margin-top: 17px;
+  padding-top: 10px;
+}
+
+.design-sketch h4 {
+  font: 700 1.05rem/1.3 Outfit,sans-serif;
+  margin: 6px 0;
+}
+
+.sketch-avatar {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: 700;
+  background: var(--sketch-accent);
+  color: var(--sketch-button-ink);
+  overflow: hidden;
+}
+
+.sketch-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sketch-button {
+  display: inline-block;
+  margin-top: 7px;
+  padding: 8px 13px;
+  font-size: .72rem;
+  font-weight: 700;
+  background: var(--sketch-accent);
+  color: var(--sketch-button-ink);
+  border-radius: 999px;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+
+.sketch-label {
+  font-size: .6rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  opacity: .65;
+}
+
+.design-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.design-summary span {
+  font-size: .68rem;
+  padding: 4px 7px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--rose-light);
+}
+
+.plan-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 15px 18px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  margin-bottom: 16px;
+  background: #110e14;
+}
+
+.plan-strip strong {
+  font-size: .85rem;
+  color: var(--rose-light);
+}
+
+.help-block {
+  margin: 16px 0;
+}
+
+.help-block h4 {
+  font-size: .82rem;
+  color: var(--rose-light);
+  margin: 0 0 6px;
+}
+
+.help-block p {
+  font-size: .8rem;
+  color: var(--muted);
+  margin: 5px 0;
+}
+
+.help-block .ref-code {
+  max-height: 260px;
+  overflow: auto;
+}
+
+.help-topic-buttons {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.help-topic-buttons button {
+  font-size: .72rem;
+}
+
+button[hidden],#design-button-fields[hidden],#design-profile-fields[hidden],#sketch-avatar[hidden],#sketch-button[hidden] {
+  display: none;
+}
+
+@media (max-width:850px) {
+  .design-studio {
+    grid-template-columns: 1fr;
+  }
+
+  .design-sketch-wrap {
+    max-width: 550px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .plan-strip {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width:560px) {
+  .design-studio {
+    padding: 20px;
+    gap: 24px;
+  }
+
+  .design-choices {
+    grid-template-columns: 1fr;
+  }
+
+  .design-sketch {
+    padding: 17px;
+  }
+
+  .design-studio .fields {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel-heading {
+  justify-content: space-between;
+}
+
+.panel-heading h3,.preview-heading {
+  margin: 0 0 12px;
+}
+
+.panel-heading #save-state {
+  margin-bottom: 12px;
+  font-size: .7rem;
+  color: var(--muted);
+}
+
+.coding-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  min-height: 20px;
+}
+
+.coding-progress .note {
+  font-size: .74rem;
+}
+
+.coding-progress .text-button {
+  font-size: .72rem;
+}
+
+.quiet-details {
+  margin-top: 14px;
+  font-size: .78rem;
+  color: var(--muted);
+}
+
+.quiet-details>summary {
+  cursor: pointer;
+  width: fit-content;
+}
+
+.quiet-details[open]>summary {
+  margin-bottom: 12px;
+  color: var(--rose-light);
+}
+
+.quiet-details .teacher-panel,.quiet-details .coach {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.teacher-header strong {
+  font: 600 .85rem Inter,sans-serif;
+  color: var(--rose-light);
+}
+
+.editor-shell {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #07070a;
+  margin: 0 0 14px;
+}
+
+.editor-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #100d12;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .7rem;
+  padding: 8px 11px;
+}
+
+.inline-switch {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: .7rem;
+}
+
+.editor-switches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cursor-location {
+  color: var(--rose);
+  font-variant-numeric: tabular-nums;
+  font-weight: 400;
+}
+
+.coding-help {
+  margin-top: 22px;
+}
+
+.coding-help h3 {
+  font-size: 1.05rem;
+  margin: 0 0 12px;
+}
+
+#ask-form {
+  flex-wrap: nowrap;
+}
+
+#question {
+  flex: 1;
+  min-width: 0;
+  font-size: .8rem;
+}
+
+#answer:empty,.status:empty {
+  display: none;
+}
+
+#editor-status:not(:empty) {
+  margin-top: 9px;
+  font-size: .73rem;
+}
+
+.meaning-bubble {
+  position: absolute;
+  z-index: 3;
+  width: 280px;
+  max-width: calc(100% - 20px);
+  border: 1px solid rgba(233,180,172,.5);
+  border-radius: 11px;
+  background: linear-gradient(145deg,#292027,#171218);
+  box-shadow: 0 8px 24px #0008;
+  pointer-events: none;
+  color: var(--text);
+  font: 12px/1.55 Inter,sans-serif;
+  overflow-wrap: anywhere;
+  padding: 10px 12px;
+}
+
+.meaning-bubble strong {
+  display: block;
+  color: var(--rose-light);
+  font-size: 11px;
+}
+
+.meaning-bubble p {
+  margin: 4px 0 0;
+  color: #e0d5dc;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.design-progress {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--rose);
+  font-size: .75rem;
+  font-weight: 700;
+  margin: 0 0 18px;
+}
+
+.design-studio legend {
+  padding: 0;
+  margin-bottom: 16px;
+  font: 600 1.15rem/1.4 Outfit,sans-serif;
+  color: var(--rose-light);
+  font-size: 1.15rem;
+}
+
+.design-conversation .status:not(:empty) {
+  margin: 10px 0;
+}
+
+.design-conversation>.toolbar {
+  margin-top: 18px;
+}
+
+.design-bottom {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.design-sketch-wrap>.mini-label {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+  font-size: .75rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.design-conversation .note:empty {
+  display: none;
+}
+
+.hero {
+  margin: 34px 0 25px;
+  padding: clamp(28px,4vw,53px);
+  border: 2px solid rgba(213,143,147,.52);
+  border-top-color: rgba(242,200,186,.8);
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(245,213,201,.12),0 18px 48px rgba(0,0,0,.4);
+  display: grid;
+  grid-template-columns: minmax(0,1fr);
+  text-align: center;
+  align-items: center;
+  gap: 36px;
+  margin-bottom: 34px;
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  color: #aaa1a9;
+  font-size: .78rem;
+  margin-top: 40px;
+  padding: 20px 0;
+}
+
+#design-options {
+  margin-bottom: 18px;
+}
+
+#design-options>summary {
+  cursor: pointer;
+  color: var(--rose-light);
+  font-size: .85rem;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem,6vw,5rem);
+  text-transform: none;
+}
+
+.hero .lead {
+  margin-inline: auto;
+  font-size: .95rem;
+  max-width: 48ch;
+}
+
+.submit-copy {
+  max-width: 56ch;
+}
+
+.submit-copy p {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.submit-copy .actions {
+  margin-top: 20px;
+}
+
+@media (max-width:560px) {
+  .card.code-panel,.card.preview-panel {
+    padding: 17px;
+  }
+
+  .editor-topline {
+    gap: 7px;
+  }
+
+  .editor-switches {
+    gap: 10px;
+  }
+
+  .design-studio {
+    gap: 18px;
+  }
+
+  .coding-progress .note {
+    font-size: .7rem;
+  }
+}
+</style>
+</head>
+<body>
+<div id="navbar"></div>
+
+<main class="wrap">
+<nav class="blog-section-nav" aria-label="Blogs sections">
+  <a href="#home" data-nav="home">Home</a>
+  <a href="#create" data-nav="create">Create</a>
+  <a href="#explore" data-nav="explore">Explore</a>
+  <a href="#submit" data-nav="submit">Submit</a>
+</nav>
+<section id="home" class="view active">
+<div class="hero"><div><h1>Make your<br><span class="accent">mini blog </span></h1><p class="lead">Build a page with HTML and CSS. Get help as you type.</p><div class="actions"><a class="btn primary" href="#create">Create a blog</a><a class="btn" href="#explore">Explore blogs</a></div></div></div>
+</section>
+<section id="create" class="view"><div class="section" style="padding-top:27px"><h2>Create a blog</h2><details id="design-options" open><summary>Design</summary><section class="card design-studio" aria-label="Plan your blog">
+<div class="design-conversation">
+ <div class="design-progress"><span id="design-step-count">1 / 6</span><progress id="design-progress" max="6" value="1" aria-label="Design questions answered"></progress></div>
+ <div id="design-questions">
+  <fieldset data-design-step="0"><legend>What’s your blog called?</legend><div class="field"><label for="page-title">Blog name</label><input id="page-title" maxlength="80" value="My little corner"></div><div class="field"><label for="design-intro">Introduction</label><textarea id="design-intro" maxlength="240" rows="2">A place for my notes and favorite things.</textarea></div></fieldset>
+  <fieldset data-design-step="1" hidden><legend>What style do you like?</legend><div class="field"><label for="page-vibe">Style</label><select id="page-vibe"><option value="Dreamy">Dreamy</option><option value="Dark">Dark</option><option value="Minimal">Minimal</option><option value="Retro">Retro</option><option value="Scrapbook">Scrapbook</option></select></div><div class="field"><label for="page-color">Accent color</label><input id="page-color" type="color" value="#7954a1"></div></fieldset>
+  <fieldset data-design-step="2" hidden><legend>Put your posts in boxes?</legend><div class="design-choices"><label><input type="radio" name="design-layout" value="cards" checked><span><strong>Boxes</strong></span></label><label><input type="radio" name="design-layout" value="open"><span><strong>Open page</strong></span></label></div><div class="field"><label for="page-corner">Corners</label><select id="page-corner"><option value="18">Rounded</option><option value="0">Square</option><option value="34">Extra rounded</option><option value="999">Pill-shaped details</option></select></div></fieldset>
+  <fieldset data-design-step="3" hidden><legend>Want a link button?</legend><div class="design-choices"><label><input type="radio" name="design-button" value="yes" checked><span><strong>Add a button</strong></span></label><label><input type="radio" name="design-button" value="no"><span><strong>No button</strong></span></label></div><div id="design-button-fields" class="fields"><div class="field"><label for="design-button-label">Button text</label><input id="design-button-label" maxlength="50" value="Read my first post"></div><div class="field"><label for="design-button-url">Link</label><input id="design-button-url" maxlength="500" value="#first-post" placeholder="https://… or #first-post"></div></div></fieldset>
+  <fieldset data-design-step="4" hidden><legend>Add a profile picture?</legend><div class="design-choices"><label><input type="radio" name="design-profile" value="yes" checked><span><strong>Photo or initials</strong></span></label><label><input type="radio" name="design-profile" value="no"><span><strong>No picture</strong></span></label></div><div id="design-profile-fields" class="fields"><div class="field"><label for="design-initials">Initials</label><input id="design-initials" maxlength="3" value="MC"></div><div class="field"><label for="design-photo">Photo link (optional)</label><input id="design-photo" maxlength="1000" type="url" placeholder="https://…/photo.jpg"></div></div></fieldset>
+  <fieldset data-design-step="5" hidden><legend>What’s your first post about?</legend><div class="field"><label for="design-post-title">Post title</label><input id="design-post-title" maxlength="100" value="A little about me"></div><div class="field"><label for="design-post-body">Your post</label><textarea id="design-post-body" maxlength="500" rows="3">My first post. More soon.</textarea></div></fieldset>
+ </div>
+ <p id="design-error" class="status" role="status"></p>
+ <div class="toolbar"><button id="design-back" type="button" class="btn small" disabled>Back</button><button id="design-next" type="button" class="btn small primary">Next</button><button id="design-start" type="button" class="btn small primary" hidden>Start coding</button></div>
+ <div class="design-bottom"><button type="button" id="design-skip" class="text-button">Use these choices</button><span id="design-reset-note" class="note"></span></div>
+</div>
+<aside class="design-sketch-wrap" aria-label="Sketch of your design choices"><div class="mini-label">Design sketch</div><div id="design-sketch" class="design-sketch"><div class="sketch-welcome"><div id="sketch-avatar" class="sketch-avatar">MC</div><h3 id="sketch-title">My little corner</h3><p id="sketch-intro"></p><span id="sketch-button" class="sketch-button">Read my first post</span></div><article id="sketch-post"><h4 id="sketch-post-title">A little about me</h4><p id="sketch-post-body"></p></article></div></aside>
+</section>
+
+</details></div><div class="workspace">
+<section class="card code-panel" aria-label="Code editor">
+ <div class="toolbar panel-heading"><h3>Your code</h3><span id="save-state" class="note">Saved</span></div>
+ <div class="coding-progress"><span id="plan-current-title" class="sr-only"></span><span id="plan-current-progress" class="note"></span><button id="plan-continue" type="button" class="text-button" hidden>Resume guide</button></div>
+ <div class="editor-shell">
+  <div class="editor-topline"><span id="cursor-location" class="cursor-location">Line 1 · HTML</span><div class="editor-switches"><label class="inline-switch"><input type="checkbox" id="inline-enabled" checked> Suggestions</label><label class="inline-switch"><input type="checkbox" id="bubbles-enabled" checked> Hints</label></div></div>
+  <div class="editor-viewport"><div class="editor-mirror" aria-hidden="true"><div class="editor-mirror-text" id="editor-mirror-text"></div></div><textarea aria-label="Complete HTML page editor" aria-describedby="editor-instructions" autocapitalize="off" autocomplete="off" autocorrect="off" class="editor" id="editor" spellcheck="false" wrap="off"></textarea><aside id="meaning-bubble" class="meaning-bubble" role="note" aria-label="Code explanation" hidden><strong id="bubble-title"></strong><p id="bubble-body"></p></aside></div>
+ </div>
+ <p id="editor-instructions" class="sr-only">Type the gray suggestion. Tab indents; Shift+Tab leaves the editor. Escape hides hints.</p>
+ <div id="inline-announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+ <div class="toolbar"><button class="btn small" id="download">Download</button><button class="btn small" id="review">Submit</button></div>
+ <div id="editor-status" class="status" role="status"></div>
+ <details id="draft-tools" class="quiet-details"><summary>Draft tools</summary><div class="toolbar"><button type="button" id="start-blank" class="btn small">Start blank</button><button type="button" id="reset" class="btn small">Load example</button></div><div class="backup-tools"><label for="draft-backups">Backups</label><select id="draft-backups" aria-label="Saved reset backups"></select><button type="button" id="restore-backup" class="btn small" disabled>Restore</button><button type="button" id="download-backup" class="btn small" disabled>Download backup</button></div></details>
+ <details class="quiet-details"><summary>Step guide</summary><div id="teacher-panel" class="teacher-panel"><div class="teacher-header"><strong id="teacher-heading">Next line</strong><span id="teacher-count" class="note"></span></div><pre id="teacher-target" class="ref-code" aria-label="Next line to type"></pre><p id="teacher-why" class="note" hidden></p><div class="toolbar"><button type="button" class="btn small" id="teacher-find">Go to line</button><button type="button" class="btn small" id="teacher-more">More</button><button type="button" class="btn small" id="teacher-skip">Pause guide</button><button type="button" class="btn small" id="teacher-begin">Restart guide</button></div></div></details>
+ <details class="quiet-details"><summary>Examples</summary><div id="coach" class="coach"><select id="coach-goal" aria-label="Choose an example"></select><h4 id="coach-title"></h4><p id="coach-where" class="note"></p><pre id="coach-code" class="coach-code"></pre><p id="coach-help" class="note"></p><span id="coach-progress" class="note"></span><div class="coach-actions"><button class="btn small" type="button" id="coach-open-tab">Go to code</button><button class="btn small" type="button" id="coach-next">Next example</button><button class="btn small" type="button" id="coach-toggle">Hide code</button></div></div></details>
+</section>
+<section class="card preview-panel" aria-label="Preview and help"><h3 class="preview-heading">Preview</h3><iframe id="preview" class="preview" title="Your mini-blog live preview" sandbox=""></iframe><div class="coding-help"><h3>Ask for help</h3><form id="ask-form" class="toolbar"><input id="question" placeholder="How do I put words in boxes?" aria-label="Coding question"><button class="btn small" type="submit">Ask</button></form><details class="quiet-details"><summary>Ideas</summary><div id="help-topics"></div></details><div id="answer" class="answer" aria-live="polite"></div></div></section>
+</div></section>
+<section id="explore" class="view"><div class="section"><div class="section-head"><h2>Explore blogs</h2></div><div class="searchbar"><input type="search" id="search" placeholder="Search blogs or creators"><select id="category"><option value="">All categories</option><option>Personal</option><option>Journal</option><option>Art</option><option>Gaming</option><option>Photography</option><option>Other</option></select><select id="sort"><option value="newest">Newest first</option><option value="title">Title A–Z</option></select></div><div id="result-count" class="note" aria-live="polite"></div><div id="blog-list" class="grid" style="margin-top:18px"></div><div class="pager"><button class="btn small" id="prev-page">Previous</button><span class="note" id="page-indicator">Page 1</span><button class="btn small" id="next-page">Next</button></div></div></section>
+<section id="submit" class="view"><div class="section submit-copy"><h2>Submit your blog</h2><p>Download your HTML file and email it to <a href="mailto:admin@moddedamong.us">admin@moddedamong.us</a>. MAUL reviews submissions before publishing.</p><div class="actions"><button class="btn primary" id="submit-from-guide">Prepare email</button><a href="#create" class="btn">Back to editor</a></div></div></section>
+</main>
+<div id="submit-modal" class="dialog-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true"><div class="card dialog-panel"><div class="toolbar" style="justify-content:space-between"><h2 id="modal-title" style="font-size:1.6rem;margin:0">Submit your blog</h2><button class="btn small" id="close-modal">Close</button></div><p class="note">Attach the downloaded HTML file to the email.</p><form id="submit-form" class="fields"><div class="field"><label for="blog-title">Blog title</label><input id="blog-title" maxlength="80" required></div><div class="field"><label for="blog-author">Display name</label><input id="blog-author" maxlength="50" required></div><div class="field full"><label for="blog-desc">Short description</label><textarea id="blog-desc" maxlength="240" rows="3" required></textarea></div><div class="field"><label for="blog-category">Category</label><select id="blog-category"><option>Personal</option><option>Journal</option><option>Art</option><option>Gaming</option><option>Photography</option><option>Other</option></select></div><div class="field"><label for="blog-slug">Requested URL</label><input id="blog-slug" maxlength="40" pattern="[a-z0-9-]{3,40}" required placeholder="my-little-blog"></div><div class="field full checkrow"><input id="agree" type="checkbox" required><label for="agree">I’ll attach the HTML file and wait for approval.</label></div><div class="field full"><button type="submit" class="btn primary">Download & open email</button></div></form><div id="submission-status" class="status" role="status"></div></div></div>
+<script>
+(()=>{'use strict';
+
+// hi lurker, i might make it accept admin backend approvals later on
+const APPROVED_BLOGS=[];
+const STORE='maul_single_file_blogs_v1';
+const starterHTML="<main class=\"blog\">\n  <header class=\"card\">\n    <div class=\"avatar\">MC</div>\n    <h1>My little corner</h1>\n    <p>A place for my notes and favorite things.</p>\n    <a class=\"button\" href=\"#first-post\">Read my first post</a>\n  </header>\n  <article class=\"card\" id=\"first-post\">\n    <h2>A little about me</h2>\n    <p>My first post. More soon.</p>\n  </article>\n</main>";
+const starterCSS="body { margin: 0; padding: clamp(20px, 5vw, 64px); font-family: Arial, sans-serif; line-height: 1.7; color: #382743; background: linear-gradient(145deg, #f3edf8, #f9e8f0); }\n.blog { max-width: 680px; margin: auto; }\n.card { background: white; border: 1px solid #e2d5eb; border-radius: 18px; padding: 28px; margin-bottom: 24px; }\nh1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; }\n.avatar { display: grid; place-items: center; width: 84px; height: 84px; border-radius: 50%; background: #7954a1; color: white; }\n.button { display: inline-block; background: #7954a1; color: white; padding: 10px 18px; border-radius: 999px; text-decoration: none; }";
+const $=s=>document.querySelector(s);const $$=s=>[...document.querySelectorAll(s)];
+let state={html:starterHTML,css:starterCSS,prefs:{title:'My little corner',vibe:'Dreamy',color:'#9b82c7',corner:'18'}};try{const saved=JSON.parse(localStorage.getItem(STORE)||'null');if(saved&&typeof saved.html==='string'&&typeof saved.css==='string'){state={...state,...saved,prefs:{...state.prefs,...saved.prefs}}}}catch{}
+const makeDocument=(html,css,title)=>`<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1">\n  <title>${escapeHTML(title)}</title>\n  <style>\n${css}\n  </style>\n</head>\n<body>\n${html}\n</body>\n</html>`;
+if(typeof state.source!=='string')state.source=makeDocument(state.html,state.css,state.prefs.title);
+let page=1,previewTimer;
+let hasSavedDraft=false;try{hasSavedDraft=typeof JSON.parse(localStorage.getItem(STORE)||"null")?.source === "string"}catch{}
+if(!hasSavedDraft)state.source="";
+const goals=[
+ {name:'Add a heading',tab:'html',title:'Give your blog a title',intro:'A heading tells visitors what your page is about. Place it inside the body of your page.',snippet:'<h1>My little corner</h1>',help:'<h1> starts the most important heading. Write the title you want people to see, then close it with </h1>.',check:v=>/<h1(?:\s[^>]*)?>[^<]+<\/h1\s*>/i.test(v)},
+ {name:'Write an introduction',tab:'html',title:'Write your first paragraph',intro:'Tell visitors a little about your blog.',snippet:'<p>Welcome to my blog!</p>',help:'The <p> element creates a paragraph. The words between <p> and </p> appear as regular text.',check:v=>/<p(?:\s[^>]*)?>[^<]+<\/p\s*>/i.test(v)},
+ {name:'Add a clickable link',tab:'html',title:'Link to another website',intro:'Use an anchor tag to make text clickable.',snippet:'<a href="https://example.com">Visit my favorite site</a>',help:'<a> creates a link. href="..." tells the browser where to go. The text before </a> is the clickable label.',check:v=>/<a\s+[^>]*href\s*=\s*["'][^"']+["'][^>]*>[^<]*<\/a\s*>/i.test(v)},
+ {name:'Show an image',tab:'html',title:'Add your own picture',intro:'Replace the example link with the URL of an image you want to show.',snippet:'<img src="https://example.com/photo.jpg" alt="A photo I like">',help:'<img> adds a picture. src is its web address; alt is a short description useful for accessibility.',check:v=>/<img\s+[^>]*src\s*=\s*["'][^"']+["'][^>]*>/i.test(v)},
+ {name:'Add a decorative star',tab:'html',title:'Make a star element',intro:'Start with one star. Animate it inside <style>.',snippet:'<span class="star">★</span>',help:'<span> wraps a small piece of content. class="star" lets your CSS select and style this particular star.',check:v=>/<span\s+[^>]*class\s*=\s*["'][^"']*star[^"']*["'][^>]*>[^<]+<\/span\s*>/i.test(v)},
+ {name:'Choose a background color',tab:'css',title:'Color your background',intro:'Try your selected color, or change it to any CSS color.',snippet:'body {\n  background-color: #9b82c7;\n}',help:'body selects the page. background-color controls the solid color behind its content. Hex codes beginning with # specify exact colors.',check:v=>/background-color\s*:\s*[^;\n}]+/i.test(v)},
+ {name:'Round your boxes',tab:'css',title:'Change the box corners',intro:'Rounded corners make cards feel softer. Set the radius to 0px for sharp corners.',snippet:'.card {\n  border-radius: 18px;\n}',help:'.card finds elements with class="card". border-radius controls how curved their corners are.',check:v=>/border-radius\s*:\s*[^;\n}]+/i.test(v)},
+ {name:'Make a gradient',tab:'css',title:'Blend two background colors',intro:'Create a smooth transition from purple to pink.',snippet:'body {\n  background: linear-gradient(135deg, #9b82c7, #f1c4d7);\n}',help:'linear-gradient blends two or more colors. 135deg controls the direction. The colors can be replaced with your own.',check:v=>/linear-gradient\s*\(/i.test(v)},
+ {name:'Make an element rise',tab:'css',title:'Animate your star upward',intro:'Once you have a star in HTML, these rules can make it rise and fade.',snippet:'.star {\n  display: inline-block;\n  animation: floatUp 4s linear infinite;\n}\n@keyframes floatUp {\n  from { transform: translateY(0); opacity: 1; }\n  to { transform: translateY(-100px); opacity: 0; }\n}',help:'animation starts the repeating motion. @keyframes defines its beginning and end. Negative translateY values move the star upward.',check:v=>/@keyframes\s+floatUp/i.test(v)&&/animation\s*:\s*floatUp/i.test(v)},
+ {name:'Add a hover effect',tab:'css',title:'Make cards react to hovering',intro:'Give visitors a subtle interaction when they point at your content.',snippet:'.card { transition: transform .25s ease; }\n.card:hover { transform: translateY(-5px); }',help:':hover applies when the pointer is over an element. transition smooths the movement instead of jumping immediately.',check:v=>/:hover\s*\{/i.test(v)}
+];
+let goalIndex=0,exampleVisible=true;
+function suggestedSnippet(g){return g.name==='Choose a background color'?g.snippet.replace('#9b82c7',$('#page-color').value):g.name==='Round your boxes'?g.snippet.replace('18px',$('#page-corner').value+'px'):g.snippet.replace(/\\n/g,'\n')}
+function updateCoach(){
+ const g=goals[goalIndex],snippet=suggestedSnippet(g),isCSS=g.tab==='css';
+ $('#coach-title').textContent=g.title;
+ $('#coach-where').textContent=isCSS?'CSS inside <style>':'HTML inside <body>';
+ $('#coach-help').textContent=g.help;
+ $('#coach-open-tab').textContent=isCSS?'Go to CSS':'Go to HTML';
+ $('#coach-toggle').textContent=exampleVisible?'Hide code':'Show code';
+ $('#coach-code').hidden=!exampleVisible;$('#coach-code').textContent=snippet;
+ const code=editor.value,content=isCSS?(code.match(/<style\b[^>]*>([\s\S]*?)<\/style\s*>/i)||[])[1]||'':code;
+ $('#coach-progress').textContent=g.check(content)?'Added.':'';
+}
+function focusSection(kind){
+ const el=$('#editor'),source=el.value;const token=kind==='css'?'<style>':'<body>';
+ const match=new RegExp(kind==='css'?'<style\\b[^>]*>':'<body\\b[^>]*>','i').exec(source);
+ let at=match?match.index:-1;
+ if(at<0){$('#editor-status').textContent='Add '+token+' first.';el.focus();return;}
+ at+=match[0].length;
+ el.focus();el.setSelectionRange(at,at);el.scrollTop=Math.max(0,el.scrollHeight*at/source.length-160);
+ explain();renderInlineAssist();
+}
+function setGoal(i,focus=false){activeCreativeGoal=true;goalIndex=(i+goals.length)%goals.length;$('#coach-goal').value=String(goalIndex);updateCoach();if(focus)focusSection(goals[goalIndex].tab);renderInlineAssist();updatePlanProgress()}
+const beginnerSteps=[
+ {line:'<!DOCTYPE html>',why:'Tell the browser to use modern HTML. This line does not appear on the page.',more:'The exclamation mark makes this different from normal tags. The browser reads it before the rest of your page.'},
+ {line:'<html lang="en">',why:'This starts the webpage. lang="en" says your content is written in English.',more:'HTML elements use angle brackets. Most have a matching closing tag, like </html>.'},
+ {line:'<head>',why:'The head holds information about the page, such as its title and styling. Visitors do not see this section directly.',more:'head stores page settings.'},
+ {line:'  <meta charset="UTF-8">',why:'This lets the browser display letters, symbols, and emoji correctly.',more:'meta tags provide page information. They do not need a closing tag.'},
+ {line:()=>`  <title>${($('#page-title').value||'My Little Corner').replace(/[<&]/g,'')}</title>`,why:'This sets the name shown on the browser tab—not the big heading on the page.',more:'Change the words between <title> and </title> to give your page its own name.'},
+ {line:'  <style>',why:'Now you are opening your CSS section. CSS controls how your page looks: colors, fonts, sizes, and more.',more:'Everything until </style> will be interpreted as CSS rather than visible content.'},
+ {line:'    body {',why:'This CSS selector targets the whole visible page. The { opens a group of styling instructions.',more:'A selector chooses what to style. The properties inside braces decide how it looks.'},
+ {line:()=>`      background-color: ${$('#page-color').value};`,why:'This property sets your page background to the color you chose above.',more:'The color after the colon is a hexadecimal color code. The semicolon finishes this declaration.'},
+ {line:'      font-family: Arial, sans-serif;',why:'This tells the browser which font to use for your text.',more:'If Arial is unavailable, sans-serif is a fallback font family.'},
+ {line:'      padding: 30px;',why:'Padding creates breathing room between the window edge and your content.',more:'px means pixels. You can experiment with the number after the initial page is working.'},
+ {line:'    }',why:'The closing curly brace finishes the body styling rule.',more:'Each CSS rule starts with { and ends with }.'},
+ {line:'  </style>',why:'This closes the styling section. Next comes the end of your head section.',more:'The slash in </style> means the element is closing.'},
+ {line:'</head>',why:'The page settings are complete. You can now write what people actually see.',more:'Your webpage has a head for settings and a body for visible content.'},
+ {line:'<body>',why:'Everything inside body is the content visitors will see in your blog.',more:'Headings, paragraphs, images, and clickable links go here.'},
+ {line:'  <h1>My Little Corner</h1>',why:'This creates your main heading. The words between the tags become big visible text.',more:'<h1> opens a heading and </h1> closes it. You can replace the words with your own.'},
+ {line:'  <p>Welcome to my first blog!</p>',why:'This creates a paragraph. You can replace the text with your own introduction.',more:'The <p> element wraps a paragraph. The closing </p> says where it ends.'},
+ {line:'</body>',why:'This tells the browser you have finished the visible content of your page.',more:'You can add more elements above this closing tag whenever you like.'},
+ {line:'</html>',why:'Close the HTML document.',more:'You can add more content inside body.'}
+];
+let teacherPaused=false,teacherExtra=false;
+function expectedLine(i){const s=beginnerSteps[i].line;return typeof s==='function'?s():s}
+function matchesStep(line,i){
+ const step=beginnerSteps[i];if(step?.check)return step.check(line.trim());
+ const patterns=[/^<!doctype\s+html\s*>$/i,/^<html\b[^>]*>$/i,/^<head\s*>$/i,
+ /^<meta\s+[^>]*charset\s*=\s*["']?utf-8["']?[^>]*>$/i,/^<title>.+<\/title>$/i,
+ /^<style(?:\s[^>]*)?>$/i,/^body\s*\{$/i,/^background-color\s*:\s*[^;]+;$/i,
+ /^font-family\s*:\s*[^;]+;$/i,/^padding\s*:\s*[^;]+;$/i,/^\}$/,
+ /^<\/style\s*>$/i,/^<\/head\s*>$/i,/^<body(?:\s[^>]*)?>$/i,
+ /^<h1(?:\s[^>]*)?>.+<\/h1\s*>$/i,/^<p(?:\s[^>]*)?>.+<\/p\s*>$/i,
+ /^<\/body\s*>$/i,/^<\/html\s*>$/i];
+ return !!patterns[i]?.test(line.trim());
+}
+function teacherProgress(){
+ const lines=$('#editor').value.split('\n').map(x=>x.trim()).filter(Boolean);
+ let done=0;
+ for(const line of lines){if(done>=beginnerSteps.length)break;if(matchesStep(line,done))done++;}
+ return done;
+}
+function renderTeacher(){
+ const done=teacherProgress(),finished=done>=beginnerSteps.length;
+ const panel=$('#teacher-panel');panel.dataset.paused=String(teacherPaused);panel.dataset.finished=String(finished);
+ $('#teacher-heading').textContent=teacherPaused?'Guide paused':finished?'Page complete':beginnerSteps[done].phase||'Next line';
+ $('#teacher-count').textContent=finished?'Page complete':`${done+1} / ${beginnerSteps.length}`;
+ $('#teacher-target').hidden=teacherPaused||finished;
+ $('#teacher-target').textContent=finished?'':expectedLine(done);
+ $('#teacher-find').disabled=teacherPaused||finished;
+ $('#teacher-more').hidden=teacherPaused||finished;
+ $('#teacher-why').hidden=!teacherExtra||teacherPaused||finished;
+ $('#teacher-why').textContent=finished?'':beginnerSteps[done].why;
+ $('#teacher-skip').textContent=teacherPaused?'Resume guide':'Pause guide';
+ updatePlanProgress();
+}
+function positionNextLine(){const el=$('#editor');el.focus();const v=el.value;let p=v.length;const done=teacherProgress();if(done>=beginnerSteps.length)return;const expected=expectedLine(done);const rows=v.split('\n');const last=rows.at(-1)||'';if(!v){p=0}else if(last.trim()&&!(expected.trimStart().startsWith(last.trimStart()))){$('#editor-status').textContent='Press Enter to start the next line.';}el.setSelectionRange(p,p);el.scrollTop=el.scrollHeight;renderTeacher();renderInlineAssist()}
+function persist(){state.source=$('#editor').value;state.prefs={title:$('#page-title').value,vibe:$('#page-vibe').value,color:$('#page-color').value,corner:$('#page-corner').value};try{localStorage.setItem(STORE,JSON.stringify(state));$('#save-state').textContent='Saved'}catch{$('#save-state').textContent='Storage unavailable'}}
+function safeDocument(){
+ const doc=$('#editor').value;
+ return doc.replace(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi,'').replace(/<script\b[^>]*\/?>/gi,'').replace(/<meta\b(?=[^>]*http-equiv\s*=\s*["']?refresh)[^>]*>/gi,'').replace(/<base\b[^>]*>/gi,'');
+}
+function renderPreview(){clearTimeout(previewTimer);previewTimer=setTimeout(()=>{
+ const doc=safeDocument();
+ const policy=`<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src https: data:; style-src 'unsafe-inline'; font-src data: https:; base-uri 'none'; form-action 'none'; object-src 'none'">`;
+ $('#preview').srcdoc='<!doctype html>'+policy+doc.replace(/^\s*<!doctype\b[^>]*>/i,'');
+},180)}
+function explain(){updateCoach();renderInlineAssist();}
+function exportHTML(){persist();return safeDocument()+'\n'}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function saveFile(name,text){const blob=new Blob([text],{type:'text/html;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),15000)}
+function slug(s){return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40)}
+function openModal(){persist();$('#blog-title').value=$('#page-title').value;$('#blog-slug').value=slug($('#page-title').value)||'my-blog';$('#submit-modal').classList.add('open');$('#submit-modal').setAttribute('aria-hidden','false');$('#submission-status').textContent='';$('#blog-title').focus()}
+function closeModal(){$('#submit-modal').classList.remove('open');$('#submit-modal').setAttribute('aria-hidden','true');$('#review').focus()}
+function showView(){const key=location.hash.slice(1).split('/')[0];const view=['home','create','explore','submit'].includes(key)?key:'home';$$('.view').forEach(el=>el.classList.toggle('active',el.id===view));$$('[data-nav]').forEach(el=>el.classList.toggle('active',el.dataset.nav===view));if(view==='explore')renderBlogs();if(view==='create')renderPreview();if(key===view&&['home'].includes(view)&&location.hash!=='#home'&&location.hash!==''){const anchor=document.querySelector(location.hash);if(anchor)setTimeout(()=>anchor.scrollIntoView(),80)}else scrollTo({top:0,behavior:'instant'})}
+let filtered=[];function renderBlogs(){const q=$('#search').value.trim().toLowerCase(),cat=$('#category').value;filtered=APPROVED_BLOGS.filter(x=>(!cat||x.category===cat)&&[x.title,x.author,x.description,x.category].join(' ').toLowerCase().includes(q));if($('#sort').value==='title')filtered.sort((a,b)=>a.title.localeCompare(b.title));else filtered.sort((a,b)=>String(b.date).localeCompare(String(a.date)));const pages=Math.max(1,Math.ceil(filtered.length/9));page=Math.min(page,pages);const entries=filtered.slice((page-1)*9,page*9);$('#result-count').textContent=`${filtered.length} blog${filtered.length===1?'':'s'}`;$('#blog-list').replaceChildren();if(!entries.length){const empty=document.createElement('div');empty.className='empty';empty.textContent=APPROVED_BLOGS.length?'No matching blogs.':'No blogs yet.';$('#blog-list').append(empty)}else for(const item of entries){const article=document.createElement('article');article.className='card blog-card';const thumb=document.createElement('div');thumb.className='blog-thumb';thumb.style.background=item.thumbnail?'#19151b':'linear-gradient(135deg,#e6d3e5,#d4c0e8)';if(item.thumbnail){const img=document.createElement('img');img.src=item.thumbnail;img.alt='Preview of '+item.title;img.loading='lazy';img.style.cssText='width:100%;height:100%;object-fit:cover';thumb.append(img)}else thumb.textContent=item.title;const box=document.createElement('div');box.className='blog-info';const h=document.createElement('h3');h.textContent=item.title;const by=document.createElement('div');by.className='note';by.textContent='by '+item.author+' · '+item.category;const p=document.createElement('p');p.textContent=item.description;const a=document.createElement('a');a.className='btn small';a.textContent='Visit blog';try{const u=new URL(item.url,location.href);if(u.protocol!=='https:')throw Error();a.href=u.href;a.target='_blank';a.rel='noopener noreferrer'}catch{a.removeAttribute('href');a.textContent='Unavailable'}box.append(h,by,p,a);article.append(thumb,box);$('#blog-list').append(article)}$('#page-indicator').textContent=`Page ${page} of ${pages}`;$('#prev-page').disabled=page===1;$('#next-page').disabled=page===pages}
+for(const [id,value] of [['page-title',state.prefs.title],['page-vibe',state.prefs.vibe],['page-color',state.prefs.color],['page-corner',state.prefs.corner]])$('#'+id).value=value;
+$('#editor').value=state.source;
+$('#editor').addEventListener('input',()=>{persist();renderPreview();explain();renderTeacher()});
+$('#editor').addEventListener('click',()=>{explain();renderTeacher()});
+$('#editor').addEventListener('keyup',()=>{explain();renderTeacher()});
+$('#editor').addEventListener('paste',event=>{const text=event.clipboardData?.getData('text/plain')||'';if(!/^https?:\/\/\S+$/i.test(text.trim())){event.preventDefault();$('#editor-status').textContent='Guided mode: paste links only. Type code yourself, or use accessibility input methods.'}});
+
+goals.forEach((g,i)=>{const option=document.createElement('option');option.value=String(i);option.textContent=g.name;$('#coach-goal').append(option)});
+$('#coach-goal').addEventListener('change',e=>setGoal(Number(e.target.value)));
+$('#coach-open-tab').addEventListener('click',()=>{activeCreativeGoal=true;focusSection(goals[goalIndex].tab)});
+$('#coach-next').addEventListener('click',()=>setGoal(goalIndex+1));
+$('#coach-toggle').addEventListener('click',()=>{exampleVisible=!exampleVisible;updateCoach()});
+$('#teacher-begin').addEventListener('click',()=>resetEditor('','Before restarting beginner guide'));
+$('#teacher-find').addEventListener('click',positionNextLine);
+$('#teacher-more').addEventListener('click',()=>{teacherExtra=!teacherExtra;$('#teacher-more').textContent=teacherExtra?'Less':'More';renderTeacher()});
+$('#teacher-skip').addEventListener('click',()=>{teacherPaused=!teacherPaused;activeCreativeGoal=false;$('#teacher-skip').textContent=teacherPaused?'Resume guide':'Pause guide';renderTeacher();renderInlineAssist()});
+$('#start-blank').addEventListener('click',()=>resetEditor('','Before starting blank'));
+$$('[data-question]').forEach(b=>b.addEventListener('click',()=>{$('#question').value=b.dataset.question;$('#ask-form').requestSubmit()}));
+$$(['#page-title','#page-vibe','#page-color','#page-corner'].join(',')).forEach(el=>el.addEventListener('change',()=>{persist();renderTeacher();updateCoach();renderInlineAssist()}));
+$('#reset').addEventListener('click',()=>resetEditor(makeDocument(starterHTML,starterCSS,$('#page-title').value),'Before resetting example',true));
+$('#download').addEventListener('click',()=>{const name=slug($('#page-title').value)||'my-blog';saveFile(name+'.html',exportHTML());$('#editor-status').textContent='Downloaded.'});
+$('#review').addEventListener('click',openModal);$('#submit-from-guide').addEventListener('click',openModal);
+$('#close-modal').addEventListener('click',closeModal);
+$('#submit-modal').addEventListener('click',e=>{if(e.target===$('#submit-modal'))closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#submit-modal').classList.contains('open'))closeModal()});
+$('#submit-form').addEventListener('submit',e=>{e.preventDefault();const title=$('#blog-title').value,author=$('#blog-author').value,desc=$('#blog-desc').value,cat=$('#blog-category').value,id=$('#blog-slug').value;const filename=(slug(id)||'my-blog')+'.html';saveFile(filename,exportHTML());const subject=`MAUL Mini-Blog Review: ${title}`;const body=`Hi MAUL,\n\nPlease review my mini blog\n\nBlog title: ${title}\nCreator display name: ${author}\nDescription: ${desc}\nCategory: ${cat}\nRequested URL: https://moddedamong.us/blogs/${id}\n\nFile to attach: ${filename}\n\nThanks!`;$('#submission-status').textContent=`Downloaded ${filename}. Attach it to your email.`;const mailto='mailto:admin@moddedamong.us?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);setTimeout(()=>{location.href=mailto},200)});
+for(const id of ['search','category','sort'])$('#'+id).addEventListener(id==='search'?'input':'change',()=>{page=1;renderBlogs()});$('#prev-page').addEventListener('click',()=>{page--;renderBlogs()});$('#next-page').addEventListener('click',()=>{page++;renderBlogs()});
+      
+const editor=$('#editor');
+let composing=false,ghostDismissed=false,assistFrame=0,announcementTimer,bubbleDismissed=false;
+let activeCreativeGoal=false;
+const VOID_TAGS=new Set('area base br col embed hr img input link meta param source track wbr'.split(' '));
+const HTML_HELP={
+ html:['The document root','<html> wraps your entire page. lang="en" identifies English content.'],
+ head:['Page settings','<head> holds your browser-tab title, character encoding, and CSS. These are not visible page content.'],
+ meta:['Character encoding','<meta charset="UTF-8"> lets the browser read symbols and emoji. A meta tag has no closing tag.'],
+ title:['Browser-tab title','Text between <title> and </title> labels the browser tab. Use <h1> for a visible heading.'],
+ style:['The CSS section','Write CSS between <style> and </style>. A selector chooses an element; declarations change its appearance.'],
+ body:['Visible page content','Headings, paragraphs, links, and images inside <body> appear in your live preview.'],
+ h1:['Your main heading','<h1> makes a large main heading. Type your own words between <h1> and </h1>.'],
+ h2:['A section heading','<h2> introduces a section below your main heading. Put your own words between its tags.'],
+ p:['A paragraph','<p> starts a paragraph of regular text. </p> ends it. Your words appear in the preview as you type.'],
+ a:['A clickable link','href="..." sets the destination. Text between <a> and </a> becomes the clickable label.'],
+ img:['An image','src="..." supplies the picture URL; alt="..." describes it. <img> does not need a closing tag.'],
+ div:['A container','<div> groups content. class="card" lets a .card CSS rule style that container.'],
+ main:['The main content','<main> marks the primary content of your page. You can style it with a class.'],
+ span:['A small piece of content','<span class="star">★</span> creates a star you can target with .star in CSS.'],
+ script:['HTML and CSS only','Scripts do not run in this preview. Use CSS animations for movement.']
+};
+const CSS_HELP={
+ 'background-color':['Background color','Fills the selected element with one color. The colon introduces the value and the semicolon ends it.'],
+ background:['Background or gradient','background accepts a color or linear-gradient(...). Change the colors to see the preview update.'],
+ color:['Text color','color changes text inside the selected element. Try a color name or a hex value such as #9b82c7.'],
+ 'font-family':['Typeface','font-family chooses a font. Arial, sans-serif includes a fallback when Arial is unavailable.'],
+ 'font-size':['Text size','font-size changes how large text looks. Try 24px for a heading, then adjust it.'],
+ padding:['Space inside a box','padding creates space between an element’s content and its border. 30px means thirty pixels.'],
+ margin:['Space outside a box','margin separates an element from its neighbors. margin: auto can center a box with a limited width.'],
+ 'border-radius':['Rounded corners','0px makes square corners; 18px rounds them. 50% makes a circle when width and height are equal.'],
+ border:['A visible outline','border combines thickness, line style, and color. For example: 1px solid #b76e79.'],
+ animation:['Repeating movement','Name your @keyframes rule, give a duration such as 4s, and use infinite to repeat.'],
+ transform:['Move or reshape','translateY(-100px) moves an element up one hundred pixels. The negative sign means upward.'],
+ opacity:['Transparency','1 is fully visible and 0 is transparent. Use it in keyframes to make stars fade.'],
+ display:['Layout behavior','inline-block lets a small element such as a star have dimensions and use transforms.'],
+ 'max-width':['Limit a box’s width','max-width keeps a card readable on large screens while allowing it to shrink on phones.'],
+ 'text-shadow':['Text glow','text-shadow adds a shadow or glow. Its values set horizontal offset, vertical offset, blur, and color.']
+};
+function cursorContext(){
+ const source=editor.value,pos=editor.selectionStart;
+ const start=source.lastIndexOf('\n',pos-1)+1;
+ const endAt=source.indexOf('\n',pos),end=endAt<0?source.length:endAt;
+ const before=source.slice(0,pos),prefix=source.slice(start,pos),line=source.slice(start,end);
+ const comment=before.lastIndexOf('<!--')>before.lastIndexOf('-->');
+ const clean=before.replace(/<!--[\s\S]*?(?:-->|$)/g,'');
+ const styleOpen=[...clean.matchAll(/<style\b[^>]*>/gi)].at(-1);
+ const styleClose=[...clean.matchAll(/<\/style\s*>/gi)].at(-1);
+ const inCSS=!!styleOpen&&(!styleClose||styleOpen.index>styleClose.index);
+ const css=inCSS?clean.slice(styleOpen.index+styleOpen[0].length):'';
+ const cssComment=inCSS&&css.lastIndexOf('/*')>css.lastIndexOf('*/');
+ const stack=[];
+ const tags=clean.replace(/<style\b[^>]*>[\s\S]*?(?:<\/style\s*>|$)/gi,'');
+ for(const m of tags.matchAll(/<(\/?)([a-z][\w-]*)\b[^>]*>/gi)){
+  const tag=m[2].toLowerCase();
+  if(m[1]){const i=stack.lastIndexOf(tag);if(i>=0)stack.splice(i);}
+  else if(!VOID_TAGS.has(tag)&&!m[0].endsWith('/>'))stack.push(tag);
+ }
+ const opening=before.match(/<([a-z][\w-]*)\b[^<>]*$/i);
+ const property=inCSS?(line.trim().match(/^([\w-]+)\s*:/)||[])[1]:null;
+ const selector=inCSS?(css.match(/([^{}]+)\{[^{}]*$/)||[])[1]?.trim():null;
+ return {source,pos,start,end,before,prefix,line,inCSS,css,comment:comment||cssComment,stack,opening,property,selector,
+  row:source.slice(0,pos).split('\n').length,col:pos-start+1};
+}
+function lineRemainder(candidate,prefix){
+ const typed=prefix.trimStart(),target=candidate.trimStart();
+ if(!typed)return candidate.slice(Math.min(prefix.length,candidate.length-target.length));
+ if(target.startsWith(typed))return target.slice(typed.length);
+ return null;
+}
+function inlineSuggestion(c){
+ if(c.comment||editor.selectionStart!==editor.selectionEnd||composing)return null;
+ if(c.pos!==c.end)return null;
+ const done=teacherProgress(),typed=c.prefix.trimStart(),lastContent=!c.source.slice(c.pos).trim();
+ if(!teacherPaused&&!activeCreativeGoal&&done<beginnerSteps.length&&lastContent){
+  const target=expectedLine(done);
+  const tail=lineRemainder(target,c.prefix);
+  if(tail)return {tail,why:beginnerSteps[done].why,title:'Type this next',where:'Continue here. The gray characters are a guide; type them yourself.'};
+  if(done>0&&c.prefix.trim()&&matchesStep(c.prefix.trim(),done-1))return {tail:'  ↵ Enter',enter:true,why:'This line is complete. Press Enter to begin the next line.',title:'Ready for the next line',where:'Press Enter here, then type the next gray suggestion.'};
+ }
+ const g=goals[goalIndex];
+ if(activeCreativeGoal&&(c.inCSS===(g.tab==='css'))){
+  const lines=suggestedSnippet(g).split('\n');
+  const written=c.source.slice(0,c.start).split('\n').map(x=>x.trim()).filter(Boolean);
+  let next=0;
+  for(let n=lines.length-1;n>0;n--){if(written.slice(-n).join('\n')===lines.slice(0,n).map(x=>x.trim()).join('\n')){next=n;break;}}
+  const candidates=typed?lines.slice(next):[lines[next]];
+  for(const candidate of candidates){const tail=lineRemainder(candidate,c.prefix);if(tail)return {tail,why:g.help,title:g.title,where:c.inCSS?'Type inside this CSS rule.':'Type inside <body>, before its closing tag.'};}
+ }
+ if(c.inCSS){
+  const candidates=c.selector?[
+   'background-color: '+$('#page-color').value+';','background: linear-gradient(135deg, #9b82c7, #f1c4d7);',
+   'color: #45334f;','font-family: Arial, sans-serif;','font-size: 24px;',
+   'padding: 30px;','margin: auto;','border-radius: '+$('#page-corner').value+'px;',
+   'border: 1px solid #b76e79;','max-width: 580px;','display: inline-block;',
+   'animation: floatUp 4s linear infinite;','transform: translateY(-100px);','opacity: 0;'
+  ]:['body {','.card {','.star {','h1 {','@keyframes floatUp {','</style>'];
+  if(!typed)return null;
+  for(const candidate of candidates){const tail=lineRemainder(candidate,c.prefix);if(tail)return {tail};}
+  return null;
+ }
+ const parent=c.stack.at(-1);
+ if(typed.startsWith('</')&&parent){const tail=lineRemainder('</'+parent+'>',c.prefix);if(tail)return {tail};}
+ const bodyContext=c.stack.includes('body');
+ const candidates=bodyContext?['<h1>My little corner</h1>','<h2>About me</h2>','<p>Welcome to my blog!</p>',
+  '<a href="https://example.com">Visit my favorite site</a>','<img src="https://example.com/photo.jpg" alt="A photo I like">',
+  '<div class="card">','<span class="star">★</span>']:
+  ['<!DOCTYPE html>','<html lang="en">','<head>','<meta charset="UTF-8">','<title>My little corner</title>','<style>','<body>'];
+ if(typed)for(const candidate of candidates){const tail=lineRemainder(candidate,c.prefix);if(tail)return {tail};}
+ const open=c.prefix.match(/<([a-z][\w-]*)\b[^>]*>[^<]+$/i);
+ if(open&&!VOID_TAGS.has(open[1].toLowerCase()))return {tail:'</'+open[1]+'>'};
+ return null;
+}
+function contextualHelp(c,suggestion){
+ if(c.comment)return ['A comment','Comments are notes in your code. They do not appear on your webpage.'];
+ if(!c.source.trim())return ['What is HTML?','HTML describes the structure of a webpage using tags. Start with <!DOCTYPE html> so the browser reads it as modern HTML.'];
+ if(suggestion?.why)return [suggestion.title,suggestion.why];
+ if(c.inCSS){
+  if(c.property&&CSS_HELP[c.property.toLowerCase()])return CSS_HELP[c.property.toLowerCase()];
+  if(/@keyframes/i.test(c.line))return ['Animation stages','@keyframes names a sequence of styles. from is the beginning and to is the ending.'];
+  if(c.prefix.trim()==='}')return ['End of a CSS rule','This brace ends the style rule.'];
+  return c.selector?['Styling '+c.selector,'Inside these braces, write a property, a colon, its value, and a semicolon. These styles affect '+c.selector+' in the preview.']:
+   ['Choose what to style','body styles the whole page. .card styles elements with class="card". Add { to begin the rule.'];
+ }
+ if(/<!doctype/i.test(c.line))return ['Modern HTML','<!DOCTYPE html> tells the browser which kind of document you are writing. It does not display text.'];
+ const cursorTag=c.opening?c.source.slice(c.before.lastIndexOf('<')).match(/^<([a-z][\w-]*)\b/i)?.[1]:null;
+ const tag=(cursorTag||c.line.match(/<\/?([a-z][\w-]*)\b/i)?.[1]||c.stack.at(-1)||'').toLowerCase();
+ if(HTML_HELP[tag])return HTML_HELP[tag];
+ return ['Your HTML page','Write visible content inside <body>. Move the cursor to a tag or CSS rule to learn what it does.'];
+}
+function syncGhostScroll(){
+ $('#editor-mirror-text').style.transform=`translate(${-editor.scrollLeft}px, ${-editor.scrollTop}px)`;
+ positionMeaningBubble();
+}
+const ATTRIBUTE_HELP={
+ lang:['lang · language','lang identifies the page’s language. "en" means English and helps screen readers pronounce your text.'],
+ charset:['charset · reading your text','charset sets the text encoding. UTF-8 supports accented letters and emoji.'],
+ class:['class · a styling label','class="card" lets a .card CSS rule style this element.'],
+ id:['id · a unique name','id names one specific element. id="about" can be styled with #about or linked to with href="#about".'],
+ href:['href · link destination','href is the address a link opens. Put the destination between the quotation marks.'],
+ src:['src · image address','src tells the browser where to load this image from. Put the image URL between the quotation marks.'],
+ alt:['alt · image description','alt describes an image in words for people who cannot see it. Describe the picture, such as "A purple flower".'],
+ name:['name · the setting’s name','name identifies a page setting. name="viewport" introduces instructions about fitting your page to a screen.'],
+ content:['content · the setting’s value','content supplies the value for this meta setting. With viewport, width=device-width makes the layout fit the screen.'],
+ style:['style · CSS on this element','style lets you write CSS for this element inside the quotes, such as color: purple;.'],
+ title:['title · extra information','The title attribute adds extra information, often shown on hover. It differs from the <title> element in your head section.'],
+ width:['width · how wide','width controls the element’s width. For an image, a number such as 120 means 120 pixels.'],
+ height:['height · how tall','height controls the element’s height. For an image, a number such as 120 means 120 pixels.'],
+ target:['target · where a link opens','target="_blank" opens a link in a new tab.'],
+ rel:['rel · link relationship','rel describes the link’s relationship. noopener keeps a new tab from controlling this page.']
+};
+function bubbleMeaning(c,s){
+ if(c.comment)return ['Comment','Comments stay in your code and don’t appear on the page.'];
+ const typed=c.prefix.trim();
+ if(!c.source.trim())return ['HTML','HTML tags describe your page. The first line tells the browser to use modern HTML.'];
+ if(/^<![^-]/i.test(typed))return ['<!DOCTYPE html> · the document type','Tell the browser to use modern HTML. This line stays out of the visible page.'];
+ if(c.inCSS&&!/^<\/style/i.test(typed)){
+  const part=c.css.split(/[{};]/).at(-1).trim();
+  const declaration=(c.prefix.match(/([\w-]+)\s*:\s*([^;]*);?\s*$/)||part.match(/^([\w-]+)\s*:\s*([^;]*)$/));
+  if(declaration){
+   const prop=declaration[1].toLowerCase(),value=declaration[2].trim(),help=CSS_HELP[prop];
+   if(help){
+    let detail=help[1];
+    if(/^#[\da-f]{0,8}$/i.test(value))detail+=' The # starts a hex color code; its digits choose the color.';
+    else if(/^-?[\d.]+px$/.test(value))detail+=' '+value+' means '+parseFloat(value)+' pixels.';
+    else if(/linear-gradient\s*\(/i.test(value))detail+=' The colors in the parentheses blend into one another.';
+    else if(/^-?[\d.]+(?:s|ms)$/.test(value))detail+=' This value sets a duration.';
+    return [prop+(value?' · '+value:''),detail];
+   }
+   return [prop+' · a CSS property','The name before : chooses what to change. The value after : chooses the setting. End the instruction with ;.'];
+  }
+  if(typed==='}')return ['} · finish this rule','This closes the group of styles you started with {. You can write another selector next.'];
+  if(/@keyframes/i.test(typed))return ['@keyframes · describe an animation','Name the animation, then describe its starting and ending styles using from and to.'];
+  const property=c.property&&CSS_HELP[c.property]?c.property:Object.keys(CSS_HELP).find(p=>part&&p.startsWith(part.toLowerCase()));
+  if(property)return [property+' · a CSS property',CSS_HELP[property][1]];
+  const selector=typed.replace(/\{$/,'').trim();
+  if(selector.startsWith('.'))return [selector+' · select a class','The dot means “find elements with this class.” The { starts their styling instructions.'];
+  if(selector.startsWith('#'))return [selector+' · select an ID','The # means “find the element with this ID.” Put its styles inside { and }.'];
+  if(/^body\b/i.test(selector))return ['body · the whole visible page','This selects the page’s body. Styles between { and } change its background, font, spacing, and more.'];
+  if(/^h[1-6]\b/i.test(selector))return [selector+' · style headings','This selects that heading level. Put the colors, size, and other styles you want inside { and }.'];
+  return contextualHelp(c,s);
+ }
+ const tagText=c.before.match(/<([a-z][\w-]*)\b([^<>]*?)(?:>)?$/i);
+ if(tagText){
+  const attrs=tagText[2];
+  const attr=attrs.match(/\s([\w:-]+)(?:\s*=\s*(?:"[^"]*"?|'[^']*'?|[^\s>]*))?\s*$/);
+  if(attr){
+   const name=attr[1].toLowerCase();
+   const key=ATTRIBUTE_HELP[name]?name:Object.keys(ATTRIBUTE_HELP).find(k=>k.startsWith(name));
+   if(key)return ATTRIBUTE_HELP[key];
+  }
+ }
+ const closing=c.before.match(/<\/([a-z][\w-]*)\s*>?$/i);
+ if(closing)return ['</'+closing[1]+'> · a closing tag','The slash closes this '+closing[1]+' element.'];
+ const opening=c.before.match(/<([a-z][\w-]*)(?:\s[^<>]*)?>?$/i);
+ if(opening){
+  let tag=opening[1].toLowerCase();
+  if(!HTML_HELP[tag]){
+   const suggested=(c.prefix+(s&&!s.enter?s.tail:'')).match(/<([a-z][\w-]*)/i)?.[1]?.toLowerCase();
+   tag=suggested&&HTML_HELP[suggested]?suggested:tag;
+  }
+  if(HTML_HELP[tag])return ['<'+tag+'> · '+HTML_HELP[tag][0].toLowerCase(),HTML_HELP[tag][1]];
+ }
+ const contentTag=c.stack.at(-1);
+ if(contentTag==='title')return ['Your browser-tab title','The words you type here name the browser tab. They do not make a heading on the page.'];
+ if(/^h[1-6]$/.test(contentTag||''))return ['Your heading text','These words appear as a heading. Finish with </'+contentTag+'> when you finish.'];
+ if(contentTag==='p')return ['Your paragraph text','These words appear as a paragraph. Finish with </p>.'];
+ return contextualHelp(c,s);
+}
+function positionMeaningBubble(){
+ const bubble=$('#meaning-bubble'),anchor=$('#caret-anchor');
+ if(!anchor||!$('#bubbles-enabled').checked||bubbleDismissed||composing||document.activeElement!==editor||editor.selectionStart!==editor.selectionEnd){bubble.hidden=true;return;}
+ const view=$('.editor-viewport'),v=view.getBoundingClientRect(),a=anchor.getBoundingClientRect();
+ const x=a.left-v.left,y=a.top-v.top,lineHeight=parseFloat(getComputedStyle(editor).lineHeight);
+ if(y<0||y+lineHeight>editor.clientHeight||x<0||x>editor.clientWidth){bubble.hidden=true;return;}
+ bubble.hidden=false;
+ const width=bubble.offsetWidth,height=bubble.offsetHeight;
+ const ghost=$('.ghost-tail')||$('.ghost-enter');
+ const after=Math.max(x,ghost?ghost.getBoundingClientRect().right-v.left:x);
+ let left,top,side;
+ if(after+16+width<=editor.clientWidth-10&&y+height<=editor.clientHeight-8){left=after+16;top=Math.max(8,y-8);side='right';}
+ else{
+  left=Math.max(10,Math.min(x-18,editor.clientWidth-width-10));
+  if(y+lineHeight+12+height<=editor.clientHeight-8){top=y+lineHeight+12;side='below';}
+  else if(y-height-12>=8){top=y-height-12;side='above';}
+  else{bubble.hidden=true;return;}
+ }
+ bubble.dataset.side=side;bubble.style.left=left+'px';bubble.style.top=top+'px';
+ bubble.style.setProperty('--tail-left',Math.max(15,Math.min(width-24,x-left))+'px');
+}
+function renderInlineAssist(){
+ cancelAnimationFrame(assistFrame);
+ assistFrame=requestAnimationFrame(()=>{
+  const c=cursorContext(),s=inlineSuggestion(c),enabled=$('#inline-enabled').checked;
+  const mirror=$('#editor-mirror-text');mirror.replaceChildren(document.createTextNode(c.source.slice(0,c.pos)));
+  const anchor=document.createElement('span');anchor.id='caret-anchor';anchor.className='caret-anchor';mirror.append(anchor);
+  const visible=s&&enabled&&!ghostDismissed&&!composing;
+  if(visible){const span=document.createElement('span');span.className=s.enter?'ghost-enter':'ghost-tail';span.textContent=s.tail;mirror.append(span);}
+  mirror.append(document.createTextNode(c.source.slice(c.pos)+'\u200b'));
+  syncGhostScroll();
+  $('#cursor-location').textContent=`Line ${c.row} · ${c.inCSS?'CSS':'HTML'}`;
+  $('#cursor-location').title=`Column ${c.col}`;
+  const [bubbleTitle,bubbleBody]=bubbleMeaning(c,s);
+  $('#bubble-title').textContent=bubbleTitle;$('#bubble-body').textContent=bubbleBody;positionMeaningBubble();
+  clearTimeout(announcementTimer);
+  announcementTimer=setTimeout(()=>{$('#inline-announcement').textContent=bubbleTitle+'. '+bubbleBody+(visible?' Suggested characters: '+s.tail:'');},650);
+ });
+}
+function refreshEditor(){persist();renderPreview();updateCoach();renderTeacher();renderInlineAssist();}
+function resumeSuggestions(){ghostDismissed=false;bubbleDismissed=false;renderInlineAssist();}
+editor.addEventListener('input',()=>{$('#editor-status').textContent='';resumeSuggestions();});
+editor.addEventListener('keyup',e=>{if(e.key!=='Escape')renderInlineAssist();});
+editor.addEventListener('click',resumeSuggestions);
+editor.addEventListener('select',resumeSuggestions);
+editor.addEventListener('focus',resumeSuggestions);
+editor.addEventListener('blur',()=>{$('#meaning-bubble').hidden=true;});
+editor.addEventListener('scroll',syncGhostScroll,{passive:true});
+editor.addEventListener('compositionstart',()=>{composing=true;renderInlineAssist();});
+editor.addEventListener('compositionend',()=>{composing=false;refreshEditor();});
+editor.addEventListener('keydown',e=>{
+ if(e.key==='Escape'){ghostDismissed=true;bubbleDismissed=true;renderInlineAssist();}
+ if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End','PageUp','PageDown'].includes(e.key)){ghostDismissed=false;bubbleDismissed=false;}
+ if(e.key==='Tab'&&!e.shiftKey&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!e.isComposing){
+  e.preventDefault();editor.setRangeText('  ',editor.selectionStart,editor.selectionEnd,'end');refreshEditor();
+ }
+});
+$('#inline-enabled').addEventListener('change',()=>{ghostDismissed=false;renderInlineAssist();});
+$('#bubbles-enabled').addEventListener('change',()=>{bubbleDismissed=false;renderInlineAssist();});
+new ResizeObserver(renderInlineAssist).observe(editor);
+window.addEventListener('resize',renderInlineAssist);
+document.addEventListener('selectionchange',()=>{if(document.activeElement===editor)renderInlineAssist();});
+window.addEventListener('hashchange',renderInlineAssist);
+const BACKUPS=STORE+'_backups';
+function readBackups(){try{const list=JSON.parse(localStorage.getItem(BACKUPS)||'[]');return Array.isArray(list)?list.filter(x=>typeof x.source==='string'&&typeof x.date==='string'&&typeof x.label==='string'):[];}catch{return [];}}
+function renderBackups(){
+ const list=readBackups(),select=$('#draft-backups');select.replaceChildren();
+ const empty=document.createElement('option');empty.value='';empty.textContent=list.length?'Choose a backup':'No backups yet';select.append(empty);
+ list.forEach((b,i)=>{const o=document.createElement('option');o.value=String(i);o.textContent=b.label+' · '+new Date(b.date).toLocaleString();select.append(o);});
+ $('#restore-backup').disabled=true;$('#download-backup').disabled=true;
+}
+function backupCurrent(label){
+ if(!editor.value.trim())return true;
+ const current={source:editor.value,prefs:{...state.prefs},designPlan:state.designPlan||null,date:new Date().toISOString(),label};
+ try{localStorage.setItem(BACKUPS,JSON.stringify([current,...readBackups()].slice(0,8)));renderBackups();return true;}
+ catch{saveFile('maul-draft-backup-'+Date.now()+'.html',editor.value);$('#editor-status').textContent='Storage full. Backup downloaded.';return true;}
+}
+function resetEditor(source,label,free=false){
+ const hadDraft=!!editor.value.trim();backupCurrent(label);teacherPaused=free;teacherExtra=false;activeCreativeGoal=false;ghostDismissed=false;
+ editor.value=source;editor.setSelectionRange(0,0);editor.scrollTop=0;editor.scrollLeft=0;
+ $('#teacher-skip').textContent=free?'Resume guide':'Pause guide';
+ $('#teacher-more').textContent='More';refreshEditor();editor.focus();
+ $('#editor-status').textContent=hadDraft?'Previous draft backed up.':'';
+}
+$('#draft-backups').addEventListener('change',()=>{const selected=$('#draft-backups').value!=='';$('#restore-backup').disabled=!selected;$('#download-backup').disabled=!selected;});
+$('#download-backup').addEventListener('click',()=>{const b=readBackups()[Number($('#draft-backups').value)];if(b)saveFile('maul-draft-backup.html',b.source);});
+$('#restore-backup').addEventListener('click',()=>{
+ const b=readBackups()[Number($('#draft-backups').value)];if(!b)return;
+ backupCurrent('Before restoring a backup');editor.value=b.source;
+ if(b.prefs)for(const [id,key] of [['page-title','title'],['page-vibe','vibe'],['page-color','color'],['page-corner','corner']]){if(b.prefs[key]!=null)$('#'+id).value=b.prefs[key];}
+ restoreCodingPlan(b.designPlan);
+ teacherPaused=true;activeCreativeGoal=false;$('#teacher-skip').textContent='Resume guide';refreshEditor();editor.focus();$('#editor-status').textContent='Backup restored.';
+});
+renderBackups();renderInlineAssist();
+const PALETTES={
+ Dreamy:{bg:'#f3edf8',secondary:'#f9e8f0',surface:'#ffffff',ink:'#382743',accent:'#7954a1',border:'#e2d5eb'},
+ Dark:{bg:'#100e19',secondary:'#21162c',surface:'#211b2d',ink:'#f5effc',accent:'#c4a1ff',border:'#4c3b60'},
+ Minimal:{bg:'#f6f4ef',secondary:'#ece9e1',surface:'#ffffff',ink:'#282a28',accent:'#42665d',border:'#deded6'},
+ Retro:{bg:'#f4edd8',secondary:'#e5e9d6',surface:'#fffbed',ink:'#353c2e',accent:'#526744',border:'#d3d6b6'},
+ Scrapbook:{bg:'#f6eae3',secondary:'#f1dfe6',surface:'#fffaf5',ink:'#533b40',accent:'#915869',border:'#e5ccd2'}
+};
+let designQuestion=0;
+const classicBeginnerSteps=[...beginnerSteps];
+const designDefaults={intro:'A place for my notes and favorite things.',layout:'cards',button:'yes',buttonLabel:'Read my first post',buttonURL:'#first-post',profile:'yes',initials:'MC',photo:'',postTitle:'A little about me',postBody:'My first post. More soon.'};
+function contrastInk(hex){
+ const rgb=hex.slice(1).match(/../g).map(n=>parseInt(n,16)/255).map(n=>n<=.04045?n/12.92:((n+.055)/1.055)**2.4);
+ const l=rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722;
+ return (l+.05)/.05>1.05/(l+.05)?'#17121c':'#ffffff';
+}
+function normalizedDesign(d={}){
+ const text=(key,fallback,max=500)=>typeof d[key]==='string'?d[key].slice(0,max):fallback;
+ const vibe=PALETTES[d.vibe]?d.vibe:($('#page-vibe').value||'Dreamy');
+ return {...designDefaults,title:text('title',$('#page-title').value||'My little corner',80),vibe,
+  color:/^#[\da-f]{6}$/i.test(d.color||'')?d.color:PALETTES[vibe].accent,
+  corner:['0','18','34','999'].includes(String(d.corner))?String(d.corner):'18',
+  intro:text('intro',designDefaults.intro,240),layout:d.layout==='open'?'open':'cards',
+  button:d.button==='no'?'no':'yes',buttonLabel:text('buttonLabel',designDefaults.buttonLabel,50),buttonURL:text('buttonURL','#first-post'),
+  profile:d.profile==='no'?'no':'yes',initials:text('initials','MC',3),photo:text('photo','',1000),
+  postTitle:text('postTitle',designDefaults.postTitle,100),postBody:text('postBody',designDefaults.postBody)};
+}
+function currentDesign(){return normalizedDesign({
+ title:$('#page-title').value,vibe:$('#page-vibe').value,color:$('#page-color').value,corner:$('#page-corner').value,
+ intro:$('#design-intro').value,layout:$('input[name="design-layout"]:checked').value,
+ button:$('input[name="design-button"]:checked').value,buttonLabel:$('#design-button-label').value,buttonURL:$('#design-button-url').value,
+ profile:$('input[name="design-profile"]:checked').value,initials:$('#design-initials').value,photo:$('#design-photo').value.trim(),
+ postTitle:$('#design-post-title').value,postBody:$('#design-post-body').value
+});}
+function publicImage(url){try{return /^https:\/\//i.test(url)&&new URL(url).hostname.includes('.');}catch{return false;}}
+function validDestination(url){return /^#[\w-]+$/.test(url)||publicImage(url);}
+function restoreDesignForm(d){
+ for(const [id,key] of [['page-title','title'],['page-vibe','vibe'],['page-color','color'],['page-corner','corner'],['design-intro','intro'],['design-button-label','buttonLabel'],['design-button-url','buttonURL'],['design-initials','initials'],['design-photo','photo'],['design-post-title','postTitle'],['design-post-body','postBody']])$('#'+id).value=d[key];
+ for(const key of ['layout','button','profile'])$(`input[name="design-${key}"][value="${d[key]}"]`).checked=true;
+}
+function renderDesignSketch(){
+ const d=currentDesign(),p=PALETTES[d.vibe],sketch=$('#design-sketch');
+ for(const [name,value] of Object.entries({bg:p.bg,secondary:p.secondary,surface:p.surface,ink:p.ink,accent:d.color,'button-ink':contrastInk(d.color),border:p.border,radius:d.corner+'px'}))sketch.style.setProperty('--sketch-'+name,value);
+ sketch.dataset.layout=d.layout;
+ for(const [id,value] of [['sketch-title',d.title||'Your blog name'],['sketch-intro',d.intro],['sketch-button',d.buttonLabel||'Your button'],['sketch-post-title',d.postTitle||'Your first post'],['sketch-post-body',d.postBody]])$('#'+id).textContent=value;
+ $('#sketch-avatar').hidden=d.profile==='no';$('#sketch-button').hidden=d.button==='no';
+ $('#design-button-fields').hidden=d.button==='no';$('#design-profile-fields').hidden=d.profile==='no';
+ const avatar=$('#sketch-avatar'),initials=d.initials.trim()||'ME';
+ if(d.profile==='yes'&&publicImage(d.photo)){
+  if(avatar.dataset.photo!==d.photo){const img=document.createElement('img');img.alt='Your profile picture';img.referrerPolicy='no-referrer';img.addEventListener('error',()=>{avatar.textContent=initials;});img.src=d.photo;avatar.replaceChildren(img);avatar.dataset.photo=d.photo;}
+ }else{avatar.textContent=initials;delete avatar.dataset.photo;}
+ updateDesignStart();
+}
+function updateDesignStart(){
+ const hasDraft=!!editor.value.trim();
+ $('#design-reset-note').textContent=hasDraft?'Your current code will be saved in Backups.':'';
+ $('#design-start').textContent=hasDraft?'Back up & start':'Start coding';
+ $('#design-skip').textContent=hasDraft?'Use choices & back up draft':'Use these choices';
+}
+function saveDesignDraft(){state.designDraft=currentDesign();persist();renderDesignSketch();}
+function showDesignQuestion(){
+ $$('[data-design-step]').forEach(el=>el.hidden=Number(el.dataset.designStep)!==designQuestion);
+ $('#design-step-count').textContent=`${designQuestion+1} / 6`;
+ $('#design-progress').value=designQuestion+1;$('#design-back').disabled=designQuestion===0;
+ $('#design-next').hidden=designQuestion===5;$('#design-start').hidden=designQuestion!==5;$('#design-error').textContent='';
+ $('#design-skip').hidden=designQuestion===5;
+}
+function validateDesign(all=false){
+ const d=currentDesign();let error='';
+ if((all||designQuestion===0)&&!d.title.trim())error='Add a blog name.';
+ if((all||designQuestion===3)&&d.button==='yes'&&(!d.buttonLabel.trim()||!validDestination(d.buttonURL)))error='Add button text and an https:// link, or use #first-post.';
+ if((all||designQuestion===4)&&d.profile==='yes'&&d.photo&&!publicImage(d.photo))error='Use an https:// image link, or leave it blank to use initials.';
+ if((all||designQuestion===5)&&(!d.postTitle.trim()||!d.postBody.trim()))error='Add a post title and a few words.';
+ $('#design-error').textContent=error;return !error;
+}
+function designSteps(d){
+ const p=PALETTES[d.vibe],steps=[];
+ const clean=s=>escapeHTML(s.replace(/[\r\n]+/g,' ').trim());
+ function add(line,why,phase){
+  const trimmed=line.trim();let check;
+  const property=trimmed.match(/^([\w-]+)\s*:/);
+  const opening=trimmed.match(/^<([a-z][\w-]*)\b/i);
+  if(property)check=v=>new RegExp('^'+property[1]+'\\s*:\\s*[^;]+;$','i').test(v);
+  else if(opening&&/^<(title|h1|h2|p|a|div)\b.*<\//i.test(trimmed)){const tag=opening[1];check=v=>new RegExp('^<'+tag+'\\b[^>]*>.+<\\/'+tag+'\\s*>$','i').test(v);}
+  else if(opening)check=v=>new RegExp('^<'+opening[1]+'(?:\\s[^>]*)?>$','i').test(v);
+  else check=v=>v.replace(/\s+/g,' ').toLowerCase()===trimmed.replace(/\s+/g,' ').toLowerCase();
+  steps.push({line,why,more:why,phase,check});
+ }
+ const setup='Page setup',css='Styles',html='Content';
+ add('<!DOCTYPE html>','Tell the browser this is modern HTML. This line does not display anything.',setup);
+ add('<html lang="en">','html wraps your page. lang="en" identifies English content.',setup);
+ add('<head>','Open the settings section, where your page title and CSS belong.',setup);
+ add('  <meta charset="UTF-8">','Let the browser display letters, symbols, and emoji correctly.',setup);
+ add('  <meta name="viewport" content="width=device-width, initial-scale=1">','Match the page width to the screen.',setup);
+ add('  <title>'+clean(d.title)+'</title>','Name the browser tab. You will add a visible heading later.',setup);
+ add('  <style>','Open the CSS section. The next lines control how your blog looks.',css);
+ const rule=(selector,props,why)=>{add('    '+selector+' {',why,css);for(const [name,value,meaning] of props)add('      '+name+': '+value+';',meaning,css);add('    }','Close this style rule.',css);};
+ rule('body',[
+  ['margin','0','Remove the browser’s default outer gap.'],
+  ['padding','clamp(20px, 5vw, 64px)','clamp adjusts the space around your content to fit the screen.'],
+  ['font-family',d.vibe==='Retro'?'monospace':'Arial, sans-serif','Choose a readable font for your whole blog.'],
+  ['line-height','1.7','Give lines of text enough space to read comfortably.'],
+  ['color',p.ink,'Use a text color chosen to stay readable on this palette.'],
+  ['background',`linear-gradient(145deg, ${p.bg}, ${p.secondary})`,'Blend two soft background colors. Your favorite color will appear in the details.']
+ ],'body selects the whole visible page. Put its style instructions between these braces.');
+ rule('.blog',[
+  ['max-width','680px','Keep the page from stretching into long, hard-to-read lines.'],
+  ['margin','auto','Center this limited-width blog on the screen.']
+ ],'The dot selects elements with class="blog". This will be the container for your page.');
+ if(d.layout==='cards')rule('.card',[
+  ['background',p.surface,'Give each box a surface that stands apart from the page background.'],
+  ['border','1px solid '+p.border,'Draw a subtle outline around each box.'],
+  ['border-radius',Math.min(Number(d.corner),34)+'px','Use your chosen corner shape. The number controls how rounded each box is.'],
+  ['padding','28px','Put space between the box edge and your words.'],
+  ['margin-bottom','24px','Separate one box from the next.']
+ ],'A .card is a box for your words. The welcome and first post will both use this class.');
+ else rule('article',[['margin-top','32px','Leave a clear gap before the first post.']],'Style each journal entry without adding a box.');
+ rule('h1',[
+  ['font-size','clamp(2rem, 5vw, 3rem)','Make the main heading prominent while letting it fit smaller screens.'],
+  ['line-height','1.1','Keep the large heading’s lines close together.']
+ ],'h1 selects the main visible heading of your blog.');
+ if(d.profile==='yes'){
+  const props=[['width','84px','Make your profile circle 84 pixels wide.'],['height','84px','Use the same height and width so it forms a circle.'],['border-radius','50%','Round the square into a circle.']];
+  if(publicImage(d.photo))props.push(['object-fit','cover','Crop the image neatly inside the circle without stretching it.']);
+  else props.push(['display','grid','Use a grid so the initials can sit in the middle.'],['place-items','center','Center the initials vertically and horizontally.'],['background',d.color,'Use your accent color behind the initials.'],['color',contrastInk(d.color),'Keep your initials readable on that accent color.']);
+  rule('.avatar',props,'Select the profile circle with class="avatar".');
+ }
+ if(d.button==='yes')rule('.button',[
+  ['display','inline-block','Let a text link have padding and behave like a button.'],
+  ['background',d.color,'Fill the button with your accent color.'],
+  ['color',contrastInk(d.color),'Choose a readable text color for the button.'],
+  ['padding','10px 18px','Give the button space above, below, and beside its words.'],
+  ['border-radius',d.corner==='0'?'0':'999px','Give the link a clear button shape.'],
+  ['text-decoration','none','Remove the usual underline from this button link.']
+ ],'The .button class will turn a normal link into a clickable button.');
+ add('  </style>','Close the CSS section. Next you will write visible content.',css);
+ add('</head>','Finish the page settings.',setup);
+ add('<body>','Open the visible part of your page.',html);
+ add('  <main class="blog">','main holds your blog content. class="blog" applies its layout.',html);
+ add(d.layout==='cards'?'    <header class="card">':'    <header>','Create the welcome area'+(d.layout==='cards'?' and give it the .card box style.':'.'),html);
+ if(d.profile==='yes')add(publicImage(d.photo)?'      <img class="avatar" src="'+escapeHTML(d.photo)+'" alt="My profile picture">':'      <div class="avatar">'+clean(d.initials||'ME')+'</div>',publicImage(d.photo)?'Load your profile picture and apply the circular .avatar style. Replace the alt text with a description of your picture.':'Put your initials in the circle. You can learn to replace this with an image later.',html);
+ add('      <h1>'+clean(d.title)+'</h1>','h1 displays your blog name as the main heading.',html);
+ add('      <p>'+clean(d.intro||'Welcome to my little corner.')+'</p>','Introduce your little corner in a paragraph.',html);
+ if(d.button==='yes')add('      <a class="button" href="'+escapeHTML(d.buttonURL)+'">'+clean(d.buttonLabel)+'</a>','Apply the button style to a link. '+(d.buttonURL==='#first-post'?'#first-post jumps to the entry with that ID.':'href is the destination people open when they click.'),html);
+ add('    </header>','Close the welcome area before beginning a post.',html);
+ add('    <article id="first-post"'+(d.layout==='cards'?' class="card"':'')+'>','Start your first blog entry. id="first-post" gives your button a place to jump to.',html);
+ add('      <h2>'+clean(d.postTitle)+'</h2>','Use h2 for the title of an entry, below your main h1 heading.',html);
+ add('      <p>'+clean(d.postBody)+'</p>','Write the content of your first post. You can add more paragraphs later.',html);
+ add('    </article>','Finish this blog entry. Another article could hold your next post.',html);
+ add('  </main>','Close the centered blog container.',html);
+ add('</body>','Finish the visible page content.',html);
+ add('</html>','Close the document. Your page is complete.',html);
+ return steps;
+}
+function applyDesignPlan(d){beginnerSteps.splice(0,beginnerSteps.length,...designSteps(d));}
+function restoreCodingPlan(plan){
+ if(plan){state.designPlan=normalizedDesign(plan);state.designDraft={...state.designPlan};applyDesignPlan(state.designPlan);restoreDesignForm(state.designPlan);}
+ else{state.designPlan=null;beginnerSteps.splice(0,beginnerSteps.length,...classicBeginnerSteps);}
+ renderDesignSketch();updatePlanProgress();
+}
+function updatePlanProgress(){
+ const done=teacherProgress(),total=beginnerSteps.length;
+ $('#plan-current-title').textContent=state.designPlan?state.designPlan.title:'Coding guide';
+ $('#plan-current-progress').textContent=done>=total?'Page complete':`Step ${done+1} / ${total} · ${beginnerSteps[done].phase||'HTML & CSS'}`;
+ $('#plan-continue').hidden=!(teacherPaused||activeCreativeGoal);
+ updateDesignStart();
+}
+function startDesign(){
+ if(!validateDesign(true))return;
+ const next=currentDesign();resetEditor('','Before starting a new design');
+ state.designPlan=next;state.designDraft={...next};applyDesignPlan(next);persist();renderTeacher();renderInlineAssist();updatePlanProgress();
+ $('#editor-status').textContent='';$('#design-options').open=false;
+ editor.scrollIntoView({behavior:'smooth',block:'center'});editor.focus({preventScroll:true});
+}
+const savedDesign=normalizedDesign(state.designDraft||state.designPlan||{});restoreDesignForm(savedDesign);
+if(state.designPlan){state.designPlan=normalizedDesign(state.designPlan);applyDesignPlan(state.designPlan);}
+else if(!editor.value.trim()){state.designPlan={...savedDesign};applyDesignPlan(savedDesign);}
+$('#design-next').addEventListener('click',()=>{if(validateDesign()){saveDesignDraft();designQuestion=Math.min(5,designQuestion+1);showDesignQuestion();$('[data-design-step="'+designQuestion+'"] legend').scrollIntoView({behavior:'smooth',block:'nearest'});}});
+$('#design-back').addEventListener('click',()=>{saveDesignDraft();designQuestion=Math.max(0,designQuestion-1);showDesignQuestion();});
+$('#design-start').addEventListener('click',startDesign);$('#design-skip').addEventListener('click',startDesign);
+$('#plan-continue').addEventListener('click',()=>{teacherPaused=false;activeCreativeGoal=false;$('#teacher-skip').textContent='Pause guide';positionNextLine();renderTeacher();renderInlineAssist();editor.scrollIntoView({behavior:'smooth',block:'center'});});
+$('.design-studio').addEventListener('input',saveDesignDraft);
+$('#page-vibe').addEventListener('change',()=>{$('#page-color').value=PALETTES[$('#page-vibe').value].accent;saveDesignDraft();});
+$('.design-studio').addEventListener('change',saveDesignDraft);
+editor.addEventListener('input',updatePlanProgress);
+for(const id of ['start-blank','teacher-begin','reset','restore-backup'])$('#'+id).addEventListener('click',updatePlanProgress);
+$('#design-options').open=!editor.value.trim();
+showDesignQuestion();renderDesignSketch();updatePlanProgress();renderTeacher();
+
+const HELP_COLORS={purple:'#9b7bd5',pink:'#efb5d0',blue:'#89b9e8',green:'#9fbe9c',black:'#15121c',white:'#ffffff',red:'#b95e76',orange:'#e6ad7c',yellow:'#ead68c',gold:'#d1b16c',lavender:'#cbb7e8',teal:'#79b6b5',rose:'#e9b4ac'};
+function helpQuery(text){return text.toLowerCase().replace(/[’']/g,'').replace(/\b(?:prifule|profule|profil|pfp)\b/g,'profile').replace(/\b(?:photograph|photo|pic|pics|pictures)\b/g,'picture').replace(/\b(?:botton|bottons)\b/g,'button').replace(/\s+/g,' ').trim();}
+function helpColors(q){
+ const matches=q.match(/#[\da-f]{6}\b|\b(?:purple|pink|blue|green|black|white|red|orange|yellow|gold|lavender|teal|rose)\b/g)||[];
+ return [...new Set(matches.map(c=>HELP_COLORS[c]||c))];
+}
+function helpTopics(q){
+ const d=currentDesign(),p=PALETTES[d.vibe],colors=helpColors(q),a=colors[0]||d.color,b=colors[1]||'#efb5d0';
+ const gradient=`linear-gradient(135deg, ${a}, ${b})`;
+ const cardBackground=/gradient|blend/.test(q)?gradient:colors[0]||p.surface;
+ const cardInk=colors.length?contrastInk(a):p.ink;
+ const block=(language,code,why)=>({language,code,why});
+ return [
+ {id:'cards',title:'Put your words in boxes',rules:[[/\b(?:box(?:es)?|cards?|containers?|panels?)\b/,110]],intro:'Wrap your words in a section, then style it with .card.',blocks:[
+  block('HTML','<section class="card">\n  <h2>My first post</h2>\n  <p>Put your own words here.</p>\n</section>','Place <section class="card"> before your words and </section> after them.'),
+  block('CSS',`.card {\n  background: ${cardBackground};\n  color: ${cardInk};\n  border: 1px solid ${p.border};\n  border-radius: ${Math.min(Number(d.corner),34)}px;\n  padding: 24px;\n  margin-bottom: 20px;\n}`,'Type this inside <style>. .card matches class="card". Padding is the space between the box and your words.')
+ ]},
+ {id:'buttons',title:'Make a clickable link button',rules:[[/\bbuttons?\b/,105]],intro:'Style a link to make a button.',blocks:[
+  block('HTML','<a class="button" href="'+escapeHTML(validDestination(d.buttonURL)?d.buttonURL:'#first-post')+'">'+escapeHTML(d.buttonLabel||'Read my first post')+'</a>','Type inside <body>. Replace href with a full https:// link, or use #first-post to jump to your article with id="first-post".'),
+  block('CSS',`.button {\n  display: inline-block;\n  background: ${a};\n  color: ${contrastInk(a)};\n  padding: 10px 18px;\n  border-radius: 999px;\n  text-decoration: none;\n}`,'Type inside <style>. The class adds a fill, spacing, and rounded edges to the link.')
+ ]},
+ {id:'profile',title:'Add a profile picture',rules:[[/\b(?:profile|avatar)\b/,120],[/\b(?:picture|image)\b/,75],[/\b(?:round|circle|circular)\b.*\b(?:picture|image)\b/,45]],intro:publicImage(d.photo)?'Use your photo link and crop it to a circle.':'Replace YOUR-IMAGE-URL with a full https:// link to your picture.',blocks:[
+  block('HTML','<img class="avatar" src="'+(publicImage(d.photo)?escapeHTML(d.photo):'YOUR-IMAGE-URL')+'" alt="Describe your profile picture">','Type inside <body>. src loads your image; alt describes it. An img element does not need a closing tag.'),
+  block('CSS','.avatar {\n  width: 84px;\n  height: 84px;\n  object-fit: cover;\n  border-radius: 50%;\n}','Type inside <style>. Equal width and height plus 50% corners create a circle without stretching the photo.')
+ ],extra:publicImage(d.photo)?null:'Without an image, try <div class="avatar">'+escapeHTML(d.initials||'ME')+'</div>, then add display: grid; place-items: center; and a background color to .avatar.'},
+ {id:'gradient',title:'Blend your background colors',rules:[[/\b(?:gradients?|blend|ombre|fade between)\b/,100]],intro:'A gradient blends colors across the background.',blocks:[
+  block('CSS',`body {\n  background: ${gradient};\n}`,'Type inside <style>. If you already have a body rule, change its background declaration there. 135deg sets the blend direction. Use .card instead of body to color only the boxes.')
+ ]},
+ {id:'stars',title:'Make a star float upward',rules:[[/\b(?:stars?|sparkles?|float(?:ing)?|twinkle)\b/,105]],intro:'Add a star, then animate it with CSS.',blocks:[
+  block('HTML','<span class="star" aria-hidden="true">✦</span>','Type inside <body>. class="star" gives the CSS something to move.'),
+  block('CSS',`.star {\n  display: inline-block;\n  color: ${a};\n  animation: floatUp 4s linear infinite;\n}\n@keyframes floatUp {\n  from { transform: translateY(0); opacity: 1; }\n  to { transform: translateY(-100px); opacity: 0; }\n}\n@media (prefers-reduced-motion: reduce) {\n  .star { animation: none; }\n}`,'Type inside <style>. The negative Y value moves the star upward; opacity fades it. The last rule respects reduced-motion preferences.')
+ ]},
+ {id:'center',title:'Center your content',rules:[[/\b(?:cent(?:er|re)(?:ed|ing)?|middle|align)\b/,90]],intro:'Automatic side margins center a box. text-align centers its words.',blocks:[
+  block('CSS','.card {\n  max-width: 680px;\n  margin-inline: auto;\n  text-align: center;\n}','Type inside <style>. max-width limits the box; automatic side margins center it. text-align centers the words inside. If your page uses .blog as its container, apply the width and margins to .blog instead.')
+ ]},
+ {id:'spacing',title:'Add space around your words',rules:[[/\b(?:spacing|padding|margin|gap|space between|space around)\b/,80]],intro:'Padding creates space inside a box. Margin creates space outside it.',blocks:[block('CSS','.card {\n  padding: 24px;\n  margin-bottom: 20px;\n}','Type inside <style>. Increase padding when the words sit too close to the edge. Increase margin-bottom to separate cards.')]},
+ {id:'font',title:'Change your text size or font',rules:[[/\b(?:fonts?|typeface|text size|bigger|smaller|letters)\b/,80]],intro:'Set the font and size in CSS.',blocks:[block('CSS','body {\n  font-family: Georgia, serif;\n  font-size: 17px;\n  line-height: 1.7;\n}','Use h1 instead of body to change only the main heading.')]},
+ {id:'layout',title:'Put cards side by side',rules:[[/\b(?:grid|columns?|side by side|layout)\b/,90]],intro:'CSS Grid arranges cards into columns that fit the screen.',blocks:[
+  block('HTML','<div class="posts">\n  <article class="card">My first post</article>\n  <article class="card">My next post</article>\n</div>','Type inside <body>. Keep each post inside its own article.'),
+  block('CSS','.posts {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));\n  gap: 20px;\n}','Type inside <style>. The grid gives each card at least 240px when space allows and fills the available width.')
+ ]},
+ {id:'corners',title:'Round the corners of a box',rules:[[/\b(?:round(?:ed)?|corners?|radius|border)\b/,60]],intro:'border-radius rounds a box’s corners.',blocks:[block('CSS','.card {\n  border-radius: 18px;\n  border: 1px solid '+p.border+';\n}','0px makes square corners. Use class="card" on the box in your HTML.')]},
+ {id:'color',title:'Change a background or text color',rules:[[/\b(?:colou?rs?|background|purple|pink|blue|green|black|white|red|orange|lavender|teal|rose)\b/,45]],intro:'background-color fills the background. color sets the text color.',blocks:[block('CSS',`body {\n  background-color: ${a};\n  color: ${contrastInk(a)};\n}`,'Use .card instead of body to color only your boxes. Update an existing rule if you already have one.')]},
+ {id:'links',title:'Add a link',rules:[[/\b(?:links?|href|clickable|website address)\b/,75]],intro:'An a element makes text clickable.',blocks:[block('HTML','<a href="https://example.com">Visit my favorite place</a>','Replace the example URL and link text with your own.')]},
+ {id:'post',title:'Write a new blog entry',rules:[[/\b(?:posts?|entries|paragraphs?|introduction|write|words|text)\b/,25]],intro:'Use an article for an entry, h2 for its title, and p for each paragraph.',blocks:[block('HTML','<article class="card">\n  <h2>A new little discovery</h2>\n  <p>Write your own words here.</p>\n</article>','Type inside <body>, before </main> if you have a main container. Each p is a separate paragraph.')]},
+ {id:'hover',title:'Add a hover effect',rules:[[/\b(?:hover|transition)\b/,130]],intro:'Move a button slightly when someone points at it.',blocks:[block('CSS','.button { transition: transform .2s ease; }\n.button:hover { transform: translateY(-2px); }',':hover applies while the pointer is over the button. transition smooths the movement.')]},
+ {id:'glow',title:'Add a soft text glow',rules:[[/\b(?:glow|shadow)\b/,100]],intro:'text-shadow makes text glow; box-shadow gives a whole box a shadow.',blocks:[block('CSS','h1 { text-shadow: 0 0 12px '+a+'; }','Type inside <style>. The blur value controls softness. Use a subtle glow so your words stay readable.')]}
+ ];
+}
+function appendHelpBlock(parent,block,title){
+ const section=document.createElement('section');section.className='help-block';
+ const heading=document.createElement('h4');heading.textContent=block.language+' · '+(block.language==='HTML'?'inside <body>':'inside <style>');
+ const why=document.createElement('p');why.textContent=block.why.replace(/^Type (?:this )?inside <(?:body|style)>\.\s*/,'').replace(/^Type inside <body>, before <\/main> if you have a main container\.\s*/,'Place it before </main>. ');
+ const pre=document.createElement('pre');pre.className='ref-code';pre.textContent=block.code;
+ const guide=document.createElement('button');guide.type='button';guide.className='btn small';guide.textContent='Show me where';guide.setAttribute('aria-label','Show where to type '+block.language);
+ guide.addEventListener('click',()=>{
+  const name=title+' ('+block.language+')';let index=goals.findIndex(g=>g.name===name);
+  const goal={name,tab:block.language.toLowerCase(),title,intro:why.textContent,snippet:block.code,help:why.textContent,check:v=>v.includes(block.code)};
+  if(index<0){index=goals.length;goals.push(goal);const option=document.createElement('option');option.value=String(index);option.textContent=name;$('#coach-goal').append(option);}else goals[index]=goal;
+  teacherPaused=true;$('#teacher-skip').textContent='Resume guide';setGoal(index,true);renderTeacher();
+  $('#coach').closest('details').open=true;editor.scrollIntoView({behavior:'smooth',block:'center'});editor.focus({preventScroll:true});
+ });
+ section.append(heading,why,pre,guide);parent.append(section);
+}
+function answerQuestion(raw,forcedTopic){
+ const q=helpQuery(raw),answer=$('#answer');answer.replaceChildren();
+ const heading=document.createElement('strong'),intro=document.createElement('p');
+ if(/\b(?:mean|means|why|what is|what does|explain)\b/.test(q)){
+  const attr=Object.keys(ATTRIBUTE_HELP).find(k=>new RegExp('\\b'+k+'\\b').test(q));
+  const prop=Object.keys(CSS_HELP).find(k=>new RegExp('\\b'+k+'\\b').test(q));
+  const tag=Object.keys(HTML_HELP).find(k=>new RegExp('(?:<|\\b)'+k+'(?:>|\\b)').test(q));
+  const meaning=tag&&(!attr||!q.includes('attribute'))?HTML_HELP[tag]:attr?ATTRIBUTE_HELP[attr]:prop?CSS_HELP[prop]:null;
+  if(meaning){heading.textContent=meaning[0];intro.textContent=meaning[1];answer.append(heading,intro);appendStackLookup(answer,raw);return;}
+ }
+ if(/\b(?:not working|doesnt work|isnt showing|broken|fix|wrong)\b/.test(q)){
+  heading.textContent='Check your code';
+  const source=editor.value,checks=[];
+  if(!/<style\b/i.test(source))checks.push('Your page has no <style> section yet. Put CSS between <style> and </style> inside <head>.');
+  else if(!/<\/style\s*>/i.test(source))checks.push('Your <style> section is still open. Close it with </style> before your visible HTML.');
+  if(!/<body\b/i.test(source))checks.push('Add <body> before your headings and paragraphs.');
+  if(/\.card\s*\{/.test(source)&&!/<[^>]+class\s*=\s*["'][^"']*\bcard\b/i.test(source))checks.push('Your CSS styles .card, but no HTML element has class="card" yet. Add that class to the box you want to style.');
+  intro.textContent=checks.length?checks.join(' '):'Check that your HTML class matches the CSS selector, each rule has closing braces, and each property ends with a semicolon.';
+  answer.append(heading,intro);appendTopicChoices(answer);appendStackLookup(answer,raw);return;
+ }
+ const ranked=helpTopics(q).map(topic=>({...topic,score:topic.rules.reduce((score,[pattern,weight])=>score+(pattern.test(q)?weight:0),0)})).sort((a,b)=>b.score-a.score);
+ const topic=forcedTopic?ranked.find(t=>t.id===forcedTopic):ranked[0]?.score?ranked[0]:null;
+ if(!topic){heading.textContent='Searching Stack Overflow';intro.textContent='No built-in guide matched your question. Looking for relevant community answers…';answer.append(heading,intro);searchStackOverflow(raw,answer,true);return;}
+ heading.textContent=topic.title;intro.textContent=topic.intro;answer.append(heading,intro);
+ for(const block of topic.blocks)appendHelpBlock(answer,block,topic.title);
+ if(topic.extra){const note=document.createElement('p');note.className='note';note.textContent=topic.extra;answer.append(note);}
+ const related=ranked.find(t=>t.id!==topic.id&&t.score>=60);
+ if(related){const button=document.createElement('button');button.type='button';button.className='btn small';button.textContent='Also: '+related.title;button.addEventListener('click',()=>answerQuestion(raw,related.id));answer.append(button);}
+ appendStackLookup(answer,raw);
+}
+const stackCache=new Map();
+let activeStackRequest=0;
+function appendStackLookup(parent,question){
+ if(!question.trim())return;
+ const tools=document.createElement('div');tools.className='stack-tools';
+ const button=document.createElement('button');button.type='button';button.className='btn small';
+ button.textContent='Search Stack Overflow';
+ button.addEventListener('click',()=>{button.disabled=true;searchStackOverflow(question,parent,false).finally(()=>{button.disabled=false;});});
+ tools.append(button);parent.append(tools);
+}
+function stackText(html){
+ const doc=new DOMParser().parseFromString(html||'','text/html');
+ doc.querySelectorAll('script,style,iframe,object,embed,form').forEach(el=>el.remove());
+ return (doc.body.textContent||'').replace(/\s+/g,' ').trim();
+}
+function stackCode(html){
+ const doc=new DOMParser().parseFromString(html||'','text/html');
+ return [...doc.querySelectorAll('pre code, pre')].map(el=>el.textContent.trim()).find(v=>v.length>=5)?.slice(0,2200)||'';
+}
+async function stackAPI(path,params){
+ const url=new URL('https://api.stackexchange.com/2.3/'+path);
+ for(const [key,value] of Object.entries({site:'stackoverflow',...params}))url.searchParams.set(key,String(value));
+ const controller=new AbortController();
+ const timeout=setTimeout(()=>controller.abort(),10000);
+ try{
+  const response=await fetch(url.toString(),{signal:controller.signal});
+  if(!response.ok)throw new Error('Stack Overflow is unavailable ('+response.status+').');
+  const data=await response.json();
+  if(data.error_id)throw new Error('Stack Overflow returned an API error.');
+  return data;
+ }finally{clearTimeout(timeout);}
+}
+async function getStackResults(question){
+ const key=question.toLowerCase().trim();
+ if(stackCache.has(key))return stackCache.get(key);
+ let questions=(await stackAPI('search/advanced',{q:question,accepted:'True',sort:'relevance',pagesize:5})).items||[];
+ if(!questions.length)questions=(await stackAPI('search/advanced',{q:question,sort:'relevance',pagesize:5})).items||[];
+ if(!questions.length){stackCache.set(key,[]);return [];}
+ const ids=questions.map(q=>q.question_id).join(';');
+ const answers=(await stackAPI('questions/'+ids+'/answers',{order:'desc',sort:'votes',pagesize:30,filter:'withbody'})).items||[];
+ const results=questions.slice(0,3).map(q=>{
+  const list=answers.filter(a=>a.question_id===q.question_id);
+  const answer=list.find(a=>a.is_accepted)||list[0]||null;
+  return {question:q,answer};
+ });
+ stackCache.set(key,results);
+ if(stackCache.size>40)stackCache.delete(stackCache.keys().next().value);
+ return results;
+}
+async function searchStackOverflow(question,parent,automatic){
+ const requestId=++activeStackRequest;
+ const previous=parent.querySelector('.stack-results');if(previous)previous.remove();
+ const area=document.createElement('section');area.className='stack-results';
+ const status=document.createElement('p');status.className='stack-status';status.setAttribute('role','status');
+ status.textContent='Searching Stack Overflow…';area.append(status);parent.append(area);
+ if(!question.trim()){status.textContent='Type a question first.';return;}
+ try{
+  const results=await getStackResults(question);
+  if(requestId!==activeStackRequest||!area.isConnected)return;
+  if(!results.length){status.textContent='No matching Stack Overflow questions found. Try a more specific HTML, CSS, or JavaScript question.';if(automatic)appendTopicChoices(area);return;}
+  status.textContent='Community answers from Stack Overflow (not independently verified):';
+  for(const {question:q,answer} of results){
+   const section=document.createElement('div');section.className='stack-result';
+   const source=document.createElement('a');source.className='stack-source';source.href=q.link;source.target='_blank';source.rel='noopener noreferrer';source.textContent=stackText(q.title)||'Read discussion on Stack Overflow';
+   section.append(source);
+   if(answer){
+    const preview=document.createElement('p');preview.textContent=stackText(answer.body).slice(0,850)+(stackText(answer.body).length>850?'…':'');section.append(preview);
+    const code=stackCode(answer.body);if(code){const pre=document.createElement('pre');pre.className='ref-code';pre.textContent=code;section.append(pre);}
+    const attribution=document.createElement('p');attribution.className='note';attribution.textContent=(answer.is_accepted?'Accepted answer':'Community answer')+' · Score '+answer.score+' · '+(answer.owner?.display_name?stackText(answer.owner.display_name):'Stack Overflow contributor')+' · Content subject to Stack Overflow licensing; see source.';section.append(attribution);
+   }else{const p=document.createElement('p');p.textContent='Open this discussion to see its answers.';section.append(p);}
+   area.append(section);
+  }
+ }catch(error){
+  if(requestId!==activeStackRequest||!area.isConnected)return;
+  status.textContent='Could not load Stack Overflow right now. Your built-in coding guides still work.';
+  if(automatic)appendTopicChoices(area);
+ }
+}
+function appendTopicChoices(parent){
+ const group=document.createElement('div');group.className='help-topic-buttons';
+ for(const [label,question] of [['Boxes for my words','How do I put my words in boxes?'],['Buttons','How do I add a button?'],['Profile picture','How do I add a profile picture?'],['Gradient','How do I make a purple and pink gradient?'],['Center content','How do I center my content?']]){const b=document.createElement('button');b.className='btn small';b.type='button';b.textContent=label;b.addEventListener('click',()=>{$('#question').value=question;answerQuestion(question);});group.append(b);}
+ parent.append(group);
+}
+$('#ask-form').addEventListener('submit',event=>{event.preventDefault();answerQuestion($('#question').value);});
+appendTopicChoices($('#help-topics'));
+
+const navLoader=document.createElement('script');navLoader.src='/scripts/navbar.js?v=20261028-nav-6';navLoader.defer=true;document.body.append(navLoader);window.addEventListener('hashchange',showView);renderPreview();explain();renderTeacher();showView();
+})();
+</script>
+</body>
+</html>
