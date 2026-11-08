@@ -188,6 +188,8 @@
 
       .hero-title .line {
         display: block;
+        padding-bottom: 0.14em;
+        margin-bottom: -0.14em;
       }
 
       .hero-title .letter {
@@ -576,10 +578,28 @@
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-7px); }
       }
-      .hero-banner { animation: maulBannerDrift 9s ease-in-out infinite alternate; }
-      @keyframes maulBannerDrift {
-        from { transform: translate(-50%, -50%) rotate(-5deg) translateY(0); }
-        to { transform: translate(-50%, -50%) rotate(-4deg) translateY(-5px); }
+      .hero-art {
+        position: relative;
+        isolation: isolate;
+      }
+      .hero-banner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 82%;
+        max-width: none;
+        height: auto;
+        opacity: 0.7;
+        transform: translate(-50%, -50%) rotate(-5deg);
+        animation: none;
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+      @media (max-width: 760px) {
+        .hero-banner {
+          width: 110%;
+          opacity: 0.7;
+        }
       }
       .maul-motion .server-status,
       .maul-motion .credits-heading,
@@ -632,10 +652,149 @@
         .server-status::after, .credits-list::before, .site-footer::before { transform: scaleX(1); transition: none; }
         .credit-link, .credit-arrow { transition: none; }
       }
+
+      .maul-interactive-light {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .maul-interactive-light::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        background: radial-gradient(
+          circle 300px at var(--light-x, 70%) var(--light-y, 35%),
+          rgb(233 180 172 / 10%) 0%,
+          rgb(183 110 121 / 5%) 30%,
+          transparent 72%
+        );
+        transition: opacity 700ms ease;
+      }
+      .maul-interactive-light.is-active::before { opacity: 1; }
+      .page-shell { position: relative; z-index: 1; }
+
+      .maul-shooting-star-layer {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .maul-shooting-star {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: clamp(65px, 13vw, 125px);
+        height: 1px;
+        border-radius: 100%;
+        background: linear-gradient(90deg, transparent, rgb(233 180 172 / 12%) 20%, rgb(245 213 201 / 76%) 100%);
+        box-shadow: 0 0 6px rgb(233 180 172 / 16%);
+        transform-origin: right center;
+        will-change: transform, opacity;
+        animation: maulShootingStar 1400ms ease-out both;
+      }
+      .maul-shooting-star::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: -1px;
+        height: 3px;
+        width: 3px;
+        border-radius: 50%;
+        background: rgb(255 231 225 / 85%);
+        box-shadow: 0 0 6px rgb(233 180 172 / 45%);
+      }
+      @keyframes maulShootingStar {
+        0% { opacity: 0; transform: translate3d(0,0,0) rotate(-25deg) scaleX(.65); }
+        12% { opacity: .78; }
+        68% { opacity: .6; }
+        100% { opacity: 0; transform: translate3d(-190px, 90px, 0) rotate(-25deg) scaleX(1); }
+      }
+      @media (max-width: 760px) {
+        .maul-interactive-light::before {
+          background: radial-gradient(circle 230px at var(--light-x, 65%) var(--light-y, 32%),
+            rgb(233 180 172 / 9%), transparent 72%);
+        }
+        .maul-shooting-star { width: 70px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .maul-interactive-light, .maul-shooting-star-layer { display: none; }
+        .maul-shooting-star { animation: none; }
+      }
+      .page-shell .button {
+        position: relative;
+        isolation: isolate;
+        transform: translate3d(var(--mag-x, 0px), var(--mag-y, 0px), 0);
+        transition: transform 220ms cubic-bezier(.2,.8,.2,1),
+                    border-color 220ms ease, background-color 220ms ease,
+                    box-shadow 300ms ease;
+        will-change: transform;
+      }
+      .page-shell .button-primary {
+        box-shadow: 0 2px 13px rgb(205 147 92 / 12%),
+                    inset 0 1px 0 rgb(255 235 201 / 24%);
+      }
+      .page-shell .button-primary:hover,
+      .page-shell .button-primary:focus-visible {
+        border-color: #f5d7a6;
+        box-shadow: 0 0 20px rgb(233 185 112 / 24%),
+                    0 0 38px rgb(233 180 172 / 10%),
+                    inset 0 1px 0 rgb(255 239 211 / 32%);
+      }
+      .page-shell .button-secondary:hover,
+      .page-shell .button-secondary:focus-visible {
+        border-color: rgb(233 192 133 / 72%);
+        box-shadow: 0 0 19px rgb(220 169 106 / 15%),
+                    inset 0 0 14px rgb(220 169 106 / 5%);
+      }
+      .page-shell .button:active {
+        filter: brightness(1.05);
+      }
+      @supports (-webkit-background-clip: text) {
+        .hero-title .line,
+        .credits-heading h2,
+        .join-panel h2 {
+          background-image: linear-gradient(105deg,
+            #f9f3ef 0%, #f9f3ef 37%, #f9f3ef 43%,
+            #f0c78d 49%, #fff3db 51%, #f9f3ef 57%,
+            #f9f3ef 100%);
+          background-size: 340% 100%;
+          background-position: 100% 50%;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          animation: maulHeadingGleam 13s ease-in-out infinite;
+        }
+        .hero-title .brand {
+          background-image: linear-gradient(105deg,
+            #f5d5c9 0%, #e9b4ac 38%, #e9b4ac 43%,
+            #eac692 49%, #fff0cb 51%, #e9b4ac 57%,
+            #b76e79 100%);
+        }
+      }
+      @keyframes maulHeadingGleam {
+        0%, 14% { background-position: 100% 50%; }
+        28%, 100% { background-position: 0% 50%; }
+      }
+      @media (hover: none), (pointer: coarse) {
+        .page-shell .button { transform: none; will-change: auto; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .page-shell .button { transform: none; transition: none; will-change: auto; }
+        .hero-title .line, .credits-heading h2, .join-panel h2 {
+          animation: none;
+          background-position: 100% 50%;
+        }
+      }
     </style>
   </head>
 
   <body>
+    <div class="maul-interactive-light" aria-hidden="true"></div>
+    <div class="maul-shooting-star-layer" aria-hidden="true"></div>
     <div class="film-grain" aria-hidden="true"></div>
     <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
     <div id="navbar"></div>
@@ -811,6 +970,107 @@
         }, { threshold: 0.08, rootMargin: '0px 0px 25px 0px' });
         revealTargets.forEach(item => observer.observe(item));
         document.body.classList.add('maul-motion');
+      })();
+    </script>
+
+    <script>
+      (() => {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (reduceMotion.matches) return;
+
+        const light = document.querySelector('.maul-interactive-light');
+        const stars = document.querySelector('.maul-shooting-star-layer');
+        if (!light || !stars) return;
+        const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+        let targetX = window.innerWidth * .7;
+        let targetY = window.innerHeight * .35;
+        let currentX = targetX;
+        let currentY = targetY;
+        let trackingFrame = 0;
+        let starTimer;
+        let touchTimeout;
+
+        function positionLight() {
+          trackingFrame = 0;
+          currentX += (targetX - currentX) * .11;
+          currentY += (targetY - currentY) * .11;
+          light.style.setProperty('--light-x', `${currentX}px`);
+          light.style.setProperty('--light-y', `${currentY}px`);
+          if (Math.abs(targetX-currentX) > .5 || Math.abs(targetY-currentY) > .5)
+            trackingFrame = requestAnimationFrame(positionLight);
+        }
+        function moveLight(x, y) {
+          targetX = x; targetY = y;
+          light.classList.add('is-active');
+          if (!trackingFrame) trackingFrame = requestAnimationFrame(positionLight);
+        }
+        if (finePointer.matches) {
+          document.addEventListener('pointermove', e => {
+            if (e.pointerType === 'mouse' || e.pointerType === 'pen') moveLight(e.clientX, e.clientY);
+          }, { passive: true });
+          document.addEventListener('pointerleave', () => light.classList.remove('is-active'));
+        } else {
+          document.addEventListener('touchstart', e => {
+            if (!e.touches.length) return;
+            moveLight(e.touches[0].clientX, e.touches[0].clientY);
+            clearTimeout(touchTimeout);
+            touchTimeout = setTimeout(() => light.classList.remove('is-active'), 1800);
+          }, { passive: true });
+        }
+
+        function scheduleStar() {
+          clearTimeout(starTimer);
+          if (document.hidden || reduceMotion.matches) return;
+          starTimer = setTimeout(() => {
+            if (!document.hidden) {
+              const star = document.createElement('span');
+              star.className = 'maul-shooting-star';
+              const availableWidth = Math.max(0, window.innerWidth - 95);
+              star.style.left = `${Math.round(availableWidth * (.35 + Math.random() * .6))}px`;
+              star.style.top = `${Math.round(window.innerHeight * (.2 + Math.random() * .45))}px`;
+              star.addEventListener('animationend', () => star.remove(), { once: true });
+              stars.appendChild(star);
+            }
+            scheduleStar();
+          }, 18000 + Math.random() * 12000);
+        }
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) { clearTimeout(starTimer); stars.replaceChildren(); }
+          else scheduleStar();
+        });
+        reduceMotion.addEventListener('change', e => {
+          if (e.matches) {
+            clearTimeout(starTimer);
+            clearTimeout(touchTimeout);
+            stars.replaceChildren();
+            light.classList.remove('is-active');
+          } else scheduleStar();
+        });
+        scheduleStar();
+      })();
+    </script>
+
+    <script>
+      (() => {
+        const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        document.querySelectorAll('.page-shell .button').forEach(button => {
+          const reset = () => {
+            button.style.setProperty('--mag-x', '0px');
+            button.style.setProperty('--mag-y', '0px');
+          };
+          button.addEventListener('pointermove', event => {
+            if (!finePointer.matches || reducedMotion.matches) return;
+            const bounds = button.getBoundingClientRect();
+            const x = ((event.clientX - bounds.left) / bounds.width - .5) * 14;
+            const y = ((event.clientY - bounds.top) / bounds.height - .5) * 14;
+            button.style.setProperty('--mag-x', `${Math.max(-7, Math.min(7, x)).toFixed(1)}px`);
+            button.style.setProperty('--mag-y', `${Math.max(-7, Math.min(7, y)).toFixed(1)}px`);
+          }, { passive: true });
+          button.addEventListener('pointerleave', reset);
+          button.addEventListener('blur', reset);
+          reducedMotion.addEventListener('change', reset);
+        });
       })();
     </script>
     <script src="/scripts/navbar.js?v=20261028-nav-6"></script>
