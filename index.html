@@ -11,7 +11,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" sizes="180x180" href="/pwa/icons/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/styles/pwa.css" />
+    <link rel="stylesheet" href="/styles/pwa.css" />R
     <script src="/scripts/pwa.js" data-maul-pwa defer></script>
 
     <meta property="og:title" content="Welcome to MAUL" />
@@ -675,7 +675,6 @@
       }
       .maul-interactive-light.is-active::before { opacity: 1; }
       .page-shell { position: relative; z-index: 1; }
-
       .maul-shooting-star-layer {
         position: fixed;
         inset: 0;
@@ -711,7 +710,7 @@
         0% { opacity: 0; transform: translate3d(0,0,0) rotate(-25deg) scaleX(.65); }
         12% { opacity: .78; }
         68% { opacity: .6; }
-        100% { opacity: 0; transform: translate3d(-190px, 90px, 0) rotate(-25deg) scaleX(1); }
+        100% { opacity: 0; transform: translate3d(var(--star-travel-x, 190px), calc(-1 * var(--star-travel-y, 90px)), 0) rotate(-25deg) scaleX(1); }
       }
       @media (max-width: 760px) {
         .maul-interactive-light::before {
@@ -724,6 +723,7 @@
         .maul-interactive-light, .maul-shooting-star-layer { display: none; }
         .maul-shooting-star { animation: none; }
       }
+
       .page-shell .button {
         position: relative;
         isolation: isolate;
@@ -732,6 +732,12 @@
                     border-color 220ms ease, background-color 220ms ease,
                     box-shadow 300ms ease;
         will-change: transform;
+      }
+      .page-shell .button-primary,
+      .page-shell .button-primary:hover,
+      .page-shell .button-primary:focus-visible {
+        background: linear-gradient(115deg, #F8D4AF 0%, #B75863 100%);
+        color: #29191f;
       }
       .page-shell .button-primary {
         box-shadow: 0 2px 13px rgb(205 147 92 / 12%),
@@ -1025,9 +1031,14 @@
             if (!document.hidden) {
               const star = document.createElement('span');
               star.className = 'maul-shooting-star';
-              const availableWidth = Math.max(0, window.innerWidth - 95);
-              star.style.left = `${Math.round(availableWidth * (.35 + Math.random() * .6))}px`;
-              star.style.top = `${Math.round(window.innerHeight * (.2 + Math.random() * .45))}px`;
+              const travelX = Math.min(190, Math.max(90, window.innerWidth * .38));
+              const travelY = travelX * (90 / 190);
+              star.style.setProperty("--star-travel-x", `${travelX}px`);
+              star.style.setProperty("--star-travel-y", `${travelY}px`);
+              const startMaxX = Math.max(0, window.innerWidth - travelX - 75);
+              const startMinY = Math.min(window.innerHeight - 20, travelY + 40);
+              star.style.left = `${Math.round(startMaxX * (.06 + Math.random() * .48))}px`;
+              star.style.top = `${Math.round(startMinY + (window.innerHeight - startMinY) * (.28 + Math.random() * .65))}px`;
               star.addEventListener('animationend', () => star.remove(), { once: true });
               stars.appendChild(star);
             }
