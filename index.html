@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#050506" />
+    <meta name="theme-color" content="#09080b" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="MAUL" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -28,10 +28,6 @@
 
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
@@ -42,1044 +38,496 @@
     <link rel="stylesheet" href="/styles/navbar.css?v=20261028-nav-6" />
 
     <style>
+      @font-face {
+        font-family: "Palagio";
+        src: local("Palagio Semi Bold"),
+          local("Palagio SemiBold"),
+          local("Palagio-SemiBold"),
+          url("fonts/Palagio-SemiBold.woff2") format("woff2");
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+      }
+
       :root {
-        --red: #ec2537;
-        --red-dark: #74070f;
-        --red-soft: rgba(236, 37, 55, 0.2);
-        --gold: #ffd36e;
-        --cyan: #6ef9ff;
-        --violet: #a88bff;
-        --ink: #070407;
-        --ink-2: #12080b;
-        --paper: #fff8ef;
-        --muted: #cdbfc0;
-        --line: rgba(255, 255, 255, 0.14);
-        --glass: rgba(17, 8, 11, 0.72);
-        --glass-strong: rgba(28, 12, 15, 0.88);
-        --shadow: 0 28px 80px rgba(0, 0, 0, 0.72);
+        color-scheme: dark;
+        --rose-gold: #e9b4ac;
+        --rose-gold-light: #f5d5c9;
+        --rose-gold-deep: #b76e79;
+        --ink: #09080b;
+        --paper: #f9f3ef;
+        --muted: #c5b8b8;
+        --rule: rgb(233 180 172 / 24%);
+        --rule-fade: linear-gradient(90deg, rgb(233 180 172 / 65%), rgb(233 180 172 / 14%));
+        --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
       }
 
       * {
         box-sizing: border-box;
       }
 
-      html,
       body {
-        min-height: 100%;
         margin: 0;
-        padding: 0;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        font-family: "Inter", sans-serif;
-        color: var(--paper);
+        isolation: isolate;
         background:
-          radial-gradient(circle at 18% -8%, rgba(28, 79, 115, 0.08), transparent 28rem),
-          radial-gradient(circle at 86% 12%, rgba(79, 16, 28, 0.07), transparent 26rem),
-          linear-gradient(180deg, #000000 0%, #010103 54%, #000000 100%);
-        overflow-x: hidden;
+          radial-gradient(ellipse at 75% 12rem, rgb(183 110 121 / 12%), transparent 36rem),
+          var(--ink);
+        color: var(--paper);
+        font: 1rem/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
       }
 
-      body::before {
-        content: "";
-        position: fixed;
-        top: -160vh;
-        left: 0;
-        width: 5px;
-        height: 5px;
-        z-index: -2;
-        pointer-events: none;
-        border-radius: 50%;
-        background: #fff;
-        box-shadow:
-          3vw 8vh 0 0 #fff,
-          6vw 57vh 0 0 #fff,
-          9vw 122vh 0 0 #fff,
-          11vw 215vh 0 0 #fff,
-          14vw 303vh 0 0 #fff,
-          17vw 34vh 0 0 #fff,
-          19vw 186vh 0 0 #fff,
-          22vw 269vh 0 0 #fff,
-          25vw 78vh 0 0 #fff,
-          27vw 147vh 0 0 #fff,
-          29vw 241vh 0 0 #fff,
-          31vw 318vh 0 0 #fff,
-          34vw 18vh 0 0 #fff,
-          36vw 101vh 0 0 #fff,
-          38vw 207vh 0 0 #fff,
-          41vw 286vh 0 0 #fff,
-          43vw 64vh 0 0 #fff,
-          45vw 158vh 0 0 #fff,
-          48vw 226vh 0 0 #fff,
-          50vw 311vh 0 0 #fff,
-          52vw 42vh 0 0 #fff,
-          54vw 133vh 0 0 #fff,
-          57vw 197vh 0 0 #fff,
-          59vw 276vh 0 0 #fff,
-          61vw 88vh 0 0 #fff,
-          63vw 171vh 0 0 #fff,
-          65vw 252vh 0 0 #fff,
-          68vw 6vh 0 0 #fff,
-          70vw 116vh 0 0 #fff,
-          72vw 221vh 0 0 #fff,
-          74vw 296vh 0 0 #fff,
-          76vw 51vh 0 0 #fff,
-          79vw 139vh 0 0 #fff,
-          81vw 233vh 0 0 #fff,
-          83vw 314vh 0 0 #fff,
-          85vw 27vh 0 0 #fff,
-          87vw 96vh 0 0 #fff,
-          89vw 182vh 0 0 #fff,
-          91vw 265vh 0 0 #fff,
-          93vw 74vh 0 0 #fff,
-          95vw 154vh 0 0 #fff,
-          97vw 244vh 0 0 #fff,
-          99vw 309vh 0 0 #fff,
-          1vw 279vh 0 0 #fff,
-          4vw 173vh 0 0 #fff,
-          8vw 261vh 0 0 #fff,
-          12vw 91vh 0 0 #fff,
-          16vw 229vh 0 0 #fff,
-          21vw 14vh 0 0 #fff,
-          24vw 291vh 0 0 #fff,
-          28vw 112vh 0 0 #fff,
-          33vw 248vh 0 0 #fff,
-          37vw 44vh 0 0 #fff,
-          40vw 301vh 0 0 #fff,
-          46vw 11vh 0 0 #fff,
-          49vw 263vh 0 0 #fff,
-          55vw 71vh 0 0 #fff,
-          58vw 238vh 0 0 #fff,
-          62vw 23vh 0 0 #fff,
-          67vw 203vh 0 0 #fff,
-          71vw 83vh 0 0 #fff,
-          75vw 259vh 0 0 #fff,
-          80vw 37vh 0 0 #fff,
-          84vw 211vh 0 0 #fff,
-          88vw 121vh 0 0 #fff,
-          92vw 289vh 0 0 #fff,
-          96vw 58vh 0 0 #fff;
-        opacity: 1;
-        animation: starFallFast 5.95s linear infinite;
-      }
+      body::before,
 
       body::after {
         content: "";
         position: fixed;
         top: -160vh;
         left: 0;
-        width: 4px;
-        height: 4px;
         z-index: -1;
         pointer-events: none;
         border-radius: 50%;
         background: #fff;
-        box-shadow:
-          2vw 23vh 0 0 #fff,
-          4vw 141vh 0 0 #fff,
-          5vw 292vh 0 0 #fff,
-          7vw 68vh 0 0 #fff,
-          8vw 211vh 0 0 #fff,
-          10vw 317vh 0 0 #fff,
-          13vw 35vh 0 0 #fff,
-          15vw 156vh 0 0 #fff,
-          18vw 263vh 0 0 #fff,
-          20vw 96vh 0 0 #fff,
-          23vw 229vh 0 0 #fff,
-          26vw 5vh 0 0 #fff,
-          28vw 181vh 0 0 #fff,
-          30vw 306vh 0 0 #fff,
-          32vw 47vh 0 0 #fff,
-          35vw 128vh 0 0 #fff,
-          37vw 254vh 0 0 #fff,
-          39vw 89vh 0 0 #fff,
-          42vw 219vh 0 0 #fff,
-          44vw 333vh 0 0 #fff,
-          47vw 72vh 0 0 #fff,
-          49vw 164vh 0 0 #fff,
-          51vw 282vh 0 0 #fff,
-          53vw 13vh 0 0 #fff,
-          56vw 113vh 0 0 #fff,
-          58vw 244vh 0 0 #fff,
-          60vw 323vh 0 0 #fff,
-          62vw 54vh 0 0 #fff,
-          64vw 197vh 0 0 #fff,
-          66vw 271vh 0 0 #fff,
-          69vw 28vh 0 0 #fff,
-          71vw 146vh 0 0 #fff,
-          73vw 236vh 0 0 #fff,
-          76vw 309vh 0 0 #fff,
-          78vw 84vh 0 0 #fff,
-          80vw 172vh 0 0 #fff,
-          82vw 296vh 0 0 #fff,
-          85vw 39vh 0 0 #fff,
-          87vw 124vh 0 0 #fff,
-          89vw 214vh 0 0 #fff,
-          91vw 337vh 0 0 #fff,
-          94vw 62vh 0 0 #fff,
-          96vw 153vh 0 0 #fff,
-          98vw 278vh 0 0 #fff,
-          1vw 196vh 0 0 #fff,
-          6vw 254vh 0 0 #fff,
-          9vw 12vh 0 0 #fff,
-          12vw 275vh 0 0 #fff,
-          16vw 79vh 0 0 #fff,
-          19vw 311vh 0 0 #fff,
-          22vw 133vh 0 0 #fff,
-          25vw 288vh 0 0 #fff,
-          29vw 59vh 0 0 #fff,
-          33vw 233vh 0 0 #fff,
-          36vw 17vh 0 0 #fff,
-          40vw 304vh 0 0 #fff,
-          43vw 106vh 0 0 #fff,
-          46vw 258vh 0 0 #fff,
-          50vw 43vh 0 0 #fff,
-          54vw 221vh 0 0 #fff,
-          57vw 152vh 0 0 #fff,
-          61vw 291vh 0 0 #fff,
-          65vw 76vh 0 0 #fff,
-          68vw 316vh 0 0 #fff,
-          72vw 187vh 0 0 #fff,
-          75vw 26vh 0 0 #fff,
-          79vw 269vh 0 0 #fff,
-          83vw 117vh 0 0 #fff,
-          86vw 301vh 0 0 #fff,
-          90vw 49vh 0 0 #fff,
-          93vw 242vh 0 0 #fff,
-          97vw 101vh 0 0 #fff;
-        opacity: 0.96;
-        animation: starFall 7.88s linear infinite;
+        animation: maulStarDrift 24s linear infinite;
       }
 
-      a {
-        color: inherit;
+      body::before {
+        width: 2px;
+        height: 2px;
+        opacity: 0.7;
+        box-shadow: 3vw 8vh #fff, 6vw 57vh #fff, 9vw 122vh #fff, 11vw 215vh #fff,
+          14vw 303vh #fff, 17vw 34vh #fff, 19vw 186vh #fff, 22vw 269vh #fff,
+          25vw 78vh #fff, 27vw 147vh #fff, 29vw 241vh #fff, 31vw 318vh #fff,
+          34vw 18vh #fff, 36vw 101vh #fff, 38vw 207vh #fff, 41vw 286vh #fff,
+          43vw 64vh #fff, 45vw 158vh #fff, 48vw 226vh #fff, 50vw 311vh #fff,
+          52vw 42vh #fff, 54vw 133vh #fff, 57vw 197vh #fff, 59vw 276vh #fff,
+          61vw 88vh #fff, 63vw 171vh #fff, 65vw 252vh #fff, 68vw 6vh #fff,
+          70vw 116vh #fff, 72vw 221vh #fff, 74vw 296vh #fff, 76vw 51vh #fff,
+          79vw 139vh #fff, 81vw 233vh #fff, 83vw 314vh #fff, 85vw 27vh #fff,
+          87vw 96vh #fff, 89vw 182vh #fff, 91vw 265vh #fff, 93vw 74vh #fff,
+          95vw 154vh #fff, 97vw 244vh #fff, 99vw 309vh #fff,
+          12vw 24vh #fff,
+          23vw 114vh #fff,
+          39vw 152vh #fff,
+          54vw 26vh #fff,
+          66vw 132vh #fff,
+          82vw 54vh #fff,
+          94vw 188vh #fff,
+          8vw 302vh #fff,
+          32vw 278vh #fff,
+          47vw 72vh #fff,
+          73vw 314vh #fff,
+          91vw 228vh #fff;
       }
 
-      ::selection {
-        background: rgba(255, 211, 110, 0.34);
-        color: #fff;
+      body::after {
+        width: 1px;
+        height: 1px;
+        opacity: 0.5;
+        animation-duration: 36s;
+        box-shadow: 2vw 23vh #fff, 4vw 141vh #fff, 5vw 292vh #fff, 7vw 68vh #fff,
+          8vw 211vh #fff, 10vw 317vh #fff, 13vw 35vh #fff, 15vw 156vh #fff,
+          18vw 263vh #fff, 20vw 96vh #fff, 23vw 229vh #fff, 26vw 5vh #fff,
+          28vw 181vh #fff, 30vw 306vh #fff, 32vw 47vh #fff, 35vw 128vh #fff,
+          37vw 254vh #fff, 39vw 89vh #fff, 42vw 219vh #fff, 44vw 310vh #fff,
+          47vw 58vh #fff, 51vw 150vh #fff, 53vw 271vh #fff, 56vw 16vh #fff,
+          60vw 101vh #fff, 64vw 237vh #fff, 67vw 315vh #fff, 69vw 44vh #fff,
+          73vw 169vh #fff, 77vw 281vh #fff, 82vw 76vh #fff, 86vw 197vh #fff,
+          90vw 49vh #fff, 93vw 242vh #fff, 97vw 101vh #fff,
+          5vw 39vh #fff,
+          18vw 118vh #fff,
+          31vw 8vh #fff,
+          44vw 192vh #fff,
+          58vw 94vh #fff,
+          72vw 27vh #fff,
+          88vw 142vh #fff,
+          98vw 276vh #fff,
+          15vw 242vh #fff,
+          41vw 322vh #fff,
+          63vw 216vh #fff,
+          79vw 303vh #fff;
+      }
+
+      @keyframes maulStarDrift {
+        from { transform: translate3d(0, 160vh, 0); }
+        to { transform: translate3d(0, 0, 0); }
       }
 
       .page-shell {
-        width: min(1180px, calc(100% - 40px));
+        width: min(1160px, calc(100% - 64px));
         margin: 0 auto;
       }
 
-      .page-shell::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        z-index: 1900;
-        pointer-events: none;
-        background:
-          radial-gradient(circle at 50% 42%, rgba(236, 37, 55, 0.2), transparent 34%),
-          #03040a;
-        animation: pageVeil 0.8s cubic-bezier(0.16, 0.86, 0.2, 1) forwards;
+      .page-shell a {
+        color: inherit;
+      }
+
+      .page-shell a:focus-visible {
+        outline: 2px solid var(--rose-gold-light);
+        outline-offset: 4px;
+      }
+
+      .page-shell ::selection {
+        color: var(--ink);
+        background: var(--rose-gold-light);
       }
 
       .hero {
-        min-height: 88vh;
         display: grid;
-        grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         align-items: center;
-        gap: clamp(32px, 6vw, 80px);
-        padding: 86px 0 38px;
-        position: relative;
+        gap: clamp(28px, 5vw, 68px);
+        padding: clamp(56px, 7vw, 100px) 0 clamp(46px, 6vw, 78px);
       }
 
-      .hero-copy-block {
-        opacity: 0;
-        transform: translateY(12px);
-        animation: introRise 1s cubic-bezier(0.16, 0.86, 0.2, 1) 0.22s forwards;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        inset: 94px -6vw 9vh;
-        z-index: -1;
-        border: none;
-        border-radius: 28px;
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 38%),
-          rgba(0, 0, 0, 0.3);
-        box-shadow: none;
-      }
-      
       .eyebrow {
-        width: fit-content;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 20px;
-        padding: 8px 13px;
-        border: 1px solid rgba(255, 211, 110, 0.32);
-        border-radius: 999px;
-        background: rgba(19, 8, 11, 0.66);
-        color: var(--muted);
-        font-size: 0.76rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
+        margin: 0 0 18px;
+        color: var(--rose-gold);
+        font: 600 0.75rem/1.4 var(--mono);
+        letter-spacing: 0.16em;
         text-transform: uppercase;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      }
-
-      .eyebrow::before {
-        content: "";
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background: #32f59b;
-        box-shadow: 0 0 16px rgba(50, 245, 155, 0.85);
       }
 
       .hero-title {
         margin: 0;
-        font-family: "Outfit", sans-serif;
-        font-size: clamp(3.55rem, 7.4vw, 7.5rem);
-        line-height: 0.83;
-        letter-spacing: 0;
-        text-transform: uppercase;
-        text-wrap: balance;
-        perspective: 900px;
+        font-family: "Palagio", "Bahnschrift", "Avenir Next", "Trebuchet MS", system-ui, sans-serif;
+        font-size: clamp(3.25rem, 7.1vw, 6.5rem);
+        font-weight: 600;
+        line-height: 0.98;
+        letter-spacing: -0.045em;
       }
 
       .hero-title .line {
         display: block;
-        opacity: 0;
-        transform: translate3d(-10px, 28px, 0);
-        transform-origin: left bottom;
-        animation: titleFlowIn 0.95s cubic-bezier(0.16, 0.86, 0.2, 1) forwards;
-      }
-
-      .hero-title .line:nth-child(1) {
-        animation-delay: 0.42s;
-      }
-
-      .hero-title .line:nth-child(2) {
-        animation-delay: 0.56s;
-      }
-
-      .hero-title .line:nth-child(3) {
-        animation-delay: 0.7s;
       }
 
       .hero-title .brand {
-        background: linear-gradient(95deg, #fff 4%, #ffe1a1 30%, #ff3447 63%, #9b131d);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        text-shadow: none;
+        color: var(--rose-gold);
+      }
+
+      @supports (background-clip: text) or (-webkit-background-clip: text) {
+        .hero-title .brand {
+          width: fit-content;
+          background-image: linear-gradient(90deg, #fff, var(--rose-gold-light) 38%, var(--rose-gold) 75%, var(--rose-gold-deep));
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
       }
 
       .hero-copy {
-        max-width: 630px;
-        margin: 20px 0 0;
+        max-width: 45ch;
+        margin: 24px 0 0;
         color: var(--muted);
-        font-size: clamp(1rem, 1.6vw, 1.12rem);
-        line-height: 1.78;
-        opacity: 0;
-        transform: translateY(14px);
-        animation: supportingCopyIn 0.74s ease 0.95s forwards;
-      }
-
-      .hero-copy strong {
-        color: #fff;
+        font-size: clamp(1rem, 1.8vw, 1.125rem);
       }
 
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
-        gap: 14px;
-        margin-top: 26px;
-        opacity: 0;
-        transform: translateY(12px);
-        animation: supportingCopyIn 0.7s ease 1.08s forwards;
+        gap: 12px;
+        margin-top: 28px;
       }
 
       .button {
-        position: relative;
-        min-height: 50px;
         display: inline-flex;
+        min-height: 48px;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        padding: 0 20px;
-        border-radius: 999px;
+        gap: 0.6em;
+        padding: 9px 19px;
+        border: 1px solid var(--rule);
+        border-radius: 4px;
+        font-weight: 650;
         text-decoration: none;
-        font-weight: 800;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        transition: background-color 180ms ease, border-color 180ms ease;
       }
 
-      .button-primary {
-        color: #fff;
-        background: linear-gradient(135deg, #ffcf73, #ff394b 42%, #821018);
-        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.52), 0 0 22px rgba(236, 37, 55, 0.22);
-      }
-
-      .button-secondary {
-        color: var(--paper);
-        border: 1px solid rgba(255, 211, 110, 0.28);
-        background: rgba(14, 7, 9, 0.62);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      }
-
-      .button:hover {
-        transform: translateY(-3px);
+      .page-shell .button-primary {
+        border-color: var(--rose-gold-light);
+        color: #29191f;
+        background: linear-gradient(150deg, var(--rose-gold-light), var(--rose-gold) 60%, var(--rose-gold-deep));
       }
 
       .button-primary:hover {
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.62), 0 0 30px rgba(236, 37, 55, 0.28);
+        background: var(--rose-gold-light);
+      }
+
+      .button-secondary {
+        background: rgb(233 180 172 / 5%);
       }
 
       .button-secondary:hover {
-        border-color: rgba(255, 211, 110, 0.5);
-        background: rgba(36, 14, 18, 0.86);
-      }
-
-      .hero-proof {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-        max-width: 660px;
-        margin-top: 26px;
-        opacity: 0;
-        transform: translateY(12px);
-        animation: supportingCopyIn 0.7s ease 1.18s forwards;
-      }
-
-      .proof-tile {
-        min-height: 78px;
-        padding: 13px 15px;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        background:
-          linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.025)),
-          rgba(14, 6, 8, 0.72);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
-      }
-
-      .proof-value {
-        display: block;
-        font-family: "Outfit", sans-serif;
-        font-size: 1.48rem;
-        font-weight: 800;
-      }
-
-      .proof-label {
-        display: block;
-        margin-top: 4px;
-        color: var(--muted);
-        font-size: 0.78rem;
-        line-height: 1.4;
+        border-color: var(--rose-gold);
+        background: rgb(233 180 172 / 12%);
       }
 
       .hero-art {
         position: relative;
-        min-height: 540px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transform: translateY(28px) scale(0.975);
-        animation: introArt 1.12s cubic-bezier(0.16, 0.86, 0.2, 1) 0.52s forwards;
+        display: grid;
+        place-items: center;
+        aspect-ratio: 1.08;
+        isolation: isolate;
+      }
+
+      .hero-art::before,
+      .hero-art::after {
+        position: absolute;
+        z-index: -1;
+        content: "";
+        pointer-events: none;
       }
 
       .hero-art::before {
-        content: "";
-        position: absolute;
-        width: min(44vw, 530px);
-        aspect-ratio: 1;
-        border-radius: 50%;
-        background:
-          radial-gradient(circle, rgba(255, 211, 110, 0.28), transparent 58%),
-          conic-gradient(from 210deg, rgba(236, 37, 55, 0), rgba(236, 37, 55, 0.34), rgba(110, 249, 255, 0.16), rgba(236, 37, 55, 0));
-        opacity: 0.72;
+        inset: 1%;
+        background: radial-gradient(ellipse, rgb(183 110 121 / 26%), transparent 66%);
       }
 
       .hero-art::after {
-        content: "";
-        position: absolute;
-        inset: 17% 6% 13% 8%;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 26px;
+        inset: 17% 5%;
+        border: 1px solid var(--rule);
+        border-radius: 6px;
+        background: linear-gradient(145deg, rgb(245 213 201 / 8%), rgb(9 8 11 / 15%));
         transform: rotate(-5deg);
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02)),
-          rgba(10, 4, 6, 0.28);
-        box-shadow: 0 24px 58px rgba(0, 0, 0, 0.58);
       }
 
-      .hero-banner-card {
+      .hero-banner {
         position: absolute;
-        inset: 17% 6% 13% 8%;
-        z-index: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: clamp(18px, 3vw, 34px);
-        transform: rotate(-5deg);
-        pointer-events: none;
-        overflow: hidden;
-      }
-
-      .hero-banner-card img {
-        width: min(102%, 780px);
-        max-height: 68%;
+        top: 50%;
+        left: 50%;
+        width: 82%;
         height: auto;
-        object-fit: contain;
-        opacity: 0.42;
-        filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.46));
+        opacity: 0.36;
+        transform: translate(-50%, -50%) rotate(-5deg);
       }
 
       .hero-character {
         position: relative;
-        z-index: 2;
-        width: min(88%, 430px);
-        max-height: 580px;
-        object-fit: contain;
-        filter: drop-shadow(0 28px 32px rgba(0, 0, 0, 0.56));
-        transform-origin: center bottom;
+        display: block;
+        width: min(88%, 420px);
+        height: auto;
+        filter: saturate(0.56) drop-shadow(0 22px 25px rgb(0 0 0 / 54%));
       }
 
-      .section {
-        padding: 36px 0 76px;
-      }
-
-      .intro-panel {
-        display: grid;
-        grid-template-columns: 0.95fr 1.05fr;
-        gap: 26px;
-        align-items: stretch;
-      }
-
-      .mission {
-        padding: 30px;
-        border: 1px solid var(--line);
-        border-radius: 22px;
-        background:
-          linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025)),
-          var(--glass);
-        box-shadow: 0 20px 54px rgba(0, 0, 0, 0.54);
-      }
-
-      .mission h2,
-      .offer-heading h2,
-      .join-panel h2 {
-        margin: 0;
-        font-family: "Outfit", sans-serif;
-        font-size: clamp(2rem, 4vw, 3.4rem);
-        line-height: 1;
-        letter-spacing: 0;
-      }
-
-      .mission p {
-        margin: 18px 0 0;
-        color: var(--muted);
-        font-size: 1rem;
-        line-height: 1.78;
-      }
-
-      .mission strong {
-        color: #fff;
-      }
-
-      .member-info-container {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .member-box,
-      .discord-button {
-        min-height: 118px;
+      .server-status {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         justify-content: space-between;
-        flex-direction: column;
-        padding: 20px;
-        border: 1px solid var(--line);
-        border-radius: 20px;
-        background:
-          linear-gradient(145deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.025)),
-          rgba(17, 7, 10, 0.75);
-        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.34);
-        text-decoration: none;
+        gap: 16px 32px;
+        padding: 18px 0;
+        border-block: 1px solid var(--rule);
       }
 
-      .member-box:hover,
-      .discord-button:hover,
-      .offer-item:hover {
-        transform: translateY(-4px);
-        border-color: rgba(255, 211, 110, 0.28);
+      .server-status p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .server-status strong {
+        color: var(--paper);
+      }
+
+      .status-metrics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 24px;
+        font-variant-numeric: tabular-nums;
       }
 
       .online-dot {
-        width: 12px;
-        height: 12px;
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        margin-right: 0.55em;
         border-radius: 50%;
-        background: #32f59b;
-        box-shadow: 0 0 18px rgba(50, 245, 155, 0.82);
+        background: #73c99d;
+        vertical-align: 0.12em;
       }
 
-      .total-dot {
-        background: linear-gradient(135deg, var(--gold), var(--red));
-        box-shadow: 0 0 18px rgba(255, 211, 110, 0.62);
+      .credits {
+        max-width: 900px;
+        margin-inline: auto;
+        padding-top: clamp(68px, 10vw, 124px);
+        scroll-margin-top: 84px;
       }
 
-      .member-label {
-        color: var(--muted);
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
+      .credits-heading {
+        margin-bottom: clamp(32px, 5vw, 54px);
+        text-align: center;
       }
 
-      .member-value {
-        font-family: "Outfit", sans-serif;
-        font-size: 2rem;
-        font-weight: 800;
-      }
-
-      .discord-button {
-        grid-column: 1 / -1;
-        min-height: 92px;
-        flex-direction: row;
-        align-items: center;
-        color: #fff;
-        background:
-          linear-gradient(135deg, rgba(88, 101, 242, 0.9), rgba(236, 37, 55, 0.86)),
-          rgba(17, 7, 10, 0.9);
-        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .discord-button img {
-        width: 38px;
-        height: 38px;
-        object-fit: contain;
-      }
-
-      .discord-button span {
-        margin-left: auto;
-        font-weight: 800;
-      }
-
-      .offer-heading {
+      .credits-heading .eyebrow {
         display: flex;
-        align-items: end;
-        justify-content: space-between;
-        gap: 24px;
-        margin-bottom: 22px;
-      }
-
-      .offer-heading p {
-        max-width: 440px;
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.7;
-      }
-
-      .offer-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        align-items: center;
+        justify-content: center;
         gap: 14px;
+        margin-bottom: 13px;
       }
 
-      .offer-item {
-        min-height: 220px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 20px;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        background:
-          linear-gradient(150deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)),
-          rgba(15, 7, 9, 0.78);
-        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
-        position: relative;
-        overflow: hidden;
-        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-      }
-
-      .offer-item::before {
+      .credits-heading .eyebrow::before,
+      .credits-heading .eyebrow::after {
+        width: 24px;
+        height: 1px;
+        background: var(--rule-fade);
         content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(circle at 16% 10%, rgba(255, 211, 110, 0.18), transparent 36%),
-          radial-gradient(circle at 88% 88%, rgba(236, 37, 55, 0.18), transparent 38%);
-        opacity: 0;
-        transition: opacity 0.2s ease;
       }
 
-      .offer-item:hover::before {
-        opacity: 1;
+      .credits-heading .eyebrow::before {
+        transform: scaleX(-1);
       }
 
-      .offer-icon {
-        width: 48px;
-        height: 48px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 15px;
-        background: rgba(255, 255, 255, 0.08);
-        color: var(--gold);
-        font-size: 1.18rem;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        position: relative;
+      .credits-heading h2,
+      .join-panel h2 {
+        margin: 0;
+        font: 400 clamp(2.5rem, 6vw, 4.6rem)/1.05 Georgia, serif;
+        letter-spacing: -0.04em;
       }
 
-      .offer-symbol {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 24px;
-        height: 24px;
-        color: var(--gold);
-        text-shadow: 0 0 16px rgba(255, 211, 110, 0.28);
+      .credits-heading > p:last-child {
+        margin: 14px 0 0;
+        color: var(--muted);
       }
 
-      .offer-symbol svg {
-        width: 24px;
-        height: 24px;
-        display: block;
-        fill: none;
-        stroke: currentColor;
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
+      .credits-list {
+        margin: 0;
+        padding: 0;
+        border-top: 1px solid var(--rule);
+        list-style: none;
       }
 
-      .offer-item h3 {
-        margin: 20px 0 8px;
-        color: #fff;
-        font-size: 1.05rem;
-        line-height: 1.28;
-        position: relative;
+      .credits-list li {
+        border-bottom: 1px solid var(--rule);
       }
 
-      .offer-item h3 a,
-      .offer-item a.inline-link {
-        color: inherit;
+      .credit-link {
+        display: grid;
+        grid-template-columns: 1.2rem minmax(0, 1fr) minmax(0, 1.2fr) auto;
+        align-items: baseline;
+        gap: 6px 16px;
+        padding: 19px 6px;
         text-decoration: none;
       }
 
-      .offer-item h3 a:hover,
-      .offer-item a.inline-link:hover {
-        color: var(--gold);
+      .credit-link::before {
+        width: 7px;
+        height: 7px;
+        align-self: start;
+        margin-top: 0.55em;
+        border-radius: 50%;
+        background: var(--rose-gold);
+        box-shadow: 0 0 9px rgb(233 180 172 / 55%);
+        content: "";
       }
 
-      .offer-item p {
-        margin: 0;
+      .credit-name {
+        font-size: clamp(1.05rem, 2vw, 1.25rem);
+        font-weight: 650;
+        line-height: 1.3;
+      }
+
+      .credit-detail {
         color: var(--muted);
-        font-size: 0.92rem;
-        line-height: 1.62;
-        position: relative;
+        font-size: 0.95rem;
+        line-height: 1.45;
       }
 
-      .wide-offer {
-        grid-column: span 2;
-        min-height: 220px;
-        background:
-          linear-gradient(120deg, rgba(8, 4, 6, 0.64), rgba(20, 8, 10, 0.74)),
-          url("images/banner.png") right 24px top 24px / 180px auto no-repeat,
-          rgba(15, 7, 9, 0.8);
+      .credit-arrow {
+        color: var(--rose-gold);
+      }
+
+      .credit-link:hover .credit-name,
+      .credit-link:focus-visible .credit-name {
+        color: var(--rose-gold-light);
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
       }
 
       .join-panel {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 28px;
-        align-items: center;
-        padding: 32px;
-        border: 1px solid rgba(255, 211, 110, 0.22);
-        border-radius: 24px;
-        background:
-          linear-gradient(120deg, rgba(236, 37, 55, 0.2), rgba(255, 211, 110, 0.08), rgba(110, 249, 255, 0.07)),
-          rgba(16, 7, 10, 0.86);
-        box-shadow: 0 22px 56px rgba(0, 0, 0, 0.54);
-        overflow: hidden;
+        padding: clamp(56px, 8vw, 95px) 0;
+        text-align: center;
       }
 
-      .join-panel p {
-        max-width: 710px;
-        margin: 14px 0 0;
-        color: var(--muted);
-        line-height: 1.7;
+      .join-panel h2 {
+        font-size: clamp(1.9rem, 4vw, 2.8rem);
       }
 
-      .maul-icon {
-        max-height: 1em;
-        vertical-align: middle;
+      .join-panel .button {
+        margin-top: 22px;
       }
 
-      @keyframes pageVeil {
-        0% {
-          opacity: 1;
-          transform: scale(1);
-        }
-
-        72% {
-          opacity: 0.92;
-        }
-
-        100% {
-          opacity: 0;
-          visibility: hidden;
-          transform: scale(1.025);
-        }
+      .site-footer {
+        padding: 24px 0 32px;
+        border-top: 1px solid var(--rule);
+        color: #bebbc0;
+        font-size: 0.85rem;
+        text-align: center;
       }
 
-      @keyframes introRise {
-        from {
-          opacity: 0;
-          transform: translateY(12px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      .site-footer p {
+        max-width: 80ch;
+        margin: 0 auto;
       }
 
-      @keyframes titleFlowIn {
-        0% {
-          opacity: 0;
-          transform: translate3d(-10px, 28px, 0);
-        }
-
-        65% {
-          opacity: 1;
-        }
-
-        100% {
-          opacity: 1;
-          transform: translate3d(0, 0, 0);
-        }
+      .server-status,
+      .credits-list,
+      .credits-list li,
+      .site-footer {
+        border-image: var(--rule-fade) 1;
       }
 
-      @keyframes starFallFast {
-        from {
-          transform: translate3d(0, 160vh, 0);
-        }
-
-        to {
-          transform: translate3d(0, 0, 0);
-        }
-      }
-
-      @keyframes starFall {
-        from {
-          transform: translate3d(0, 160vh, 0);
-        }
-
-        to {
-          transform: translate3d(0, 0, 0);
-        }
-      }
-
-      @keyframes supportingCopyIn {
-        from {
-          opacity: 0;
-          transform: translateY(14px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes introArt {
-        from {
-          opacity: 0;
-          transform: translateY(28px) scale(0.975);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-      }
-
-      .reveal-item {
-        opacity: 0;
-        transform: translateY(22px);
-        transition:
-          opacity 0.7s ease,
-          transform 0.7s ease;
-        transition-delay: var(--reveal-delay, 0ms);
-      }
-
-      .reveal-item.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-
-        *,
-        *::before,
-        *::after {
-          animation-duration: 0.001ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.001ms !important;
-          scroll-behavior: auto !important;
-        }
-
-        .reveal-item {
-          opacity: 1;
-          filter: none;
-          transform: none;
-        }
-
-        .hero-copy-block,
-        .hero-art,
-        .hero-title .line,
-        .hero-copy,
-        .hero-actions,
-        .hero-proof {
-          opacity: 1;
-          filter: none;
-          transform: none;
-        }
-      }
-
-      @media (max-width: 1020px) {
-        .hero,
-        .intro-panel,
-        .join-panel {
-          grid-template-columns: 1fr;
-        }
-
-        .hero {
-          padding-top: 100px;
-        }
-
-        .hero-art {
-          min-height: 430px;
-        }
-
-        .hero-character {
-          width: min(74%, 390px);
-        }
-
-        .hero-banner-card {
-          padding: 22px;
-        }
-
-        .offer-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .join-panel {
-          justify-items: start;
-        }
-      }
-
-      @media (max-width: 680px) {
+      @media (max-width: 760px) {
         .page-shell {
-          width: min(100% - 28px, 1180px);
+          width: calc(100% - 36px);
         }
 
         .hero {
-          min-height: auto;
-          padding: 86px 0 38px;
-          gap: 16px;
-        }
-
-        .hero::before {
-          inset: 80px -16px 4vh;
-          border-radius: 22px;
-        }
-
-        .hero-art {
-          min-height: 288px;
-        }
-
-        .hero-art::after {
-          inset: 14% 5% 10%;
-        }
-
-        .hero-banner-card {
-          inset: 14% 5% 10%;
-          padding: 18px;
-        }
-
-        .hero-banner-card img {
-          width: 104%;
-          max-height: 60%;
-          opacity: 0.38;
-        }
-
-        .hero-character {
-          width: min(76%, 252px);
-        }
-
-        .eyebrow {
-          max-width: 100%;
-          line-height: 1.35;
+          grid-template-columns: 1fr;
+          gap: 12px;
+          padding-block: 48px 28px;
         }
 
         .hero-title {
-          font-size: clamp(2.85rem, 15.2vw, 4.35rem);
+          font-size: clamp(3.1rem, 11vw, 5.5rem);
         }
 
-        .hero-copy {
-          font-size: 1rem;
+        .hero-art {
+          width: min(100%, 400px);
+          justify-self: center;
         }
 
-        .hero-actions,
-        .hero-proof,
-        .member-info-container,
-        .offer-grid {
-          grid-template-columns: 1fr;
+        .server-status {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .credit-link {
+          grid-template-columns: 1rem minmax(0, 1fr) auto;
+          padding-inline: 0;
+          column-gap: 10px;
         }
 
-        .hero-actions {
-          display: grid;
+        .credit-detail {
+          grid-column: 2;
+          grid-row: 2;
+        }
+
+        .credit-arrow {
+          grid-column: 3;
+          grid-row: 1;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        body::before,
+        body::after {
+          animation: none;
+          transform: translate3d(0, 160vh, 0);
         }
 
         .button {
-          width: 100%;
-        }
-
-        .proof-tile,
-        .member-box,
-        .discord-button,
-        .offer-item,
-        .mission,
-        .join-panel {
-          border-radius: 17px;
-        }
-
-        .mission,
-        .join-panel {
-          padding: 22px;
-        }
-
-        .offer-heading {
-          display: block;
-        }
-
-        .offer-heading p {
-          margin-top: 14px;
-        }
-
-        .wide-offer {
-          grid-column: auto;
-          background:
-            linear-gradient(120deg, rgba(8, 4, 6, 0.64), rgba(20, 8, 10, 0.74)),
-            rgba(15, 7, 9, 0.8);
+          transition: none;
         }
       }
     </style>
@@ -1090,273 +538,129 @@
 
     <main class="page-shell">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy-block">
-          <div class="eyebrow">Largest non-dev modded Among Us Discord</div>
+        <div>
+          <p class="eyebrow">The MAUL Discord</p>
           <h1 class="hero-title" id="hero-title">
             <span class="line">Modded</span>
             <span class="line brand">Among Us</span>
             <span class="line">Lobbies</span>
           </h1>
           <p class="hero-copy">
-            Join <strong>30,000+ players</strong> for modded Among Us lobbies, Mafia Remastered nights, events and
-            voice chats.
+            Come hang out in voice chat, play Mafia Remastered, or join a Minecraft night.
           </p>
-
           <div class="hero-actions">
-            <a href="https://discord.gg/MAUL" target="_blank" class="button button-primary">
-              <i class="fa-brands fa-discord"></i>
-              Join MAUL
-            </a>
-            <a href="https://moddedamong.us/mods.html" class="button button-secondary">
-              <i class="fa-solid fa-puzzle-piece"></i>
-              Explore Mods
-            </a>
-          </div>
-
-          <div class="hero-proof" aria-label="MAUL server stats">
-            <div class="proof-tile">
-              <span class="proof-value">30K+</span>
-              <span class="proof-label">Community members</span>
-            </div>
-            <div class="proof-tile">
-              <span class="proof-value">Modded</span>
-              <span class="proof-label">Among Us lobbies</span>
-            </div>
-            <div class="proof-tile">
-              <span class="proof-value">Mafia</span>
-              <span class="proof-label">Remastered nights</span>
-            </div>
+            <a href="https://discord.gg/MAUL" target="_blank" rel="noopener" class="button button-primary">Join MAUL</a>
+            <a href="https://moddedamong.us/mods.html" class="button button-secondary">Explore mods</a>
           </div>
         </div>
 
         <div class="hero-art" aria-hidden="true">
-          <div class="hero-banner-card">
-            <img src="images/banner-transparent-cropped.png" alt="" />
-          </div>
-          <img src="images/maulnobg.png" alt="" class="hero-character" />
+          <img class="hero-banner" src="images/banner-transparent-cropped.png" alt="" />
+          <img class="hero-character" src="images/maulnobg.png" alt="" fetchpriority="high" />
         </div>
       </section>
 
-      <section class="section intro-panel" aria-label="Server overview">
-        <div class="mission">
-          <h2>Games, people, and a place to hang out.</h2>
-          <p>
-            <strong>MAUL</strong> is built around Modded Among Us Lobbies, with Mafia Remastered, events, art, voice
-            chats, and regulars around between games.
-          </p>
+      <div class="server-status">
+        <p>The largest non-dev modded Among Us Discord</p>
+        <div class="status-metrics">
+          <p><span class="online-dot" aria-hidden="true"></span><strong id="memberCount">…</strong> online</p>
+          <p><strong>30,000+</strong> members</p>
         </div>
+      </div>
 
-        <div class="member-info-container">
-          <div id="memberCountContainer" class="member-box">
-            <span class="online-dot"></span>
-            <span class="member-label">Online now</span>
-            <span id="memberCount" class="member-value">Loading...</span>
-          </div>
-          <div id="totalMembersContainer" class="member-box">
-            <span class="online-dot total-dot"></span>
-            <span class="member-label">Total members</span>
-            <span class="member-value">30,000+</span>
-          </div>
-          <a href="https://discord.gg/MAUL" target="_blank" class="discord-button">
-            <img src="images/discordicon.png" alt="" />
-            <span>Join the Discord</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
+      <section class="credits" id="whatWeOffer" aria-labelledby="credits-title">
+        <header class="credits-heading">
+          <p class="eyebrow">MAUL</p>
+          <h2 id="credits-title">Who we are</h2>
+          <p>Find a game, see what’s coming up, or get your lobby set up.</p>
+        </header>
+
+        <ul class="credits-list" role="list">
+          <li>
+            <a class="credit-link" href="https://moddedamong.us/mods.html">
+              <span class="credit-name">Modded Among Us</span>
+              <span class="credit-detail">Find downloads for host-only and client-required mods.</span>
+              <span class="credit-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a class="credit-link" href="https://moddedamong.us/calendar.html">
+              <span class="credit-name">Active Events</span>
+              <span class="credit-detail">Check the calendar for themed lobbies, tournaments, and upcoming events.</span>
+              <span class="credit-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a class="credit-link" href="https://discord.gg/MAUL" target="_blank" rel="noopener">
+              <span class="credit-name">Mafia Remastered</span>
+              <span class="credit-detail">Find Mafia game nights in the Discord.</span>
+              <span class="credit-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a class="credit-link" href="https://discord.gg/MAUL" target="_blank" rel="noopener">
+              <span class="credit-name">Minecraft</span>
+              <span class="credit-detail">Find the Minecraft crew and game nights in the Discord.</span>
+              <span class="credit-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a class="credit-link" href="https://moddedamong.us/regions.html">
+              <span class="credit-name">MAUL Custom Among Us Regions</span>
+              <span class="credit-detail">Set up MAUL’s North America and Europe regions.</span>
+              <span class="credit-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a class="credit-link" href="https://moddedamong.us/faq.html">
+              <span class="credit-name">Lobby Setup &amp; Help</span>
+              <span class="credit-detail">Get help hosting, joining, and troubleshooting lobbies.</span>
+              <span class="credit-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a class="credit-link" href="https://moddedamong.us/art.html">
+              <span class="credit-name">Community Art</span>
+              <span class="credit-detail">See what MAUL members have made.</span>
+              <span class="credit-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a class="credit-link" href="https://moddedamong.us/ourstaff.html">
+              <span class="credit-name">The MAUL Staff</span>
+              <span class="credit-detail">Meet the team behind events, moderation, and verification.</span>
+              <span class="credit-arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ul>
       </section>
 
-      <section class="section" id="whatWeOffer">
-        <div class="offer-heading">
-          <h2>What MAUL gives you.</h2>
-          <p>
-            Active games, community channels, events, support, and people around between matches.
-          </p>
-        </div>
-
-        <div class="offer-grid">
-          <article class="offer-item wide-offer">
-            <div>
-              <span class="offer-icon">
-                <span class="offer-symbol">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M6 12h4" />
-                    <path d="M8 10v4" />
-                    <path d="M15 13h.01" />
-                    <path d="M18 11h.01" />
-                    <path d="M7 8h10a4 4 0 0 1 3.8 2.7l1.1 3.4a3 3 0 0 1-4.9 3.1l-1.4-1.2H8.4L7 17.2a3 3 0 0 1-4.9-3.1l1.1-3.4A4 4 0 0 1 7 8Z" />
-                  </svg>
-                </span>
-              </span>
-              <h3>Modded Among Us lobbies</h3>
-            </div>
-            <p>The main event: active modded lobbies, regular hosts, and rooms people can actually find.</p>
-          </article>
-
-          <article class="offer-item">
-            <div>
-              <span class="offer-icon">
-                <span class="offer-symbol">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" />
-                    <path d="M8 9h8" />
-                    <path d="M8 13h5" />
-                  </svg>
-                </span>
-              </span>
-              <h3>Community spaces</h3>
-            </div>
-            <p>
-              Channels for chatting, gaming, regulars, and
-              <a href="https://moddedamong.us/art.html" class="inline-link">community art</a>.
-            </p>
-          </article>
-
-          <article class="offer-item">
-            <div>
-              <span class="offer-icon">
-                <span class="offer-symbol">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M14.7 6.3a3 3 0 0 0-4.2 0l-.8.8 4.2 4.2.8-.8a3 3 0 0 0 0-4.2Z" />
-                    <path d="M13.9 11.3 5 20.2 3 21l.8-2 8.9-8.9" />
-                    <path d="m16 13 5 5" />
-                    <path d="m18.5 15.5-2.5 2.5" />
-                  </svg>
-                </span>
-              </span>
-              <h3>Setup support</h3>
-            </div>
-            <p>Help with downloads, mod setup, lobby joining, and quick fixes.</p>
-          </article>
-
-          <article class="offer-item">
-            <div>
-              <span class="offer-icon">
-                <span class="offer-symbol">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 3 20 6v6c0 5-3.4 8.4-8 9-4.6-.6-8-4-8-9V6Z" />
-                    <path d="M9 12l2 2 4-5" />
-                  </svg>
-                </span>
-              </span>
-              <h3><a href="https://moddedamong.us/ourstaff.html">Active moderation</a></h3>
-            </div>
-            <p>Moderators and verification staff help keep the server fair and comfortable.</p>
-          </article>
-
-          <article class="offer-item">
-            <div>
-              <span class="offer-icon">
-                <span class="offer-symbol">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <circle cx="12" cy="8" r="5" />
-                    <path d="M8 13 6.5 21 12 18l5.5 3L16 13" />
-                  </svg>
-                </span>
-              </span>
-              <h3><a href="https://moddedamong.us/eventpics.html">Mafia and events</a></h3>
-            </div>
-            <p>Mafia Remastered nights, themed lobbies, tournaments, and seasonal events.</p>
-          </article>
-
-          <article class="offer-item">
-            <div>
-              <span class="offer-icon">
-                <span class="offer-symbol">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <rect x="5" y="8" width="14" height="10" rx="3" />
-                    <path d="M12 8V4" />
-                    <path d="M9 4h6" />
-                    <path d="M9 13h.01" />
-                    <path d="M15 13h.01" />
-                    <path d="M8 18v2" />
-                    <path d="M16 18v2" />
-                  </svg>
-                </span>
-              </span>
-              <h3>Bots and extras</h3>
-            </div>
-            <p>Community tools, bot commands, and extras that keep the server active.</p>
-          </article>
-
-          <article class="offer-item">
-            <div>
-              <span class="offer-icon">
-                <span class="offer-symbol">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="m12 3 2.7 5.5 6 .9-4.3 4.2 1 6-5.4-2.9-5.4 2.9 1-6-4.3-4.2 6-.9Z" />
-                  </svg>
-                </span>
-              </span>
-              <h3>Rewards and perks</h3>
-            </div>
-            <p>Booster perks, sponsor roles, leveling rewards, and activity perks.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="join-panel">
-          <div>
-            <h2>Ready for the next lobby?</h2>
-            <p>
-              Join the Discord and see what is running now.
-            </p>
-          </div>
-          <a href="https://discord.gg/MAUL" target="_blank" class="button button-primary">
-            <i class="fa-brands fa-discord"></i>
-            Join MAUL
-          </a>
-        </div>
+      <section class="join-panel" aria-labelledby="join-title">
+        <h2 id="join-title">See you in the lobby.</h2>
+        <a href="https://discord.gg/MAUL" target="_blank" rel="noopener" class="button button-primary">Join MAUL</a>
       </section>
     </main>
 
+    <footer class="site-footer page-shell">
+      <p>The content found on this website is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.</p>
+    </footer>
+
     <script>
-      const serverId = "995954559044304896";
-      const widgetUrl = `https://discord.com/api/guilds/${serverId}/widget.json`;
+      const memberCount = document.getElementById("memberCount");
+      const widgetUrl = "https://discord.com/api/guilds/995954559044304896/widget.json";
 
       fetch(widgetUrl)
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById("memberCount").textContent = data.presence_count;
+        .then(response => {
+          if (!response.ok) throw new Error("Discord widget unavailable");
+          return response.json();
         })
-        .catch(error => {
-          console.error("Error fetching Discord widget data:", error);
-          document.getElementById("memberCount").textContent = "Error";
+        .then(data => {
+          if (!Number.isFinite(data.presence_count)) throw new Error("Discord presence count unavailable");
+          memberCount.textContent = data.presence_count.toLocaleString("en-US");
+        })
+        .catch(() => {
+          memberCount.parentElement.textContent = "Online count unavailable";
         });
-
-      const revealTargets = document.querySelectorAll(
-        ".proof-tile, .mission, .member-box, .discord-button, .offer-heading, .offer-item, .join-panel"
-      );
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      revealTargets.forEach((target) => {
-        const siblingIndex = Array.from(target.parentElement?.children || []).indexOf(target);
-        const staggerDelay = target.matches(".proof-tile, .member-box, .offer-item") ? Math.max(siblingIndex, 0) * 70 : 0;
-
-        target.classList.add("reveal-item");
-        target.style.setProperty("--reveal-delay", `${Math.min(staggerDelay, 360)}ms`);
-      });
-
-      if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-        revealTargets.forEach((target) => target.classList.add("is-visible"));
-      } else {
-        const revealObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                revealObserver.unobserve(entry.target);
-              }
-            });
-          },
-          {
-            rootMargin: "0px 0px -8% 0px",
-            threshold: 0.16
-          }
-        );
-
-        revealTargets.forEach((target) => revealObserver.observe(target));
-      }
     </script>
     <script src="/scripts/navbar.js?v=20261028-nav-6"></script>
   </body>
