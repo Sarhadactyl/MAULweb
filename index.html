@@ -11,7 +11,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" sizes="180x180" href="/pwa/icons/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/styles/pwa.css" />R
+    <link rel="stylesheet" href="/styles/pwa.css" />
     <script src="/scripts/pwa.js" data-maul-pwa defer></script>
 
     <meta property="og:title" content="Welcome to MAUL" />
@@ -541,7 +541,7 @@
       .film-grain {
         position: fixed;
         inset: 0;
-        z-index: 50;
+        z-index: 0;
         pointer-events: none;
         opacity: 0.12;
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.30'/%3E%3C/svg%3E");
@@ -675,6 +675,7 @@
       }
       .maul-interactive-light.is-active::before { opacity: 1; }
       .page-shell { position: relative; z-index: 1; }
+
       .maul-shooting-star-layer {
         position: fixed;
         inset: 0;
@@ -722,6 +723,28 @@
       @media (prefers-reduced-motion: reduce) {
         .maul-interactive-light, .maul-shooting-star-layer { display: none; }
         .maul-shooting-star { animation: none; }
+      }
+
+      .hero-art::after {
+        inset: 23% 15%;
+      }
+      .hero-banner {
+        width: 67%;
+      }
+      @media (max-width: 760px) {
+        .hero-art::after {
+          inset: 24% 15%;
+        }
+        .hero-banner {
+          width: 82%;
+        }
+      }
+
+      @media (min-width: 761px) {
+        .hero-art::before {
+          display: none;
+          animation: none;
+        }
       }
 
       .page-shell .button {
