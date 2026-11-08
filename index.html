@@ -36,19 +36,9 @@
     />
 
     <link rel="stylesheet" href="/styles/navbar.css?v=20261028-nav-6" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&amp;display=swap" />
 
     <style>
-      @font-face {
-        font-family: "Palagio";
-        src: local("Palagio Semi Bold"),
-          local("Palagio SemiBold"),
-          local("Palagio-SemiBold"),
-          url("fonts/Palagio-SemiBold.woff2") format("woff2");
-        font-style: normal;
-        font-weight: 600;
-        font-display: swap;
-      }
-
       :root {
         color-scheme: dark;
         --rose-gold: #e9b4ac;
@@ -189,15 +179,25 @@
 
       .hero-title {
         margin: 0;
-        font-family: "Palagio", "Bahnschrift", "Avenir Next", "Trebuchet MS", system-ui, sans-serif;
-        font-size: clamp(3.25rem, 7.1vw, 6.5rem);
-        font-weight: 600;
-        line-height: 0.98;
-        letter-spacing: -0.045em;
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: clamp(2.85rem, 6.1vw, 5.5rem);
+        font-weight: 700;
+        line-height: 1.08;
+        letter-spacing: -0.055em;
       }
 
       .hero-title .line {
         display: block;
+      }
+
+      .hero-title .letter {
+        animation: type-letter 1ms steps(1, end) backwards;
+        animation-delay: calc(140ms + var(--letter-index) * 62ms);
+      }
+
+      @keyframes type-letter {
+        from { visibility: hidden; }
+        to { visibility: visible; }
       }
 
       .hero-title .brand {
@@ -286,26 +286,27 @@
         inset: 17% 5%;
         border: 1px solid var(--rule);
         border-radius: 6px;
-        background: linear-gradient(145deg, rgb(245 213 201 / 8%), rgb(9 8 11 / 15%));
         transform: rotate(-5deg);
       }
 
       .hero-banner {
         position: absolute;
+        z-index: 0;
         top: 50%;
         left: 50%;
         width: 82%;
         height: auto;
-        opacity: 0.36;
+        opacity: 0.7;
         transform: translate(-50%, -50%) rotate(-5deg);
       }
 
       .hero-character {
         position: relative;
+        z-index: 1;
         display: block;
         width: min(88%, 420px);
         height: auto;
-        filter: saturate(0.56) drop-shadow(0 22px 25px rgb(0 0 0 / 54%));
+        filter: drop-shadow(0 22px 25px rgb(0 0 0 / 54%));
       }
 
       .server-status {
@@ -486,11 +487,11 @@
         }
 
         .hero-title {
-          font-size: clamp(3.1rem, 11vw, 5.5rem);
+          font-size: clamp(2.45rem, 10.5vw, 4.8rem);
         }
 
         .hero-art {
-          width: min(100%, 400px);
+          width: min(60%, 240px);
           justify-self: center;
         }
 
@@ -529,18 +530,121 @@
         .button {
           transition: none;
         }
+
+        .hero-title .letter {
+          animation: none;
+        }
+      }
+
+      .film-grain {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        pointer-events: none;
+        opacity: 0.12;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.30'/%3E%3C/svg%3E");
+        background-size: 180px 180px;
+        mix-blend-mode: soft-light;
+      }
+      .scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        width: 100%;
+        height: 2px;
+        transform: scaleX(0);
+        transform-origin: left center;
+        background: linear-gradient(90deg, var(--rose-gold-light), var(--rose-gold), var(--rose-gold-deep));
+        box-shadow: 0 0 8px rgb(233 180 172 / 24%);
+        pointer-events: none;
+      }
+      .hero-art::before {
+        inset: -7% -10%;
+        background:
+          radial-gradient(ellipse at 51% 48%, rgb(233 180 172 / 24%), transparent 45%),
+          radial-gradient(ellipse at 60% 54%, rgb(183 110 121 / 15%), transparent 65%);
+        filter: blur(16px);
+        animation: maulAmbientGlow 13s ease-in-out infinite alternate;
+      }
+      @keyframes maulAmbientGlow {
+        from { transform: translate3d(-9px, -5px, 0) scale(0.96); opacity: 0.58; }
+        to { transform: translate3d(11px, 7px, 0) scale(1.05); opacity: 0.95; }
+      }
+      .hero-character { animation: maulHeroFloat 7s ease-in-out infinite; }
+      @keyframes maulHeroFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-7px); }
+      }
+      .hero-banner { animation: maulBannerDrift 9s ease-in-out infinite alternate; }
+      @keyframes maulBannerDrift {
+        from { transform: translate(-50%, -50%) rotate(-5deg) translateY(0); }
+        to { transform: translate(-50%, -50%) rotate(-4deg) translateY(-5px); }
+      }
+      .maul-motion .server-status,
+      .maul-motion .credits-heading,
+      .maul-motion .credits-list li,
+      .maul-motion .join-panel,
+      .maul-motion .site-footer {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 750ms ease, transform 750ms ease, filter 750ms ease;
+      }
+      .maul-motion .server-status.in-view,
+      .maul-motion .credits-heading.in-view,
+      .maul-motion .credits-list li.in-view,
+      .maul-motion .join-panel.in-view,
+      .maul-motion .site-footer.in-view {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .maul-motion .credits-list li { transition-delay: var(--reveal-delay, 0ms); }
+      .server-status, .credits-list, .site-footer { position: relative; }
+      .server-status::after, .credits-list::before, .site-footer::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 1000ms ease;
+        background: linear-gradient(90deg, rgb(233 180 172 / 68%), rgb(233 180 172 / 14%) 70%, transparent);
+        pointer-events: none;
+      }
+      .server-status::after { bottom: -1px; }
+      .credits-list::before, .site-footer::before { top: -1px; }
+      .server-status.in-view::after, .credits-list.in-view::before, .site-footer.in-view::before { transform: scaleX(1); }
+      .credit-link { transition: background-color 220ms ease, transform 220ms ease; }
+      .credit-link:hover, .credit-link:focus-visible {
+        transform: translateX(5px);
+        background: linear-gradient(90deg, rgb(233 180 172 / 7%), transparent 65%);
+      }
+      .credit-arrow { display: inline-block; transition: transform 220ms ease; }
+      .credit-link:hover .credit-arrow, .credit-link:focus-visible .credit-arrow { transform: translate(3px, -2px); }
+      .maul-motion .join-panel { filter: brightness(0.85); }
+      .maul-motion .join-panel.in-view { filter: brightness(1); }
+      @media (prefers-reduced-motion: reduce) {
+        .hero-art::before, .hero-character, .hero-banner { animation: none !important; }
+        .maul-motion .server-status, .maul-motion .credits-heading,
+        .maul-motion .credits-list li, .maul-motion .join-panel,
+        .maul-motion .site-footer { opacity: 1; transform: none; transition: none; filter: none; }
+        .server-status::after, .credits-list::before, .site-footer::before { transform: scaleX(1); transition: none; }
+        .credit-link, .credit-arrow { transition: none; }
       }
     </style>
   </head>
 
   <body>
+    <div class="film-grain" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
     <div id="navbar"></div>
 
     <main class="page-shell">
       <section class="hero" aria-labelledby="hero-title">
         <div>
           <p class="eyebrow">The MAUL Discord</p>
-          <h1 class="hero-title" id="hero-title">
+          <h1 class="hero-title" id="hero-title" aria-label="Modded Among Us Lobbies">
             <span class="line">Modded</span>
             <span class="line brand">Among Us</span>
             <span class="line">Lobbies</span>
@@ -646,6 +750,20 @@
     </footer>
 
     <script>
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        let letterIndex = 0;
+        for (const line of document.querySelectorAll(".hero-title .line")) {
+          const letters = Array.from(line.textContent, character => {
+            const letter = document.createElement("span");
+            letter.className = "letter";
+            letter.textContent = character;
+            letter.style.setProperty("--letter-index", letterIndex++);
+            return letter;
+          });
+          line.replaceChildren(...letters);
+        }
+      }
+
       const memberCount = document.getElementById("memberCount");
       const widgetUrl = "https://discord.com/api/guilds/995954559044304896/widget.json";
 
@@ -661,6 +779,39 @@
         .catch(() => {
           memberCount.parentElement.textContent = "Online count unavailable";
         });
+    </script>
+
+    <script>
+      (() => {
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const progress = document.getElementById('scrollProgress');
+        const updateProgress = () => {
+          const distance = document.documentElement.scrollHeight - window.innerHeight;
+          const percentage = distance > 0 ? Math.min(1, Math.max(0, window.scrollY / distance)) : 0;
+          progress.style.transform = `scaleX(${percentage})`;
+        };
+        updateProgress();
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        window.addEventListener('resize', updateProgress, { passive: true });
+
+        if (reducedMotion || !('IntersectionObserver' in window)) return;
+        const revealTargets = document.querySelectorAll(
+          '.server-status, .credits-heading, .credits-list li, .join-panel, .site-footer'
+        );
+        document.querySelectorAll('.credits-list li').forEach((item, index) => {
+          item.style.setProperty('--reveal-delay', `${Math.min(index, 7) * 65}ms`);
+        });
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px 25px 0px' });
+        revealTargets.forEach(item => observer.observe(item));
+        document.body.classList.add('maul-motion');
+      })();
     </script>
     <script src="/scripts/navbar.js?v=20261028-nav-6"></script>
   </body>
