@@ -173,7 +173,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="/styles/navbar.css?v=20261028-nav-6" />
+    <link rel="stylesheet" href="styles/navbar.css?v=20261028-nav-6" />
     <style>
 :root {
   color-scheme: dark;
@@ -663,29 +663,28 @@ body.spotlight-open { overflow: hidden; }
 .mod-search { border-color: var(--maul-panel-border, #b76e794d); border-radius: 4px; background: var(--maul-panel-bg, #09090b); box-shadow: none; }
 #mods-search, .mod-search-count { border-color: var(--maul-panel-border, #b76e794d); background: var(--maul-control-bg, #050507); }
 </style>
+    <link rel="stylesheet" href="styles/maul-theme.css" />
   </head>
 
-  <body>
+  <body class="maul-themed">
     <div id="navbar"></div>
 
     <div class="page-wrapper">
-      <header class="page-header">
+      <header class="page-header maul-page-hero">
         <div class="hero-copy">
           <h1>
             <span class="hero-title-line">Among Us</span>
             <span class="hero-title-line hero-title-accent">Mods &amp;</span>
             <span class="hero-title-line">Downloads</span>
           </h1>
-          <p class="page-header-subtitle">
-            Find and download Among Us mods for MAUL lobbies, including host-only mods, client-required mods, custom maps, communication tools, Starlight-compatible mods, APIs, mod managers, and latest Steam, Epic, and DLL release links.
-          </p>
+          <p class="page-header-subtitle">Download Among Us mods, maps, launchers, and tools.</p>
           <div class="header-actions">
-            <a class="hero-join-link" href="https://discord.gg/MAUL" target="_blank" rel="noopener">
+            <a class="hero-join-link maul-hero-primary" href="https://discord.gg/MAUL" target="_blank" rel="noopener">
               Join MAUL
             </a>
           </div>
         </div>
-        <div class="hero-panel" aria-label="MAUL mascot illustration">
+        <div class="hero-panel maul-hero-art" aria-label="MAUL mascot illustration">
           <div class="hero-banner-card" aria-hidden="true">
             <img src="images/banner-transparent-cropped.png" alt="" loading="lazy" decoding="async" />
           </div>
@@ -2510,7 +2509,7 @@ body.spotlight-open { overflow: hidden; }
         >
           Open a ticket in our Discord
         </a>
-        for more information.
+        or email us at admin@moddedamong.us.
       </p>
     </div>
 
@@ -3521,6 +3520,10 @@ body.spotlight-open { overflow: hidden; }
           });
       });
     </script>
-    <script src="/scripts/navbar.js?v=20261028-nav-6"></script>
-  </body>
+    <script src="scripts/navbar.js?v=20261028-nav-6"></script>
+
+    <footer class="maul-shared-footer">
+      <p class="maul-footer-credit">Made with ♡ by Maul</p>
+    </footer>
+</body>
 </html>
