@@ -32,7 +32,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
 
     <style>
       :root {
@@ -143,8 +143,8 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: radial-gradient(circle, #ffd86e, #ff9900);
-        box-shadow: 0 0 12px rgba(255, 180, 0, 0.7);
+        background: radial-gradient(circle, #e296a0, #cb4052);
+        box-shadow: 0 0 12px rgb(203 64 82 / 0.7);
       }
 
       .header h1 {
@@ -445,19 +445,19 @@
         opacity: 0.9;
       }
       :root {
-        --accent: #ffcc80;
-        --accent-soft: rgba(255, 204, 128, 0.18);
-        --accent-strong: #f2d7a4;
-        --gold: #ffcc80;
+        --accent: #e9b4ac;
+        --accent-soft: rgb(233 180 172 / 0.18);
+        --accent-strong: #e3bac0;
+        --gold: #e9b4ac;
         --bg-card: rgba(12, 12, 14, 0.92);
         --bg-soft: rgba(18, 17, 20, 0.9);
-        --text-main: #fff7ef;
-        --text-muted: rgba(250, 240, 232, 0.78);
+        --text-main: #fdf7f8;
+        --text-muted: rgb(248 240 241 / 0.78);
       }
       body {
         min-height: 100%;
         height: auto;
-        background: radial-gradient(circle at 50% 0%, rgba(255, 204, 128, 0.08), transparent 32%),
+        background: radial-gradient(circle at 50% 0%, rgb(233 180 172 / 0.08), transparent 32%),
                     linear-gradient(180deg, #050505 0%, #020202 56%, #000000 100%);
         background-attachment: fixed;
       }
@@ -486,7 +486,7 @@
         gap: clamp(12px, 2.2vw, 28px);
         min-height: 435px;
         padding: clamp(26px, 3vw, 38px);
-        border: 1px solid rgba(255, 204, 128, 0.3);
+        border: 1px solid rgb(233 180 172 / 0.3);
         border-radius: 10px;
         text-align: left;
         overflow: hidden;
@@ -521,7 +521,7 @@
         border-radius: 0;
         background: transparent;
         box-shadow: none;
-        color: #ffcc80;
+        color: #e9b4ac;
         font: 700 0.82rem "Poppins", sans-serif;
         letter-spacing: 0.18em;
       }
@@ -554,15 +554,15 @@
       .header-subtitle {
         max-width: 620px;
         margin: 18px 0 0;
-        color: rgba(255, 248, 239, 0.78);
+        color: rgb(253 247 248 / 0.78);
         font-size: 1.02rem;
         line-height: 1.6;
         font-weight: 400;
       }
       .header-highlight, .info-paragraph strong, .info-paragraph a, .panel h2, .footer-inner a {
-        color: #ffcc80;
+        color: #e9b4ac;
       }
-      .info-paragraph a:hover, .footer-inner a:hover { color: #f2d7a4; }
+      .info-paragraph a:hover, .footer-inner a:hover { color: #e3bac0; }
       .header-actions {
         justify-content: flex-start;
         flex-wrap: wrap;
@@ -576,17 +576,17 @@
         gap: 8px;
         min-height: 42px;
         padding: 9px 14px;
-        border: 1px solid rgba(255, 204, 128, 0.24);
+        border: 1px solid rgb(233 180 172 / 0.24);
         border-radius: 999px;
         background: linear-gradient(180deg, rgba(18, 17, 20, 0.94), rgba(10, 10, 12, 0.96));
-        color: #fff7ef;
+        color: #fdf7f8;
         font: 700 0.87rem "Roboto", sans-serif;
         text-decoration: none;
         box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
         transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.2s ease, background 0.2s ease;
       }
       .header-actions a:hover {
-        border-color: rgba(255, 204, 128, 0.68);
+        border-color: rgb(233 180 172 / 0.68);
         background: linear-gradient(180deg, rgba(25, 24, 27, 0.98), rgba(14, 13, 15, 0.98));
         transform: translateY(-1px);
         filter: none;
@@ -618,8 +618,8 @@
         max-width: 118%;
         aspect-ratio: 1;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(255, 211, 110, 0.2), transparent 58%),
-                    conic-gradient(from 210deg, rgba(255, 204, 128, 0), rgba(255, 204, 128, 0.22), rgba(110, 249, 255, 0.12), rgba(255, 204, 128, 0));
+        background: radial-gradient(circle, rgb(235 175 184 / 0.2), transparent 58%),
+                    conic-gradient(from 210deg, rgb(233 180 172 / 0), rgb(233 180 172 / 0.22), rgba(110, 249, 255, 0.12), rgb(233 180 172 / 0));
         filter: blur(4px);
         opacity: 0.72;
         pointer-events: none;
@@ -664,48 +664,48 @@
         max-height: 430px;
         object-fit: contain;
         margin-top: 10px;
-        filter: drop-shadow(0 38px 42px rgba(0,0,0,0.65)) drop-shadow(0 0 28px rgba(255,204,128,0.12));
+        filter: drop-shadow(0 38px 42px rgba(0,0,0,0.65)) drop-shadow(0 0 28px rgb(233 180 172 / 0.12));
       }
       .info-paragraph, .section-card, .ticket-box {
-        border: 1px solid rgba(255, 204, 128, 0.16);
+        border: 1px solid rgb(233 180 172 / 0.16);
         border-radius: 8px;
         background: linear-gradient(180deg, rgba(21, 20, 23, 0.94), rgba(11, 11, 13, 0.96));
         box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 44px rgba(0,0,0,0.6);
       }
       .info-paragraph, .section-card, .ticket-box { max-width: 1280px; }
-      .section-card h2, .ticket-box h2 { color: #fff7ef; letter-spacing: 0.06em; }
+      .section-card h2, .ticket-box h2 { color: #fdf7f8; letter-spacing: 0.06em; }
       .header-highlight, .info-paragraph strong, .info-paragraph a,
-      .section-card h3 i, .ticket-box p a { color: #ffcc80; }
-      .info-paragraph a:hover, .ticket-box p a:hover { color: #ffe8b7; text-shadow: 0 0 12px rgba(255,204,128,0.26); }
+      .section-card h3 i, .ticket-box p a { color: #e9b4ac; }
+      .info-paragraph a:hover, .ticket-box p a:hover { color: #f2ced3; text-shadow: 0 0 12px rgb(233 180 172 / 0.26); }
       .perk-item, .badge-item {
-        border: 1px solid rgba(255,204,128,0.16);
+        border: 1px solid rgb(233 180 172 / 0.16);
         border-radius: 8px;
         background: linear-gradient(180deg, rgba(24,23,26,0.96), rgba(9,9,11,0.98));
         box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 12px 26px rgba(0,0,0,0.4);
       }
       .perk-item:hover, .badge-item:hover {
-        border-color: rgba(255,204,128,0.42);
+        border-color: rgb(233 180 172 / 0.42);
         background: linear-gradient(180deg, rgba(33,31,34,0.98), rgba(13,13,15,0.98));
         box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 18px 34px rgba(0,0,0,0.54);
       }
       .badge-icon {
-        border: 1px solid rgba(255,204,128,0.16);
+        border: 1px solid rgb(233 180 172 / 0.16);
         border-radius: 8px;
         background: rgba(5,5,7,0.68);
       }
       .contact-chip {
-        border: 1px solid rgba(255,204,128,0.24);
+        border: 1px solid rgb(233 180 172 / 0.24);
         border-radius: 999px;
         background: linear-gradient(180deg, rgba(18,17,20,0.94), rgba(10,10,12,0.96));
-        color: #fff7ef;
+        color: #fdf7f8;
         box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
         transition: transform .18s ease, border-color .18s ease, box-shadow .2s ease, background .2s ease;
       }
       .contact-chip:hover {
-        border-color: rgba(255,204,128,0.68);
+        border-color: rgb(233 180 172 / 0.68);
         background: rgba(25,24,27,0.98);
         transform: translateY(-1px);
-        box-shadow: 0 0 14px rgba(255,204,128,0.14), 0 14px 30px rgba(0,0,0,0.52);
+        box-shadow: 0 0 14px rgb(233 180 172 / 0.14), 0 14px 30px rgba(0,0,0,0.52);
         text-decoration: none;
       }
 
@@ -727,8 +727,6 @@
       
       html,
       body {
-          background: #000000 !important;
-          background-image: none !important;
           min-height: 100%;
           color-scheme: dark;
       }
@@ -738,13 +736,14 @@
       }
 
     </style>
+    <link rel="stylesheet" href="styles/maul-theme.css" />
   </head>
 
-  <body>
+  <body class="maul-themed">
     <div id="navbar"></div>
 
     <div class="page-wrapper">
-      <div class="header">
+      <div class="header maul-page-hero">
         <div class="hero-copy">
           <div class="header-badge">
             <span class="header-badge-dot"></span>
@@ -753,16 +752,10 @@
 
           <h1>Featured <span>Users</span></h1>
 
-          <p class="header-subtitle">
-            Featured Users showcase the people who help make MAUL special
-            <span class="header-highlight">
-              hosts, developers, contributors, helpers, staff, creators, and more.
-            </span>
-            If you think you qualify, check the requirements below and apply through the correct route.
-          </p>
+          <p class="header-subtitle">Meet MAUL’s featured hosts, developers, staff, and contributors.</p>
 
           <div class="header-actions">
-            <a href="https://moddedamong.us/" class="cta-primary">
+            <a href="https://moddedamong.us/" class="cta-primary maul-hero-secondary">
               <i class="fa-solid fa-house"></i>
               Home
             </a>
@@ -770,14 +763,14 @@
               href="https://discord.gg/maul"
               target="_blank"
               rel="noopener noreferrer"
-              class="cta-secondary"
+              class="cta-secondary maul-hero-primary"
             >
               <i class="fa-brands fa-discord"></i>
               Join MAUL
             </a>
           </div>
         </div>
-        <div class="hero-panel" aria-label="MAUL mascot illustration">
+        <div class="hero-panel maul-hero-art" aria-label="MAUL mascot illustration">
           <div class="hero-banner-card" aria-hidden="true">
             <img src="images/banner-transparent-cropped.png" alt="" loading="lazy" decoding="async" />
           </div>
@@ -785,19 +778,7 @@
         </div>
       </div>
 
-      <p class="info-paragraph">
-        The <strong>Featured Users</strong> section highlights trusted, active, and notable members of the MAUL community.
-        This includes <strong>Verified Hosts</strong>, returning hosts, community helpers, server staff, mod developers,
-        major contributors, content creators, and users with standout activity, loyalty, or consistency.
-        <br /><br />
-        If you believe you qualify, please follow the application instructions below and contact
-        <a
-          href="https://discord.com/users/1067220560972628058"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Sarha</a>
-        if needed.
-      </p>
+      <p class="info-paragraph">Featured Users include verified and returning hosts, contributors, creators, staff, and other active MAUL members. Check the requirements below to apply.</p>
 
       <section class="section-card">
         <h2>Verified Host Perks</h2>
@@ -856,8 +837,7 @@
       <section class="section-card">
         <h2>Featured User Badges</h2>
         <p class="section-sub">
-          These are the badge categories currently used for Featured Users. Badge appearance may vary, and some are tied
-          to specific recognition, activity, region, or hosting milestones.
+          Badges recognize milestones in activity, region play, and hosting.
         </p>
 
         <div class="badge-grid">
@@ -1046,7 +1026,7 @@
       <div class="ticket-box">
         <h2>How to Apply</h2>
         <p>
-          Developers, staff, Level 175+, and Verified Hosts can apply through the proper channel.
+          Developers, staff, Level 175+, and Verified Hosts can ask in the proper channel.
           Users who meet these requirements can
           <a
             href="https://discord.com/users/1067220560972628058"
@@ -1084,12 +1064,15 @@
 
       <p class="footer-note">
         <img src="images/maul.png" alt="MAUL Icon" class="maul-icon" />
-        Featured User qualifications, perks, badges, and requirements may change over time.
-        Final decisions are handled through MAUL staff and the Featured User review process.
+        Requirements, badges, and perks can change. MAUL staff review requests.
         <img src="images/maul.png" alt="MAUL Icon" class="maul-icon" />
       </p>
     </div>
 
-    <script src="/scripts/navbar.js"></script>
-  </body>
+    <script src="scripts/navbar.js"></script>
+
+    <footer class="maul-shared-footer">
+      <p class="maul-footer-credit">Made with ♡ by Maul</p>
+    </footer>
+</body>
 </html>
