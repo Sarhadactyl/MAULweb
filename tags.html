@@ -17,7 +17,7 @@
     <link rel="canonical" href="https://moddedamong.us/tags.html" />
     <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Outfit:wght@600;700;800&amp;family=Roboto:wght@400;500;700&amp;family=Poppins:wght@500;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&amp;family=Inter:wght@400;500;600;700;800&amp;family=Outfit:wght@600;700;800&amp;family=Roboto:wght@400;500;700&amp;family=Poppins:wght@500;700&amp;display=swap"
       rel="stylesheet"
     />
     <link
@@ -2562,7 +2562,7 @@ body::after {
   border-radius: 50%;
   transform: translate(-50%, -50%);
   background:
-    radial-gradient(circle, rgba(255, 211, 110, 0.28), transparent 58%),
+    radial-gradient(circle, rgb(235 175 184 / 0.28), transparent 58%),
     conic-gradient(from 210deg, rgba(236, 37, 55, 0), rgba(236, 37, 55, 0.34), rgba(110, 249, 255, 0.16), rgba(236, 37, 55, 0));
   opacity: 0.72;
   pointer-events: none;
@@ -2863,7 +2863,51 @@ input[type="radio"] { accent-color: #d4d4d8; }
 @media (prefers-reduced-motion: reduce) {
   .copy-btn.download-glow:hover { animation: none; }
 }
-    </style>
+  
+:root { --rose-gold:#e9b4ac; --rose-gold-light:#f5d5c9; --rose-gold-deep:#b76e79; --accent:#e9b4ac; --accent-soft:rgb(233 180 172 / 17%); --accent-strong:#f5d5c9; --gold:#e9b4ac; --bg-card:#111014; --bg-soft:#17151a; --text-main:#f9f3ef; --text-muted:#c5b8b8; --line:rgb(233 180 172 / 22%); }
+html,body {background:#09080b !important; color:var(--text-main);}
+body {background-image:radial-gradient(ellipse at 75% 12rem,rgb(183 110 121 / 8%),transparent 36rem) !important;}
+.header,.page-header {background:transparent!important;box-shadow:none!important;border:0!important;}
+.page-header h1,.header h1,.section-title,#bulk-converter h2,.wizard-shell h2 {font-family:"Libre Baskerville",Georgia,serif!important;letter-spacing:-.04em!important;text-transform:none!important;line-height:1.12!important;}
+.hero-title-accent,.header h1 span {background:linear-gradient(95deg,#fff,#f5d5c9 45%,#e9b4ac 75%,#b76e79)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;}
+.page-header-subtitle,.header-subtitle,.section-subtitle {color:var(--text-muted)!important;}
+.panel,.info-paragraph,.inline-preview-panel,.collapsible-card,.advanced-panel,.icon-picker-menu,#bulk-converter,.bulk-settings,.gen-stop,.gen-controls .field,.wizard-shell {background:#111014!important;border:1px solid rgb(233 180 172 / 20%)!important;box-shadow:none!important;border-radius:6px!important;}
+.gen-stop,.gen-controls .field,.bulk-settings {background:#0d0c10!important;}
+.copy-btn,.cta-secondary,.hero-join-link,.bulk-open,.bulk-close,.bulk-drop,.wizard-shell button {border:1px solid rgb(233 180 172 / 26%)!important;color:var(--text-main)!important;background:#19161b!important;border-radius:4px!important;box-shadow:none!important;}
+.copy-btn:hover,.hero-join-link:hover,.wizard-shell button:hover {border-color:var(--rose-gold)!important;background:#241c22!important;}
+.cta-primary,.wizard-main,#wizard-apply,.bulk-primary {color:#29191f!important;background:linear-gradient(150deg,#f5cdd4,#e9b4ac 50%,#b75863)!important;border:1px solid #f5d5c9!important;box-shadow:none!important;font-weight:800!important;}
+input,select,textarea {accent-color:#e9b4ac;}
+.gen-controls input,.gen-controls select,.gen-stop input,.bulk-field select {color:#f9f3ef!important;}
+#navbar {--accent:#e9b4ac;--accent-strong:#f5d5c9;--accent-soft:rgb(233 180 172 / 15%);}
+footer {width:min(100%,1000px)!important;margin:70px auto 40px!important; padding:0 20px!important;}
+.footer-inner {background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;display:flex;align-items:center;gap:20px;color:#e9b4ac!important;max-width:none!important;}
+.footer-inner::before,.footer-inner::after {content:"";height:1px;flex:1;min-width:15px;background:linear-gradient(90deg,transparent,rgb(233 180 172 / 60%));}
+.footer-inner::after {transform:scaleX(-1);}
+.footer-inner p {margin:0;white-space:nowrap;font-size:clamp(.79rem,2.3vw,1.05rem);letter-spacing:.09em;}
+.tag-wizard[hidden],.wizard-step[hidden] {display:none!important;}
+.tag-wizard {position:fixed;inset:0;z-index:100000;background:#09080b;overflow:auto;overscroll-behavior:contain;display:grid;place-items:center;padding:24px 16px;}
+body.wizard-active {overflow:hidden!important;}
+.wizard-shell {width:min(590px,100%);padding:clamp(23px,5vw,45px)!important;display:grid;gap:18px;}
+.wizard-top,.wizard-nav {display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.wizard-top,.wizard-progress {font-size:.75rem;text-transform:uppercase;letter-spacing:.14em;color:var(--rose-gold);font-weight:750;}
+.wizard-top button {min-width:40px;min-height:40px;}
+.wizard-shell h2 {margin:5px 0 0;font-size:clamp(1.9rem,5vw,3rem);}
+.wizard-shell p {margin:0;color:var(--text-muted);line-height:1.6;}
+.wizard-step {display:grid;gap:12px;}
+.wizard-step label {color:var(--rose-gold-light);font-weight:700;}
+.wizard-step input,.wizard-step select {width:100%;min-width:0;padding:13px;border:1px solid var(--line);border-radius:4px;background:#09080b;color:#f9f3ef;font:inherit;}
+.wizard-step input[type=color] {height:52px;padding:5px;}
+.wizard-shell button {padding:11px 17px;cursor:pointer;min-height:44px;}
+.wizard-result {padding:22px;border:1px solid var(--line);background:#09080b;border-radius:4px;overflow-wrap:anywhere;}
+.wizard-nav {margin-top:6px;}
+@media(max-width:600px){.wizard-shell{padding:22px!important}.footer-inner{gap:9px}}
+
+/* can you tell that idk what im doing */
+.wizard-conditional[hidden]{display:none!important}
+.wizard-conditional{display:grid;gap:10px}
+.wizard-check{display:flex!important;align-items:center;gap:12px}
+.wizard-step .wizard-check input[type=checkbox]{width:18px;height:18px;flex:none;accent-color:#e9b4ac}
+</style>
     <style>
 .info-paragraph.bulk-launch { display:flex; align-items:center; justify-content:space-between; gap:20px; }
 .bulk-launch p { margin:0; }
@@ -2922,7 +2966,7 @@ input[type="radio"] { accent-color: #d4d4d8; }
 .bulk-preview { margin-top:24px; }
 .bulk-summary { display:flex; flex-wrap:wrap; gap:10px; margin:14px 0; }
 .bulk-pill { background:#281c25; border:1px solid #61404f; border-radius:4px; padding:8px 12px; font-size:.82rem; }
-.bulk-warning { padding:12px 14px; border-left:3px solid #d89950; background:#2b2017; color:#f4d6aa; font-size:.85rem; line-height:1.6; margin-top:14px; }
+.bulk-warning { padding:12px 14px; border-left:3px solid #bd737d; background:#281c1e; color:#e6bfc5; font-size:.85rem; line-height:1.6; margin-top:14px; }
 .bulk-preview .bulk-table td:first-child { white-space:nowrap; }
 .bulk-preview details { min-width:170px; text-align:left; }
 .bulk-preview pre { white-space:pre-wrap; overflow-wrap:anywhere; max-width:450px; font-size:.75rem; color:#e2d3df; }
@@ -3190,7 +3234,108 @@ body { background: radial-gradient(circle at 18% -8%, rgba(var(--rose-gold-deep-
 
 
 </style>
-  </head>
+  <style id="maul-matching-floating-stars">
+body { isolation: isolate; }
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: -160vh;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  background: #fff;
+  animation: maulStarDrift 24s linear infinite;
+}
+body::before {
+  width: 2px;
+  height: 2px;
+  opacity: 0.7;
+  box-shadow: 3vw 8vh #fff, 6vw 57vh #fff, 9vw 122vh #fff, 11vw 215vh #fff,
+    14vw 303vh #fff, 17vw 34vh #fff, 19vw 186vh #fff, 22vw 269vh #fff,
+    25vw 78vh #fff, 27vw 147vh #fff, 29vw 241vh #fff, 31vw 318vh #fff,
+    34vw 18vh #fff, 36vw 101vh #fff, 38vw 207vh #fff, 41vw 286vh #fff,
+    43vw 64vh #fff, 45vw 158vh #fff, 48vw 226vh #fff, 50vw 311vh #fff,
+    52vw 42vh #fff, 54vw 133vh #fff, 57vw 197vh #fff, 59vw 276vh #fff,
+    61vw 88vh #fff, 63vw 171vh #fff, 65vw 252vh #fff, 68vw 6vh #fff,
+    70vw 116vh #fff, 72vw 221vh #fff, 74vw 296vh #fff, 76vw 51vh #fff,
+    79vw 139vh #fff, 81vw 233vh #fff, 83vw 314vh #fff, 85vw 27vh #fff,
+    87vw 96vh #fff, 89vw 182vh #fff, 91vw 265vh #fff, 93vw 74vh #fff,
+    95vw 154vh #fff, 97vw 244vh #fff, 99vw 309vh #fff,
+    12vw 24vh #fff,
+    23vw 114vh #fff,
+    39vw 152vh #fff,
+    54vw 26vh #fff,
+    66vw 132vh #fff,
+    82vw 54vh #fff,
+    94vw 188vh #fff,
+    8vw 302vh #fff,
+    32vw 278vh #fff,
+    47vw 72vh #fff,
+    73vw 314vh #fff,
+    91vw 228vh #fff;
+}
+body::after {
+  width: 1px;
+  height: 1px;
+  opacity: 0.5;
+  animation-duration: 36s;
+  box-shadow: 2vw 23vh #fff, 4vw 141vh #fff, 5vw 292vh #fff, 7vw 68vh #fff,
+    8vw 211vh #fff, 10vw 317vh #fff, 13vw 35vh #fff, 15vw 156vh #fff,
+    18vw 263vh #fff, 20vw 96vh #fff, 23vw 229vh #fff, 26vw 5vh #fff,
+    28vw 181vh #fff, 30vw 306vh #fff, 32vw 47vh #fff, 35vw 128vh #fff,
+    37vw 254vh #fff, 39vw 89vh #fff, 42vw 219vh #fff, 44vw 310vh #fff,
+    47vw 58vh #fff, 51vw 150vh #fff, 53vw 271vh #fff, 56vw 16vh #fff,
+    60vw 101vh #fff, 64vw 237vh #fff, 67vw 315vh #fff, 69vw 44vh #fff,
+    73vw 169vh #fff, 77vw 281vh #fff, 82vw 76vh #fff, 86vw 197vh #fff,
+    90vw 49vh #fff, 93vw 242vh #fff, 97vw 101vh #fff,
+    5vw 39vh #fff,
+    18vw 118vh #fff,
+    31vw 8vh #fff,
+    44vw 192vh #fff,
+    58vw 94vh #fff,
+    72vw 27vh #fff,
+    88vw 142vh #fff,
+    98vw 276vh #fff,
+    15vw 242vh #fff,
+    41vw 322vh #fff,
+    63vw 216vh #fff,
+    79vw 303vh #fff;
+}
+
+body::before, body::after {
+  display: block !important;
+  content: "" !important;
+  position: fixed !important;
+  inset: auto !important;
+  top: -160vh !important;
+  left: 0 !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: 2px;
+  height: 2px;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  background: #fff !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  transform: none;
+  animation: maulStarDrift 24s linear infinite !important;
+}
+body::before { width: 2px !important; height: 2px !important; opacity: .7 !important; }
+body::after { width: 1px !important; height: 1px !important; opacity: .5 !important; animation-duration: 36s !important; }
+@keyframes maulStarDrift { from { transform: translate3d(0, 160vh, 0); } to { transform: translate3d(0, 0, 0); } }
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after { animation: none !important; transform: translate3d(0, 160vh, 0) !important; }
+}
+</style>
+</head>
 
   <body>
     <div id="navbar"></div>
@@ -3204,8 +3349,7 @@ body { background: radial-gradient(circle at 18% -8%, rgba(var(--rose-gold-deep-
             <span class="hero-title-line">Studio</span>
           </h1>
           <p class="page-header-subtitle">
-            Build <span class="header-highlight">custom lobby tags</span> for modded Among Us, then export them for
-            EHR, TONE / TOHE:E, TOHO, or Project Lotus.
+            Create and convert tags for EHR, TOHE:E, TOHO, and Project Lotus.
           </p>
           <div class="header-actions">
             <a href="https://moddedamong.us/" class="hero-join-link">
@@ -3227,7 +3371,8 @@ body { background: radial-gradient(circle at 18% -8%, rgba(var(--rose-gold-deep-
       </header>
 
       <div class="info-paragraph bulk-launch">
-        <p>Generate <strong>ready-to-paste tags</strong> with colors, fonts, permissions, presets, and mod-specific output.</p>
+        <p>Create a tag or convert an existing collection.</p>
+        <button type="button" class="copy-btn wizard-open" id="tag-help-open">I NEED HELP</button>
         <button type="button" class="copy-btn bulk-open" id="bulk-toggle" aria-expanded="false" aria-controls="bulk-panel">Convert tags between mods <span aria-hidden="true">↔</span></button>
       </div>
 
@@ -3236,8 +3381,8 @@ body { background: radial-gradient(circle at 18% -8%, rgba(var(--rose-gold-deep-
           <div class="bulk-heading">
             <div>
               <p class="bulk-kicker">Bulk tag converter</p>
-              <h2 id="bulk-title" tabindex="-1">Move your tags to a different mod.</h2>
-              <p class="bulk-muted">Move your collection between EHR and TONE / TOHE:E. Keep the colors and choose who gets access to what.</p>
+              <h2 id="bulk-title" tabindex="-1">Convert tag files</h2>
+              <p class="bulk-muted">Convert between EHR, TOHE:E, and Project Lotus.</p>
             </div>
             <button id="bulk-close" class="bulk-close" type="button" aria-label="Close bulk tag converter">×</button>
           </div>
@@ -3246,20 +3391,21 @@ body { background: radial-gradient(circle at 18% -8%, rgba(var(--rose-gold-deep-
               <legend class="bulk-kicker">1 · Choose your mods</legend>
               <div class="bulk-fields">
                 <label class="bulk-field" for="bulk-source">Convert from
-                  <select id="bulk-source"><option value="ehr">EHR</option><option value="tone">TONE / TOHE:E</option></select>
+                  <select id="bulk-source"><option value="ehr">EHR</option><option value="tone">TONE / TOHE:E</option><option value="lotus">Project Lotus</option></select>
                 </label>
                 <label class="bulk-field" for="bulk-target">Convert to
-                  <select id="bulk-target"><option value="tone">TONE / TOHE:E</option><option value="ehr">EHR</option></select>
+                  <select id="bulk-target"><option value="tone">TONE / TOHE:E</option><option value="ehr">EHR</option><option value="lotus">Project Lotus</option></select>
                 </label>
               </div>
+              <p class="bulk-muted" id="bulk-lotus-note" hidden>Lotus has no permissions. Only the upper title line and its colors are converted; the name gradient, prefix, suffix, and lower line are not transferred.</p>
               <label class="bulk-drop" for="bulk-file">
                 <strong>2 · Choose your tag ZIP</strong>
-                <span class="bulk-muted">Up to 5 MB · 500 tags · friend-code .txt files, with or without a folder</span>
+                <span class="bulk-muted">Up to 5 MB · 500 tags · friend-code .txt / .yaml files</span>
                 <input type="file" id="bulk-file" accept=".zip,application/zip" required />
               </label>
-              <aside class="bulk-settings bulk-permission-guide" aria-labelledby="bulk-permission-guide-title">
+              <aside id="bulk-permission-guide" class="bulk-settings bulk-permission-guide" aria-labelledby="bulk-permission-guide-title">
                 <h3 id="bulk-permission-guide-title">TOHE:E permission levels (0–5)</h3>
-                <p class="bulk-muted">Choose a level using the permissions listed in the default TOHE:E tag file:</p>
+  
                 <dl>
                   <div><dt>0 — Cosmetic only</dt><dd>Displays the tag without granting command access through the permission level.</dd></div>
                   <div><dt>1 — VIP</dt><dd>Access to <code>/color</code> and <code>/rn</code>.</dd></div>
@@ -3268,12 +3414,12 @@ body { background: radial-gradient(circle at 18% -8%, rgba(var(--rose-gold-deep-
                   <div><dt>4 — Kick</dt><dd>Access to <code>/kick</code>.</dd></div>
                   <div><dt>5 — Ban</dt><dd>Access to <code>/ban</code>.</dd></div>
                 </dl>
-                <p class="bulk-muted"><strong>Separate settings:</strong> Say, End, Execute, and Game Master access use their own switches. Choose those separately from the permission level.</p>
-                <p class="bulk-token-note">Blank or missing command-access settings default to no. A blank or missing permission level defaults to 0.</p>
+
+                
               </aside>
               <div class="bulk-settings" id="bulk-forward">
                 <h3>3 · Set permissions for each role</h3>
-                <p class="bulk-muted">When several EHR flags are enabled, Admin takes priority, then Moderator, then VIP. Gradients and other TextMeshPro markup go in TagName; TagColor stays blank.</p>
+                <p class="bulk-muted">Choose output permissions.</p>
                 <div class="bulk-table-wrap">
                   <table class="bulk-table">
                     <thead><tr><th scope="col">EHR role</th><th scope="col">Permission<br />0–5</th><th scope="col">Say</th><th scope="col">End</th><th scope="col">Execute</th><th scope="col">Game<br />Master</th></tr></thead>
@@ -3283,13 +3429,13 @@ body { background: radial-gradient(circle at 18% -8%, rgba(var(--rose-gold-deep-
               </div>
               <div class="bulk-settings" id="bulk-reverse" hidden>
                 <h3>3 · Choose the EHR roles</h3>
-                <p class="bulk-muted">Match each TOHE:E permission level to an EHR role. You can change individual players after checking the ZIP.</p>
-                <p class="bulk-warning">A permission level does not identify a role by itself. Level 5 defaults to Moderator; select Admin for the right players in the preview. Individual command access and Game Master settings cannot be carried over to EHR.</p>
+                <p class="bulk-muted">Choose EHR roles.</p>
+                <p class="bulk-warning">Review role mappings before exporting.</p>
                 <div class="bulk-table-wrap">
                   <table class="bulk-table"><thead><tr><th scope="col">TOHE:E permission</th><th scope="col">EHR role</th></tr></thead><tbody id="bulk-reverse-rows"></tbody></table>
                 </div>
               </div>
-              <p class="bulk-token-note">Your ZIP stays on your device. Checking and converting happen entirely in your browser.</p>
+              <p class="bulk-token-note">Processed locally in your browser.</p>
               <div id="bulk-preview" class="bulk-preview" hidden>
                 <h3>Review your tags</h3>
                 <div id="bulk-summary" class="bulk-summary"></div>
@@ -3297,7 +3443,7 @@ body { background: radial-gradient(circle at 18% -8%, rgba(var(--rose-gold-deep-
                 <div class="bulk-table-wrap">
                   <table class="bulk-table"><thead><tr><th scope="col">Friend-code file</th><th scope="col" id="bulk-role-heading">Source role</th><th scope="col">Permission</th><th scope="col">Tag</th></tr></thead><tbody id="bulk-preview-rows"></tbody></table>
                 </div>
-                <p class="bulk-token-note">Original friend-code filenames are kept. The download contains the converted .txt files at the top level.</p>
+                <p class="bulk-token-note">Filenames are preserved.</p>
               </div>
             </fieldset>
             <div class="bulk-actions">
@@ -3324,7 +3470,7 @@ body { background: radial-gradient(circle at 18% -8%, rgba(var(--rose-gold-deep-
         <section class="panel" id="name-tag-generator">
           <h2 class="section-title"><u>Custom tag generator</u></h2>
           <p class="section-subtitle">
-            Choose your mod, style the tag, preview it in context, then copy or download the export.
+            Choose a mod, design your tag, then download.
           </p>
 
           <div class="gen-wrap taggen2-wrap">
@@ -4091,10 +4237,47 @@ body { background: radial-gradient(circle at 18% -8%, rgba(var(--rose-gold-deep-
 
       <footer>
         <div class="footer-inner">
-          <p>Made with ♥ by MAUL</p>
+          <p>Made with ♡ by Maul</p>
         </div>
       </footer>
     </div>
+
+    <section id="tag-wizard" class="tag-wizard" role="dialog" aria-modal="true" aria-labelledby="wizard-title" hidden>
+      <div class="wizard-shell">
+        <div class="wizard-top"><span>MAUL · TAG GUIDE</span><button type="button" id="wizard-close" aria-label="Close guide">✕</button></div>
+        <div class="wizard-progress" id="wizard-progress">Step 1 of 5</div>
+        <h2 id="wizard-title">Which mod are you using?</h2>
+        <p id="wizard-description">We'll build your tag one step at a time.</p>
+        <div class="wizard-step" data-step="0">
+          <label for="wizard-mod">Your mod</label><select id="wizard-mod"><option value="ehr">EHR</option><option value="tone">TOHE:E / TONE</option><option value="toho">TOHO</option><option value="lotus">Project Lotus</option></select>
+        </div>
+        <div class="wizard-step" data-step="1" hidden>
+          <label for="wizard-name">What should your tag say?</label><input id="wizard-name" type="text" maxlength="20" placeholder="Your tag text" value="♡Free Kill♡" />
+          <label for="wizard-fc">Friend code (for the filename)</label><input id="wizard-fc" type="text" placeholder="name#1234" />
+        </div>
+        <div class="wizard-step" data-step="2" hidden>
+          <label for="wizard-mode">Color style</label><select id="wizard-mode"><option value="solid">One color</option><option value="grad">Gradient</option></select>
+          <label for="wizard-color" id="wizard-color-label">Tag color</label><input id="wizard-color" type="color" value="#E9B4AC" />
+          <div id="wizard-second-color" class="wizard-conditional" hidden>
+            <label for="wizard-color2">End color</label><input id="wizard-color2" type="color" value="#B76E79" />
+          </div>
+        </div>
+        <div class="wizard-step" data-step="3" hidden>
+          <div id="wizard-permission-wrap"><label for="wizard-role">Tag permission</label><select id="wizard-role"><option value="none">Cosmetic only</option><option value="vip">VIP</option><option value="mod">Moderator</option><option value="admin">Admin</option></select></div>
+          <p id="wizard-lotus-info" hidden>Lotus tags are cosmetic only.</p>
+          <label class="wizard-check"><input type="checkbox" id="wizard-colored-name" /> Color my in-game name</label>
+          <div id="wizard-name-color-wrap" class="wizard-conditional" hidden>
+            <label for="wizard-name-color">Name color</label><input id="wizard-name-color" type="color" value="#98FB98" />
+          </div>
+        </div>
+        <div class="wizard-step" data-step="4" hidden>
+          <div class="wizard-result" id="wizard-result"></div>
+          <button type="button" id="wizard-apply" class="wizard-main">Apply to generator</button>
+          <button type="button" id="wizard-download">Download tag</button>
+        </div>
+        <div class="wizard-nav"><button type="button" id="wizard-back">Back</button><button type="button" class="wizard-main" id="wizard-next">Continue</button></div>
+      </div>
+    </section>
     <script>
       const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
       const normHex = (s, withHash = true) => {
@@ -7759,7 +7942,7 @@ async function unzip(input) {
     cursor = next;
     if (name.endsWith('/')) { if (expanded || compressed) fail('ZIP directory entry contains data.'); continue; }
     const basename = name.split('/').at(-1);
-    if (!/^[a-z0-9][a-z0-9_-]{0,47}#[0-9]{4,10}\.txt$/i.test(basename)) fail(`Only friend-code .txt files are accepted: ${name}`);
+    if (!/^[a-z0-9][a-z0-9_-]{0,47}#[0-9]{4,10}\.(txt|yaml|yml)$/i.test(basename)) fail(`Only friend-code .txt / .yaml files are accepted: ${name}`);
     const normalized = basename.toLowerCase();
     if (names.has(normalized)) fail(`Duplicate friend code: ${basename}`);
     names.add(normalized);
@@ -7789,14 +7972,14 @@ async function unzip(input) {
 }
 function object(value) { return value && typeof value === 'object' && !Array.isArray(value); }
 function validateSettings(settings, source, target) {
-  if (!['ehr', 'tone'].includes(source) || !['ehr', 'tone'].includes(target) || source === target) fail('Select different supported source and destination mods.');
+  if (!['ehr', 'tone', 'lotus'].includes(source) || !['ehr', 'tone', 'lotus'].includes(target) || source === target) fail('Select different supported source and destination mods.');
   if (!object(settings)) fail('Permission settings are missing.');
-  if (target === 'tone') {
+  if (target === 'tone' && source === 'ehr') {
     for (const role of ROLES) {
       const row = settings.forward?.[role];
       if (!object(row) || !Number.isInteger(row.level) || row.level < 0 || row.level > 5 || ['say', 'end', 'execute', 'gm'].some(k => typeof row[k] !== 'boolean')) fail(`Invalid settings for ${role}.`);
     }
-  } else {
+  } else if (target === 'ehr' && source === 'tone') {
     if (!Array.isArray(settings.reverse) || settings.reverse.length !== 6 || settings.reverse.some(role => !ROLES.includes(role))) fail('Choose an EHR role for each permission level.');
     if (settings.overrides !== undefined && (!object(settings.overrides) || Object.keys(settings.overrides).length > LIMITS.files || Object.values(settings.overrides).some(role => !ROLES.includes(role)))) fail('Invalid individual role selections.');
   }
@@ -7841,12 +8024,45 @@ function parseTone(file) {
   warnings.push('EHR uses role flags; individual command access and Game Master settings have no direct equivalent.');
   return { name: file.name, tag, level: Number(level), access, warnings };
 }
+function lotusUnquote(value) { const v=(value||'').trim(); if(v.startsWith('"')&&v.endsWith('"')) {try{return JSON.parse(v)}catch{return v.slice(1,-1)}} return v.replace(/^'|'$/g,''); }
+function parseLotus(file) {
+  const sections=Object.create(null);let section='';
+  for(const line of file.text.replace(/^\uFEFF/,'').split(/\r?\n/)) {
+    if(!line.trim()||line.trimStart().startsWith('#')) continue;
+    const head=line.match(/^([A-Za-z]+):\s*$/);
+    if(head) {section=head[1];sections[section]=Object.create(null);continue;}
+    const field=line.match(/^\s+([A-Za-z]+):\s*(.*?)\s*$/);
+    if(field&&section) sections[section][field[1]]=lotusUnquote(field[2]);
+  }
+  const upper=sections.UpperText;
+  if(!upper||typeof upper.Text!=='string') fail(`${file.name}: missing Lotus UpperText.Text.`);
+  const colors=(upper.Gradient||'').split(',').map(x=>x.trim()).filter(Boolean);
+  if(colors.some(x=>!/^#?[0-9a-f]{6}$/i.test(x))) fail(`${file.name}: invalid Lotus upper gradient.`);
+  return {name:file.name,tag:lotusTagMarkup(upper.Text,colors),role:'None',level:0,warnings:[]};
+}
+function lotusTagMarkup(label,colors) {
+  const chars=Array.from(label||'');
+  if(!colors.length)return label||'';
+  const rgb=h=>{const v=h.replace(/^#/,'');return [0,2,4].map(i=>parseInt(v.slice(i,i+2),16));};
+  const stops=colors.map(rgb);
+  return chars.map((ch,i)=>{const p=chars.length>1?i/(chars.length-1):0;const scaled=p*(stops.length-1),a=Math.floor(scaled),b=Math.min(stops.length-1,a+1),t=scaled-a;
+    const hex=stops[a].map((v,j)=>Math.round(v+(stops[b][j]-v)*t).toString(16).padStart(2,'0')).join('').toUpperCase();
+    return `<color=#${hex}>${ch}</color>`;
+  }).join('');
+}
+function lotusFromTag(markup){
+  const found=[...markup.matchAll(/<color\s*=\s*["']?(#[0-9a-f]{6})["']?\s*>(.*?)<\/color>/gis)];
+  const colors=found.map(m=>m[1].toUpperCase());
+  const name=markup.replace(/<[^>]+>/g,'').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+  const chosen=colors.length>1?[colors[0],colors[colors.length-1]]:colors.length?[colors[0],colors[0]]:['#FFFFFF','#FFFFFF'];
+  return `UpperText:\n  Text: ${JSON.stringify(name)}\n  Gradient: ${JSON.stringify(chosen.join(', '))}\n  Size: 2\n\nName:\n  Gradient: "#FFFFFF, #FFFFFF"\n  Size: 2\n\nPrefix:\n  Spaced: false\n  Text: ""\n  Color: "#FFFFFF"\n  Size: null\n\nSuffix:\n  Spaced: false\n  Text: ""\n  Color: "#FFFFFF"\n  Size: null\n\nLowerText:\n  Text: ""\n  Gradient: "#FFFFFF, #FFFFFF"\n  Size: 2\n`;
+}
 async function inspectArchive(bytes, source) {
-  if (!['ehr', 'tone'].includes(source)) fail('Select a supported source mod.');
+  if (!['ehr', 'tone', 'lotus'].includes(source)) fail('Select a supported source mod.');
   const files = await unzip(bytes);
   const records = [], errors = [];
   for (const file of files) {
-    try { records.push(source === 'ehr' ? parseEhr(file) : parseTone(file)); }
+    try { records.push(source === 'ehr' ? parseEhr(file) : source === 'tone' ? parseTone(file) : parseLotus(file)); }
     catch (error) {
       if (!(error instanceof InputError)) throw error;
       const prefix = file.name + ': ';
@@ -7860,13 +8076,14 @@ function convertRecords(records, source, target, settings) {
   validateSettings(settings, source, target);
   if (settings.overrides && Object.keys(settings.overrides).some(name => !records.some(r => r.name === name))) fail('Role overrides reference a file outside this ZIP.');
   const files = records.map(record => {
+    if (target === 'lotus') return { name: record.name.replace(/\.(txt|yaml|yml)$/i,'') + '.yaml', text: lotusFromTag(record.tag) };
     if (target === 'tone') {
-      const rule = settings.forward[record.role];
+      const rule = source === 'lotus' ? {level:0,say:false,end:false,execute:false,gm:false} : settings.forward[record.role];
       const values = [record.tag, '', rule.level, rule.say ? 'y' : 'n', rule.end ? 'y' : 'n', rule.execute ? 'y' : 'n', rule.gm ? 'y' : 'n'];
-      return { name: record.name, text: FIELDS.map((key, i) => `${key}:${values[i] === '' ? '' : ' ' + values[i]}`).join('\r\n') + '\r\n' };
+      return { name: record.name.replace(/\.(yaml|yml)$/i,'.txt'), text: FIELDS.map((key, i) => `${key}:${values[i] === '' ? '' : ' ' + values[i]}`).join('\r\n') + '\r\n' };
     }
-    const role = settings.overrides?.[record.name] ?? settings.reverse[record.level];
-    return { name: record.name, text: JSON.stringify({ Vip: role !== 'None', Moderator: ['Mod', 'Admin'].includes(role), Admin: role === 'Admin', Tag: record.tag }, null, 2) + '\r\n' };
+    const role = source === 'lotus' ? 'None' : (settings.overrides?.[record.name] ?? settings.reverse[record.level]);
+    return { name: record.name.replace(/\.(yaml|yml)$/i,'.txt'), text: JSON.stringify({ Vip: role !== 'None', Moderator: ['Mod', 'Admin'].includes(role), Admin: role === 'Admin', Tag: record.tag }, null, 2) + '\r\n' };
   });
   return zip(files);
 }
@@ -7962,10 +8179,13 @@ function zip(files) {
   }
   function targetRole(record) { return overrides[record.name] ?? $('reverse-' + record.level).value; }
   function destinationChanged() {
-    $('forward').hidden = $('target').value !== 'tone';
-    $('reverse').hidden = $('target').value !== 'ehr';
-    $('forward').querySelectorAll('input').forEach(input => { input.disabled = $('target').value !== 'tone'; });
-    $('reverse').querySelectorAll('select').forEach(select => { select.disabled = $('target').value !== 'ehr'; });
+    const from=$('source').value, to=$('target').value;
+    $('lotus-note').hidden=from!=='lotus'&&to!=='lotus';
+    $('permission-guide').hidden=to!=='tone' || from==='lotus';
+    $('forward').hidden = to !== 'tone' || from==='lotus';
+    $('reverse').hidden = to !== 'ehr' || from==='lotus';
+    $('forward').querySelectorAll('input').forEach(input => { input.disabled = to !== 'tone' || from==='lotus'; });
+    $('reverse').querySelectorAll('select').forEach(select => { select.disabled = to !== 'ehr' || from==='lotus'; });
   }
   function clearPreview() {
     clearErrors();
@@ -8004,18 +8224,18 @@ function zip(files) {
     const config = settings();
     $('preview-rows').replaceChildren(); $('summary').replaceChildren();
     const counts = Object.fromEntries(roles.map(role => [role, 0]));
-    records.forEach(record => counts[$('target').value === 'tone' ? record.role : targetRole(record)]++);
+    records.forEach(record => {const role=($('target').value==='lotus'||$('source').value==='lotus')?'None':$('target').value==='tone'?record.role:targetRole(record);counts[role]++;});
     for (const [label, count] of [['Tags', records.length], ...roles.map(role => [labels[role], counts[role]])]) {
       const pill = document.createElement('span'); pill.className = 'bulk-pill'; pill.textContent = `${label}: ${count}`; $('summary').append(pill);
     }
-    const reverse = $('target').value === 'ehr';
+    const reverse = $('target').value === 'ehr' && $('source').value !== 'lotus';
     $('role-heading').textContent = reverse ? 'EHR role' : 'Source role';
     for (const record of records) {
       const row = $('preview-rows').insertRow(); cell(row, record.name);
       const roleCell = cell(row);
       if (reverse) roleCell.append(roleSelect(targetRole(record), value => { overrides[record.name] = value; renderPreview(); }, 'EHR role for ' + record.name));
-      else roleCell.textContent = labels[record.role];
-      cell(row, reverse ? String(record.level) : String(config.forward[record.role].level));
+      else roleCell.textContent = $('target').value==='lotus'||$('source').value==='lotus'?'Cosmetic':labels[record.role];
+      cell(row, $('target').value==='lotus'||$('source').value==='lotus' ? '—' : reverse ? String(record.level) : String(config.forward[record.role].level));
       const details = document.createElement('details'), summary = document.createElement('summary'), pre = document.createElement('pre');
       summary.textContent = 'View tag markup'; pre.textContent = record.tag; details.append(summary, pre); cell(row).append(details);
     }
@@ -8042,7 +8262,7 @@ function zip(files) {
       const archive = convertRecords(records, $('source').value, $('target').value, settings());
       if (downloadUrl) URL.revokeObjectURL(downloadUrl);
       downloadUrl = URL.createObjectURL(new Blob([archive], { type: 'application/zip' }));
-      $('download').href = downloadUrl; $('download').download = $('target').value === 'tone' ? 'TOHE-Tags.zip' : 'EHR-Tags.zip'; $('download').hidden = false; $('download').click();
+      $('download').href = downloadUrl; $('download').download = $('target').value === 'tone' ? 'TOHE-Tags.zip' : $('target').value === 'lotus' ? 'Lotus-Tags.zip' : 'EHR-Tags.zip'; $('download').hidden = false; $('download').click();
       setStatus(`Converted ${records.length} tags. Your ZIP is ready; use the download link if it did not start automatically.`, 'success');
     } catch (error) { showError(error, 'Could not convert these tags.'); }
     finally { setBusy(false); }
@@ -8052,6 +8272,93 @@ function zip(files) {
 })();
 
     </script>
+
+<script>
+(()=>{
+const overlay=document.getElementById('tag-wizard');
+const titles=['Which mod are you using?','What should your tag say?','Choose your colors','Permissions & name color','Your tag is ready'];
+const descriptions=['Choose where the tag will be used.','Enter your tag text.','Pick one color or a gradient.','Choose access and whether your name is colored.','Review and download your tag.'];
+let step=0,previousFocus=null;
+const el=id=>document.getElementById('wizard-'+id);
+function emit(node,type='input'){node?.dispatchEvent(new Event(type,{bubbles:true}));}
+function update(id,value){const node=document.getElementById(id);if(!node)return;node.value=value;emit(node);emit(node,'change');}
+function toggleColorFields(){
+  const gradient=el('mode').value==='grad';
+  el('second-color').hidden=!gradient;
+  el('color-label').textContent=gradient?'Start color':'Tag color';
+  el('name-color-wrap').hidden=!el('colored-name').checked;
+}
+function gradientHex(a,b,t){const aa=a.replace('#',''),bb=b.replace('#','');const c=[0,2,4].map(i=>Math.round(parseInt(aa.slice(i,i+2),16)*(1-t)+parseInt(bb.slice(i,i+2),16)*t));return '#'+c.map(x=>x.toString(16).padStart(2,'0')).join('');}
+function resultPreview(){
+ const root=el('result');root.replaceChildren();
+ const label=document.createElement('div');label.textContent=el('mod').selectedOptions[0].text;label.style.cssText='font-size:.78rem;color:#c5b8b8;margin-bottom:12px';root.appendChild(label);
+ const text=document.createElement('div');text.style.cssText='font-size:clamp(1.3rem,4vw,2rem);font-weight:800;line-height:1.4;overflow-wrap:anywhere';
+ const chars=Array.from(el('name').value||'Your tag');const grad=el('mode').value==='grad';
+ chars.forEach((char,i)=>{const span=document.createElement('span');span.textContent=char;span.style.color=grad?gradientHex(el('color').value,el('color2').value,chars.length<=1?0:i/(chars.length-1)):el('color').value;text.appendChild(span)});
+ root.appendChild(text);
+ if(el('colored-name').checked){const note=document.createElement('div');note.style.cssText='margin-top:12px;font-size:.85rem';note.textContent='In-game name: ';const sample=document.createElement('b');sample.textContent='Player';sample.style.color=el('name-color').value;note.appendChild(sample);root.appendChild(note)}
+}
+function render(){
+ el('title').textContent=titles[step];el('description').textContent=descriptions[step];el('progress').textContent=`Step ${step+1} of 5`;
+ overlay.querySelectorAll('.wizard-step').forEach((node,i)=>node.hidden=i!==step);
+ el('back').hidden=step===0;el('next').hidden=step===4;
+ el('permission-wrap').hidden=el('mod').value==='lotus';el('lotus-info').hidden=el('mod').value!=='lotus';
+ toggleColorFields();if(step===4)resultPreview();
+}
+function open(){previousFocus=document.activeElement;overlay.hidden=false;document.body.classList.add('wizard-active');step=0;render();el('close').focus()}
+function close(){overlay.hidden=true;document.body.classList.remove('wizard-active');previousFocus?.focus?.()}
+function setStopColors(containerId,countId,colors){
+ // Regenerate the correct number of stops using the generator's own change handler.
+ const count=document.getElementById(countId);if(!count)return;
+ count.value=String(colors.length);emit(count,'change');
+ const rows=[...document.querySelectorAll(`#${containerId} > .gen-stop`)];
+ rows.forEach((row,i)=>{
+  const picker=row.querySelector('input[type="color"]');
+  if(picker){picker.value=colors[i]||colors[colors.length-1];emit(picker,'input');emit(picker,'change')}
+  const position=row.querySelector('input[type="range"]');
+  if(position){position.value=String(Math.round(i*100/Math.max(colors.length-1,1)));emit(position,'input')}
+ });
+}
+function lotusTarget(target){const radio=document.querySelector(`input[name="ntg-lotus-target"][value="${target}"]`);if(radio){radio.checked=true;emit(radio,'change')}}
+function apply(){
+ const mod=el('mod').value,gradient=el('mode').value==='grad';
+ const colors=gradient?[el('color').value,el('color2').value]:[el('color').value];
+ const radio=document.querySelector(`input[name="ntg-mod"][value="${mod}"]`);
+ if(radio){radio.checked=true;emit(radio,'change')}
+ update('ntg-fc',el('fc').value);update('ntg-name',el('name').value);
+ if(mod==='lotus'){
+  update('ntg-lotus-upper-text',el('name').value);
+  lotusTarget('upper');setStopColors('ntg-lotus-stops','ntg-lotus-stopcount',gradient?colors:[colors[0],colors[0]]);
+  if(el('colored-name').checked){lotusTarget('name');setStopColors('ntg-lotus-stops','ntg-lotus-stopcount',[el('name-color').value,el('name-color').value]);}
+  lotusTarget('upper');
+ }else{
+  const mode=document.querySelector(`input[name="ntg-mode"][value="${gradient?'grad':'solid'}"]`);
+  if(mode){mode.checked=true;emit(mode,'change')}
+  if(gradient)setStopColors('ntg-stops','ntg-stopcount',colors);
+  else {update('ntg-solid-hex',colors[0]);update('ntg-solid-color',colors[0])}
+  const colored=el('colored-name').checked;
+  const checkbox=document.getElementById('ntg-trail-enabled');if(checkbox){checkbox.checked=colored;emit(checkbox,'change')}
+  if(colored){update('ntg-trail-hex',el('name-color').value);update('ntg-trail-color',el('name-color').value)}
+  const role=el('role').value;
+  for(const [inputName,checked] of [['ntg-vip',role!=='none'],['ntg-moderator',role==='mod'||role==='admin'],['ntg-admin',role==='admin']]){
+    const opt=document.querySelector(`input[name="${inputName}"][value="${checked?'true':'false'}"]`);
+    if(opt){opt.checked=true;emit(opt,'change')}
+  }
+ }
+ close();document.getElementById('name-tag-generator').scrollIntoView({behavior:'smooth'});
+}
+el('mod').addEventListener('change',render);
+el('mode').addEventListener('change',toggleColorFields);
+el('colored-name').addEventListener('change',toggleColorFields);
+document.getElementById('tag-help-open').addEventListener('click',open);
+el('close').addEventListener('click',close);
+el('back').addEventListener('click',()=>{step=Math.max(0,step-1);render()});
+el('next').addEventListener('click',()=>{step=Math.min(4,step+1);render()});
+el('apply').addEventListener('click',apply);
+el('download').addEventListener('click',()=>{const mod=el('mod').value;apply();document.getElementById(mod==='lotus'?'ntg-lotus-download':'ntg-download')?.click()});
+overlay.addEventListener('keydown',e=>{if(e.key==='Escape')close();if(e.key==='Tab'){const focusable=[...overlay.querySelectorAll('button,input,select')].filter(n=>!n.hidden&&!n.closest('[hidden]'));const first=focusable[0],last=focusable[focusable.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
+})();
+</script>
   </body>
 </html>
 
