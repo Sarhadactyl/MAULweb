@@ -23,7 +23,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
 
     <style>
 
@@ -653,19 +653,19 @@
 .outbox{min-height:98px}
 
       :root {
-        --accent: #ffcc80;
-        --accent-soft: rgba(255, 204, 128, 0.18);
-        --accent-strong: #f2d7a4;
-        --gold: #ffcc80;
+        --accent: #e9b4ac;
+        --accent-soft: rgb(233 180 172 / 0.18);
+        --accent-strong: #e3bac0;
+        --gold: #e9b4ac;
         --bg-card: rgba(12, 12, 14, 0.92);
         --bg-soft: rgba(18, 17, 20, 0.9);
-        --text-main: #fff7ef;
-        --text-muted: rgba(250, 240, 232, 0.78);
+        --text-main: #fdf7f8;
+        --text-muted: rgb(248 240 241 / 0.78);
       }
       body {
         min-height: 100%;
         height: auto;
-        background: radial-gradient(circle at 50% 0%, rgba(255, 204, 128, 0.08), transparent 32%),
+        background: radial-gradient(circle at 50% 0%, rgb(233 180 172 / 0.08), transparent 32%),
                     linear-gradient(180deg, #050505 0%, #020202 56%, #000000 100%);
         background-attachment: fixed;
       }
@@ -694,7 +694,7 @@
         gap: clamp(12px, 2.2vw, 28px);
         min-height: 435px;
         padding: clamp(26px, 3vw, 38px);
-        border: 1px solid rgba(255, 204, 128, 0.3);
+        border: 1px solid rgb(233 180 172 / 0.3);
         border-radius: 10px;
         text-align: left;
         overflow: hidden;
@@ -729,7 +729,7 @@
         border-radius: 0;
         background: transparent;
         box-shadow: none;
-        color: #ffcc80;
+        color: #e9b4ac;
         font: 700 0.82rem "Poppins", sans-serif;
         letter-spacing: 0.18em;
       }
@@ -762,15 +762,15 @@
       .header-subtitle {
         max-width: 620px;
         margin: 18px 0 0;
-        color: rgba(255, 248, 239, 0.78);
+        color: rgb(253 247 248 / 0.78);
         font-size: 1.02rem;
         line-height: 1.6;
         font-weight: 400;
       }
       .header-highlight, .info-paragraph strong, .info-paragraph a, .panel h2, .footer-inner a {
-        color: #ffcc80;
+        color: #e9b4ac;
       }
-      .info-paragraph a:hover, .footer-inner a:hover { color: #f2d7a4; }
+      .info-paragraph a:hover, .footer-inner a:hover { color: #e3bac0; }
       .header-actions {
         justify-content: flex-start;
         flex-wrap: wrap;
@@ -784,17 +784,17 @@
         gap: 8px;
         min-height: 42px;
         padding: 9px 14px;
-        border: 1px solid rgba(255, 204, 128, 0.24);
+        border: 1px solid rgb(233 180 172 / 0.24);
         border-radius: 999px;
         background: linear-gradient(180deg, rgba(18, 17, 20, 0.94), rgba(10, 10, 12, 0.96));
-        color: #fff7ef;
+        color: #fdf7f8;
         font: 700 0.87rem "Roboto", sans-serif;
         text-decoration: none;
         box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
         transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.2s ease, background 0.2s ease;
       }
       .header-actions a:hover {
-        border-color: rgba(255, 204, 128, 0.68);
+        border-color: rgb(233 180 172 / 0.68);
         background: linear-gradient(180deg, rgba(25, 24, 27, 0.98), rgba(14, 13, 15, 0.98));
         transform: translateY(-1px);
         filter: none;
@@ -826,8 +826,8 @@
         max-width: 118%;
         aspect-ratio: 1;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(255, 211, 110, 0.2), transparent 58%),
-                    conic-gradient(from 210deg, rgba(255, 204, 128, 0), rgba(255, 204, 128, 0.22), rgba(110, 249, 255, 0.12), rgba(255, 204, 128, 0));
+        background: radial-gradient(circle, rgb(235 175 184 / 0.2), transparent 58%),
+                    conic-gradient(from 210deg, rgb(233 180 172 / 0), rgb(233 180 172 / 0.22), rgba(110, 249, 255, 0.12), rgb(233 180 172 / 0));
         filter: blur(4px);
         opacity: 0.72;
         pointer-events: none;
@@ -872,55 +872,55 @@
         max-height: 430px;
         object-fit: contain;
         margin-top: 10px;
-        filter: drop-shadow(0 38px 42px rgba(0,0,0,0.65)) drop-shadow(0 0 28px rgba(255,204,128,0.12));
+        filter: drop-shadow(0 38px 42px rgba(0,0,0,0.65)) drop-shadow(0 0 28px rgb(233 180 172 / 0.12));
       }
       .info-paragraph, .panel, .footer-inner {
-        border: 1px solid rgba(255, 204, 128, 0.16);
+        border: 1px solid rgb(233 180 172 / 0.16);
         border-radius: 8px;
         background: linear-gradient(180deg, rgba(21, 20, 23, 0.94), rgba(11, 11, 13, 0.96));
         box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 44px rgba(0,0,0,0.6);
       }
       .info-paragraph strong, .header-highlight, .panel h2, .footer-inner a {
-        color: #ffcc80;
+        color: #e9b4ac;
       }
-      .footer-inner a:hover { color: #f2d7a4; }
+      .footer-inner a:hover { color: #e3bac0; }
       .content-grid { max-width: 1280px; }
       .hex-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .hex-panel { min-width: 0; }
       .hex-panel h2 { letter-spacing: 0.09em; }
-      .hex-subhead, .snap-title { color: #f7d7ad; }
+      .hex-subhead, .snap-title { color: #e9c3c8; }
       .palette-grid, .gen-controls .field, .gen-stop, .gen-output code, .hex-ta,
       .hex-input {
-        border-color: rgba(255, 204, 128, 0.16);
+        border-color: rgb(233 180 172 / 0.16);
         background: rgba(12, 12, 14, 0.78);
       }
       .palette-grid { border-radius: 8px; }
       .hex-input:focus, .hex-ta:focus, .gen-stop input:focus-visible {
-        border-color: rgba(255, 204, 128, 0.58);
-        box-shadow: 0 0 0 3px rgba(255, 204, 128, 0.12);
+        border-color: rgb(233 180 172 / 0.58);
+        box-shadow: 0 0 0 3px rgb(233 180 172 / 0.12);
         outline: none;
       }
-      .hex-ta { color: #fff7ef; }
+      .hex-ta { color: #fdf7f8; }
       .hex-btn, .hex-btn.primary, .copy-btn, .cta-primary, .cta-secondary {
-        border: 1px solid rgba(255, 204, 128, 0.24);
+        border: 1px solid rgb(233 180 172 / 0.24);
         background: linear-gradient(180deg, rgba(18,17,20,0.94), rgba(10,10,12,0.96));
-        color: #fff7ef;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), inset -2px 0 0 rgba(255,204,128,0.08);
+        color: #fdf7f8;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), inset -2px 0 0 rgb(233 180 172 / 0.08);
         filter: none;
         transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .2s ease;
       }
       .hex-btn:hover, .hex-btn.primary:hover, .copy-btn:hover, .cta-primary:hover, .cta-secondary:hover {
-        border-color: rgba(255,204,128,0.68);
+        border-color: rgb(233 180 172 / 0.68);
         background: linear-gradient(180deg, rgba(25,24,27,0.98), rgba(14,13,15,0.98));
         color: white;
         transform: translateY(-1px);
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 0 0 1px rgba(255,204,128,0.18), 0 14px 30px rgba(0,0,0,0.52);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 0 0 1px rgb(233 180 172 / 0.18), 0 14px 30px rgba(0,0,0,0.52);
         filter: none;
       }
-      .hex-btn.primary { font-weight: 700; border-color: rgba(255,204,128,0.32); }
-      .current-swatch { border-color: rgba(255,204,128,0.24); }
-      .swatch-dot:focus-visible, .swatch-dot.selected { outline-color: #ffcc80; }
-      .section-title { color: #fff7ef; }
+      .hex-btn.primary { font-weight: 700; border-color: rgb(233 180 172 / 0.32); }
+      .current-swatch { border-color: rgb(233 180 172 / 0.24); }
+      .swatch-dot:focus-visible, .swatch-dot.selected { outline-color: #e9b4ac; }
+      .section-title { color: #fdf7f8; }
       @media (max-width: 980px) {
         .hex-grid { grid-template-columns: minmax(0, 1fr); }
       }
@@ -944,8 +944,6 @@
       
       html,
       body {
-          background: #000000 !important;
-          background-image: none !important;
           min-height: 100%;
           color-scheme: dark;
       }
@@ -955,35 +953,33 @@
       }
 
     </style>
+    <link rel="stylesheet" href="styles/maul-theme.css" />
   </head>
 
-  <body>
+  <body class="maul-themed">
     <div id="navbar"></div>
 
     <div class="page-wrapper">
-      <div class="header">
+      <div class="header maul-page-hero">
         <div class="hero-copy">
           <div class="header-badge">
             <span class="header-badge-dot"></span>
             Template tools for MAUL
           </div>
           <h1>Hex <span>Helper</span></h1>
-          <p class="header-subtitle">
-            Convert any hex into <span class="header-highlight">A–F-only</span> colors to support the
-            <strong>most recent</strong> Among Us anticheat update.
-          </p>
+          <p class="header-subtitle">Convert hex colors to A–F-only codes for Among Us.</p>
           <div class="header-actions">
-            <a href="https://moddedamong.us/" class="cta-secondary">
+            <a href="https://moddedamong.us/" class="cta-secondary maul-hero-secondary">
               <i class="fa-solid fa-arrow-left"></i>
               Back to Home
             </a>
-            <a href="https://moddedamong.us/tags.html" class="cta-primary">
+            <a href="https://moddedamong.us/tags.html" class="cta-primary maul-hero-primary">
               <i class="fa-solid fa-ticket"></i>
               Tag Studio
             </a>
           </div>
         </div>
-        <div class="hero-panel" aria-label="MAUL mascot illustration">
+        <div class="hero-panel maul-hero-art" aria-label="MAUL mascot illustration">
           <div class="hero-banner-card" aria-hidden="true">
             <img src="images/banner-transparent-cropped.png" alt="" loading="lazy" decoding="async" />
           </div>
@@ -991,10 +987,7 @@
         </div>
       </div>
 
-      <p class="info-paragraph">
-        Paste a normal hex and we’ll convert it to the nearest <strong>A–F-only</strong> hex (no numbers).<br>
-        Use the palette to pick from valid colors, or paste a whole tag line and convert every hex in one click.
-      </p>
+      <p class="info-paragraph">Enter a hex to find its closest letters-only match. Pick a color from the palette or paste a full tag to convert every hex at once.</p>
 
       <main class="content-grid">
         <div class="hex-grid">
@@ -1036,11 +1029,6 @@
         </div>
       </main>
 
-      <footer>
-        <div class="footer-inner">
-          <p>Made with ♥ by MAUL</p>
-        </div>
-      </footer>
     </div>
 
     <script>
@@ -1223,6 +1211,10 @@
   render();
 })();
 </script>
-    <script src="/scripts/navbar.js"></script>
+    <script src="scripts/navbar.js"></script>
+
+    <footer class="maul-shared-footer">
+      <p class="maul-footer-credit">Made with ♡ by Maul</p>
+    </footer>
   </body>
 </html>
