@@ -19,6 +19,7 @@
           integrity="sha512-pcKRe3h4c9VBPlPfwDrLEkHZ90a4q/OzHD7S9vMYI9z1y9u2c7p7x5AcZx/9H84zYZlzGw8c47jM7TCtWbsxkA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&amp;display=swap" />
 
     <meta name="theme-color" content="#000000">
 
@@ -979,7 +980,7 @@
       .header-highlight,
       .info-paragraph strong,
       .mini-steps code {
-        color: #ffe2b6;
+        color: #f1cdd2;
       }
 
       .hero-panel {
@@ -1509,7 +1510,7 @@ body::after {
   border-radius: 50%;
   transform: translate(-50%, -50%);
   background:
-    radial-gradient(circle, rgba(255, 211, 110, 0.28), transparent 58%),
+    radial-gradient(circle, rgb(235 175 184 / 0.28), transparent 58%),
     conic-gradient(from 210deg, rgba(236, 37, 55, 0), rgba(236, 37, 55, 0.34), rgba(110, 249, 255, 0.16), rgba(236, 37, 55, 0));
   opacity: 0.72;
   pointer-events: none;
@@ -1794,8 +1795,245 @@ footer a { color: var(--text-main); text-underline-offset: 4px; }
 @media (prefers-reduced-motion: reduce) {
   .download-btn:hover { animation: none; }
 }
+    
+:root {
+  --rose-gold: #e9b4ac;
+  --rose-gold-light: #f5d5c9;
+  --rose-gold-deep: #b76e79;
+  --accent: #e9b4ac;
+  --accent-deep: #b76e79;
+  --accent-soft: rgba(233,180,172,.15);
+  --accent-strong: #f5d5c9;
+  --gold: #e9b4ac;
+  --ink: #09080b;
+  --panel: #111014;
+  --panel-soft: #19161b;
+  --line: rgba(233,180,172,.19);
+  --line-warm: rgba(233,180,172,.28);
+  --text-main: #f9f3ef;
+  --text-muted: #c5b8b8;
+}
+html { background: #09080b; }
+body {
+  background: radial-gradient(ellipse at 75% 12rem,rgba(183,110,121,.09),transparent 36rem), #09080b;
+  background-attachment: fixed;
+  color: var(--text-main);
+}
+body::before { opacity: .42; }
+.header,.page-header { border-color: transparent; background: transparent; box-shadow: none; }
+.header::before,.page-header::before { background: none; }
+.header h1,.page-header h1,.templates-section h2,.mini-steps-title {
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -.045em;
+  line-height: 1.12;
+}
+.header h1 span,.page-header h1 span,.hero-title-accent {
+  background: linear-gradient(90deg,#fff 0%,#f5d5c9 38%,#e9b4ac 75%,#b76e79 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.header-badge,.eyebrow,.section-kicker { color: #e9b4ac; border-color: rgba(233,180,172,.22); }
+.header-badge-dot { background: #e9b4ac; }
+.header-highlight,.info-paragraph strong { color: #f5d5c9; }
+.header-subtitle,.section-head p,.sub,.mini-steps,.mini-note { color: var(--text-muted); }
+.hero-panel::before { background: radial-gradient(circle,rgba(233,180,172,.21),transparent 60%),conic-gradient(from 210deg,transparent,rgba(183,110,121,.21),rgba(245,213,201,.12),transparent); }
+.hero-panel::after { border-color: rgba(233,180,172,.24); }
+.hero-panel > img { filter: drop-shadow(0 26px 30px rgba(0,0,0,.6)); }
+.cta-primary,.hero-join-link,.hero-actions .cta-primary,.header-actions .cta-primary {
+  background: linear-gradient(115deg,#f5cdd4 0%,#e9b4ac 48%,#b75863 100%);
+  color: #29191f;
+  border: 1px solid #f5d5c9;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.25),0 8px 20px rgba(0,0,0,.25);
+}
+.cta-primary:hover,.hero-join-link:hover,.hero-actions .cta-primary:hover,.header-actions .cta-primary:hover {
+  background: linear-gradient(115deg,#ffe1e6 0%,#efc1b9 48%,#c77680 100%);
+  color: #29191f;
+  border-color: #ffedf0;
+}
+.cta-secondary,.btn,.reset-filters,.filter-chip,.search-wrap,.sort-wrap {
+  border-color: rgba(233,180,172,.23);
+  background: #151317;
+  color: #f9f3ef;
+}
+.cta-secondary:hover,.btn:hover,.reset-filters:hover,.filter-chip:hover { border-color: rgba(233,180,172,.52); background: #211b20; }
+.template-controls,.info-paragraph,.mini-steps-wrap {
+  background: #111014;
+  border: 1px solid rgba(233,180,172,.18);
+  box-shadow: 0 12px 32px rgba(0,0,0,.3);
+}
+.template-controls::before,.templates-section::before { display:none; }
+.templates-section { background: transparent; }
+.grid .card,.card {
+  background: #111014;
+  border: 1px solid rgba(233,180,172,.20);
+  box-shadow: 0 14px 32px rgba(0,0,0,.34);
+}
+.grid .card:hover,.card:hover { background: #19161b; border-color: rgba(233,180,172,.48); box-shadow: 0 18px 36px rgba(0,0,0,.44); }
+.template-pill,.badge,.summary-item { background: #1c191d; border: 1px solid rgba(233,180,172,.16); }
+.preview-card,.lightbox-inner { background: #0b0a0d; border-color: rgba(233,180,172,.18); }
+.preview-count { background: rgba(9,8,11,.82); }
+.search-wrap:focus-within,.sort-wrap:focus-within { box-shadow: inset 0 0 0 1px rgba(233,180,172,.55); }
+.filter-chip.active { background: rgba(233,180,172,.14); border-color: rgba(233,180,172,.52); color: #f5d5c9; }
+.result-note,.template-pill { color: #c5b8b8; }
+.lightbox-close,.lightbox-nav { background:#151317; border-color:rgba(233,180,172,.32); }
+.maul-love-footer {
+  width: min(1160px,calc(100% - 36px));
+  margin: 46px auto 38px;
+  padding: 22px 0;
+  border: 0;
+  background: transparent;
+}
+.maul-love-footer-inner {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px,4vw,44px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+}
+.maul-love-footer-inner::before,.maul-love-footer-inner::after {
+  content: "";
+  height: 1px;
+  flex: 1 1 0;
+  min-width: 10px;
+  background: linear-gradient(90deg,transparent,rgba(233,180,172,.58));
+}
+.maul-love-footer-inner::after { transform: scaleX(-1); }
+.maul-love-footer-inner span {
+  flex: none;
+  color: #e9b4ac;
+  font: 600 clamp(.82rem,2.6vw,1.05rem)/1.4 "Inter",system-ui,sans-serif;
+  letter-spacing: .14em;
+  white-space: nowrap;
+}
+@media (max-width:680px) {
+  .header h1,.page-header h1 { font-size: clamp(2.4rem,10vw,4rem); }
+  .maul-love-footer { margin-top:32px; }
+  .maul-love-footer-inner { gap:12px; }
+  .maul-love-footer-inner span { letter-spacing:.055em; }
+}
+
+    
+.templates-section .template-use-instructions {
+  color: #e9b4ac;
+  line-height: 1.8;
+}
+.templates-section .template-use-instructions strong,
+.templates-section .template-use-instructions b {
+  color: #f5d5c9;
+}
+
     </style>
-  </head>
+  <style id="maul-matching-floating-stars">
+body { isolation: isolate; }
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: -160vh;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  background: #fff;
+  animation: maulStarDrift 24s linear infinite;
+}
+body::before {
+  width: 2px;
+  height: 2px;
+  opacity: 0.7;
+  box-shadow: 3vw 8vh #fff, 6vw 57vh #fff, 9vw 122vh #fff, 11vw 215vh #fff,
+    14vw 303vh #fff, 17vw 34vh #fff, 19vw 186vh #fff, 22vw 269vh #fff,
+    25vw 78vh #fff, 27vw 147vh #fff, 29vw 241vh #fff, 31vw 318vh #fff,
+    34vw 18vh #fff, 36vw 101vh #fff, 38vw 207vh #fff, 41vw 286vh #fff,
+    43vw 64vh #fff, 45vw 158vh #fff, 48vw 226vh #fff, 50vw 311vh #fff,
+    52vw 42vh #fff, 54vw 133vh #fff, 57vw 197vh #fff, 59vw 276vh #fff,
+    61vw 88vh #fff, 63vw 171vh #fff, 65vw 252vh #fff, 68vw 6vh #fff,
+    70vw 116vh #fff, 72vw 221vh #fff, 74vw 296vh #fff, 76vw 51vh #fff,
+    79vw 139vh #fff, 81vw 233vh #fff, 83vw 314vh #fff, 85vw 27vh #fff,
+    87vw 96vh #fff, 89vw 182vh #fff, 91vw 265vh #fff, 93vw 74vh #fff,
+    95vw 154vh #fff, 97vw 244vh #fff, 99vw 309vh #fff,
+    12vw 24vh #fff,
+    23vw 114vh #fff,
+    39vw 152vh #fff,
+    54vw 26vh #fff,
+    66vw 132vh #fff,
+    82vw 54vh #fff,
+    94vw 188vh #fff,
+    8vw 302vh #fff,
+    32vw 278vh #fff,
+    47vw 72vh #fff,
+    73vw 314vh #fff,
+    91vw 228vh #fff;
+}
+body::after {
+  width: 1px;
+  height: 1px;
+  opacity: 0.5;
+  animation-duration: 36s;
+  box-shadow: 2vw 23vh #fff, 4vw 141vh #fff, 5vw 292vh #fff, 7vw 68vh #fff,
+    8vw 211vh #fff, 10vw 317vh #fff, 13vw 35vh #fff, 15vw 156vh #fff,
+    18vw 263vh #fff, 20vw 96vh #fff, 23vw 229vh #fff, 26vw 5vh #fff,
+    28vw 181vh #fff, 30vw 306vh #fff, 32vw 47vh #fff, 35vw 128vh #fff,
+    37vw 254vh #fff, 39vw 89vh #fff, 42vw 219vh #fff, 44vw 310vh #fff,
+    47vw 58vh #fff, 51vw 150vh #fff, 53vw 271vh #fff, 56vw 16vh #fff,
+    60vw 101vh #fff, 64vw 237vh #fff, 67vw 315vh #fff, 69vw 44vh #fff,
+    73vw 169vh #fff, 77vw 281vh #fff, 82vw 76vh #fff, 86vw 197vh #fff,
+    90vw 49vh #fff, 93vw 242vh #fff, 97vw 101vh #fff,
+    5vw 39vh #fff,
+    18vw 118vh #fff,
+    31vw 8vh #fff,
+    44vw 192vh #fff,
+    58vw 94vh #fff,
+    72vw 27vh #fff,
+    88vw 142vh #fff,
+    98vw 276vh #fff,
+    15vw 242vh #fff,
+    41vw 322vh #fff,
+    63vw 216vh #fff,
+    79vw 303vh #fff;
+}
+
+body::before, body::after {
+  display: block !important;
+  content: "" !important;
+  position: fixed !important;
+  inset: auto !important;
+  top: -160vh !important;
+  left: 0 !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: 2px;
+  height: 2px;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  background: #fff !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  transform: none;
+  animation: maulStarDrift 24s linear infinite !important;
+}
+body::before { width: 2px !important; height: 2px !important; opacity: .7 !important; }
+body::after { width: 1px !important; height: 1px !important; opacity: .5 !important; animation-duration: 36s !important; }
+@keyframes maulStarDrift { from { transform: translate3d(0, 160vh, 0); } to { transform: translate3d(0, 0, 0); } }
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after { animation: none !important; transform: translate3d(0, 160vh, 0) !important; }
+}
+</style>
+</head>
   <body>
     <div id="navbar"></div>
       <a href="https://moddedamong.us/wrapped"><span class="beta-glow">NEW</span> – 2025 Wrapped</a>
@@ -1867,20 +2105,20 @@ footer a { color: var(--text-main); text-underline-offset: 4px; }
           <strong>Discord</strong>,
           <strong>VIP</strong>.
         </p>
-        <p style="margin-top:4px;">
+        <p class="template-use-instructions" style="margin-top:4px;">
           To use a template:<br />
           1) Rename the file to <strong>template.dat</strong> or <strong>template.txt</strong><br />
           2) Edit the text to match your lobby’s style<br />
           3) Remove <b>color</b> tags inside the file as you customize it
         </p>
 
-        <div id="templates-grid" class="grid"></div>
+        <div id="templates-grid" class="grid"><article class="card" data-group="neutral" data-template-id="black" style="--template-main: #444444;"><div class="template-header" style="background: linear-gradient(90deg, rgb(7, 7, 7), rgb(68, 68, 68), rgb(170, 170, 170));">Black Template</div><div class="card-body"><div class="card-main"><h3 class="title">Black Template</h3><div class="template-meta"><span class="template-pill">Black</span><span class="template-pill">Solid</span></div><p class="sub">Minimal high-contrast dark template.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/blacktemplate.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Black Template"><img src="images/template/black (3).png" loading="lazy" decoding="async" alt="Black Template preview"><span class="preview-count">12 previews</span></button></div></article><article class="card" data-group="blue" data-template-id="blue" style="--template-main: #3a6dff;"><div class="template-header" style="background: linear-gradient(90deg, rgb(16, 36, 93), rgb(58, 109, 255), rgb(149, 220, 255));">Blue Template</div><div class="card-body"><div class="card-main"><h3 class="title">Blue Template</h3><div class="template-meta"><span class="template-pill">Blue</span><span class="template-pill">Solid</span></div><p class="sub">Simple blue accent template.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/bluetemplate.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Blue Template"><img src="images/template/blue (3).png" loading="lazy" decoding="async" alt="Blue Template preview"><span class="preview-count">6 previews</span></button></div></article><article class="card" data-group="green" data-template-id="green" style="--template-main: #48a048;"><div class="template-header" style="background: linear-gradient(90deg, rgb(10, 51, 27), rgb(72, 160, 72), rgb(185, 255, 138));">Green Template</div><div class="card-body"><div class="card-main"><h3 class="title">Green Template</h3><div class="template-meta"><span class="template-pill">Green</span><span class="template-pill">Solid</span></div><p class="sub">Fresh green accent kinda reminds me of grass....</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/greentemplate.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Green Template"><img src="images/template/green.png" loading="lazy" decoding="async" alt="Green Template preview"><span class="preview-count">5 previews</span></button></div></article><article class="card" data-group="multi" data-template-id="magenta-cyan" style="--template-main: #ff3fb6;"><div class="template-header" style="background: linear-gradient(90deg, rgb(255, 63, 182), rgb(143, 77, 255), rgb(0, 216, 255));">Magenta–Cyan Template</div><div class="card-body"><div class="card-main"><h3 class="title">Magenta–Cyan Template</h3><div class="template-meta"><span class="template-pill">Magenta / Cyan</span><span class="template-pill">Solid</span></div><p class="sub">Bright neon magenta/cyan theme.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/magenta-cyan.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Magenta–Cyan Template"><img src="images/template/magenta-cyan (4).png" loading="lazy" decoding="async" alt="Magenta–Cyan Template preview"><span class="preview-count">6 previews</span></button></div></article><article class="card" data-group="orange" data-template-id="orange" style="--template-main: #ff8c2a;"><div class="template-header" style="background: linear-gradient(90deg, rgb(143, 46, 0), rgb(255, 140, 42), rgb(255, 208, 138));">Orange Template</div><div class="card-body"><div class="card-main"><h3 class="title">Orange Template</h3><div class="template-meta"><span class="template-pill">Orange</span><span class="template-pill">Solid</span></div><p class="sub">Warm orange accents for friendly vibes.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/orangetemplate.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Orange Template"><img src="images/template/orange (5).png" loading="lazy" decoding="async" alt="Orange Template preview"><span class="preview-count">6 previews</span></button></div></article><article class="card" data-group="multi" data-template-id="pastel" style="--template-main: #ff7fb3;"><div class="template-header" style="background: linear-gradient(90deg, rgb(255, 157, 199), rgb(255, 226, 143), rgb(159, 255, 234), rgb(198, 167, 255));">Pastel Template</div><div class="card-body"><div class="card-main"><h3 class="title">Pastel Template</h3><div class="template-meta"><span class="template-pill">Pastel</span><span class="template-pill">Solid</span></div><p class="sub">Soft pastel rainbow look.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/pasteltemplate.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Pastel Template"><img src="images/template/pastel (4).png" loading="lazy" decoding="async" alt="Pastel Template preview"><span class="preview-count">6 previews</span></button></div></article><article class="card" data-group="pink" data-template-id="pink" style="--template-main: #ff4b9a;"><div class="template-header" style="background: linear-gradient(90deg, rgb(140, 13, 69), rgb(255, 75, 154), rgb(255, 193, 220));">Pink Template</div><div class="card-body"><div class="card-main"><h3 class="title">Pink Template</h3><div class="template-meta"><span class="template-pill">Pink</span><span class="template-pill">Solid</span></div><p class="sub">Soft, friendly pink highlights.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/pinktemplate.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Pink Template"><img src="images/template/pink (3).png" loading="lazy" decoding="async" alt="Pink Template preview"><span class="preview-count">6 previews</span></button></div></article><article class="card" data-group="purple" data-template-id="purple" style="--template-main: #a046ff;"><div class="template-header" style="background: linear-gradient(90deg, rgb(53, 16, 94), rgb(160, 70, 255), rgb(225, 182, 255));">Purple Template</div><div class="card-body"><div class="card-main"><h3 class="title">Purple Template</h3><div class="template-meta"><span class="template-pill">Purple</span><span class="template-pill">Solid</span></div><p class="sub">Classic rich purple vibe.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/purpletemplate.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Purple Template"><img src="images/template/purple (3).png" loading="lazy" decoding="async" alt="Purple Template preview"><span class="preview-count">6 previews</span></button></div></article><article class="card" data-group="red" data-template-id="red" style="--template-main: #ff4040;"><div class="template-header" style="background: linear-gradient(90deg, rgb(94, 7, 7), rgb(255, 64, 64), rgb(255, 161, 122));">Red Template</div><div class="card-body"><div class="card-main"><h3 class="title">Red Template</h3><div class="template-meta"><span class="template-pill">Red</span><span class="template-pill">Solid</span></div><p class="sub">Bright red for a classic look.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/redtemplate.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Red Template"><img src="images/template/red (2).png" loading="lazy" decoding="async" alt="Red Template preview"><span class="preview-count">6 previews</span></button></div></article><article class="card" data-group="multi" data-template-id="sunset" style="--template-main: #ff6b3d;"><div class="template-header" style="background: linear-gradient(90deg, rgb(255, 107, 61), rgb(255, 75, 154), rgb(93, 77, 255));">Sunset Template</div><div class="card-body"><div class="card-main"><h3 class="title">Sunset Template</h3><div class="template-meta"><span class="template-pill">Sunset</span><span class="template-pill">Solid</span></div><p class="sub">Orange pinks and purples like a sunset sky.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/sunsettemplate.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Sunset Template"><img src="images/template/sunset (3).png" loading="lazy" decoding="async" alt="Sunset Template preview"><span class="preview-count">6 previews</span></button></div></article><article class="card" data-group="yellow" data-template-id="yellow" style="--template-main: #ffd338;"><div class="template-header" style="background: linear-gradient(90deg, rgb(141, 101, 0), rgb(255, 211, 56), rgb(255, 240, 164));">Yellow Template</div><div class="card-body"><div class="card-main"><h3 class="title">Yellow Template</h3><div class="template-meta"><span class="template-pill">Yellow</span><span class="template-pill">Solid</span></div><p class="sub">Mustard yellow vibes.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/yellowtemplate.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Yellow Template"><img src="images/template/yellow-5.png" loading="lazy" decoding="async" alt="Yellow Template preview"><span class="preview-count">6 previews</span></button></div></article><article class="card" data-group="yellow" data-template-id="yellow-flame-gradient" style="--template-main: #ffb400;"><div class="template-header" style="background: linear-gradient(90deg, rgb(255, 75, 0), rgb(255, 180, 0), rgb(255, 240, 138));">Yellow Flame Gradient Template</div><div class="card-body"><div class="card-main"><h3 class="title">Yellow Flame Gradient Template</h3><div class="template-meta"><span class="template-pill">Yellow Flame</span><span class="template-pill">Gradient</span></div><p class="sub">Hot yellow/orange gradient.</p><p class="warning">⚠ Excessive template gradient may cause disconnects.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/yellow-flame-template.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Yellow Flame Gradient Template"><img src="images/template/yellow-flame-gradient-2.png" loading="lazy" decoding="async" alt="Yellow Flame Gradient Template preview"><span class="preview-count">6 previews</span></button></div></article><article class="card" data-group="green" data-template-id="mossygreen-gradient" style="--template-main: #4d7b3b;"><div class="template-header" style="background: linear-gradient(90deg, rgb(32, 49, 24), rgb(77, 123, 59), rgb(216, 201, 122));">Mossy Green Gradient Template</div><div class="card-body"><div class="card-main"><h3 class="title">Mossy Green Gradient Template</h3><div class="template-meta"><span class="template-pill">Mossy Green</span><span class="template-pill">Gradient</span></div><p class="sub">Earthy green gradient layout.</p><p class="warning">⚠ Excessive template gradient may cause disconnects.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/mossy-green-template.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Mossy Green Gradient Template"><img src="images/template/mossygreengradient (1).png" loading="lazy" decoding="async" alt="Mossy Green Gradient Template preview"><span class="preview-count">6 previews</span></button></div></article><article class="card" data-group="blue" data-template-id="aquamarine" style="--template-main: #00c5b3;"><div class="template-header" style="background: linear-gradient(90deg, rgb(7, 61, 69), rgb(0, 197, 179), rgb(159, 255, 234));">Aquamarine Template</div><div class="card-body"><div class="card-main"><h3 class="title">Aquamarine Template</h3><div class="template-meta"><span class="template-pill">Aquamarine</span><span class="template-pill">Solid</span></div><p class="sub">Cool blue-green theme.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/aquamarine-template.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Aquamarine Template"><img src="images/template/aquamarine (3).png" loading="lazy" decoding="async" alt="Aquamarine Template preview"><span class="preview-count">6 previews</span></button></div></article><article class="card" data-group="purple" data-template-id="galaxy" style="--template-main: #8226ff;"><div class="template-header" style="background: linear-gradient(90deg, rgb(20, 0, 34), rgb(83, 32, 216), rgb(255, 101, 207));">Galaxy Template</div><div class="card-body"><div class="card-main"><h3 class="title">Galaxy Template</h3><div class="template-meta"><span class="template-pill">Galaxy</span><span class="template-pill">Gradient</span></div><p class="sub">Deep purple gradient.</p><p class="warning">⚠ Excessive template gradient may cause disconnects.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/galaxytemplate.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Galaxy Template"><img src="images/template/galaxy (5).png" loading="lazy" decoding="async" alt="Galaxy Template preview"><span class="preview-count">6 previews</span></button></div></article><article class="card" data-group="pink" data-template-id="pink-gradient" style="--template-main: #ff4b9a;"><div class="template-header" style="background: linear-gradient(90deg, rgb(255, 75, 154), rgb(255, 146, 198), rgb(255, 225, 240));">Pink Gradient Template</div><div class="card-body"><div class="card-main"><h3 class="title">Pink Gradient Template</h3><div class="template-meta"><span class="template-pill">Pink Gradient</span><span class="template-pill">Gradient</span></div><p class="sub">Pink-to-light pink gradient.</p><p class="warning">⚠ Excessive template gradient may cause disconnects.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/pink-gradient-template.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Pink Gradient Template"><img src="images/template/pink-gradient (6).png" loading="lazy" decoding="async" alt="Pink Gradient Template preview"><span class="preview-count">6 previews</span></button></div></article></div>
       </section>
 
       <section class="templates-section">
         <h2>Basic Templates</h2>
         <p>These only include Welcome, Rules, OnMeeting.</p>
-        <div id="basic-templates-grid" class="grid"></div>
+        <div id="basic-templates-grid" class="grid"><article class="card" data-group="pink" data-template-id="floral-pink" style="--template-main: #ff7fae;"><div class="template-header" style="background: linear-gradient(90deg, rgb(123, 40, 73), rgb(255, 127, 174), rgb(255, 214, 229));">Floral Pink Template</div><div class="card-body"><div class="card-main"><h3 class="title">Floral Pink Template</h3><div class="template-meta"><span class="template-pill">Floral Pink</span><span class="template-pill">Solid</span></div><p class="sub">Soft floral pink aesthetic.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/floral-pink.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Floral Pink Template"><img src="images/template/floral-pink (1).png" loading="lazy" decoding="async" alt="Floral Pink Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="red" data-template-id="blood-moon" style="--template-main: #b21024;"><div class="template-header" style="background: linear-gradient(90deg, rgb(22, 1, 4), rgb(178, 16, 36), rgb(255, 114, 94));">Blood Moon Template</div><div class="card-body"><div class="card-main"><h3 class="title">Blood Moon Template</h3><div class="template-meta"><span class="template-pill">Blood Moon</span><span class="template-pill">Solid</span></div><p class="sub">Deep red lunar-inspired theme.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/blood-moon.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Blood Moon Template"><img src="images/template/bloodmoon (1).png" loading="lazy" decoding="async" alt="Blood Moon Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="yellow" data-template-id="yellow-stars" style="--template-main: #ffd338;"><div class="template-header" style="background: linear-gradient(90deg, rgb(44, 33, 0), rgb(255, 211, 56), rgb(255, 248, 186));">Yellow Stars Template</div><div class="card-body"><div class="card-main"><h3 class="title">Yellow Stars Template</h3><div class="template-meta"><span class="template-pill">Yellow Stars</span><span class="template-pill">Solid</span></div><p class="sub">Bright starry yellow aesthetic.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/yellowstars.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Yellow Stars Template"><img src="images/template/yellow-stars (1).png" loading="lazy" decoding="async" alt="Yellow Stars Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="green" data-template-id="forestgreen" style="--template-main: #2f7d43;"><div class="template-header" style="background: linear-gradient(90deg, rgb(7, 28, 16), rgb(47, 125, 67), rgb(156, 219, 140));">Forest Green Template</div><div class="card-body"><div class="card-main"><h3 class="title">Forest Green Template</h3><div class="template-meta"><span class="template-pill">Forest Green</span><span class="template-pill">Solid</span></div><p class="sub">Dark natural forest green tone.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/forestgreen.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Forest Green Template"><img src="images/template/forestgreen (2).png" loading="lazy" decoding="async" alt="Forest Green Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="blue" data-template-id="bluestorm" style="--template-main: #31a8ff;"><div class="template-header" style="background: linear-gradient(90deg, rgb(8, 24, 53), rgb(35, 109, 255), rgb(157, 234, 255));">Blue Storm Template</div><div class="card-body"><div class="card-main"><h3 class="title">Blue Storm Template</h3><div class="template-meta"><span class="template-pill">Blue Storm</span><span class="template-pill">Solid</span></div><p class="sub">Electric stormy blue theme.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/bluestorm.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Blue Storm Template"><img src="images/template/bluestorm (1).png" loading="lazy" decoding="async" alt="Blue Storm Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="purple" data-template-id="purplevoid" style="--template-main: #8a4dff;"><div class="template-header" style="background: linear-gradient(90deg, rgb(6, 0, 13), rgb(94, 37, 186), rgb(195, 151, 255));">Purple Void Template</div><div class="card-body"><div class="card-main"><h3 class="title">Purple Void Template</h3><div class="template-meta"><span class="template-pill">Purple Void</span><span class="template-pill">Gradient</span></div><p class="sub">Deep void-like purple gradient.</p><p class="warning">⚠ Excessive template gradient may cause disconnects.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/purplevoid.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Purple Void Template"><img src="images/template/purplevoid (2).png" loading="lazy" decoding="async" alt="Purple Void Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="blue" data-template-id="crystal-blue" style="--template-main: #8ce8ff;"><div class="template-header" style="background: linear-gradient(90deg, rgb(16, 55, 102), rgb(81, 183, 255), rgb(215, 251, 255));">Crystal Blue Template</div><div class="card-body"><div class="card-main"><h3 class="title">Crystal Blue Template</h3><div class="template-meta"><span class="template-pill">Crystal Blue</span><span class="template-pill">Solid</span></div><p class="sub">Cold, crystalline blue theme.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/crystal-blue.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Crystal Blue Template"><img src="images/template/crystal-blue (2).png" loading="lazy" decoding="async" alt="Crystal Blue Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="green" data-template-id="toxic-waste-gradient" style="--template-main: #a8ff30;"><div class="template-header" style="background: linear-gradient(90deg, rgb(17, 59, 0), rgb(168, 255, 48), rgb(255, 244, 92));">Toxic Waste Gradient Template</div><div class="card-body"><div class="card-main"><h3 class="title">Toxic Waste Gradient Template</h3><div class="template-meta"><span class="template-pill">Toxic Waste</span><span class="template-pill">Gradient</span></div><p class="sub">Neon green/yellow hazardous glow.</p><p class="warning">⚠ Excessive template gradient may cause disconnects.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/toxic-waste-gradient.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Toxic Waste Gradient Template"><img src="images/template/toxic-waste-gradient.png" loading="lazy" decoding="async" alt="Toxic Waste Gradient Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="blue" data-template-id="lightning-gradient" style="--template-main: #78ddff;"><div class="template-header" style="background: linear-gradient(90deg, rgb(11, 29, 89), rgb(120, 221, 255), rgb(255, 240, 109));">Lightning Gradient Template</div><div class="card-body"><div class="card-main"><h3 class="title">Lightning Gradient Template</h3><div class="template-meta"><span class="template-pill">Lightning</span><span class="template-pill">Gradient</span></div><p class="sub">Sharp electric lightning tones.</p><p class="warning">⚠ Excessive template gradient may cause disconnects.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/lightning-gradient.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Lightning Gradient Template"><img src="images/template/lightning-gradient (2).png" loading="lazy" decoding="async" alt="Lightning Gradient Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="blue" data-template-id="ice-gradient" style="--template-main: #b9f4ff;"><div class="template-header" style="background: linear-gradient(90deg, rgb(49, 94, 143), rgb(185, 244, 255), rgb(255, 255, 255));">Ice Gradient Template</div><div class="card-body"><div class="card-main"><h3 class="title">Ice Gradient Template</h3><div class="template-meta"><span class="template-pill">Ice</span><span class="template-pill">Gradient</span></div><p class="sub">Frozen pale blue and white gradient.</p><p class="warning">⚠ Excessive template gradient may cause disconnects.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/ice-gradient.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Ice Gradient Template"><img src="images/template/ice-gradient (1).png" loading="lazy" decoding="async" alt="Ice Gradient Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="orange" data-template-id="fire-gradient" style="--template-main: #ff5a24;"><div class="template-header" style="background: linear-gradient(90deg, rgb(91, 2, 2), rgb(255, 90, 36), rgb(255, 209, 102));">Fire Gradient Template</div><div class="card-body"><div class="card-main"><h3 class="title">Fire Gradient Template</h3><div class="template-meta"><span class="template-pill">Fire</span><span class="template-pill">Gradient</span></div><p class="sub">Hot red-orange flame gradient.</p><p class="warning">⚠ Excessive template gradient may cause disconnects.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/fire-gradient.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Fire Gradient Template"><img src="images/template/fire-gradient (2).png" loading="lazy" decoding="async" alt="Fire Gradient Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="pink" data-template-id="rose-gold-gradient" style="--template-main: #d98a72;"><div class="template-header" style="background: linear-gradient(90deg, rgb(110, 49, 66), rgb(217, 138, 114), rgb(255, 224, 174));">Rose Gold Gradient Template</div><div class="card-body"><div class="card-main"><h3 class="title">Rose Gold Gradient Template</h3><div class="template-meta"><span class="template-pill">Rose Gold</span><span class="template-pill">Gradient</span></div><p class="sub">Metallic rose-gold shine.</p><p class="warning">⚠ Excessive template gradient may cause disconnects.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/rose-gold-gradient.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Rose Gold Gradient Template"><img src="images/template/rose-gold-gradient (1).png" loading="lazy" decoding="async" alt="Rose Gold Gradient Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="neutral" data-template-id="ivory-gradient" style="--template-main: #f2dfbd;"><div class="template-header" style="background: linear-gradient(90deg, rgb(124, 112, 94), rgb(242, 223, 189), rgb(255, 250, 240));">Ivory Gradient Template</div><div class="card-body"><div class="card-main"><h3 class="title">Ivory Gradient Template</h3><div class="template-meta"><span class="template-pill">Ivory</span><span class="template-pill">Gradient</span></div><p class="sub">Soft ivory-to-cream fade.</p><p class="warning">⚠ Excessive template gradient may cause disconnects.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/ivory-gradient.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Ivory Gradient Template"><img src="images/template/ivory-gradient (1).png" loading="lazy" decoding="async" alt="Ivory Gradient Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="blue" data-template-id="teal-gradient" style="--template-main: #1bc9bd;"><div class="template-header" style="background: linear-gradient(90deg, rgb(6, 60, 69), rgb(27, 201, 189), rgb(183, 255, 248));">Teal Gradient Template</div><div class="card-body"><div class="card-main"><h3 class="title">Teal Gradient Template</h3><div class="template-meta"><span class="template-pill">Teal</span><span class="template-pill">Gradient</span></div><p class="sub">Deep teal fading into aqua.</p><p class="warning">⚠ Excessive template gradient may cause disconnects.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/teal-gradient.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Teal Gradient Template"><img src="images/template/teal-gradient (2).png" loading="lazy" decoding="async" alt="Teal Gradient Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="blue" data-template-id="indago-gradient" style="--template-main: #3656c9;"><div class="template-header" style="background: linear-gradient(90deg, rgb(8, 11, 53), rgb(54, 86, 201), rgb(138, 141, 255));">Indago Gradient Template</div><div class="card-body"><div class="card-main"><h3 class="title">Indago Gradient Template</h3><div class="template-meta"><span class="template-pill">Indago</span><span class="template-pill">Gradient</span></div><p class="sub">Cool indigo/dark blue gradient.</p><p class="warning">⚠ Excessive template gradient may cause disconnects.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/indago-gradient.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Indago Gradient Template"><img src="images/template/indago-gradient (1).png" loading="lazy" decoding="async" alt="Indago Gradient Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="yellow" data-template-id="gold-dark-gradient" style="--template-main: #d9a944;"><div class="template-header" style="background: linear-gradient(90deg, rgb(6, 6, 6), rgb(164, 107, 21), rgb(255, 217, 130));">Gold Dark Gradient Template</div><div class="card-body"><div class="card-main"><h3 class="title">Gold Dark Gradient Template</h3><div class="template-meta"><span class="template-pill">Dark Gold</span><span class="template-pill">Gradient</span></div><p class="sub">Black-to-gold dramatic gradient.</p><p class="warning">⚠ Excessive template gradient may cause disconnects.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/gold-dark-gradient.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Gold Dark Gradient Template"><img src="images/template/gold-dark-gradient (2).png" loading="lazy" decoding="async" alt="Gold Dark Gradient Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="neutral" data-template-id="silver-gradient" style="--template-main: #d8d8d8;"><div class="template-header" style="background: linear-gradient(90deg, rgb(66, 66, 66), rgb(216, 216, 216), rgb(255, 255, 255));">Silver Gradient Template</div><div class="card-body"><div class="card-main"><h3 class="title">Silver Gradient Template</h3><div class="template-meta"><span class="template-pill">Silver</span><span class="template-pill">Gradient</span></div><p class="sub">Clean metallic silver gradient.</p><p class="warning">⚠ Excessive template gradient may cause disconnects.</p></div><div class="card-side"><div class="preset-actions"><a class="btn download-btn" href="images/template/Silver-gradient-template.txt" download="">Download .txt</a></div></div><button class="preview-card" type="button" aria-label="Open previews for Silver Gradient Template"><img src="images/template/silver-gradient (1).png" loading="lazy" decoding="async" alt="Silver Gradient Template preview"><span class="preview-count">2 previews</span></button></div></article><article class="card" data-group="neutral" data-template-id="english-dat" style="--template-main: #666666;"><div class="template-header" style="background: linear-gradient(90deg, rgb(51, 51, 51), rgb(119, 119, 119), rgb(170, 170, 170));">english.dat</div><div class="card-body"><div class="card-main"><h3 class="title">english.dat</h3><div class="template-meta"><span class="template-pill">Utility</span><span class="template-pill">Solid</span></div><p class="sub">Template pack for english.dat formatting.</p></div><div class="card-side"><div class="preset-actions"><span class="btn disabled">Coming soon</span><span class="badge">Coming soon</span></div></div></div></article></div>
       </section>
 
       <section class="mini-steps-wrap" aria-labelledby="using-templates">
@@ -1907,16 +2145,8 @@ footer a { color: var(--text-main); text-underline-offset: 4px; }
       </div>
     </div>
 
-    <footer>
-      <div class="footer-inner">
-        <p>Made with ♥ by MAUL</p>
-        <p>
-          Want your template featured?
-          <a href="https://discord.com/channels/995954559044304896/1089882204458455090/1344255673206308904">Open a ticket</a>
-          or send in templates in
-          <a href="https://discord.com/channels/995954559044304896/1410013572637130812">the presets channel</a>.
-        </p>
-      </div>
+    <footer class="maul-love-footer" aria-label="MAUL footer">
+      <div class="maul-love-footer-inner"><span>Made with ♡ by Maul</span></div>
     </footer>
 
     <script>
@@ -1949,16 +2179,16 @@ footer a { color: var(--text-main); text-underline-offset: 4px; }
       };
 
       const COLOR_GROUPS = [
-        { id:'all', label:'All', gradient:'linear-gradient(90deg,#ff4558,#e1aa58,#35d7c6)' },
+        { id:'all', label:'All', gradient:'linear-gradient(90deg,#f5cdd4,#e9b4ac,#b75863)' },
         { id:'red', label:'Red', gradient:'linear-gradient(90deg,#4a0208,#ff4058,#ff9a80)' },
         { id:'pink', label:'Pink', gradient:'linear-gradient(90deg,#ff4b9a,#ffc2dd)' },
-        { id:'orange', label:'Orange', gradient:'linear-gradient(90deg,#ff6b2c,#ffd166)' },
+        { id:'orange', label:'Orange', gradient:'linear-gradient(90deg,#ff6b2c,#ff986d)' },
         { id:'yellow', label:'Yellow / Gold', gradient:'linear-gradient(90deg,#7b5300,#ffd338,#fff1a8)' },
         { id:'green', label:'Green', gradient:'linear-gradient(90deg,#0a3b24,#56d86c,#d7ff7a)' },
         { id:'blue', label:'Blue', gradient:'linear-gradient(90deg,#102d8a,#3a9bff,#b9f7ff)' },
         { id:'purple', label:'Purple', gradient:'linear-gradient(90deg,#31055f,#a046ff,#ff9df2)' },
         { id:'neutral', label:'Neutral', gradient:'linear-gradient(90deg,#222,#777,#d8d8d8)' },
-        { id:'multi', label:'Multi', gradient:'linear-gradient(90deg,#ff4558,#ffd338,#35d7c6,#a046ff)' }
+        { id:'multi', label:'Multi', gradient:'linear-gradient(90deg,#ff4558,#e9b4ac,#35d7c6,#a046ff)' }
       ];
 
       const COLOR_META = {
@@ -2735,5 +2965,6 @@ footer a { color: var(--text-main); text-underline-offset: 4px; }
       })();
     </script>
     <script src="/scripts/navbar.js"></script>
+    <!-- templates come with a welcome message, whether anyone reads it is between them and the lord. -->
   </body>
 </html>
