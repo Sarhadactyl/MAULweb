@@ -35,7 +35,7 @@
     
     <meta name="theme-color" content="#000000">
 
-    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
 
     <style>
       :root {
@@ -521,20 +521,20 @@
         --accent: #ff384d;
         --accent-soft: rgba(255, 56, 77, 0.2);
         --accent-strong: #ff775d;
-        --gold: #ffd37a;
+        --gold: #e59fa8;
         --panel: rgba(18, 7, 9, 0.9);
         --panel-soft: rgba(42, 14, 17, 0.82);
-        --border-soft: rgba(255, 211, 122, 0.16);
-        --line-warm: rgba(255, 211, 122, 0.22);
-        --text-main: #fff8ef;
-        --text-muted: rgba(255, 248, 239, 0.74);
+        --border-soft: rgb(229 159 168 / 0.16);
+        --line-warm: rgb(229 159 168 / 0.22);
+        --text-main: #fdf7f8;
+        --text-muted: rgb(253 247 248 / 0.74);
         --shadow-strong: 0 24px 72px rgba(0, 0, 0, 0.5);
       }
 
       body {
         background:
           radial-gradient(circle at 15% 8%, rgba(255, 56, 77, 0.3), transparent 34%),
-          radial-gradient(circle at 86% 18%, rgba(255, 211, 122, 0.16), transparent 31%),
+          radial-gradient(circle at 86% 18%, rgb(229 159 168 / 0.16), transparent 31%),
           linear-gradient(118deg, rgba(86, 3, 14, 0.88), rgba(10, 4, 6, 0.96) 46%, rgba(2, 14, 14, 0.9)),
           url("images/maulredbg.png") no-repeat center top fixed,
           #030203;
@@ -561,7 +561,7 @@
       }
 
       a:hover {
-        color: #fff8ef;
+        color: #fdf7f8;
       }
 
       .page-wrapper {
@@ -607,7 +607,7 @@
         right: clamp(24px, 4vw, 52px);
         z-index: 2;
         padding: 7px 0 10px;
-        color: #fff8ef;
+        color: #fdf7f8;
         font-family: "Poppins", sans-serif;
         font-size: 0.92rem;
         font-weight: 700;
@@ -624,15 +624,15 @@
         bottom: 2px;
         height: 3px;
         border-radius: 999px;
-        background: linear-gradient(90deg, var(--accent), var(--gold), #fff8ef);
-        box-shadow: 0 0 18px rgba(255, 211, 122, 0.38);
+        background: linear-gradient(90deg, var(--accent), var(--gold), #fdf7f8);
+        box-shadow: 0 0 18px rgb(229 159 168 / 0.38);
       }
 
       .header-badge {
         width: fit-content;
         background: rgba(12, 6, 7, 0.78);
-        border-color: rgba(255, 211, 122, 0.22);
-        color: rgba(255, 248, 239, 0.78);
+        border-color: rgb(229 159 168 / 0.22);
+        color: rgb(253 247 248 / 0.78);
       }
 
       .header-badge-dot {
@@ -649,7 +649,7 @@
 
       .hero h1 span {
         display: block;
-        background: linear-gradient(120deg, #fffdf7 0%, #fff8ef 34%, var(--gold) 66%, var(--accent) 100%);
+        background: linear-gradient(120deg, #fffdf7 0%, #fdf7f8 34%, var(--gold) 66%, var(--accent) 100%);
         -webkit-background-clip: text;
         background-clip: text;
       }
@@ -657,7 +657,7 @@
       .hero-subtitle {
         max-width: 650px;
         margin-left: 0;
-        color: rgba(255, 248, 239, 0.78);
+        color: rgb(253 247 248 / 0.78);
       }
 
       .hero-actions {
@@ -680,8 +680,8 @@
       .cta-secondary,
       .jump-links a {
         background: rgba(10, 5, 6, 0.72);
-        border: 1px solid rgba(255, 211, 122, 0.28);
-        color: rgba(255, 248, 239, 0.84);
+        border: 1px solid rgb(229 159 168 / 0.28);
+        color: rgb(253 247 248 / 0.84);
       }
 
       .jump-links {
@@ -703,7 +703,7 @@
         background:
           linear-gradient(145deg, rgba(80, 13, 18, 0.42), rgba(12, 6, 7, 0.88) 46%, rgba(8, 16, 16, 0.68)),
           var(--panel);
-        border-color: rgba(255, 211, 122, 0.14);
+        border-color: rgb(229 159 168 / 0.14);
         box-shadow:
           0 24px 72px rgba(0, 0, 0, 0.5),
           inset 0 1px 0 rgba(255, 255, 255, 0.08);
@@ -711,13 +711,13 @@
       }
 
       .overview-card::before {
-        background: radial-gradient(circle at top left, rgba(255, 211, 122, 0.12), transparent 55%);
+        background: radial-gradient(circle at top left, rgb(229 159 168 / 0.12), transparent 55%);
       }
 
       .section-shell {
         border-radius: 8px;
         background: rgba(8, 5, 6, 0.62);
-        border-color: rgba(255, 211, 122, 0.14);
+        border-color: rgb(229 159 168 / 0.14);
         box-shadow: 0 24px 72px rgba(0, 0, 0, 0.44);
         backdrop-filter: none;
       }
@@ -733,15 +733,15 @@
       }
 
       .faq-item[open] {
-        border-color: rgba(255, 211, 122, 0.3);
+        border-color: rgb(229 159 168 / 0.3);
       }
 
       .faq-item[open] summary {
-        color: #fff8ef;
+        color: #fdf7f8;
       }
 
       .faq-item-content {
-        border-top-color: rgba(255, 211, 122, 0.12);
+        border-top-color: rgb(229 159 168 / 0.12);
       }
 
       .faq-item-content code,
@@ -749,22 +749,22 @@
       .mini-card code,
       .link-card code,
       .tip-pill code {
-        background: rgba(255, 211, 122, 0.09);
-        border-color: rgba(255, 211, 122, 0.18);
-        color: #ffe3b0;
+        background: rgb(229 159 168 / 0.09);
+        border-color: rgb(229 159 168 / 0.18);
+        color: #f0c9ce;
       }
 
       .step-number {
         border-radius: 8px;
         background: linear-gradient(135deg, var(--accent), #8d0718);
-        color: #fff8ef;
+        color: #fdf7f8;
       }
 
       .tip-pill,
       .media-placeholder {
         border-radius: 8px;
         background: rgba(10, 5, 6, 0.58);
-        border-color: rgba(255, 211, 122, 0.13);
+        border-color: rgb(229 159 168 / 0.13);
       }
 
       .media-placeholder img {
@@ -819,22 +819,22 @@
       }
 
       :root {
-        --accent: #ffcc80;
-        --accent-soft: rgba(255, 204, 128, 0.18);
-        --accent-strong: #f2d7a4;
-        --gold: #ffcc80;
+        --accent: #e9b4ac;
+        --accent-soft: rgb(233 180 172 / 0.18);
+        --accent-strong: #e3bac0;
+        --gold: #e9b4ac;
         --bg-card: rgba(12, 12, 14, 0.92);
         --bg-soft: rgba(18, 17, 20, 0.9);
-        --text-main: #fff7ef;
-        --text-muted: rgba(250, 240, 232, 0.78);
-        --border-soft: rgba(255, 204, 128, 0.16);
-        --line-warm: rgba(255, 204, 128, 0.3);
+        --text-main: #fdf7f8;
+        --text-muted: rgb(248 240 241 / 0.78);
+        --border-soft: rgb(233 180 172 / 0.16);
+        --line-warm: rgb(233 180 172 / 0.3);
       }
       html { scroll-padding-top: 88px; }
       body {
         min-height: 100%;
         height: auto;
-        background: radial-gradient(circle at 50% 0%, rgba(255,204,128,.08), transparent 32%),
+        background: radial-gradient(circle at 50% 0%, rgb(233 180 172 / .08), transparent 32%),
                     linear-gradient(180deg, #050505 0%, #020202 56%, #000 100%);
         background-attachment: fixed;
       }
@@ -850,10 +850,10 @@
         background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.88) 76%);
         pointer-events: none;
       }
-      a { color: #ffcc80; }
-      a:hover { color: #ffe8b7; }
+      a { color: #e9b4ac; }
+      a:hover { color: #f2ced3; }
       a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
-        outline: 2px solid #ffcc80;
+        outline: 2px solid #e9b4ac;
         outline-offset: 3px;
       }
       .page-wrapper {
@@ -871,7 +871,7 @@
         gap: clamp(12px,2.2vw,28px);
         min-height: 435px;
         padding: clamp(26px,3vw,38px);
-        border: 1px solid rgba(255,204,128,.3);
+        border: 1px solid rgb(233 180 172 / .3);
         border-radius: 10px;
         text-align: left;
         overflow: hidden;
@@ -905,7 +905,7 @@
         border-radius: 0;
         background: transparent;
         box-shadow: none;
-        color: #ffcc80;
+        color: #e9b4ac;
         font: 700 .82rem "Poppins",sans-serif;
         letter-spacing: .18em;
       }
@@ -939,7 +939,7 @@
       .hero-subtitle {
         max-width: 620px;
         margin: 18px 0 0;
-        color: rgba(255,248,239,.78);
+        color: rgb(253 247 248 / .78);
         font-size: 1.02rem;
         line-height: 1.6;
         font-weight: 400;
@@ -952,10 +952,10 @@
         gap: 8px;
         min-height: 42px;
         padding: 9px 14px;
-        border: 1px solid rgba(255,204,128,.24);
+        border: 1px solid rgb(233 180 172 / .24);
         border-radius: 999px;
         background: linear-gradient(180deg,rgba(18,17,20,.94),rgba(10,10,12,.96));
-        color: #fff7ef;
+        color: #fdf7f8;
         font: 700 .87rem "Roboto",sans-serif;
         text-decoration: none;
         box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
@@ -963,7 +963,7 @@
         transition: transform .18s ease,border-color .18s ease,box-shadow .2s ease,background .2s ease;
       }
       .hero-actions a:hover, .faq-accordion-tools button:hover {
-        border-color: rgba(255,204,128,.68);
+        border-color: rgb(233 180 172 / .68);
         background: linear-gradient(180deg,rgba(25,24,27,.98),rgba(14,13,15,.98));
         transform: translateY(-1px);
         box-shadow: 0 14px 30px rgba(0,0,0,.52);
@@ -974,7 +974,7 @@
         right: 30px;
         z-index: 4;
         padding: 7px 0 10px;
-        color: #fff7ef;
+        color: #fdf7f8;
         font: 700 .92rem "Poppins",sans-serif;
         letter-spacing: .04em;
         text-decoration: none;
@@ -988,12 +988,12 @@
         bottom: 2px;
         height: 3px;
         border-radius: 999px;
-        background: linear-gradient(90deg,#ff3048,#ff9e54,#f6d675);
+        background: linear-gradient(90deg,#ff3048,#dd828e,#dd98a1);
         box-shadow: 0 0 18px rgba(255,72,72,.62);
         transition: box-shadow .2s ease;
       }
       .hero-join-link:hover { color: #fff; }
-      .hero-join-link:hover::after { box-shadow: 0 0 22px rgba(255,204,128,.58); }
+      .hero-join-link:hover::after { box-shadow: 0 0 22px rgb(233 180 172 / .58); }
       .hero-panel {
         position: relative;
         z-index: 1;
@@ -1019,8 +1019,8 @@
         max-width: 118%;
         aspect-ratio: 1;
         border-radius: 50%;
-        background: radial-gradient(circle,rgba(255,211,110,.2),transparent 58%),
-                    conic-gradient(from 210deg,rgba(255,204,128,0),rgba(255,204,128,.22),rgba(110,249,255,.12),rgba(255,204,128,0));
+        background: radial-gradient(circle,rgb(235 175 184 / .2),transparent 58%),
+                    conic-gradient(from 210deg,rgb(233 180 172 / 0),rgb(233 180 172 / .22),rgba(110,249,255,.12),rgb(233 180 172 / 0));
         filter: blur(4px);
         opacity: .72;
         pointer-events: none;
@@ -1065,11 +1065,11 @@
         max-height: 430px;
         object-fit: contain;
         margin-top: 10px;
-        filter: drop-shadow(0 38px 42px rgba(0,0,0,.65)) drop-shadow(0 0 28px rgba(255,204,128,.12));
+        filter: drop-shadow(0 38px 42px rgba(0,0,0,.65)) drop-shadow(0 0 28px rgb(233 180 172 / .12));
       }
       .faq-search, .faq-sidebar-inner, .overview-card, .mini-card, .step-card, .link-card,
       .faq-item, .section-shell {
-        border: 1px solid rgba(255,204,128,.16);
+        border: 1px solid rgb(233 180 172 / .16);
         border-radius: 8px;
         background: linear-gradient(180deg,rgba(21,20,23,.94),rgba(11,11,13,.96));
         box-shadow: inset 0 1px 0 rgba(255,255,255,.08),0 18px 44px rgba(0,0,0,.6);
@@ -1088,31 +1088,31 @@
         position: absolute;
         left: 17px;
         z-index: 1;
-        color: #ffcc80;
+        color: #e9b4ac;
         pointer-events: none;
       }
       #faqSearch {
         width: 100%;
         min-height: 50px;
         padding: 11px 75px 11px 46px;
-        border: 1px solid rgba(255,204,128,.3);
+        border: 1px solid rgb(233 180 172 / .3);
         border-radius: 8px;
         background: rgba(3,3,5,.86);
-        color: #fff7ef;
+        color: #fdf7f8;
         font: 400 1rem "Roboto",sans-serif;
         outline: none;
       }
-      #faqSearch:focus { border-color: rgba(255,204,128,.68); box-shadow: 0 0 0 3px rgba(255,204,128,.12); }
-      #faqSearch::placeholder { color: rgba(250,240,232,.53); }
-      .faq-clear { position: absolute; right: 9px; border: 0; border-radius: 5px; padding: 8px 10px; background: rgba(255,204,128,.12); color: #ffcc80; cursor: pointer; }
+      #faqSearch:focus { border-color: rgb(233 180 172 / .68); box-shadow: 0 0 0 3px rgb(233 180 172 / .12); }
+      #faqSearch::placeholder { color: rgb(248 240 241 / .53); }
+      .faq-clear { position: absolute; right: 9px; border: 0; border-radius: 5px; padding: 8px 10px; background: rgb(233 180 172 / .12); color: #e9b4ac; cursor: pointer; }
       .faq-search-status { grid-column: 1 / 2; grid-row: 2; margin: 0; color: var(--text-muted); font-size: .84rem; }
       .faq-accordion-tools { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; grid-column: 2; grid-row: 1 / 3; }
       .faq-accordion-tools button { min-height: 40px; padding: 9px 12px; font-size: .78rem; }
       .faq-layout { display: grid; grid-template-columns: 220px minmax(0,1fr); align-items: start; gap: 24px; }
       .faq-sidebar { min-width: 0; position: sticky; top: 88px; align-self: start; }
       .faq-sidebar-inner { padding: 22px 14px 16px; }
-      .sidebar-kicker { margin: 0 8px 5px; color: #ffcc80; font: 700 .69rem "Poppins",sans-serif; letter-spacing: .13em; }
-      .faq-sidebar h2 { margin: 0 8px 18px; color: #fff7ef; font: 700 1.12rem "Poppins",sans-serif; }
+      .sidebar-kicker { margin: 0 8px 5px; color: #e9b4ac; font: 700 .69rem "Poppins",sans-serif; letter-spacing: .13em; }
+      .faq-sidebar h2 { margin: 0 8px 18px; color: #fdf7f8; font: 700 1.12rem "Poppins",sans-serif; }
       .jump-links {
         display: grid;
         grid-template-columns: 1fr;
@@ -1130,30 +1130,30 @@
         border: 1px solid transparent;
         border-radius: 7px;
         background: transparent;
-        color: rgba(250,240,232,.83);
+        color: rgb(248 240 241 / .83);
         text-decoration: none;
         font-size: .88rem;
         font-weight: 600;
         box-shadow: none;
         transition: background .18s ease,border-color .18s ease,color .18s ease;
       }
-      .jump-links a i:first-child { width: 16px; text-align: center; color: #ffcc80; }
-      .jump-links a i:last-child { margin-left: auto; color: rgba(250,240,232,.38); font-size: .7rem; }
+      .jump-links a i:first-child { width: 16px; text-align: center; color: #e9b4ac; }
+      .jump-links a i:last-child { margin-left: auto; color: rgb(248 240 241 / .38); font-size: .7rem; }
       .jump-links a:hover, .jump-links a[aria-current="location"] {
         transform: none;
-        background: rgba(255,204,128,.09);
-        border-color: rgba(255,204,128,.28);
-        color: #fff7ef;
+        background: rgb(233 180 172 / .09);
+        border-color: rgb(233 180 172 / .28);
+        color: #fdf7f8;
       }
-      .sidebar-top { display: inline-flex; align-items: center; gap: 9px; margin: 18px 9px 2px; color: #ffcc80; text-decoration: none; font-size: .82rem; font-weight: 700; }
+      .sidebar-top { display: inline-flex; align-items: center; gap: 9px; margin: 18px 9px 2px; color: #e9b4ac; text-decoration: none; font-size: .82rem; font-weight: 700; }
       .faq-main { min-width: 0; }
       .overview-grid { grid-template-columns: repeat(2,minmax(0,1fr)); margin: 0 0 20px; gap: 12px; }
-      .overview-card { display: flex; flex-direction: column; gap: 8px; position: relative; padding: 18px; text-decoration: none; color: #fff7ef; transition: transform .18s ease,border-color .18s ease,background .18s ease; }
-      .overview-card:hover { transform: translateY(-2px); border-color: rgba(255,204,128,.45); background: rgba(29,27,29,.96); color: #fff; }
-      .overview-card::before { background: radial-gradient(circle at top left,rgba(255,204,128,.08),transparent 55%); }
+      .overview-card { display: flex; flex-direction: column; gap: 8px; position: relative; padding: 18px; text-decoration: none; color: #fdf7f8; transition: transform .18s ease,border-color .18s ease,background .18s ease; }
+      .overview-card:hover { transform: translateY(-2px); border-color: rgb(233 180 172 / .45); background: rgba(29,27,29,.96); color: #fff; }
+      .overview-card::before { background: radial-gradient(circle at top left,rgb(233 180 172 / .08),transparent 55%); }
       .overview-card h2 { position: relative; font-size: 1.01rem; margin: 0; }
       .overview-card p { position: relative; font-size: .85rem; flex: 1; }
-      .overview-arrow { position: relative; color: #ffcc80; font-size: .76rem; font-weight: 700; margin-top: 4px; }
+      .overview-arrow { position: relative; color: #e9b4ac; font-size: .76rem; font-weight: 700; margin-top: 4px; }
       .section-shell { padding: 24px; margin-top: 20px; }
       .faq-section + .faq-section, .section-shell + .section-shell { margin-top: 20px; }
       .faq-section { scroll-margin-top: 88px; }
@@ -1162,16 +1162,16 @@
       .faq-list { gap: 9px; }
       .faq-item { scroll-margin-top: 96px; overflow: hidden; }
       .faq-item summary { padding: 17px 18px; line-height: 1.45; font-size: .96rem; }
-      .faq-item summary:hover { color: #ffcc80; }
-      .faq-item summary::after { color: #ffcc80; }
-      .faq-item[open] { border-color: rgba(255,204,128,.35); }
-      .faq-item[open] summary { color: #fff7ef; }
-      .faq-item-content { border-top: 1px solid rgba(255,204,128,.13); padding: 0 18px 18px; }
-      .faq-item-content p, .faq-item-content li { color: rgba(250,240,232,.82); }
+      .faq-item summary:hover { color: #e9b4ac; }
+      .faq-item summary::after { color: #e9b4ac; }
+      .faq-item[open] { border-color: rgb(233 180 172 / .35); }
+      .faq-item[open] summary { color: #fdf7f8; }
+      .faq-item-content { border-top: 1px solid rgb(233 180 172 / .13); padding: 0 18px 18px; }
+      .faq-item-content p, .faq-item-content li { color: rgb(248 240 241 / .82); }
       .faq-item-content code, .step-card code, .mini-card code, .link-card code, .tip-pill code {
-        border-color: rgba(255,204,128,.18);
-        background: rgba(255,204,128,.08);
-        color: #ffe3b0;
+        border-color: rgb(233 180 172 / .18);
+        background: rgb(233 180 172 / .08);
+        color: #f0c9ce;
       }
       .command-grid,.links-grid { gap: 12px; }
       .step-card,.mini-card,.link-card { padding: 18px; }
@@ -1179,22 +1179,22 @@
       .tips-list { gap: 9px; }
       .tip-pill,.media-placeholder {
         border-radius: 8px;
-        border-color: rgba(255,204,128,.16);
+        border-color: rgb(233 180 172 / .16);
         background: rgba(12,12,14,.85);
       }
       .media-placeholder img { border-radius: 8px; }
       .resource-link { padding: 4px 0; }
-      .resource-link i,.accent { color: #ffcc80; }
+      .resource-link i,.accent { color: #e9b4ac; }
       .footnote { max-width: 840px; margin: 32px auto 0; }
       .faq-no-results {
         margin: 0 0 20px;
         padding: 22px;
-        border: 1px solid rgba(255,204,128,.3);
+        border: 1px solid rgb(233 180 172 / .3);
         border-radius: 8px;
         background: rgba(21,20,23,.94);
-        color: #fff7ef;
+        color: #fdf7f8;
       }
-      .faq-no-results button { border: 0; background: none; padding: 0; color: #ffcc80; font: inherit; text-decoration: underline; cursor: pointer; }
+      .faq-no-results button { border: 0; background: none; padding: 0; color: #e9b4ac; font: inherit; text-decoration: underline; cursor: pointer; }
       .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
       [hidden] { display: none !important; }
       #navbar { --accent: #ff4558; --accent-soft: rgba(255,69,88,.18); --accent-strong: #ff6f81; }
@@ -1246,8 +1246,6 @@
 
       html,
       body {
-          background: #000000 !important;
-          background-image: none !important;
           min-height: 100%;
           color-scheme: dark;
       }
@@ -1257,29 +1255,30 @@
       }
 
     </style>
+    <link rel="stylesheet" href="styles/maul-theme.css" />
   </head>
 
-  <body>
+  <body class="maul-themed">
     <div id="navbar"></div>
 
     <div class="page-wrapper">
-      <header class="hero" id="top">
+      <header class="hero maul-page-hero" id="top">
         <div class="hero-copy">
           <div class="header-badge">Player + Host Quick Reference</div>
           <h1>Modded Among Us <span>FAQ</span></h1>
-          <p class="hero-subtitle">A general how-to page for players and hosts.</p>
+          <p class="hero-subtitle">Quick answers for players and hosts.</p>
           <div class="hero-actions">
-            <a href="#players" class="cta-primary"><i class="fa-solid fa-gamepad" aria-hidden="true"></i> Player Help</a>
-            <a href="#hosts" class="cta-secondary"><i class="fa-solid fa-server" aria-hidden="true"></i> Host Help</a>
+            <a href="#players" class="cta-primary maul-hero-primary"><i class="fa-solid fa-gamepad" aria-hidden="true"></i> Player Help</a>
+            <a href="#hosts" class="cta-secondary maul-hero-secondary"><i class="fa-solid fa-server" aria-hidden="true"></i> Host Help</a>
           </div>
         </div>
-        <div class="hero-panel" aria-label="MAUL mascot illustration">
+        <div class="hero-panel maul-hero-art" aria-label="MAUL mascot illustration">
           <div class="hero-banner-card" aria-hidden="true">
             <img src="images/banner-transparent-cropped.png" alt="" loading="lazy" decoding="async" />
           </div>
           <img src="images/maulnobg.png" alt="MAUL mascot" loading="eager" decoding="async" />
         </div>
-        <a class="hero-join-link" href="https://discord.gg/MAUL" target="_blank" rel="noopener">Join MAUL</a>
+        <a class="hero-join-link maul-hero-secondary" href="https://discord.gg/MAUL" target="_blank" rel="noopener">Join MAUL</a>
       </header>
 
       <section class="faq-search" role="search" aria-label="Search the FAQ">
@@ -1336,17 +1335,14 @@
 
       <section id="players" class="section-shell faq-section">
         <h2>For Players</h2>
-        <p class="section-intro">
-          New to Modded Among Us? Start here. These are the questions players usually ask first.
-        </p>
+        <p class="section-intro">Common commands for playing, meetings, and hosting. Some are EHR-specific.</p>
 
         <div class="faq-list">
           <details class="faq-item" open>
             <summary>What is Modded Among Us?</summary>
             <div class="faq-item-content">
               <p>
-                Modded Among Us is not just impostors versus crewmates anymore. Games can include impostors, crewmates,
-                coven roles, neutrals, and add-ons all in the same match.
+                A match can include impostors, crewmates, coven, neutrals, and add-ons.
               </p>
               <p>
                 Depending on the mod, you may also get access to mini-games like FFA.
@@ -1364,8 +1360,7 @@
             <summary>Do I need to install the mod to join a lobby?</summary>
             <div class="faq-item-content">
               <p>
-                For standard host-only lobbies, the host is the one who must have the mod installed. Players can
-                usually join without installing the mod themselves.
+                In a host-only lobby, only the host needs the mod.
               </p>
               <p>
                 However, some mods like Town of Us Mira may require players to install the mod too. Those can be installed
@@ -1505,8 +1500,7 @@
             <summary>What if I die?</summary>
             <div class="faq-item-content">
               <p>
-                Do not leave. Some roles can still win after death, some ghost roles activate after death, and ghost
-                chat is still useful. Leaving early can also make you miss role information that matters later.
+                Stay in the lobby after you die. You can still use ghost chat, and some roles activate or can still win after death.
               </p>
             </div>
           </details>
@@ -1812,7 +1806,7 @@
               <a class="resource-link" href="https://moddedamong.us/mods" target="_blank" rel="noopener"><i class="fa-solid fa-puzzle-piece"></i> Featured mods</a>
               <a class="resource-link" href="https://moddedamong.us/tags" target="_blank" rel="noopener"><i class="fa-solid fa-tag"></i> Custom tag generator</a>
               <a class="resource-link" href="https://moddedamong.us/presets" target="_blank" rel="noopener"><i class="fa-solid fa-sliders"></i> Lobby presets</a>
-              <a class="resource-link" href="https://moddedamong.us/lobbytemplates" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i> Lobby templates</a>
+              <a class="resource-link" href="/templates.html" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i> Lobby templates</a>
               <a class="resource-link" href="https://moddedamong.us/icons.html" target="_blank" rel="noopener"><i class="fa-solid fa-icons"></i> Fonts and icons</a>
               <a class="resource-link" href="https://moddedamong.us/hexhelper.html" target="_blank" rel="noopener"><i class="fa-solid fa-palette"></i> Anti-cheat friendly hex helper</a>
             </div>
@@ -1856,9 +1850,7 @@
         </div>
       </div>
 
-      <p class="footnote">
-        This FAQ is a condensed quick-reference based on the notes provided by myslef, or mod support users. Exact commands, file paths, and region behavior can vary by mod, platform, and version.
-      </p>
+      <p class="footnote">Commands, file paths, and regions vary by mod, platform, and version.</p>
     </div>
 
 
@@ -1956,6 +1948,10 @@
       })();
     </script>
 
-    <script src="/scripts/navbar.js"></script>
-  </body>
+    <script src="scripts/navbar.js"></script>
+
+    <footer class="maul-shared-footer">
+      <p class="maul-footer-credit">Made with ♡ by Maul</p>
+    </footer>
+</body>
 </html>
