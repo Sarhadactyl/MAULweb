@@ -7,7 +7,7 @@
     : "https://api.moddedamong.us/api/maulpost");
   const accountApi = "/lobbies/account";
   const el = (id) => document.getElementById(id);
-  const state = { enabled: false, user: null, lobbies: [], tokenCommand: "", busy: false };
+  const state = { enabled: false, user: null, lobbies: [], tokenCommand: "", busy: false, accessUnavailable: false };
   const notices = {
     registered: "Verify your Among Us account or link your Discord website login to view lobbies.",
     pending: "Waiting for your Among Us friend request.",
@@ -16,6 +16,14 @@
     suspended: "This account is suspended from viewing lobbies.",
     check_unavailable: "Lobby access checks are temporarily unavailable.",
     discord_unverified: "Your Discord login needs the verified role. You can sign out and verify with Among Us.",
+  };
+  const verificationLabels = {
+    registered: "Verification needed",
+    pending: "Verification pending",
+    banned: "Access restricted",
+    suspended: "Access suspended",
+    check_unavailable: "Lobby access check unavailable",
+    discord_unverified: "Verification needed",
   };
 
   try {
@@ -26,6 +34,25 @@
 
   function notice(message = "") {
     el("accountMessage").textContent = message;
+  }
+
+  function renderSession(user, allowed, status, restricted) {
+    const summary = el("sessionSummary");
+    const badge = el("sessionBadge");
+    if (!summary) {
+      badge.textContent = user ? `${user.username}${allowed ? " · Verified" : ""}` : "Not logged in";
+      return;
+    }
+    badge.hidden = !!user;
+    summary.hidden = !user;
+    if (!user) return;
+    summary.dataset.state = allowed ? "verified" : restricted ? "restricted" : "pending";
+    const username = el("signedInUser");
+    const verificationBadge = el("verificationBadge");
+    const label = allowed ? "Verified" : verificationLabels[status] || "Verification needed";
+    if (username.textContent !== user.username) username.textContent = user.username;
+    if (verificationBadge.textContent !== label) verificationBadge.textContent = label;
+    el("viewLiveLobbies").hidden = !allowed;
   }
 
   async function api(path, body) {
@@ -51,7 +78,10 @@
     const website = user?.accountType === "website";
     const restricted = ["banned", "suspended"].includes(user?.status);
     const challenge = user?.challenge;
-    const allowed = !!user && (state.enabled ? user.canViewLobbies === true : true);
+    const allowed = !!user && !state.accessUnavailable && (!state.enabled || user.canViewLobbies === true);
+    const status = state.accessUnavailable || (user?.status === "verified" && !allowed)
+      ? "check_unavailable" : user?.status;
+    el("verificationIntro").hidden = !!user && !!el("sessionSummary");
     el("verificationIntro").textContent = state.enabled
       ? "Verify in Among Us or verify in Discord to see live Modded Among Us lobbies."
       : "Verify in Discord to see live Maul region lobbies.";
@@ -59,8 +89,8 @@
     el("loginPanel").hidden = !!user;
     el("accountPanel").hidden = !website;
     el("logoutBtn").hidden = !user;
-    el("sessionBadge").textContent = user ? `${user.username}${allowed ? " · Verified" : ""}` : "Not logged in";
-    el("accountStatus").textContent = notices[user?.status] || "";
+    renderSession(user, allowed, status, restricted);
+    el("accountStatus").textContent = allowed && !challenge && el("sessionSummary") ? "" : notices[status] || "";
     el("accountIdentity").hidden = !user?.friendCode;
     el("accountIdentity").textContent = user?.friendCode ? `Verified Among Us friend code ${user.friendCode}` : "";
     el("verificationProgress").hidden = !challenge || restricted;
@@ -103,7 +133,7 @@
     el("tableWrap").hidden = rows.length === 0;
     el("emptyState").hidden = rows.length > 0;
     el("emptyState").textContent = !user ? "Log in to see MAUL public lobbies."
-      : !allowed ? notices[user.status] || "Lobby access is unavailable."
+      : !allowed ? notices[status] || "Lobby access is unavailable."
       : state.lobbies.length ? "No matching lobbies found."
       : "No public MAUL lobbies are listed right now.";
   }
@@ -112,16 +142,19 @@
     let profile;
     try {
       profile = await api(accountApi);
+      state.accessUnavailable = false;
       state.enabled = profile.enabled === true;
       state.user = profile.user || null;
     } catch (error) {
       if (error.status !== 404) {
         state.lobbies = [];
+        state.accessUnavailable = true;
         render();
         throw error;
       }
       state.enabled = false;
       state.user = null;
+      state.accessUnavailable = false;
     }
     if (profile && !state.user?.canViewLobbies) {
       state.lobbies = [];
@@ -137,6 +170,7 @@
       if (error.status === 401) state.user = null;
       if (error.status !== 401) {
         if (state.user) state.user.canViewLobbies = false;
+        state.accessUnavailable = true;
         render();
         throw error;
       }
@@ -231,6 +265,7 @@
     await api("/lobbies/logout", {});
     state.user = null;
     state.lobbies = [];
+    state.accessUnavailable = false;
     showRecovery();
     notice();
     render();
