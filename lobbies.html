@@ -204,6 +204,43 @@
 
       .lobbies-hero .actions { margin-top: 24px; }
 
+      .session-summary {
+        --status-color: #f2cd93;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px 24px;
+        margin-bottom: 20px;
+        padding: 14px 18px;
+        border: 1px solid var(--rule);
+        border-inline-start: 3px solid var(--status-color);
+        border-radius: 6px;
+        background: #151016;
+      }
+
+      .session-summary[data-state="verified"] { --status-color: #91deb2; }
+      .session-summary[data-state="restricted"] { --status-color: #f5a4a8; }
+
+      .session-summary p {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 7px 14px;
+        min-width: 0;
+        margin: 0;
+      }
+
+      #signedInUser { overflow-wrap: anywhere; }
+
+      .verification-badge {
+        padding: 3px 10px;
+        border: 1px solid var(--status-color);
+        border-radius: 4px;
+        color: var(--status-color);
+        font-size: 0.9rem;
+      }
+
       .hero-art {
         position: relative;
         display: grid;
@@ -345,12 +382,13 @@
       .page-shell input::placeholder { color: var(--muted); }
       .lobby-toolbar {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) auto auto;
+        grid-template-columns: minmax(0, 1fr) auto;
         align-items: center;
         gap: 12px;
         padding-bottom: 14px;
         border-bottom: 1px solid var(--rule);
       }
+      #liveLobbies { scroll-margin-top: 16px; }
       .session-badge, .empty { color: var(--muted); font-size: 0.9rem; }
       .empty { padding: 28px 8px 12px; text-align: center; }
       .notice { margin: 0 0 20px; color: var(--rose-gold-light); }
@@ -410,7 +448,7 @@
         <div>
           <p class="eyebrow">MAUL public lobbies</p>
           <h1 id="lobby-title">Live <span>Lobbies</span></h1>
-          <p class="hero-subtitle" id="verificationIntro">Verify in Among Us or verify in Discord to see live MAUL lobbies.</p>
+          <p class="hero-subtitle" id="verificationIntro">Verify in Among Us or verify in Discord to see live Modded Among Us lobbies.</p>
           <div class="actions">
             <a class="btn" href="MAUL.html"><i class="fa-solid fa-ranking-star"></i> Rankings</a>
             <button class="btn primary" type="button" id="refreshBtn"><i class="fa-solid fa-rotate"></i> Refresh</button>
@@ -420,6 +458,14 @@
           <img class="hero-banner" src="images/banner-transparent-cropped.png" alt="" />
           <img class="hero-character" src="images/maulnobg.png" alt="" fetchpriority="high" />
         </div>
+      </section>
+
+      <section class="session-summary" id="sessionSummary" aria-label="Account and verification" hidden>
+        <p role="status">
+          <span>Signed in as <strong id="signedInUser"></strong></span>
+          <strong class="verification-badge" id="verificationBadge"></strong>
+        </p>
+        <a class="btn primary" id="viewLiveLobbies" href="#liveLobbies" hidden>View live lobbies</a>
       </section>
 
       <section class="panel login-panel" id="accountEntry" hidden>
@@ -536,7 +582,7 @@
       </section>
       <p class="notice" id="accountMessage" role="status" aria-live="polite"></p>
 
-      <section class="panel lobby-panel">
+      <section class="panel lobby-panel" id="liveLobbies" aria-label="Live lobbies">
         <div class="lobby-toolbar">
           <input id="searchInput" type="search" placeholder="Search host, code, region, or mod" autocomplete="off" />
           <span class="session-badge" id="sessionBadge">Not logged in</span>
@@ -566,6 +612,6 @@
     </footer>
 
     <script src="/scripts/navbar.js?v=20261028-nav-6"></script>
-    <script src="/scripts/maul-lobby-accounts.js" defer></script>
+    <script src="/scripts/maul-lobby-accounts.js?v=20261112-status" defer></script>
   </body>
 </html>
