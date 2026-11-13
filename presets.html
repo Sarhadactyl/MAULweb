@@ -590,6 +590,392 @@ body.spotlight-open { overflow: hidden; }
 
 </style>
     <link rel="stylesheet" href="styles/maul-theme.css" />
+    <style>
+      .maul-credit-footer {
+        width: min(100%, 1000px);
+        margin: 70px auto 40px;
+        padding: 0 20px;
+      }
+
+      .maul-credit-footer .footer-inner {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: #e9b4ac;
+      }
+
+      .maul-credit-footer .footer-inner::before,
+      .maul-credit-footer .footer-inner::after {
+        content: "";
+        height: 1px;
+        flex: 1;
+        min-width: 15px;
+        background: linear-gradient(90deg, transparent, rgb(233 180 172 / 60%));
+      }
+
+      .maul-credit-footer .footer-inner::after {
+        transform: scaleX(-1);
+      }
+
+      .maul-credit-footer p {
+        margin: 0;
+        white-space: nowrap;
+        font-size: clamp(.79rem, 2.3vw, 1.05rem);
+        letter-spacing: .09em;
+      }
+
+      @media (max-width: 600px) {
+        .maul-credit-footer .footer-inner {
+          gap: 9px;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&amp;display=swap" />
+    <style id="maul-home-style">
+      :root {
+        --home-rose: #e9b4ac;
+        --home-rose-light: #f5d5c9;
+        --home-rose-deep: #b76e79;
+        --home-ink: #09080b;
+        --home-paper: #f9f3ef;
+        --home-muted: #c5b8b8;
+        --home-rule: rgb(233 180 172 / 24%);
+        --home-rule-fade: linear-gradient(90deg, rgb(233 180 172 / 65%), rgb(233 180 172 / 14%));
+        --home-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+        --home-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+        --accent: var(--home-rose);
+        --accent-strong: var(--home-rose-light);
+        --text-main: var(--home-paper);
+        --text-muted: var(--home-muted);
+        --line: var(--home-rule);
+      }
+
+      body.maul-themed {
+        background: radial-gradient(ellipse at 75% 12rem, rgb(183 110 121 / 12%), transparent 36rem), var(--home-ink);
+        color: var(--home-paper);
+        font: 1rem/1.6 var(--home-sans);
+      }
+
+      body.maul-themed ::selection {
+        color: var(--home-ink);
+        background: var(--home-rose-light);
+      }
+
+      .page-wrapper {
+        width: min(1160px, calc(100% - 64px));
+        padding: 0;
+        display: flow-root;
+      }
+
+      .page-wrapper > .page-header {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(28px, 5vw, 68px);
+        min-height: 0;
+        margin: 0;
+        padding: clamp(56px, 7vw, 100px) 0 clamp(46px, 6vw, 78px);
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .page-header h1 {
+        font: 700 clamp(2.85rem, 6.1vw, 5.5rem)/1.08 "Libre Baskerville", Georgia, serif;
+        letter-spacing: -.055em;
+        text-transform: none;
+        text-shadow: none;
+      }
+
+      .hero-title-line {
+        padding-bottom: .14em;
+        margin-bottom: -.14em;
+      }
+
+      .hero-title-accent {
+        width: fit-content;
+        background: none;
+        color: var(--home-rose);
+        -webkit-text-fill-color: currentColor;
+      }
+
+      @supports (background-clip: text) or (-webkit-background-clip: text) {
+        .hero-title-accent {
+          background: linear-gradient(105deg, var(--home-rose-light), var(--home-rose) 45%, #fff0cb 51%, var(--home-rose) 58%, var(--home-rose-deep));
+          background-size: 340% 100%;
+          background-position: 100% 50%;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          animation: maulHomeHeadingGleam 13s ease-in-out infinite;
+        }
+      }
+
+      @keyframes maulHomeHeadingGleam {
+        0%, 14% { background-position: 100% 50%; }
+        28%, 100% { background-position: 0% 50%; }
+      }
+
+      .page-header-subtitle {
+        max-width: 45ch;
+        margin-top: 24px;
+        font-size: clamp(1rem, 1.8vw, 1.125rem);
+        line-height: 1.6;
+      }
+
+      .header-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .page-header .hero-join-link {
+        width: auto;
+        min-height: 48px;
+        padding: 9px 19px;
+        font: 650 1rem/1.6 var(--home-sans);
+        transform: none;
+      }
+
+      body.maul-themed .page-header a.maul-hero-primary,
+      body.maul-themed .page-header a.maul-hero-primary:is(:hover, :focus-visible) {
+        color: #29191f;
+        border-color: var(--home-rose-light);
+        background: linear-gradient(115deg, #f8d4af, #b75863);
+        box-shadow: 0 2px 13px rgb(205 147 92 / 12%), inset 0 1px 0 rgb(255 235 201 / 24%);
+      }
+
+      body.maul-themed .page-header a.maul-hero-primary:is(:hover, :focus-visible) {
+        border-color: #f5d7a6;
+        box-shadow: 0 0 20px rgb(233 185 112 / 24%), 0 0 38px rgb(233 180 172 / 10%);
+      }
+
+      body.maul-themed .page-header a.maul-hero-secondary {
+        color: var(--home-paper);
+        border-color: var(--home-rule);
+        background: rgb(233 180 172 / 5%);
+        box-shadow: none;
+      }
+
+      body.maul-themed .page-header a.maul-hero-secondary:is(:hover, :focus-visible) {
+        color: var(--home-paper);
+        border-color: var(--home-rose);
+        background: rgb(233 180 172 / 12%);
+      }
+
+      .hero-panel {
+        display: grid;
+        place-items: center;
+        width: 100%;
+        min-height: 0;
+        aspect-ratio: 1.08;
+      }
+
+      body.maul-themed .hero-panel::before {
+        width: 100%;
+        background: radial-gradient(ellipse, rgb(183 110 121 / 24%), transparent 66%);
+      }
+
+      .hero-panel::after {
+        inset: 23% 15%;
+        border-radius: 6px;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .hero-banner-card {
+        inset: 0;
+        padding: 0;
+        border-radius: 0;
+        overflow: visible;
+      }
+
+      .hero-banner-card img {
+        width: 67%;
+        max-height: none;
+        opacity: .7;
+      }
+
+      .hero-panel > img {
+        width: min(88%, 420px);
+        max-height: none;
+        filter: drop-shadow(0 22px 25px rgb(0 0 0 / 54%));
+      }
+
+      .featured-highlight-header,
+      .mods-category-nav,
+      .mini-steps-wrap {
+        border-top: 1px solid var(--home-rule);
+        border-image: var(--home-rule-fade) 1;
+      }
+
+      .featured-highlight-header {
+        padding-top: clamp(20px, 3vw, 36px);
+      }
+
+      .featured-heading,
+      .mods-section-title,
+      .mini-steps-title,
+      .modal-title,
+      .link-warning-title {
+        color: var(--home-paper);
+        font-family: Georgia, serif;
+        font-weight: 400;
+        letter-spacing: -.04em;
+      }
+
+      .featured-highlight-label,
+      .featured-highlight-pill,
+      .mod-status-tag,
+      .section-chip,
+      .mod-search-count {
+        color: var(--home-rose);
+        font-family: var(--home-mono);
+        font-weight: 600;
+        letter-spacing: .1em;
+      }
+
+      .featured-highlight-pill {
+        border: 0;
+        background: transparent;
+      }
+
+      .mods-category-nav,
+      .mod-search,
+      .mini-steps-wrap {
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .mods-category-nav {
+        margin-top: 0;
+        padding: 18px 0;
+        justify-content: flex-start;
+        border-inline: 0;
+        border-bottom: 1px solid var(--home-rule);
+      }
+
+      .mods-category-nav a,
+      .page-wrapper .btn {
+        border-color: var(--home-rule);
+        background: rgb(233 180 172 / 5%);
+        font-weight: 650;
+        box-shadow: none;
+      }
+
+      .mods-category-nav a:is(:hover, :focus-visible),
+      .page-wrapper .btn:is(:hover, :focus-visible) {
+        color: var(--home-rose-light);
+        border-color: var(--home-rose);
+        background: rgb(233 180 172 / 12%);
+        box-shadow: none;
+        animation: none;
+        transform: none;
+      }
+
+      .mod-search {
+        border: 0;
+        padding: 0;
+      }
+
+      #mods-search,
+      .mod-search-count {
+        border-color: var(--home-rule);
+        background: rgb(233 180 172 / 5%);
+      }
+
+      #mods-search::placeholder {
+        color: var(--home-muted);
+        opacity: 1;
+      }
+
+      .page-wrapper .card,
+      .page-wrapper #featured-grid .card {
+        border-color: var(--home-rule);
+        border-radius: 4px;
+        background: rgb(20 16 20 / 92%);
+        box-shadow: none;
+      }
+
+      .page-wrapper .card:is(:hover, :focus-within),
+      .page-wrapper #featured-grid .card:is(:hover, :focus-within) {
+        border-color: rgb(233 180 172 / 55%);
+        background: rgb(25 19 24 / 95%);
+        box-shadow: none;
+        transform: none;
+      }
+
+      .page-wrapper .card .title {
+        font-family: var(--home-sans);
+        font-weight: 650;
+      }
+
+      .page-wrapper .card .thumb {
+        background: radial-gradient(ellipse at 50% 30%, rgb(183 110 121 / 10%), transparent 70%), rgb(0 0 0 / 22%);
+      }
+
+      .mini-steps-wrap {
+        border-inline: 0;
+        border-bottom: 1px solid var(--home-rule);
+        padding-inline: 0;
+      }
+
+      .maul-credit-footer {
+        margin-block: clamp(48px, 7vw, 70px) 32px;
+      }
+
+      .maul-credit-footer .footer-inner {
+        color: var(--home-rose);
+      }
+
+      .maul-credit-footer p {
+        font-family: var(--home-mono);
+        letter-spacing: .08em;
+      }
+
+      @media (max-width: 760px) {
+        .page-wrapper {
+          width: calc(100% - 36px);
+        }
+
+        .page-wrapper > .page-header {
+          grid-template-columns: 1fr;
+          gap: 0;
+          padding-block: 48px 12px;
+        }
+
+        .page-header h1 {
+          font-size: clamp(2.45rem, 10.5vw, 4.8rem);
+        }
+
+        .hero-panel {
+          width: min(60%, 240px);
+          justify-self: center;
+          margin-block: -20px -26px;
+        }
+
+        .hero-panel::after {
+          inset: 24% 15%;
+        }
+
+        .hero-banner-card img {
+          width: 82%;
+        }
+      }
+
+      @media (min-width: 761px) {
+        body.maul-themed .hero-panel::before {
+          display: none;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-title-accent {
+          animation: none;
+        }
+      }
+    </style>
   </head>
 
   <body class="maul-themed">
@@ -682,6 +1068,12 @@ body.spotlight-open { overflow: hidden; }
           mod presets
         </a>.
       </p>
+
+      <footer class="maul-credit-footer">
+        <div class="footer-inner">
+          <p>Made with ♡ by Maul</p>
+        </div>
+      </footer>
     </div>
 
     <script>
@@ -1164,9 +1556,5 @@ body.spotlight-open { overflow: hidden; }
     </script>
 
     <script src="scripts/navbar.js"></script>
-
-    <footer class="maul-shared-footer">
-      <p class="maul-footer-credit">Made with ♡ by Maul</p>
-    </footer>
 </body>
 </html>
