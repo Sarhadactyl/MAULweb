@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="#09080b" name="theme-color"/>
+  <title>
+   Modded Among Us Awards - MAUL
+  </title>
+  <link href="images/favicon.png" rel="icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&amp;display=swap" rel="stylesheet"/>
+  <link href="/styles/navbar.css?v=20261028-nav-6" rel="stylesheet"/>
+  <style>
+   :root {
+  color-scheme:dark;
+  --ink:#09080b;
+  --paper:#f9f3ef;
+  --muted:#c5b8b8;
+  --rose:#e9b4ac;
+  --light:#f5d5c9;
+  --deep:#b76e79;
+  --rule:rgba(233,180,172,.23)
+}
+
+* {
+  box-sizing:border-box
+}
+
+body {
+  margin:0;
+  color:var(--paper);
+  background:radial-gradient(ellipse at 78% 10%,rgba(110,49,66,.42),transparent 34rem),linear-gradient(90deg,#09080b 0%,#10070d 30%,#1d0d15 58%,#25101a 74%,#140a10 100%);
+  font:16px/1.55 system-ui,-apple-system,'Segoe UI',sans-serif;
+  position:relative;
+  overflow-x:hidden
+}
+
+button,input {
+  font:inherit
+}
+
+button {
+  cursor:pointer
+}
+
+a {
+  color:var(--light)
+}
+
+.shell {
+  width:min(1160px,calc(100% - 40px));
+  margin:auto
+}
+
+header.hero {
+  padding:72px 0 38px;
+  text-align:center
+}
+
+.eyebrow {
+  color:var(--rose);
+  font:600 .73rem/1.5 ui-monospace,Consolas,monospace;
+  letter-spacing:.21em;
+  text-transform:uppercase
+}
+
+.hero h1 {
+  max-width:850px;
+  margin:12px auto;
+  font:700 clamp(2.5rem,7vw,5.6rem)/1.08 'Libre Baskerville',Georgia,serif;
+  letter-spacing:-.055em
+}
+
+.metal {
+  background:linear-gradient(115deg,#fff3dc,var(--light) 35%,var(--rose) 70%,var(--deep));
+  color:transparent;
+  background-clip:text
+}
+
+.hero p.copy {
+  max-width:620px;
+  margin:20px auto;
+  color:var(--muted);
+  font-size:1.07rem
+}
+
+.thin {
+  border:0;
+  border-top:1px solid var(--rule);
+  margin:25px 0
+}
+
+.status {
+  border:1px solid var(--rule);
+  background:#160f16;
+  padding:15px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+  border-radius:5px
+}
+
+.status strong {
+  color:var(--light)
+}
+
+.status-note {
+  color:var(--muted);
+  font-size:.88rem
+}
+
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border:1px solid var(--rule);
+  color:var(--paper);
+  padding:11px 19px;
+  border-radius:5px;
+  min-height:44px;
+  background:#1d141b;
+  text-decoration:none;
+  font-weight:600
+}
+
+.btn.primary {
+  background:linear-gradient(115deg,#f8d4af,#b75863);
+  color:#29191f;
+  border-color:var(--light)
+}
+
+.btn:hover:not(:disabled) {
+  border-color:var(--rose)
+}
+
+.btn:disabled {
+  opacity:.5;
+  cursor:not-allowed
+}
+
+.filters {
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  margin:30px 0 38px
+}
+
+.filter {
+  padding:9px 15px;
+  border:1px solid var(--rule);
+  background:transparent;
+  border-radius:4px;
+  color:var(--muted)
+}
+
+.filter.selected {
+  background:linear-gradient(125deg,var(--light),var(--deep));
+  color:#29191f;
+  border-color:var(--rose);
+  font-weight:650
+}
+
+.section {
+  margin:0 0 65px
+}
+
+.section-heading {
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin:0 0 22px
+}
+
+.section-heading h2 {
+  margin:0;
+  font:700 clamp(1.65rem,3vw,2.5rem)/1.2 Georgia,serif
+}
+
+.section-heading:after {
+  content:"";
+  height:1px;
+  flex:1;
+  background:linear-gradient(90deg,var(--rule),transparent)
+}
+
+.awards-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px
+}
+
+.award {
+  padding:25px;
+  border:1px solid var(--rule);
+  border-radius:7px;
+  background:linear-gradient(150deg,rgba(233,180,172,.07),transparent 70%),#110d12;
+  text-align:left;
+  min-height:170px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:17px;
+  color:var(--paper);
+  transition:border-color .2s,transform .2s
+}
+
+.award:hover {
+  border-color:rgba(233,180,172,.65);
+  transform:translateY(-3px)
+}
+
+.award small {
+  color:var(--rose);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font:.72rem ui-monospace,Consolas,monospace
+}
+
+.award h3 {
+  margin:0;
+  font:700 1.55rem/1.2 Georgia,serif
+}
+
+.award .arrow {
+  color:var(--rose);
+  font-size:.9rem
+}
+
+.award.voted {
+  border-color:rgba(145,222,178,.4)
+}
+
+.award.voted small {
+  color:#99d8b2
+}
+
+.foot {
+  padding:48px 0;
+  border-top:1px solid var(--rule);
+  color:var(--muted);
+  text-align:center;
+  font-size:.85rem
+}
+
+.overlay {
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:rgba(0,0,0,.8);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  overflow-y:auto;
+  backdrop-filter:blur(9px)
+}
+
+[hidden] {
+  display:none!important
+}
+
+.dialog {
+  width:min(1040px,100%);
+  max-height:calc(100dvh - 36px);
+  overflow-y:auto;
+  border:1px solid rgba(233,180,172,.42);
+  background:radial-gradient(ellipse at top right,rgba(183,110,121,.18),transparent 70%),#130e14;
+  border-radius:10px;
+  padding:clamp(19px,3vw,38px);
+  box-shadow:0 24px 100px #000
+}
+
+.dialog-head {
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  align-items:flex-start
+}
+
+.dialog h2 {
+  font:700 clamp(1.7rem,3.5vw,2.8rem)/1.15 Georgia,serif;
+  margin:4px 0 8px
+}
+
+.muted {
+  color:var(--muted)
+}
+
+.close {
+  border:1px solid var(--rule);
+  background:transparent;
+  color:var(--paper);
+  border-radius:4px;
+  width:42px;
+  height:42px;
+  flex:0 0 auto;
+  font-size:1.5rem
+}
+
+.three {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:13px;
+  margin:25px 0
+}
+
+.nominee {
+  border:1px solid var(--rule);
+  padding:0 0 14px;
+  border-radius:8px;
+  background:#1a141c;
+  overflow:hidden;
+  min-width:0;
+  color:var(--paper);
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  position:relative;
+  transition:border-color .18s,transform .18s
+}
+
+.nominee:hover:not(:disabled) {
+  transform:translateY(-3px);
+  border-color:var(--rose)
+}
+
+.nominee.chosen {
+  border:2px solid var(--light);
+  background:#2b1b25
+}
+
+.nominee:disabled {
+  cursor:default;
+  opacity:.74
+}
+
+.art {
+  aspect-ratio:4/4.6;
+  width:100%;
+  background:radial-gradient(circle at 50% 45%,rgba(233,180,172,.18),transparent 55%),linear-gradient(145deg,#30202a,#100c12);
+  display:grid;
+  place-content:center;
+  overflow:hidden
+}
+
+.art img {
+  width:100%;
+  height:100%;
+  object-fit:cover
+}
+
+.art.duo-art {
+  display:flex;
+  align-items:stretch
+}
+
+.art.duo-art img {
+  width:50%;
+  height:auto;
+  min-width:0;
+  object-fit:cover
+}
+
+.placeholder {
+  font:700 clamp(2rem,5vw,5rem) Georgia,serif;
+  color:rgba(245,213,201,.4)
+}
+
+.nominee-name {
+  padding:0 10px;
+  font:700 clamp(.95rem,1.8vw,1.3rem)/1.3 Georgia,serif;
+  overflow-wrap:anywhere
+}
+
+.pick {
+  font:.7rem ui-monospace,Consolas,monospace;
+  letter-spacing:.1em;
+  color:var(--rose);
+  text-transform:uppercase
+}
+
+.dialog-actions {
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:space-between
+}
+
+.alert {
+  min-height:1.7em;
+  color:var(--light);
+  font-size:.9rem
+}
+
+.login-form {
+  display:grid;
+  gap:12px;
+  margin-top:18px;
+  max-width:520px
+}
+
+.field {
+  display:grid;
+  gap:5px;
+  font-size:.88rem;
+  color:var(--rose)
+}
+
+.field input {
+  width:100%;
+  padding:11px 13px;
+  border-radius:4px;
+  border:1px solid var(--rule);
+  color:var(--paper);
+  background:#09080b
+}
+
+.codebox {
+  padding:14px;
+  border:1px solid var(--rule);
+  border-radius:4px;
+  overflow-wrap:anywhere;
+  font-family:ui-monospace,Consolas,monospace;
+  color:var(--light);
+  background:#0e0b0f
+}
+
+body.modal-open {
+  overflow:hidden
+}
+
+@media(max-width:650px) {
+  header.hero {
+    padding:45px 0 18px
+  }
+  .awards-grid {
+    grid-template-columns:1fr
+  }
+  .award {
+    min-height:130px
+  }
+  .dialog {
+    padding:18px
+  }
+  .three {
+    gap:7px
+  }
+  .nominee-name {
+    font-size:.85rem;
+    padding:0 3px
+  }
+  .pick {
+    font-size:.55rem;
+    letter-spacing:0
+  }
+  .nominee {
+    padding-bottom:8px
+  }
+  .placeholder {
+    font-size:2rem
+  }
+  .dialog-actions {
+    justify-content:stretch
+  }
+  .dialog-actions .btn {
+    flex:1
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  body::before,body::after {
+    animation:none!important;
+  }
+  .award,.nominee {
+    transition:none
+  }
+  .award:hover,.nominee:hover {
+    transform:none
+  }
+}
+
+body {
+  background: radial-gradient(ellipse 75% 58% at 49% 18%,rgba(120,43,64,.31),transparent 72%), radial-gradient(ellipse 58% 58% at 82% 9%,rgba(98,42,59,.36),transparent 75%), linear-gradient(112deg,#09080b 1%,#10090e 37%,#201017 73%,#0b080d 100%)!important;
+  overflow-x:hidden;
+}
+
+body::before,body::after {
+  content:"";
+  position:fixed;
+  pointer-events:none;
+  top:-24vh;
+  height:115vh;
+  width:min(65vw,620px);
+  opacity:.22;
+  filter:blur(23px);
+  mix-blend-mode:screen;
+  z-index:0;
+  transform-origin:top center;
+  animation:maulCrossLight 19s ease-in-out infinite alternate;
+}
+
+body::before {
+  left:-8%;
+  background:linear-gradient(102deg,transparent 19%,rgba(235,169,171,.04) 30%,rgba(247,213,201,.30) 49%,rgba(245,213,201,.11) 62%,transparent 76%);
+  clip-path:polygon(40% 0,59% 0,100% 100%,0 100%);
+  transform:rotate(-21deg);
+}
+
+body::after {
+  right:-8%;
+  left:auto;
+  background:linear-gradient(78deg,transparent 20%,rgba(245,213,201,.11) 37%,rgba(255,219,208,.28) 53%,rgba(233,180,172,.04) 70%,transparent 82%);
+  clip-path:polygon(40% 0,60% 0,100% 100%,0 100%);
+  transform:rotate(21deg);
+  animation-name:maulCrossLightOther;
+  animation-delay:-9s;
+}
+
+@keyframes maulCrossLight {
+  from {
+    transform:rotate(-22deg) translateX(-2%);
+    opacity:.13
+  }
+  to {
+    transform:rotate(-17deg) translateX(2%);
+    opacity:.24
+  }
+}
+
+@keyframes maulCrossLightOther {
+  from {
+    transform:rotate(22deg) translateX(2%);
+    opacity:.12
+  }
+  to {
+    transform:rotate(17deg) translateX(-2%);
+    opacity:.23
+  }
+}
+
+.maul-dust {
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:0;
+  contain:strict;
+}
+
+.maul-dust i {
+  display:block;
+  position:absolute;
+  top:var(--y);
+  left:var(--x);
+  width:var(--s);
+  height:var(--s);
+  border-radius:50%;
+  background:#f5d5c9;
+  box-shadow:0 0 10px 2px rgba(233,180,172,.17);
+  opacity:0;
+  animation:maulDust 17s ease-in-out infinite;
+  animation-delay:var(--d)
+}
+
+@keyframes maulDust {
+  0%,100% {
+    opacity:0;
+    transform:translate3d(0,12px,0)
+  }
+  27%,68% {
+    opacity:.42
+  }
+  55% {
+    transform:translate3d(14px,-18px,0)
+  }
+}
+
+.hero h1 .metal {
+  background:linear-gradient(105deg,#d9a7a6 0%,#f5d5c9 29%,#e9b4ac 44%,#fff3e0 50%,#e9b4ac 56%,#b76e79 78%,#e9b4ac 100%);
+  background-size:230% 100%;
+  background-position:0% 50%;
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:maulMetalSweep 12s ease-in-out infinite;
+}
+
+@keyframes maulMetalSweep {
+  0%,18% {
+    background-position:0% 50%
+  }
+  38%,100% {
+    background-position:100% 50%
+  }
+}
+
+@media(max-width:700px) {
+  body::before,body::after {
+    width:80vw;
+    opacity:.15;
+    filter:blur(17px)
+  }
+  body::before {
+    left:-33%
+  }
+  body::after {
+    right:-33%
+  }
+  .maul-dust i {
+    box-shadow:0 0 7px 1px rgba(233,180,172,.15)
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  body::before,body::after,.maul-dust i,.hero h1 .metal {
+    animation:none!important
+  }
+}
+
+:root {
+  --ink:#080406;
+  --deep:#8f4654;
+  --rule:rgba(191,119,133,.24);
+}
+
+body {
+  background: radial-gradient(ellipse 70% 58% at 73% 13%, rgba(83,14,33,.60) 0%, rgba(49,8,22,.36) 44%, transparent 78%), radial-gradient(ellipse 52% 40% at 18% 80%, rgba(64,10,27,.35),transparent 78%), linear-gradient(110deg,#080406 0%,#100509 27%,#240710 60%,#340b19 79%,#120509 100%) !important;
+}
+
+.cinematic-lights {
+  opacity:.64;
+  filter:saturate(.75)
+}
+
+.cinematic-lights::before,.cinematic-lights::after {
+  filter:saturate(.76)
+}
+
+.cinematic-particles {
+  opacity:.58
+}
+
+.status,.status-preview {
+  background:rgba(24,7,14,.87)!important
+}
+
+.award {
+  background:linear-gradient(140deg,rgba(66,15,31,.20),rgba(14,5,10,.95))!important
+}
+
+.dialog {
+  background:radial-gradient(ellipse at 80% 0%,rgba(90,20,43,.42),transparent 65%),#150710!important
+}
+
+.choice-body,.nominee {
+  background:#1b0b14!important
+}
+
+.picture,.art {
+  background:linear-gradient(145deg,#371221,#10060c)!important
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .cinematic-lights,.cinematic-particles {
+    animation:none!important
+  }
+}
+  </style>
+ </head>
+ <body>
+  <div aria-hidden="true" class="maul-dust">
+   <i style="--x:9%;--y:14%;--s:2px;--d:-3s">
+   </i>
+   <i style="--x:22%;--y:31%;--s:2px;--d:-10s">
+   </i>
+   <i style="--x:36%;--y:8%;--s:1px;--d:-7s">
+   </i>
+   <i style="--x:65%;--y:11%;--s:2px;--d:-14s">
+   </i>
+   <i style="--x:79%;--y:29%;--s:1px;--d:-2s">
+   </i>
+   <i style="--x:87%;--y:15%;--s:2px;--d:-12s">
+   </i>
+   <i style="--x:13%;--y:64%;--s:1px;--d:-5s">
+   </i>
+   <i style="--x:30%;--y:79%;--s:2px;--d:-18s">
+   </i>
+   <i style="--x:72%;--y:66%;--s:1px;--d:-9s">
+   </i>
+   <i style="--x:90%;--y:82%;--s:1px;--d:-6s">
+   </i>
+   <i style="--x:48%;--y:54%;--s:1px;--d:-15s">
+   </i>
+   <i style="--x:59%;--y:88%;--s:2px;--d:-1s">
+   </i>
+  </div>
+  <div id="navbar">
+  </div>
+  <main class="shell">
+   <header class="hero">
+    <div class="eyebrow">
+     MAUL presents · 2026
+    </div>
+    <h1>
+     Modded Among Us
+     <br/>
+     <span class="metal">
+      Awards
+     </span>
+    </h1>
+    <p class="copy">
+     Meet the finalists and cast your vote for the moments, mods, and people who made this year memorable.
+    </p>
+   </header>
+   <div class="status">
+    <div>
+     <strong id="sessionTitle">
+      Checking your login…
+     </strong>
+     <div class="status-note" id="sessionDetail">
+      One vote per category. Votes are final. Results are hidden.
+     </div>
+    </div>
+    <button class="btn primary" hidden="" id="loginBtn" type="button">
+     Sign in to vote
+    </button>
+   </div>
+   <nav aria-label="Award categories" class="filters" id="filters">
+    <button class="filter selected" data-section="all" type="button">
+     All awards
+    </button>
+    <button class="filter" data-section="major" type="button">
+     Major Awards
+    </button>
+    <button class="filter" data-section="development" type="button">
+     Development
+    </button>
+    <button class="filter" data-section="hosting" type="button">
+     Hosting
+    </button>
+    <button class="filter" data-section="community" type="button">
+     Community
+    </button>
+    <button class="filter" data-section="fun" type="button">
+     Fun Awards
+    </button>
+   </nav>
+   <div id="awardSections">
+    <p class="muted">
+     Loading award categories…
+    </p>
+   </div>
+  </main>
+  <footer class="shell foot">
+   Thank you all for making us the community that we are today, we couldn`t have made it this far without you.
+  </footer>
+  <div class="overlay" hidden="" id="voteOverlay" role="presentation">
+   <section aria-labelledby="modalTitle" aria-modal="true" class="dialog" role="dialog">
+    <div class="dialog-head">
+     <div>
+      <div class="eyebrow">
+       The finalists
+      </div>
+      <h2 id="modalTitle">
+       Award
+      </h2>
+      <div class="muted" id="modalSubtitle">
+       Choose one finalist. Your vote cannot be changed.
+      </div>
+     </div>
+     <button aria-label="Close" class="close" id="closeVote" type="button">
+      ×
+     </button>
+    </div>
+    <div class="three" id="nominees">
+    </div>
+    <div class="alert" id="voteError" role="status">
+    </div>
+    <div class="dialog-actions">
+     <span class="muted" id="voteStatus">
+      Select a nominee to continue
+     </span>
+     <button class="btn primary" disabled="" id="confirmVote" type="button">
+      Confirm vote
+     </button>
+    </div>
+   </section>
+  </div>
+  <div class="overlay" hidden="" id="loginOverlay" role="presentation">
+   <section aria-labelledby="loginTitle" aria-modal="true" class="dialog" role="dialog" style="max-width:670px">
+    <div class="dialog-head">
+     <div>
+      <div class="eyebrow">
+       Maul website account
+      </div>
+      <h2 id="loginTitle">
+       Sign in to vote
+      </h2>
+      <p class="muted">
+       If you already have a profile you dont need to make another.
+      </p>
+     </div>
+     <button aria-label="Close" class="close" id="closeLogin" type="button">
+      ×
+     </button>
+    </div>
+    <form class="login-form" id="loginForm">
+     <label class="field">
+      Discord username or ID
+      <input autocomplete="username" maxlength="80" name="identifier" required=""/>
+     </label>
+     <label class="field">
+      Website password
+      <input autocomplete="current-password" maxlength="128" name="password" required="" type="password"/>
+     </label>
+     <button class="btn primary" type="submit">
+      Sign in
+     </button>
+    </form>
+    <hr class="thin"/>
+    <p class="muted">
+     Don't have a website login yet? Generate a token below, then run its command in the
+     <a href="https://discord.com/channels/995954559044304896/1088754299263258735" rel="noopener noreferrer" target="_blank">
+      MAUL bot command channel
+     </a>
+     and follow the password setup prompt.
+    </p>
+    <button class="btn" id="tokenBtn" type="button">
+     Get login token
+    </button>
+    <div class="codebox" hidden="" id="tokenBox">
+    </div>
+    <p class="alert" id="loginError" role="status">
+    </p>
+   </section>
+  </div>
+  <script src="/scripts/navbar.js?v=20261028-nav-6">
+  </script>
+  <script>
+   (() => {
+  'use strict';
+  const AWARDS='/api/maulpost/awards';
+  const LOGIN='/api/maulpost/lobbies';
+  const $=id=>document.getElementById(id);
+  let catalog=[], session={loggedIn:false,votes:{}}, current=null, selected=null, filter='all', working=false;
+  const sections=[['major','Major Awards'],['development','Development'],['hosting','Hosting'],['community','Community'],['fun','Fun Awards']];
+  async function api(path,method='GET',body){const r=await fetch(path,{method,credentials:'include',cache:'no-store',headers:body?{'Content-Type':'application/json'}:{},body:body?JSON.stringify(body):undefined});let data;try{data=await r.json()}catch{throw new Error('The awards service is unavailable.')}if(!r.ok||data.ok===false){const e=new Error(data.message||'Request failed.');e.data=data;throw e}return data}
+  function make(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e}
+  function show(id){$(id).hidden=false;document.body.classList.add('modal-open')}
+  function hide(id){$(id).hidden=true;if($('voteOverlay').hidden&&$('loginOverlay').hidden)document.body.classList.remove('modal-open')}
+  function updateSession(){const signed=session.loggedIn;$('sessionTitle').textContent=signed?'Signed in as '+(session.user?.name||'Discord member'):'Discord login required to vote';$('sessionDetail').textContent=signed?'You can vote once per category. Your choices are private.':'Browse the finalists. Sign in when you are ready to vote.';$('loginBtn').hidden=signed;}
+  function render(){const wrap=$('awardSections');wrap.replaceChildren();for(const [groupId,groupName] of sections){if(filter!=='all'&&filter!==groupId)continue;const cats=catalog.filter(c=>c.section===groupId);if(!cats.length)continue;const section=make('section','section');const head=make('div','section-heading');head.append(make('h2','',groupName));section.append(head);const grid=make('div','awards-grid');for(const c of cats){const button=make('button','award'+(session.votes?.[c.id]?' voted':''));button.type='button';const eyebrow=make('small','',session.votes?.[c.id]?'✓ Voted · 3 finalists':'3 finalists · Select to vote');const title=make('h3','',c.title);const arrow=make('span','arrow','View nominees ↗');button.append(eyebrow,title,arrow);button.addEventListener('click',()=>openVote(c));grid.append(button)}section.append(grid);wrap.append(section)}if(!wrap.children.length)wrap.append(make('p','muted','No awards configured.'))}
+  function openVote(c){current=c;selected=null;$('voteError').textContent='';$('modalTitle').textContent=c.title;const saved=session.votes?.[c.id];$('modalSubtitle').textContent=saved?'You have already voted in this category.':'Choose one of three finalists. Your vote cannot be changed.';const target=$('nominees');target.replaceChildren();for(const n of c.nominees){const button=make('button','nominee');button.type='button';button.disabled=Boolean(saved);button.dataset.nominee=n.id;const art=make('div','art');if(n.images?.length){art.classList.add('duo-art');for(const url of n.images){const img=make('img');img.src=url;img.alt=n.name+' portrait';img.loading='lazy';img.onerror=()=>{img.style.visibility='hidden'};art.append(img)}}else if(n.image){const img=make('img');img.src=n.image;img.alt=n.name+' artwork';img.loading='lazy';img.onerror=()=>art.replaceChildren(make('div','placeholder','✦'));art.append(img)}else art.append(make('div','placeholder','✦'));const name=make('div','nominee-name',n.name);const pick=make('div','pick',saved===n.id?'Your vote':saved?'Finalist':'Select finalist');button.append(art,name,pick);if(saved===n.id)button.classList.add('chosen');button.addEventListener('click',()=>{selected=n.id;$('voteError').textContent='';for(const el of target.children){el.classList.toggle('chosen',el.dataset.nominee===n.id);el.querySelector('.pick').textContent=el.dataset.nominee===n.id?'Selected':'Select finalist'}$('confirmVote').disabled=false;$('voteStatus').textContent='Ready to vote for '+n.name});target.append(button)}$('confirmVote').hidden=Boolean(saved);$('confirmVote').disabled=true;$('voteStatus').textContent=saved?'Vote recorded · cannot be changed':session.loggedIn?'Select a finalist to vote':'Sign in to submit a vote';show('voteOverlay')}
+  async function confirm(){if(!current||!selected||working)return;if(!session.loggedIn){hide('voteOverlay');show('loginOverlay');return}const chosen=current.nominees.find(n=>n.id===selected);if(!chosen)return;if(!window.confirm('Vote for '+chosen.name+' in '+current.title+'? This cannot be changed.'))return;working=true;$('confirmVote').disabled=true;try{const data=await api(AWARDS+'/vote','POST',{categoryId:current.id,nomineeId:selected});session.votes[current.id]=data.nomineeId;openVote(current);render()}catch(e){if(e.data?.existingNomineeId){session.votes[current.id]=e.data.existingNomineeId;openVote(current);render()}else if(e.data?.message?.includes('Sign in')){hide('voteOverlay');show('loginOverlay')}else{$('voteError').textContent=e.message;$('confirmVote').disabled=false}}finally{working=false}}
+  async function refresh(){try{const [a,m]=await Promise.all([api(AWARDS+'/categories'),api(AWARDS+'/me')]);catalog=a.categories||[];session=m;updateSession();render()}catch(e){$('awardSections').replaceChildren(make('p','muted',e.message));$('sessionTitle').textContent='Service unavailable';$('sessionDetail').textContent='Voting is disabled until i say so haha.';$('loginBtn').hidden=true}}
+  $('filters').addEventListener('click',e=>{const b=e.target.closest('button[data-section]');if(!b)return;filter=b.dataset.section;for(const x of $('filters').children)x.classList.toggle('selected',x===b);render()});$('loginBtn').onclick=()=>show('loginOverlay');$('closeLogin').onclick=()=>hide('loginOverlay');$('closeVote').onclick=()=>hide('voteOverlay');$('confirmVote').onclick=confirm;
+  $('loginForm').addEventListener('submit',async e=>{e.preventDefault();$('loginError').textContent='';const f=new FormData(e.target);try{await api(LOGIN+'/login','POST',{identifier:f.get('identifier'),password:f.get('password')});e.target.reset();hide('loginOverlay');await refresh()}catch(err){$('loginError').textContent=err.message}});
+  $('tokenBtn').onclick=async()=>{$('loginError').textContent='';try{const d=await api(LOGIN+'/token','POST',{});$('tokenBox').hidden=false;$('tokenBox').textContent=d.command+'\n\nUse this command in the Bot command channel, then return here to sign in.'}catch(err){$('loginError').textContent=err.message}};
+  for(const id of ['voteOverlay','loginOverlay'])$(id).addEventListener('click',e=>{if(e.target===$(id))hide(id)});document.addEventListener('keydown',e=>{if(e.key==='Escape'){hide('voteOverlay');hide('loginOverlay')}});
+  refresh();
+})();
+  </script>
+ </body>
+</html>
