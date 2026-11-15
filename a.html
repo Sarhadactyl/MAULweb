@@ -670,7 +670,22 @@ body {
     animation:none!important
   }
 }
-  </style>
+
+.award.winner-card { cursor:default; min-height:280px; align-items:center; text-align:center; justify-content:flex-start; border-color:rgba(233,180,172,.47); }
+.award.winner-card:hover { transform:none; }
+.award.winner-card h3 { width:100%; font-size:1.35rem; }
+.winner-art { width:100%; max-width:220px; height:145px; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:6px; background:linear-gradient(145deg,#371221,#10060c); }
+.winner-art img { width:100%; height:100%; object-fit:contain; }
+.winner-art.duo-art img { width:50%; object-fit:cover; }
+.winner-placeholder { font-size:4rem; }
+.winner-name { width:100%; text-align:center; font-size:1.05rem; font-weight:700; letter-spacing:.025em; color:#f8e7e5; }
+  
+.three.five { grid-template-columns:repeat(3,minmax(0,1fr)); }
+@media (max-width:600px) {
+  .three.five { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .three.five .nominee:last-child:nth-child(odd) { grid-column:1/-1; width:calc(50% - 4px); justify-self:center; }
+}
+</style>
  </head>
  <body>
   <div aria-hidden="true" class="maul-dust">
@@ -848,16 +863,53 @@ body {
   const AWARDS = API_ORIGIN + '/api/maulpost/awards';
   const LOGIN = API_ORIGIN + '/api/maulpost/lobbies';
   const $=id=>document.getElementById(id);
-  let catalog=[], session={loggedIn:false,votes:{}}, current=null, selected=null, filter='all', working=false;
+  let catalog=[], session={loggedIn:false,votes:{}}, current=null, selected=null, filter='all', working=false, finalized=false;
   const sections=[['major','Major Awards'],['development','Development'],['hosting','Hosting'],['community','Community'],['fun','Fun Awards']];
   async function api(path,method='GET',body){const r=await fetch(path,{method,credentials:'include',cache:'no-store',headers:body?{'Content-Type':'application/json'}:{},body:body?JSON.stringify(body):undefined});let data;try{data=await r.json()}catch{throw new Error('The awards service is unavailable.')}if(!r.ok||data.ok===false){const e=new Error(data.message||'Request failed.');e.data=data;throw e}return data}
   function make(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e}
   function show(id){$(id).hidden=false;document.body.classList.add('modal-open')}
   function hide(id){$(id).hidden=true;if($('voteOverlay').hidden&&$('loginOverlay').hidden)document.body.classList.remove('modal-open')}
-  function updateSession(){const signed=session.loggedIn;$('sessionTitle').textContent=signed?'Signed in as '+(session.user?.name||'Discord member'):'Discord login required to vote';$('sessionDetail').textContent=signed?'You can vote once per category. Your choices are private.':'Browse the finalists. Sign in when you are ready to vote.';$('loginBtn').hidden=signed;}
-  function render(){const wrap=$('awardSections');wrap.replaceChildren();for(const [groupId,groupName] of sections){if(filter!=='all'&&filter!==groupId)continue;const cats=catalog.filter(c=>c.section===groupId);if(!cats.length)continue;const section=make('section','section');const head=make('div','section-heading');head.append(make('h2','',groupName));section.append(head);const grid=make('div','awards-grid');for(const c of cats){const button=make('button','award'+(session.votes?.[c.id]?' voted':''));button.type='button';const eyebrow=session.votes?.[c.id]?make('small','','✓ Voted'):null;const title=make('h3','',c.title);const arrow=make('span','arrow','View nominees ↗');if(eyebrow)button.append(eyebrow);button.append(title,arrow);button.addEventListener('click',()=>openVote(c));grid.append(button)}section.append(grid);wrap.append(section)}if(!wrap.children.length)wrap.append(make('p','muted','No awards configured.'))}
-  function openVote(c){current=c;selected=null;$('voteError').textContent='';$('modalTitle').textContent=c.title;const saved=session.votes?.[c.id];$('modalSubtitle').textContent=saved?'You have already voted in this category.':'Choose one of three finalists. Your vote cannot be changed.';const target=$('nominees');target.replaceChildren();for(const n of c.nominees){const button=make('button','nominee');button.type='button';button.disabled=Boolean(saved);button.dataset.nominee=n.id;const art=make('div','art');if(n.images?.length){art.classList.add('duo-art');for(const url of n.images){const img=make('img');img.src=url;img.alt=n.name+' portrait';img.loading='lazy';img.onerror=()=>{img.style.visibility='hidden'};art.append(img)}}else if(n.image){const img=make('img');img.src=n.image;img.alt=n.name+' artwork';img.loading='lazy';img.onerror=()=>art.replaceChildren(make('div','placeholder','🏆'));art.append(img)}else art.append(make('div','placeholder','🏆'));const name=make('div','nominee-name',n.name);const pick=make('div','pick',saved===n.id?'Your vote':saved?'Finalist':'Select finalist');button.append(art,name,pick);if(saved===n.id)button.classList.add('chosen');button.addEventListener('click',()=>{selected=n.id;$('voteError').textContent='';for(const el of target.children){el.classList.toggle('chosen',el.dataset.nominee===n.id);el.querySelector('.pick').textContent=el.dataset.nominee===n.id?'Selected':'Select finalist'}$('confirmVote').disabled=false;$('voteStatus').textContent='Ready to vote for '+n.name});target.append(button)}$('confirmVote').hidden=Boolean(saved);$('confirmVote').disabled=true;$('voteStatus').textContent=saved?'Vote recorded · cannot be changed':session.loggedIn?'Select a finalist to vote':'Sign in to submit a vote';show('voteOverlay')}
-  async function confirm(){if(!current||!selected||working)return;if(!session.loggedIn){hide('voteOverlay');show('loginOverlay');return}const chosen=current.nominees.find(n=>n.id===selected);if(!chosen)return;if(!window.confirm('Vote for '+chosen.name+' in '+current.title+'? This cannot be changed.'))return;working=true;$('confirmVote').disabled=true;try{const data=await api(AWARDS+'/vote','POST',{categoryId:current.id,nomineeId:selected});session.votes[current.id]=data.nomineeId;openVote(current);render()}catch(e){if(e.data?.existingNomineeId){session.votes[current.id]=e.data.existingNomineeId;openVote(current);render()}else if(e.data?.message?.includes('Sign in')){hide('voteOverlay');show('loginOverlay')}else{$('voteError').textContent=e.message;$('confirmVote').disabled=false}}finally{working=false}}
+  function updateSession(){if(finalized){$('sessionTitle').textContent='MAUL Awards winners';$('sessionDetail').textContent='Voting is closed. The winners are finalized.';$('loginBtn').hidden=true;return}const signed=session.loggedIn;$('sessionTitle').textContent=signed?'Signed in as '+(session.user?.name||'Discord member'):'Discord login required to vote';$('sessionDetail').textContent=signed?'You can vote once per category. Your choices are private.':'Browse the finalists. Sign in when you are ready to vote.';$('loginBtn').hidden=signed;}
+  function render(){
+    const wrap=$('awardSections');wrap.replaceChildren();
+    for(const [groupId,groupName] of sections){
+      if(filter!=='all'&&filter!==groupId)continue;
+      const cats=catalog.filter(c=>c.section===groupId);if(!cats.length)continue;
+      const section=make('section','section');const head=make('div','section-heading');
+      head.append(make('h2','',groupName));section.append(head);
+      const grid=make('div','awards-grid');
+      for(const c of cats){
+        if(finalized){
+          const card=make('article','award winner-card');
+          card.append(make('h3','',c.title));
+          const n=c.winner;
+          if(n){
+            const art=make('div','winner-art');
+            if(n.images?.length){
+              art.classList.add('duo-art');
+              for(const url of n.images){const img=make('img');img.src=url;img.alt=n.name+' portrait';img.loading='lazy';img.onerror=()=>{img.style.visibility='hidden'};art.append(img)}
+            }else if(n.image){
+              const img=make('img');img.src=n.image;img.alt=n.name+' winner artwork';img.loading='lazy';img.onerror=()=>art.replaceChildren(make('span','winner-placeholder','🏆'));art.append(img);
+            }else art.append(make('span','winner-placeholder','🏆'));
+            card.append(art);
+            card.append(make('div','winner-name',n.name));
+          }else{
+            card.append(make('div','winner-art', '🏆'));
+          }
+          grid.append(card);
+          continue;
+        }
+        const button=make('button','award'+(session.votes?.[c.id]?' voted':''));button.type='button';
+        if(session.votes?.[c.id])button.append(make('small','','✓ Voted'));
+        button.append(make('h3','',c.title),make('span','arrow','View nominees ↗'));
+        button.addEventListener('click',()=>openVote(c));grid.append(button);
+      }
+      section.append(grid);wrap.append(section);
+    }
+    if(!wrap.children.length)wrap.append(make('p','muted','No awards configured.'));
+  }
+  function openVote(c){if(finalized)return;current=c;selected=null;$('voteError').textContent='';$('modalTitle').textContent=c.title;const saved=session.votes?.[c.id];$('modalSubtitle').textContent=saved?'You have already voted in this category.':'Choose one of '+c.nominees.length+' finalists. Your vote cannot be changed.';const target=$('nominees');target.replaceChildren();target.classList.toggle('five', c.nominees.length===5);for(const n of c.nominees){const button=make('button','nominee');button.type='button';button.disabled=Boolean(saved);button.dataset.nominee=n.id;const art=make('div','art');if(n.images?.length){art.classList.add('duo-art');for(const url of n.images){const img=make('img');img.src=url;img.alt=n.name+' portrait';img.loading='lazy';img.onerror=()=>{img.style.visibility='hidden'};art.append(img)}}else if(n.image){const img=make('img');img.src=n.image;img.alt=n.name+' artwork';img.loading='lazy';img.onerror=()=>art.replaceChildren(make('div','placeholder','🏆'));art.append(img)}else art.append(make('div','placeholder','🏆'));const name=make('div','nominee-name',n.name);const pick=make('div','pick',saved===n.id?'Your vote':saved?'Finalist':'Select finalist');button.append(art,name,pick);if(saved===n.id)button.classList.add('chosen');button.addEventListener('click',()=>{selected=n.id;$('voteError').textContent='';for(const el of target.children){el.classList.toggle('chosen',el.dataset.nominee===n.id);el.querySelector('.pick').textContent=el.dataset.nominee===n.id?'Selected':'Select finalist'}$('confirmVote').disabled=false;$('voteStatus').textContent='Ready to vote for '+n.name});target.append(button)}$('confirmVote').hidden=Boolean(saved);$('confirmVote').disabled=true;$('voteStatus').textContent=saved?'Vote recorded · cannot be changed':session.loggedIn?'Select a finalist to vote':'Sign in to submit a vote';show('voteOverlay')}
+  async function confirm(){if(finalized)return;if(!current||!selected||working)return;if(!session.loggedIn){hide('voteOverlay');show('loginOverlay');return}const chosen=current.nominees.find(n=>n.id===selected);if(!chosen)return;if(!window.confirm('Vote for '+chosen.name+' in '+current.title+'? This cannot be changed.'))return;working=true;$('confirmVote').disabled=true;try{const data=await api(AWARDS+'/vote','POST',{categoryId:current.id,nomineeId:selected});session.votes[current.id]=data.nomineeId;openVote(current);render()}catch(e){if(e.data?.existingNomineeId){session.votes[current.id]=e.data.existingNomineeId;openVote(current);render()}else if(e.data?.message?.includes('Sign in')){hide('voteOverlay');show('loginOverlay')}else{$('voteError').textContent=e.message;$('confirmVote').disabled=false}}finally{working=false}}
   async function refresh() {
     const [categoriesResult, sessionResult] = await Promise.allSettled([
       api(AWARDS + '/categories'),
@@ -865,10 +917,12 @@ body {
     ]);
 
     if (categoriesResult.status === 'fulfilled') {
+      finalized = Boolean(categoriesResult.value.finalized);
       catalog = Array.isArray(categoriesResult.value.categories)
         ? categoriesResult.value.categories : [];
     } else {
       catalog = [];
+      finalized = false;
     }
 
     if (sessionResult.status === 'fulfilled') {
@@ -895,6 +949,8 @@ body {
   $('tokenBtn').onclick=async()=>{$('loginError').textContent='';try{const d=await api(LOGIN+'/token','POST',{});$('tokenBox').hidden=false;$('tokenBox').textContent='/awards login token:'+d.token+'\n\nUse this command in the Bot command channel, then return here to sign in.'}catch(err){$('loginError').textContent=err.message}};
   for(const id of ['voteOverlay','loginOverlay'])$(id).addEventListener('click',e=>{if(e.target===$(id))hide(id)});document.addEventListener('keydown',e=>{if(e.key==='Escape'){hide('voteOverlay');hide('loginOverlay')}});
   refresh();
+  //november 28 voting ends, gl everyone
+  setInterval(()=>{if(!finalized)refresh()},30000);
 })();
   </script>
  </body>
