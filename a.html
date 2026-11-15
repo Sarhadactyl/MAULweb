@@ -844,8 +844,9 @@ body {
   <script>
    (() => {
   'use strict';
-  const AWARDS='/api/maulpost/awards';
-  const LOGIN='/api/maulpost/lobbies';
+  const API_ORIGIN = 'https://api.moddedamong.us';
+  const AWARDS = API_ORIGIN + '/api/maulpost/awards';
+  const LOGIN = API_ORIGIN + '/api/maulpost/lobbies';
   const $=id=>document.getElementById(id);
   let catalog=[], session={loggedIn:false,votes:{}}, current=null, selected=null, filter='all', working=false;
   const sections=[['major','Major Awards'],['development','Development'],['hosting','Hosting'],['community','Community'],['fun','Fun Awards']];
