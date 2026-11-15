@@ -3,9 +3,15 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <meta content="#09080b" name="theme-color"/>
+  <meta content="#000000" name="theme-color"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Modded Among Us Awards 2026"/>
+  <meta property="og:description" content="Vote for your favorites in the 2026 Modded Among Us Awards "/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Modded Among Us Awards 2026"/>
+  <meta name="twitter:description" content=""Vote for your favorites in the 2026 Modded Among Us Awards"/>
   <title>
-   Modded Among Us Awards - MAUL
+   Modded Among Us Awards 2026
   </title>
   <link href="images/favicon.png" rel="icon"/>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&amp;display=swap" rel="stylesheet"/>
@@ -670,7 +676,6 @@ body {
     animation:none!important
   }
 }
-
 .award.winner-card { cursor:default; min-height:280px; align-items:center; text-align:center; justify-content:flex-start; border-color:rgba(233,180,172,.47); }
 .award.winner-card:hover { transform:none; }
 .award.winner-card h3 { width:100%; font-size:1.35rem; }
@@ -949,7 +954,7 @@ body {
   $('tokenBtn').onclick=async()=>{$('loginError').textContent='';try{const d=await api(LOGIN+'/token','POST',{});$('tokenBox').hidden=false;$('tokenBox').textContent='/awards login token:'+d.token+'\n\nUse this command in the Bot command channel, then return here to sign in.'}catch(err){$('loginError').textContent=err.message}};
   for(const id of ['voteOverlay','loginOverlay'])$(id).addEventListener('click',e=>{if(e.target===$(id))hide(id)});document.addEventListener('keydown',e=>{if(e.key==='Escape'){hide('voteOverlay');hide('loginOverlay')}});
   refresh();
-  //november 28 voting ends, gl everyone
+ // removed to be funny no notes for u
   setInterval(()=>{if(!finalized)refresh()},30000);
 })();
   </script>
