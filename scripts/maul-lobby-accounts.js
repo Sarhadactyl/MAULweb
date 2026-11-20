@@ -7,10 +7,11 @@
     : "https://api.moddedamong.us/api/maulpost");
   const accountApi = "/lobbies/account";
   const el = (id) => document.getElementById(id);
-  const state = { enabled: false, user: null, lobbies: [], tokenCommand: "", busy: false, accessUnavailable: false };
+  const state = { enabled: false, user: null, lobbies: [], tokenCommand: "", busy: false, accessUnavailable: false,
+    verificationMethod: "region_join", verificationRegions: ["na", "eu"] };
   const notices = {
     registered: "Verify your Among Us account or link your Discord website login to view lobbies.",
-    pending: "Waiting for your Among Us friend request.",
+    pending: "Waiting for you to join your verification code in Among Us.",
     verified: "Your account can view live lobbies.",
     banned: "This account is restricted from viewing lobbies.",
     suspended: "This account is suspended from viewing lobbies.",
@@ -90,15 +91,33 @@
     el("accountPanel").hidden = !website;
     el("logoutBtn").hidden = !user;
     renderSession(user, allowed, status, restricted);
-    el("accountStatus").textContent = allowed && !challenge && el("sessionSummary") ? "" : notices[status] || "";
+    el("accountStatus").textContent = allowed && !challenge && el("sessionSummary") ? ""
+      : status === "pending" && challenge?.method !== "region_join" ? "Waiting for your Among Us friend request." : notices[status] || "";
     el("accountIdentity").hidden = !user?.friendCode;
     el("accountIdentity").textContent = user?.friendCode ? `Verified Among Us friend code ${user.friendCode}` : "";
     el("verificationProgress").hidden = !challenge || restricted;
     el("verificationStart").hidden = !!challenge || restricted;
-    el("startVerification").textContent = user?.friendCode ? "Reverify in Among Us" : "Verify in Among Us";
-    el("verificationCode").textContent = challenge?.addFriendCode || "";
+    const regionJoin = challenge ? challenge.method === "region_join" : state.verificationMethod === "region_join";
+    el("startVerification").textContent = user?.friendCode ? "Get a new verification code" : "Get verification code";
+    el("verificationRegionField").hidden = !regionJoin;
+    for (const option of el("verificationRegionSelect").options) option.disabled = !state.verificationRegions.includes(option.value);
+    if (el("verificationRegionSelect").selectedOptions[0]?.disabled) el("verificationRegionSelect").value = state.verificationRegions[0] || "na";
+    el("verificationInstructions").replaceChildren();
+    const codeLabel = document.createElement("strong");
+    codeLabel.id = "verificationCode";
+    codeLabel.textContent = challenge?.joinCode || challenge?.addFriendCode || "";
+    if (regionJoin) {
+      const regionLabel = document.createElement("strong");
+      regionLabel.id = "verificationRegion";
+      regionLabel.textContent = challenge?.region || "MAUL";
+      el("verificationInstructions").append("In Among Us, select ", regionLabel, " and join code ", codeLabel, " from the account you are verifying.");
+    } else {
+      el("verificationInstructions").append("From your own Among Us account, send a friend request to ", codeLabel, ".");
+    }
+    el("verificationJoinHint").hidden = !regionJoin;
+    el("copyVerification").textContent = regionJoin ? "Copy lobby code" : "Copy friend code";
     el("verificationDeadline").textContent = challenge
-      ? `Send the request by ${new Date(challenge.expiresAt * 1000).toLocaleTimeString()}. This page checks every 10 seconds.` : "";
+      ? `${regionJoin ? "Join the code" : "Send the request"} by ${new Date(challenge.expiresAt * 1000).toLocaleTimeString()}. This page checks every 10 seconds.` : "";
     el("linkDiscord").hidden = !!user?.discordLinked || restricted;
     el("unlinkDiscord").hidden = !user?.discordLinked || restricted;
 
@@ -144,6 +163,8 @@
       profile = await api(accountApi);
       state.accessUnavailable = false;
       state.enabled = profile.enabled === true;
+      state.verificationMethod = profile.verificationMethod || "friend";
+      state.verificationRegions = Array.isArray(profile.verificationRegions) ? profile.verificationRegions : [];
       state.user = profile.user || null;
     } catch (error) {
       if (error.status !== 404) {
@@ -247,7 +268,8 @@
       if (result.status === "finished") {
         await refresh();
         notice("Among Us verification complete.");
-      } else if (manual) notice("Waiting for your friend request.");
+      } else if (manual) notice(state.user?.challenge?.method === "region_join"
+        ? "Waiting for you to join the verification code in the selected MAUL region." : "Waiting for your friend request.");
     } catch (error) {
       if ([401, 403, 409, 410, 502].includes(error.status)) await refresh();
       throw error;
@@ -257,8 +279,10 @@
   el("checkVerification").onclick = () => action(() => checkVerification(true), el("checkVerification"));
   el("cancelVerification").onclick = () => action(() => update("/verify/cancel", {}), el("cancelVerification"));
   el("copyVerification").onclick = () => action(async () => {
-    if (state.user?.challenge?.addFriendCode) await navigator.clipboard.writeText(state.user.challenge.addFriendCode);
-    notice("Friend code copied.");
+    const challenge = state.user?.challenge;
+    const code = challenge?.joinCode || challenge?.addFriendCode;
+    if (code) await navigator.clipboard.writeText(code);
+    notice(challenge?.method === "region_join" ? "Lobby code copied." : "Friend code copied.");
   });
   el("dismissRecovery").onclick = () => showRecovery();
   el("logoutBtn").onclick = () => action(async () => {
