@@ -37,6 +37,74 @@
     el("accountMessage").textContent = message;
   }
 
+  function isRegionJoin(challenge) {
+    if (!challenge) return state.verificationMethod === "region_join";
+    return challenge.method === "region_join" || !!challenge.joinCode ||
+      (state.verificationMethod === "region_join" && /^[a-z]{6}$/i.test(challenge.addFriendCode || ""));
+  }
+
+  async function copyText(text) {
+    if (!text) return false;
+    try {
+      if (typeof navigator.clipboard?.writeText === "function") {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    } catch {
+    }
+    const previousFocus = document.activeElement;
+    const input = document.createElement("textarea");
+    input.value = text;
+    input.readOnly = true;
+    input.style.cssText = "position:fixed;top:0;left:-9999px;font-size:16px;";
+    document.body.append(input);
+    try {
+      input.focus({ preventScroll: true });
+      input.select();
+      input.setSelectionRange(0, text.length);
+      return typeof document.execCommand === "function" && document.execCommand("copy") === true;
+    } catch {
+      return false;
+    } finally {
+      input.remove();
+      if (previousFocus?.isConnected) previousFocus.focus({ preventScroll: true });
+    }
+  }
+
+  let verificationCopyBusy = false;
+  let lastVerificationCode = "";
+
+  async function copyVerification() {
+    if (verificationCopyBusy) return;
+    const button = el("copyVerification");
+    const status = el("verificationCopyStatus");
+    const code = el("verificationCode").textContent.trim();
+    if (!code) {
+      status.textContent = "Get a verification code first.";
+      return;
+    }
+    verificationCopyBusy = true;
+    button.disabled = true;
+    status.textContent = "Copying…";
+    try {
+      if (await copyText(code)) {
+        status.textContent = isRegionJoin(state.user?.challenge) ? "Lobby code copied." : "Friend code copied.";
+        el("verificationCopyFallback").hidden = true;
+      } else {
+        const input = el("manualVerificationCode");
+        input.value = code;
+        el("verificationCopyFallback").hidden = false;
+        input.focus({ preventScroll: true });
+        input.select();
+        input.setSelectionRange(0, code.length);
+        status.textContent = "Copy wasn't available. Copy the selected code below, or type it into Among Us.";
+      }
+    } finally {
+      verificationCopyBusy = false;
+      button.disabled = !el("verificationCode").textContent.trim();
+    }
+  }
+
   function renderSession(user, allowed, status, restricted) {
     const summary = el("sessionSummary");
     const badge = el("sessionBadge");
@@ -92,12 +160,12 @@
     el("logoutBtn").hidden = !user;
     renderSession(user, allowed, status, restricted);
     el("accountStatus").textContent = allowed && !challenge && el("sessionSummary") ? ""
-      : status === "pending" && challenge?.method !== "region_join" ? "Waiting for your Among Us friend request." : notices[status] || "";
+      : status === "pending" && !isRegionJoin(challenge) ? "Waiting for your Among Us friend request." : notices[status] || "";
     el("accountIdentity").hidden = !user?.friendCode;
     el("accountIdentity").textContent = user?.friendCode ? `Verified Among Us friend code ${user.friendCode}` : "";
     el("verificationProgress").hidden = !challenge || restricted;
     el("verificationStart").hidden = !!challenge || restricted;
-    const regionJoin = challenge ? challenge.method === "region_join" : state.verificationMethod === "region_join";
+    const regionJoin = isRegionJoin(challenge);
     el("startVerification").textContent = user?.friendCode ? "Get a new verification code" : "Get verification code";
     el("verificationRegionField").hidden = !regionJoin;
     for (const option of el("verificationRegionSelect").options) option.disabled = !state.verificationRegions.includes(option.value);
@@ -106,6 +174,13 @@
     const codeLabel = document.createElement("strong");
     codeLabel.id = "verificationCode";
     codeLabel.textContent = challenge?.joinCode || challenge?.addFriendCode || "";
+    if (codeLabel.textContent !== lastVerificationCode) {
+      lastVerificationCode = codeLabel.textContent;
+      el("verificationCopyStatus").textContent = "";
+      el("verificationCopyFallback").hidden = true;
+    }
+    el("manualVerificationCode").value = codeLabel.textContent;
+    el("copyVerification").disabled = verificationCopyBusy || !codeLabel.textContent.trim();
     if (regionJoin) {
       const regionLabel = document.createElement("strong");
       regionLabel.id = "verificationRegion";
@@ -268,7 +343,7 @@
       if (result.status === "finished") {
         await refresh();
         notice("Among Us verification complete.");
-      } else if (manual) notice(state.user?.challenge?.method === "region_join"
+      } else if (manual) notice(isRegionJoin(state.user?.challenge)
         ? "Waiting for you to join the verification code in the selected MAUL region." : "Waiting for your friend request.");
     } catch (error) {
       if ([401, 403, 409, 410, 502].includes(error.status)) await refresh();
@@ -278,12 +353,8 @@
 
   el("checkVerification").onclick = () => action(() => checkVerification(true), el("checkVerification"));
   el("cancelVerification").onclick = () => action(() => update("/verify/cancel", {}), el("cancelVerification"));
-  el("copyVerification").onclick = () => action(async () => {
-    const challenge = state.user?.challenge;
-    const code = challenge?.joinCode || challenge?.addFriendCode;
-    if (code) await navigator.clipboard.writeText(code);
-    notice(challenge?.method === "region_join" ? "Lobby code copied." : "Friend code copied.");
-  });
+  el("copyVerification").onclick = copyVerification;
+  el("manualVerificationCode").onclick = (event) => event.currentTarget.select();
   el("dismissRecovery").onclick = () => showRecovery();
   el("logoutBtn").onclick = () => action(async () => {
     await api("/lobbies/logout", {});
@@ -302,8 +373,8 @@
     notice("Run that command in the MAUL Discord website login channel.");
   }, el("tokenBtn"));
   el("copyTokenBtn").onclick = () => action(async () => {
-    if (state.tokenCommand) await navigator.clipboard.writeText(state.tokenCommand);
-    notice("Command copied.");
+    const copied = await copyText(state.tokenCommand);
+    notice(copied ? "Command copied." : "Copy wasn't available. Select and copy the command shown above.");
   });
   el("refreshBtn").onclick = () => action(async () => { notice(); await refresh(); }, el("refreshBtn"));
   el("searchInput").oninput = render;
