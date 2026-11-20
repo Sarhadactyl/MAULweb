@@ -317,7 +317,7 @@
         cursor: not-allowed;
       }
 
-      .page-shell :is(button, input, summary):focus-visible {
+      .page-shell :is(button, input, select, summary):focus-visible {
         outline: 2px solid var(--rose-gold-light);
         outline-offset: 3px;
       }
@@ -367,7 +367,7 @@
       }
       .account-secret { user-select: all; }
 
-      .page-shell input {
+      .page-shell input, .page-shell select {
         width: 100%;
         min-height: 46px;
         padding: 8px 12px;
@@ -471,7 +471,7 @@
       <section class="panel login-panel" id="accountEntry" hidden>
         <div class="login-copy">
           <h2>Verify in Among Us</h2>
-          <p>Create a MAUL website account, then verify it by sending a friend request in Among Us.</p>
+          <p>Create a MAUL website account, get a verification code, then join that code in MAUL NA or MAUL EU. Discord is optional.</p>
         </div>
         <div class="account-forms">
           <form method="post" class="form-grid" id="accountLogin">
@@ -532,19 +532,32 @@
           <h2>Your MAUL account</h2>
           <p id="accountStatus" role="status"></p>
           <p id="accountIdentity" hidden></p>
+          <div class="verification-setup">
+            <p>Need to add the MAUL regions first?</p>
+            <div class="actions">
+              <a class="btn" href="https://moddedamong.us/servers/MAUL_NA/index.html" target="_blank" rel="noopener">Mobile: install MAUL NA</a>
+              <a class="btn" href="https://moddedamong.us/servers/MAUL_EU/index.html" target="_blank" rel="noopener">Mobile: install MAUL EU</a>
+              <a class="btn" href="https://media.lotusau.top/files/AUCustomServers.bat" download="AUCustomServers.bat">Windows installer (.bat)</a>
+            </div>
+            <p>On mobile, open Among Us, tap the install link for your region, then select that region in the game. <a href="/maul-regions.html" target="_blank" rel="noopener">Mobile setup help</a>.</p>
+            <p>For the Windows installer, close Among Us before running it, then reopen the game. <a href="/regions.html#setup-methods" target="_blank" rel="noopener">All setup methods</a>.</p>
+          </div>
           <div id="verificationProgress" hidden>
-            <p>From your own Among Us account, send a friend request to <strong id="verificationCode"></strong>.</p>
+            <p id="verificationInstructions">In Among Us, select <strong id="verificationRegion"></strong> and join code <strong id="verificationCode"></strong> from the account you are verifying.</p>
+            <p id="verificationJoinHint">The game will disconnect you with a verification confirmation. Return here to view lobbies. You do not need to add a friend or join Discord.</p>
             <p id="verificationDeadline"></p>
             <div class="actions">
-              <button class="btn" type="button" id="copyVerification">Copy friend code</button>
+              <button class="btn" type="button" id="copyVerification">Copy lobby code</button>
               <button class="btn" type="button" id="checkVerification">Check now</button>
               <button class="btn" type="button" id="cancelVerification">Cancel</button>
             </div>
           </div>
           <form method="post" class="form-grid" id="verificationStart">
             <label class="field"><span>Your Among Us friend code</span><input name="friendCode" autocomplete="off" maxlength="128" placeholder="player#1234" required /></label>
-            <p>MAUL sends this code to AU-Verify to confirm the friend request. MAUL stores your verified friend code and game account ID for access and moderation.</p>
-            <button class="btn primary" type="submit" id="startVerification">Verify in Among Us</button>
+            <label class="field" id="verificationRegionField"><span>Verification region</span><select name="region" id="verificationRegionSelect"><option value="na">MAUL NA</option><option value="eu">MAUL EU</option></select></label>
+            <p>Use your own Among Us account and join the code MAUL gives you. MAUL stores your verified friend code and game account ID for website access and moderation.</p>
+            <p><a href="/regions.html#setup-methods" target="_blank" rel="noopener">Region setup and other installers</a></p>
+            <button class="btn primary" type="submit" id="startVerification">Get verification code</button>
           </form>
         </div>
         <div class="account-forms">
@@ -612,6 +625,6 @@
     </footer>
 
     <script src="/scripts/navbar.js?v=20261028-nav-6"></script>
-    <script src="/scripts/maul-lobby-accounts.js?v=20261112-status" defer></script>
+    <script src="/scripts/maul-lobby-accounts.js?v=20261120-region-join-2" defer></script>
   </body>
 </html>
