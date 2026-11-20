@@ -551,6 +551,11 @@
               <button class="btn" type="button" id="checkVerification">Check now</button>
               <button class="btn" type="button" id="cancelVerification">Cancel</button>
             </div>
+            <p class="notice" id="verificationCopyStatus" role="status" aria-live="polite"></p>
+            <label class="field" id="verificationCopyFallback" hidden>
+              <span>Verification code — select and copy</span>
+              <input id="manualVerificationCode" type="text" readonly autocomplete="off" spellcheck="false" aria-label="Verification code for manual copying" />
+            </label>
           </div>
           <form method="post" class="form-grid" id="verificationStart">
             <label class="field"><span>Your Among Us friend code</span><input name="friendCode" autocomplete="off" maxlength="128" placeholder="player#1234" required /></label>
@@ -625,6 +630,6 @@
     </footer>
 
     <script src="/scripts/navbar.js?v=20261028-nav-6"></script>
-    <script src="/scripts/maul-lobby-accounts.js?v=20261120-region-join-2" defer></script>
+    <script src="/scripts/maul-lobby-accounts.js?v=20261120-copy-3" defer></script>
   </body>
 </html>
