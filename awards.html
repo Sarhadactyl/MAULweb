@@ -9,7 +9,7 @@
   <meta property="og:description" content="Vote for your favorites in the 2026 Modded Among Us Awards "/>
   <meta name="twitter:card" content="summary"/>
   <meta name="twitter:title" content="Modded Among Us Awards 2026"/>
-  <meta name="twitter:description" content=""Vote for your favorites in the 2026 Modded Among Us Awards"/>
+  <meta name="twitter:description" content="Vote for your favorites in the 2026 Modded Among Us Awards"/>
   <title>
    Modded Among Us Awards 2026
   </title>
@@ -954,7 +954,7 @@ body {
   $('tokenBtn').onclick=async()=>{$('loginError').textContent='';try{const d=await api(LOGIN+'/token','POST',{});$('tokenBox').hidden=false;$('tokenBox').textContent='/awards login token:'+d.token+'\n\nUse this command in the Bot command channel, then return here to sign in.'}catch(err){$('loginError').textContent=err.message}};
   for(const id of ['voteOverlay','loginOverlay'])$(id).addEventListener('click',e=>{if(e.target===$(id))hide(id)});document.addEventListener('keydown',e=>{if(e.key==='Escape'){hide('voteOverlay');hide('loginOverlay')}});
   refresh();
- // removed to be funny no notes for u
+
   setInterval(()=>{if(!finalized)refresh()},30000);
 })();
   </script>
