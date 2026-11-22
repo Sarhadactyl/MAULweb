@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MAUL • Template Editor</title>
+  <title>MAUL | Template Editor</title>
 
   <link rel="canonical" href="https://moddedamong.us/editor.html" />
   <meta name="description" content="Type, color, and export Among Us templates with smooth gradients in real time." />
 
-  <meta property="og:title" content="MAUL • Live Template Editor" />
+  <meta property="og:title" content="MAUL | Live Template Editor" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://moddedamong.us/editor.html" />
   <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
@@ -35,7 +35,7 @@
     referrerpolicy="no-referrer"
   />
 
-  <link rel="stylesheet" href="styles/navbar.css" />
+  <link rel="stylesheet" href="/styles/navbar.css?v=20261028-nav-6" />
 
   <style>
     :root {
@@ -1180,7 +1180,8 @@
       .hamburger span { background: linear-gradient(90deg, #f4f4f5, #e6e6e6); }
       .dropdown-content { background: rgba(12,12,14,.97); border-color: rgb(233 180 172 / .16); }
       .dropdown-content a:hover, .menu-nav-btn:hover, .menu-back-btn:hover { color: #e6e6e6; }
-      #navbar { --accent: #e6e6e6; --accent-soft: rgba(255, 255, 255,0.18); --accent-strong: #e6e6e6; }
+
+
       @media (max-width: 950px) {
         .header { grid-template-columns: minmax(0,1fr); gap: 0; min-height: 0; padding: 32px 26px; }
         .hero-panel { width: min(100%,500px); height: 305px; margin-top: 2px; }
@@ -1871,7 +1872,7 @@ body.spotlight-open { overflow: hidden; }
 .link-warning-message { margin: 0; color: var(--text-muted); font-size: 0.92rem; line-height: 1.7; }
 .link-warning-destination { margin: 16px 0 0; padding: 12px; overflow: hidden; border: 1px solid var(--line); border-radius: 4px; background: rgba(0, 0, 0, 0.25); color: var(--text-muted); font-size: 0.8rem; text-overflow: ellipsis; white-space: nowrap; }
 .link-warning-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 20px; }
-#navbar { --accent: #ec2537; --accent-soft: rgba(236, 37, 55, 0.2); --accent-strong: #ff6574; --bg-card: rgba(16, 12, 16, 0.96); --bg-soft: rgba(24, 18, 24, 0.94); --text-main: #f4f4f5; --text-muted: #bdb9c1; }
+
 
 @keyframes maulStarDrift { from { transform: translate3d(0, 160vh, 0); } to { transform: translate3d(0, 0, 0); } }
 @keyframes maulIntroRise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
@@ -2110,110 +2111,167 @@ footer { width: 100%; padding: 0; }
   .page-wrapper > .page-header { border-radius: 8px; margin-bottom: 28px; }
 }
 
+
+.maul-editor-theme .editor-stars{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;isolation:isolate}
+.maul-editor-theme .editor-stars::before,.maul-editor-theme .editor-stars::after{content:"";position:absolute;top:-160vh;left:0;border-radius:50%;background:#fff;pointer-events:none;animation:editorStarDrift 24s linear infinite}
+.maul-editor-theme .editor-stars::before{width:2px;height:2px;opacity:.7;box-shadow:3vw 8vh #fff, 6vw 57vh #fff, 9vw 122vh #fff, 11vw 215vh #fff,
+          14vw 303vh #fff, 17vw 34vh #fff, 19vw 186vh #fff, 22vw 269vh #fff,
+          25vw 78vh #fff, 27vw 147vh #fff, 29vw 241vh #fff, 31vw 318vh #fff,
+          34vw 18vh #fff, 36vw 101vh #fff, 38vw 207vh #fff, 41vw 286vh #fff,
+          43vw 64vh #fff, 45vw 158vh #fff, 48vw 226vh #fff, 50vw 311vh #fff,
+          52vw 42vh #fff, 54vw 133vh #fff, 57vw 197vh #fff, 59vw 276vh #fff,
+          61vw 88vh #fff, 63vw 171vh #fff, 65vw 252vh #fff, 68vw 6vh #fff,
+          70vw 116vh #fff, 72vw 221vh #fff, 74vw 296vh #fff, 76vw 51vh #fff,
+          79vw 139vh #fff, 81vw 233vh #fff, 83vw 314vh #fff, 85vw 27vh #fff,
+          87vw 96vh #fff, 89vw 182vh #fff, 91vw 265vh #fff, 93vw 74vh #fff,
+          95vw 154vh #fff, 97vw 244vh #fff, 99vw 309vh #fff,
+          12vw 24vh #fff,
+          23vw 114vh #fff,
+          39vw 152vh #fff,
+          54vw 26vh #fff,
+          66vw 132vh #fff,
+          82vw 54vh #fff,
+          94vw 188vh #fff,
+          8vw 302vh #fff,
+          32vw 278vh #fff,
+          47vw 72vh #fff,
+          73vw 314vh #fff,
+          91vw 228vh #fff}
+.maul-editor-theme .editor-stars::after{width:1px;height:1px;opacity:.5;animation-duration:36s;box-shadow:2vw 23vh #fff, 4vw 141vh #fff, 5vw 292vh #fff, 7vw 68vh #fff,
+          8vw 211vh #fff, 10vw 317vh #fff, 13vw 35vh #fff, 15vw 156vh #fff,
+          18vw 263vh #fff, 20vw 96vh #fff, 23vw 229vh #fff, 26vw 5vh #fff,
+          28vw 181vh #fff, 30vw 306vh #fff, 32vw 47vh #fff, 35vw 128vh #fff,
+          37vw 254vh #fff, 39vw 89vh #fff, 42vw 219vh #fff, 44vw 310vh #fff,
+          47vw 58vh #fff, 51vw 150vh #fff, 53vw 271vh #fff, 56vw 16vh #fff,
+          60vw 101vh #fff, 64vw 237vh #fff, 67vw 315vh #fff, 69vw 44vh #fff,
+          73vw 169vh #fff, 77vw 281vh #fff, 82vw 76vh #fff, 86vw 197vh #fff,
+          90vw 49vh #fff, 93vw 242vh #fff, 97vw 101vh #fff,
+          5vw 39vh #fff,
+          18vw 118vh #fff,
+          31vw 8vh #fff,
+          44vw 192vh #fff,
+          58vw 94vh #fff,
+          72vw 27vh #fff,
+          88vw 142vh #fff,
+          98vw 276vh #fff,
+          15vw 242vh #fff,
+          41vw 322vh #fff,
+          63vw 216vh #fff,
+          79vw 303vh #fff}
+@keyframes editorStarDrift{from{transform:translate3d(0,160vh,0)}to{transform:translate3d(0,0,0)}}
+@media(prefers-reduced-motion:reduce){.maul-editor-theme .editor-stars::before,.maul-editor-theme .editor-stars::after{animation:none;transform:translate3d(0,160vh,0)}}
+
+:root {--accent:var(--maul-rose);--accent-soft:rgba(233,180,172,.12);--accent-strong:var(--maul-rose-light);--gold:var(--maul-rose);--bg-card:var(--maul-surface);--bg-soft:var(--maul-surface);--text-main:var(--maul-text);--text-muted:var(--maul-muted);--line:var(--maul-border);--sans:var(--maul-font-body, "DM Sans",sans-serif);--mono:var(--maul-font-mono,ui-monospace,monospace)}
+html{background:var(--maul-bg)!important}
+body.maul-editor-theme {position:relative;isolation:isolate;min-height:100vh;height:auto;margin:0;padding:0;background:var(--maul-background)!important;color:var(--maul-text);font-family:var(--maul-font-body, "DM Sans",system-ui,sans-serif)}
+body.maul-editor-theme::before,body.maul-editor-theme::after{content:none!important;display:none!important}
+.maul-editor-theme #navbar{position:relative;z-index:20}
+.maul-editor-theme .page-wrapper{position:relative;z-index:1;width:min(1160px,calc(100% - 44px));max-width:none;margin:0 auto;padding:75px 0 45px}
+.maul-editor-theme .editor-heading{display:block;min-height:0;position:relative;margin:0 0 34px;padding:30px 0 38px;border:0;border-bottom:1px solid var(--maul-border);border-radius:0;background:transparent;box-shadow:none;overflow:visible;text-align:left}
+.maul-editor-theme .editor-heading::before,.maul-editor-theme .editor-heading::after{content:none}
+.maul-editor-theme .editor-heading h1{margin:0;font-family:var(--maul-font-display,"Libre Baskerville",Georgia,serif);font-size:clamp(2.7rem,6vw,5.3rem);font-weight:700;letter-spacing:-.055em;line-height:1.14;color:var(--maul-text)}
+.maul-editor-theme .editor-heading h1 .editor-heading-line{display:block;width:fit-content;max-width:100%;}
+.maul-editor-theme .editor-heading h1 .editor-heading-line:first-child{color:var(--maul-text);background:none;-webkit-text-fill-color:var(--maul-text);animation:none;padding:0;}
+.maul-editor-theme .editor-heading h1 span.maul-metallic{display:block;width:fit-content;padding:0 .12em .13em 0;max-width:100%;background-image:var(--maul-metallic-gradient,linear-gradient(105deg,#d9a7a6 0%,#f5d5c9 29%,#e9b4ac 44%,#fff3e0 50%,#e9b4ac 56%,#b76e79 78%,#e9b4ac 100%));background-size:260% 100%;background-position:0% 50%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#e9b4ac;animation:editorMetalSweep 9s ease-in-out infinite}
+@keyframes editorMetalSweep{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.maul-editor-theme .editor-heading p{max-width:650px;margin:9px 0 0;color:var(--maul-muted);font:400 1rem/1.7 var(--maul-font-body,"DM Sans",sans-serif)}
+.maul-editor-theme .editor-heading-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.maul-editor-theme .editor-heading-actions .maul-button{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 16px;font:700 13px/1.2 var(--maul-font-body,"DM Sans",sans-serif);text-decoration:none;white-space:nowrap}
+.maul-editor-theme main.container{display:grid;gap:17px;margin-top:0}
+.maul-editor-theme .container .panel,.maul-editor-theme .container .preset-card,.maul-editor-theme .container .export-card{position:relative;border:1px solid var(--maul-border);border-radius:7px;background:linear-gradient(140deg,rgba(66,15,31,.2),rgba(14,5,10,.95));box-shadow:0 15px 48px rgba(0,0,0,.38);backdrop-filter:none;color:var(--maul-text)}
+.maul-editor-theme .container .panel{padding:22px 24px}
+.maul-editor-theme .container .preset-card,.maul-editor-theme .container .export-card{padding:15px;box-shadow:none}
+.maul-editor-theme .container .preset-card:hover,.maul-editor-theme .container .export-card:hover{transform:none;border-color:rgba(233,180,172,.65);box-shadow:0 15px 48px rgba(0,0,0,.38)}
+.maul-editor-theme .title-wrap h2,.maul-editor-theme .container .panel h2,.maul-editor-theme #modal-dialog h2{font:700 clamp(1.5rem,2.6vw,2rem)/1.2 var(--maul-font-display,"Libre Baskerville",Georgia,serif);letter-spacing:-.035em;text-transform:none;color:var(--maul-text)}
+.maul-editor-theme .container h3,.maul-editor-theme .container .preset-name,.maul-editor-theme .gradient-title strong{font-family:var(--maul-font-body,"DM Sans",sans-serif);letter-spacing:0;text-transform:none;color:var(--maul-text)}
+.maul-editor-theme .container .subtitle,.maul-editor-theme .container small,.maul-editor-theme .container .status,.maul-editor-theme .container .field label{color:var(--maul-muted);text-shadow:none}
+.maul-editor-theme .container .field,.maul-editor-theme .container .stop-row,.maul-editor-theme .container .compact-gradient,.maul-editor-theme .container .codebox,.maul-editor-theme .container .preset-hex,.maul-editor-theme .container .advanced-collapsible,.maul-editor-theme #icon-palette{border:1px solid var(--maul-border);border-radius:6px;background:rgba(12,6,11,.68);box-shadow:none;color:var(--maul-text)}
+.maul-editor-theme .container .field input:not([type=color]):not([type=checkbox]):not([type=range]),.maul-editor-theme .container .field select,.maul-editor-theme .container .field textarea,.maul-editor-theme .container textarea,.maul-editor-theme .container .export-meta input,.maul-editor-theme #modal input{border:1px solid var(--maul-border);border-radius:5px;background:rgba(5,4,7,.78);color:var(--maul-text);font-family:var(--maul-font-body,"DM Sans",sans-serif)}
+.maul-editor-theme .container .field input:focus,.maul-editor-theme .container select:focus,.maul-editor-theme .container textarea:focus{outline:2px solid var(--maul-rose);outline-offset:2px;box-shadow:none}
+.maul-editor-theme .container .field input[type=color],.maul-editor-theme .container input[type=range],.maul-editor-theme .container input[type=checkbox]{accent-color:var(--maul-rose)}
+.maul-editor-theme .container .btn,.maul-editor-theme #modal .btn{min-height:40px;width:auto;padding:8px 14px;border:1px solid var(--maul-border);border-radius:6px;background:var(--maul-surface,#1d141b);color:var(--maul-text);font:700 13px/1.2 var(--maul-font-body,"DM Sans",sans-serif);box-shadow:none;transition:border-color .2s,background .2s;transform:none}
+.maul-editor-theme .container .btn:hover,.maul-editor-theme #modal .btn:hover{border-color:var(--maul-rose);background:rgba(233,180,172,.12);box-shadow:none;transform:none}
+.maul-editor-theme .container .btn.red,.maul-editor-theme .container .btn.primary{background:var(--maul-button-gradient);border-color:var(--maul-rose-light);color:var(--maul-foreground-on-rose,#29191f)}
+.maul-editor-theme .container .btn.small{min-height:34px;padding:7px 10px;font-size:12px}
+.maul-editor-theme .container .stop-actions .btn.small{min-height:28px;padding:0;width:28px;height:28px}
+.maul-editor-theme .container .preset-swatch,.maul-editor-theme .container .preview-bar{border-radius:5px}
+.maul-editor-theme #preview{background:rgba(4,3,6,.65);border-radius:6px}
+.maul-editor-theme #preview .preview-header{background:rgba(17,8,15,.8);border-color:var(--maul-border);color:var(--maul-muted)}
+.maul-editor-theme #preview-content{background:transparent;color:var(--maul-text)}
+.maul-editor-theme #modal-dialog{border:1px solid var(--maul-border);border-radius:8px;background:#140b12;box-shadow:0 20px 55px rgba(0,0,0,.65);color:var(--maul-text)}
+.maul-editor-theme #modal-dialog p,.maul-editor-theme #modal-dialog ul{color:var(--maul-muted)}
+.maul-editor-theme .maul-page-footer{display:flex;align-items:center;justify-content:center;gap:clamp(16px,4vw,52px);position:relative;z-index:1;width:min(1160px,calc(100% - 44px));margin:30px auto 15px;padding:48px 0 32px;border:0;border-top:1px solid var(--maul-border);background:transparent;color:var(--maul-rose);text-align:center}
+.maul-editor-theme .maul-page-footer::before,.maul-editor-theme .maul-page-footer::after{content:"";width:clamp(30px,10vw,118px);height:2px;flex:0 1 auto;background:linear-gradient(90deg,transparent,var(--maul-rose));opacity:.8}
+.maul-editor-theme .maul-page-footer::after{transform:rotate(180deg)}
+.maul-editor-theme .maul-page-footer p{margin:0;font:700 clamp(.9rem,2.4vw,1.15rem)/1.5 var(--maul-font-body,"DM Sans",sans-serif);letter-spacing:.085em;white-space:nowrap}
+.maul-editor-theme .maul-page-footer .heart{color:var(--maul-rose-light)}
+@media(max-width:680px){.maul-editor-theme .page-wrapper{width:calc(100% - 28px);padding-top:65px}.maul-editor-theme .editor-heading{padding:20px 0 28px}.maul-editor-theme .container .panel{padding:18px 14px}.maul-editor-theme .maul-page-footer{width:calc(100% - 28px);gap:12px}.maul-editor-theme .maul-page-footer p{font-size:.82rem;letter-spacing:.035em}}
+@media(prefers-reduced-motion:reduce){.maul-editor-theme .editor-heading h1 span{animation:none}}
 </style>
-  <link rel="stylesheet" href="styles/maul-theme.css" />
+  <link rel="stylesheet" href="/styles/maul-theme.css?v=1" />
 </head>
 
-<body class="maul-themed">
-  <div id="navbar">
-    <div class="dropdown editor-fallback-nav">
-      <button class="dropbtn" type="button" aria-label="Open navigation" aria-expanded="false">
-        <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
-      </button>
-      <div class="dropdown-content" role="menu">
-        <div class="menu-view active">
-          <div class="menu-brand">
-            <span class="menu-brand-icon">M</span>
-            <span>
-              <small>MAUL</small>
-              <strong>Modded Among Us</strong>
-            </span>
-          </div>
-          <a href="https://moddedamong.us/">Home</a>
-          <a href="https://moddedamong.us/lobbies.html">Lobby Help</a>
-          <a href="https://moddedamong.us/mods.html">Mods</a>
-          <a href="https://moddedamong.us/templates.html">Templates</a>
-          <a href="https://moddedamong.us/tags.html">Tags</a>
-          <a href="https://moddedamong.us/editor.html" aria-current="page">Template Editor</a>
-          <a href="https://moddedamong.us/icons.html">Icons &amp; Fonts</a>
-          <a href="https://moddedamong.us/ourstaff.html">Our Staff</a>
-          <a href="https://moddedamong.us/regions.html">Modded Regions</a>
-        </div>
-      </div>
-    </div>
-  </div>
+<body class="maul-theme maul-editor-theme">
+<div class="editor-stars" aria-hidden="true"></div>
+  <div id="navbar"></div>
 
   <div class="page-wrapper">
-    <header class="page-header maul-page-hero">
-      <div class="hero-copy">
-        <h1><span class="hero-title-line">Live</span><span class="hero-title-line hero-title-accent">Template</span><span class="hero-title-line">Editor</span></h1>
-        <p class="page-header-subtitle">Style text and export templates for your modded lobby.</p>
-        <div class="header-actions">
-          <a href="https://moddedamong.us/" class="hero-join-link maul-hero-secondary">
-            Back to Home
-          </a>
-          <a href="https://moddedamong.us/icons.html" class="hero-join-link maul-hero-secondary">
-            Icons &amp; Fonts
-          </a>
-          <a href="#" class="hero-join-link maul-hero-primary" id="open-help-top">
-            Open Help
-          </a>
-        </div>
-      </div>
-      <div class="hero-panel maul-hero-art" aria-label="MAUL mascot illustration">
-        <div class="hero-banner-card" aria-hidden="true">
-          <img src="images/banner-transparent-cropped.png" alt="" loading="lazy" decoding="async" />
-        </div>
-        <img src="images/maulnobg.png" alt="MAUL mascot" loading="eager" decoding="async" />
-      </div>
-    </header>
+    <header class="editor-heading">
+  <h1 class="maul-display"><span class="editor-heading-line">MAUL</span><span class="editor-heading-line maul-metallic">Template</span><span class="editor-heading-line">Editor</span></h1>
+  <p>Write your lobby text, choose your colors and fonts, then copy or download the result.</p>
+  <div class="editor-heading-actions">
+    <a href="https://moddedamong.us/" class="maul-button maul-button--secondary">Back to Home</a>
+    <a href="https://moddedamong.us/icons.html" class="maul-button maul-button--secondary">Icons &amp; Fonts</a>
+    <a href="#" id="open-help-top" class="maul-button maul-button--primary">Open Help</a>
+  </div>
+</header>
 
     <div id="modal" role="dialog" aria-modal="true" aria-labelledby="help-title">
       <div id="modal-backdrop" tabindex="-1"></div>
       <div id="modal-dialog">
         <button class="btn small" id="modal-close" type="button">Close</button>
-        <h2 id="help-title">About the Live Template Editor</h2>
+        <h2 id="help-title">How to use the template editor</h2>
 
-        <p><strong>Typing &amp; Preview</strong></p>
+        <p><strong>Writing and previewing</strong></p>
         <ul>
-          <li>Type your message in the Editor (left).</li>
-          <li>Preview shows web-font approximations for SDF fonts.</li>
-          <li>Output shows final Among Us markup (copy/download).</li>
-          <li>Editing or pasting into Output automatically updates the Editor and Preview.</li>
+          <li>Write your text in the Editor.</li>
+          <li>The preview gives you an idea of how your text will look. SDF fonts may look a little different in Among Us.</li>
+          <li>Output contains the formatted text you can copy or download.</li>
+          <li>You can also paste or edit text in Output. The Editor and preview will update to match.</li>
         </ul>
 
         <p><strong>Line breaks</strong></p>
         <ul>
-          <li>Use <strong>↵ \n</strong> to insert a literal <code>\n</code> (recommended).</li>
-          <li>If you press Enter, export will still convert newlines to <code>\n</code>.</li>
+          <li>Use <strong>↵ \n</strong> to add a literal <code>\n</code> (the easiest option).</li>
+          <li>If you use Enter instead, the exported text will automatically turn line breaks into <code>\n</code>.</li>
         </ul>
 
         <p><strong>EHR template manager</strong></p>
         <ul>
-          <li>Named exports now emit <code>tag[properties]:message</code> lines.</li>
+          <li>Named exports use <code>tag[properties]:message</code> lines.</li>
           <li>Supported properties include <code>weight</code>, <code>delay</code>, <code>hidden</code>, <code>map</code>, <code>meeting</code>, <code>role</code>, <code>rank</code>, <code>players</code>, and <code>preset</code>.</li>
-          <li>User variables export as <code>@name = value</code> lines and can be reused as <code>@name</code>.</li>
-          <li>The Auto menu includes every <code>{{Placeholder}}</code> currently supported by <code>TemplateManager.cs</code>.</li>
+          <li>Your saved variables appear as <code>@name = value</code> lines. You can use them again by typing <code>@name</code>.</li>
+          <li>The Auto menu lists the <code>{{Placeholder}}</code> supported by <code>TemplateManager.cs</code>.</li>
         </ul>
 
-        <p><strong>Stops / Gradient</strong></p>
+        <p><strong>Gradient colors</strong></p>
         <ul>
-          <li>Stops have a <strong>position</strong> now (0–100%).</li>
-          <li><strong>Distribute</strong> spaces stop positions evenly.</li>
-          <li>Applying gradient assigns per-character colors (tokens and <code>\n</code> are skipped).</li>
+          <li>Each color stop has a <strong>position</strong> from 0% to 100%.</li>
+          <li><strong>Distribute</strong> spaces your color stops evenly.</li>
+          <li>A gradient colors each character separately, but skips placeholders and <code>\n</code>.</li>
         </ul>
 
         <p><strong>Advanced TMP</strong></p>
         <ul>
-          <li>Select text in Output, then wrap it with tags like <code>mark</code>, <code>rotate</code>, <code>width</code>, <code>nobr</code>, <code>alpha</code>, and <code>smallcaps</code>.</li>
-          <li>If no Output text is selected, the advanced tag wraps the whole generated markup.</li>
+          <li>Select part of your Output text to add tags such as <code>mark</code>, <code>rotate</code>, <code>width</code>, <code>nobr</code>, <code>alpha</code>, and <code>smallcaps</code>.</li>
+          <li>If you don’t select anything, the tag applies to all of the Output text.</li>
         </ul>
 
-        <p><strong>Editing fixes</strong></p>
+        <p><strong>Editing your text</strong></p>
         <ul>
-          <li>Undo/redo tracks both text and styles together (no desync).</li>
-          <li>Typing, deleting, and pasting keep styles stable.</li>
-          <li><strong>Normalize output</strong> rebuilds minimal clean markup anytime.</li>
+          <li>Undo and Redo restore your text and formatting together.</li>
+          <li>You can type, delete, or paste without losing the rest of your formatting.</li>
+          <li><strong>Normalize output</strong> cleans up extra formatting tags when you need it.</li>
         </ul>
 
         <p><strong>Shortcuts</strong></p>
@@ -2326,7 +2384,7 @@ footer { width: 100%; padding: 0; }
               <label>Line</label>
               <label style="display:flex;align-items:center;gap:6px">
                 <input type="checkbox" id="applyLine" />
-                <small>Apply to whole line</small>
+                <small>Applies to the entire line</small>
               </label>
               <button class="btn small" id="resetLine" type="button">Reset line</button>
             </div>
@@ -2335,7 +2393,7 @@ footer { width: 100%; padding: 0; }
               <label>New line</label>
               <label style="display:flex;align-items:center;gap:6px">
                 <input type="checkbox" id="cleanSlate" checked />
-                <small>Clean slate</small>
+                <small>Start with a blank line</small>
               </label>
             </div>
 
@@ -2367,7 +2425,7 @@ footer { width: 100%; padding: 0; }
           <details class="advanced-panel advanced-collapsible">
             <summary>
               <span>Advanced TMP</span>
-              <small>Optional output wrappers</small>
+              <small>Extra formatting options</small>
             </summary>
             <div class="advanced-panel-body">
               <div class="advanced-value-row">
@@ -2397,7 +2455,7 @@ footer { width: 100%; padding: 0; }
                 <button class="btn small" type="button" data-advanced-dynamic="link">Link</button>
                 <button class="btn small" type="button" data-advanced-wrap data-open="&lt;noparse&gt;" data-close="&lt;/noparse&gt;">No Parse</button>
               </div>
-              <small class="advanced-help">Select Output text first. If nothing is selected, the tag wraps the whole output.</small>
+              <small class="advanced-help">Select the part of Output you want to format. With nothing selected, the change applies to everything.</small>
             </div>
           </details>
 
@@ -2405,7 +2463,7 @@ footer { width: 100%; padding: 0; }
             <div class="gradient-summary-row">
               <div class="gradient-title">
                 <strong>Gradient</strong>
-                <small>Apply to selected text</small>
+                <small>Choose text to color</small>
               </div>
               <div class="gradient-quick-actions">
                 <button class="btn small red" id="applyGradient" type="button">Apply gradient</button>
@@ -2451,12 +2509,12 @@ footer { width: 100%; padding: 0; }
 
             <div class="grid">
               <div id="preview" class="codebox" aria-label="Live preview">
-                <div class="preview-header">Live Preview (web-font approximations)</div>
+                <div class="preview-header">Live preview</div>
                 <div id="preview-content"></div>
               </div>
               <div class="field" style="border-radius:4px">
                 <small style="color:rgba(255,255,255,.75)">
-                  SDF fonts are mapped to similar web fonts for preview only; output uses the selected SDF font name.
+                  The preview uses similar-looking web fonts. Your exported text will still use the SDF font you picked.
                 </small>
               </div>
             </div>
@@ -2468,7 +2526,7 @@ footer { width: 100%; padding: 0; }
         <div class="panel-header">
           <div class="title-wrap">
             <h2>Gradient Presets</h2>
-            <p class="subtitle">Use a preset card or load from the dropdown above.</p>
+            <p class="subtitle">Pick a preset below, or choose one from the dropdown in the editor.</p>
           </div>
         </div>
         <div class="preset-grid" id="presetGrid"></div>
@@ -2478,12 +2536,12 @@ footer { width: 100%; padding: 0; }
         <div class="panel-header">
           <div class="title-wrap">
             <h2>Named Exports</h2>
-            <p class="subtitle">Download emits user variables plus <code>tag[properties]:&lt;markup&gt;</code> lines that match EHR's template parser.</p>
+            <p class="subtitle">Your download includes your saved variables and <code>tag[properties]:&lt;markup&gt;</code> lines that EHR can read.</p>
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end">
             <button class="btn" id="addTemplate" type="button">Add template</button>
-            <button class="btn red" id="downloadNamed" type="button">Download template.txt</button>
-            <button class="btn" id="copyNamed" type="button">Copy named</button>
+            <button class="btn red" id="downloadNamed" type="button">Download templates</button>
+            <button class="btn" id="copyNamed" type="button">Copy templates</button>
           </div>
         </div>
 
@@ -2491,7 +2549,7 @@ footer { width: 100%; padding: 0; }
           <div class="field" style="border-radius:4px;display:grid;align-items:start">
             <label for="templateVars">User variables</label>
             <textarea id="templateVars" class="template-vars" placeholder="@discord = discord . gg / maul"></textarea>
-            <small>One per line. Example: <code>@discord = discord . gg / maul</code>, then use <code>@discord</code> in templates.</small>
+            <small>Add one variable per line. For example: <code>@discord = discord . gg / maul</code>, then use <code>@discord</code> inside your templates.</small>
           </div>
 
           <div>
@@ -3804,31 +3862,6 @@ footer { width: 100%; padding: 0; }
       modal.classList.remove("open");
     }
 
-    function initFallbackNavbar(){
-      const nav = document.querySelector("#navbar .editor-fallback-nav");
-      if(!nav || nav.dataset.ready === "true") return;
-      nav.dataset.ready = "true";
-
-      const button = nav.querySelector(".dropbtn");
-      const closeNav = () => {
-        nav.classList.remove("open");
-        button?.setAttribute("aria-expanded", "false");
-      };
-
-      button?.addEventListener("click", (e)=>{
-        e.stopPropagation();
-        const open = nav.classList.toggle("open");
-        button.setAttribute("aria-expanded", String(open));
-      });
-
-      document.addEventListener("click", (e)=>{
-        if(!nav.contains(e.target)) closeNav();
-      });
-
-      document.addEventListener("keydown", (e)=>{
-        if(e.key === "Escape") closeNav();
-      });
-    }
 
     openHelpTop?.addEventListener("click", (e)=>{ e.preventDefault(); openHelp(); });
     openHelpInline?.addEventListener("click", openHelp);
@@ -4149,7 +4182,6 @@ footer { width: 100%; padding: 0; }
     });
 
     function boot(){
-      initFallbackNavbar();
 
       const bc = loadLS("baseColorV2", "#FFFFFF");
       const fs = loadLS("fontSelV2", "");
@@ -4204,7 +4236,7 @@ footer { width: 100%; padding: 0; }
 
     boot();
   </script>
-  <script src="scripts/navbar.js"></script>
+  <script src="/scripts/navbar.js?v=20261028-nav-6"></script>
 
     <footer class="maul-shared-footer">
       <p class="maul-footer-credit">Made with ♡ by Maul</p>
