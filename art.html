@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>User Art • MAUL</title>
+    <title>User Art | MAUL</title>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,7 +10,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moddedamong.us/art.html" />
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-    <meta property="og:description" content="Community-created art from the Modded Among Us Lobbies Discord." />
+    <meta property="og:description" content="Community created art from the Modded Among Us Lobbies Discord." />
     <meta property="og:site_name" content="Modded Among Us Lobbies" />
     <meta property="og:locale" content="en_US" />
     <link rel="canonical" href="https://moddedamong.us/art.html" />
@@ -295,6 +295,23 @@
         .maul-art-theme .viewer-stage { min-height: 47vh; }
         .maul-art-theme .viewer-stage > img { max-height: 47vh; }
       }
+      .maul-art-theme .art-intro {
+        margin: 0 0 26px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--maul-border);
+      }
+      .maul-art-theme .art-intro h1 {
+        width: fit-content;
+        max-width: 100%;
+        margin: 0;
+        font: 700 clamp(2.6rem, 5.6vw, 4.8rem)/1.12 var(--maul-font-display, Georgia, serif);
+        letter-spacing: -.045em;
+      }
+      .maul-art-theme .art-intro p {
+        margin: 12px 0 0;
+        color: var(--maul-muted);
+        font: 1rem/1.6 var(--maul-font-body, system-ui, sans-serif);
+      }
     </style>
   </head>
 
@@ -303,6 +320,10 @@
     <div class="maul-shooting-star-layer" aria-hidden="true"></div>
 
     <div class="page-wrapper">
+      <header class="art-intro">
+        <h1 class="maul-metallic">Community Art</h1>
+        <p>Artwork created by the Modded Among Us Lobbies community.</p>
+      </header>
 
       <div class="slideshow-card" id="gallery">
         <div class="gallery-toolbar">
