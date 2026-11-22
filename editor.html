@@ -2207,6 +2207,13 @@ body.maul-editor-theme::before,body.maul-editor-theme::after{content:none!import
 .maul-editor-theme .maul-page-footer .heart{color:var(--maul-rose-light)}
 @media(max-width:680px){.maul-editor-theme .page-wrapper{width:calc(100% - 28px);padding-top:65px}.maul-editor-theme .editor-heading{padding:20px 0 28px}.maul-editor-theme .container .panel{padding:18px 14px}.maul-editor-theme .maul-page-footer{width:calc(100% - 28px);gap:12px}.maul-editor-theme .maul-page-footer p{font-size:.82rem;letter-spacing:.035em}}
 @media(prefers-reduced-motion:reduce){.maul-editor-theme .editor-heading h1 span{animation:none}}
+
+.maul-editor-theme .editor-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(170px,.55fr);align-items:center;column-gap:clamp(14px,4vw,55px)}
+.maul-editor-theme .editor-heading-copy{min-width:0}
+.maul-editor-theme .editor-heading-mascot{display:block;width:min(100%,345px);max-height:390px;object-fit:contain;justify-self:center;filter:drop-shadow(0 20px 30px rgba(0,0,0,.47))}
+.maul-editor-theme .maul-page-footer{margin-top:52px;padding-top:55px;padding-bottom:38px}
+@media(max-width:640px){.maul-editor-theme .editor-heading{grid-template-columns:minmax(0,1fr) minmax(100px,.43fr);column-gap:8px}.maul-editor-theme .editor-heading-mascot{max-height:230px}.maul-editor-theme .editor-heading h1{font-size:clamp(2.25rem,7.7vw,3.6rem)}.maul-editor-theme .editor-heading-actions{gap:7px}.maul-editor-theme .editor-heading-actions .maul-button{min-height:36px;padding:7px 11px;font-size:12px}.maul-editor-theme .maul-page-footer{padding-top:40px}}
+@media(max-width:390px){.maul-editor-theme .editor-heading{grid-template-columns:minmax(0,1fr) 90px}.maul-editor-theme .editor-heading h1{font-size:clamp(2.05rem,8vw,2.65rem)}}
 </style>
   <link rel="stylesheet" href="/styles/maul-theme.css?v=1" />
 </head>
@@ -2217,13 +2224,16 @@ body.maul-editor-theme::before,body.maul-editor-theme::after{content:none!import
 
   <div class="page-wrapper">
     <header class="editor-heading">
-  <h1 class="maul-display"><span class="editor-heading-line">MAUL</span><span class="editor-heading-line maul-metallic">Template</span><span class="editor-heading-line">Editor</span></h1>
-  <p>Write your lobby text, choose your colors and fonts, then copy or download the result.</p>
-  <div class="editor-heading-actions">
-    <a href="https://moddedamong.us/" class="maul-button maul-button--secondary">Back to Home</a>
-    <a href="https://moddedamong.us/icons.html" class="maul-button maul-button--secondary">Icons &amp; Fonts</a>
-    <a href="#" id="open-help-top" class="maul-button maul-button--primary">Open Help</a>
+  <div class="editor-heading-copy">
+    <h1 class="maul-display"><span class="editor-heading-line">MAUL</span><span class="editor-heading-line maul-metallic">Template</span><span class="editor-heading-line">Editor</span></h1>
+    <p>Write your lobby text, choose your colors and fonts, then copy or download the result.</p>
+    <div class="editor-heading-actions">
+      <a href="https://moddedamong.us/" class="maul-button maul-button--secondary">Back to Home</a>
+      <a href="https://moddedamong.us/icons.html" class="maul-button maul-button--secondary">Icons &amp; Fonts</a>
+      <a href="#" id="open-help-top" class="maul-button maul-button--primary">Open Help</a>
+    </div>
   </div>
+  <img class="editor-heading-mascot" src="images/maulnobg.png" alt="MAUL mascot" loading="eager" decoding="async" />
 </header>
 
     <div id="modal" role="dialog" aria-modal="true" aria-labelledby="help-title">
@@ -4238,8 +4248,8 @@ body.maul-editor-theme::before,body.maul-editor-theme::after{content:none!import
   </script>
   <script src="/scripts/navbar.js?v=20261028-nav-6"></script>
 
-    <footer class="maul-shared-footer">
-      <p class="maul-footer-credit">Made with ♡ by Maul</p>
+    <footer class="maul-page-footer">
+      <p>Made with <span class="heart">♡</span> by Maul</p>
     </footer>
 </body>
 </html>
