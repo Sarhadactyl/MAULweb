@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Player &amp; Host FAQ · MAUL</title>
+    <title>Player &amp; Host FAQ | MAUL</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta property="og:title" content="Player &amp; Host FAQ · MAUL" />
+    <meta property="og:title" content="Player &amp; Host FAQ | MAUL" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moddedamong.us/faq.html" />
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
@@ -1255,606 +1255,687 @@
       }
 
     </style>
-    <link rel="stylesheet" href="styles/maul-theme.css" />
-  </head>
+<link href="/styles/maul-theme.css?v=2" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+      body.maul-faq-theme::before,
 
-  <body class="maul-themed">
-    <div id="navbar"></div>
+      body.maul-faq-theme::after {
+        content: "";
+        position: fixed;
+        top: -160vh;
+        left: 0;
+        z-index: -1;
+        pointer-events: none;
+        border-radius: 50%;
+        background: #fff;
+        animation: maulStarDrift 24s linear infinite;
+      }
 
-    <div class="page-wrapper">
-      <header class="hero maul-page-hero" id="top">
-        <div class="hero-copy">
-          <div class="header-badge">Player + Host Quick Reference</div>
-          <h1>Modded Among Us <span>FAQ</span></h1>
-          <p class="hero-subtitle">Quick answers for players and hosts.</p>
-          <div class="hero-actions">
-            <a href="#players" class="cta-primary maul-hero-primary"><i class="fa-solid fa-gamepad" aria-hidden="true"></i> Player Help</a>
-            <a href="#hosts" class="cta-secondary maul-hero-secondary"><i class="fa-solid fa-server" aria-hidden="true"></i> Host Help</a>
-          </div>
-        </div>
-        <div class="hero-panel maul-hero-art" aria-label="MAUL mascot illustration">
-          <div class="hero-banner-card" aria-hidden="true">
-            <img src="images/banner-transparent-cropped.png" alt="" loading="lazy" decoding="async" />
-          </div>
-          <img src="images/maulnobg.png" alt="MAUL mascot" loading="eager" decoding="async" />
-        </div>
-        <a class="hero-join-link maul-hero-secondary" href="https://discord.gg/MAUL" target="_blank" rel="noopener">Join MAUL</a>
-      </header>
+      body.maul-faq-theme::before {
+        width: 2px;
+        height: 2px;
+        opacity: 0.7;
+        box-shadow: 3vw 8vh #fff, 6vw 57vh #fff, 9vw 122vh #fff, 11vw 215vh #fff,
+          14vw 303vh #fff, 17vw 34vh #fff, 19vw 186vh #fff, 22vw 269vh #fff,
+          25vw 78vh #fff, 27vw 147vh #fff, 29vw 241vh #fff, 31vw 318vh #fff,
+          34vw 18vh #fff, 36vw 101vh #fff, 38vw 207vh #fff, 41vw 286vh #fff,
+          43vw 64vh #fff, 45vw 158vh #fff, 48vw 226vh #fff, 50vw 311vh #fff,
+          52vw 42vh #fff, 54vw 133vh #fff, 57vw 197vh #fff, 59vw 276vh #fff,
+          61vw 88vh #fff, 63vw 171vh #fff, 65vw 252vh #fff, 68vw 6vh #fff,
+          70vw 116vh #fff, 72vw 221vh #fff, 74vw 296vh #fff, 76vw 51vh #fff,
+          79vw 139vh #fff, 81vw 233vh #fff, 83vw 314vh #fff, 85vw 27vh #fff,
+          87vw 96vh #fff, 89vw 182vh #fff, 91vw 265vh #fff, 93vw 74vh #fff,
+          95vw 154vh #fff, 97vw 244vh #fff, 99vw 309vh #fff,
+          12vw 24vh #fff,
+          23vw 114vh #fff,
+          39vw 152vh #fff,
+          54vw 26vh #fff,
+          66vw 132vh #fff,
+          82vw 54vh #fff,
+          94vw 188vh #fff,
+          8vw 302vh #fff,
+          32vw 278vh #fff,
+          47vw 72vh #fff,
+          73vw 314vh #fff,
+          91vw 228vh #fff;
+      }
 
-      <section class="faq-search" role="search" aria-label="Search the FAQ">
-        <div class="faq-search-field">
-          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-          <label class="sr-only" for="faqSearch">Search questions, answers, commands, and links</label>
-          <input id="faqSearch" type="search" placeholder="Search questions, commands, errors, regions..." autocomplete="off" />
-          <button id="faqClear" class="faq-clear" type="button" hidden>Clear</button>
-        </div>
-        <p id="faqSearchStatus" class="faq-search-status" aria-live="polite">Find an answer or choose a topic below.</p>
-        <div class="faq-accordion-tools" aria-label="FAQ display controls">
-          <button id="faqExpand" type="button">Expand all questions</button>
-          <button id="faqCollapse" type="button">Collapse all</button>
-        </div>
-      </section>
+      body.maul-faq-theme::after {
+        width: 1px;
+        height: 1px;
+        opacity: 0.5;
+        animation-duration: 36s;
+        box-shadow: 2vw 23vh #fff, 4vw 141vh #fff, 5vw 292vh #fff, 7vw 68vh #fff,
+          8vw 211vh #fff, 10vw 317vh #fff, 13vw 35vh #fff, 15vw 156vh #fff,
+          18vw 263vh #fff, 20vw 96vh #fff, 23vw 229vh #fff, 26vw 5vh #fff,
+          28vw 181vh #fff, 30vw 306vh #fff, 32vw 47vh #fff, 35vw 128vh #fff,
+          37vw 254vh #fff, 39vw 89vh #fff, 42vw 219vh #fff, 44vw 310vh #fff,
+          47vw 58vh #fff, 51vw 150vh #fff, 53vw 271vh #fff, 56vw 16vh #fff,
+          60vw 101vh #fff, 64vw 237vh #fff, 67vw 315vh #fff, 69vw 44vh #fff,
+          73vw 169vh #fff, 77vw 281vh #fff, 82vw 76vh #fff, 86vw 197vh #fff,
+          90vw 49vh #fff, 93vw 242vh #fff, 97vw 101vh #fff,
+          5vw 39vh #fff,
+          18vw 118vh #fff,
+          31vw 8vh #fff,
+          44vw 192vh #fff,
+          58vw 94vh #fff,
+          72vw 27vh #fff,
+          88vw 142vh #fff,
+          98vw 276vh #fff,
+          15vw 242vh #fff,
+          41vw 322vh #fff,
+          63vw 216vh #fff,
+          79vw 303vh #fff;
+      }
 
-      <div class="faq-layout">
-        <aside class="faq-sidebar" aria-label="FAQ topic navigation">
-          <div class="faq-sidebar-inner">
-            <p class="sidebar-kicker">QUICK NAVIGATION</p>
-            <h2>Browse topics</h2>
-            <nav class="jump-links" aria-label="FAQ sections">
-              <a href="#players"><i class="fa-solid fa-gamepad" aria-hidden="true"></i> Players <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
-              <a href="#hosts"><i class="fa-solid fa-server" aria-hidden="true"></i> Hosts <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
-              <a href="#tags"><i class="fa-solid fa-tag" aria-hidden="true"></i> Custom Tags <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
-              <a href="#commands"><i class="fa-solid fa-terminal" aria-hidden="true"></i> Commands <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
-              <a href="#fixes"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Fixes <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
-              <a href="#links"><i class="fa-solid fa-link" aria-hidden="true"></i> Useful Links <i class="fa-solid fa-chevron-right" aria-hidden="true"></i></a>
-            </nav>
-            <a class="sidebar-top" href="#top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i> Back to top</a>
-          </div>
-        </aside>
-        <div class="faq-main">
-          <p id="faqNoResults" class="faq-no-results" role="status" hidden>No matches found. Try another keyword or <button type="button" id="faqEmptyClear">clear your search</button>.</p>
+      @keyframes maulStarDrift {
+        from { transform: translate3d(0, 160vh, 0); }
+        to { transform: translate3d(0, 0, 0); }
+      }
 
-      <section class="overview-grid" aria-label="Quick overview">
-        <a class="overview-card" href="#players">
-          <h2><i class="fa-solid fa-circle-play accent"></i> Join Faster</h2>
-          <p>Learn what modded regions are, when you need one, and the quickest way for mobile and PC players to join.</p>
-        <span class="overview-arrow" aria-hidden="true">Explore &rarr;</span></a>
-        <a class="overview-card" href="#hosts">
-          <h2><i class="fa-solid fa-gears accent"></i> Host Cleaner</h2>
-          <p>Keep a short checklist for updating the mod, enabling autostart, queue tools, and handling known lobby issues.</p>
-        <span class="overview-arrow" aria-hidden="true">Explore &rarr;</span></a>
-        <a class="overview-card" href="#tags">
-          <h2><i class="fa-solid fa-tag accent"></i> Add Custom Tags</h2>
-          <p>Learn about adding custom tags to your mod if it supports them, then place the finished file in the correct data folder.</p>
-        <span class="overview-arrow" aria-hidden="true">Explore &rarr;</span></a>
-        <a class="overview-card" href="#fixes">
-          <h2><i class="fa-solid fa-life-ring accent"></i> Fix Problems</h2>
-          <p>Use the black-screen fix, the Niko region notes, and the log tools before assuming the mod is broken.</p>
-        <span class="overview-arrow" aria-hidden="true">Explore &rarr;</span></a>
-      </section>
 
-      <section id="players" class="section-shell faq-section">
-        <h2>For Players</h2>
-        <p class="section-intro">Common commands for playing, meetings, and hosting. Some are EHR-specific.</p>
+      .maul-shooting-star-layer {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .maul-shooting-star {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: clamp(65px, 13vw, 125px);
+        height: 1px;
+        border-radius: 100%;
+        background: linear-gradient(90deg, transparent, rgb(233 180 172 / 12%) 20%, rgb(245 213 201 / 76%) 100%);
+        box-shadow: 0 0 6px rgb(233 180 172 / 16%);
+        transform-origin: right center;
+        will-change: transform, opacity;
+        animation: maulShootingStar 1400ms ease-out both;
+      }
+      .maul-shooting-star::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: -1px;
+        height: 3px;
+        width: 3px;
+        border-radius: 50%;
+        background: rgb(255 231 225 / 85%);
+        box-shadow: 0 0 6px rgb(233 180 172 / 45%);
+      }
+      @keyframes maulShootingStar {
+        0% { opacity: 0; transform: translate3d(0,0,0) rotate(-25deg) scaleX(.65); }
+        12% { opacity: .78; }
+        68% { opacity: .6; }
+        100% { opacity: 0; transform: translate3d(var(--star-travel-x, 190px), calc(-1 * var(--star-travel-y, 90px)), 0) rotate(-25deg) scaleX(1); }
+      }
+      @media (max-width: 760px) {
+        .maul-shooting-star { width: 70px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .maul-shooting-star-layer { display: none; }
+        .maul-shooting-star { animation: none; }
+      }
 
-        <div class="faq-list">
-          <details class="faq-item" open>
-            <summary>What is Modded Among Us?</summary>
-            <div class="faq-item-content">
-              <p>
-                A match can include impostors, crewmates, coven, neutrals, and add-ons.
-              </p>
-              <p>
-                Depending on the mod, you may also get access to mini-games like FFA.
-              </p>
-              <p>
-                The five big role groups to remember are <strong>Impostors</strong>, <strong>Crewmates</strong>,
-                <strong>Neutrals</strong>, <strong>Coven</strong>, and <strong>Add-ons</strong>. That is why kills,
-                votes, and suspicious behavior do not always mean the same thing they do in vanilla.
-              </p>
-              <p><strong>In modded Among Us, crew can kill too.</strong></p>
-            </div>
-          </details>
 
-          <details class="faq-item">
-            <summary>Do I need to install the mod to join a lobby?</summary>
-            <div class="faq-item-content">
-              <p>
-                In a host-only lobby, only the host needs the mod.
-              </p>
-              <p>
-                However, some mods like Town of Us Mira may require players to install the mod too. Those can be installed
-                on PC or Android with
-                <a href="https://play.google.com/store/apps/details?id=dev.allofus.starlight&amp;hl=en_US&amp;pli=1" target="_blank" rel="noopener">Starlight Launcher</a>.
-              </p>
-            </div>
-          </details>
 
-          <details class="faq-item">
-            <summary>What is a modded region?</summary>
-            <div class="faq-item-content">
-              <p>
-                A modded region is a non-Innersloth region that helps mods run when the official anti-cheat breaks
-                lobbies. If you are experiencing host errors like banned for hacking or repeated kicks and the issue is
-                widespread, swapping to a modded region may be a good alternative.
-              </p>
-              <p>
-                Niko regions are commonly suggested for host-only mods like EHR or Project Lotus. More general modded
-                regions are commonly suggested for client-required mods like Town of Us.
-              </p>
-              <p>
-                These regions can be installed on mobile, tablet, or PC.
-              </p>
-            </div>
-          </details>
+      .maul-faq-theme .maul-page-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(16px, 4vw, 52px);
+        width: 100%;
+        margin: 52px auto 20px;
+        padding: 55px 0 38px;
+        border-top: 1px solid var(--maul-border);
+        color: var(--maul-rose);
+        text-align: center;
+      }
+      .maul-faq-theme .maul-page-footer::before,
+      .maul-faq-theme .maul-page-footer::after {
+        content: "";
+        width: clamp(30px, 10vw, 118px);
+        height: 2px;
+        flex: 0 1 auto;
+        background: linear-gradient(90deg, transparent, var(--maul-rose));
+        opacity: .8;
+      }
+      .maul-faq-theme .maul-page-footer::after { transform: rotate(180deg); }
+      .maul-faq-theme .maul-page-footer p {
+        margin: 0;
+        font-family: Inter, system-ui, sans-serif;
+        font-size: clamp(.9rem, 2.4vw, 1.15rem);
+        font-weight: 700;
+        letter-spacing: .085em;
+        white-space: nowrap;
+      }
+      .maul-faq-theme .maul-page-footer .heart { color: var(--maul-rose-light); }
+      @media (max-width: 480px) {
+        .maul-faq-theme .maul-page-footer { gap: 12px; padding-top: 40px; }
+        .maul-faq-theme .maul-page-footer p { font-size: .82rem; letter-spacing: .035em; }
+      }
 
-          <details class="faq-item">
-            <summary>How do I join a modded region on mobile?</summary>
-            <div class="faq-item-content">
-              <ol>
-                <li>Open Among Us.</li>
-                <li>Open <a href="https://www.mauq.xyz/servers" target="_blank" rel="noopener">mauq.xyz/servers</a> or <a href="https://au.niko233.top/" target="_blank" rel="noopener">au.niko233.top</a>.</li>
-                <li>Pick the region your host is using, such as Niko NA or Niko EU.</li>
-                <li>Tap it and let it open Among Us again.</li>
-                <li>For good measure, go back to the link and tap your region one more time, then let it open Among Us again.</li>
-                <li>Click Create a Game.</li>
-                <li>Open the region selector and check if Niko regions are now listed.</li>
-                <li>Select the correct region if it is there.</li>
-                <li>Go back to the main screen and join the host's lobby.</li>
-              </ol>
-              <div class="media-placeholders">
-                <div class="media-placeholder">
-                  <img src="images/IMG_7078.webp" alt="Mobile modded region setup example" />
-                </div>
-            </div>
-          </details>
 
-          <details class="faq-item">
-            <summary>How do I join a modded region on PC?</summary>
-            <div class="faq-item-content">
-              <p>
-                If you already have the mod installed, modded regions typically come along with the mod. If not, visit
-                <a href="https://au.niko233.top/" target="_blank" rel="noopener">au.niko233.top</a> and run the
-                <code>customserver.bat</code> file.
-              </p>
-              <p><strong>Error or domain issue?</strong></p>
-              <ul>
-                <li>Delete MiniRegionInstall from <code>BepInEx/plugins</code>.</li>
-                <li>Download the custom server BAT file.</li>
-                <li>Launch the file.</li>
-                <li>Press the button it asks for.</li>
-                <li>Relaunch the game.</li>
-              </ul>
-            </div>
-          </details>
+      body.maul-faq-theme { isolation:isolate; min-height:100vh; background:var(--maul-background, radial-gradient(ellipse 70% 58% at 73% 13%,rgba(83,14,33,.60),rgba(49,8,22,.36) 44%,transparent 78%),linear-gradient(110deg,#080406 0%,#100509 27%,#240710 60%,#340b19 79%,#120509 100%)); color:var(--maul-text,#f9f3ef); font-family:Inter,system-ui,sans-serif; }
+      body.maul-faq-theme #navbar {position:relative;z-index:20}
+      body.maul-faq-theme .page-wrapper {position:relative;z-index:1;max-width:1160px;width:calc(100% - 44px);padding:clamp(34px,5vw,58px) 0 48px;margin:auto}
+      body.maul-faq-theme .faq-intro {display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;margin-bottom:26px;padding:0;border:0;background:none;box-shadow:none;min-height:0;text-align:left}
+      body.maul-faq-theme .faq-intro-copy {min-width:0;flex:1}
+      body.maul-faq-theme .faq-intro h1 {margin:0;font:700 clamp(2.5rem,5.7vw,5rem)/1.15 'Libre Baskerville',Georgia,serif;letter-spacing:-.045em;color:var(--maul-text,#f9f3ef);text-wrap:balance}
+      body.maul-faq-theme .faq-intro h1 span {display:block;width:max-content;max-width:100%;padding-bottom:.08em;vertical-align:baseline}
+      body.maul-faq-theme .faq-intro p {color:var(--maul-muted,#c5b8b8);font-size:1rem;line-height:1.7;margin:16px 0 0}
+      body.maul-faq-theme .faq-mascot {display:block;width:clamp(120px,22vw,240px);height:auto;flex:0 0 auto;object-fit:contain;filter:drop-shadow(0 16px 28px rgba(0,0,0,.5))}
+      body.maul-faq-theme .hero-actions {justify-content:flex-start;gap:10px;margin-top:22px}
+      body.maul-faq-theme .hero-actions a {font-size:.85rem;min-height:40px;padding:8px 15px;box-shadow:none;border-radius:6px}
+      body.maul-faq-theme .faq-search,body.maul-faq-theme .faq-sidebar-inner,body.maul-faq-theme .overview-card,body.maul-faq-theme .mini-card,body.maul-faq-theme .step-card,body.maul-faq-theme .link-card,body.maul-faq-theme .faq-item,body.maul-faq-theme .section-shell {background:linear-gradient(140deg,rgba(66,15,31,.2),rgba(14,5,10,.95));border:1px solid var(--maul-border,rgba(191,119,133,.3));border-radius:7px;box-shadow:0 15px 48px rgba(0,0,0,.38);backdrop-filter:none}
+      body.maul-faq-theme .overview-card:hover,body.maul-faq-theme .faq-item[open] {border-color:rgba(233,180,172,.65)}
+      body.maul-faq-theme .faq-section h2,body.maul-faq-theme .faq-sidebar h2,body.maul-faq-theme .overview-card h2,body.maul-faq-theme .mini-card h3,body.maul-faq-theme .step-card h3,body.maul-faq-theme .link-card h3 {font-family:Georgia,serif;letter-spacing:-.025em;color:var(--maul-text,#f9f3ef)}
+      body.maul-faq-theme .faq-search-status,body.maul-faq-theme .section-intro,body.maul-faq-theme .faq-item-content p,body.maul-faq-theme .faq-item-content li,body.maul-faq-theme .overview-card p,body.maul-faq-theme .mini-card p,body.maul-faq-theme .step-card p,body.maul-faq-theme .link-card p {color:var(--maul-muted,#c5b8b8)}
+      body.maul-faq-theme .faq-item summary::after,body.maul-faq-theme .accent,body.maul-faq-theme .sidebar-kicker {color:var(--maul-rose,#e9b4ac)}
+      body.maul-faq-theme .faq-search input {background:#0c070d;border:1px solid var(--maul-border,rgba(191,119,133,.3));color:var(--maul-text,#f9f3ef)}
+      body.maul-faq-theme .faq-accordion-tools button {border-radius:6px;box-shadow:none}
+      body.maul-faq-theme .faq-item-content {border-top-color:var(--maul-border,rgba(191,119,133,.3))}
+      body.maul-faq-theme .step-number {background:var(--maul-button-gradient,linear-gradient(115deg,#f8d4af,#b75863));color:#29191f;box-shadow:none}
+      body.maul-faq-theme .tip-pill,body.maul-faq-theme .media-placeholder {background:rgba(15,7,12,.78);border:1px solid var(--maul-border,rgba(191,119,133,.3));border-radius:7px}
+      body.maul-faq-theme .maul-page-footer {position:relative;z-index:1;max-width:1160px}
+      @media(max-width:650px){body.maul-faq-theme .page-wrapper {width:calc(100% - 32px);padding:38px 0 36px}body.maul-faq-theme .faq-intro {gap:12px}body.maul-faq-theme .faq-mascot {width:clamp(76px,22vw,125px)}body.maul-faq-theme .faq-intro h1 {font-size:clamp(1.9rem,8vw,3.1rem)}body.maul-faq-theme .faq-intro p{font-size:.9rem}body.maul-faq-theme .hero-actions{gap:7px}body.maul-faq-theme .hero-actions a{padding:8px 10px;font-size:.78rem}}
+      @media(max-width:380px){body.maul-faq-theme .faq-mascot{width:70px}}
+      @media(prefers-reduced-motion:reduce){body.maul-faq-theme::before,body.maul-faq-theme::after{animation:none}}
 
-          <details class="faq-item">
-            <summary>Which commands should I learn first?</summary>
-            <div class="faq-item-content">
-              <p>These are the most useful basics for regular players:</p>
-              <ul>
-                <li><code>/m</code> or <code>/cmd m</code> to read your role and add-on details.</li>
-                <li><code>/r</code> to list active roles, or <code>/r [role]</code> to read one role.</li>
-                <li><code>/id</code> or <code>/cmd id</code> to see player IDs.</li>
-                <li><code>/kc</code> or <code>/cmd kc</code> to see how many killers are still alive.</li>
-                <li><code>/death</code> or <code>/cmd d</code> after death to see death information.</li>
-                <li><code>/w [ids] [message]</code> for meeting whispers when your role allows it.</li>
-              </ul>
-              <p>
+</style>
+<style>
+body.maul-faq-theme .faq-intro {overflow:visible;position:relative}
+body.maul-faq-theme .faq-mascot {display:block!important;visibility:visible!important;opacity:1!important;position:relative;z-index:2;width:clamp(125px,23vw,255px);align-self:center;filter:drop-shadow(0 18px 30px rgba(0,0,0,.48))}
+body.maul-faq-theme .faq-intro-copy {position:relative;z-index:2;min-width:0}
+body.maul-faq-theme .faq-item-content a {overflow-wrap:anywhere}
+@media(max-width:650px){body.maul-faq-theme .faq-mascot{width:clamp(85px,23vw,140px)}}
+
+body.maul-faq-theme .faq-intro h1 .faq-title-line {display:block;width:max-content;max-width:100%;line-height:1.15}
+body.maul-faq-theme .faq-intro h1 .faq-title-line:not(.maul-metallic) {background:none;color:var(--maul-text,#f9f3ef);-webkit-text-fill-color:var(--maul-text,#f9f3ef);animation:none}
+body.maul-faq-theme .faq-intro h1 .faq-title-line.maul-metallic {background:var(--maul-metallic-gradient,linear-gradient(105deg,#d9a7a6 0%,#f5d5c9 29%,#e9b4ac 44%,#fff3e0 50%,#e9b4ac 56%,#b76e79 78%,#e9b4ac 100%));background-size:260% 100%;background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:maulMetalSweep 9s ease-in-out infinite}
+@keyframes maulMetalSweep {0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@media(prefers-reduced-motion:reduce){body.maul-faq-theme .faq-intro h1 .faq-title-line.maul-metallic{animation:none}}
+</style></head>
+<body class="maul-theme maul-faq-theme">
+<div id="navbar"></div>
+<div class="page-wrapper">
+<header class="faq-intro" id="top">
+<div class="faq-intro-copy">
+<h1><span class="faq-title-line">Modded</span><span class="faq-title-line maul-metallic">Among Us</span><span class="faq-title-line">FAQ</span></h1>
+<p>New to modded lobbies or trying to fix something? Find the steps, commands, and answers you need here.</p>
+<div class="hero-actions">
+<a class="cta-primary maul-button maul-button--primary" href="#players"><i aria-hidden="true" class="fa-solid fa-gamepad"></i> Player Help</a>
+<a class="cta-secondary maul-button maul-button--secondary" href="#hosts"><i aria-hidden="true" class="fa-solid fa-server"></i> Host Help</a>
+</div>
+</div>
+<img alt="MAUL mascot" class="faq-mascot" decoding="async" loading="eager" src="images/maulnobg.png"/>
+</header>
+<section aria-label="Search the FAQ" class="faq-search" role="search">
+<div class="faq-search-field">
+<i aria-hidden="true" class="fa-solid fa-magnifying-glass"></i>
+<label class="sr-only" for="faqSearch">Search questions, answers, commands, and links</label>
+<input autocomplete="off" id="faqSearch" placeholder="Search questions, commands, errors, regions..." type="search"/>
+<button class="faq-clear" hidden="" id="faqClear" type="button">Clear</button>
+</div>
+<p aria-live="polite" class="faq-search-status" id="faqSearchStatus">Find an answer or choose a topic below.</p>
+<div aria-label="FAQ display controls" class="faq-accordion-tools">
+<button id="faqExpand" type="button">Expand all questions</button>
+<button id="faqCollapse" type="button">Collapse all</button>
+</div>
+</section>
+<div class="faq-layout">
+<aside aria-label="FAQ topic navigation" class="faq-sidebar">
+<div class="faq-sidebar-inner">
+<p class="sidebar-kicker">QUICK NAVIGATION</p>
+<h2>Browse topics</h2>
+<nav aria-label="FAQ sections" class="jump-links">
+<a href="#players"><i aria-hidden="true" class="fa-solid fa-gamepad"></i> Players <i aria-hidden="true" class="fa-solid fa-chevron-right"></i></a>
+<a href="#hosts"><i aria-hidden="true" class="fa-solid fa-server"></i> Hosts <i aria-hidden="true" class="fa-solid fa-chevron-right"></i></a>
+<a href="#tags"><i aria-hidden="true" class="fa-solid fa-tag"></i> Custom Tags <i aria-hidden="true" class="fa-solid fa-chevron-right"></i></a>
+<a href="#commands"><i aria-hidden="true" class="fa-solid fa-terminal"></i> Commands <i aria-hidden="true" class="fa-solid fa-chevron-right"></i></a>
+<a href="#fixes"><i aria-hidden="true" class="fa-solid fa-screwdriver-wrench"></i> Fixes <i aria-hidden="true" class="fa-solid fa-chevron-right"></i></a>
+<a href="#links"><i aria-hidden="true" class="fa-solid fa-link"></i> Useful Links <i aria-hidden="true" class="fa-solid fa-chevron-right"></i></a>
+</nav>
+<a class="sidebar-top" href="#top"><i aria-hidden="true" class="fa-solid fa-arrow-up"></i> Back to top</a>
+</div>
+</aside>
+<div class="faq-main">
+<p class="faq-no-results" hidden="" id="faqNoResults" role="status">No matches found. Try another keyword or <button id="faqEmptyClear" type="button">clear your search</button>.</p>
+<section aria-label="Quick overview" class="overview-grid">
+<a class="overview-card" href="#players">
+<h2><i class="fa-solid fa-circle-play accent"></i> Join Faster</h2>
+<p>Learn what modded regions are, when you need one, and the quickest way for mobile and PC players to join.</p>
+<span aria-hidden="true" class="overview-arrow">Explore →</span></a>
+<a class="overview-card" href="#hosts">
+<h2><i class="fa-solid fa-gears accent"></i> Host Cleaner</h2>
+<p>Keep a short checklist for updating the mod, enabling autostart, queue tools, and handling known lobby issues.</p>
+<span aria-hidden="true" class="overview-arrow">Explore →</span></a>
+<a class="overview-card" href="#tags">
+<h2><i class="fa-solid fa-tag accent"></i> Add Custom Tags</h2>
+<p>Learn about adding custom tags to your mod if it supports them, then place the finished file in the correct data folder.</p>
+<span aria-hidden="true" class="overview-arrow">Explore →</span></a>
+<a class="overview-card" href="#fixes">
+<h2><i class="fa-solid fa-life-ring accent"></i> Fix Problems</h2>
+<p>Use the black-screen fix, the Niko region notes, and the log tools before assuming the mod is broken.</p>
+<span aria-hidden="true" class="overview-arrow">Explore →</span></a>
+</section>
+<section class="section-shell faq-section" id="players">
+<h2>For Players</h2>
+<p class="section-intro">Common commands for playing, meetings, and hosting. Some are EHR-specific.</p>
+<div class="faq-list">
+<details class="faq-item" open="">
+<summary>What is Modded Among Us?</summary>
+<div class="faq-item-content">
+<p>Modded Among Us adds new roles, abilities, and ways to win. A lobby might have Crewmates, Impostors, Neutrals, Coven roles, and add-ons.</p>
+<p>Some mods also include extra game modes, like free-for-all (FFA).</p>
+<p>Every mod handles roles a little differently. A kill does not always mean someone is an Impostor, and voting someone out is not always the right move.</p>
+<p><strong>Yes, even Crewmates can sometimes kill.</strong></p>
+</div>
+</details>
+<details class="faq-item">
+<summary>Do I need to install the mod to join a lobby?</summary>
+<div class="faq-item-content">
+<p>For a host-only mod, you can usually join through the regular Among Us game. Only the host needs to install it.</p>
+<p>Other mods, including Town of Us Mira, may require everyone to install files first. On supported devices, you can use <a href="https://play.google.com/store/apps/details?id=dev.allofus.starlight&amp;hl=en_US&amp;pli=1" rel="noopener" target="_blank">Starlight Launcher</a> on Android or follow the mod’s PC installation guide.</p>
+</div>
+</details>
+<details class="faq-item">
+<summary>What is a modded region?</summary>
+<div class="faq-item-content">
+<p>A modded region is a community-run server you can choose instead of an official Among Us region. Hosts sometimes switch regions when modded lobbies are being kicked or blocked by anti-cheat.</p>
+<p>Niko regions are often used for host-only mods such as EHR and Project Lotus. Other modded regions may be needed for mods that require an installation on every player’s device.</p>
+<p>Check which region the host is using before joining. The lobby code alone is not enough if your region is different.</p>
+</div>
+</details>
+<details class="faq-item">
+<summary>How do I join a modded region on mobile?</summary>
+<div class="faq-item-content">
+<ol>
+<li>Open Among Us.</li>
+<li>Open <a href="https://www.mauq.xyz/servers" rel="noopener" target="_blank">mauq.xyz/servers</a> or <a href="https://au.niko233.top/" rel="noopener" target="_blank">au.niko233.top</a>.</li>
+<li>Pick the region your host is using, such as Niko NA or Niko EU.</li>
+<li>Tap the region link and allow it to reopen Among Us.</li>
+<li>If it does not appear in the region list, try opening the same link a second time.</li>
+<li>Open <strong>Create a Game</strong> to check your available regions.</li>
+<li>Look for the Niko or other custom region you selected.</li>
+<li>Select the exact region your host is using.</li>
+<li>Return to the lobby screen and enter the host’s code.</li>
+</ol>
+<div class="media-placeholders">
+<div class="media-placeholder">
+<img alt="Mobile modded region setup example" src="images/IMG_7078.webp"/>
+</div>
+</div>
+</div></details>
+<details class="faq-item">
+<summary>How do I join a modded region on PC?</summary>
+<div class="faq-item-content">
+<p>If you installed a mod, it may already include the regions you need. Otherwise, visit <a href="https://au.niko233.top/" rel="noopener" target="_blank">au.niko233.top</a> and follow its instructions for <code>customserver.bat</code>.</p>
+<p><strong>Error or domain issue?</strong></p>
+<ul>
+<li>Delete MiniRegionInstall from <code>BepInEx/plugins</code>.</li>
+<li>Download the custom server BAT file.</li>
+<li>Launch the file.</li>
+<li>Press the button it asks for.</li>
+<li>Relaunch the game.</li>
+</ul>
+</div>
+</details>
+<details class="faq-item">
+<summary>Which commands should I learn first?</summary>
+<div class="faq-item-content">
+<p>These are the most useful basics for regular players:</p>
+<ul>
+<li><code>/m</code> or <code>/cmd m</code> to read your role and add-on details.</li>
+<li><code>/r</code> to list active roles, or <code>/r [role]</code> to read one role.</li>
+<li><code>/id</code> or <code>/cmd id</code> to see player IDs.</li>
+<li><code>/kc</code> or <code>/cmd kc</code> to see how many killers are still alive.</li>
+<li><code>/death</code> or <code>/cmd d</code> after death to see death information.</li>
+<li><code>/w [ids] [message]</code> for meeting whispers when your role allows it.</li>
+</ul>
+<p>
                 In meetings, use the <code>/cmd</code> prefix for guessing, whispering, judging, and other hidden role
                 actions so you do not expose yourself in public chat.
               </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>How does guessing work?</summary>
-            <div class="faq-item-content">
-              <ol>
-                <li>Use <code>/cmd id</code> to find the player's ID.</li>
-                <li>In the meeting, use <code>/cmd bt [ID] [RoleName]</code>.</li>
-              </ol>
-              <p>
-                Typically the mod will show a player's ID on their meeting card, but if it does not, you can run
-                <code>/id</code> beforehand to get it.
-              </p>
-              <p>
-                Example: Sarha is Dictator and I am an impostor, so I want to remove her before she removes me.
-                I would use <code>/bt 0 dictator</code>.
-              </p>
-              <p>
-                Modded clients also have a guesser UI in most mods that makes guessing easier, so check for that in meetings.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>Why do I keep getting guessed?</summary>
-            <div class="faq-item-content">
-              <p>
-                There are a few reasons. Experienced players learn common role tells over time, especially when a newer
-                player gives away what they are doing.
-              </p>
-              <p>
-                Even if you never say your role name out loud, people can infer it from system messages, how you ask
-                questions, or what commands you use. Something like asking how to get a player's ID and then immediately
-                using a meeting command can give you away.
-              </p>
-              <p>
-                If you need help, it is usually safer to run <code>/m</code> in game to learn your role, or ask whether
-                guessing is on before you start doing obvious role-specific actions.
-              </p>
-              <p>
-                If your role color matches another visible player, you are often on the same team. Do not guess or kill
-                teammates unless your instructions say otherwise.
-              </p>
-              <p>
-                You may also see icons next to someone's name. You can run <code>/icons</code> in game to check what
-                they mean. In some cases you could be somebody's lawyer and need to protect them, or they could be an
-                Executioner's target.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>What if I die?</summary>
-            <div class="faq-item-content">
-              <p>
-                Stay in the lobby after you die. You can still use ghost chat, and some roles activate or can still win after death.
-              </p>
-            </div>
-          </details>
-        </div>
-
-        <div class="tips-list" aria-label="Player tips">
-          <div class="tip-pill">A kill does not always mean evil. Crew killing roles like Sheriff, Vigilante, or Crusader can exist.</div>
-          <div class="tip-pill">If your role and name color match another visible player, you are often on the same team. Do not guess or kill teammates unless your instructions say otherwise.</div>
-          <div class="tip-pill">If you froze, black-screened, lost chat, or could not vote, it may be role-related rather than a normal game glitch.</div>
-          <div class="tip-pill">Use <code>/m</code> in game before asking public role questions. It is one of the easiest ways to avoid getting guessed early.</div>
-        </div>
-        <p class="section-credit">Information taken and/or inspired by @RoHodor's EHR guide.</p>
-      </section>
-
-      <section id="hosts" class="section-shell faq-section">
-        <h2>For Hosts</h2>
-        <p class="section-intro">
+</div>
+</details>
+<details class="faq-item">
+<summary>How does guessing work?</summary>
+<div class="faq-item-content">
+<ol>
+<li>Use <code>/cmd id</code> to find the player's ID.</li>
+<li>In the meeting, use <code>/cmd bt [ID] [RoleName]</code>.</li>
+</ol>
+<p>Most mods show player IDs during meetings. If you cannot see them, run <code>/id</code> before guessing.</p>
+<p>For example, to guess player 0 as Dictator, type <code>/cmd bt 0 dictator</code>. Double-check the ID and role first; guessing rules depend on the mod and lobby settings.</p>
+<p>Some modded clients also provide a guessing interface during meetings, so you may not need to type a command.</p>
+</div>
+</details>
+<details class="faq-item">
+<summary>Why do I keep getting guessed?</summary>
+<div class="faq-item-content">
+<p>You might be giving away more information than you realize. Players who know the roles can spot clues in how you move, vote, or use abilities.</p>
+<p>Chat messages and commands can be clues too. Asking for an ID and immediately trying a meeting ability can make your role easier to figure out.</p>
+<p>Read your role with <code>/m</code> and check whether guessing is enabled before using a role-specific ability in public.</p>
+<p>Players with similar role colors may be on your team, but always check your role instructions before assuming that.</p>
+<p>If someone has an icon beside their name, use <code>/icons</code> to check it. The icon might indicate a relationship, such as a Lawyer or Executioner target.</p>
+</div>
+</details>
+<details class="faq-item">
+<summary>What if I die?</summary>
+<div class="faq-item-content">
+<p>Do not leave immediately after dying. You can still chat with other ghosts, and some roles have abilities or win conditions that continue after death.</p>
+</div>
+</details>
+<details class="faq-item"><summary>Why does my lobby code say it cannot find the game?</summary><div class="faq-item-content"><p>First, check that the lobby is still open and that you copied the code correctly. Then compare your region with the host's. A correct code on the wrong region can still fail.</p><p>If you are using a custom region, reopen its link, select the region in Among Us, and try again. Ask the host whether the lobby has already started or closed.</p></div></details><details class="faq-item"><summary>How do I know which region to choose?</summary><div class="faq-item-content"><p>Use the region the host lists with their lobby code. NA, EU, and custom-region labels are not interchangeable, even when the code looks valid.</p><p>If the host did not say which region they are using, ask before changing game files or reinstalling anything.</p></div></details></div>
+<div aria-label="Player tips" class="tips-list">
+<div class="tip-pill">A kill does not always mean evil. Crew killing roles like Sheriff, Vigilante, or Crusader can exist.</div>
+<div class="tip-pill">If your role and name color match another visible player, you are often on the same team. Do not guess or kill teammates unless your instructions say otherwise.</div>
+<div class="tip-pill">If you froze, black-screened, lost chat, or could not vote, it may be role-related rather than a normal game glitch.</div>
+<div class="tip-pill">Use <code>/m</code> in game before asking public role questions. It is one of the easiest ways to avoid getting guessed early.</div>
+</div>
+<p class="section-credit">Information taken and/or inspired by @RoHodor's EHR guide.</p>
+</section>
+<section class="section-shell faq-section" id="hosts">
+<h2>For Hosts</h2>
+<p class="section-intro">
           These are the most common questions for hosts who use mods.
         </p>
-
-        <div class="faq-list">
-          <details class="faq-item" open>
-            <summary>How do I update the mod normally?</summary>
-            <div class="faq-item-content">
-              <p>
-                Download the newest mod DLL and replace the old one in <code>Among Us/BepInEx/plugins</code>.
-              </p>
-              <p>For example, with EHR test builds:</p>
-              <ol>
-                <li>Open <code>BepInEx</code>.</li>
-                <li>Open <code>plugins</code>.</li>
-                <li>Delete the old <code>EHR.dll</code>.</li>
-                <li>Paste the new <code>EHR.dll</code> in.</li>
-              </ol>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>What are good autohost settings?</summary>
-            <div class="faq-item-content">
-              <ul>
-                <li>Initial countdown: about 10 seconds.</li>
-                <li>Delay before entering: about 5 to 10 seconds.</li>
-                <li>Forced start: around 1.5 to 3.</li>
-                <li>Minutes before autostart: around 1.5 to 2.</li>
-                <li>Enable Autostart in the mod settings behind the gear icon.</li>
-                <li>If you plan to be AFK, do not forget to enable Game Master.</li>
-              </ul>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>How do queue and code tools work in MAUQ?</summary>
-            <div class="faq-item-content">
-              <ul>
-                <li><code>/thread rename</code> to rename a lobby thread.</li>
-                <li><code>/thread close</code> to archive and lock a lobby post.</li>
-                <li><code>/code set</code> to set the private code.</li>
-                <li><code>/queue toggle</code> to turn queue on or off.</li>
-                <li><code>/queue next</code> to ping the next players and send the code.</li>
-                <li><code>/queue remove</code> to remove someone without pinging them.</li>
-                <li><code>/code remove</code> then <code>/code set</code> to change the code.</li>
-                <li><code>/blacklist toggle (member)</code> to add someone to the blacklist.</li>
-              </ul>
-              <p>
+<div class="faq-list">
+<details class="faq-item" open="">
+<summary>How do I update the mod normally?</summary>
+<div class="faq-item-content">
+<p>Download the correct DLL for your mod version and replace the older file in <code>Among Us/BepInEx/plugins</code>. Close the game before changing files.</p>
+<p>For example, to replace an EHR test build:</p>
+<ol>
+<li>Open <code>BepInEx</code>.</li>
+<li>Open <code>plugins</code>.</li>
+<li>Delete the old <code>EHR.dll</code>.</li>
+<li>Paste the new <code>EHR.dll</code> in.</li>
+</ol>
+</div>
+</details>
+<details class="faq-item">
+<summary>What are good autohost settings?</summary>
+<div class="faq-item-content">
+<ul>
+<li>Initial countdown: about 10 seconds.</li>
+<li>Delay before entering: about 5 to 10 seconds.</li>
+<li>Forced start: around 1.5 to 3.</li>
+<li>Minutes before autostart: around 1.5 to 2.</li>
+<li>Enable Autostart in the mod settings behind the gear icon.</li>
+<li>If you plan to be AFK, do not forget to enable Game Master.</li>
+</ul>
+</div>
+</details>
+<details class="faq-item">
+<summary>How do queue and code tools work in MAUQ?</summary>
+<div class="faq-item-content">
+<ul>
+<li><code>/thread rename</code> to rename a lobby thread.</li>
+<li><code>/thread close</code> to archive and lock a lobby post.</li>
+<li><code>/code set</code> to set the private code.</li>
+<li><code>/queue toggle</code> to turn queue on or off.</li>
+<li><code>/queue next</code> to ping the next players and send the code.</li>
+<li><code>/queue remove</code> to remove someone without pinging them.</li>
+<li><code>/code remove</code> then <code>/code set</code> to change the code.</li>
+<li><code>/blacklist toggle (member)</code> to add someone to the blacklist.</li>
+</ul>
+<p>
                 More advanced queue settings can be found on
-                <a href="https://www.mauq.xyz" target="_blank" rel="noopener">mauq.xyz</a>.
+                <a href="https://www.mauq.xyz" rel="noopener" target="_blank">mauq.xyz</a>.
               </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>What is the current known host ban or kick issue?</summary>
-            <div class="faq-item-content">
-              <p>The current workarounds are:</p>
-              <ul>
-                <li>Play with 9 or fewer users.</li>
-                <li>Stick to mini-games that do not have a kill button.</li>
-                <li>Use Niko regions as mentioned above.</li>
-              </ul>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>How do I read logs when something breaks?</summary>
-            <div class="faq-item-content">
-              <p>Use these tools before guessing at the problem:</p>
-              <ul>
-                <li><a href="https://ehr-log-analyzer.netlify.app/" target="_blank" rel="noopener">EHR Log Analyzer</a> for EHR logs.</li>
-                <li><a href="https://www.mauq.xyz/logreader" target="_blank" rel="noopener">MAUQ Log Reader</a> for other mod logs.</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-      </section>
-
-      <section id="tags" class="section-shell faq-section">
-        <h2>Custom Tags</h2>
-        <p class="section-intro">
+</div>
+</details>
+<details class="faq-item">
+<summary>What is the current known host ban or kick issue?</summary>
+<div class="faq-item-content">
+<p>If your lobby is repeatedly getting kicked or flagged, these workarounds were suggested for a previously reported issue. They may not fix every server or game version:</p>
+<ul>
+<li>Play with 9 or fewer users.</li>
+<li>Stick to mini-games that do not have a kill button.</li>
+<li>Use Niko regions as mentioned above.</li>
+</ul>
+</div>
+</details>
+<details class="faq-item">
+<summary>How do I read logs when something breaks?</summary>
+<div class="faq-item-content">
+<p>Use these tools before guessing at the problem:</p>
+<ul>
+<li><a href="https://ehr-log-analyzer.netlify.app/" rel="noopener" target="_blank">EHR Log Analyzer</a> for EHR logs.</li>
+<li><a href="https://www.mauq.xyz/logreader" rel="noopener" target="_blank">MAUQ Log Reader</a> for other mod logs.</li>
+</ul>
+</div>
+</details>
+</div>
+</section>
+<section class="section-shell faq-section" id="tags">
+<h2>Custom Tags</h2>
+<p class="section-intro">
           How does everyone have pretty names in Among Us? I want one too.
         </p>
-
-        <div class="steps-grid">
-          <article class="step-card">
-            <div class="step-number">1</div>
-            <h3>Create the tag</h3>
-            <p>
+<div class="steps-grid">
+<article class="step-card">
+<div class="step-number">1</div>
+<h3>Create the tag</h3>
+<p>
               Go to
-              <a href="https://moddedamong.us/tags" target="_blank" rel="noopener">moddedamong.us/tags</a>,
+              <a href="https://moddedamong.us/tags" rel="noopener" target="_blank">moddedamong.us/tags</a>,
               fill out the form, and download the generated <code>.txt</code> file. Make sure you enter
               <strong>your</strong> friend code.
             </p>
-          </article>
-
-          <article class="step-card">
-            <div class="step-number">2</div>
-            <h3>Send it to the host</h3>
-            <p>After downloading the file, send that <code>.txt</code> file to the lobby host.</p>
-          </article>
-
-          <article class="step-card">
-            <div class="step-number">3</div>
-            <h3>Name it correctly</h3>
-            <p>
+</article>
+<article class="step-card">
+<div class="step-number">2</div>
+<h3>Send it to the host</h3>
+<p>After downloading the file, send that <code>.txt</code> file to the lobby host.</p>
+</article>
+<article class="step-card">
+<div class="step-number">3</div>
+<h3>Name it correctly</h3>
+<p>
               The host must make sure the filename exactly matches the player friend code, for example
               <code>friendcode#1234.txt</code>.
             </p>
-          </article>
-
-          <article class="step-card">
-            <div class="step-number">4</div>
-            <h3>Place it in the data folder</h3>
-            <p>
+</article>
+<article class="step-card">
+<div class="step-number">4</div>
+<h3>Place it in the data folder</h3>
+<p>
               Move the file into the mod user-data folder. For EHR, for example:
               <code>EHR-Data &gt; User-data &gt; friendcode#1234.txt</code>.
             </p>
-          </article>
-        </div>
-
-        <div class="tips-list">
-          <div class="tip-pill">Custom tags are host- and mod-dependent, so exact setup can differ between mods.</div>
-          <div class="tip-pill">The filename must match the friend code exactly or the tag may not load.</div>
-          <div class="tip-pill">In EHR, hosts can also use <code>/addtag</code> and <code>/deletetag</code>, but that is separate from the file-based method above.</div>
-        </div>
-      </section>
-
-      <section id="commands" class="section-shell faq-section">
-        <h2>Quick Command Reference</h2>
-        <p class="section-intro">
+</article>
+</div>
+<div class="tips-list">
+<div class="tip-pill">Custom tags are host- and mod-dependent, so exact setup can differ between mods.</div>
+<div class="tip-pill">The filename must match the friend code exactly or the tag may not load.</div>
+<div class="tip-pill">In EHR, hosts can also use <code>/addtag</code> and <code>/deletetag</code>, but that is separate from the file-based method above.</div>
+</div>
+</section>
+<section class="section-shell faq-section" id="commands">
+<h2>Quick Command Reference</h2>
+<p class="section-intro">
           These are the commands most worth memorizing for basic play, meetings, and hosting. The full command list is much longer. These are general commands, though some are more EHR-specific.
         </p>
-
-        <div class="command-grid">
-          <article class="mini-card">
-            <h3>Any Time</h3>
-            <p><code>/id</code> show player IDs</p>
-            <p><code>/r</code> show active roles</p>
-            <p><code>/r [role]</code> show one role description</p>
-            <p><code>/h</code> or <code>/help</code> list commands</p>
-            <p><code>/template</code> send a saved template</p>
-          </article>
-
-          <article class="mini-card">
-            <h3>Lobby</h3>
-            <p><code>/color [color]</code> change bean color</p>
-            <p><code>/tpout</code> leave the ship area</p>
-            <p><code>/tpin</code> return to the ship</p>
-            <p><code>/l</code> or <code>/lastresult</code> view the last game</p>
-            <p><code>/win</code> view the last winners</p>
-          </article>
-
-          <article class="mini-card">
-            <h3>Meeting</h3>
-            <p><code>/cmd m</code> read your role details</p>
-            <p><code>/cmd kc</code> see how many killers remain</p>
-            <p><code>/cmd bt [id] [role]</code> guess a role</p>
-            <p><code>/w [ids] [message]</code> whisper privately</p>
-            <p><code>/cmd d</code> see death info after death</p>
-          </article>
-
-          <article class="mini-card">
-            <h3>Host Tools</h3>
-            <p><code>/setrole</code> or <code>/setaddon</code> set next-game roles</p>
-            <p><code>/combo</code> force or ban role plus add-on combos</p>
-            <p><code>/readycheck</code> run an AFK check</p>
-            <p><code>/draftstart</code> start role drafting</p>
-            <p><code>/addtag</code> add a host-managed tag</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="fixes" class="section-shell faq-section">
-        <h2>Common Support Topics</h2>
-        <p class="section-intro">
+<div class="command-grid">
+<article class="mini-card">
+<h3>Any Time</h3>
+<p><code>/id</code> show player IDs</p>
+<p><code>/r</code> show active roles</p>
+<p><code>/r [role]</code> show one role description</p>
+<p><code>/h</code> or <code>/help</code> list commands</p>
+<p><code>/template</code> send a saved template</p>
+</article>
+<article class="mini-card">
+<h3>Lobby</h3>
+<p><code>/color [color]</code> change bean color</p>
+<p><code>/tpout</code> leave the ship area</p>
+<p><code>/tpin</code> return to the ship</p>
+<p><code>/l</code> or <code>/lastresult</code> view the last game</p>
+<p><code>/win</code> view the last winners</p>
+</article>
+<article class="mini-card">
+<h3>Meeting</h3>
+<p><code>/cmd m</code> read your role details</p>
+<p><code>/cmd kc</code> see how many killers remain</p>
+<p><code>/cmd bt [id] [role]</code> guess a role</p>
+<p><code>/w [ids] [message]</code> whisper privately</p>
+<p><code>/cmd d</code> see death info after death</p>
+</article>
+<article class="mini-card">
+<h3>Host Tools</h3>
+<p><code>/setrole</code> or <code>/setaddon</code> set next-game roles</p>
+<p><code>/combo</code> force or ban role plus add-on combos</p>
+<p><code>/readycheck</code> run an AFK check</p>
+<p><code>/draftstart</code> start role drafting</p>
+<p><code>/addtag</code> add a host-managed tag</p>
+</article>
+</div>
+</section>
+<section class="section-shell faq-section" id="fixes">
+<h2>Common Support Topics</h2>
+<p class="section-intro">
           These are some of the most commonly asked support questions.
         </p>
-
-        <div class="faq-list">
-          <details class="faq-item" open>
-            <summary>How do I downgrade Among Us for the mod?</summary>
-            <div class="faq-item-content">
-              <p><strong>Steam:</strong> open Among Us in Steam, go to Properties, then Betas, and choose <code>public-previous</code>.</p>
-              <p>
-                After downgrading on Steam or Epic, you should delete
-                <code>%userprofile%\AppData\LocalLow\Innersloth\Among Us\settings.amogus</code> to avoid black screens.
-              </p>
-              <p>
-                If you use Steam, be sure to copy your newly downgraded Among Us files into the mod folder that you use.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>I got kicked for domain mismatch. What do I do now?</summary>
-            <div class="faq-item-content">
-              <p>
-                Use <a href="https://au.niko233.top/" target="_blank" rel="noopener">au.niko233.top</a>. 
+<div class="faq-list">
+<details class="faq-item" open="">
+<summary>How do I downgrade Among Us for the mod?</summary>
+<div class="faq-item-content">
+<p>On Steam, open <strong>Among Us → Properties → Betas</strong> and choose <code>public-previous</code>, if that option is still available and matches the version your mod needs.</p>
+<p>If you see a black screen after changing versions, the existing guide suggests removing <code>%userprofile%\AppData\LocalLow\Innersloth\Among Us\settings.amogus</code>. Back up the file first, since this resets local settings.</p>
+<p>If you keep a separate modded game folder, copy the downgraded game files into that folder too.</p>
+</div>
+</details>
+<details class="faq-item">
+<summary>I got kicked for domain mismatch. What do I do now?</summary>
+<div class="faq-item-content">
+<p>
+                Use <a href="https://au.niko233.top/" rel="noopener" target="_blank">au.niko233.top</a>. 
                 <code>Niko233.me</code> now causes immediate kicks because of the domain migration check.
               </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>I am on a guest account and cannot join Niko servers.</summary>
-            <div class="faq-item-content">
-              <p>
+</div>
+</details>
+<details class="faq-item">
+<summary>I am on a guest account and cannot join Niko servers.</summary>
+<div class="faq-item-content">
+<p>
                 Guest accounts are not supported. An account is required.
               </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>I have terrible connectivity or cross-region lag.</summary>
-            <div class="faq-item-content">
-              <p>
-                Try using <a href="https://one.one.one.one/" target="_blank" rel="noopener">Cloudflare WARP</a> for stability.
+</div>
+</details>
+<details class="faq-item">
+<summary>I have terrible connectivity or cross-region lag.</summary>
+<div class="faq-item-content">
+<p>
+                Try using <a href="https://one.one.one.one/" rel="noopener" target="_blank">Cloudflare WARP</a> for stability.
               </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>I keep getting kicked as soon as I create a lobby.</summary>
-            <div class="faq-item-content">
-              <p>
-                When you click Create a Game, check how many players you have set and make sure it is
-                <code>15</code> or under. You can also open a local lobby and check how many impostors you have set.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>How do I install a mod on Linux?</summary>
-            <div class="faq-item-content">
-              <p><strong>Requirements:</strong> own Among Us on Steam and have some patience.</p>
-              <ol>
-                <li>Open Steam and go to your library, then select Among Us.</li>
-                <li>Click the gear icon, choose Manage, then Browse Local Files.</li>
-                <li>Download the mod you want for Steam.</li>
-                <li>Unzip the mod files and paste them into the Among Us folder you opened.</li>
-                <li>Open a terminal and run <code>sudo apt update</code>, <code>sudo apt install pipx</code>, then <code>pipx ensurepath</code>.</li>
-                <li>Restart the terminal.</li>
-                <li>Run <code>pipx install protontricks</code>.</li>
-                <li>Launch Among Us once, wait for it to load, then close it.</li>
-                <li>Run <code>protontricks 945360 winhttp</code>.</li>
-                <li>Back in Steam, open Properties for Among Us.</li>
-                <li>In General, set launch options to <code>WINEDLLOVERRIDES="winhttp=n,b" %command%</code>.</li>
-                <li>In Compatibility, force a specific Steam Play tool and choose Proton Experimental.</li>
-                <li>Relaunch the game.</li>
-              </ol>
-              <p>The first launch after setup can take 2 to 3 minutes.</p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>Common Among Us error messages</summary>
-            <div class="faq-item-content">
-              <p>Common errors and their usual causes:</p>
-              <ul>
-                <li><strong>Sent # pings that remote has not responded to</strong>: usually weak network connection. Try restarting your connection or moving to a stronger signal.</li>
-                <li><strong>ReliablePacketWithoutResponse</strong>: often server traffic or unstable connection. Restarting can help.</li>
-                <li><strong>Network is unreachable</strong>: usually weak internet, especially mobile data. Try Wi-Fi or stronger signal.</li>
-                <li><strong>You are running an older version of the game</strong>: update or downgrade to the version the lobby is using.</li>
-                <li><strong>Could not find the game you're looking for</strong>: the code may be wrong, the lobby may have closed, or the region may not match.</li>
-                <li><strong>SteamworksAuthFail or AuthFail</strong>: Steam or the matching platform may not be open correctly in the background.</li>
-                <li><strong>Bad Gateway or authentication errors</strong>: often server-side. Restarting can help, but sometimes you just have to wait.</li>
-                <li><strong>Network Packet Loss</strong> or <strong>Reliable packet was not ack'd</strong>: usually unstable connection or region mismatch. Changing regions can help.</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-      </section>
-
-      <section id="links" class="section-shell faq-section">
-        <h2>Useful Links</h2>
-        <p class="section-intro">
+</div>
+</details>
+<details class="faq-item">
+<summary>I keep getting kicked as soon as I create a lobby.</summary>
+<div class="faq-item-content">
+<p>Check the lobby’s player limit before creating it. For the issue described here, the suggested limit is <code>15</code> players or fewer. It can also help to start a local lobby and check the Impostor count.</p>
+</div>
+</details>
+<details class="faq-item">
+<summary>How do I install a mod on Linux?</summary>
+<div class="faq-item-content">
+<p><strong>Requirements:</strong> own Among Us on Steam and have some patience.</p>
+<ol>
+<li>Open Steam and go to your library, then select Among Us.</li>
+<li>Click the gear icon, choose Manage, then Browse Local Files.</li>
+<li>Download the mod you want for Steam.</li>
+<li>Unzip the mod files and paste them into the Among Us folder you opened.</li>
+<li>Open a terminal and run <code>sudo apt update</code>, <code>sudo apt install pipx</code>, then <code>pipx ensurepath</code>.</li>
+<li>Restart the terminal.</li>
+<li>Run <code>pipx install protontricks</code>.</li>
+<li>Launch Among Us once, wait for it to load, then close it.</li>
+<li>Run <code>protontricks 945360 winhttp</code>.</li>
+<li>Back in Steam, open Properties for Among Us.</li>
+<li>In General, set launch options to <code>WINEDLLOVERRIDES="winhttp=n,b" %command%</code>.</li>
+<li>In Compatibility, force a specific Steam Play tool and choose Proton Experimental.</li>
+<li>Relaunch the game.</li>
+</ol>
+<p>The first launch after setup can take 2 to 3 minutes.</p>
+</div>
+</details>
+<details class="faq-item">
+<summary>Common Among Us error messages</summary>
+<div class="faq-item-content">
+<p>These messages can have several causes, but here is what to check first:</p>
+<ul>
+<li><strong>Sent # pings that remote has not responded to:</strong> Your connection may be dropping. Try a more stable network.</li>
+<li><strong>ReliablePacketWithoutResponse:</strong> The game stopped receiving a response. Restarting the game or changing regions may help.</li>
+<li><strong>Network is unreachable:</strong> Your device cannot reach the server. Check Wi-Fi or mobile data.</li>
+<li><strong>You are running an older version of the game:</strong> Make sure your game version matches the mod or lobby requirements.</li>
+<li><strong>Could not find the game you’re looking for:</strong> Check the lobby code, region, and whether the game is still open.</li>
+<li><strong>SteamworksAuthFail or AuthFail:</strong> Make sure Steam and Among Us are running under the correct account.</li>
+<li><strong>Bad Gateway or authentication errors:</strong> The problem may be on the server’s side. Retry after a short break.</li>
+<li><strong>Network Packet Loss or Reliable packet was not ack’d:</strong> Try another region or a steadier connection.</li>
+</ul>
+</div>
+</details>
+<details class="faq-item"><summary>What should I send when asking for help?</summary><div class="faq-item-content"><p>Say whether you are on PC, Android, or another device; which mod and game version you are using; and whether you are playing or hosting. Include the region and the exact error message.</p><p>If the problem happens when the game starts or a lobby opens, explain when it occurs. A screenshot or log is useful, but remove lobby codes, account details, and anything private before sharing.</p></div></details></div>
+</section>
+<section class="section-shell faq-section" id="links">
+<h2>Useful Links</h2>
+<p class="section-intro">
           Useful links for everything modded related.
         </p>
-
-        <div class="links-grid">
-          <article class="link-card">
-            <h3>Core MAUL Tools</h3>
-            <div class="link-list">
-              <a class="resource-link" href="https://moddedamong.us/mods" target="_blank" rel="noopener"><i class="fa-solid fa-puzzle-piece"></i> Featured mods</a>
-              <a class="resource-link" href="https://moddedamong.us/tags" target="_blank" rel="noopener"><i class="fa-solid fa-tag"></i> Custom tag generator</a>
-              <a class="resource-link" href="https://moddedamong.us/presets" target="_blank" rel="noopener"><i class="fa-solid fa-sliders"></i> Lobby presets</a>
-              <a class="resource-link" href="/templates.html" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i> Lobby templates</a>
-              <a class="resource-link" href="https://moddedamong.us/icons.html" target="_blank" rel="noopener"><i class="fa-solid fa-icons"></i> Fonts and icons</a>
-              <a class="resource-link" href="https://moddedamong.us/hexhelper.html" target="_blank" rel="noopener"><i class="fa-solid fa-palette"></i> Anti-cheat friendly hex helper</a>
-            </div>
-          </article>
-
-          <article class="link-card">
-            <h3>Regions and Hosting</h3>
-            <div class="link-list">
-              <a class="resource-link" href="https://www.mauq.xyz/servers" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i> Modded regions on MAUQ</a>
-              <a class="resource-link" href="https://au.niko233.top/" target="_blank" rel="noopener"><i class="fa-solid fa-server"></i> Niko region install guide</a>
-              <a class="resource-link" href="https://www.mauq.xyz" target="_blank" rel="noopener"><i class="fa-solid fa-list-check"></i> MAUQ tools and queue info</a>
-              <a class="resource-link" href="https://ehr-log-analyzer.netlify.app/" target="_blank" rel="noopener"><i class="fa-solid fa-file-waveform"></i> EHR log analyzer</a>
-              <a class="resource-link" href="https://www.mauq.xyz/logreader" target="_blank" rel="noopener"><i class="fa-solid fa-magnifying-glass"></i> General log reader</a>
-            </div>
-          </article>
-
-          <article class="link-card">
-            <h3>Mod Resources</h3>
-            <div class="link-list">
-              <a class="resource-link" href="https://wiki.supernewroles.com/ja/home" target="_blank" rel="noopener"><i class="fa-solid fa-book-open"></i> Super New Roles wiki</a>
-              <a class="resource-link" href="https://github.com/tukasa0001/TownOfHost/blob/main/README-EN.md?dhc-id=80397405656190980" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Town of Host wiki</a>
-              <a class="resource-link" href="https://lotusau.top/" target="_blank" rel="noopener"><i class="fa-solid fa-leaf"></i> Lotus website and wiki</a>
-              <a class="resource-link" href="https://ehr.gurge44.eu/index.html" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i> EHR website</a>
-              <a class="resource-link" href="https://ehr-wiki.netlify.app/en/" target="_blank" rel="noopener"><i class="fa-solid fa-book"></i> EHR wiki</a>
-              <a class="resource-link" href="https://au.niko233.top/" target="_blank" rel="noopener"><i class="fa-solid fa-server"></i> Niko website</a>
-              <a class="resource-link" href="https://au.niko233.top/trouble_en.html" target="_blank" rel="noopener"><i class="fa-solid fa-circle-question"></i> Niko FAQ</a>
-              <a class="resource-link" href="https://au-avengers.github.io/docs.toum.gg/" target="_blank" rel="noopener"><i class="fa-solid fa-shield-heart"></i> Town of Us Mira website</a>
-            </div>
-          </article>
-
-          <article class="link-card">
-            <h3>Extra Platform Notes</h3>
-            <div class="link-list">
-              <a class="resource-link" href="https://play.google.com/store/apps/details?id=dev.allofus.starlight" target="_blank" rel="noopener"><i class="fa-brands fa-android"></i> Modded Among Us on Android</a>
-              <a class="resource-link" href="https://one.one.one.one/" target="_blank" rel="noopener"><i class="fa-solid fa-wifi"></i> Cloudflare WARP</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-        </div>
-      </div>
-
-      <p class="footnote">Commands, file paths, and regions vary by mod, platform, and version.</p>
-    </div>
-
-
-    <script>
+<div class="links-grid">
+<article class="link-card">
+<h3>Core MAUL Tools</h3>
+<div class="link-list">
+<a class="resource-link" href="https://moddedamong.us/mods" rel="noopener" target="_blank"><i class="fa-solid fa-puzzle-piece"></i> Featured mods</a>
+<a class="resource-link" href="https://moddedamong.us/tags" rel="noopener" target="_blank"><i class="fa-solid fa-tag"></i> Custom tag generator</a>
+<a class="resource-link" href="https://moddedamong.us/presets" rel="noopener" target="_blank"><i class="fa-solid fa-sliders"></i> Lobby presets</a>
+<a class="resource-link" href="/templates.html" rel="noopener" target="_blank"><i class="fa-solid fa-file-lines"></i> Lobby templates</a>
+<a class="resource-link" href="https://moddedamong.us/icons.html" rel="noopener" target="_blank"><i class="fa-solid fa-icons"></i> Fonts and icons</a>
+<a class="resource-link" href="https://moddedamong.us/hexhelper.html" rel="noopener" target="_blank"><i class="fa-solid fa-palette"></i> Anti-cheat friendly hex helper</a>
+</div>
+</article>
+<article class="link-card">
+<h3>Regions and Hosting</h3>
+<div class="link-list">
+<a class="resource-link" href="https://www.mauq.xyz/servers" rel="noopener" target="_blank"><i class="fa-solid fa-globe"></i> Modded regions on MAUQ</a>
+<a class="resource-link" href="https://au.niko233.top/" rel="noopener" target="_blank"><i class="fa-solid fa-server"></i> Niko region install guide</a>
+<a class="resource-link" href="https://www.mauq.xyz" rel="noopener" target="_blank"><i class="fa-solid fa-list-check"></i> MAUQ tools and queue info</a>
+<a class="resource-link" href="https://ehr-log-analyzer.netlify.app/" rel="noopener" target="_blank"><i class="fa-solid fa-file-waveform"></i> EHR log analyzer</a>
+<a class="resource-link" href="https://www.mauq.xyz/logreader" rel="noopener" target="_blank"><i class="fa-solid fa-magnifying-glass"></i> General log reader</a>
+</div>
+</article>
+<article class="link-card">
+<h3>Mod Resources</h3>
+<div class="link-list">
+<a class="resource-link" href="https://wiki.supernewroles.com/ja/home" rel="noopener" target="_blank"><i class="fa-solid fa-book-open"></i> Super New Roles wiki</a>
+<a class="resource-link" href="https://github.com/tukasa0001/TownOfHost/blob/main/README-EN.md?dhc-id=80397405656190980" rel="noopener" target="_blank"><i class="fa-brands fa-github"></i> Town of Host wiki</a>
+<a class="resource-link" href="https://lotusau.top/" rel="noopener" target="_blank"><i class="fa-solid fa-leaf"></i> Lotus website and wiki</a>
+<a class="resource-link" href="https://ehr.gurge44.eu/index.html" rel="noopener" target="_blank"><i class="fa-solid fa-globe"></i> EHR website</a>
+<a class="resource-link" href="https://ehr-wiki.netlify.app/en/" rel="noopener" target="_blank"><i class="fa-solid fa-book"></i> EHR wiki</a>
+<a class="resource-link" href="https://au.niko233.top/" rel="noopener" target="_blank"><i class="fa-solid fa-server"></i> Niko website</a>
+<a class="resource-link" href="https://au.niko233.top/trouble_en.html" rel="noopener" target="_blank"><i class="fa-solid fa-circle-question"></i> Niko FAQ</a>
+<a class="resource-link" href="https://au-avengers.github.io/docs.toum.gg/" rel="noopener" target="_blank"><i class="fa-solid fa-shield-heart"></i> Town of Us Mira website</a>
+</div>
+</article>
+<article class="link-card">
+<h3>Extra Platform Notes</h3>
+<div class="link-list">
+<a class="resource-link" href="https://play.google.com/store/apps/details?id=dev.allofus.starlight" rel="noopener" target="_blank"><i class="fa-brands fa-android"></i> Modded Among Us on Android</a>
+<a class="resource-link" href="https://one.one.one.one/" rel="noopener" target="_blank"><i class="fa-solid fa-wifi"></i> Cloudflare WARP</a>
+</div>
+</article>
+</div>
+</section>
+</div>
+</div>
+<p class="footnote">Commands, file paths, and regions vary by mod, platform, and version.</p>
+</div>
+<script>
       (() => {
         "use strict";
         const input = document.getElementById("faqSearch");
@@ -1947,11 +2028,9 @@
         updateSearch();
       })();
     </script>
-
-    <script src="scripts/navbar.js"></script>
-
-    <footer class="maul-shared-footer">
-      <p class="maul-footer-credit">Made with ♡ by Maul</p>
-    </footer>
+<script src="scripts/navbar.js"></script>
+<footer class="maul-page-footer">
+<p>Made with <span class="heart">♡</span> by Maul</p>
+</footer>
 </body>
 </html>
