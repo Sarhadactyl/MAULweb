@@ -1189,6 +1189,29 @@
       @media (prefers-reduced-motion: reduce) {
         .credits-heading #credits-title { animation: none !important; }
       }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .hero-actions .button {
+        box-sizing: border-box;
+        flex: 0 0 auto;
+        width: max-content;
+        height: 49px;
+        min-height: 49px;
+        padding-block: 0;
+        font-size: 13.44px;
+        line-height: 1;
+        white-space: nowrap;
+      }
     </style>
   </head>
 
