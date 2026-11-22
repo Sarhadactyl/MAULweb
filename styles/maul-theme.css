@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Libre+Baskerville:wght@700&family=Outfit:wght@500;600;700;800&display=swap");
+
+:root {
+  color-scheme: dark;
+  --maul-bg: #080406;
+  --maul-burgundy: #340b19;
+  --maul-wine: #240710;
+  --maul-shadow-wine: #100509;
+  --maul-edge-wine: #120509;
+  --maul-rose: #e9b4ac;
+  --maul-rose-light: #f5d5c9;
+  --maul-rose-deep: #b76e79;
+  --maul-text: #f9f3ef;
+  --maul-muted: #c5b8b8;
+  --maul-border: rgba(191, 119, 133, .3);
+  --maul-line: linear-gradient(90deg, rgba(233, 180, 172, .66), rgba(233, 180, 172, .13));
+  --maul-surface: #1d141b;
+  --maul-foreground-on-rose: #29191f;
+  --maul-button-start: #f8d4af;
+  --maul-button-end: #b75863;
+  --maul-button-gradient: linear-gradient(115deg, var(--maul-button-start) 0%, var(--maul-button-end) 100%);
+  --maul-metallic-gradient: linear-gradient(105deg, #d9a7a6 0%, var(--maul-rose-light) 29%, var(--maul-rose) 44%, #fff3e0 50%, var(--maul-rose) 56%, var(--maul-rose-deep) 78%, var(--maul-rose) 100%);
+  --maul-background: radial-gradient(ellipse 70% 58% at 73% 13%, rgba(83, 14, 33, .60), rgba(49, 8, 22, .36) 44%, transparent 78%), radial-gradient(ellipse 52% 40% at 18% 80%, rgba(64, 10, 27, .35), transparent 78%), linear-gradient(110deg, var(--maul-bg) 0%, var(--maul-shadow-wine) 27%, var(--maul-wine) 60%, var(--maul-burgundy) 79%, var(--maul-edge-wine) 100%);
+  --maul-font-display: "Libre Baskerville", Georgia, serif;
+  --maul-font-body: "DM Sans", system-ui, -apple-system, sans-serif;
+  --maul-font-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+
+body.maul-theme {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--maul-background);
+  color: var(--maul-text);
+  font-family: var(--maul-font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.maul-theme .maul-display {
+  font-family: var(--maul-font-display);
+  font-weight: 700;
+  letter-spacing: -.055em;
+}
+
+.maul-theme .maul-metallic {
+  color: var(--maul-rose-light);
+  background: var(--maul-metallic-gradient);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: maulMetalSweep 9s ease-in-out infinite;
+}
+
+@keyframes maulMetalSweep {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.maul-theme .maul-muted { color: var(--maul-muted); }
+.maul-theme .maul-rose { color: var(--maul-rose); }
+.maul-theme .maul-hairline { border-color: var(--maul-border); }
+
+.maul-theme .maul-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  min-height: 40px;
+  padding: 0 17px;
+  border: 1px solid var(--maul-border);
+  border-radius: 6px;
+  font-family: var(--maul-font-body);
+  font-size: 13.44px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.maul-theme .maul-button--primary {
+  background: var(--maul-button-gradient);
+  border-color: var(--maul-rose-light);
+  color: var(--maul-foreground-on-rose);
+}
+
+.maul-theme .maul-button--primary:hover,
+.maul-theme .maul-button--primary:focus-visible { filter: brightness(1.09); }
+
+.maul-theme .maul-button--secondary {
+  background: var(--maul-surface);
+  border-color: var(--maul-border);
+  color: #e8dfe3;
+}
+
+.maul-theme .maul-button--secondary:hover,
+.maul-theme .maul-button--secondary:focus-visible {
+  background: rgba(77, 31, 47, .6);
+  border-color: rgba(233, 180, 172, .6);
+}
+
+.maul-theme .maul-button:focus-visible {
+  outline: 2px solid var(--maul-rose-light);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .maul-theme .maul-metallic { animation: none; }
+  .maul-theme .maul-button { transition: none; }
+}
