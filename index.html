@@ -1191,7 +1191,7 @@
         .hero-title {
           grid-area: title;
           min-width: 0;
-          margin: 0 0 20px;
+          margin: 0 0 8px;
           font-size: clamp(2.05rem, 10vw, 3.5rem);
           line-height: 1.04;
           letter-spacing: -.064em;
@@ -1230,21 +1230,28 @@
         }
         .hero-art {
           grid-area: art;
+          position: relative;
           justify-self: center;
           align-self: center;
           width: 100%;
           max-width: 147px;
           min-width: 0;
+          height: auto;
+          max-height: none;
+          aspect-ratio: 1 / 1.1;
           margin: 0;
           padding: 0;
-          transform: translateY(-9px);
+          transform: translateY(calc(-1 * clamp(38px, 12vw, 60px)));
         }
         .hero-character {
+          position: absolute;
+          inset: 0;
           display: block;
           width: 100%;
           max-width: 147px;
-          height: auto;
-          max-height: none;
+          height: 100%;
+          max-height: 100%;
+          object-fit: contain;
         }
         .server-status { gap: 23px; }
         .server-status .status-note strong { font-size: 1.16rem; }
