@@ -373,7 +373,6 @@
         }
 
         .hero-art {
-          width: min(60%, 240px);
           justify-self: center;
         }
 
@@ -659,12 +658,6 @@
           background-position: 100% 50%;
         }
       }
-      @media (max-width: 760px) {
-        .hero {
-          gap: 0;
-        }
-      }
-
       :root {
         --ink: #080406;
         --paper: #f9f3ef;
@@ -1113,12 +1106,34 @@
       }
 
       @media (max-width: 760px) {
-        .hero { gap: 0; padding-top: 40px; padding-bottom: 8px; }
+        .hero {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0;
+          padding-top: 40px;
+          padding-bottom: 8px;
+        }
         .hero-title { font-size: clamp(3.05rem, 11vw, 5.4rem); }
         .hero-title .line.brand { font-size: 1em; }
         .hero-copy { margin-top: 20px; max-width: 42ch; }
         .hero-actions { margin-top: 22px; }
-        .hero-art { margin-top: -27px; margin-bottom: -38px; }
+        .hero-art {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex: none;
+          width: min(60%, 240px);
+          height: clamp(230px, 64vw, 255px);
+          aspect-ratio: auto;
+          margin: -13px auto -17px;
+        }
+        .hero-character {
+          width: 88%;
+          max-height: 100%;
+          object-fit: contain;
+          flex: none;
+        }
         .server-status { padding: 20px 0; }
         .credits { padding-top: 95px; }
         .credits-list { column-gap: 24px; }
