@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Customize Lobby Colors · MAUL</title>
+    <title>Customize Lobby Colors | MAUL</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta property="og:title" content="Customize Lobby Colors · MAUL" />
+    <meta property="og:title" content="Customize Lobby Colors | MAUL" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moddedamong.us/customize.html" />
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
@@ -31,7 +31,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="/styles/navbar.css" />
 
     <style>
       :root {
@@ -1170,36 +1170,184 @@
       }
 
     </style>
-    <link rel="stylesheet" href="styles/maul-theme.css" />
+    <link rel="stylesheet" href="/styles/maul-theme.css?v=2" />
+    <style>
+
+      html { background: var(--maul-bg); }
+      body.maul-customize-theme {
+        min-height: 100vh;
+        height: auto;
+        margin: 0;
+        isolation: isolate;
+        background: var(--maul-background);
+        background-attachment: fixed;
+        color: var(--maul-text);
+        font-family: var(--maul-font-body, "DM Sans", system-ui, sans-serif);
+      }
+      body.maul-customize-theme #navbar { position: relative; z-index: 10; }
+      body.maul-customize-theme .page-wrapper { position: relative; z-index: 1; width: min(1160px, calc(100% - 44px)); max-width: none; padding: clamp(34px, 5vw, 58px) 0 36px; }
+      body.maul-customize-theme .customize-intro { margin: 0 0 26px; padding: 0 0 24px; border-bottom: 1px solid var(--maul-border); }
+      body.maul-customize-theme .customize-intro h1 { display: block; width: fit-content; max-width: 100%; margin: 0; padding: 0 0 .12em; font: 700 clamp(2.65rem, 6.1vw, 5.4rem)/1.1 var(--maul-font-display, Georgia, serif); letter-spacing: -.045em; }
+      body.maul-customize-theme .customize-intro p { max-width: 690px; margin: 6px 0 0; color: var(--maul-muted); line-height: 1.65; font-size: 1rem; }
+      body.maul-customize-theme .grid { margin-top: 20px; }
+      body.maul-customize-theme .card { background: var(--maul-surface, #171019); border: 1px solid var(--maul-border); border-radius: 6px; box-shadow: none; backdrop-filter: none; }
+      body.maul-customize-theme .card h2, body.maul-customize-theme .card h3 { color: var(--maul-text); font-family: var(--maul-font-display, Georgia, serif); letter-spacing: normal; }
+      body.maul-customize-theme .card p, body.maul-customize-theme .card li { color: var(--maul-muted); }
+      body.maul-customize-theme .step, body.maul-customize-theme .field-item, body.maul-customize-theme .mini-gen, body.maul-customize-theme .ehr-role { background: var(--maul-surface, #171019); border-color: var(--maul-border); border-radius: 5px; }
+      body.maul-customize-theme .code-block, body.maul-customize-theme .mini-gen-output code { border-color: var(--maul-border); border-radius: 5px; }
+      body.maul-customize-theme .customize-tabs { background: transparent; border: 0; border-bottom: 1px solid var(--maul-border); border-radius: 0; padding: 0 0 10px; }
+      body.maul-customize-theme .customize-tab { font: 700 .9rem var(--maul-font-body, "DM Sans", system-ui, sans-serif); border-radius: 5px; }
+      body.maul-customize-theme .customize-tab[aria-selected="true"] { color: var(--maul-foreground-on-rose); background: var(--maul-button-gradient); border-color: var(--maul-rose-light); box-shadow: none; }
+      body.maul-customize-theme .copy-btn, body.maul-customize-theme .ehr-action { border-radius: 5px; border-color: var(--maul-border); background: var(--maul-surface); color: var(--maul-text); font: 700 13px var(--maul-font-body, "DM Sans", system-ui, sans-serif); }
+      body.maul-customize-theme .ehr-action.primary { color: var(--maul-foreground-on-rose); background: var(--maul-button-gradient); border-color: var(--maul-rose-light); }
+      body.maul-customize-theme .maul-page-footer { position: relative; z-index: 1; display:flex; align-items:center; justify-content:center; gap:clamp(16px,4vw,52px); width:min(1160px,calc(100% - 44px)); margin: 20px auto; padding: 55px 0 38px; border-top:1px solid var(--maul-border); color:var(--maul-rose); text-align:center; }
+      body.maul-customize-theme .maul-page-footer::before, body.maul-customize-theme .maul-page-footer::after { content:""; width:clamp(30px,10vw,118px); height:2px; flex:0 1 auto; background:linear-gradient(90deg,transparent,var(--maul-rose)); opacity:.8; }
+      body.maul-customize-theme .maul-page-footer::after { transform:rotate(180deg); }
+      body.maul-customize-theme .maul-page-footer p { margin:0; font-family:Inter,system-ui,sans-serif; font-size:clamp(.9rem,2.4vw,1.15rem); font-weight:700; letter-spacing:.085em; white-space:nowrap; }
+      body.maul-customize-theme .maul-page-footer .heart { color:var(--maul-rose-light); }
+      @media(max-width:600px) { body.maul-customize-theme .page-wrapper {width:calc(100% - 36px); padding-top:42px;} body.maul-customize-theme .customize-intro h1 { font-size:clamp(2.3rem,10vw,3.5rem); } }
+      @media(max-width:480px) { body.maul-customize-theme .maul-page-footer {gap:12px;padding-top:40px;} body.maul-customize-theme .maul-page-footer p {font-size:.82rem;letter-spacing:.035em;} }
+      body.maul-customize-theme::before,body.maul-customize-theme::after { display:block; content:""; position:fixed; top:-160vh; left:0; right:auto; bottom:auto; inset:auto; z-index:-1; background:#fff; background-image:none; background-size:auto; border:0; border-radius:50%; mix-blend-mode:normal; opacity:.7; pointer-events:none; animation:maulStarDrift 24s linear infinite; }
+      body.maul-customize-theme::before,
+
+      body.maul-customize-theme::after {
+        content: "";
+        position: fixed;
+        top: -160vh;
+        left: 0;
+        z-index: -1;
+        pointer-events: none;
+        border-radius: 50%;
+        background: #fff;
+        animation: maulStarDrift 24s linear infinite;
+      }
+
+      body.maul-customize-theme::before {
+        width: 2px;
+        height: 2px;
+        opacity: 0.7;
+        box-shadow: 3vw 8vh #fff, 6vw 57vh #fff, 9vw 122vh #fff, 11vw 215vh #fff,
+          14vw 303vh #fff, 17vw 34vh #fff, 19vw 186vh #fff, 22vw 269vh #fff,
+          25vw 78vh #fff, 27vw 147vh #fff, 29vw 241vh #fff, 31vw 318vh #fff,
+          34vw 18vh #fff, 36vw 101vh #fff, 38vw 207vh #fff, 41vw 286vh #fff,
+          43vw 64vh #fff, 45vw 158vh #fff, 48vw 226vh #fff, 50vw 311vh #fff,
+          52vw 42vh #fff, 54vw 133vh #fff, 57vw 197vh #fff, 59vw 276vh #fff,
+          61vw 88vh #fff, 63vw 171vh #fff, 65vw 252vh #fff, 68vw 6vh #fff,
+          70vw 116vh #fff, 72vw 221vh #fff, 74vw 296vh #fff, 76vw 51vh #fff,
+          79vw 139vh #fff, 81vw 233vh #fff, 83vw 314vh #fff, 85vw 27vh #fff,
+          87vw 96vh #fff, 89vw 182vh #fff, 91vw 265vh #fff, 93vw 74vh #fff,
+          95vw 154vh #fff, 97vw 244vh #fff, 99vw 309vh #fff,
+          12vw 24vh #fff,
+          23vw 114vh #fff,
+          39vw 152vh #fff,
+          54vw 26vh #fff,
+          66vw 132vh #fff,
+          82vw 54vh #fff,
+          94vw 188vh #fff,
+          8vw 302vh #fff,
+          32vw 278vh #fff,
+          47vw 72vh #fff,
+          73vw 314vh #fff,
+          91vw 228vh #fff;
+      }
+
+      body.maul-customize-theme::after {
+        width: 1px;
+        height: 1px;
+        opacity: 0.5;
+        animation-duration: 36s;
+        box-shadow: 2vw 23vh #fff, 4vw 141vh #fff, 5vw 292vh #fff, 7vw 68vh #fff,
+          8vw 211vh #fff, 10vw 317vh #fff, 13vw 35vh #fff, 15vw 156vh #fff,
+          18vw 263vh #fff, 20vw 96vh #fff, 23vw 229vh #fff, 26vw 5vh #fff,
+          28vw 181vh #fff, 30vw 306vh #fff, 32vw 47vh #fff, 35vw 128vh #fff,
+          37vw 254vh #fff, 39vw 89vh #fff, 42vw 219vh #fff, 44vw 310vh #fff,
+          47vw 58vh #fff, 51vw 150vh #fff, 53vw 271vh #fff, 56vw 16vh #fff,
+          60vw 101vh #fff, 64vw 237vh #fff, 67vw 315vh #fff, 69vw 44vh #fff,
+          73vw 169vh #fff, 77vw 281vh #fff, 82vw 76vh #fff, 86vw 197vh #fff,
+          90vw 49vh #fff, 93vw 242vh #fff, 97vw 101vh #fff,
+          5vw 39vh #fff,
+          18vw 118vh #fff,
+          31vw 8vh #fff,
+          44vw 192vh #fff,
+          58vw 94vh #fff,
+          72vw 27vh #fff,
+          88vw 142vh #fff,
+          98vw 276vh #fff,
+          15vw 242vh #fff,
+          41vw 322vh #fff,
+          63vw 216vh #fff,
+          79vw 303vh #fff;
+      }
+
+      @keyframes maulStarDrift {
+        from { transform: translate3d(0, 160vh, 0); }
+        to { transform: translate3d(0, 0, 0); }
+      }
+
+
+      .maul-shooting-star-layer {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .maul-shooting-star {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: clamp(65px, 13vw, 125px);
+        height: 1px;
+        border-radius: 100%;
+        background: linear-gradient(90deg, transparent, rgb(233 180 172 / 12%) 20%, rgb(245 213 201 / 76%) 100%);
+        box-shadow: 0 0 6px rgb(233 180 172 / 16%);
+        transform-origin: right center;
+        will-change: transform, opacity;
+        animation: maulShootingStar 1400ms ease-out both;
+      }
+      .maul-shooting-star::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: -1px;
+        height: 3px;
+        width: 3px;
+        border-radius: 50%;
+        background: rgb(255 231 225 / 85%);
+        box-shadow: 0 0 6px rgb(233 180 172 / 45%);
+      }
+      @keyframes maulShootingStar {
+        0% { opacity: 0; transform: translate3d(0,0,0) rotate(-25deg) scaleX(.65); }
+        12% { opacity: .78; }
+        68% { opacity: .6; }
+        100% { opacity: 0; transform: translate3d(var(--star-travel-x, 190px), calc(-1 * var(--star-travel-y, 90px)), 0) rotate(-25deg) scaleX(1); }
+      }
+      @media (max-width: 760px) {
+        .maul-shooting-star { width: 70px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .maul-shooting-star-layer { display: none; }
+        .maul-shooting-star { animation: none; }
+      }
+
+
+      @media (prefers-reduced-motion: reduce) {
+        body.maul-customize-theme::before, body.maul-customize-theme::after {
+          animation: none;
+          transform: translate3d(0, 160vh, 0);
+        }
+      }
+    </style>
   </head>
 
-  <body class="maul-themed">
+  <body class="maul-theme maul-customize-theme">
+    <div class="maul-shooting-star-layer" aria-hidden="true"></div>
     <div id="navbar"></div>
 
     <div class="page-wrapper">
-      <header class="page-header maul-page-hero">
-        <div class="hero-copy">
-          <div class="header-badge">
-            <span class="header-badge-dot"></span>
-            Customization Guide
-          </div>
-          <h1>Customize <span>Lobby Colors</span></h1>
-          <p class="page-header-subtitle">Edit host text, colors, icons, and player tags in your language file. Start with solid colors.</p>
-          <div class="header-actions">
-            <a href="https://moddedamong.us/" class="cta-secondary maul-hero-secondary">
-              <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Home
-            </a>
-            <a href="https://discord.gg/MAUL" target="_blank" rel="noopener" class="cta-primary maul-hero-primary">
-              <i class="fa-brands fa-discord" aria-hidden="true"></i> Join MAUL
-            </a>
-          </div>
-        </div>
-        <div class="hero-panel maul-hero-art" aria-label="MAUL mascot illustration">
-          <div class="hero-banner-card" aria-hidden="true">
-            <img src="images/banner-transparent-cropped.png" alt="" loading="lazy" decoding="async" />
-          </div>
-          <img src="images/maulnobg.png" alt="MAUL mascot" loading="eager" decoding="async" />
-        </div>
+      <header class="customize-intro">
+        <h1 class="maul-metallic">Customize Lobby Colors</h1>
+        <p>Edit host text, colors, icons, and player tags in your language file. Start with solid colors.</p>
       </header>
 
 
@@ -1436,7 +1584,7 @@ NameColor:#06D6A0</div>
           <li>You can change roles or taglines, not just color. If you`re familiar with my lobbies Gatitos > VIP Gatos > Mod for example.</li>
         </ul>
       </section>
-      </section><!-- /Guide tab -->
+      </section>
 
       <section class="customize-tab-panel ehr-generator" id="tab-generator" role="tabpanel" aria-labelledby="generator-tab" hidden>
         <div class="card ehr-intro">
@@ -1477,7 +1625,7 @@ NameColor:#06D6A0</div>
           <div id="ehr-action-status" role="status" aria-live="polite"></div>
           <p class="ehr-bottom-note">Only selected keys present in the chosen file are replaced; optional keys missing from the blank template are skipped, not invented. Repeated keys are all updated. Existing wording/formatting in selected fields is replaced by a plain standard label with colors only; other file content stays unchanged. To keep a different language or your other settings, upload its .dat first.</p>
         </div>
-      </section><!-- /EHR generator tab -->
+      </section>
     </div>
 
 
@@ -4822,9 +4970,46 @@ NameColor:#06D6A0</div>
       })();
     </script>
 
-    <footer class="maul-shared-footer">
-      <p class="maul-footer-credit">Made with ♡ by Maul</p>
+    <footer class="maul-page-footer">
+      <p>Made with <span class="heart">♡</span> by Maul</p>
     </footer>
-    <!-- im tired -->
+    <script>
+      (() => {
+        const stars = document.querySelector('.maul-shooting-star-layer');
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (!stars) return;
+        let starTimer;
+        function scheduleStar() {
+          clearTimeout(starTimer);
+          if (document.hidden || reduceMotion.matches) return;
+          starTimer = setTimeout(() => {
+            if (!document.hidden) {
+              const star = document.createElement('span');
+              star.className = 'maul-shooting-star';
+              const travelX = Math.min(190, Math.max(90, window.innerWidth * .38));
+              const travelY = travelX * (90 / 190);
+              star.style.setProperty('--star-travel-x', `${travelX}px`);
+              star.style.setProperty('--star-travel-y', `${travelY}px`);
+              const startMaxX = Math.max(0, window.innerWidth - travelX - 75);
+              const startMinY = Math.min(window.innerHeight - 20, travelY + 40);
+              star.style.left = `${Math.round(startMaxX * (.06 + Math.random() * .48))}px`;
+              star.style.top = `${Math.round(startMinY + (window.innerHeight - startMinY) * (.28 + Math.random() * .65))}px`;
+              star.addEventListener('animationend', () => star.remove(), { once: true });
+              stars.appendChild(star);
+            }
+            scheduleStar();
+          }, 18000 + Math.random() * 12000);
+        }
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) { clearTimeout(starTimer); stars.replaceChildren(); }
+          else scheduleStar();
+        });
+        reduceMotion.addEventListener('change', e => {
+          if (e.matches) { clearTimeout(starTimer); stars.replaceChildren(); }
+          else scheduleStar();
+        });
+        scheduleStar();
+      })();
+    </script>
   </body>
 </html>
