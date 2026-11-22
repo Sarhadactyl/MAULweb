@@ -373,6 +373,7 @@
         }
 
         .hero-art {
+          width: min(60%, 240px);
           justify-self: center;
         }
 
@@ -584,14 +585,14 @@
         inset: 23% 15%;
       }
       .hero-banner {
-        width: 105%;
+        width: 67%;
       }
       @media (max-width: 760px) {
         .hero-art::after {
           inset: 24% 15%;
         }
         .hero-banner {
-          width: 115%;
+          width: 82%;
         }
       }
 
@@ -802,7 +803,7 @@
       }
       @media (prefers-reduced-motion: reduce) {
       }
-
+      
       .hero-art::after {
         display: none;
       }
@@ -1112,45 +1113,19 @@
       }
 
       @media (max-width: 760px) {
-        .hero {
-          display: flex;
-          flex-direction: column;
-          align-items: stretch;
-          gap: 0;
-          padding-top: 40px;
-          padding-bottom: 8px;
-        }
+        .hero { padding-top: 54px; padding-bottom: 34px; }
         .hero-title { font-size: clamp(3.05rem, 11vw, 5.4rem); }
         .hero-title .line.brand { font-size: 1em; }
-        .hero-copy { margin-top: 20px; max-width: 42ch; }
-        .hero-actions { margin-top: 22px; }
-        .hero-art {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex: none;
-          width: min(60%, 240px);
-          height: clamp(230px, 64vw, 255px);
-          aspect-ratio: auto;
-          margin: -56px auto -45px;
-        }
-        .hero-banner {
-          width: 85%;
-        }
-        .hero-character {
-          width: 88%;
-          max-height: 100%;
-          object-fit: contain;
-          flex: none;
-        }
-        .server-status { padding: 20px 0; }
+        .hero-copy { margin-top: 25px; max-width: 42ch; }
+        .hero-art { margin-top: -9px; margin-bottom: -14px; }
+        .server-status { padding: 25px 0; }
         .credits { padding-top: 95px; }
         .credits-list { column-gap: 24px; }
         .credit-link { min-height: 160px; padding-block: 26px; }
       }
       @media (max-width: 600px) {
         .page-shell { width: calc(100% - 34px); }
-        .hero { padding-top: 30px; }
+        .hero { padding-top: 45px; }
         .hero-title { font-size: clamp(2.6rem, 10.6vw, 4.1rem); letter-spacing: -.07em; }
         .hero-title .line.brand { font-size: 1em; }
         .hero .eyebrow { margin-bottom: 22px; }
@@ -1349,8 +1324,6 @@
 
       const memberCount = document.getElementById("memberCount");
       const widgetUrl = "https://discord.com/api/guilds/995954559044304896/widget.json";
-
-      // edit ------ this *might* make the number more dynamic.... idrk though i just googled it
       const totalMemberCount = document.getElementById("totalMemberCount");
       fetch("https://discord.com/api/v10/invites/maul?with_counts=true", {
         credentials: "omit",
@@ -1366,7 +1339,6 @@
           totalMemberCount.textContent = total.toLocaleString("en-US");
         })
         .catch(() => {
-          // fallback for edit
         });
 
       fetch(widgetUrl)
