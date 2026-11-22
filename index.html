@@ -373,6 +373,7 @@
         }
 
         .hero-art {
+          width: min(60%, 240px);
           justify-self: center;
         }
 
@@ -584,14 +585,14 @@
         inset: 23% 15%;
       }
       .hero-banner {
-        width: 105%;
+        width: 67%;
       }
       @media (max-width: 760px) {
         .hero-art::after {
           inset: 24% 15%;
         }
         .hero-banner {
-          width: 115%;
+          width: 82%;
         }
       }
 
@@ -663,7 +664,6 @@
           gap: 0;
         }
       }
-
 
       :root {
         --ink: #080406;
@@ -804,8 +804,6 @@
       @media (prefers-reduced-motion: reduce) {
       }
 
-    
-
       .hero-art::after {
         display: none;
       }
@@ -871,7 +869,7 @@
         --type-body: "DM Sans", system-ui, -apple-system, sans-serif;
         --type-micro: ui-monospace, "Cascadia Mono", Consolas, monospace;
       }
-      html { text-rendering: optimizeLegibility; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+      html { text-rendering: optimizeLegibility; }
       body {
         font-family: var(--type-body);
         -webkit-font-smoothing: antialiased;
@@ -1115,76 +1113,25 @@
       }
 
       @media (max-width: 760px) {
-        .hero {
-          display: grid;
-          grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
-          align-items: center;
-          gap: clamp(8px, 2.3vw, 20px);
-          padding-top: clamp(24px, 4.2vw, 38px);
-          padding-bottom: clamp(24px, 4vw, 38px);
-        }
-        .hero > div:first-child { min-width: 0; }
-        .hero-title {
-          font-size: clamp(1.75rem, 7.05vw, 3.5rem);
-          line-height: 1.04;
-          text-wrap: initial;
-        }
+        .hero { padding-top: 54px; padding-bottom: 34px; }
+        .hero-title { font-size: clamp(3.05rem, 11vw, 5.4rem); }
         .hero-title .line.brand { font-size: 1em; }
-        .hero-copy {
-          margin-top: clamp(14px, 2.3vw, 24px);
-          max-width: 34ch;
-          font-size: clamp(.76rem, 1.9vw, 1rem);
-          line-height: 1.55;
-        }
-        .hero-actions {
-          gap: 7px;
-          margin-top: clamp(16px, 2.5vw, 24px);
-        }
-        .hero .button {
-          min-height: 40px;
-          padding: 8px 10px;
-          font-size: clamp(.68rem, 1.55vw, .84rem);
-          white-space: nowrap;
-        }
-        .hero-art {
-          display: flex;
-          flex: none;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-          max-width: none;
-          min-width: 0;
-          height: auto;
-          min-height: 0;
-          aspect-ratio: auto;
-          margin: 0;
-          padding: 0;
-        }
-        .hero-banner {
-          width: 109%;
-          max-width: none;
-        }
-        .hero-character {
-          width: 94%;
-          height: auto;
-          max-height: none;
-          object-fit: contain;
-          flex: none;
-        }
-        .server-status { padding: 20px 0; }
+        .hero-copy { margin-top: 25px; max-width: 42ch; }
+        .hero-art { margin-top: -9px; margin-bottom: -14px; }
+        .server-status { padding: 25px 0; }
         .credits { padding-top: 95px; }
         .credits-list { column-gap: 24px; }
         .credit-link { min-height: 160px; padding-block: 26px; }
       }
       @media (max-width: 600px) {
         .page-shell { width: calc(100% - 34px); }
-        .hero { padding-top: 30px; }
-        .hero-title { font-size: clamp(1.52rem, 7.05vw, 3.5rem); letter-spacing: -.07em; }
+        .hero { padding-top: 45px; }
+        .hero-title { font-size: clamp(2.6rem, 10.6vw, 4.1rem); letter-spacing: -.07em; }
         .hero-title .line.brand { font-size: 1em; }
-        .hero .eyebrow { margin-bottom: 14px; }
-        .hero-copy { font-size: clamp(.72rem, 2.65vw, .9rem); line-height: 1.6; }
+        .hero .eyebrow { margin-bottom: 22px; }
+        .hero-copy { font-size: 1rem; line-height: 1.7; }
         .hero-actions { gap: 9px; }
-        .page-shell .hero .button { padding-inline: 9px; }
+        .page-shell .button { padding-inline: 16px; }
         .server-status { gap: 23px; }
         .server-status .status-note strong { font-size: 1.16rem; }
         .status-metrics { justify-content: space-between; width: 100%; }
@@ -1271,7 +1218,7 @@
 
         <div class="hero-art" aria-hidden="true">
           <img class="hero-banner" src="images/banner-transparent-cropped.png" alt="" />
-          <img class="hero-character" src="images/maulnobg.png?v=20261121-pink" alt="" fetchpriority="high" />
+          <img class="hero-character" src="images/maulnobg.png" alt="" fetchpriority="high" />
         </div>
       </section>
 
@@ -1377,7 +1324,6 @@
 
       const memberCount = document.getElementById("memberCount");
       const widgetUrl = "https://discord.com/api/guilds/995954559044304896/widget.json";
-
       const totalMemberCount = document.getElementById("totalMemberCount");
       fetch("https://discord.com/api/v10/invites/maul?with_counts=true", {
         credentials: "omit",
