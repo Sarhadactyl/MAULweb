@@ -658,6 +658,12 @@
           background-position: 100% 50%;
         }
       }
+      @media (max-width: 760px) {
+        .hero {
+          gap: 0;
+        }
+      }
+
       :root {
         --ink: #080406;
         --paper: #f9f3ef;
@@ -1126,7 +1132,10 @@
           width: min(60%, 240px);
           height: clamp(230px, 64vw, 255px);
           aspect-ratio: auto;
-          margin: -13px auto -17px;
+          margin: -56px auto -45px;
+        }
+        .hero-banner {
+          width: 92%;
         }
         .hero-character {
           width: 88%;
