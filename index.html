@@ -36,13 +36,11 @@
     />
 
     <link rel="stylesheet" href="/styles/navbar.css?v=20261028-nav-6" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@0;500;600;700&amp;family=Libre+Baskerville:wght@700&amp;display=swap" />
+    <link rel="stylesheet" href="/styles/maul-theme.css?v=1" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Libre+Baskerville:wght@700&amp;display=swap" />
 
     <style>
-      :root {
-        color-scheme: dark;
-        --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
-      }
+      :root { --mono: var(--maul-font-mono); }
 
       * {
         box-sizing: border-box;
@@ -213,7 +211,7 @@
 
       .page-shell .button-primary {
         border-color: var(--rose-gold-light);
-        color: #29191f;
+        color: var(--maul-foreground-on-rose);
         background: linear-gradient(150deg, var(--rose-gold-light), var(--rose-gold) 60%, var(--rose-gold-deep));
       }
 
@@ -628,9 +626,9 @@
         .credits-heading h2,
         .join-panel h2 {
           background-image: linear-gradient(105deg,
-            #f9f3ef 0%, #f9f3ef 37%, #f9f3ef 43%,
-            #f0c78d 49%, #fff3db 51%, #f9f3ef 57%,
-            #f9f3ef 100%);
+            var(--maul-text) 0%, var(--maul-text) 37%, var(--maul-text) 43%,
+            #f0c78d 49%, #fff3db 51%, var(--maul-text) 57%,
+            var(--maul-text) 100%);
           background-size: 340% 100%;
           background-position: 100% 50%;
           -webkit-background-clip: text;
@@ -640,9 +638,9 @@
         }
         .hero-title .brand {
           background-image: linear-gradient(105deg,
-            #f5d5c9 0%, #e9b4ac 38%, #e9b4ac 43%,
-            #eac692 49%, #fff0cb 51%, #e9b4ac 57%,
-            #b76e79 100%);
+            var(--maul-rose-light) 0%, var(--maul-rose) 38%, var(--maul-rose) 43%,
+            #eac692 49%, #fff0cb 51%, var(--maul-rose) 57%,
+            var(--maul-rose-deep) 100%);
         }
       }
       @keyframes maulHeadingGleam {
@@ -666,22 +664,19 @@
       }
 
       :root {
-        --ink: #080406;
-        --paper: #f9f3ef;
-        --muted: #c5b8b8;
-        --rose-gold: #e9b4ac;
-        --rose-gold-light: #f5d5c9;
-        --rose-gold-deep: #b76e79;
-        --rule: rgba(191, 119, 133, .3);
-        --rule-fade: linear-gradient(90deg, rgba(233,180,172,.66), rgba(233,180,172,.13));
+        --ink: var(--maul-bg);
+        --paper: var(--maul-text);
+        --muted: var(--maul-muted);
+        --rose-gold: var(--maul-rose);
+        --rose-gold-light: var(--maul-rose-light);
+        --rose-gold-deep: var(--maul-rose-deep);
+        --rule: var(--maul-border);
+        --rule-fade: var(--maul-line);
       }
-      html { background: #080406; }
+      html { background: var(--maul-bg); }
       body {
         min-height: 100vh;
-        background:
-          radial-gradient(ellipse 70% 58% at 73% 13%, rgba(83,14,33,.60), rgba(49,8,22,.36) 44%, transparent 78%),
-          radial-gradient(ellipse 52% 40% at 18% 80%, rgba(64,10,27,.35), transparent 78%),
-          linear-gradient(110deg, #080406 0%, #100509 27%, #240710 60%, #340b19 79%, #120509 100%);
+        background: var(--maul-background);
         color: var(--paper);
       }
       #navbar { position: relative; z-index: 10; }
@@ -690,17 +685,17 @@
         font: 650 .74rem/1.5 var(--mono);
       }
       .hero-title {
-        font: 700 clamp(2.85rem, 6.1vw, 5.5rem)/1.1 "Libre Baskerville", Georgia, serif;
+        font: 700 clamp(2.85rem, 6.1vw, 5.5rem)/1.1 var(--maul-font-display);
       }
       @supports (background-clip: text) or (-webkit-background-clip: text) {
         .hero-title .line:not(.brand) {
           background: none;
-          -webkit-text-fill-color: #f9f3ef;
-          color: #f9f3ef;
+          -webkit-text-fill-color: var(--maul-text);
+          color: var(--maul-text);
           animation: none;
         }
         .hero-title .brand {
-          background: linear-gradient(105deg, #d9a7a6 0%, #f5d5c9 29%, #e9b4ac 44%, #fff3e0 50%, #e9b4ac 56%, #b76e79 78%, #e9b4ac 100%);
+          background: var(--maul-metallic-gradient);
           background-size: 260% 100%;
           background-clip: text;
           -webkit-background-clip: text;
@@ -726,9 +721,9 @@
       .page-shell .button-primary,
       .page-shell .button-primary:hover,
       .page-shell .button-primary:focus-visible {
-        background: linear-gradient(115deg, #f8d4af 0%, #b75863 100%);
-        color: #29191f;
-        border: 1px solid #f5d5c9;
+        background: var(--maul-button-gradient);
+        color: var(--maul-foreground-on-rose);
+        border: 1px solid var(--maul-rose-light);
         box-shadow: 0 8px 23px rgba(0,0,0,.20);
       }
       .page-shell .button-primary:hover,
@@ -737,7 +732,7 @@
         box-shadow: 0 8px 26px rgba(183,88,99,.24);
       }
       .page-shell .button-secondary {
-        background: #1d141b;
+        background: var(--maul-surface);
         border: 1px solid var(--rule);
         color: #e8dfe3;
       }
@@ -754,7 +749,7 @@
       .server-status p { color: var(--muted); }
       .server-status strong { color: var(--paper); }
       .credits-heading h2, .join-panel h2 {
-        font: 700 clamp(2.35rem, 5vw, 4.3rem)/1.14 "Libre Baskerville", Georgia, serif;
+        font: 700 clamp(2.35rem, 5vw, 4.3rem)/1.14 var(--maul-font-display);
       }
       @supports (background-clip: text) or (-webkit-background-clip: text) {
         .credits-heading h2, .join-panel h2 {
@@ -865,9 +860,9 @@
         .credit-link { transition: none; }
       }
       :root {
-        --type-display: "Libre Baskerville", Georgia, serif;
-        --type-body: "DM Sans", system-ui, -apple-system, sans-serif;
-        --type-micro: ui-monospace, "Cascadia Mono", Consolas, monospace;
+        --type-display: var(--maul-font-display);
+        --type-body: var(--maul-font-body);
+        --type-micro: var(--maul-font-mono);
       }
       html { text-rendering: optimizeLegibility; }
       body {
@@ -1177,7 +1172,7 @@
       }
       @supports (background-clip: text) or (-webkit-background-clip: text) {
         .credits-heading #credits-title {
-          background: linear-gradient(105deg, #d9a7a6 0%, #f5d5c9 29%, #e9b4ac 44%, #fff3e0 50%, #e9b4ac 56%, #b76e79 78%, #e9b4ac 100%);
+          background: var(--maul-metallic-gradient);
           background-size: 260% 100%;
           background-clip: text;
           -webkit-background-clip: text;
@@ -1205,8 +1200,8 @@
         box-sizing: border-box;
         flex: 0 0 auto;
         width: max-content;
-        height: 49px;
-        min-height: 49px;
+        height: 40px;
+        min-height: 40px;
         padding-block: 0;
         font-size: 13.44px;
         line-height: 1;
@@ -1215,7 +1210,7 @@
     </style>
   </head>
 
-  <body>
+  <body class="maul-theme">
     <div class="maul-interactive-light" aria-hidden="true"></div>
     <div class="maul-shooting-star-layer" aria-hidden="true"></div>
     <div class="film-grain" aria-hidden="true"></div>
@@ -1227,15 +1222,15 @@
         <div>
           <h1 class="hero-title" id="hero-title" aria-label="Modded Among Us Lobbies">
             <span class="line">Modded</span>
-            <span class="line brand">Among Us</span>
+            <span class="line brand maul-metallic">Among Us</span>
             <span class="line">Lobbies</span>
           </h1>
           <p class="hero-copy">
             Come play 24/7 Modded Among Us, Mafia Remastered, or join our Minecraft server!
           </p>
           <div class="hero-actions">
-            <a href="https://discord.gg/MAUL" target="_blank" rel="noopener" class="button button-primary">Join MAUL</a>
-            <a href="https://moddedamong.us/mods.html" class="button button-secondary">Explore mods</a>
+            <a href="https://discord.gg/MAUL" target="_blank" rel="noopener" class="button button-primary maul-button maul-button--primary">Join MAUL</a>
+            <a href="https://moddedamong.us/mods.html" class="button button-secondary maul-button maul-button--secondary">Explore mods</a>
           </div>
         </div>
 
@@ -1254,7 +1249,7 @@
 
       <section class="credits" id="whatWeOffer" aria-labelledby="credits-title">
         <header class="credits-heading">
-          <h2 id="credits-title">Who we are</h2>
+          <h2 id="credits-title" class="maul-metallic">Who we are</h2>
           <p>Find a game, see what’s coming up, or get your lobby set up.</p>
         </header>
 
@@ -1321,7 +1316,7 @@
       <section class="join-panel" aria-labelledby="join-title">
         <p class="eyebrow join-eyebrow">The next game starts here</p>
         <h2 id="join-title">See you in the <span class="type-accent">lobby</span></h2>
-        <a href="https://discord.gg/MAUL" target="_blank" rel="noopener" class="button button-primary">Join MAUL</a>
+        <a href="https://discord.gg/MAUL" target="_blank" rel="noopener" class="button button-primary maul-button maul-button--primary">Join MAUL</a>
       </section>
     </main>
 
