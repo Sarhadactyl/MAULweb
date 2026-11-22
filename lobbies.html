@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>MAUL Lobbies</title>
+    <title>Modded Among Us Lobbies | MAUL</title>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#09080b" />
 
-    <meta property="og:title" content="MAUL Lobbies" />
+    <meta property="og:title" content="Modded Among Us Lobbies | MAUL" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://moddedamong.us/lobbies.html" />
     <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
@@ -31,7 +31,8 @@
     />
 
     <link rel="stylesheet" href="/styles/navbar.css?v=20261028-nav-6" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&amp;display=swap" />
+    <link rel="stylesheet" href="/styles/maul-theme.css?v=2" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Outfit:wght@500;600;700;800&amp;family=Libre+Baskerville:wght@700&amp;display=swap" />
 
     <style>
       :root {
@@ -437,17 +438,169 @@
         body::before, body::after { animation: none; transform: translate3d(0, 160vh, 0); }
         .btn { transition: none; }
       }
+
+      :root {
+        color-scheme: dark;
+        --maul-bg: #080406;
+        --maul-rose: #e9b4ac;
+        --maul-rose-light: #f5d5c9;
+        --maul-rose-deep: #b76e79;
+        --maul-text: #f9f3ef;
+        --maul-muted: #c5b8b8;
+        --maul-border: rgba(191,119,133,.3);
+        --maul-metallic-gradient: linear-gradient(105deg,#d9a7a6 0%,#f5d5c9 29%,#e9b4ac 44%,#fff3e0 50%,#e9b4ac 56%,#b76e79 78%,#e9b4ac 100%);
+        --maul-background: radial-gradient(ellipse 70% 58% at 73% 13%,rgba(83,14,33,.6),rgba(49,8,22,.36) 44%,transparent 78%),radial-gradient(ellipse 52% 40% at 18% 80%,rgba(64,10,27,.35),transparent 78%),linear-gradient(110deg,#080406 0%,#100509 27%,#240710 60%,#340b19 79%,#120509 100%);
+        --rose-gold: var(--maul-rose);
+        --rose-gold-light: var(--maul-rose-light);
+        --rose-gold-deep: var(--maul-rose-deep);
+        --ink: var(--maul-bg);
+        --paper: var(--maul-text);
+        --muted: var(--maul-muted);
+        --rule: var(--maul-border);
+        --rule-fade: linear-gradient(90deg,rgba(233,180,172,.65),rgba(233,180,172,.14));
+      }
+      html { background-color: var(--maul-bg); }
+      body.maul-lobbies-theme {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+        isolation: isolate;
+        background: var(--maul-background);
+        color: var(--maul-text);
+        font-family: "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .maul-lobbies-theme #navbar { position: relative; z-index: 10; }
+      .maul-lobbies-theme .page-shell { position: relative; z-index: 1; width: min(1160px,calc(100% - 44px)); }
+      .maul-lobbies-theme .lobbies-hero { gap: clamp(12px,3.5vw,38px); padding: clamp(34px,5vw,58px) 0 35px; grid-template-columns: minmax(0,1fr) auto; }
+      .maul-lobbies-theme .lobbies-hero h1 { margin: 0; color: var(--maul-text); font: 700 clamp(2.8rem,6.1vw,5.4rem)/1.13 "Libre Baskerville",Georgia,serif; letter-spacing: -.045em; text-transform: none; }
+      .maul-lobbies-theme .lobbies-hero h1 .lobbies-title-line { display: block; width: max-content; max-width: 100%; padding: 0 0 .075em; }
+      .maul-lobbies-theme .lobbies-hero h1 .lobbies-title-line:not(.maul-metallic) {
+        background: none;
+        -webkit-background-clip: border-box;
+        background-clip: border-box;
+        -webkit-text-fill-color: var(--maul-text);
+        color: var(--maul-text);
+        animation: none;
+      }
+      @keyframes maulMetalSweep { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+      .maul-lobbies-theme .lobbies-hero h1 .lobbies-title-line.maul-metallic {
+        background: var(--maul-metallic-gradient);
+        background-size: 260% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        animation: maulMetalSweep 9s ease-in-out infinite;
+      }
+      .maul-lobbies-theme .hero-subtitle { max-width: 590px; margin: 12px 0 0; font: 400 1rem/1.7 "DM Sans",sans-serif; color: var(--maul-muted); }
+      .maul-lobbies-theme .hero-art { width: clamp(126px,23vw,252px); aspect-ratio: auto; height: auto; min-height: 0; flex: 0 0 auto; }
+      .maul-lobbies-theme .hero-art::after { content: none; }
+      .maul-lobbies-theme .hero-banner { display: none; }
+      .maul-lobbies-theme .hero-character { width: 100%; max-width: 252px; filter: drop-shadow(0 16px 30px rgba(0,0,0,.5)); }
+      .maul-lobbies-theme .lobbies-hero .actions { gap: 10px; margin-top: 23px; }
+      .maul-lobbies-theme .btn {
+        min-height: 43px;
+        padding: 9px 17px;
+        border: 1px solid var(--maul-border);
+        border-radius: 6px;
+        background: #1d141b;
+        color: var(--maul-text);
+        font: 700 .87rem/1.3 "DM Sans",sans-serif;
+        box-shadow: none;
+        transition: transform .18s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease;
+      }
+      .maul-lobbies-theme .btn:hover:not(:disabled) { transform: translateY(-1px); border-color: rgba(233,180,172,.65); background: #2b1a24; }
+      .maul-lobbies-theme .btn.primary { background: linear-gradient(115deg,#f8d4af,#b75863); border-color: var(--maul-rose-light); color: #29191f; }
+      .maul-lobbies-theme .btn.primary:hover:not(:disabled) { background: linear-gradient(115deg,#ffdfbc,#c66b78); border-color: #f5d7a6; box-shadow: 0 0 20px rgba(233,185,112,.16); }
+      .maul-lobbies-theme .panel,
+      .maul-lobbies-theme .session-summary {
+        border: 1px solid var(--maul-border);
+        border-radius: 7px;
+        background: linear-gradient(140deg,rgba(66,15,31,.2),rgba(14,5,10,.95));
+        box-shadow: 0 15px 48px rgba(0,0,0,.38);
+      }
+      .maul-lobbies-theme .session-summary { border-inline-start: 3px solid var(--status-color); }
+      .maul-lobbies-theme .login-copy h2 { color: var(--maul-text); font: 700 clamp(1.35rem,2.35vw,1.75rem)/1.3 "Libre Baskerville",Georgia,serif; letter-spacing: -.025em; }
+      .maul-lobbies-theme .login-copy p,
+      .maul-lobbies-theme .form-grid p { color: var(--maul-muted); }
+      .maul-lobbies-theme .account-forms details { border-color: var(--maul-border); }
+      .maul-lobbies-theme .account-forms summary,
+      .maul-lobbies-theme .field { color: var(--maul-rose-light); }
+      .maul-lobbies-theme .page-shell input,
+      .maul-lobbies-theme .page-shell select,
+      .maul-lobbies-theme .account-secret,
+      .maul-lobbies-theme .token-box {
+        border: 1px solid var(--maul-border);
+        border-radius: 6px;
+        background: rgba(7,4,8,.9);
+        color: var(--maul-text);
+      }
+      .maul-lobbies-theme .page-shell input::placeholder { color: #a89ba3; }
+      .maul-lobbies-theme .page-shell :is(button,input,select,summary):focus-visible,
+      .maul-lobbies-theme .page-shell a:focus-visible { outline: 2px solid var(--maul-rose-light); outline-offset: 3px; }
+      .maul-lobbies-theme .lobby-toolbar { border-color: var(--maul-border); }
+      .maul-lobbies-theme th,
+      .maul-lobbies-theme td { border-color: var(--maul-border); }
+      .maul-lobbies-theme th { color: var(--maul-rose-light); }
+      .maul-lobbies-theme .pill,
+      .maul-lobbies-theme .verification-badge { border-radius: 5px; }
+      .maul-lobbies-theme .site-footer {
+        width: min(1160px,calc(100% - 44px));
+        margin: 36px auto 0;
+        padding: 0 0 30px;
+        border: 0;
+        text-align: center;
+      }
+      .maul-lobbies-theme .site-footer .maul-page-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(16px,4vw,52px);
+        padding: 55px 0 36px;
+        border-top: 1px solid var(--maul-border);
+        color: var(--maul-rose);
+      }
+      .maul-lobbies-theme .site-footer .maul-page-footer::before,
+      .maul-lobbies-theme .site-footer .maul-page-footer::after {
+        content: "";
+        width: clamp(30px,10vw,118px);
+        height: 2px;
+        background: linear-gradient(90deg,transparent,var(--maul-rose));
+        opacity: .8;
+      }
+      .maul-lobbies-theme .site-footer .maul-page-footer::after { transform: rotate(180deg); }
+      .maul-lobbies-theme .site-footer .maul-page-footer p { margin: 0; color: var(--maul-rose); font: 700 clamp(.9rem,2.4vw,1.15rem)/1.5 "DM Sans",sans-serif; letter-spacing: .085em; white-space: nowrap; }
+      .maul-lobbies-theme .maul-page-footer .heart { color: var(--maul-rose-light); }
+      .maul-lobbies-theme .site-footer .legal-notice { max-width: 80ch; margin: 0 auto; color: #a99fa8; font: 400 .78rem/1.7 "DM Sans",sans-serif; }
+      .maul-shooting-star-layer { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+      .maul-shooting-star { position: absolute; top: 0; left: 0; width: clamp(65px,13vw,125px); height: 1px; border-radius: 100%; background: linear-gradient(90deg,transparent,rgba(233,180,172,.12) 20%,rgba(245,213,201,.76) 100%); box-shadow: 0 0 6px rgba(233,180,172,.16); transform-origin: right center; will-change: transform,opacity; animation: maulShootingStar 1400ms ease-out both; }
+      .maul-shooting-star::after { content: ""; position: absolute; right: 0; top: -1px; height: 3px; width: 3px; border-radius: 50%; background: rgba(255,231,225,.85); box-shadow: 0 0 6px rgba(233,180,172,.45); }
+      @keyframes maulShootingStar { 0% { opacity: 0; transform: translate3d(0,0,0) rotate(-25deg) scaleX(.65); } 12% { opacity: .78; } 68% { opacity: .6; } 100% { opacity: 0; transform: translate3d(var(--star-travel-x,190px),calc(-1 * var(--star-travel-y,90px)),0) rotate(-25deg) scaleX(1); } }
+      @media(max-width:760px) { .maul-lobbies-theme .page-shell,.maul-lobbies-theme .site-footer { width: calc(100% - 32px); } .maul-shooting-star { width: 70px; } }
+      @media(max-width:560px) {
+        .maul-lobbies-theme .lobbies-hero { grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 8px; padding: 38px 0 28px; }
+        .maul-lobbies-theme .lobbies-hero h1 { font-size: clamp(1.95rem,8.3vw,3.5rem); }
+        .maul-lobbies-theme .hero-art { width: clamp(72px,23vw,120px); }
+        .maul-lobbies-theme .hero-subtitle { font-size: .88rem; line-height: 1.55; }
+        .maul-lobbies-theme .lobbies-hero .actions { gap: 8px; }
+        .maul-lobbies-theme .lobbies-hero .actions .btn { padding: 9px 11px; font-size: .77rem; }
+        .maul-lobbies-theme .site-footer .maul-page-footer { gap: 12px; padding-top: 40px; }
+        .maul-lobbies-theme .site-footer .maul-page-footer p { font-size: .82rem; letter-spacing: .035em; }
+      }
+      @media(max-width:380px) { .maul-lobbies-theme .hero-art { width: 64px; } .maul-lobbies-theme .lobbies-hero h1 { font-size: 1.83rem; } }
+      @media(prefers-reduced-motion:reduce) { .maul-lobbies-theme .lobbies-hero h1 .lobbies-title-line.maul-metallic,.maul-shooting-star { animation: none; } .maul-shooting-star-layer { display: none; } }
     </style>
   </head>
 
-  <body>
+  <body class="maul-theme maul-lobbies-theme">
     <div id="navbar"></div>
+    <div class="maul-shooting-star-layer" aria-hidden="true"></div>
 
     <main class="page-shell">
       <section class="lobbies-hero" aria-labelledby="lobby-title">
         <div>
-          <p class="eyebrow">MAUL public lobbies</p>
-          <h1 id="lobby-title">Live <span>Lobbies</span></h1>
+          <h1 id="lobby-title"><span class="lobbies-title-line">Modded</span><span class="lobbies-title-line maul-metallic">Among Us</span><span class="lobbies-title-line">Lobbies</span></h1>
           <p class="hero-subtitle" id="verificationIntro">Verify in Among Us or verify in Discord to see live Modded Among Us lobbies.</p>
           <div class="actions">
             <a class="btn" href="MAUL.html"><i class="fa-solid fa-ranking-star"></i> Rankings</a>
@@ -455,8 +608,8 @@
           </div>
         </div>
         <div class="hero-art" aria-hidden="true">
-          <img class="hero-banner" src="images/banner-transparent-cropped.png" alt="" />
-          <img class="hero-character" src="images/maulnobg.png" alt="" fetchpriority="high" />
+          <img class="hero-banner" src="https://moddedamong.us/images/banner-transparent-cropped.png" alt="" />
+          <img class="hero-character" src="https://moddedamong.us/images/maulnobg.png" alt="" fetchpriority="high" />
         </div>
       </section>
 
@@ -626,9 +779,49 @@
     </main>
 
     <footer class="site-footer page-shell">
-      <p>The content found on this website is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.</p>
+      <div class="maul-page-footer"><p>Made with <span class="heart">♡</span> by Maul</p></div>
+      <p class="legal-notice">The content found on this website is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.</p>
     </footer>
 
+
+    <script>
+      (() => {
+        const stars = document.querySelector('.maul-shooting-star-layer');
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (!stars) return;
+        let starTimer;
+        function scheduleStar() {
+          clearTimeout(starTimer);
+          if (document.hidden || reduceMotion.matches) return;
+          starTimer = setTimeout(() => {
+            if (!document.hidden) {
+              const star = document.createElement('span');
+              star.className = 'maul-shooting-star';
+              const travelX = Math.min(190, Math.max(90, window.innerWidth * .38));
+              const travelY = travelX * (90 / 190);
+              star.style.setProperty('--star-travel-x', `${travelX}px`);
+              star.style.setProperty('--star-travel-y', `${travelY}px`);
+              const startMaxX = Math.max(0, window.innerWidth - travelX - 75);
+              const startMinY = Math.min(window.innerHeight - 20, travelY + 40);
+              star.style.left = `${Math.round(startMaxX * (.06 + Math.random() * .48))}px`;
+              star.style.top = `${Math.round(startMinY + (window.innerHeight - startMinY) * (.28 + Math.random() * .65))}px`;
+              star.addEventListener('animationend', () => star.remove(), { once: true });
+              stars.appendChild(star);
+            }
+            scheduleStar();
+          }, 18000 + Math.random() * 12000);
+        }
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) { clearTimeout(starTimer); stars.replaceChildren(); }
+          else scheduleStar();
+        });
+        reduceMotion.addEventListener('change', e => {
+          if (e.matches) { clearTimeout(starTimer); stars.replaceChildren(); }
+          else scheduleStar();
+        });
+        scheduleStar();
+      })();
+    </script>
     <script src="/scripts/navbar.js?v=20261028-nav-6"></script>
     <script src="/scripts/maul-lobby-accounts.js?v=20261120-copy-3" defer></script>
   </body>
