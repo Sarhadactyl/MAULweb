@@ -219,33 +219,11 @@
       }
       .maul-art-theme .page-wrapper {
         width: min(1160px, calc(100% - 44px));
-        padding: clamp(54px, 7vw, 88px) 0 48px;
+        padding: clamp(34px, 5vw, 58px) 0 48px;
         gap: 0;
       }
-      .maul-art-theme .art-intro {
-        margin: 0;
-        padding: 0 0 30px;
-        border-bottom: 1px solid var(--maul-border);
-      }
-      .maul-art-theme .art-eyebrow {
-        margin: 0 0 12px;
-        color: var(--maul-rose-light);
-        font: 650 .74rem/1.5 var(--maul-font-mono);
-        letter-spacing: .14em;
-      }
-      .maul-art-theme .art-intro h1 {
-        margin: 0;
-        color: var(--maul-text);
-        font: 700 clamp(2.6rem, 5.6vw, 4.8rem)/1.1 var(--maul-font-display);
-        letter-spacing: -.035em;
-      }
-      .maul-art-theme .art-intro > p:last-child {
-        margin: 12px 0 0;
-        color: var(--maul-muted);
-        font: 1rem/1.6 var(--maul-font-body, system-ui, sans-serif);
-      }
       .maul-art-theme .slideshow-card {
-        padding: 26px 0 0;
+        padding: 0;
         border: 0;
         border-radius: 0;
         background: transparent;
@@ -300,8 +278,7 @@
       }
       @media (max-width: 650px) {
         .maul-art-theme .page-wrapper { width: calc(100% - 36px); padding-top: 42px; }
-        .maul-art-theme .art-intro { padding-bottom: 22px; }
-        .maul-art-theme .slideshow-card { padding: 22px 0 0; }
+        .maul-art-theme .slideshow-card { padding: 0; }
         .maul-art-theme .gallery-toolbar { gap: 14px; }
         .maul-art-theme .gallery-actions { justify-content: flex-start; }
         .maul-art-theme .slideshow-container { min-height: 380px; }
@@ -326,11 +303,6 @@
     <div class="maul-shooting-star-layer" aria-hidden="true"></div>
 
     <div class="page-wrapper">
-      <header class="art-intro">
-        <p class="art-eyebrow">COMMUNITY COLLECTION</p>
-        <h1>Community Art</h1>
-        <p>Artwork created by the Modded Among Us Lobbies community.</p>
-      </header>
 
       <div class="slideshow-card" id="gallery">
         <div class="gallery-toolbar">
