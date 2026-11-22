@@ -1,720 +1,452 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>MAUL Region Links</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="MAUL Region Links" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://moddedamong.us/maul-regions.html" />
-    <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
-    <meta
-      property="og:description"
-      content="Quick mobile links for adding MAUL NA and MAUL EU, plus lobby rankings, privacy policy, and lobby login."
-    />
-    <meta property="og:site_name" content="Modded Among Us Lobbies" />
+<head>
+  <title>MAUL Region Links</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080406" />
+  <meta name="description" content="Add MAUL North America and Europe custom regions. Explore public lobbies, player rankings, custom codes, host commands and mobile installation." />
+  <meta property="og:title" content="MAUL Region Links" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://moddedamong.us/maul-regions.html" />
+  <meta property="og:image" content="https://moddedamong.us/images/banner.png" />
+  <meta property="og:description" content="Quick mobile links for adding MAUL NA and MAUL EU, plus lobby rankings, privacy policy, and lobby login." />
+  <meta property="og:site_name" content="Modded Among Us Lobbies" />
     <script id="discord:component-embed" type="application/json">{"component":{"type":17,"accent_color":1315605,"spoiler":false,"components":[{"type":10,"content":"## MAUL Regions  "},{"type":14,"divider":true,"spacing":2},{"type":10,"content":"Add MAUL Regions for mobile by clicking the buttons below with Among Us open \u003ca:Arrow_down:1559283677786275880\u003e\n-# Powered by **NikoCat233**"},{"type":14,"divider":true,"spacing":1},{"type":1,"components":[{"type":2,"style":5,"label":"MAUL (NA)","emoji":null,"disabled":false,"url":"https://moddedamong.us/servers/MAUL_NA/index.html"},{"type":2,"style":5,"label":"MAUL (EU)","emoji":null,"disabled":false,"url":"https://moddedamong.us/servers/MAUL_EU/index.html"},{"type":2,"style":5,"label":"Coming Soon","emoji":null,"disabled":true,"url":"https://moddedamong.us/maul-regions"},{"type":2,"style":5,"label":"Privacy Policy","emoji":null,"disabled":false,"url":"https://moddedamong.us/regions/policy"}]},{"type":12,"items":[{"media":{"url":"https://cdn.discordapp.com/attachments/1541862421373915338/1559286781487087646/Modded-among-us1.jpg?ex=6ace867a\u0026is=6acd34fa\u0026hm=2f1829d83f7612ccef9df1d1fda15837c52590b8582f6ed0e847fa6d762f8a31"},"description":null,"spoiler":false}]},{"type":10,"content":"Click **[here](\u003chttps://moddedamong.us/regions\u003e)** for PC install and other Custom Regions"}]}}</script>
-    <link rel="canonical" href="https://moddedamong.us/maul-regions.html" />
-    <link rel="icon" type="image/png" href="https://moddedamong.us/images/favicon.png" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="styles/navbar.css" />
-    <style>
-      :root {
-        --accent: #ec2537;
-        --gold: #ebafb8;
-        --paper: #fdf7f8;
-        --muted: #cbbfc1;
-        --line: rgba(255, 255, 255, 0.12);
-        --line-warm: rgb(235 175 184 / 0.32);
-        --panel: rgba(8, 8, 10, 0.68);
+  <link rel="canonical" href="https://moddedamong.us/maul-regions.html" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/styles/navbar.css" />
+  <link rel="stylesheet" href="/styles/maul-theme.css?v=2" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --maul-bg: #080406;
+      --maul-burgundy: #340b19;
+      --maul-wine: #240710;
+      --maul-shadow-wine: #100509;
+      --maul-edge-wine: #120509;
+      --maul-rose: #e9b4ac;
+      --maul-rose-light: #f5d5c9;
+      --maul-rose-deep: #b76e79;
+      --maul-text: #f9f3ef;
+      --maul-muted: #c5b8b8;
+      --maul-border: rgba(191, 119, 133, .3);
+      --maul-line: linear-gradient(90deg, rgba(233,180,172,.66), rgba(233,180,172,.13));
+      --maul-font-display: "Libre Baskerville", Georgia, serif;
+      --maul-font-body: "DM Sans", system-ui, sans-serif;
+      --maul-font-mono: ui-monospace, Consolas, monospace;
+      --maul-font-card: "Outfit", "DM Sans", system-ui, sans-serif;
+      --maul-background: radial-gradient(ellipse 70% 58% at 73% 13%,rgba(83,14,33,.6),rgba(49,8,22,.36) 44%,transparent 78%),radial-gradient(ellipse 52% 40% at 18% 80%,rgba(64,10,27,.35),transparent 78%),linear-gradient(110deg,#080406 0%,#100509 27%,#240710 60%,#340b19 79%,#120509 100%);
+      --maul-metallic-gradient: linear-gradient(105deg,#d9a7a6 0%,#f5d5c9 29%,#e9b4ac 44%,#fff3e0 50%,#e9b4ac 56%,#b76e79 78%,#e9b4ac 100%);
+    }
+    html { background: #080406; }
+    body.maul-regions-theme {
+      margin: 0;
+      background: var(--maul-background);
+      color: var(--maul-text);
+      font-family: var(--maul-font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+    .maul-regions-theme a.maul-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 17px;
+      min-height: 40px;
+      border: 1px solid var(--maul-border);
+      border-radius: 6px;
+      background: #1d141b;
+      color: var(--maul-text);
+      font: 700 .84rem/1.2 var(--maul-font-body);
+      text-decoration: none;
+    }
+    .maul-regions-theme a.maul-button--primary {
+      background: linear-gradient(115deg,#f8d4af,#b75863);
+      color: #29191f;
+      border-color: #f5d5c9;
+    }
+    @keyframes maulMetalSweep {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .maul-regions-theme { min-height: 100vh; overflow-x: hidden; isolation: isolate; }
+    .maul-regions-theme *, .maul-regions-theme *::before, .maul-regions-theme *::after { box-sizing: border-box; }
+    .maul-regions-theme #navbar { position: relative; z-index: 10; }
+    .maul-regions-theme .page-wrapper { position: relative; z-index: 1; width: min(1160px, calc(100% - 44px)); margin: 0 auto; padding: clamp(34px, 5vw, 58px) 0 36px; }
+    .maul-regions-theme .regions-intro { display: flex; align-items: center; justify-content: space-between; gap: clamp(12px, 3.5vw, 38px); margin: 0 0 30px; min-height: 0; }
+    .maul-regions-theme .regions-intro-copy { flex: 1 1 auto; min-width: 0; }
+    .maul-regions-theme .regions-intro h1 { margin: 0; font: 700 clamp(2.85rem, 6.1vw, 5.4rem)/1.15 var(--maul-font-display, Georgia, serif); letter-spacing: -.045em; color: var(--maul-text); }
+    .maul-regions-theme .regions-title-line { display: block; width: max-content; max-width: 100%; padding-bottom: .08em; }
+    .maul-regions-theme .regions-title-line:not(.maul-metallic) { background: none; -webkit-text-fill-color: var(--maul-text); color: var(--maul-text); animation: none; }
+    .maul-regions-theme .regions-title-line.maul-metallic { background: var(--maul-metallic-gradient); background-size: 260% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; animation: maulMetalSweep 9s ease-in-out infinite; }
+    .maul-regions-theme .regions-intro p { max-width: 580px; margin: 12px 0 0; color: var(--maul-muted); font: 400 1rem/1.7 var(--maul-font-body); }
+    .maul-regions-theme .regions-mascot { display: block; width: clamp(126px, 23vw, 252px); flex: 0 0 auto; height: auto; object-fit: contain; filter: drop-shadow(0 16px 30px rgba(0, 0, 0, .5)); }
+    .maul-regions-theme .header-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 23px; }
+    .maul-regions-theme .header-actions a { min-height: 40px; }
+    .maul-regions-theme .section-heading { display: flex; align-items: center; gap: 15px; margin: 0 0 16px; color: var(--maul-rose); font: 700 .77rem/1.4 var(--maul-font-mono); letter-spacing: .11em; text-transform: uppercase; }
+    .maul-regions-theme .section-heading::after { content: ""; height: 1px; flex: 1; background: var(--maul-line); opacity: .72; }
+    .maul-regions-theme .regions-intro + main { margin-top: 10px; }
+    .maul-regions-theme .region-grid, .maul-regions-theme .quick-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .maul-regions-theme .region-link, .maul-regions-theme .quick-link { position: relative; display: flex; align-items: center; gap: 12px; min-width: 0; min-height: 105px; padding: 19px 20px; border: 1px solid var(--maul-border); border-radius: 7px; background: linear-gradient(140deg, rgba(66, 15, 31, .2), rgba(14, 5, 10, .95)); box-shadow: 0 15px 48px rgba(0,0,0,.38); color: var(--maul-text); text-decoration: none; transition: transform .2s ease, border-color .2s ease; }
+    .maul-regions-theme a.region-link:hover, .maul-regions-theme a.quick-link:hover { transform: translateY(-3px); border-color: rgba(233,180,172,.65); }
+    .maul-regions-theme a.region-link:focus-visible, .maul-regions-theme a.quick-link:focus-visible, .maul-regions-theme .contact-actions a:focus-visible, .maul-regions-theme .header-actions a:focus-visible { outline: 2px solid var(--maul-rose-light); outline-offset: 3px; }
+    .maul-regions-theme .region-link .region-icon, .maul-regions-theme .quick-link .region-icon { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; border: 1px solid var(--maul-border); border-radius: 7px; background: rgba(233,180,172,.075); color: var(--maul-rose-light); font-size: 1.08rem; }
+    .maul-regions-theme .link-text { display: grid; gap: 6px; min-width: 0; }
+    .maul-regions-theme .link-text strong { font: 700 clamp(1rem, 1.75vw, 1.18rem)/1.3 var(--maul-font-card); color: var(--maul-text); }
+    .maul-regions-theme .link-text span { color: var(--maul-muted); font: 400 .83rem/1.5 var(--maul-font-body); }
+    .maul-regions-theme .region-link.teaser { opacity: .65; cursor: default; }
+    .maul-regions-theme .region-link.teaser .region-icon { color: var(--maul-muted); }
+    .maul-regions-theme .region-area { margin-bottom: 35px; }
+    .maul-regions-theme .regions-instruction { margin: 14px 0 0; color: var(--maul-muted); font: 400 .88rem/1.65 var(--maul-font-body); }
+    .maul-regions-theme .regions-instruction a { color: var(--maul-rose-light); text-underline-offset: 3px; }
+    .maul-regions-theme .quick-link { min-height: 94px; }
+    .maul-regions-theme .contact-section { display: flex; align-items: center; justify-content: space-between; gap: 22px; margin: 34px 0 0; padding: 22px 0 0; border-top: 1px solid var(--maul-border); }
+    .maul-regions-theme .contact-copy { min-width: 0; }
+    .maul-regions-theme .contact-section h2 { margin: 0 0 7px; color: var(--maul-text); font: 700 1.35rem/1.3 var(--maul-font-display); }
+    .maul-regions-theme .contact-section p { margin: 0; max-width: 480px; color: var(--maul-muted); font: 400 .9rem/1.65 var(--maul-font-body); }
+    .maul-regions-theme .contact-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; }
+    .maul-regions-theme .contact-actions a { flex: 0 0 auto; }
+    .maul-regions-theme .powered { margin: 20px 0 0; color: var(--maul-muted); font: 500 .8rem/1.5 var(--maul-font-body); }
+      .maul-regions-theme .maul-page-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(16px, 4vw, 52px);
+        width: 100%;
+        margin: 52px auto 20px;
+        padding: 55px 0 38px;
+        border-top: 1px solid var(--maul-border);
+        color: var(--maul-rose);
+        text-align: center;
       }
-
-      * {
-        box-sizing: border-box;
+      .maul-regions-theme .maul-page-footer::before,
+      .maul-regions-theme .maul-page-footer::after {
+        content: "";
+        width: clamp(30px, 10vw, 118px);
+        height: 2px;
+        flex: 0 1 auto;
+        background: linear-gradient(90deg, transparent, var(--maul-rose));
+        opacity: .8;
       }
-
-      html,
-      body {
-        min-height: 100%;
+      .maul-regions-theme .maul-page-footer::after { transform: rotate(180deg); }
+      .maul-regions-theme .maul-page-footer p {
         margin: 0;
+        font-family: Inter, system-ui, sans-serif;
+        font-size: clamp(.9rem, 2.4vw, 1.15rem);
+        font-weight: 700;
+        letter-spacing: .085em;
+        white-space: nowrap;
       }
+      .maul-regions-theme .maul-page-footer .heart { color: var(--maul-rose-light); }
 
-      body {
-        color: var(--paper);
-        font-family: "Inter", sans-serif;
-        background:
-          radial-gradient(circle at 18% -8%, rgba(40, 72, 105, 0.11), transparent 28rem),
-          radial-gradient(circle at 86% 12%, rgba(236, 37, 55, 0.06), transparent 25rem),
-          linear-gradient(180deg, #000000 0%, #030305 54%, #000000 100%);
-        overflow-x: hidden;
-      }
+      body.maul-regions-theme::before,
 
-      body::before,
-      body::after {
+      body.maul-regions-theme::after {
         content: "";
         position: fixed;
         top: -160vh;
         left: 0;
-        z-index: 0;
+        z-index: -1;
         pointer-events: none;
         border-radius: 50%;
         background: #fff;
+        animation: maulStarDrift 24s linear infinite;
       }
 
-      body::before {
-        width: 5px;
-        height: 5px;
-        box-shadow:
-          3vw 8vh 0 0 #fff,
-          9vw 122vh 0 0 #fff,
-          17vw 34vh 0 0 #fff,
-          25vw 78vh 0 0 #fff,
-          34vw 18vh 0 0 #fff,
-          43vw 64vh 0 0 #fff,
-          52vw 42vh 0 0 #fff,
-          61vw 88vh 0 0 #fff,
-          68vw 6vh 0 0 #fff,
-          76vw 51vh 0 0 #fff,
-          85vw 27vh 0 0 #fff,
-          93vw 74vh 0 0 #fff,
-          12vw 291vh 0 0 #fff,
-          28vw 212vh 0 0 #fff,
-          46vw 311vh 0 0 #fff,
-          67vw 203vh 0 0 #fff,
-          88vw 221vh 0 0 #fff;
-        animation: starFallFast 6s linear infinite;
-      }
-
-      body::after {
-        width: 4px;
-        height: 4px;
-        opacity: 0.7;
-        box-shadow:
-          6vw 254vh 0 0 #fff,
-          15vw 156vh 0 0 #fff,
-          28vw 181vh 0 0 #fff,
-          39vw 89vh 0 0 #fff,
-          51vw 282vh 0 0 #fff,
-          64vw 197vh 0 0 #fff,
-          78vw 84vh 0 0 #fff,
-          91vw 337vh 0 0 #fff,
-          98vw 278vh 0 0 #fff;
-        animation: starFall 9s linear infinite;
-      }
-
-      a {
-        color: inherit;
-      }
-
-      .page-wrapper {
-        position: relative;
-        z-index: 1;
-        width: min(1040px, calc(100% - 36px));
-        margin: 0 auto;
-        padding: 76px 0 58px;
-      }
-
-      .header {
-        position: relative;
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(250px, 0.74fr);
-        align-items: center;
-        gap: clamp(26px, 5vw, 64px);
-        min-height: 410px;
-        padding: clamp(26px, 5vw, 46px);
-        border: 1px solid rgb(233 180 172 / 0.12);
-        background:
-          linear-gradient(115deg, rgba(255, 255, 255, 0.055), transparent 24%),
-          linear-gradient(90deg, rgba(0, 0, 0, 0.42), transparent 62%),
-          radial-gradient(circle at 76% 46%, rgba(255, 69, 88, 0.12), transparent 32%),
-          rgba(6, 6, 7, 0.68);
-        box-shadow:
-          0 28px 74px rgba(0, 0, 0, 0.48),
-          inset 0 1px 0 rgba(255, 255, 255, 0.06);
-        overflow: hidden;
-      }
-
-      .header::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
+      body.maul-regions-theme::before {
+        width: 2px;
         height: 2px;
-        background: linear-gradient(90deg, var(--accent), #ff7b59, var(--gold), transparent);
-        opacity: 0.8;
+        opacity: 0.7;
+        box-shadow: 3vw 8vh #fff, 6vw 57vh #fff, 9vw 122vh #fff, 11vw 215vh #fff,
+          14vw 303vh #fff, 17vw 34vh #fff, 19vw 186vh #fff, 22vw 269vh #fff,
+          25vw 78vh #fff, 27vw 147vh #fff, 29vw 241vh #fff, 31vw 318vh #fff,
+          34vw 18vh #fff, 36vw 101vh #fff, 38vw 207vh #fff, 41vw 286vh #fff,
+          43vw 64vh #fff, 45vw 158vh #fff, 48vw 226vh #fff, 50vw 311vh #fff,
+          52vw 42vh #fff, 54vw 133vh #fff, 57vw 197vh #fff, 59vw 276vh #fff,
+          61vw 88vh #fff, 63vw 171vh #fff, 65vw 252vh #fff, 68vw 6vh #fff,
+          70vw 116vh #fff, 72vw 221vh #fff, 74vw 296vh #fff, 76vw 51vh #fff,
+          79vw 139vh #fff, 81vw 233vh #fff, 83vw 314vh #fff, 85vw 27vh #fff,
+          87vw 96vh #fff, 89vw 182vh #fff, 91vw 265vh #fff, 93vw 74vh #fff,
+          95vw 154vh #fff, 97vw 244vh #fff, 99vw 309vh #fff,
+          12vw 24vh #fff,
+          23vw 114vh #fff,
+          39vw 152vh #fff,
+          54vw 26vh #fff,
+          66vw 132vh #fff,
+          82vw 54vh #fff,
+          94vw 188vh #fff,
+          8vw 302vh #fff,
+          32vw 278vh #fff,
+          47vw 72vh #fff,
+          73vw 314vh #fff,
+          91vw 228vh #fff;
       }
 
-      .hero-copy {
-        position: relative;
-        z-index: 2;
+      body.maul-regions-theme::after {
+        width: 1px;
+        height: 1px;
+        opacity: 0.5;
+        animation-duration: 36s;
+        box-shadow: 2vw 23vh #fff, 4vw 141vh #fff, 5vw 292vh #fff, 7vw 68vh #fff,
+          8vw 211vh #fff, 10vw 317vh #fff, 13vw 35vh #fff, 15vw 156vh #fff,
+          18vw 263vh #fff, 20vw 96vh #fff, 23vw 229vh #fff, 26vw 5vh #fff,
+          28vw 181vh #fff, 30vw 306vh #fff, 32vw 47vh #fff, 35vw 128vh #fff,
+          37vw 254vh #fff, 39vw 89vh #fff, 42vw 219vh #fff, 44vw 310vh #fff,
+          47vw 58vh #fff, 51vw 150vh #fff, 53vw 271vh #fff, 56vw 16vh #fff,
+          60vw 101vh #fff, 64vw 237vh #fff, 67vw 315vh #fff, 69vw 44vh #fff,
+          73vw 169vh #fff, 77vw 281vh #fff, 82vw 76vh #fff, 86vw 197vh #fff,
+          90vw 49vh #fff, 93vw 242vh #fff, 97vw 101vh #fff,
+          5vw 39vh #fff,
+          18vw 118vh #fff,
+          31vw 8vh #fff,
+          44vw 192vh #fff,
+          58vw 94vh #fff,
+          72vw 27vh #fff,
+          88vw 142vh #fff,
+          98vw 276vh #fff,
+          15vw 242vh #fff,
+          41vw 322vh #fff,
+          63vw 216vh #fff,
+          79vw 303vh #fff;
       }
 
-      .header-badge {
-        display: inline-flex;
-        margin: 0 0 14px;
-        color: #e9b4ac;
-        font-family: "Poppins", sans-serif;
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
+      @keyframes maulStarDrift {
+        from { transform: translate3d(0, 160vh, 0); }
+        to { transform: translate3d(0, 0, 0); }
       }
 
-      .header h1 {
-        margin: 0;
-        font-family: "Poppins", sans-serif;
-        font-size: clamp(3rem, 5.9vw, 5.3rem);
-        font-weight: 800;
-        line-height: 1.05;
-        letter-spacing: 0;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.05);
-        -webkit-text-stroke: 1.25px rgba(255, 255, 255, 0.92);
-        text-shadow: 0 20px 48px rgba(0, 0, 0, 0.86);
-        animation: fadeIn 0.9s ease-out;
-      }
 
-      .header h1 span {
-        display: block;
-        width: fit-content;
-        max-width: 100%;
-        padding-bottom: 0.08em;
-        color: transparent;
-        background: linear-gradient(90deg, #ffe8eb 0%, #ff6d80 48%, #b70924 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -webkit-text-stroke: 0;
-        text-shadow: none;
-      }
-
-      .header-subtitle {
-        max-width: 620px;
-        margin: 17px 0 0;
-        color: rgb(253 247 248 / 0.76);
-        font-size: clamp(1rem, 1.6vw, 1.12rem);
-        line-height: 1.75;
-      }
-
-      .header-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 24px;
-      }
-
-      .cta-secondary,
-      .cta-primary {
-        min-height: 42px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 9px;
-        padding: 10px 16px;
-        color: #fff;
-        font-family: "Poppins", sans-serif;
-        font-size: 0.88rem;
-        font-weight: 700;
-        text-decoration: none;
-        border: 1px solid rgb(233 180 172 / 0.24);
-        background: linear-gradient(180deg, rgba(18, 17, 20, 0.94), rgba(10, 10, 12, 0.96));
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-      }
-
-      .cta-primary {
-        border-color: rgb(233 180 172 / 0.32);
-      }
-
-      .cta-secondary:hover,
-      .cta-primary:hover {
-        transform: translateY(-1px);
-        border-color: rgb(233 180 172 / 0.68);
-        background: linear-gradient(180deg, rgba(25, 24, 27, 0.98), rgba(14, 13, 15, 0.98));
-      }
-
-      .hero-panel {
-        position: relative;
-        min-height: 320px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .hero-panel::after {
-        content: "";
-        position: absolute;
-        inset: 13% 2% 9%;
-        border: 1px solid rgba(255, 255, 255, 0.13);
-        background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
-          rgba(10, 10, 12, 0.35);
-        transform: rotate(-5deg);
-        box-shadow: 0 24px 58px rgba(0, 0, 0, 0.54);
-      }
-
-      .hero-banner-card {
-        position: absolute;
-        inset: 13% 2% 9%;
-        z-index: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-        transform: rotate(-5deg);
-        overflow: hidden;
-      }
-
-      .hero-banner-card img {
-        width: min(104%, 620px);
-        max-height: 72%;
-        object-fit: contain;
-        opacity: 0.34;
-      }
-
-      .hero-panel > img {
-        position: relative;
-        z-index: 2;
-        width: min(82%, 350px);
-        object-fit: contain;
-        filter: drop-shadow(0 28px 32px rgba(0, 0, 0, 0.6));
-      }
-
-      .content-panel {
-        position: relative;
-        margin-top: 8px;
-        padding: clamp(20px, 4vw, 30px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        background:
-          linear-gradient(90deg, rgba(255, 255, 255, 0.035), transparent 34%),
-          rgba(8, 8, 10, 0.66);
-        box-shadow:
-          0 22px 54px rgba(0, 0, 0, 0.76),
-          inset 0 1px 0 rgba(255, 255, 255, 0.07);
-        backdrop-filter: blur(12px);
-        overflow: hidden;
-        animation: slideIn 0.9s ease-out;
-      }
-
-      .mobile-label {
-        width: fit-content;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 18px;
-        color: #fff;
-        font-family: "Poppins", sans-serif;
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0.13em;
-        text-transform: uppercase;
-      }
-
-      .mobile-label i {
-        color: var(--gold);
-        text-shadow: 0 0 12px rgb(235 175 184 / 0.5);
-      }
-
-      .region-grid,
-      .quick-grid {
-        display: grid;
-        gap: 12px;
-      }
-
-      .region-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .quick-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        margin-top: 12px;
-      }
-
-      .region-link,
-      .quick-link {
-        position: relative;
-        min-height: 58px;
-        display: flex;
-        align-items: center;
-        gap: 11px;
-        padding: 13px 15px;
-        color: #fff;
-        text-decoration: none;
-        border: 1px solid var(--line);
-        background: rgba(14, 14, 17, 0.7);
-        box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.055),
-          0 10px 24px rgba(0, 0, 0, 0.35);
-        overflow: hidden;
-        transition:
-          transform 0.18s ease,
-          border-color 0.18s ease,
-          background 0.18s ease,
-          box-shadow 0.18s ease;
-      }
-
-      .region-link::before,
-      .quick-link::before {
-        content: "";
-        position: absolute;
+      .maul-shooting-star-layer {
+        position: fixed;
         inset: 0;
-        background: linear-gradient(90deg, rgb(235 175 184 / 0.16), transparent 38%);
-        opacity: 0;
-        transition: opacity 0.18s ease;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .maul-shooting-star {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: clamp(65px, 13vw, 125px);
+        height: 1px;
+        border-radius: 100%;
+        background: linear-gradient(90deg, transparent, rgb(233 180 172 / 12%) 20%, rgb(245 213 201 / 76%) 100%);
+        box-shadow: 0 0 6px rgb(233 180 172 / 16%);
+        transform-origin: right center;
+        will-change: transform, opacity;
+        animation: maulShootingStar 1400ms ease-out both;
+      }
+      .maul-shooting-star::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: -1px;
+        height: 3px;
+        width: 3px;
+        border-radius: 50%;
+        background: rgb(255 231 225 / 85%);
+        box-shadow: 0 0 6px rgb(233 180 172 / 45%);
+      }
+      @keyframes maulShootingStar {
+        0% { opacity: 0; transform: translate3d(0,0,0) rotate(-25deg) scaleX(.65); }
+        12% { opacity: .78; }
+        68% { opacity: .6; }
+        100% { opacity: 0; transform: translate3d(var(--star-travel-x, 190px), calc(-1 * var(--star-travel-y, 90px)), 0) rotate(-25deg) scaleX(1); }
+      }
+      @media (max-width: 760px) {
+        .maul-shooting-star { width: 70px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .maul-shooting-star-layer { display: none; }
+        .maul-shooting-star { animation: none; }
       }
 
-      .region-link > *,
-      .quick-link > * {
-        position: relative;
-        z-index: 1;
-      }
 
-      .region-link {
-        min-height: 68px;
-        border-color: rgb(235 175 184 / 0.36);
-      }
-
-      .region-link i,
-      .quick-link i {
-        width: 20px;
-        color: var(--gold);
-        text-align: center;
-        text-shadow: 0 0 10px rgb(235 175 184 / 0.55);
-      }
-
-      .quick-link i {
-        color: rgb(253 247 248 / 0.86);
-        text-shadow: none;
-      }
-
-      .link-text {
-        display: grid;
-        gap: 4px;
-      }
-
-      .link-text strong {
-        font-family: "Poppins", sans-serif;
-        font-size: 0.98rem;
-        line-height: 1;
-      }
-
-      .link-text span {
-        color: rgb(253 247 248 / 0.58);
-        font-size: 0.78rem;
-        line-height: 1.3;
-      }
-
-      .region-link:hover,
-      .quick-link:hover {
-        transform: translateY(-1px);
-        border-color: rgb(235 175 184 / 0.58);
-        background: rgba(22, 22, 26, 0.82);
-        box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.08),
-          0 14px 30px rgba(0, 0, 0, 0.48);
-      }
-
-      .region-link:hover::before,
-      .quick-link:hover::before {
-        opacity: 1;
-      }
-
-      .region-link.teaser {
-        cursor: default;
-        border-color: rgba(236, 37, 55, 0.38);
-        background:
-          linear-gradient(90deg, rgba(236, 37, 55, 0.13), transparent 44%),
-          rgba(14, 14, 17, 0.7);
-      }
-
-      .region-link.teaser i {
-        color: #ff6d80;
-        text-shadow: 0 0 12px rgba(236, 37, 55, 0.58);
-      }
-
-      .region-link.teaser::before {
-        background: linear-gradient(90deg, rgba(236, 37, 55, 0.2), rgb(235 175 184 / 0.08), transparent 48%);
-        opacity: 0.65;
-      }
-
-      .region-link.teaser:hover {
-        transform: none;
-        border-color: rgba(255, 109, 128, 0.62);
-        box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.07),
-          inset 0 0 22px rgba(236, 37, 55, 0.08),
-          0 10px 24px rgba(0, 0, 0, 0.35);
-      }
-
-      .contact-section {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        align-items: center;
-        gap: 14px;
-        margin-top: 18px;
-        padding: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        background:
-          linear-gradient(90deg, rgb(235 175 184 / 0.06), transparent 44%),
-          rgba(8, 8, 10, 0.48);
-      }
-
-      .contact-section h2 {
-        margin: 0 0 5px;
-        color: #fff;
-        font-family: "Poppins", sans-serif;
-        font-size: 0.96rem;
-        line-height: 1.1;
-      }
-
-      .contact-section p {
-        margin: 0;
-        color: rgb(253 247 248 / 0.62);
-        font-size: 0.86rem;
-        line-height: 1.55;
-      }
-
-      .contact-button {
-        min-height: 42px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 9px;
-        padding: 10px 14px;
-        color: #fff;
-        font-family: "Poppins", sans-serif;
-        font-size: 0.86rem;
-        font-weight: 700;
-        text-decoration: none;
-        border: 1px solid rgb(233 180 172 / 0.24);
-        background: linear-gradient(180deg, rgba(18, 17, 20, 0.94), rgba(10, 10, 12, 0.96));
-        transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
-      }
-
-      .contact-button:hover {
-        transform: translateY(-1px);
-        border-color: rgb(233 180 172 / 0.68);
-        background: linear-gradient(180deg, rgba(25, 24, 27, 0.98), rgba(14, 13, 15, 0.98));
-      }
-
-      .contact-actions {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 8px;
-      }
-
-      .powered {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin-top: 17px;
-        color: rgb(238 194 200 / 0.88);
-        font-family: "Poppins", sans-serif;
-        font-size: 0.72rem;
-        font-weight: 800;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-
-      .powered i {
-        color: var(--gold);
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(-16px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes slideIn {
-        from {
-          opacity: 0;
-          transform: translateY(18px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes starFallFast {
-        from {
+      @media (prefers-reduced-motion: reduce) {
+        body.maul-regions-theme::before, body.maul-regions-theme::after {
+          animation: none;
           transform: translate3d(0, 160vh, 0);
         }
-        to {
-          transform: translate3d(0, 0, 0);
-        }
       }
 
-      @keyframes starFall {
-        from {
-          transform: translate3d(0, 160vh, 0);
-        }
-        to {
-          transform: translate3d(0, 0, 0);
-        }
-      }
+    @media (max-width: 830px) {
+      .maul-regions-theme .region-grid, .maul-regions-theme .quick-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .maul-regions-theme .contact-section { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 560px) {
+      .maul-regions-theme .page-wrapper { width: calc(100% - 32px); padding: 38px 0 32px; }
+      .maul-regions-theme .regions-intro { align-items: center; gap: 8px; margin-bottom: 22px; }
+      .maul-regions-theme .regions-intro h1 { font-size: clamp(2.25rem, 10vw, 3.5rem); }
+      .maul-regions-theme .regions-intro p { font-size: .89rem; line-height: 1.55; }
+      .maul-regions-theme .regions-mascot { width: clamp(87px, 24vw, 135px); }
+      .maul-regions-theme .header-actions { gap: 8px; }
+      .maul-regions-theme .header-actions a { padding: 0 10px; font-size: .77rem; }
+      .maul-regions-theme .region-grid, .maul-regions-theme .quick-grid { grid-template-columns: 1fr; gap: 10px; }
+      .maul-regions-theme .region-link, .maul-regions-theme .quick-link { min-height: 79px; padding: 14px 16px; }
+      .maul-regions-theme .link-text strong { font-size: 1.06rem; }
+      .maul-regions-theme .maul-page-footer { gap: 12px; padding-top: 40px; }
+      .maul-regions-theme .maul-page-footer p { font-size: .82rem; letter-spacing: .035em; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .maul-regions-theme .regions-title-line.maul-metallic { animation: none; }
+      .maul-regions-theme a.region-link, .maul-regions-theme a.quick-link { transition: none; }
+    }
+  
+    .maul-regions-theme .regions-features { margin: 0 0 38px; }
+    .maul-regions-theme .region-feature-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .maul-regions-theme .region-feature { display: flex; align-items: flex-start; gap: 15px; min-width: 0; padding: 22px 20px; background: linear-gradient(140deg, rgba(66, 15, 31, .2), rgba(14, 5, 10, .95)); border: 1px solid var(--maul-border); border-radius: 7px; box-shadow: 0 15px 48px rgba(0,0,0,.25); }
+    .maul-regions-theme .region-feature .feature-icon { display: grid; place-items: center; flex: 0 0 38px; width: 38px; height: 38px; border: 1px solid var(--maul-border); border-radius: 7px; background: rgba(233, 180, 172, .07); color: var(--maul-rose-light); font-size: 1rem; }
+    .maul-regions-theme .region-feature h3 { margin: 0 0 8px; color: var(--maul-text); font: 700 1.12rem/1.3 var(--maul-font-card); }
+    .maul-regions-theme .region-feature p { margin: 0; color: var(--maul-muted); font: 400 .9rem/1.6 var(--maul-font-body); }
+    .maul-regions-theme .region-feature code { padding: .12em .35em; border-radius: 4px; background: rgba(233,180,172,.12); color: var(--maul-rose-light); font-size: .93em; }
+    .maul-regions-theme .regions-feature-note { margin: 15px 0 0; max-width: 850px; color: var(--maul-muted); font: 400 .85rem/1.65 var(--maul-font-body); }
+    @media (max-width: 700px) { .maul-regions-theme .region-feature-grid { grid-template-columns: minmax(0, 1fr); gap: 11px; } .maul-regions-theme .region-feature { padding: 17px 15px; gap: 12px; } }
 
-      @media (max-width: 900px) {
-        .header {
-          grid-template-columns: 1fr;
-          min-height: 0;
-        }
-
-        .hero-panel {
-          min-height: 280px;
-        }
-
-        .quick-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
-      @media (max-width: 560px) {
-        .page-wrapper {
-          width: min(100% - 24px, 1040px);
-          padding-top: 72px;
-        }
-
-        .header h1 {
-          font-size: clamp(2.75rem, 15vw, 4.2rem);
-        }
-
-        .region-grid,
-        .quick-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .contact-section {
-          grid-template-columns: 1fr;
-        }
-
-        .hero-panel {
-          min-height: 240px;
-        }
-
-        .hero-panel > img {
-          width: min(74%, 230px);
-        }
-      }
-    </style>
-    <link rel="stylesheet" href="styles/maul-theme.css" />
-  </head>
-  <body class="maul-themed">
-    <div id="navbar"></div>
-
-    <div class="page-wrapper">
-      <header class="header maul-page-hero">
-        <div class="hero-copy">
-          <div class="header-badge">MAUL · REGION LINKS</div>
-          <h1>MAUL <span>Regions</span></h1>
-          <p class="header-subtitle">Add MAUL NA or MAUL EU on mobile.</p>
-          <div class="header-actions">
-            <a class="cta-secondary maul-hero-secondary" href="index.html">Back to Home</a>
-            <a class="cta-primary maul-hero-primary" href="https://discord.gg/MAUL" target="_blank" rel="noopener">
-              Join MAUL
-            </a>
-          </div>
+  </style>
+</head>
+<body class="maul-theme maul-regions-theme">
+  <div id="navbar"></div>
+  <div class="maul-shooting-star-layer" aria-hidden="true"></div>
+  <div class="page-wrapper">
+    <header class="regions-intro">
+      <div class="regions-intro-copy">
+        <h1><span class="regions-title-line">MAUL</span><span class="regions-title-line maul-metallic">Regions</span></h1>
+        <p>Custom regions for modded Among Us lobbies in North America and Europe. Play with supported mods, find public games, use host tools, and earn XP through hosting and finished games.</p>
+        <div class="header-actions">
+          <a class="maul-button maul-button--secondary" href="index.html">Back to Home</a>
+          <a class="maul-button maul-button--primary" href="https://discord.gg/MAUL" target="_blank" rel="noopener noreferrer">Join MAUL</a>
         </div>
-        <div class="hero-panel maul-hero-art" aria-label="MAUL mascot illustration">
-          <div class="hero-banner-card" aria-hidden="true">
-            <img src="https://moddedamong.us/images/banner-transparent-cropped.png" alt="" loading="lazy" decoding="async" />
-          </div>
-          <img src="https://moddedamong.us/images/maulnobg.png" alt="MAUL mascot" loading="eager" decoding="async" />
-        </div>
-      </header>
-
-      <main class="content-panel">
-        <div class="mobile-label">Phone / Mobile</div>
-
-        <div class="region-grid" aria-label="Add MAUL regions">
-          <a
-            class="region-link"
-            href="amongus://init?servername=MAUL-NA&serverport=443&serverip=https%3A%2F%2Fau.moddedamong.us&usedtls=false"
-          >
-            <span class="link-text">
-              <strong>Add MAUL NA</strong>
-              <span>North America region</span>
-            </span>
+      </div>
+      <img class="regions-mascot" src="https://moddedamong.us/images/maulnobg.png" alt="MAUL mascot" width="252" height="280" decoding="async" />
+    </header>
+    <main>
+      <section class="region-area" aria-labelledby="region-heading">
+        <h2 class="section-heading" id="region-heading">Mobile regions</h2>
+        <div class="region-grid">
+          <a class="region-link" href="amongus://init?servername=MAUL-NA&amp;serverport=443&amp;serverip=https%3A%2F%2Fau.moddedamong.us&amp;usedtls=false">
+            <span class="region-icon" aria-hidden="true"><i class="fa-solid fa-earth-americas"></i></span>
+            <span class="link-text"><strong>Add MAUL NA</strong><span>North America region</span></span>
           </a>
-          <a
-            class="region-link"
-            href="amongus://init?servername=MAUL-EU&serverport=443&serverip=https%3A%2F%2Feu.moddedamong.us&usedtls=false"
-          >
-            <span class="link-text">
-              <strong>Add MAUL EU</strong>
-              <span>Europe region</span>
-            </span>
+          <a class="region-link" href="amongus://init?servername=MAUL-EU&amp;serverport=443&amp;serverip=https%3A%2F%2Feu.moddedamong.us&amp;usedtls=false">
+            <span class="region-icon" aria-hidden="true"><i class="fa-solid fa-earth-europe"></i></span>
+            <span class="link-text"><strong>Add MAUL EU</strong><span>Europe region</span></span>
           </a>
           <div class="region-link teaser" aria-label="New MAUL region coming soon">
-            <span class="link-text">
-              <strong>Region Coming Soon</strong>
-              <span>New region reveal pending</span>
-            </span>
+            <span class="region-icon" aria-hidden="true"><i class="fa-solid fa-clock"></i></span>
+            <span class="link-text"><strong>Region Coming Soon</strong><span>New region reveal pending</span></span>
           </div>
         </div>
-
-        <div class="quick-grid" aria-label="MAUL quick links">
+        <p class="regions-instruction">On PC, or looking for other custom regions? <a href="https://moddedamong.us/regions">See the installation guide.</a></p>
+      </section>
+      <section class="regions-features" aria-labelledby="features-heading">
+      <h2 class="section-heading" id="features-heading">What MAUL Regions offer</h2>
+      <div class="region-feature-grid">
+        <article class="region-feature">
+          <span class="feature-icon" aria-hidden="true"><i class="fa-solid fa-ranking-star"></i></span>
+          <div><h3>Levels &amp; rankings</h3><p>Earn XP from hosting and finished games. Check hosted time, games played, and player rankings.</p></div>
+        </article>
+        <article class="region-feature">
+          <span class="feature-icon" aria-hidden="true"><i class="fa-solid fa-hashtag"></i></span>
+          <div><h3>Reserved lobby codes</h3><p>Eligible hosts can use their own custom lobby codes, including when remaking a lobby after disconnecting.</p></div>
+        </article>
+        <article class="region-feature">
+          <span class="feature-icon" aria-hidden="true"><i class="fa-solid fa-users-viewfinder"></i></span>
+          <div><h3>Public lobby listings</h3><p>Hosts can share their lobbies on the MAUL website. Listings can show the code, region, player count, and installed mods.</p></div>
+        </article>
+        <article class="region-feature">
+          <span class="feature-icon" aria-hidden="true"><i class="fa-solid fa-gauge-high"></i></span>
+          <div><h3>Host commands</h3><p>Use <code>#0kcd</code> to set kill cooldown to zero, or <code>#set</code> to adjust vanilla settings where supported.</p></div>
+        </article>
+        <article class="region-feature">
+          <span class="feature-icon" aria-hidden="true"><i class="fa-solid fa-right-left"></i></span>
+          <div><h3>Lobby handoff</h3><p><code>#handoff</code> lets a host queue a player with compatible mods to take over the lobby when they leave.</p></div>
+        </article>
+        <article class="region-feature">
+          <span class="feature-icon" aria-hidden="true"><i class="fa-solid fa-passport"></i></span>
+          <div><h3>Player passports</h3><p>Collect stamps as you join different hosts' lobbies and keep track of your visits.</p></div>
+        </article>
+        <article class="region-feature">
+          <span class="feature-icon" aria-hidden="true"><i class="fa-solid fa-puzzle-piece"></i></span>
+          <div><h3>Mod support</h3><p>Works with many modded Among Us setups. Public listings can display multiple installed mods and their links.</p></div>
+        </article>
+        <article class="region-feature">
+          <span class="feature-icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></span>
+          <div><h3>Lobby privacy &amp; stability</h3><p><code>#private</code> hides a lobby from MAUL's public listing. Hosting cooldowns and disconnect handling help keep lobbies running smoothly.</p></div>
+        </article>
+      </div>
+      <p class="regions-feature-note">Some commands are host-only or depend on the mod and game version you're using. Public lobby access may require verification.</p>
+    </section>
+    <section aria-labelledby="quick-heading">
+        <h2 class="section-heading" id="quick-heading">Useful links</h2>
+        <div class="quick-grid">
           <a class="quick-link" href="MAUL.html">
-            <span class="link-text">
-              <strong>Lobby Rankings</strong>
-              <span>MAUL stats</span>
-            </span>
+            <span class="region-icon" aria-hidden="true"><i class="fa-solid fa-ranking-star"></i></span>
+            <span class="link-text"><strong>Lobby Rankings</strong><span>MAUL stats</span></span>
           </a>
           <a class="quick-link" href="/regions/policy">
-            <span class="link-text">
-              <strong>Privacy Policy</strong>
-              <span>Terms and data info</span>
-            </span>
+            <span class="region-icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></span>
+            <span class="link-text"><strong>Privacy Policy</strong><span>Terms and data info</span></span>
           </a>
           <a class="quick-link" href="lobbies.html">
-            <span class="link-text">
-              <strong>Lobby Login</strong>
-              <span>Verified lobby list</span>
-            </span>
+            <span class="region-icon" aria-hidden="true"><i class="fa-solid fa-right-to-bracket"></i></span>
+            <span class="link-text"><strong>Lobby Login</strong><span>Verified lobby list</span></span>
           </a>
         </div>
-
-        <section class="contact-section" aria-labelledby="contact-title">
-          <div>
-            <h2 id="contact-title">Questions &amp; Contact</h2>
-            <p>
-              For questions about these policies, MAUL custom regions, or related MAUL services, contact MAUL through
-              Discord or email.
-            </p>
-          </div>
-          <div class="contact-actions">
-            <a class="contact-button" href="https://discord.gg/maul" target="_blank" rel="noopener">discord.gg/maul</a>
-            <a class="contact-button" href="https://discord.com/users/1067220560972628058" target="_blank" rel="noopener">
-              @sarhadactyl
-            </a>
-            <a class="contact-button" href="mailto:admin@moddedau.org">admin@moddedau.org</a>
-          </div>
-        </section>
-
-        <div class="powered">Powered by NikoCat233</div>
-      </main>
-    </div>
-
-    <script src="scripts/navbar.js"></script>
-
-    <footer class="maul-shared-footer">
-      <p class="maul-footer-credit">Made with ♡ by Maul</p>
-    </footer>
+      </section>
+      <section class="contact-section" aria-labelledby="contact-title">
+        <div class="contact-copy">
+          <h2 id="contact-title">Questions or need help?</h2>
+          <p>For help with MAUL regions, policies, or other MAUL services, reach out on Discord or by email.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="maul-button maul-button--secondary" href="https://discord.gg/maul" target="_blank" rel="noopener noreferrer">discord.gg/maul</a>
+          <a class="maul-button maul-button--secondary" href="https://discord.com/users/1067220560972628058" target="_blank" rel="noopener noreferrer">@sarhadactyl</a>
+          <a class="maul-button maul-button--secondary" href="mailto:admin@moddedau.org">admin@moddedau.org</a>
+        </div>
+      </section>
+      <p class="powered">Powered by NikoCat233</p>
+    </main>
+    <footer class="maul-page-footer"><p>Made with <span class="heart">♡</span> by Maul</p></footer>
+  </div>
+    <script>
+      (() => {
+        const stars = document.querySelector('.maul-shooting-star-layer');
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (!stars) return;
+        let starTimer;
+        function scheduleStar() {
+          clearTimeout(starTimer);
+          if (document.hidden || reduceMotion.matches) return;
+          starTimer = setTimeout(() => {
+            if (!document.hidden) {
+              const star = document.createElement('span');
+              star.className = 'maul-shooting-star';
+              const travelX = Math.min(190, Math.max(90, window.innerWidth * .38));
+              const travelY = travelX * (90 / 190);
+              star.style.setProperty('--star-travel-x', `${travelX}px`);
+              star.style.setProperty('--star-travel-y', `${travelY}px`);
+              const startMaxX = Math.max(0, window.innerWidth - travelX - 75);
+              const startMinY = Math.min(window.innerHeight - 20, travelY + 40);
+              star.style.left = `${Math.round(startMaxX * (.06 + Math.random() * .48))}px`;
+              star.style.top = `${Math.round(startMinY + (window.innerHeight - startMinY) * (.28 + Math.random() * .65))}px`;
+              star.addEventListener('animationend', () => star.remove(), { once: true });
+              stars.appendChild(star);
+            }
+            scheduleStar();
+          }, 18000 + Math.random() * 12000);
+        }
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) { clearTimeout(starTimer); stars.replaceChildren(); }
+          else scheduleStar();
+        });
+        reduceMotion.addEventListener('change', e => {
+          if (e.matches) { clearTimeout(starTimer); stars.replaceChildren(); }
+          else scheduleStar();
+        });
+        scheduleStar();
+      })();
+    </script>
+  <script src="/scripts/navbar.js"></script>
 </body>
 </html>
