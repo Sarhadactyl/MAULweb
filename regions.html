@@ -31,6 +31,7 @@
     />
 
     <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="/styles/maul-theme.css?v=2" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&amp;display=swap" />
 
     <style>
@@ -2199,51 +2200,734 @@ body::after { width: 1px !important; height: 1px !important; opacity: .5 !import
   body::before, body::after { animation: none !important; transform: translate3d(0, 160vh, 0) !important; }
 }
 </style>
+
+<style id="maul-custom-regions-style">
+:root {
+  --maul-rose: #e9b4ac;
+  --maul-rose-light: #f5d5c9;
+  --maul-text: #f9f3ef;
+  --maul-muted: #c5b8b8;
+  --maul-border: rgba(191,119,133,.30);
+  --maul-metallic-gradient: linear-gradient(105deg,#d9a7a6 0%,#f5d5c9 29%,#e9b4ac 44%,#fff3e0 50%,#e9b4ac 56%,#b76e79 78%,#e9b4ac 100%);
+  --maul-background: radial-gradient(ellipse 70% 58% at 73% 13%,rgba(83,14,33,.6),rgba(49,8,22,.36) 44%,transparent 78%),radial-gradient(ellipse 52% 40% at 18% 80%,rgba(64,10,27,.35),transparent 78%),linear-gradient(110deg,#080406 0%,#100509 27%,#240710 60%,#340b19 79%,#120509 100%);
+}
+html { background: #080406; }
+body.maul-custom-regions-theme {
+  min-height: 100vh;
+  margin: 0;
+  isolation: isolate;
+  background: var(--maul-background);
+  color: var(--maul-text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.maul-custom-regions-theme #navbar { z-index: 10; position: relative; }
+.maul-custom-regions-theme .page-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: min(1160px, calc(100% - 44px));
+  max-width: none;
+  margin: 0 auto;
+  padding: clamp(36px,5vw,60px) 0 40px;
+}
+.maul-custom-regions-theme .header {
+  order: 1;
+  position: relative;
+  overflow: visible;
+  display: flex;
+  gap: clamp(16px,4vw,48px);
+  align-items: center;
+  justify-content: space-between;
+  min-height: 0;
+  padding: 0 0 36px;
+  border: 0;
+  border-bottom: 1px solid rgba(233,180,172,.28);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: left;
+  animation: none;
+}
+.maul-custom-regions-theme .header::before,
+.maul-custom-regions-theme .header::after { content: none; display: none; }
+.maul-custom-regions-theme .hero-copy { flex: 1 1 auto; min-width: 0; max-width: 730px; }
+.maul-custom-regions-theme .header h1 {
+  margin: 0;
+  max-width: 100%;
+  font: 700 clamp(2.8rem,5.8vw,5.25rem)/1.13 "Libre Baskerville", Georgia, serif;
+  letter-spacing: -.04em;
+  text-transform: none;
+  color: var(--maul-text);
+  text-shadow: none;
+  animation: none;
+}
+.maul-custom-regions-theme .header h1 .regions-title-line {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  padding: 0 0 .08em;
+  color: var(--maul-text);
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: var(--maul-text);
+  animation: none;
+}
+@keyframes maulCustomMetalSweep {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.maul-custom-regions-theme .header h1 .regions-title-line.maul-metallic {
+  color: #e9b4ac;
+  background: var(--maul-metallic-gradient);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: maulCustomMetalSweep 9s ease-in-out infinite;
+}
+.maul-custom-regions-theme .header-subtitle {
+  max-width: 560px;
+  margin: 13px 0 0;
+  color: var(--maul-muted);
+  font: 400 1rem/1.7 Inter, system-ui, sans-serif;
+}
+.maul-custom-regions-theme .regions-mascot {
+  display: block;
+  flex: 0 0 auto;
+  width: clamp(120px,23vw,250px);
+  max-height: 335px;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 32px rgba(0,0,0,.6));
+}
+.maul-custom-regions-theme .header-actions { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 9px; margin: 23px 0 0; }
+.maul-custom-regions-theme .cta-primary,
+.maul-custom-regions-theme .cta-secondary,
+.maul-custom-regions-theme .action-button,
+.maul-custom-regions-theme .partner-link,
+.maul-custom-regions-theme .method-download,
+.maul-custom-regions-theme .setup-tab,
+.maul-custom-regions-theme .region-builder-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 43px;
+  padding: 9px 15px;
+  border: 1px solid rgba(233,180,172,.28);
+  border-radius: 6px;
+  background: linear-gradient(180deg,rgba(31,20,26,.96),rgba(15,10,16,.98));
+  color: var(--maul-text);
+  box-shadow: inset 0 1px 0 rgba(245,213,201,.05);
+  font: 700 .87rem/1.35 Inter,system-ui,sans-serif;
+  text-decoration: none;
+  text-shadow: none;
+  cursor: pointer;
+  transition: transform .18s ease,border-color .18s ease,background .18s ease;
+}
+.maul-custom-regions-theme .cta-primary:hover,
+.maul-custom-regions-theme .cta-secondary:hover,
+.maul-custom-regions-theme .partner-link:hover,
+.maul-custom-regions-theme .method-download:hover,
+.maul-custom-regions-theme .setup-tab:hover,
+.maul-custom-regions-theme .region-builder-button:hover:not(:disabled) {
+  color: white;
+  transform: translateY(-1px);
+  border-color: rgba(233,180,172,.65);
+  background: linear-gradient(180deg,rgba(49,30,39,.98),rgba(23,14,22,.98));
+}
+.maul-custom-regions-theme .cta-primary { border-color: rgba(233,180,172,.45); }
+
+
+.maul-custom-regions-theme .setup-panel-wrap { order: 2; }
+.maul-custom-regions-theme .region-panel { order: 3; }
+.maul-custom-regions-theme .ownership-panel { order: 4; }
+.maul-custom-regions-theme .content-panel {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 23px 0 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  overflow: visible;
+  animation: none;
+}
+.maul-custom-regions-theme .content-panel::before { content: none; display: none; }
+.maul-custom-regions-theme .mobile-label {
+  display: block;
+  margin: 5px 0 14px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--maul-rose);
+  font: 700 .78rem/1.5 ui-monospace,Consolas,monospace;
+  letter-spacing: .12em;
+}
+.maul-custom-regions-theme .server-section {
+  margin: 16px 0 0;
+  padding: clamp(19px,2.5vw,28px);
+  border: 1px solid rgba(191,119,133,.25);
+  border-radius: 8px;
+  background: linear-gradient(145deg,rgba(62,15,32,.30),rgba(20,8,15,.96) 60%,rgba(14,6,11,.98));
+  box-shadow: 0 15px 45px rgba(0,0,0,.3);
+}
+.maul-custom-regions-theme .server-section + .server-section {
+  margin-top: 17px;
+  padding-top: clamp(19px,2.5vw,28px);
+  border-top: 1px solid rgba(191,119,133,.25);
+}
+.maul-custom-regions-theme .server-section h2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 15px;
+  color: var(--maul-text);
+  font: 700 clamp(1.3rem,2.8vw,1.75rem)/1.3 "Libre Baskerville",Georgia,serif;
+  letter-spacing: -.02em;
+  text-transform: none;
+}
+.maul-custom-regions-theme .server-section h2::before { display: none; content: none; }
+.maul-custom-regions-theme .server-section p,
+.maul-custom-regions-theme .method-card p,
+.maul-custom-regions-theme .ownership-item p,
+.maul-custom-regions-theme .niko-feature p {
+  color: var(--maul-muted);
+  font: 400 .95rem/1.67 Inter,system-ui,sans-serif;
+}
+.maul-custom-regions-theme .region-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(210px,100%),1fr)); gap: 12px; margin-top: 15px; }
+.maul-custom-regions-theme .region-link,
+.maul-custom-regions-theme .region-link.maul-link,
+.maul-custom-regions-theme .region-link.aou-link {
+  display: flex;
+  width: 100%;
+  min-height: 67px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 16px 18px;
+  border: 1px solid rgba(191,119,133,.32);
+  border-radius: 7px;
+  background: linear-gradient(145deg,rgba(55,19,32,.34),rgba(16,8,15,.95));
+  box-shadow: inset 0 1px 0 rgba(245,213,201,.04);
+  color: var(--maul-text);
+  font: 700 .98rem/1.35 Inter,system-ui,sans-serif;
+  text-decoration: none;
+  animation: none;
+}
+.maul-custom-regions-theme .region-link:hover,
+.maul-custom-regions-theme .region-link.maul-link:hover,
+.maul-custom-regions-theme .region-link.aou-link:hover { border-color: rgba(233,180,172,.65); background: rgba(49,25,37,.94); box-shadow: 0 12px 28px rgba(0,0,0,.38); transform: translateY(-2px); animation: none; }
+.maul-custom-regions-theme .region-link i { color: var(--maul-rose); text-shadow: none; }
+.maul-custom-regions-theme .aou-grid { width: 100%; max-width: 100%; grid-template-columns: repeat(auto-fit,minmax(min(210px,100%),1fr)); }
+.maul-custom-regions-theme .niko-feature,
+.maul-custom-regions-theme .ownership-item,
+.maul-custom-regions-theme .method-card,
+.maul-custom-regions-theme .modded-note {
+  border: 1px solid rgba(191,119,133,.19);
+  border-radius: 7px;
+  background: rgba(9,5,10,.38);
+  box-shadow: none;
+}
+.maul-custom-regions-theme .niko-feature { grid-template-columns: minmax(0,1fr) minmax(110px,160px); padding: 18px; }
+.maul-custom-regions-theme .niko-portrait { max-width: 158px; }
+.maul-custom-regions-theme .partner-tag { color: var(--maul-rose); border-color: rgba(191,119,133,.32); background: rgba(191,119,133,.12); }
+.maul-custom-regions-theme .ownership-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(230px,100%),1fr)); gap: 13px; }
+.maul-custom-regions-theme .ownership-item { min-width: 0; padding: 19px; }
+.maul-custom-regions-theme .ownership-item h3 { color: var(--maul-text); font: 700 1rem/1.4 Inter,system-ui,sans-serif; }
+.maul-custom-regions-theme .ownership-label { color: var(--maul-rose); }
+.maul-custom-regions-theme .setup-tab.active { border-color: rgba(233,180,172,.7); color: var(--maul-rose-light); background: rgba(83,30,47,.54); }
+.maul-custom-regions-theme .method-card { padding: clamp(18px,3vw,24px); }
+.maul-custom-regions-theme .method-grid { grid-template-columns: repeat(auto-fit,minmax(min(290px,100%),1fr)); }
+.maul-custom-regions-theme .region-picker { grid-template-columns: repeat(auto-fit,minmax(min(200px,100%),1fr)); }
+.maul-custom-regions-theme .region-builder, .maul-custom-regions-theme .region-picker-group {
+  border-color: rgba(191,119,133,.25);
+  background: rgba(9,5,10,.42);
+}
+.maul-custom-regions-theme .region-builder-button.primary { background: rgba(93,35,55,.6); border-color: rgba(233,180,172,.5); }
+.maul-custom-regions-theme .region-picker-option input { accent-color: #e9b4ac; }
+.maul-custom-regions-theme .region-panel .mobile-steps { border-top: 1px solid rgba(191,119,133,.22); margin-top: 24px; padding-top: 22px; }
+.maul-custom-regions-theme .mobile-steps h2 { font: 700 1.4rem/1.3 "Libre Baskerville",Georgia,serif; }
+.maul-custom-regions-theme .mobile-image { max-width: 100%; }
+.maul-custom-regions-theme a:focus-visible,
+.maul-custom-regions-theme button:focus-visible,
+.maul-custom-regions-theme input:focus-visible { outline: 2px solid var(--maul-rose-light); outline-offset: 3px; }
+.maul-custom-regions-theme .footer-note { order: 6; margin-top: 25px; }
+.maul-custom-regions-theme .help-link { order: 7; }
+.maul-custom-regions-theme .region-additions-note { order: 8; }
+.maul-custom-regions-theme .maul-page-footer {
+  order: 9;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(14px,4vw,50px);
+  margin: 32px auto 10px;
+  padding: 55px 0 38px;
+  border: 0;
+  border-top: 1px solid rgba(191,119,133,.3);
+  background: none;
+  box-shadow: none;
+  color: var(--maul-rose);
+  text-align: center;
+}
+.maul-custom-regions-theme .maul-page-footer::before,
+.maul-custom-regions-theme .maul-page-footer::after {
+  content: "";
+  width: clamp(28px,10vw,115px);
+  height: 2px;
+  background: linear-gradient(90deg,transparent,var(--maul-rose));
+  opacity: .83;
+}
+.maul-custom-regions-theme .maul-page-footer::after { transform: rotate(180deg); }
+.maul-custom-regions-theme .maul-page-footer p { margin: 0; color: var(--maul-rose); font: 700 clamp(.9rem,2.4vw,1.15rem)/1.3 Inter,system-ui,sans-serif; letter-spacing: .08em; white-space: nowrap; }
+.maul-custom-regions-theme .maul-page-footer .heart { color: var(--maul-rose-light); }
+
+.maul-custom-regions-theme .server-section.maul-section {
+  border-color: rgba(233,180,172,.55);
+  background:
+    radial-gradient(ellipse at 15% 0%,rgba(225,130,154,.17),transparent 65%),
+    linear-gradient(145deg,rgba(76,26,47,.48),rgba(22,9,18,.97) 60%,rgba(15,6,13,.99));
+  box-shadow:
+    0 0 0 1px rgba(233,180,172,.07),
+    0 0 32px rgba(211,110,137,.22),
+    0 18px 44px rgba(0,0,0,.42),
+    inset 0 1px 0 rgba(255,220,224,.10);
+}
+.maul-custom-regions-theme .maul-section .region-link.maul-link {
+  border-color: rgba(244,184,190,.65);
+  background:
+    linear-gradient(125deg,rgba(199,104,137,.25),rgba(40,15,31,.94) 65%),
+    rgba(25,10,19,.95);
+  box-shadow:
+    0 0 0 1px rgba(233,180,172,.06),
+    0 0 19px rgba(226,119,155,.28),
+    inset 0 1px 0 rgba(255,221,228,.11);
+  transition: transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .2s ease;
+}
+.maul-custom-regions-theme .maul-section .region-link.maul-link:hover {
+  border-color: rgba(255,213,218,.88);
+  background: linear-gradient(125deg,rgba(210,111,147,.34),rgba(47,18,36,.97) 70%);
+  box-shadow:
+    0 0 0 1px rgba(245,194,202,.14),
+    0 0 29px rgba(235,137,171,.45),
+    0 10px 26px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,233,237,.17);
+}
+.maul-custom-regions-theme .maul-section .region-link.maul-link i {
+  color: #f5c6cd;
+  text-shadow: 0 0 12px rgba(237,150,176,.56);
+}
+.maul-custom-regions-theme .niko-archive-panel { order: 5; margin-top: 28px; }
+.maul-custom-regions-theme .niko-archive-panel .niko-feature { margin-bottom: 0; }
+.maul-custom-regions-theme .niko-archive-panel .niko-archive-message { color: var(--maul-rose-light); }
+.maul-custom-regions-theme .niko-archive-panel .niko-archive-links a { color: var(--maul-rose); }
+.maul-custom-regions-theme .niko-archive-panel .niko-archive-links a:hover { color: var(--maul-rose-light); }
+.maul-custom-regions-theme .niko-archive-panel.server-section { padding: clamp(19px,2.5vw,28px); border: 1px solid rgba(191,119,133,.25); border-radius: 8px; background: linear-gradient(145deg,rgba(62,15,32,.30),rgba(20,8,15,.96) 60%,rgba(14,6,11,.98)); }
+.maul-custom-regions-theme [hidden] { display: none !important; }
+@media (max-width: 760px) {
+  .maul-custom-regions-theme .page-wrapper { width: min(100% - 30px,1160px); padding-top: 35px; }
+  .maul-custom-regions-theme .header { gap: 12px; padding: 0 0 25px; }
+  .maul-custom-regions-theme .header h1 { font-size: clamp(2.35rem,8.4vw,3.85rem); line-height: 1.15; }
+  .maul-custom-regions-theme .regions-mascot { width: clamp(90px,21vw,150px); }
+  .maul-custom-regions-theme .header-actions { gap: 8px; }
+  .maul-custom-regions-theme .header-actions a { min-height: 41px; font-size: .79rem; padding: 8px 11px; }
+  .maul-custom-regions-theme .mobile-layout { grid-template-columns: minmax(0,1fr); }
+  .maul-custom-regions-theme .niko-feature { grid-template-columns: minmax(0,1fr) minmax(90px,130px); }
+}
+@media (max-width: 480px) {
+  .maul-custom-regions-theme .header { align-items: center; }
+  .maul-custom-regions-theme .header h1 { font-size: clamp(2.05rem,8.1vw,2.8rem); }
+  .maul-custom-regions-theme .regions-mascot { width: clamp(75px,20vw,110px); }
+  .maul-custom-regions-theme .header-subtitle { font-size: .89rem; }
+  .maul-custom-regions-theme .header-actions { margin-top: 17px; }
+  .maul-custom-regions-theme .server-section { padding: 17px 14px; }
+  .maul-custom-regions-theme .niko-feature { grid-template-columns: 1fr; }
+  .maul-custom-regions-theme .niko-portrait { justify-self: start; max-width: 116px; }
+  .maul-custom-regions-theme .setup-tabs { display: grid; grid-template-columns: 1fr; }
+  .maul-custom-regions-theme .setup-tab { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .maul-custom-regions-theme .header h1 .regions-title-line.maul-metallic { animation: none; }
+  .maul-custom-regions-theme .region-link,
+  .maul-custom-regions-theme .setup-tab { transition: none; }
+}
+
+.maul-custom-regions-theme .maul-shooting-star-layer { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.maul-custom-regions-theme .maul-shooting-star {
+  position: absolute; top: 0; left: 0;
+  width: clamp(65px,13vw,125px); height: 1px; border-radius: 100%;
+  background: linear-gradient(90deg,transparent,rgba(233,180,172,.12) 20%,rgba(245,213,201,.76));
+  box-shadow: 0 0 6px rgba(233,180,172,.16);
+  transform-origin: right center;
+  animation: maulCustomShootingStar 1400ms ease-out both;
+}
+.maul-custom-regions-theme .maul-shooting-star::after {
+  content: ""; position: absolute; right: 0; top: -1px;
+  width: 3px; height: 3px; border-radius: 50%; background: rgba(255,231,225,.85);
+  box-shadow: 0 0 6px rgba(233,180,172,.45);
+}
+@keyframes maulCustomShootingStar {
+  0% { opacity: 0; transform: translate3d(0,0,0) rotate(-25deg) scaleX(.65); }
+  12% { opacity: .78; }
+  68% { opacity: .6; }
+  100% { opacity: 0; transform: translate3d(var(--star-travel-x,190px),calc(-1 * var(--star-travel-y,90px)),0) rotate(-25deg) scaleX(1); }
+}
+
+.maul-custom-regions-theme .header-actions a.cta-primary,
+.maul-custom-regions-theme .header-actions a.cta-primary:hover,
+.maul-custom-regions-theme .header-actions a.cta-primary:focus-visible {
+  background: linear-gradient(115deg, #f8d4af, #b75863);
+  color: #29191f;
+  border-color: #f5d5c9;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.maul-custom-regions-theme .setup-panel-wrap {
+  margin-top: 24px;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid rgba(233, 180, 172, .35);
+  border-radius: 9px;
+  background: linear-gradient(145deg, rgba(79, 23, 43, .42), rgba(23, 9, 18, .97) 56%, rgba(12, 5, 12, .98));
+  box-shadow: 0 18px 48px rgba(0, 0, 0, .33), inset 0 1px 0 rgba(245, 213, 201, .07);
+}
+.maul-custom-regions-theme .setup-panel-wrap > .server-section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.maul-custom-regions-theme .setup-panel-wrap .setup-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  max-width: 660px;
+  margin-top: 18px;
+}
+.maul-custom-regions-theme .setup-panel-wrap .setup-tab {
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+  padding: 7px 9px;
+  font-size: .79rem;
+  line-height: 1.25;
+  text-align: center;
+  white-space: normal;
+}
+@media (max-width: 480px) {
+  .maul-custom-regions-theme .setup-panel-wrap { padding: 18px 14px; }
+  .maul-custom-regions-theme .setup-panel-wrap .setup-tabs { gap: 6px; }
+  .maul-custom-regions-theme .setup-panel-wrap .setup-tab { min-height: 45px; padding: 7px 5px; font-size: .7rem; }
+}
+
+.maul-custom-regions-theme .setup-installer-downloads {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.maul-custom-regions-theme .setup-installer-downloads .method-download {
+  margin: 0;
+  min-width: 0;
+}
+.maul-custom-regions-theme .setup-panel-wrap .setup-platform-note { margin-bottom: 14px; }
+.maul-custom-regions-theme .setup-panel-wrap .setup-method-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  opacity: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.maul-custom-regions-theme .setup-panel-wrap .setup-panel {
+  display: none;
+}
+.maul-custom-regions-theme .setup-panel-wrap #setup-choice-windows:checked ~ #setup-windows,
+.maul-custom-regions-theme .setup-panel-wrap #setup-choice-manual:checked ~ #setup-manual {
+  display: block;
+}
+.maul-custom-regions-theme .setup-panel-wrap .setup-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+.maul-custom-regions-theme .setup-panel-wrap #setup-choice-windows:checked ~ .setup-tabs label[for="setup-choice-windows"],
+.maul-custom-regions-theme .setup-panel-wrap #setup-choice-manual:checked ~ .setup-tabs label[for="setup-choice-manual"] {
+  border-color: rgba(233,180,172,.7);
+  color: var(--maul-rose-light);
+  background: rgba(83,30,47,.54);
+}
+.maul-custom-regions-theme .setup-panel-wrap #setup-choice-windows:focus-visible ~ .setup-tabs label[for="setup-choice-windows"],
+.maul-custom-regions-theme .setup-panel-wrap #setup-choice-manual:focus-visible ~ .setup-tabs label[for="setup-choice-manual"] {
+  outline: 2px solid var(--maul-rose-light);
+  outline-offset: 3px;
+}
+
+.maul-custom-regions-theme .setup-panel-wrap {
+  padding: clamp(19px, 2.7vw, 30px);
+  background: linear-gradient(145deg,rgba(58,17,33,.28),rgba(16,7,14,.96) 70%);
+  border-color: rgba(191,119,133,.29);
+  box-shadow: 0 12px 35px rgba(0,0,0,.2);
+}
+.maul-custom-regions-theme .setup-panel-wrap .server-section h2 {
+  margin-bottom: 15px;
+  font-size: clamp(1.35rem, 2.7vw, 1.75rem);
+}
+.maul-custom-regions-theme .setup-panel-wrap .setup-tabs {
+  gap: 18px;
+  max-width: 490px;
+  margin: 0 0 19px;
+  border-bottom: 1px solid rgba(191,119,133,.23);
+}
+.maul-custom-regions-theme .setup-panel-wrap .setup-tab {
+  position: relative;
+  min-height: 43px;
+  padding: 9px 2px 12px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: rgba(245,235,235,.64);
+  font-size: .88rem;
+  font-weight: 600;
+  transition: color .18s ease;
+}
+.maul-custom-regions-theme .setup-panel-wrap .setup-tab:hover {
+  transform: none;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: #f5d5c9;
+}
+.maul-custom-regions-theme .setup-panel-wrap #setup-choice-windows:checked ~ .setup-tabs label[for="setup-choice-windows"],
+.maul-custom-regions-theme .setup-panel-wrap #setup-choice-manual:checked ~ .setup-tabs label[for="setup-choice-manual"] {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  color: #f5d5c9;
+}
+.maul-custom-regions-theme .setup-panel-wrap #setup-choice-windows:checked ~ .setup-tabs label[for="setup-choice-windows"]::after,
+.maul-custom-regions-theme .setup-panel-wrap #setup-choice-manual:checked ~ .setup-tabs label[for="setup-choice-manual"]::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg,#e9b4ac,#b76e79);
+}
+.maul-custom-regions-theme .setup-panel-wrap .method-card {
+  gap: 13px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.maul-custom-regions-theme .setup-panel-wrap .method-card h3 {
+  font-size: 1.08rem;
+  line-height: 1.4;
+}
+.maul-custom-regions-theme .setup-panel-wrap .method-card > p:not(.setup-credit) {
+  max-width: 660px;
+  font-size: .92rem;
+  line-height: 1.65;
+}
+.maul-custom-regions-theme .setup-panel-wrap .setup-installer-downloads {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 10px;
+  width: min(100%, 450px);
+  margin-top: 3px;
+}
+.maul-custom-regions-theme .setup-panel-wrap .setup-installer-downloads .method-download {
+  width: 100%;
+  min-height: 45px;
+  padding: 10px 13px;
+  justify-content: center;
+  border: 1px solid rgba(233,180,172,.32);
+  border-radius: 6px;
+  background: linear-gradient(145deg,rgba(70,31,46,.56),rgba(26,15,25,.92));
+  box-shadow: none;
+  font-size: .87rem;
+  white-space: nowrap;
+}
+.maul-custom-regions-theme .setup-panel-wrap .setup-installer-downloads .method-download:hover {
+  border-color: rgba(245,213,201,.65);
+  background: rgba(95,48,63,.58);
+  filter: none;
+  transform: none;
+}
+.maul-custom-regions-theme .setup-panel-wrap .setup-download-arrow {
+  margin-left: 5px;
+  color: rgba(245,213,201,.66);
+  font-size: .75em;
+}
+.maul-custom-regions-theme .setup-panel-wrap .setup-credit {
+  display: block;
+  margin: 1px 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: rgba(197,184,184,.65);
+  font: 400 .78rem/1.5 Inter,system-ui,sans-serif;
+}
+@media (max-width: 480px) {
+  .maul-custom-regions-theme .setup-panel-wrap { padding: 19px 17px 21px; }
+  .maul-custom-regions-theme .setup-panel-wrap .setup-tabs { gap: 14px; }
+  .maul-custom-regions-theme .setup-panel-wrap .setup-tab {
+    min-height: 43px;
+    padding: 9px 1px 12px;
+    font-size: .8rem;
+  }
+  .maul-custom-regions-theme .setup-panel-wrap .setup-installer-downloads .method-download {
+    min-height: 45px;
+    padding: 10px 6px;
+    gap: 7px;
+    font-size: .82rem;
+  }
+}
+</style>
 </head>
 
-  <body>
+  <body class="maul-theme maul-custom-regions-theme">
     <div id="navbar"></div>
+    <div class="maul-shooting-star-layer" aria-hidden="true"></div>
 
     <div class="page-wrapper">
-      <header class="header">
+      <header class="header" aria-labelledby="regions-title">
         <div class="hero-copy">
-          <h1>Custom <span>Regions</span></h1>
-          <p class="header-subtitle">
-            Use the links below on mobile, or use the setup panel below if you need to replace your region file
-            on Windows.
-          </p>
+          <h1 id="regions-title"><span class="regions-title-line">Among Us</span><span class="regions-title-line maul-metallic">Custom</span><span class="regions-title-line">Regions</span></h1>
+          <p class="header-subtitle">Find custom regions for modded Among Us, add them on mobile, or use the PC setup guide below.</p>
           <div class="header-actions">
-            <a class="cta-secondary" href="index.html"><i class="fa-solid fa-house"></i> Back to Home</a>
-            <a class="cta-secondary" href="MAUL.html"><i class="fa-solid fa-ranking-star"></i> MAUL Rankings</a>
-            <a class="cta-secondary" href="#setup-methods"><i class="fa-solid fa-screwdriver-wrench"></i> Setup Help</a>
-            <a class="cta-primary" href="https://discord.gg/maul" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i> Join MAUL</a>
+            <a class="cta-secondary" href="index.html"><i class="fa-solid fa-house" aria-hidden="true"></i> Back to Home</a>
+            <a class="cta-secondary" href="MAUL.html"><i class="fa-solid fa-ranking-star" aria-hidden="true"></i> MAUL Rankings</a>
+            <a class="cta-primary" href="https://discord.gg/maul" target="_blank" rel="noopener"><i class="fa-brands fa-discord" aria-hidden="true"></i> Join MAUL</a>
           </div>
         </div>
-        <div class="hero-panel" aria-label="MAUL mascot illustration">
-          <div class="hero-banner-card" aria-hidden="true">
-            <img src="images/banner-transparent-cropped.png" alt="" loading="lazy" decoding="async" />
-          </div>
-          <img src="images/maulnobg.png" alt="MAUL mascot" loading="eager" decoding="async" />
-        </div>
+        <img class="regions-mascot" src="https://moddedamong.us/images/maulnobg.png" alt="MAUL mascot" loading="eager" decoding="async" />
       </header>
+
+      <main class="content-panel setup-panel-wrap" id="setup-methods">
+        <section class="server-section">
+          <h2>Setup Methods for PC</h2>
+          <input class="setup-method-input" type="radio" name="setup-method" id="setup-choice-windows" checked />
+          <input class="setup-method-input" type="radio" name="setup-method" id="setup-choice-manual" />
+          <div class="setup-tabs" role="group" aria-label="Choose a PC setup method">
+            <label class="setup-tab" for="setup-choice-windows">Windows &amp; Linux</label>
+            <label class="setup-tab" for="setup-choice-manual">Manual fallback</label>
+          </div>
+
+          <div class="setup-panel" id="setup-windows" role="region" aria-label="Windows and Linux setup instructions">
+            <article class="method-card">
+              <h3>Automatic installer</h3>
+              <p>Close Among Us, download and run the installer for your device. It finds and backs up your region file, updates the region list, and lets you restart the game when it's done.</p>
+              <div class="setup-installer-downloads">
+                <a
+                  class="method-download"
+                  href="https://media.lotusau.top/files/AUCustomServers.bat"
+                  download="AUCustomServers.bat"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="fa-brands fa-windows" aria-hidden="true"></i> Windows <i class="fa-solid fa-download setup-download-arrow" aria-hidden="true"></i>
+                </a>
+                <a
+                  class="method-download"
+                  href="https://media.lotusau.top/files/AUCustomServers.sh"
+                  download="AUCustomServers.sh"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="fa-brands fa-linux" aria-hidden="true"></i> Linux <i class="fa-solid fa-download setup-download-arrow" aria-hidden="true"></i>
+                </a>
+              </div>
+              <p class="setup-credit">Installer by Theta at Project Lotus</p>
+            </article>
+          </div>
+
+          <div class="setup-panel" id="setup-manual" role="region" aria-label="Manual setup instructions">
+            <article class="method-card">
+              <h3>Replace regioninfo.json manually</h3>
+              <p>Use this only if the installer cannot run on your system:</p>
+              <div class="region-builder" id="region-builder">
+                <div class="region-builder-heading">
+                  <div>
+                    <h4>Build a smaller regioninfo.json</h4>
+                    <p>Select only the regions you use, then download a trimmed region file.</p>
+                  </div>
+                  <span class="region-builder-count" id="region-builder-count">Loading regions...</span>
+                </div>
+                <div class="region-builder-actions" aria-label="Region selection actions">
+                  <button class="region-builder-button" id="select-maul-regions" type="button">
+                    <i class="fa-solid fa-flag"></i> Select MAUL
+                  </button>
+                  <button class="region-builder-button" id="select-all-regions" type="button">
+                    <i class="fa-solid fa-check-double"></i> Select all
+                  </button>
+                  <button class="region-builder-button" id="clear-regions" type="button">
+                    <i class="fa-solid fa-eraser"></i> Clear
+                  </button>
+                </div>
+                <div class="region-picker" id="region-picker" aria-live="polite">Loading available regions...</div>
+                <div class="region-builder-footer">
+                  <span class="region-builder-status" id="region-builder-status">Loading region data...</span>
+                  <button class="region-builder-button primary" id="download-regioninfo" type="button" disabled>
+                    <i class="fa-solid fa-download"></i> Download selected regioninfo.json
+                  </button>
+                </div>
+              </div>
+              <ol class="method-steps">
+                <li>Download <a href="data/regioninfo.json" target="_blank" rel="noopener">regioninfo.json</a>.</li>
+                <li>Press Win + R and open <code>%userprofile%\AppData\LocalLow\Innersloth\Among Us</code>.</li>
+                <li>Replace the existing file, then restart the game.</li>
+              </ol>
+              <div class="method-images">
+                <img src="images/win-run.png" alt="Windows Run dialog with the Among Us LocalLow folder path" />
+                <img src="images/replace.png" alt="Replacing regioninfo.json in the Among Us LocalLow folder" />
+              </div>
+            </article>
+          </div>
+
+        </section>
+      </main>
 
       <main class="content-panel region-panel">
         <div class="mobile-label"><i class="fa-solid fa-mobile-screen-button"></i> Phone / Mobile</div>
 
-        <section class="server-section">
-          <h2>NikoCat Regions</h2>
+        <section class="server-section" id="niko-regions-section">
+          <h2 id="niko-section-heading">NikoCat Regions</h2>
           <div class="niko-feature">
             <div>
               <p>
                 Huge shoutout to <strong>NikoCat233</strong>. He has been such a major part of the MAUL and modded
                 community since I joined in 2023, and he has been there to support all of us from the beginning.
               </p>
-              <p>
+              <p class="niko-region-source">
                 The region buttons on this page are loaded from
                 <a href="data/regioninfo.json" target="_blank" rel="noopener">data/regioninfo.json</a>.
               </p>
+              <p class="niko-archive-message" hidden>Niko's NA, EU, and Asia region listings were archived on December 31, 2026. His work has helped keep modded Among Us communities connected.</p>
+              <p class="niko-archive-links" hidden>Find Niko on <a href="https://github.com/NikoCat233" target="_blank" rel="noopener">GitHub</a>, visit <a href="https://au.niko233.top" target="_blank" rel="noopener">his website</a>, or join <a href="https://discord.gg/dKpX2FAvGc" target="_blank" rel="noopener">his Discord</a>.</p>
             </div>
-            <img class="niko-portrait" src="images/niko.webp" alt="NikoCat233" />
+            <img class="niko-portrait" src="https://moddedamong.us/images/niko.webp" alt="NikoCat233" />
           </div>
           <div class="region-grid" data-region-group="niko">
             <a
@@ -2389,7 +3073,7 @@ body::after { width: 1px !important; height: 1px !important; opacity: .5 !import
         <section class="server-section">
           <h2>Region Ownership</h2>
           <div class="ownership-grid">
-            <article class="ownership-item">
+            <article class="ownership-item" id="niko-ownership-card">
               <h3>NikoCat233</h3>
               <ul class="ownership-details">
                 <li>
@@ -2506,115 +3190,11 @@ body::after { width: 1px !important; height: 1px !important; opacity: .5 !import
         </section>
       </main>
 
-      <main class="content-panel setup-panel-wrap" id="setup-methods">
-        <section class="server-section">
-          <h2>Setup Methods for PC</h2>
-          <div class="setup-tabs" role="tablist" aria-label="Setup methods">
-            <button class="setup-tab" type="button" role="tab" aria-selected="false" aria-controls="setup-windows" data-setup-tab="setup-windows">
-              01 Windows / Microsoft Store
-            </button>
-            <button class="setup-tab" type="button" role="tab" aria-selected="false" aria-controls="setup-linux" data-setup-tab="setup-linux">
-              02 Linux
-            </button>
-            <button class="setup-tab" type="button" role="tab" aria-selected="false" aria-controls="setup-manual" data-setup-tab="setup-manual">
-              03 Manual fallback
-            </button>
-          </div>
 
-          <div class="setup-panel" id="setup-windows" role="tabpanel" hidden>
-            <article class="method-card">
-              <span class="method-number">01</span>
-              <h3>Windows / Microsoft Store installer</h3>
-              <p class="method-credit"><i class="fa-solid fa-heart"></i> Installer provided by Theta at Project Lotus.</p>
-              <p>Download and run the script. It finds the correct Among Us region file, including Microsoft Store installs, backs up the existing file, and installs the latest region list.</p>
-              <p class="method-warning">
-                Close Among Us before running the script, then restart the game when it finishes. You can open the .bat file in Notepad first if you want to review it.
-              </p>
-              <a
-                class="method-download"
-                href="https://media.lotusau.top/files/AUCustomServers.bat"
-                download="AUCustomServers.bat"
-                target="_blank"
-                rel="noopener"
-              >
-                Download Windows installer <i class="fa-brands fa-windows"></i>
-              </a>
-            </article>
-          </div>
-
-          <div class="setup-panel" id="setup-linux" role="tabpanel" hidden>
-            <article class="method-card">
-              <span class="method-number">02</span>
-              <h3>Linux installer</h3>
-              <p class="method-credit"><i class="fa-solid fa-heart"></i> Installer provided by Theta at Project Lotus.</p>
-              <p>Download the shell script, make it executable, run it, then restart Among Us.</p>
-              <ol class="method-steps">
-                <li>Download the script.</li>
-                <li>Run <code>chmod +x AUCustomServers.sh</code>.</li>
-                <li>Run <code>./AUCustomServers.sh</code>.</li>
-              </ol>
-              <a
-                class="method-download"
-                href="https://media.lotusau.top/files/AUCustomServers.sh"
-                download="AUCustomServers.sh"
-                target="_blank"
-                rel="noopener"
-              >
-                Download Linux installer <i class="fa-brands fa-linux"></i>
-              </a>
-            </article>
-          </div>
-
-          <div class="setup-panel" id="setup-manual" role="tabpanel" hidden>
-            <article class="method-card">
-              <span class="method-number">03</span>
-              <h3>Replace regioninfo.json manually</h3>
-              <p>Use this only if the installer cannot run on your system:</p>
-              <div class="region-builder" id="region-builder">
-                <div class="region-builder-heading">
-                  <div>
-                    <h4>Build a smaller regioninfo.json</h4>
-                    <p>Select only the regions you use, then download a trimmed region file.</p>
-                  </div>
-                  <span class="region-builder-count" id="region-builder-count">Loading regions...</span>
-                </div>
-                <div class="region-builder-actions" aria-label="Region selection actions">
-                  <button class="region-builder-button" id="select-maul-regions" type="button">
-                    <i class="fa-solid fa-flag"></i> Select MAUL
-                  </button>
-                  <button class="region-builder-button" id="select-all-regions" type="button">
-                    <i class="fa-solid fa-check-double"></i> Select all
-                  </button>
-                  <button class="region-builder-button" id="clear-regions" type="button">
-                    <i class="fa-solid fa-eraser"></i> Clear
-                  </button>
-                </div>
-                <div class="region-picker" id="region-picker" aria-live="polite">Loading available regions...</div>
-                <div class="region-builder-footer">
-                  <span class="region-builder-status" id="region-builder-status">Loading region data...</span>
-                  <button class="region-builder-button primary" id="download-regioninfo" type="button" disabled>
-                    <i class="fa-solid fa-download"></i> Download selected regioninfo.json
-                  </button>
-                </div>
-              </div>
-              <ol class="method-steps">
-                <li>Download <a href="data/regioninfo.json" target="_blank" rel="noopener">regioninfo.json</a>.</li>
-                <li>Press Win + R and open <code>%userprofile%\AppData\LocalLow\Innersloth\Among Us</code>.</li>
-                <li>Replace the existing file, then restart the game.</li>
-              </ol>
-              <div class="method-images">
-                <img src="images/win-run.png" alt="Windows Run dialog with the Among Us LocalLow folder path" />
-                <img src="images/replace.png" alt="Replacing regioninfo.json in the Among Us LocalLow folder" />
-              </div>
-            </article>
-          </div>
-
-        </section>
-      </main>
 
       <p class="footer-note">These servers may include AntiCheat for host-only mods.</p>
       <p class="help-link">Need help? <a href="https://discord.gg/maul" target="_blank" rel="noopener">Join MAUL</a>.</p>
-      <footer class="maul-end-footer" aria-label="MAUL footer">– MAUL –</footer>
+      <footer class="maul-page-footer" aria-label="MAUL footer"><p>Made with <span class="heart">♡</span> by Maul</p></footer>
       <p class="region-additions-note">Our current region selection is finalized, and we are not accepting additional region listings at this time.</p>
     </div>
 
@@ -2632,6 +3212,17 @@ body::after { width: 1px !important; height: 1px !important; opacity: .5 !import
         ["Modded Asia (MAS)", "Modded Asia"],
         ["Jarne's Modded Region EU", "Jarne's MEU"],
       ]);
+
+      const nikoArchiveCalendarDate = { year: 2026, month: 12, day: 31 };
+      function isNikoArchived() {
+        const pieces = new Intl.DateTimeFormat("en-US", {
+          timeZone: "America/Los_Angeles", year: "numeric", month: "2-digit", day: "2-digit"
+        }).formatToParts(new Date());
+        const dateParts = Object.fromEntries(pieces.filter((part) => ["year", "month", "day"].includes(part.type)).map((part) => [part.type, Number(part.value)]));
+        return dateParts.year > nikoArchiveCalendarDate.year ||
+          (dateParts.year === nikoArchiveCalendarDate.year && (dateParts.month > nikoArchiveCalendarDate.month ||
+          (dateParts.month === nikoArchiveCalendarDate.month && dateParts.day >= nikoArchiveCalendarDate.day)));
+      }
 
       const activeNikoRegionNames = new Set(["Niko233(NA)", "Niko233(AS)","Niko233(EU)", "Niko-NA","Niko-EU", "Niko-AS"]);
       const nikoRegionPattern = /^(Niko233|Niko-|NikoCN)/i;
@@ -2757,7 +3348,7 @@ body::after { width: 1px !important; height: 1px !important; opacity: .5 !import
             const currentRegion = data.Regions[Number(data.CurrentRegionIdx)];
             const regions = data.Regions.filter((region) => {
               const name = region.Name || "";
-              return !nikoRegionPattern.test(name) || activeNikoRegionNames.has(name);
+              return !nikoRegionPattern.test(name) || (!isNikoArchived() && activeNikoRegionNames.has(name));
             });
             const currentRegionIdx = regions.indexOf(currentRegion);
 
@@ -2926,6 +3517,33 @@ body::after { width: 1px !important; height: 1px !important; opacity: .5 !import
         }
       }
 
+      function archiveNikoRegions() {
+        if (!isNikoArchived() || document.body.classList.contains("niko-archived")) return;
+        const section = document.getElementById("niko-regions-section");
+        const wrapper = document.querySelector(".page-wrapper");
+        if (!section || !wrapper) return;
+        document.body.classList.add("niko-archived");
+        document.getElementById("niko-section-heading").textContent = "About Niko";
+        section.querySelectorAll('[data-region-group="niko"] a').forEach((link) => link.remove());
+        section.querySelector('[data-region-group="niko"]')?.remove();
+        section.querySelector(".niko-region-source")?.remove();
+        section.querySelectorAll(".niko-archive-message, .niko-archive-links").forEach((element) => { element.hidden = false; });
+        document.getElementById("niko-ownership-card")?.remove();
+        section.classList.add("content-panel", "niko-archive-panel");
+        wrapper.insertBefore(section, wrapper.querySelector(".footer-note"));
+        if (regionInfoData?.Regions) {
+          const selectedNames = new Set([...selectedRegionIndexes].map((index) => regionInfoData.Regions[index]?.Name));
+          const original = regionInfoData.Regions[Number(regionInfoData.CurrentRegionIdx)];
+          regionInfoData.Regions = regionInfoData.Regions.filter((region) => !nikoRegionPattern.test(region.Name || ""));
+          const idx = regionInfoData.Regions.indexOf(original);
+          regionInfoData.CurrentRegionIdx = idx >= 0 ? idx : 0;
+          renderRegionPicker(regionInfoData);
+          setRegionSelection(regionInfoData.Regions.flatMap((region, index) => selectedNames.has(region.Name) ? [index] : []));
+        }
+      }
+
+      archiveNikoRegions();
+      window.setInterval(archiveNikoRegions, 60000);
       loadRegionButtons();
       loadRegionPicker();
 
@@ -2947,22 +3565,47 @@ body::after { width: 1px !important; height: 1px !important; opacity: .5 !import
 
       document.getElementById("download-regioninfo")?.addEventListener("click", downloadSelectedRegionInfo);
 
-      document.querySelectorAll("[data-setup-tab]").forEach((tab) => {
-        tab.addEventListener("click", () => {
-          const targetId = tab.dataset.setupTab;
 
-          document.querySelectorAll("[data-setup-tab]").forEach((button) => {
-            const isActive = button === tab;
-            button.classList.toggle("active", isActive);
-            button.setAttribute("aria-selected", String(isActive));
-          });
-
-          document.querySelectorAll(".setup-panel").forEach((panel) => {
-            panel.hidden = panel.id !== targetId;
-          });
-        });
-      });
     </script>
-    <!-- if na and eu ever agree on a game time, please take a screenshot :) -->
-  </body>
+    
+  
+    <script>
+      (() => {
+        const layer = document.querySelector('.maul-shooting-star-layer');
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (!layer) return;
+        let timer;
+        function schedule() {
+          clearTimeout(timer);
+          if (document.hidden || reducedMotion.matches) return;
+          timer = setTimeout(() => {
+            if (!document.hidden) {
+              const star = document.createElement('span');
+              star.className = 'maul-shooting-star';
+              const dx = Math.min(190, Math.max(90, window.innerWidth * .38));
+              const dy = dx * (90 / 190);
+              star.style.setProperty('--star-travel-x', `${dx}px`);
+              star.style.setProperty('--star-travel-y', `${dy}px`);
+              const maxX = Math.max(0, window.innerWidth - dx - 75);
+              const minY = Math.min(window.innerHeight - 20, dy + 40);
+              star.style.left = `${Math.round(maxX * (.06 + Math.random() * .48))}px`;
+              star.style.top = `${Math.round(minY + (window.innerHeight - minY) * (.28 + Math.random() * .65))}px`;
+              star.addEventListener('animationend', () => star.remove(), { once: true });
+              layer.appendChild(star);
+            }
+            schedule();
+          }, 18000 + Math.random() * 12000);
+        }
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) { clearTimeout(timer); layer.replaceChildren(); }
+          else schedule();
+        });
+        reducedMotion.addEventListener('change', event => {
+          if (event.matches) { clearTimeout(timer); layer.replaceChildren(); }
+          else schedule();
+        });
+        schedule();
+      })();
+    </script>
+</body>
 </html>
