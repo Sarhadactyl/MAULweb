@@ -19,7 +19,7 @@
     <meta property="og:image:alt" content="Modded Among Us Lobbies banner" />
     <meta
       property="og:description"
-      content="Find Among Us mods, custom maps, communication tools, Starlight-compatible mods, modding APIs, mod managers, and resources with GitHub, Discord, and latest release download links."
+      content="Find Among Us mods, custom maps, communication tools, Starlight-compatible mods, modding APIs, mod managers, and resources with links to official websites, wikis, GitHub repositories, Discord, and sponsors."
     />
     <meta property="og:site_name" content="Modded Among Us Lobbies" />
     <meta property="og:locale" content="en_US" />
@@ -27,7 +27,7 @@
     <meta name="twitter:title" content="Among Us Mods, Downloads &amp; Mod Managers | MAUL" />
     <meta
       name="twitter:description"
-      content="Browse 77 Among Us mod listings, custom maps, communication tools, Starlight mods, APIs, mod managers, and resources with GitHub, Discord, and latest release links."
+      content="Browse 77 Among Us mod listings, custom maps, communication tools, Starlight mods, APIs, mod managers, and resources with links to project websites, documentation, GitHub, and Discord."
     />
     <meta name="twitter:image" content="https://moddedamong.us/images/banner.png" />
     <link rel="canonical" href="https://moddedamong.us/mods.html" />
@@ -50,7 +50,7 @@
             "@id": "https://moddedamong.us/mods.html#webpage",
             "url": "https://moddedamong.us/mods.html",
             "name": "Among Us Mods, Downloads & Mod Managers",
-            "description": "A curated MAUL catalog of Among Us mods, custom maps, communication tools, Starlight mods, host-only mods, client-required mods, APIs, mod managers, and resources with GitHub, Discord, and release links.",
+            "description": "A curated MAUL catalog of Among Us mods, custom maps, communication tools, Starlight mods, host-only mods, client-required mods, APIs, mod managers, and resources with official project and community links.",
             "isPartOf": { "@id": "https://moddedamong.us/#website" },
             "inLanguage": "en-US",
             "dateModified": "2026-10-25",
@@ -173,7 +173,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="styles/navbar.css?v=20261028-nav-6" />
+    <link rel="stylesheet" href="/styles/navbar.css" />
     <style>
 :root {
   color-scheme: dark;
@@ -442,10 +442,9 @@ body::after {
 .preset-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; gap: 12px; margin-top: auto; padding-top: 6px; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; width: 100%; min-width: 0; min-height: 44px; padding: 10px 13px; border: 1px solid rgba(var(--rose-gold-rgb), 0.22); border-radius: 4px; background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)), #0d0c10; color: var(--text-main); font-size: 0.78rem; font-weight: 800; line-height: 1.2; text-align: center; text-decoration: none; overflow-wrap: anywhere; box-shadow: inset 0 1px 0 rgba(var(--rose-gold-rgb), 0.08); transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; }
 .preset-actions .btn { order: 2;  border-radius: 4px;  min-height: 42px;  padding: 9px 13px;  border: 1px solid rgba(var(--rose-gold-rgb), 0.24);  background: linear-gradient(180deg, rgba(18, 17, 20, 0.94), rgba(10, 10, 12, 0.96));  font-size: 0.83rem;  line-height: 1.15;  box-shadow: inset 0 1px 0 rgba(var(--rose-gold-rgb), 0.06), inset -2px 0 0 rgba(var(--rose-gold-rgb), 0.08); }
-.preset-actions .download-btn { order: 1; min-height: 56px; font-size: 0.96rem;  padding: 13px 15px; }
 .btn:hover { transform: translateY(-2px); border-color: rgba(var(--rose-gold-rgb), 0.65); background: linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.04)), #0e0d12; box-shadow: inset 0 1px 0 rgba(var(--rose-gold-rgb), 0.1), 0 0 18px rgba(var(--rose-gold-rgb), 0.14), 0 14px 30px rgba(0, 0, 0, 0.5); }
 .preset-actions .btn:hover { background: linear-gradient(180deg, rgba(25, 24, 27, 0.98), rgba(14, 13, 15, 0.98)); transform: translateY(-1px); }
-.preset-actions .download-btn:hover { border-color: rgba(var(--rose-gold-rgb), 0.76); animation: downloadButtonPulse 1.15s ease-in-out infinite; }
+.preset-actions > .btn:only-child { grid-column: 1 / -1; }
 .btn:disabled { opacity: 0.65; cursor: wait; }
 #featured-grid.grid { grid-template-columns: minmax(0, 1fr); width: 100%; max-width: 100%; }
 #featured-grid .featured-card { display: grid; grid-template-columns: minmax(220px, 34%) minmax(0, 1fr); align-items: stretch; }
@@ -497,10 +496,6 @@ body.spotlight-open { overflow: hidden; }
 
 @keyframes maulStarDrift { from { transform: translate3d(0, 160vh, 0); } to { transform: translate3d(0, 0, 0); } }
 @keyframes maulIntroRise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes downloadButtonPulse {
-  0%, 100% { box-shadow: inset 0 1px 0 rgba(var(--rose-gold-rgb), 0.08), 0 0 0 1px rgba(var(--rose-gold-rgb), 0.18), 0 0 12px rgba(var(--rose-gold-rgb), 0.18), 0 16px 34px rgba(0, 0, 0, 0.56); }
-  50% { box-shadow: inset 0 1px 0 rgba(var(--rose-gold-rgb), 0.1), 0 0 0 1px rgba(var(--rose-gold-rgb), 0.36), 0 0 28px rgba(var(--rose-gold-rgb), 0.48), 0 18px 38px rgba(0, 0, 0, 0.62); }
-}
 
 @media (max-width: 1020px) {
   .page-header { grid-template-columns: minmax(0, 1fr); min-height: 0; gap: 20px; }
@@ -663,7 +658,7 @@ body.spotlight-open { overflow: hidden; }
 .mod-search { border-color: var(--maul-panel-border, #b76e794d); border-radius: 4px; background: var(--maul-panel-bg, #09090b); box-shadow: none; }
 #mods-search, .mod-search-count { border-color: var(--maul-panel-border, #b76e794d); background: var(--maul-control-bg, #050507); }
 </style>
-    <link rel="stylesheet" href="styles/maul-theme.css" />
+    <link rel="stylesheet" href="/styles/maul-theme.css?v=2" />
     <style>
       .maul-credit-footer {
         width: min(100%, 1000px);
@@ -1050,10 +1045,385 @@ body.spotlight-open { overflow: hidden; }
         }
       }
     </style>
+
+    <style id="maul-mods-page-theme">
+      :root {
+        --maul-background: radial-gradient(ellipse 70% 58% at 73% 13%,rgba(83,14,33,.6),rgba(49,8,22,.36) 44%,transparent 78%),radial-gradient(ellipse 52% 40% at 18% 80%,rgba(64,10,27,.35),transparent 78%),linear-gradient(110deg,#080406 0%,#100509 27%,#240710 60%,#340b19 79%,#120509 100%);
+        --maul-metallic-gradient: linear-gradient(105deg,#d9a7a6 0%,#f5d5c9 29%,#e9b4ac 44%,#fff3e0 50%,#e9b4ac 56%,#b76e79 78%,#e9b4ac 100%);
+        --maul-rose: #e9b4ac;
+        --maul-rose-light: #f5d5c9;
+        --maul-rose-deep: #b76e79;
+        --maul-text: #f9f3ef;
+        --maul-muted: #c5b8b8;
+        --maul-border: rgba(191,119,133,.3);
+      }
+      html { background: #080406; }
+      body.maul-themed.maul-mods-theme {
+        min-height: 100vh;
+        margin: 0;
+        background: var(--maul-background);
+        color: var(--maul-text);
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        isolation: isolate;
+        overflow-x: clip;
+      }
+      .maul-mods-theme #navbar { position: relative; z-index: 10; }
+      .maul-mods-theme .page-wrapper {
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: min(1160px,calc(100% - 44px));
+        max-width: none;
+        margin: 0 auto;
+        padding: clamp(36px,5vw,60px) 0 36px;
+      }
+      body.maul-themed.maul-mods-theme .page-wrapper > .page-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: clamp(18px,4vw,50px);
+        min-height: 0;
+        padding: 0 0 36px;
+        margin: 0 0 20px;
+        border: 0;
+        border-bottom: 1px solid rgba(233,180,172,.28);
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        isolation: auto;
+      }
+      .maul-mods-theme .page-header .hero-copy { flex: 1 1 auto; max-width: 740px; animation: none; }
+      .maul-mods-theme .page-header h1 {
+        margin: 0;
+        color: var(--maul-text);
+        font: 700 clamp(2.8rem,5.65vw,5.25rem)/1.13 "Libre Baskerville",Georgia,serif;
+        letter-spacing: -.04em;
+        text-transform: none;
+        text-shadow: none;
+      }
+      .maul-mods-theme .page-header h1 .hero-title-line {
+        display: block;
+        width: max-content;
+        max-width: 100%;
+        padding: 0 0 .08em;
+        margin: 0;
+        background: none;
+        color: var(--maul-text);
+        -webkit-text-fill-color: var(--maul-text);
+        animation: none;
+      }
+      @keyframes maulModsMetalSweep {
+        0%,100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+      .maul-mods-theme .page-header h1 .hero-title-line.hero-title-accent {
+        width: max-content;
+        max-width: 100%;
+        background: var(--maul-metallic-gradient);
+        background-size: 260% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        animation: maulModsMetalSweep 9s ease-in-out infinite;
+      }
+      .maul-mods-theme .page-header-subtitle {
+        max-width: 570px;
+        margin: 15px 0 0;
+        color: var(--maul-muted);
+        font: 400 1rem/1.7 Inter,system-ui,sans-serif;
+      }
+      .maul-mods-theme .page-header .header-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 23px; }
+      .maul-mods-theme .page-header a.maul-hero-primary,
+      .maul-mods-theme .page-header a.maul-hero-primary:is(:hover,:focus-visible) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        min-height: 43px;
+        padding: 10px 19px;
+        border: 1px solid #f5d5c9;
+        border-radius: 6px;
+        background: linear-gradient(115deg,#f8d4af,#b75863);
+        color: #29191f;
+        font: 700 .9rem/1.35 Inter,system-ui,sans-serif;
+        text-decoration: none;
+        box-shadow: inset 0 1px 0 rgba(255,235,201,.2);
+        animation: none;
+        transform: none;
+      }
+      .maul-mods-theme .page-header a.maul-hero-primary:hover { filter: brightness(1.055); }
+      .maul-mods-theme .hero-panel {
+        position: relative;
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: clamp(125px,23vw,254px);
+        min-height: 0;
+        height: auto;
+        aspect-ratio: auto;
+        margin: 0;
+        animation: none;
+      }
+      .maul-mods-theme .hero-panel::before,
+      .maul-mods-theme .hero-panel::after,
+      .maul-mods-theme .hero-panel .hero-banner-card { display: none; content: none; }
+      .maul-mods-theme .hero-panel > img {
+        display: block;
+        width: 100%;
+        max-height: 335px;
+        object-fit: contain;
+        filter: drop-shadow(0 16px 32px rgba(0,0,0,.6));
+      }
+      .maul-mods-theme .mods-category-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 9px;
+        margin: 0 0 20px;
+        padding: 0 0 22px;
+        border: 0;
+        border-bottom: 1px solid rgba(233,180,172,.2);
+        border-image: none;
+        border-radius: 0;
+        background: none;
+        box-shadow: none;
+      }
+      .maul-mods-theme .mods-category-nav a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 39px;
+        padding: 8px 12px;
+        border: 1px solid rgba(233,180,172,.24);
+        border-radius: 6px;
+        background: rgba(24,13,20,.7);
+        color: var(--maul-text);
+        font: 650 .79rem/1.35 Inter,system-ui,sans-serif;
+        transition: background .18s ease,border-color .18s ease;
+      }
+      .maul-mods-theme .mods-category-nav a:hover,
+      .maul-mods-theme .mods-category-nav a:focus-visible {
+        color: var(--maul-rose-light);
+        border-color: rgba(233,180,172,.7);
+        background: rgba(76,28,45,.65);
+        transform: none;
+      }
+      .maul-mods-theme .mod-search { margin: 0 0 38px; padding: 0; border: 0; background: none; box-shadow: none; }
+      .maul-mods-theme .mod-search-inner { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 11px; align-items: stretch; }
+      .maul-mods-theme #mods-search {
+        display: block;
+        width: 100%;
+        min-height: 48px;
+        border: 1px solid rgba(233,180,172,.32);
+        border-radius: 7px;
+        padding: 12px 16px;
+        background: rgba(8,5,9,.75);
+        color: var(--maul-text);
+        font: 400 1rem/1.4 Inter,system-ui,sans-serif;
+      }
+      .maul-mods-theme #mods-search:focus { border-color: rgba(245,213,201,.75); box-shadow: 0 0 0 3px rgba(233,180,172,.1); }
+      .maul-mods-theme #mods-search::placeholder { color: rgba(197,184,184,.75); }
+      .maul-mods-theme .mod-search-count {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 8px 14px;
+        border: 1px solid rgba(233,180,172,.27);
+        border-radius: 7px;
+        background: rgba(24,13,20,.68);
+        color: var(--maul-rose-light);
+        font: 650 .78rem/1.3 Inter,system-ui,sans-serif;
+        letter-spacing: .02em;
+      }
+      .maul-mods-theme .featured-highlight,
+      .maul-mods-theme .mods-section { margin: 0 0 42px; }
+      .maul-mods-theme .featured-highlight-header { align-items: center; padding: 0; margin: 0 0 19px; border: 0; }
+      .maul-mods-theme .featured-highlight-label {
+        color: var(--maul-rose);
+        font: 700 .73rem/1.4 ui-monospace,Consolas,monospace;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+      }
+      .maul-mods-theme .featured-heading,
+      .maul-mods-theme .mods-section-title {
+        font: 700 clamp(1.6rem,3vw,2.15rem)/1.2 "Libre Baskerville",Georgia,serif;
+        letter-spacing: -.035em;
+        color: var(--maul-text);
+      }
+      .maul-mods-theme .featured-heading { margin-top: 7px; }
+      .maul-mods-theme .featured-highlight-pill {
+        flex: 0 0 auto;
+        padding: 8px 10px;
+        border: 1px solid rgba(233,180,172,.2);
+        border-radius: 6px;
+        background: rgba(233,180,172,.06);
+        color: var(--maul-rose-light);
+        font: 650 .72rem/1.3 Inter,system-ui,sans-serif;
+        letter-spacing: .02em;
+      }
+      .maul-mods-theme .mods-section-title { display: flex; align-items: center; gap: 17px; margin-bottom: 12px; }
+      .maul-mods-theme .mods-section-title::after {
+        content: "";
+        display: block;
+        flex: 1 1 30px;
+        min-width: 16px;
+        height: 1px;
+        background: linear-gradient(90deg,rgba(233,180,172,.54),rgba(233,180,172,.03));
+      }
+      .maul-mods-theme .mods-section-subtitle { color: var(--maul-muted); font: 400 .93rem/1.7 Inter,system-ui,sans-serif; }
+      .maul-mods-theme .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,255px),1fr)); gap: 15px; }
+      .maul-mods-theme .page-wrapper .card,
+      .maul-mods-theme .page-wrapper #featured-grid .card {
+        overflow: hidden;
+        border: 1px solid rgba(191,119,133,.3);
+        border-radius: 7px;
+        background: linear-gradient(140deg,rgba(66,15,31,.2),rgba(14,5,10,.95));
+        box-shadow: 0 15px 48px rgba(0,0,0,.26);
+        transition: border-color .18s ease,transform .18s ease;
+      }
+      .maul-mods-theme .page-wrapper .card:hover,
+      .maul-mods-theme .page-wrapper .card:focus-within,
+      .maul-mods-theme .page-wrapper #featured-grid .card:hover {
+        border-color: rgba(233,180,172,.66);
+        background: linear-gradient(140deg,rgba(76,23,41,.32),rgba(14,5,10,.98));
+        box-shadow: 0 15px 48px rgba(0,0,0,.26);
+        transform: translateY(-2px);
+      }
+      .maul-mods-theme .page-wrapper .card .thumb {
+        background: radial-gradient(circle at 50% 28%,rgba(183,110,121,.09),transparent 70%),rgba(3,2,5,.45);
+        border-bottom-color: rgba(233,180,172,.15);
+      }
+      .maul-mods-theme .card-body { gap: 12px; padding: 20px; }
+      .maul-mods-theme .page-wrapper .card .title { font: 700 1.16rem/1.3 Inter,system-ui,sans-serif; letter-spacing: -.015em; }
+      .maul-mods-theme .page-wrapper .card .sub { color: var(--maul-muted); font: 400 .88rem/1.6 Inter,system-ui,sans-serif; }
+      .maul-mods-theme .page-wrapper .card .preset-actions { gap: 9px; margin-top: auto; padding-top: 5px; }
+      .maul-mods-theme .page-wrapper .btn,
+      .maul-mods-theme .page-wrapper .preset-actions .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 10px 11px;
+        border: 1px solid rgba(233,180,172,.28);
+        border-radius: 6px;
+        background: linear-gradient(180deg,rgba(31,20,26,.96),rgba(15,10,16,.98));
+        color: var(--maul-text);
+        font: 700 .81rem/1.35 Inter,system-ui,sans-serif;
+        box-shadow: inset 0 1px 0 rgba(245,213,201,.05);
+        transition: border-color .18s ease,background .18s ease;
+        animation: none;
+        transform: none;
+      }
+      .maul-mods-theme .page-wrapper .btn:hover,
+      .maul-mods-theme .page-wrapper .btn:focus-visible {
+        color: #fff;
+        border-color: rgba(233,180,172,.65);
+        background: linear-gradient(180deg,rgba(49,30,39,.98),rgba(23,14,22,.98));
+        transform: none;
+        box-shadow: inset 0 1px 0 rgba(245,213,201,.07);
+        animation: none;
+      }
+      .maul-mods-theme #featured-grid.grid { grid-template-columns: minmax(0,1fr); }
+      .maul-mods-theme #featured-grid .featured-card { grid-template-columns: minmax(205px,32%) minmax(0,1fr); }
+      .maul-mods-theme #featured-grid .featured-card .thumb { min-height: 245px; height: 100%; }
+      .maul-mods-theme #featured-grid .featured-card .card-body { padding: clamp(19px,3vw,27px); }
+      .maul-mods-theme .section-chip,
+      .maul-mods-theme .mod-status-tag { color: var(--maul-rose-light); border-color: rgba(233,180,172,.24); background: rgba(233,180,172,.06); border-radius: 6px; }
+      .maul-mods-theme .mod-search.no-results .no-mod-results { color: var(--maul-muted); }
+      .maul-mods-theme .mods-footer-note { color: var(--maul-muted); }
+      .maul-mods-theme .mods-footer-note a { color: var(--maul-rose-light); }
+      .maul-mods-theme .maul-page-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(14px,4vw,52px);
+        width: 100%;
+        margin: 50px auto 10px;
+        padding: 46px 0 24px;
+        border-top: 1px solid rgba(233,180,172,.25);
+        color: var(--maul-rose);
+      }
+      .maul-mods-theme .maul-page-footer::before,
+      .maul-mods-theme .maul-page-footer::after {
+        content: "";
+        display: block;
+        flex: 0 1 auto;
+        width: clamp(28px,10vw,118px);
+        height: 2px;
+        background: linear-gradient(90deg,transparent,var(--maul-rose));
+        opacity: .8;
+      }
+      .maul-mods-theme .maul-page-footer::after { transform: scaleX(-1); }
+      .maul-mods-theme .maul-page-footer p { margin: 0; color: var(--maul-rose); font: 700 clamp(.85rem,2.2vw,1.1rem)/1.5 Inter,system-ui,sans-serif; letter-spacing: .08em; white-space: nowrap; }
+      .maul-mods-theme .maul-page-footer .heart { color: var(--maul-rose-light); }
+      .maul-mods-theme .featured-spotlight-panel,
+      .maul-mods-theme .link-warning-card { border-color: rgba(233,180,172,.4); border-radius: 7px; background: #130b12; }
+      .maul-mods-theme .featured-spotlight-panel .card { border-radius: 0; }
+      .maul-mods-theme .link-warning-card .btn,
+      .maul-mods-theme .featured-spotlight-dismiss { border-radius: 6px; }
+      .maul-mods-theme .maul-shooting-star-layer { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+      .maul-mods-theme .maul-shooting-star {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: clamp(65px,13vw,125px);
+        height: 1px;
+        border-radius: 100%;
+        background: linear-gradient(90deg,transparent,rgba(233,180,172,.12) 20%,rgba(245,213,201,.76));
+        box-shadow: 0 0 6px rgba(233,180,172,.16);
+        transform-origin: right center;
+        animation: maulModsShootingStar 1400ms ease-out both;
+      }
+      .maul-mods-theme .maul-shooting-star::after { content: ""; position: absolute; right: 0; top: -1px; width: 3px; height: 3px; border-radius: 50%; background: rgba(255,231,225,.85); }
+      @keyframes maulModsShootingStar {
+        0% { opacity: 0; transform: translate3d(0,0,0) rotate(-25deg) scaleX(.65); }
+        12% { opacity: .78; }
+        68% { opacity: .6; }
+        100% { opacity: 0; transform: translate3d(var(--star-travel-x,190px),calc(-1 * var(--star-travel-y,90px)),0) rotate(-25deg) scaleX(1); }
+      }
+      @media (max-width: 760px) {
+        .maul-mods-theme .page-wrapper { width: calc(100% - 32px); padding: 36px 0 30px; }
+        body.maul-themed.maul-mods-theme .page-wrapper > .page-header { flex-direction: row; align-items: center; gap: 13px; padding: 0 0 24px; }
+        .maul-mods-theme .page-header h1 { font-size: clamp(2.1rem,7.9vw,3.2rem); }
+        .maul-mods-theme .page-header-subtitle { font-size: .88rem; line-height: 1.55; }
+        .maul-mods-theme .page-header .header-actions { display: flex; margin-top: 17px; }
+        .maul-mods-theme .page-header a.maul-hero-primary { width: auto; font-size: .8rem; min-height: 41px; padding: 9px 12px; }
+        .maul-mods-theme .hero-panel { width: clamp(75px,23vw,145px); flex: 0 0 auto; margin: 0; }
+        .maul-mods-theme .mods-category-nav { display: flex; flex-wrap: nowrap; gap: 7px; margin: 0 0 19px; padding: 0 0 12px; overflow-x: auto; scrollbar-width: thin; }
+        .maul-mods-theme .mods-category-nav a { flex: 0 0 auto; min-height: 40px; font-size: .75rem; }
+        .maul-mods-theme .mod-search { margin-bottom: 31px; }
+        .maul-mods-theme #featured-grid .featured-card { grid-template-columns: minmax(0,1fr); }
+        .maul-mods-theme #featured-grid .featured-card .thumb { height: 195px; min-height: 0; border-right: 0; border-bottom: 1px solid rgba(233,180,172,.16); }
+        .maul-mods-theme #featured-grid .featured-card .card-body { padding: 20px; }
+        .maul-mods-theme .grid { grid-template-columns: minmax(0,1fr); gap: 12px; }
+        .maul-mods-theme .mods-section { margin-bottom: 34px; }
+        .maul-mods-theme .mods-section-title { font-size: 1.55rem; }
+        .maul-mods-theme .card .thumb { height: 155px; }
+      }
+      @media (max-width: 420px) {
+        .maul-mods-theme .page-header h1 { font-size: clamp(1.9rem,7.7vw,2.6rem); }
+        .maul-mods-theme .hero-panel { width: clamp(70px,21vw,105px); }
+        .maul-mods-theme .featured-highlight-header { align-items: flex-start; gap: 12px; }
+        .maul-mods-theme .featured-highlight-pill { font-size: .69rem; padding: 6px 7px; }
+        .maul-mods-theme .mod-search-inner { gap: 7px; }
+        .maul-mods-theme .mod-search-count { min-width: 67px; padding: 7px 8px; font-size: .68rem; }
+        .maul-mods-theme .maul-page-footer { gap: 10px; }
+        .maul-mods-theme .maul-page-footer p { font-size: .81rem; letter-spacing: .035em; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .maul-mods-theme .page-header h1 .hero-title-line.hero-title-accent { animation: none; }
+        .maul-mods-theme .maul-shooting-star-layer { display: none; }
+      }
+    </style>
   </head>
 
-  <body class="maul-themed">
+  <body class="maul-themed maul-theme maul-mods-theme">
     <div id="navbar"></div>
+    <div class="maul-shooting-star-layer" aria-hidden="true"></div>
 
     <div class="page-wrapper">
       <header class="page-header maul-page-hero">
@@ -1124,33 +1494,10 @@ body.spotlight-open { overflow: hidden; }
                   href="https://github.com/Lotus-AU/LotusContinued?dhc-id=80400832587108366"
                   target="_blank"
                   rel="noopener"
-                >
-                  Github
-                </a>
-                <a
-                  class="btn release-btn"
-                  href="https://github.com/Lotus-AU/LotusContinued/releases/latest"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Latest
-                </a>
-                <a
-                  class="btn download-btn"
-                  href="https://github.com/Lotus-AU/LotusContinued/releases/latest"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Itch
-                </a>
-                <a
-                  class="btn download-btn"
-                  href="https://github.com/Lotus-AU/LotusContinued/releases/latest"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Epic / MS / Steam
-                </a>
+                >GitHub</a>
+                
+                
+                
               </div>
             </div>
           </article>
@@ -1165,7 +1512,7 @@ body.spotlight-open { overflow: hidden; }
 
         <div class="grid">
           <article class="card">
-            <div class="thumb thumb-wordmark" role="img" aria-label="TOHE:E">TOHE:E</div>
+            <img src="https://raw.githubusercontent.com/Sarhadactyl/MAULweb/main/awardimages/tohee.jpg" alt="TOHE:E artwork" class="thumb" loading="lazy" decoding="async" />
             <div class="card-body">
               <h3 class="title">Town of Host: Enhanced Enhanced</h3>
               <p class="sub">
@@ -1175,9 +1522,7 @@ body.spotlight-open { overflow: hidden; }
                 <a class="btn" href="https://github.com/Niko-s-Impostor-Server/TownofHost-Enhanced-Enhanced" target="_blank" rel="noopener">
                   GitHub
                 </a>
-                <a class="btn release-btn" href="https://github.com/Niko-s-Impostor-Server/TownofHost-Enhanced-Enhanced/releases/latest" target="_blank" rel="noopener">
-                  Latest
-                </a>
+                
                 <a class="btn" href="https://discord.com/invite/guf9ca4YSA" target="_blank" rel="noopener">
                   Discord
                 </a>
@@ -1198,9 +1543,7 @@ body.spotlight-open { overflow: hidden; }
                   href="https://github.com/Lotus-AU/LotusContinued?dhc-id=80400832587108366"
                   target="_blank"
                   rel="noopener"
-                >
-                  Github
-                </a>
+                >GitHub</a>
               </div>
             </div>
           </article>
@@ -1307,9 +1650,7 @@ body.spotlight-open { overflow: hidden; }
                   href="https://www.patreon.com/c/SuperNewRoles"
                   target="_blank"
                   rel="noopener"
-                >
-                  Support
-                </a>
+                >Sponsor</a>
                 <a
                   class="btn"
                   href="https://wiki.supernewroles.com/"
@@ -1454,22 +1795,13 @@ body.spotlight-open { overflow: hidden; }
                 >
                   Discord
                 </a>
-                <a
-                  class="btn"
-                  href="https://store.steampowered.com/app/3769780/Among_Us_Ranked/"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Steam
-                </a>
+                
                 <a
                   class="btn"
                   href="https://amongusranked.orianagames.com/leaderboards/roles"
                   target="_blank"
                   rel="noopener"
-                >
-                  Leaderboard
-                </a>
+                >Website</a>
               </div>
             </div>
           </article>
@@ -1539,14 +1871,7 @@ body.spotlight-open { overflow: hidden; }
                 >
                   Discord
                 </a>
-                <a 
-                class="btn release-btn" 
-                href="https://github.com/GMIA-Nexus/TheOtherRolesGMIA/releases/latest" 
-                target="_blank" 
-                rel="noopener"
-                >
-                  Latest
-                </a>
+                
               </div>
             </div>
           </article>
@@ -1591,15 +1916,9 @@ body.spotlight-open { overflow: hidden; }
                 <a class="btn" href="https://levelimposter.net/" target="_blank" rel="noopener">
                   Website
                 </a>
-                <a class="btn release-btn" href="https://github.com/DigiWorm0/LevelImposter/releases/tag/v1.0.1" target="_blank" rel="noopener">
-                  Release
-                </a>
-                <a class="btn download-btn" href="https://github.com/DigiWorm0/LevelImposter/releases/download/v1.0.1/LevelImposter.dll" target="_blank" rel="noopener">
-                  DLL
-                </a>
-                <a class="btn download-btn" href="https://github.com/DigiWorm0/LevelImposter/releases/download/v1.0.1/LevelImposter.zip" target="_blank" rel="noopener">
-                  ZIP
-                </a>
+                
+                
+                
                 <a class="btn" href="https://discord.gg/9PmZfufzNj" target="_blank" rel="noopener">
                   Discord
                 </a>
@@ -1647,18 +1966,12 @@ body.spotlight-open { overflow: hidden; }
                 <a class="btn" href="https://github.com/OvernightAU/MoveMod" target="_blank" rel="noopener">
                   GitHub
                 </a>
-                <a class="btn release-btn" href="https://github.com/OvernightAU/MoveMod/releases/tag/1.0.3" target="_blank" rel="noopener">
-                  Release
-                </a>
-                <a class="btn download-btn" href="https://github.com/OvernightAU/MoveMod/releases/download/1.0.3/MoveModPublic.dll" target="_blank" rel="noopener">
-                  DLL
-                </a>
+                
+                
                 <a class="btn" href="https://discord.gg/6RBQHqtqVx" target="_blank" rel="noopener">
                   Discord
                 </a>
-                <a class="btn" href="https://ko-fi.com/pietro420" target="_blank" rel="noopener">
-                  Ko-Fi
-                </a>
+                <a class="btn" href="https://ko-fi.com/pietro420" target="_blank" rel="noopener">Sponsor</a>
               </div>
             </div>
           </article>
@@ -1709,9 +2022,7 @@ body.spotlight-open { overflow: hidden; }
                 Real-time AI chat translation for Among Us by HayashiUme. It translates outgoing and incoming lobby chat, supports Zhipu, OpenAI, DeepSeek, and OpenAI-compatible APIs, and uses GitHub for setup and API-key details.
               </p>
               <div class="preset-actions">
-                <a class="btn" href="https://github.com/HayashiUme/TranslateUs" target="_blank" rel="noopener">
-                  GitHub info
-                </a>
+                <a class="btn" href="https://github.com/HayashiUme/TranslateUs" target="_blank" rel="noopener">GitHub</a>
               </div>
             </div>
           </article>
@@ -1875,9 +2186,7 @@ body.spotlight-open { overflow: hidden; }
                 <a class="btn" href="https://discord.com/invite/vwWXs8Z" target="_blank" rel="noopener">
                   Discord
                 </a>
-                <a class="btn" href="https://automute.us/premium" target="_blank" rel="noopener">
-                  Premium
-                </a>
+                
               </div>
             </div>
           </article>
@@ -1912,9 +2221,7 @@ body.spotlight-open { overflow: hidden; }
                 <a class="btn" href="https://au-avengers.github.io/docs.toum.gg/" target="_blank" rel="noopener">
                   Wiki
                 </a>
-                <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">
-                  Ko-Fi
-                </a>
+                <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">Sponsor</a>
               </div>
             </div>
           </article>
@@ -1931,7 +2238,7 @@ body.spotlight-open { overflow: hidden; }
                 <a class="btn" href="https://app.gurge44.eu/" target="_blank" rel="noopener">Website</a>
                 <a class="btn" href="https://discord.gg/BZHKm9uxre" target="_blank" rel="noopener">Discord</a>
                 <a class="btn" href="https://ehr-wiki.gurge44.eu/" target="_blank" rel="noopener">Wiki</a>
-                <a class="btn" href="https://patreon.com/EndlessHostRoles" target="_blank" rel="noopener">Donate</a>
+                <a class="btn" href="https://patreon.com/EndlessHostRoles" target="_blank" rel="noopener">Sponsor</a>
               </div>
             </div>
           </article>
@@ -1950,9 +2257,7 @@ body.spotlight-open { overflow: hidden; }
                 <a class="btn" href="https://discord.gg/s27fUArwXn" target="_blank" rel="noopener">
                   Discord
                 </a>
-                <a class="btn" href="https://www.patreon.com/cw/SuperNewRoles" target="_blank" rel="noopener">
-                  Patreon
-                </a>
+                <a class="btn" href="https://www.patreon.com/cw/SuperNewRoles" target="_blank" rel="noopener">Sponsor</a>
                 <a class="btn" href="https://wiki.supernewroles.com/ja/home" target="_blank" rel="noopener">
                   Wiki
                 </a>
@@ -1967,6 +2272,9 @@ body.spotlight-open { overflow: hidden; }
               <p class="sub">
                 Added to the Starlight catalog for MAUL players who use TOHO in modded lobbies.
               </p>
+              <div class="preset-actions">
+                <a class="btn" href="https://github.com/Limeau/TownofHost-Optimized" target="_blank" rel="noopener">GitHub</a>
+              </div>
             </div>
           </article>
 
@@ -1984,9 +2292,7 @@ body.spotlight-open { overflow: hidden; }
                 <a class="btn" href="https://discord.com/invite/w7msq53dq7" target="_blank" rel="noopener">
                   Discord
                 </a>
-                <a class="btn release-btn" href="https://github.com/GMIA-Nexus/TheOtherRolesGMIA/releases/latest" target="_blank" rel="noopener">
-                  Latest
-                </a>
+                
               </div>
             </div>
           </article>
@@ -2114,9 +2420,7 @@ body.spotlight-open { overflow: hidden; }
                 Adds new roles while keeping the vanilla feel, with original ideas and reworked popular roles.
               </p>
               <div class="preset-actions">
-                <a class="btn" href="https://starlight.allofus.dev/api/v3/mods/com.missingpixel.stargazer" target="_blank" rel="noopener">
-                  Starlight
-                </a>
+                <a class="btn" href="https://github.com/WanderingPix/ReachForStars" target="_blank" rel="noopener">GitHub</a>
               </div>
             </div>
           </article>
@@ -2171,7 +2475,7 @@ body.spotlight-open { overflow: hidden; }
               <p class="sub">A host only mod with a smaller, simpler selection of roles based on TONE.</p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/ColoursStick/Brush-Up-Roles" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a class="btn" href="https://github.com/ColoursStick/Brush-Up-Roles/releases/latest" target="_blank" rel="noopener noreferrer">Latest</a>
+                
               </div>
             </div>
           </article>
@@ -2294,7 +2598,7 @@ body.spotlight-open { overflow: hidden; }
                 <a class="btn" href="https://github.com/Lotus-AU/LotusCosmeticsAddon" target="_blank" rel="noopener">GitHub</a>
                 <a class="btn" href="https://discord.gg/projectlotus" target="_blank" rel="noopener">Discord</a>
                 <a class="btn" href="https://lotusau.top/" target="_blank" rel="noopener">Website</a>
-                <a class="btn" href="https://youtube.com/@project-lotus" target="_blank" rel="noopener">YouTube</a>
+                
               </div>
             </div>
           </article>
@@ -2306,7 +2610,7 @@ body.spotlight-open { overflow: hidden; }
               <p class="sub">&quot;An addon for Project: Lotus that adds additional roles&quot;</p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/citriondragon/lotusbloom" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a class="btn" href="https://github.com/citriondragon/lotusbloom/releases/latest" target="_blank" rel="noopener noreferrer">Latest</a>
+                
               </div>
             </div>
           </article>
@@ -2318,7 +2622,7 @@ body.spotlight-open { overflow: hidden; }
               <p class="sub">An addon for Project: Lotus which adds new content, features, and roles.</p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/ThetaHalo/Violet" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a class="btn" href="https://github.com/ThetaHalo/Violet/releases/latest" target="_blank" rel="noopener noreferrer">Latest</a>
+                
               </div>
             </div>
           </article>
@@ -2355,7 +2659,7 @@ body.spotlight-open { overflow: hidden; }
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/All-Of-Us-Mods/MiraAPI" target="_blank" rel="noopener">GitHub</a>
                 <a class="btn" href="https://allofus.dev/" target="_blank" rel="noopener">Website</a>
-                <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">Donate</a>
+                <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">Sponsor</a>
                 <a class="btn" href="https://github.com/All-Of-Us-Mods/MiraAPI/wiki" target="_blank" rel="noopener">Wiki</a>
                 <a class="btn" href="https://discord.gg/AEfHJGwggC" target="_blank" rel="noopener">Discord</a>
               </div>
@@ -2470,9 +2774,7 @@ body.spotlight-open { overflow: hidden; }
                 <a class="btn" href="https://www.xtracube.dev/" target="_blank" rel="noopener">
                   Website
                 </a>
-                <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">
-                  Ko-Fi
-                </a>
+                <a class="btn" href="https://ko-fi.com/allofusmods" target="_blank" rel="noopener">Sponsor</a>
                 <a class="btn" href="https://discord.gg/NxdE43Gw" target="_blank" rel="noopener">
                   Discord
                 </a>
@@ -2506,7 +2808,7 @@ body.spotlight-open { overflow: hidden; }
               </p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/OvernightAU/MoveMod" target="_blank" rel="noopener">GitHub</a>
-                <a class="btn" href="https://ko-fi.com/pietro420" target="_blank" rel="noopener">Donate</a>
+                <a class="btn" href="https://ko-fi.com/pietro420" target="_blank" rel="noopener">Sponsor</a>
               </div>
             </div>
           </article>
@@ -2799,7 +3101,7 @@ body.spotlight-open { overflow: hidden; }
               <p class="sub">Connects your game to the AutoMuteUs Discord bot, so it mutes and unmutes players automatically.</p>
               <div class="preset-actions">
                 <a class="btn" href="https://github.com/automuteus/capture-mod" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a class="btn" href="https://github.com/automuteus/capture-mod/releases/latest" target="_blank" rel="noopener noreferrer">Latest</a>
+                
               </div>
             </div>
           </article>
@@ -2955,14 +3257,7 @@ body.spotlight-open { overflow: hidden; }
                 >
                   GitHub
                 </a>
-                <a
-                  class="btn release-btn"
-                  href="https://github.com/All-Of-Us-Mods/Starlight-PC/releases/latest"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Release
-                </a>
+                
                 <a class="btn" href="https://discord.gg/7p99epZ34c" target="_blank" rel="noopener">
                   Discord
                 </a>
@@ -2978,14 +3273,7 @@ body.spotlight-open { overflow: hidden; }
                 A release-based mod manager for Among Us players who want a simpler way to grab and maintain modded installs.
               </p>
               <div class="preset-actions">
-                <a
-                  class="btn release-btn"
-                  href="https://github.com/rewalo/BeanModManager/releases"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Releases
-                </a>
+                
                 <a class="btn" href="https://discord.gg/ayjhHYwj4E" target="_blank" rel="noopener">
                   Discord
                 </a>
@@ -3004,9 +3292,7 @@ body.spotlight-open { overflow: hidden; }
                 <a class="btn" href="https://github.com/JarneDEVsys/ModManager/" target="_blank" rel="noopener">
                   GitHub
                 </a>
-                <a class="btn" href="https://ko-fi.com/jarnemm" target="_blank" rel="noopener">
-                  Ko-Fi
-                </a>
+                <a class="btn" href="https://ko-fi.com/jarnemm" target="_blank" rel="noopener">Sponsor</a>
                 <a class="btn" href="https://discord.gg/pn3JM9RbsK" target="_blank" rel="noopener">
                   Discord
                 </a>
@@ -3168,11 +3454,7 @@ body.spotlight-open { overflow: hidden; }
         or email us at admin@moddedamong.us.
       </p>
 
-      <footer class="maul-credit-footer">
-        <div class="footer-inner">
-          <p>Made with ♡ by Maul</p>
-        </div>
-      </footer>
+      <footer class="maul-page-footer" aria-label="MAUL footer"><p>Made with <span class="heart">♡</span> by Maul</p></footer>
     </div>
 
     <div class="featured-spotlight" id="featured-spotlight" role="dialog" aria-modal="true" aria-labelledby="featured-spotlight-title" aria-hidden="true">
@@ -3210,584 +3492,6 @@ body.spotlight-open { overflow: hidden; }
     </script>
 
     <script>
-      const starlightReleaseLinks = {
-        "Town of Host": [
-          ["Latest release", "https://github.com/tukasa0001/TownOfHost/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/tukasa0001/TownOfHost/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic", "https://github.com/tukasa0001/TownOfHost/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Town of Host: Y": [
-          ["Latest release", "https://github.com/Yumenopai/TownOfHost_Y/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Download", "https://github.com/Yumenopai/TownOfHost_Y/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Town of Host: Optimized": [
-          ["Latest release", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["DLL", "https://github.com/Limeau/TownofHost-Optimized/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "More GameModes": [
-          ["Latest release", "https://github.com/Rabek009/MoreGamemodes/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/Rabek009/MoreGamemodes/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/Rabek009/MoreGamemodes/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Endless Host Roles": [
-          ["Latest release", "https://github.com/Gurge44/EndlessHostRoles/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/Gurge44/EndlessHostRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/Gurge44/EndlessHostRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Mono", "https://github.com/Gurge44/EndlessHostRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Mono DLL", "https://github.com/Gurge44/EndlessHostRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Town of Host: Enhanced": [
-          ["Latest release", "https://github.com/EnhancedNetwork/TownofHost-Enhanced/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/EnhancedNetwork/TownofHost-Enhanced/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/EnhancedNetwork/TownofHost-Enhanced/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "TOU-Mira": [
-          ["Latest release", "https://github.com/AU-Avengers/TOU-Mira/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/AU-Avengers/TOU-Mira/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/AU-Avengers/TOU-Mira/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Town of Us: Mira": [
-          ["Latest release", "https://github.com/AU-Avengers/TOU-Mira/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/AU-Avengers/TOU-Mira/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/AU-Avengers/TOU-Mira/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Launchpad Reloaded": [
-          ["Latest release", "https://github.com/All-Of-Us-Mods/LaunchpadReloaded/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/All-Of-Us-Mods/LaunchpadReloaded/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "AUnlocker": [
-          ["Latest release", "https://github.com/astra1dev/AUnlocker/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/astra1dev/AUnlocker/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS / Xbox", "https://github.com/astra1dev/AUnlocker/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "NewMod": [
-          ["Latest release", "https://github.com/CallOfCreator/NewMod/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Download", "https://github.com/CallOfCreator/NewMod/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["MS Store", "https://github.com/CallOfCreator/NewMod/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Localize Us!": [
-          ["Latest release", "https://github.com/AU-Avengers/LocalizeUs/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/AU-Avengers/LocalizeUs/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "FlashlightUs": [
-          ["Latest release", "https://github.com/ThetaHalo/FlashlightUs/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/ThetaHalo/FlashlightUs/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/ThetaHalo/FlashlightUs/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["DLL", "https://github.com/ThetaHalo/FlashlightUs/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Host Utility": [
-          ["Latest release", "https://github.com/WanderingPix/Host-Utility/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/WanderingPix/Host-Utility/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Syzyfowy Town Of Us": [
-          ["Latest release", "https://github.com/LimeShep/Town-Of-Us/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["x64", "https://github.com/LimeShep/Town-Of-Us/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["x32", "https://github.com/LimeShep/Town-Of-Us/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Super New Roles": [
-          ["Latest release", "https://github.com/SuperNewRoles/SuperNewRoles/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/SuperNewRoles/SuperNewRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic", "https://github.com/SuperNewRoles/SuperNewRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "The Other Roles": [
-          ["Latest release", "https://github.com/TheOtherRolesAU/TheOtherRoles/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Download", "https://github.com/TheOtherRolesAU/TheOtherRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["MS Store", "https://github.com/TheOtherRolesAU/TheOtherRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Town of Us: Reactivated": [
-          ["Latest release", "https://github.com/eDonnes124/Town-Of-Us-R/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Download", "https://github.com/eDonnes124/Town-Of-Us-R/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "All The Roles": [
-          ["Latest release", "https://github.com/Zeo666/AllTheRoles/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/Zeo666/AllTheRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/Zeo666/AllTheRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Cosmetics", "https://github.com/Zeo666/AllTheRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Stellar Roles": [
-          ["Latest release", "https://github.com/Mr-Fluuff/StellarRolesAU/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/Mr-Fluuff/StellarRolesAU/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic", "https://github.com/Mr-Fluuff/StellarRolesAU/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["DLL", "https://github.com/Mr-Fluuff/StellarRolesAU/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Submerged": [
-          ["Latest release", "https://github.com/SubmergedAmongUs/Submerged/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/SubmergedAmongUs/Submerged/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/SubmergedAmongUs/Submerged/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "yanplaRoles": [
-          ["Latest release", "https://github.com/yanpla/yanplaRoles/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["ZIP", "https://github.com/yanpla/yanplaRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["DLL", "https://github.com/yanpla/yanplaRoles/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Project Lotus": [
-          ["Latest release", "https://github.com/Lotus-AU/LotusContinued/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/Lotus-AU/LotusContinued/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/Lotus-AU/LotusContinued/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "BetterCrewLink": [
-          ["Latest release", "https://github.com/OhMyGuus/BetterCrewLink/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Windows", "https://github.com/OhMyGuus/BetterCrewLink/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Crowded Mod": [
-          ["Latest release", "https://github.com/CrowdedMods/CrowdedMod/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/CrowdedMods/CrowdedMod/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Better Among Us": [
-          ["Latest release", "https://github.com/D1GQ/BetterAmongUs/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/D1GQ/BetterAmongUs/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/D1GQ/BetterAmongUs/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["DLL", "https://github.com/D1GQ/BetterAmongUs/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Among Us Revamped": [
-          ["Latest release", "https://github.com/ApeMV/AmongUsRevamped/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam / Itch", "https://github.com/ApeMV/AmongUsRevamped/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS / Xbox", "https://github.com/ApeMV/AmongUsRevamped/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["DLL", "https://github.com/ApeMV/AmongUsRevamped/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "AleLuduMod": [
-          ["Latest release", "https://github.com/townofus-pl/AleLuduMod/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/townofus-pl/AleLuduMod/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "The Other Roles: GM IA": [
-          ["Latest release", "https://github.com/GMIA-Nexus/TheOtherRolesGMIA/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["ZIP", "https://github.com/GMIA-Nexus/TheOtherRolesGMIA/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["DLL", "https://github.com/GMIA-Nexus/TheOtherRolesGMIA/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Divani Mods": [
-          ["DLL", "https://github.com/DivaniNL/TownOfUsMiraDivaniModsAddOn/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Latest release", "https://github.com/DivaniNL/TownOfUsMiraDivaniModsAddOn/releases/latest", "fa-solid fa-tag", "release-btn"],
-        ],
-        "Corsac Cosmetics": [
-          ["DLL", "https://github.com/XtraCube/CorsacCosmetics/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Latest release", "https://github.com/XtraCube/CorsacCosmetics/releases/latest", "fa-solid fa-tag", "release-btn"],
-        ],
-        "Remong Us": [
-          ["DLL", "https://github.com/Limeau/RemongUs/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Latest release", "https://github.com/Limeau/RemongUs/releases/latest", "fa-solid fa-tag", "release-btn"],
-        ],
-        "Entropy": [
-          ["DLL", "https://github.com/yanpla/Entropy/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Latest release", "https://github.com/yanpla/Entropy/releases/latest", "fa-solid fa-tag", "release-btn"],
-        ],
-        "Wilder Draft": [
-          ["DLL", "https://github.com/WanderingPix/Wilder-Draft/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Latest release", "https://github.com/WanderingPix/Wilder-Draft/releases/latest", "fa-solid fa-tag", "release-btn"],
-        ],
-          "Town of Host: Enhanced Enhanced": [
-              ["DLL", "https://github.com/Niko-s-Impostor-Server/TownofHost-Enhanced-Enhanced/releases/latest", "fa-solid fa-download", "download-btn"],
-              ["Latest release", "https://github.com/Niko-s-Impostor-Server/TownofHost-Enhanced-Enhanced/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ],
-        "Among Chess Reactivated": [
-          ["Latest release", "https://github.com/FangkuaiYa/Among-Chess-R/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/FangkuaiYa/Among-Chess-R/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["ZIP", "https://github.com/FangkuaiYa/Among-Chess-R/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "AutoMuteUs Capture": [
-          ["Latest release", "https://github.com/automuteus/capture-mod/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/automuteus/capture-mod/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "BeanNinja": [
-          ["Latest release", "https://github.com/Limeau/BeanNinja/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/Limeau/BeanNinja/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/Limeau/BeanNinja/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["DLL", "https://github.com/Limeau/BeanNinja/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Brush Up Roles (BUR)": [
-          ["Latest release", "https://github.com/ColoursStick/Brush-Up-Roles/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["x64", "https://github.com/ColoursStick/Brush-Up-Roles/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["DLL", "https://github.com/ColoursStick/Brush-Up-Roles/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["ZIP", "https://github.com/ColoursStick/Brush-Up-Roles/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Chaos Tokens": [
-          ["Latest release", "https://github.com/xChipseq/ChaosTokens/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/xChipseq/ChaosTokens/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Colors Of Joy": [
-          ["Latest release", "https://github.com/WanderingPix/Colors-Of-Joy/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/WanderingPix/Colors-Of-Joy/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Crewmeleon": [
-          ["Latest release", "https://github.com/OBit508/Crewmeleon/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Steam", "https://github.com/OBit508/Crewmeleon/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS", "https://github.com/OBit508/Crewmeleon/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["DLL", "https://github.com/OBit508/Crewmeleon/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Crewmeleon: Redrawn": [
-          ["Latest release", "https://github.com/All-Of-Us-Mods/Crewmeleon-Redrawn/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/All-Of-Us-Mods/Crewmeleon-Redrawn/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["ZIP", "https://github.com/All-Of-Us-Mods/Crewmeleon-Redrawn/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Cursed Among Us Continued": [
-          ["Latest release", "https://github.com/XiezibanWrite/Cursed-Among-Us-Continued/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/XiezibanWrite/Cursed-Among-Us-Continued/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["ZIP", "https://github.com/XiezibanWrite/Cursed-Among-Us-Continued/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Custom Cosmetics": [
-          ["Latest release", "https://github.com/mxyx-club/CustomCosmetics/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Cosmetics", "https://github.com/mxyx-club/CustomCosmetics/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Emojis In The Chat": [
-          ["Latest release", "https://github.com/WanderingPix/Emojis-in-the-mogus-chat/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/WanderingPix/Emojis-in-the-mogus-chat/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Emojis Mod: Rewritten": [
-          ["Latest release", "https://github.com/Reach-For-Stars-Team/Emojis-Mod-Rewritten/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/Reach-For-Stars-Team/Emojis-Mod-Rewritten/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Emotes Mod": [
-          ["Latest release", "https://github.com/Reach-For-Stars-Team/Emotes-Mod/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/Reach-For-Stars-Team/Emotes-Mod/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Final Suspect": [
-          ["Latest release", "https://github.com/Slok7565/FinalSuspect/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/Slok7565/FinalSuspect/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["ZIP", "https://github.com/Slok7565/FinalSuspect/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "LevelImposter": [
-          ["Latest release", "https://github.com/DigiWorm0/LevelImposter/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/DigiWorm0/LevelImposter/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["ZIP", "https://github.com/DigiWorm0/LevelImposter/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Lotus Bloom": [
-          ["Latest release", "https://github.com/citriondragon/lotusbloom/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/citriondragon/lotusbloom/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Mira Notepad": [
-          ["DLL", "https://github.com/Maxi0fc/Mira-NotePad/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Latest release", "https://github.com/Maxi0fc/Mira-NotePad/releases/latest", "fa-solid fa-tag", "release-btn"],
-        ],
-        "Mira Unleashed": [
-          ["Latest release", "https://github.com/rewalo/TownOfUsMiraUnleashed/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/rewalo/TownOfUsMiraUnleashed/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "MoveMod": [
-          ["Latest release", "https://github.com/OvernightAU/MoveMod/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/OvernightAU/MoveMod/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Overloaded": [
-          ["Latest release", "https://github.com/All-Of-Us-Mods/Overloaded/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/All-Of-Us-Mods/Overloaded/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Poké Lobby": [
-          ["Latest release", "https://github.com/XtraCube/PokemongUs/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/XtraCube/PokemongUs/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Smol Mod": [
-          ["Latest release", "https://github.com/XtraCube/SmolMod/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/XtraCube/SmolMod/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Stargazer": [
-          ["Latest release", "https://github.com/WanderingPix/ReachForStars/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/WanderingPix/ReachForStars/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Town of Extra": [
-          ["Latest release", "https://github.com/Mehzxzz/TownOfExtra/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Download", "https://github.com/Mehzxzz/TownOfExtra/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Town Of Next": [
-          ["Latest release", "https://github.com/TownOfNext/TownOfNext/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["x64", "https://github.com/TownOfNext/TownOfNext/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Windows", "https://github.com/TownOfNext/TownOfNext/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["DLL", "https://github.com/TownOfNext/TownOfNext/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Town of Next: Edited": [
-          ["Latest release", "https://github.com/qin-qwq/TownofNext-Edited/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["Itch", "https://github.com/qin-qwq/TownofNext-Edited/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["Epic / MS / Steam", "https://github.com/qin-qwq/TownofNext-Edited/releases/latest", "fa-solid fa-download", "download-btn"],
-          ["DLL", "https://github.com/qin-qwq/TownofNext-Edited/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-        "Violet": [
-          ["Latest release", "https://github.com/ThetaHalo/Violet/releases/latest", "fa-solid fa-tag", "release-btn"],
-          ["DLL", "https://github.com/ThetaHalo/Violet/releases/latest", "fa-solid fa-download", "download-btn"],
-        ],
-      };
-
-      const getGitHubDownloadDetails = (href) => {
-        const downloadMatch = href.match(/^https:\/\/github\.com\/([^/]+\/[^/]+)\/releases\/download\/[^/]+\/(.+)$/i);
-        if (downloadMatch) {
-          return {
-            repo: downloadMatch[1],
-            assetName: decodeURIComponent(downloadMatch[2].split(/[?#]/)[0])
-          };
-        }
-        const latestMatch = href.match(/^https:\/\/github\.com\/([^/]+\/[^/]+)\/releases\/latest$/i);
-        return latestMatch ? { repo: latestMatch[1], assetName: "" } : null;
-      };
-
-      const githubDownloadCards = [];
-      const compactLabels = {
-        "Latest release": "Latest"
-      };
-      const fallbackPlatformDownloadLabels = {
-        "Steam": "Epic / MS / Steam",
-        "Epic": "Epic / MS / Steam",
-        "Epic / MS": "Epic / MS / Steam",
-        "Epic / MS / Xbox": "Epic / MS / Steam",
-        "MS Store": "Epic / MS / Steam"
-      };
-      const autoDownloadOrder = [
-        "Itch",
-        "Steam / Itch",
-        "Epic / MS / Steam",
-        "Mono",
-        "Steam / Epic",
-        "Epic / MS",
-        "MS / Steam",
-        "Steam",
-        "Epic",
-        "MS Store",
-        "x64",
-        "x32",
-        "Windows",
-        "Cosmetics",
-        "DLL",
-        "Mono DLL",
-        "ZIP",
-        "Download"
-      ];
-      const preservedFallbackDownloadLabels = new Set(["DLL", "Itch", "Steam / Itch"]);
-      const platformFallbackDownloadLabels = new Set([
-        "Steam",
-        "Epic",
-        "Epic / MS",
-        "Epic / MS / Xbox",
-        "MS Store",
-        "Steam / Itch"
-      ]);
-      const repoFallbackLabelOverrides = {
-        "AU-Avengers/TOU-Mira": ["Steam / Itch", "Epic / MS", "x32", "DLL"],
-        "ApeMV/AmongUsRevamped": ["Itch", "Epic / MS / Steam", "DLL"],
-        "CallOfCreator/NewMod": ["DLL"],
-        "D1GQ/BetterAmongUs": ["Itch", "Epic / MS / Steam", "DLL"],
-        "Dolly1016/Nebula": ["ZIP", "DLL"],
-        "EnhancedNetwork/TownofHost-Enhanced": ["Steam / Itch", "Epic / MS", "DLL"],
-        "Gurge44/EndlessHostRoles": ["Itch", "Epic / MS / Steam", "Mono", "Windows", "DLL", "Mono DLL"],
-        "LimeShep/Town-Of-Us": ["x64", "x32", "DLL"],
-        "Limeau/RemongUs": ["Steam", "Epic / MS", "DLL"],
-        "Limeau/TownofHost-Optimized": ["ZIP", "DLL"],
-        "Lotus-AU/LotusContinued": ["Steam", "Epic / MS", "DLL"],
-        "Mr-Fluuff/StellarRolesAU": ["Steam", "Epic", "DLL"],
-        "Rabek009/MoreGamemodes": ["Steam / Itch", "Epic / MS", "DLL"],
-        "SubmergedAmongUs/Submerged": ["Steam / Itch", "Epic / MS", "DLL"],
-        "SuperNewRoles/SuperNewRoles": ["Steam", "Epic", "DLL"],
-        "TheOtherRolesAU/TheOtherRoles": ["ZIP", "MS Store", "DLL"],
-        "ThetaHalo/FlashlightUs": ["Steam", "Epic / MS", "DLL"],
-        "Yumenopai/TownOfHost_Y": ["ZIP", "DLL"],
-        "Zeo666/AllTheRoles": ["Steam / Itch", "Epic / MS", "Cosmetics"],
-        "astra1dev/AUnlocker": ["Steam / Itch", "Epic / MS", "DLL"],
-        "eDonnes124/Town-Of-Us-R": ["ZIP", "DLL"],
-        "rewalo/TownOfUsMiraRolesExtension": ["Steam / Itch", "Epic / MS", "x32", "DLL"],
-        "tukasa0001/TownOfHost": ["Steam", "Epic", "DLL"]
-      };
-      const repoFallbackAssetHints = {
-        "Gurge44/EndlessHostRoles": {
-          "Mono": "EHR.v8.0.3_Mono.zip",
-          "DLL": "EHR.dll",
-          "Mono DLL": "EHR-Mono.dll"
-        },
-        "AU-Avengers/TOU-Mira": { "DLL": "TownOfUsMira.dll" },
-        "Lotus-AU/LotusContinued": { "DLL": "Lotus.dll" },
-        "ThetaHalo/FlashlightUs": { "DLL": "FlashlightUs.dll" }
-      };
-
-      const normalizeFallbackDownloadLabel = (label) =>
-        fallbackPlatformDownloadLabels[label] || compactLabels[label] || label;
-
-      const appendActionLink = (actions, existing, {
-        label,
-        href,
-        icon,
-        extraClass,
-        title,
-        repo,
-        assetFlavor,
-        assetName,
-        autoDownload
-      }) => {
-        const absoluteHref = new URL(href, window.location.href).href;
-        if (existing.has(`${absoluteHref}|${label}`)) return null;
-
-        const link = document.createElement("a");
-        link.className = `btn ${extraClass}`.trim();
-        link.href = href;
-        link.target = "_blank";
-        link.rel = "noopener";
-        if (repo) link.dataset.githubRepo = repo;
-        if (assetFlavor) link.dataset.assetFlavor = assetFlavor;
-        if (assetName) link.dataset.assetName = assetName;
-        if (autoDownload) link.dataset.autoDownload = autoDownload;
-        link.textContent = label;
-        link.title = title || label;
-        existing.add(`${absoluteHref}|${label}`);
-        actions.appendChild(link);
-        return link;
-      };
-
-      const assetHas = (name, pattern) => pattern.test(name);
-
-      const classifyReleaseAsset = (asset) => {
-        const rawName = String(asset?.name || "");
-        const name = rawName.toLowerCase();
-        if (!rawName || !asset?.browser_download_url) return null;
-
-        const wantsItch = assetHas(name, /(^|[^a-z0-9])itch(io)?([^a-z0-9]|$)|itchio/i);
-        const wantsSteam = assetHas(name, /(^|[^a-z0-9])steam([^a-z0-9]|$)/i);
-        const wantsEpic = assetHas(name, /(^|[^a-z0-9])epic(games?)?([^a-z0-9]|$)|epicgames/i);
-        const wantsMs = assetHas(name, /(^|[^a-z0-9])(ms|msstore|microsoft|xbox)([^a-z0-9]|$)|microsoftstore|xboxapp/i);
-        const wantsX64 = assetHas(name, /(^|[^a-z0-9])(x64|win64|64bit|64-bit)([^a-z0-9]|$)/i);
-        const wantsX32 = assetHas(name, /(^|[^a-z0-9])(x32|x86|win32|32bit|32-bit)([^a-z0-9]|$)/i);
-        const wantsCosmetics = name.includes("cosmetic");
-        const wantsWindows = /\.(exe|msi)$/i.test(rawName) || name.includes("setup") || name.includes("windows");
-        const wantsDll = /\.dll$/i.test(rawName);
-        const wantsZip = /\.(zip|rar|7z)$/i.test(rawName);
-        const wantsMono = assetHas(name, /(^|[^a-z0-9])mono([^a-z0-9]|$)/i);
-
-        let label = "";
-        if (wantsMono && wantsDll) label = "Mono DLL";
-        else if (wantsMono && wantsZip) label = "Mono";
-        else if (wantsItch && wantsSteam && !wantsEpic && !wantsMs) label = "Steam / Itch";
-        else if (wantsItch && !wantsSteam) label = "Itch";
-        else if (wantsSteam && wantsEpic && wantsMs) label = "Epic / MS / Steam";
-        else if (wantsSteam && wantsEpic) label = "Steam / Epic";
-        else if (wantsEpic && wantsMs) label = "Epic / MS";
-        else if (wantsSteam && wantsMs) label = "MS / Steam";
-        else if (wantsSteam) label = "Steam";
-        else if (wantsEpic) label = "Epic";
-        else if (wantsMs) label = "MS Store";
-        else if (wantsX64) label = "x64";
-        else if (wantsX32) label = "x32";
-        else if (wantsWindows) label = "Windows";
-        else if (wantsDll) label = "DLL";
-        else if (wantsCosmetics) label = "Cosmetics";
-        else if (wantsZip) label = rawName.toLowerCase().endsWith(".zip") ? "ZIP" : "Download";
-        if (!label) return null;
-
-        return {
-          label,
-          href: asset.browser_download_url,
-          icon: "fa-solid fa-download",
-          extraClass: "download-btn",
-          title: `Latest ${label}: ${rawName}`,
-          assetFlavor: label,
-          assetName: rawName,
-          order: autoDownloadOrder.indexOf(label)
-        };
-      };
-
-      const getReleaseDownloadButtons = (release) => {
-        const assets = Array.isArray(release?.assets) ? release.assets : [];
-        const byLabel = new Map();
-        assets.map(classifyReleaseAsset).filter(Boolean).forEach((button) => {
-          if (!byLabel.has(button.label)) byLabel.set(button.label, button);
-        });
-        return [...byLabel.values()].sort((a, b) => {
-          const aOrder = a.order < 0 ? Number.MAX_SAFE_INTEGER : a.order;
-          const bOrder = b.order < 0 ? Number.MAX_SAFE_INTEGER : b.order;
-          return aOrder - bOrder || a.label.localeCompare(b.label);
-        });
-      };
-
-      const replaceFallbackDownloadButtons = (actions, repo, buttons) => {
-        if (!buttons.length) return false;
-        const githubLabels = new Set(buttons.map((button) => button.label));
-        actions.querySelectorAll("a[data-auto-download='fallback']").forEach((link) => {
-          if (link.dataset.githubRepo !== repo) return;
-          const label = link.dataset.assetFlavor || link.textContent.trim();
-          const shouldPreserve = preservedFallbackDownloadLabels.has(label) && !githubLabels.has(label);
-          if (!shouldPreserve) link.remove();
-        });
-        const existing = new Set([...actions.querySelectorAll("a")].map((link) => `${link.href}|${link.textContent.trim()}`));
-        buttons.forEach((button) => {
-          appendActionLink(actions, existing, {
-            ...button,
-            repo,
-            autoDownload: "github"
-          });
-        });
-        return true;
-      };
-
-      document.querySelectorAll(".card").forEach((card) => {
-        const title = card.querySelector(".title")?.textContent.trim();
-        if (card.querySelector(".deprecated-tag") || card.closest("#deprecated-mods")) return;
-        const links = starlightReleaseLinks[title];
-        if (!links) return;
-        let actions = card.querySelector(".preset-actions");
-        if (!actions) {
-          actions = document.createElement("div");
-          actions.className = "preset-actions";
-          card.querySelector(".card-body")?.appendChild(actions);
-        }
-        const existing = new Set([...actions.querySelectorAll("a")].map((link) => `${link.href}|${link.textContent.trim()}`));
-        const cardRepos = new Set();
-        const platformCardRepos = new Set();
-        const overrideCardRepos = new Set();
-        links.forEach(([label, href, icon, extraClass]) => {
-          const displayLabel = extraClass?.includes("download-btn")
-            ? normalizeFallbackDownloadLabel(label)
-            : (compactLabels[label] || label);
-          const downloadDetails = extraClass?.includes("download-btn")
-            ? getGitHubDownloadDetails(href)
-            : null;
-          const linkHref = downloadDetails
-            ? `https://github.com/${downloadDetails.repo}/releases/latest`
-            : href;
-          if (downloadDetails) {
-            cardRepos.add(downloadDetails.repo);
-            if (repoFallbackLabelOverrides[downloadDetails.repo]) {
-              overrideCardRepos.add(downloadDetails.repo);
-              return;
-            }
-            if (platformFallbackDownloadLabels.has(label)) platformCardRepos.add(downloadDetails.repo);
-          }
-          appendActionLink(actions, existing, {
-            label: displayLabel,
-            href: linkHref,
-            icon,
-            extraClass,
-            title: downloadDetails ? `Latest ${displayLabel}` : label,
-            repo: downloadDetails?.repo,
-            assetFlavor: downloadDetails ? displayLabel : "",
-            assetName: downloadDetails?.assetName,
-            autoDownload: downloadDetails ? "fallback" : ""
-          });
-        });
-        overrideCardRepos.forEach((repo) => {
-          repoFallbackLabelOverrides[repo].forEach((label) => {
-            const assetName = repoFallbackAssetHints[repo]?.[label] || "";
-            appendActionLink(actions, existing, {
-              label,
-              href: `https://github.com/${repo}/releases/latest`,
-              icon: "fa-solid fa-download",
-              extraClass: "download-btn",
-              title: `Latest ${label}`,
-              repo,
-              assetFlavor: label,
-              assetName,
-              autoDownload: "fallback"
-            });
-          });
-        });
-        platformCardRepos.forEach((repo) => {
-          if (overrideCardRepos.has(repo)) return;
-          appendActionLink(actions, existing, {
-            label: "DLL",
-            href: `https://github.com/${repo}/releases/latest`,
-            icon: "fa-solid fa-download",
-            extraClass: "download-btn",
-            title: "Latest DLL",
-            repo,
-            assetFlavor: "DLL",
-            assetName: repoFallbackAssetHints[repo]?.DLL || "",
-            autoDownload: "fallback"
-          });
-        });
-        cardRepos.forEach((repo) => githubDownloadCards.push({ card, actions, repo }));
-      });
-
       const featuredScheduleNode = document.querySelector("#featured-mod-schedule");
       const featuredSection = document.querySelector("#featured-mod");
       const featuredHeading = document.querySelector("#featured-mod-heading");
@@ -4061,118 +3765,7 @@ body.spotlight-open { overflow: hidden; }
       const linkWarningCancel = document.querySelector("#link-warning-cancel");
       const linkWarningContinue = document.querySelector("#link-warning-continue");
       let pendingExternalLink = null;
-      const latestReleaseCache = new Map();
-
-      const downloadPattern = /\.(zip|dll|exe|msi|rar|7z)(\?|#|$)/i;
-      const isDownloadLink = (link) =>
-        link.classList.contains("download-btn") ||
-        link.href.includes("/releases/download/") ||
-        downloadPattern.test(link.href);
-
-      const getLatestRelease = async (repo) => {
-        if (!latestReleaseCache.has(repo)) {
-          latestReleaseCache.set(
-            repo,
-            fetch(`https://api.github.com/repos/${repo}/releases/latest`, {
-              headers: { Accept: "application/vnd.github+json" }
-            }).then((response) => {
-              if (!response.ok) throw new Error("Latest release unavailable");
-              return response.json();
-            })
-          );
-        }
-        return latestReleaseCache.get(repo);
-      };
-
-      const tokenizeAsset = (value) =>
-        value.toLowerCase().replace(/\.[a-z0-9]+$/i, "").replace(/[^a-z0-9]+/g, " ").split(" ").filter(Boolean);
-
-      const scoreAsset = (asset, flavor, originalAssetName) => {
-        const name = asset.name.toLowerCase();
-        const originalTokens = tokenizeAsset(originalAssetName)
-          .filter((token) => !/^(v?\d+|\d+|x86|x64|win64|win32|zip|dll|exe|msi|store|games?)$/.test(token));
-        let score = 0;
-
-        originalTokens.forEach((token) => {
-          if (name.includes(token)) score += 1;
-        });
-
-        const wantsSteam = /steam/i.test(flavor);
-        const wantsItch = /itch/i.test(flavor);
-        const wantsEpic = /epic/i.test(flavor);
-        const wantsMs = /\bms\b|microsoft|xbox/i.test(flavor);
-        const wantsSharedStore = wantsSteam && wantsEpic && wantsMs;
-        const wantsDll = /dll/i.test(flavor);
-        const wantsZip = /zip/i.test(flavor);
-        const wantsWindows = /windows/i.test(flavor);
-        const wantsCosmetics = /cosmetics/i.test(flavor);
-        const wantsStarlight = /starlight/i.test(flavor);
-        const wantsX64 = /x64/i.test(flavor);
-        const wantsX32 = /x32|x86/i.test(flavor);
-        const wantsMono = /(^|[^a-z0-9])mono([^a-z0-9]|$)/i.test(flavor);
-        const isMonoAsset = /(^|[^a-z0-9])mono([^a-z0-9]|$)/i.test(name);
-
-        if (wantsMono !== isMonoAsset) return Number.NEGATIVE_INFINITY;
-        if (wantsMono && (wantsDll ? !name.endsWith(".dll") : !/\.(zip|rar|7z)$/i.test(name))) {
-          return Number.NEGATIVE_INFINITY;
-        }
-        if (wantsMono) score += 30;
-
-        if (wantsSteam && name.includes("steam")) score += 18;
-        if (wantsItch && (name.includes("itch") || name.includes("itchio"))) score += 12;
-        if (wantsEpic && name.includes("epic")) score += 18;
-        if (wantsMs && (name.includes("ms") || name.includes("microsoft") || name.includes("xbox"))) score += 12;
-        if (wantsDll && name.endsWith(".dll")) score += 24;
-        if (wantsZip && name.endsWith(".zip")) score += 18;
-        if (wantsWindows && (name.endsWith(".exe") || name.includes("setup") || name.includes("windows"))) score += 18;
-        if (wantsCosmetics && name.includes("cosmetic")) score += 20;
-        if (wantsStarlight && name.includes("starlight")) score += 20;
-        if (wantsX64 && (name.includes("x64") || name.includes("64"))) score += 18;
-        if (wantsX32 && (name.includes("x32") || name.includes("x86") || name.includes("32"))) score += 18;
-        if (/download/i.test(flavor) && name.endsWith(".zip")) score += 8;
-
-        if (wantsSharedStore) {
-          if (name.includes("itch") || name.includes("itchio")) score -= 35;
-        } else {
-          if (wantsItch && (name.includes("steam") || name.includes("epic") || name.includes("microsoft") || name.includes("msstore") || name.includes("xbox"))) score -= 25;
-          if (wantsSteam && (name.includes("itch") || name.includes("epic") || name.includes("microsoft") || name.includes("msstore") || name.includes("xbox"))) score -= 25;
-          if ((wantsEpic || wantsMs) && (name.includes("steam") || name.includes("itch"))) score -= 25;
-        }
-        if (wantsDll && !name.endsWith(".dll")) score -= 20;
-        if (wantsZip && !name.endsWith(".zip")) score -= 12;
-        if (/download/i.test(flavor) && (name.includes("msstore") || name.includes("microsoft"))) score -= 8;
-
-        return score;
-      };
-
-      const resolveLatestDownloadUrl = async ({ repo, flavor, assetName = "" }) => {
-        if (!repo) return null;
-        const release = await getLatestRelease(repo);
-        const assets = Array.isArray(release.assets) ? release.assets : [];
-        if (!assets.length) return null;
-        const ranked = assets
-          .map((asset) => ({
-            asset,
-            score: scoreAsset(asset, flavor, assetName)
-          }))
-          .sort((a, b) => b.score - a.score);
-        return ranked[0]?.score > 0 ? ranked[0].asset.browser_download_url : null;
-      };
-
-      const hydrateGithubDownloadButtons = async () => {
-        if (!githubDownloadCards.length) return;
-        const updates = await Promise.allSettled(
-          githubDownloadCards.map(async ({ actions, repo }) => {
-            const release = await getLatestRelease(repo);
-            const buttons = getReleaseDownloadButtons(release);
-            return replaceFallbackDownloadButtons(actions, repo, buttons);
-          })
-        );
-        const changed = updates.some((update) => update.status === "fulfilled" && update.value);
-        if (changed) setupFeaturedMod({ openSpotlightOnReady: false });
-      };
-
-      hydrateGithubDownloadButtons();
+      const isDownloadLink = (link) => /\.(zip|dll|exe|msi|rar|7z)(\?|#|$)/i.test(link.href);
 
       const closeLinkWarning = () => {
         pendingExternalLink = null;
@@ -4186,10 +3779,7 @@ body.spotlight-open { overflow: hidden; }
         const download = isDownloadLink(link);
         pendingExternalLink = {
           href: link.href,
-          target: link.target || "_blank",
-          repo: link.dataset.githubRepo,
-          flavor: link.dataset.assetFlavor,
-          assetName: link.dataset.assetName
+          target: link.target || "_blank"
         };
 
         linkWarningTitle.textContent = download ? "Download warning" : "Leaving MAUL";
@@ -4223,38 +3813,51 @@ body.spotlight-open { overflow: hidden; }
       });
       linkWarningContinue?.addEventListener("click", () => {
         if (!pendingExternalLink) return;
-        const pendingLink = pendingExternalLink;
-        const originalText = linkWarningContinue.textContent;
-        const openResolvedLink = (href, target) => {
-          if (target === "_self") {
-            window.location.href = href;
-          } else {
-            window.open(href, "_blank", "noopener");
-          }
-        };
-
-        linkWarningContinue.disabled = true;
-        linkWarningContinue.textContent = pendingLink.repo ? "Finding latest..." : originalText;
-
-        Promise.resolve(
-          pendingLink.repo
-            ? resolveLatestDownloadUrl(pendingLink)
-            : null
-        )
-          .then((resolvedHref) => {
-            closeLinkWarning();
-            openResolvedLink(resolvedHref || pendingLink.href, pendingLink.target);
-          })
-          .catch(() => {
-            closeLinkWarning();
-            openResolvedLink(pendingLink.href, pendingLink.target);
-          })
-          .finally(() => {
-            linkWarningContinue.disabled = false;
-            linkWarningContinue.textContent = originalText;
-          });
+        const { href, target } = pendingExternalLink;
+        closeLinkWarning();
+        if (target === "_self") window.location.href = href;
+        else window.open(href, "_blank", "noopener");
       });
     </script>
-    <script src="scripts/navbar.js?v=20261028-nav-6"></script>
+
+    <script>
+      (() => {
+        const layer = document.querySelector('.maul-shooting-star-layer');
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (!layer) return;
+        let starTimer;
+        function scheduleStar() {
+          clearTimeout(starTimer);
+          if (document.hidden || reduceMotion.matches) return;
+          starTimer = setTimeout(() => {
+            if (!document.hidden) {
+              const star = document.createElement('span');
+              star.className = 'maul-shooting-star';
+              const travelX = Math.min(190, Math.max(90, window.innerWidth * .38));
+              const travelY = travelX * (90 / 190);
+              star.style.setProperty('--star-travel-x', `${travelX}px`);
+              star.style.setProperty('--star-travel-y', `${travelY}px`);
+              const startMaxX = Math.max(0, window.innerWidth - travelX - 75);
+              const startMinY = Math.min(window.innerHeight - 20, travelY + 40);
+              star.style.left = `${Math.round(startMaxX * (.06 + Math.random() * .48))}px`;
+              star.style.top = `${Math.round(startMinY + (window.innerHeight - startMinY) * (.28 + Math.random() * .65))}px`;
+              star.addEventListener('animationend', () => star.remove(), { once: true });
+              layer.appendChild(star);
+            }
+            scheduleStar();
+          }, 18000 + Math.random() * 12000);
+        }
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) { clearTimeout(starTimer); layer.replaceChildren(); }
+          else scheduleStar();
+        });
+        reduceMotion.addEventListener('change', event => {
+          if (event.matches) { clearTimeout(starTimer); layer.replaceChildren(); }
+          else scheduleStar();
+        });
+        scheduleStar();
+      })();
+    </script>
+    <script src="/scripts/navbar.js"></script>
 </body>
 </html>
