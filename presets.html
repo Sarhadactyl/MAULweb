@@ -29,10 +29,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="/styles/navbar.css" />
 
     <style>
-      /* hi */
 :root {
   color-scheme: dark;
   --accent: #ec2537;
@@ -589,7 +588,7 @@ body.spotlight-open { overflow: hidden; }
 }
 
 </style>
-    <link rel="stylesheet" href="styles/maul-theme.css" />
+    <link rel="stylesheet" href="/styles/maul-theme.css?v=2" />
     <style>
       .maul-credit-footer {
         width: min(100%, 1000px);
@@ -976,10 +975,320 @@ body.spotlight-open { overflow: hidden; }
         }
       }
     </style>
+
+    <style id="maul-presets-page-theme">
+      :root {
+        --maul-background: radial-gradient(ellipse 70% 58% at 73% 13%,rgba(83,14,33,.6),rgba(49,8,22,.36) 44%,transparent 78%),radial-gradient(ellipse 52% 40% at 18% 80%,rgba(64,10,27,.35),transparent 78%),linear-gradient(110deg,#080406 0%,#100509 27%,#240710 60%,#340b19 79%,#120509 100%);
+        --maul-metallic-gradient: linear-gradient(105deg,#d9a7a6 0%,#f5d5c9 29%,#e9b4ac 44%,#fff3e0 50%,#e9b4ac 56%,#b76e79 78%,#e9b4ac 100%);
+        --maul-rose: #e9b4ac;
+        --maul-rose-light: #f5d5c9;
+        --maul-rose-deep: #b76e79;
+        --maul-text: #f9f3ef;
+        --maul-muted: #c5b8b8;
+        --maul-border: rgba(191,119,133,.3);
+      }
+      html { background: #080406; }
+      body.maul-themed.maul-presets-theme {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--maul-background);
+        color: var(--maul-text);
+        font-family: Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+        overflow-x: clip;
+        isolation: isolate;
+        -webkit-font-smoothing: antialiased;
+      }
+      .maul-presets-theme #navbar { position: relative; z-index: 10; }
+      .maul-presets-theme .page-wrapper {
+        position: relative;
+        z-index: 1;
+        display: block;
+        width: min(1160px,calc(100% - 44px));
+        max-width: none;
+        margin: 0 auto;
+        padding: clamp(36px,5vw,60px) 0 36px;
+      }
+      body.maul-themed.maul-presets-theme .page-wrapper > .page-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: clamp(18px,4vw,50px);
+        min-height: 0;
+        margin: 0 0 34px;
+        padding: 0 0 36px;
+        border: 0;
+        border-bottom: 1px solid rgba(233,180,172,.28);
+        border-radius: 0;
+        border-image: none;
+        background: transparent;
+        box-shadow: none;
+        isolation: auto;
+      }
+      .maul-presets-theme .page-header .hero-copy { flex: 1 1 auto; min-width: 0; max-width: 740px; animation: none; }
+      .maul-presets-theme .page-header h1 {
+        margin: 0;
+        font: 700 clamp(2.8rem,5.65vw,5.25rem)/1.13 "Libre Baskerville",Georgia,serif;
+        letter-spacing: -.04em;
+        text-transform: none;
+        text-shadow: none;
+        color: var(--maul-text);
+      }
+      .maul-presets-theme .page-header h1 .hero-title-line {
+        display: block;
+        width: max-content;
+        max-width: 100%;
+        margin: 0;
+        padding: 0 0 .08em;
+        background: none;
+        color: var(--maul-text);
+        -webkit-text-fill-color: var(--maul-text);
+        animation: none;
+      }
+      @keyframes maulPresetsMetalSweep {
+        0%,100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+      .maul-presets-theme .page-header h1 .hero-title-line.hero-title-accent {
+        background: var(--maul-metallic-gradient);
+        background-size: 260% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        animation: maulPresetsMetalSweep 9s ease-in-out infinite;
+      }
+      .maul-presets-theme .page-header-subtitle {
+        max-width: 565px;
+        margin: 15px 0 0;
+        color: var(--maul-muted);
+        font: 400 1rem/1.7 Inter,system-ui,sans-serif;
+      }
+      .maul-presets-theme .page-header .header-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 23px; }
+      .maul-presets-theme .page-header a.maul-hero-primary,
+      .maul-presets-theme .page-header a.maul-hero-primary:is(:hover,:focus-visible) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        min-height: 43px;
+        padding: 10px 19px;
+        border: 1px solid #f5d5c9;
+        border-radius: 6px;
+        background: linear-gradient(115deg,#f8d4af,#b75863);
+        color: #29191f;
+        font: 700 .9rem/1.35 Inter,system-ui,sans-serif;
+        text-decoration: none;
+        box-shadow: inset 0 1px 0 rgba(255,235,201,.2);
+        animation: none;
+        transform: none;
+      }
+      .maul-presets-theme .page-header a.maul-hero-primary:hover { filter: brightness(1.055); }
+      .maul-presets-theme .hero-panel {
+        position: relative;
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: clamp(125px,23vw,254px);
+        min-height: 0;
+        height: auto;
+        aspect-ratio: auto;
+        margin: 0;
+        animation: none;
+      }
+      .maul-presets-theme .hero-panel::before,
+      .maul-presets-theme .hero-panel::after,
+      .maul-presets-theme .hero-panel .hero-banner-card { display: none; content: none; }
+      .maul-presets-theme .hero-panel > img {
+        display: block;
+        width: 100%;
+        max-height: 335px;
+        object-fit: contain;
+        filter: drop-shadow(0 16px 32px rgba(0,0,0,.6));
+      }
+      .maul-presets-theme .featured-highlight,
+      .maul-presets-theme .mods-section { margin: 0 0 44px; }
+      .maul-presets-theme .featured-highlight-header { margin: 0 0 18px; padding: 0; border: 0; align-items: center; }
+      .maul-presets-theme .featured-heading,
+      .maul-presets-theme .mods-section-title,
+      .maul-presets-theme .mini-steps-title {
+        margin: 0;
+        color: var(--maul-text);
+        font: 700 clamp(1.55rem,3vw,2.15rem)/1.2 "Libre Baskerville",Georgia,serif;
+        letter-spacing: -.035em;
+      }
+      .maul-presets-theme .mods-section-title { margin: 0 0 19px; }
+      .maul-presets-theme .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,255px),1fr)); gap: 15px; }
+      .maul-presets-theme .page-wrapper .card,
+      .maul-presets-theme .page-wrapper #featured-grid .card {
+        overflow: hidden;
+        min-width: 0;
+        border: 1px solid var(--maul-border);
+        border-radius: 7px;
+        background: linear-gradient(140deg,rgba(66,15,31,.2),rgba(14,5,10,.95));
+        box-shadow: 0 15px 48px rgba(0,0,0,.26);
+        transition: border-color .18s ease,transform .18s ease;
+      }
+      .maul-presets-theme .page-wrapper .card:is(:hover,:focus-within),
+      .maul-presets-theme .page-wrapper #featured-grid .card:is(:hover,:focus-within) {
+        border-color: rgba(233,180,172,.66);
+        background: linear-gradient(140deg,rgba(76,23,41,.32),rgba(14,5,10,.98));
+        box-shadow: 0 15px 48px rgba(0,0,0,.26);
+        transform: translateY(-2px);
+      }
+      .maul-presets-theme .page-wrapper .card .thumb {
+        border-color: rgba(233,180,172,.15);
+        background: radial-gradient(circle at 50% 28%,rgba(183,110,121,.09),transparent 70%),rgba(3,2,5,.45);
+      }
+      .maul-presets-theme .card-body { gap: 12px; padding: 20px; }
+      .maul-presets-theme .page-wrapper .card .title { color: var(--maul-text); font: 700 1.16rem/1.3 Inter,system-ui,sans-serif; letter-spacing: -.015em; }
+      .maul-presets-theme .page-wrapper .card .sub { color: var(--maul-muted); font: 400 .88rem/1.6 Inter,system-ui,sans-serif; }
+      .maul-presets-theme .page-wrapper .card .preset-actions { gap: 9px; padding-top: 5px; }
+      .maul-presets-theme .page-wrapper .btn,
+      .maul-presets-theme .page-wrapper .preset-actions .btn,
+      .maul-presets-theme .modal .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 10px 11px;
+        border: 1px solid rgba(233,180,172,.28);
+        border-radius: 6px;
+        background: linear-gradient(180deg,rgba(31,20,26,.96),rgba(15,10,16,.98));
+        color: var(--maul-text);
+        font: 700 .81rem/1.35 Inter,system-ui,sans-serif;
+        text-decoration: none;
+        box-shadow: inset 0 1px 0 rgba(245,213,201,.05);
+        transition: border-color .18s ease,background .18s ease;
+        animation: none;
+        transform: none;
+      }
+      .maul-presets-theme .page-wrapper .btn:is(:hover,:focus-visible),
+      .maul-presets-theme .modal .btn:is(:hover,:focus-visible) {
+        color: #fff;
+        border-color: rgba(233,180,172,.65);
+        background: linear-gradient(180deg,rgba(49,30,39,.98),rgba(23,14,22,.98));
+        transform: none;
+        box-shadow: inset 0 1px 0 rgba(245,213,201,.07);
+        animation: none;
+      }
+      .maul-presets-theme .page-wrapper .preset-actions .download-btn { min-height: 44px; padding: 10px 12px; font-size: .84rem; }
+      .maul-presets-theme #featured-grid.grid { grid-template-columns: minmax(0,1fr); }
+      .maul-presets-theme #featured-grid .featured-card { grid-template-columns: minmax(205px,32%) minmax(0,1fr); }
+      .maul-presets-theme #featured-grid .featured-card .thumb { min-height: 230px; height: 100%; }
+      .maul-presets-theme #featured-grid .featured-card .card-body { padding: clamp(19px,3vw,27px); }
+      .maul-presets-theme .presets { margin-top: 10px; padding-top: 16px; border-top: 1px solid rgba(233,180,172,.21); }
+      .maul-presets-theme .presets > .sub { margin-bottom: 13px; color: var(--maul-rose-light); }
+      .maul-presets-theme .presets details {
+        margin: 0 0 9px;
+        padding: 13px 14px;
+        border: 1px solid rgba(233,180,172,.23);
+        border-radius: 6px;
+        background: rgba(8,5,9,.47);
+      }
+      .maul-presets-theme .presets details:is(:hover,[open]) { border-color: rgba(233,180,172,.55); background: rgba(46,19,32,.48); }
+      .maul-presets-theme .presets summary { color: var(--maul-text); font: 700 .84rem/1.5 Inter,system-ui,sans-serif; }
+      .maul-presets-theme .presets summary::after { content: "+"; float: right; margin-left: 8px; color: var(--maul-rose); font-size: 1rem; }
+      .maul-presets-theme .presets details[open] summary::after { content: "−"; }
+      .maul-presets-theme .preset-meta { color: var(--maul-muted); }
+      .maul-presets-theme .mini-steps-wrap {
+        margin: 0 0 30px;
+        padding: clamp(20px,3vw,30px);
+        border: 1px solid var(--maul-border);
+        border-radius: 7px;
+        background: linear-gradient(140deg,rgba(66,15,31,.18),rgba(14,5,10,.95));
+        box-shadow: none;
+      }
+      .maul-presets-theme .mini-steps { margin-top: 16px; color: var(--maul-text); }
+      .maul-presets-theme .mini-note { color: var(--maul-muted); }
+      .maul-presets-theme .mini-steps code,
+      .maul-presets-theme .modal-body code { color: var(--maul-rose-light); background: rgba(233,180,172,.08); }
+      .maul-presets-theme .mods-footer-note { color: var(--maul-muted); }
+      .maul-presets-theme .mods-footer-note a { color: var(--maul-rose-light); }
+      .maul-presets-theme .modal { border-color: rgba(233,180,172,.4); border-radius: 8px; background: #130b12; }
+      .maul-presets-theme .modal-header { border-color: rgba(233,180,172,.25); }
+      .maul-presets-theme .modal-title,
+      .maul-presets-theme .modal-body h4 { color: var(--maul-text); font-family: "Libre Baskerville",Georgia,serif; }
+      .maul-presets-theme .modal-body { color: var(--maul-muted); }
+      .maul-presets-theme .pill { color: var(--maul-rose-light); border-color: rgba(233,180,172,.26); }
+      .maul-presets-theme .maul-page-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(14px,4vw,52px);
+        width: 100%;
+        margin: 52px auto 10px;
+        padding: 46px 0 24px;
+        border-top: 1px solid rgba(233,180,172,.25);
+        color: var(--maul-rose);
+      }
+      .maul-presets-theme .maul-page-footer::before,
+      .maul-presets-theme .maul-page-footer::after {
+        content: "";
+        display: block;
+        flex: 0 1 auto;
+        width: clamp(28px,10vw,118px);
+        height: 2px;
+        background: linear-gradient(90deg,transparent,var(--maul-rose));
+        opacity: .8;
+      }
+      .maul-presets-theme .maul-page-footer::after { transform: scaleX(-1); }
+      .maul-presets-theme .maul-page-footer p { margin: 0; color: var(--maul-rose); font: 700 clamp(.85rem,2.2vw,1.1rem)/1.5 Inter,system-ui,sans-serif; letter-spacing: .08em; white-space: nowrap; }
+      .maul-presets-theme .maul-page-footer .heart { color: var(--maul-rose-light); }
+      .maul-presets-theme .maul-shooting-star-layer { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+      .maul-presets-theme .maul-shooting-star {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: clamp(65px,13vw,125px);
+        height: 1px;
+        border-radius: 100%;
+        background: linear-gradient(90deg,transparent,rgba(233,180,172,.12) 20%,rgba(245,213,201,.76));
+        box-shadow: 0 0 6px rgba(233,180,172,.16);
+        transform-origin: right center;
+        animation: maulPresetsShootingStar 1400ms ease-out both;
+      }
+      .maul-presets-theme .maul-shooting-star::after { content: ""; position: absolute; right: 0; top: -1px; width: 3px; height: 3px; border-radius: 50%; background: rgba(255,231,225,.85); }
+      @keyframes maulPresetsShootingStar {
+        0% { opacity: 0; transform: translate3d(0,0,0) rotate(-25deg) scaleX(.65); }
+        12% { opacity: .78; }
+        68% { opacity: .6; }
+        100% { opacity: 0; transform: translate3d(var(--star-travel-x,190px),calc(-1 * var(--star-travel-y,90px)),0) rotate(-25deg) scaleX(1); }
+      }
+      @media (max-width: 760px) {
+        .maul-presets-theme .page-wrapper { width: calc(100% - 32px); padding: 36px 0 30px; }
+        body.maul-themed.maul-presets-theme .page-wrapper > .page-header { flex-direction: row; align-items: center; gap: 13px; padding: 0 0 24px; margin-bottom: 28px; }
+        .maul-presets-theme .page-header h1 { font-size: clamp(2.1rem,7.9vw,3.2rem); }
+        .maul-presets-theme .page-header-subtitle { font-size: .88rem; line-height: 1.55; }
+        .maul-presets-theme .page-header .header-actions { display: flex; margin-top: 17px; }
+        .maul-presets-theme .page-header a.maul-hero-primary { width: auto; min-height: 41px; padding: 9px 12px; font-size: .8rem; }
+        .maul-presets-theme .hero-panel { width: clamp(75px,23vw,145px); flex: 0 0 auto; margin: 0; }
+        .maul-presets-theme #featured-grid .featured-card { grid-template-columns: minmax(0,1fr); }
+        .maul-presets-theme #featured-grid .featured-card .thumb { height: 190px; min-height: 0; border-right: 0; border-bottom: 1px solid rgba(233,180,172,.16); }
+        .maul-presets-theme .grid { grid-template-columns: minmax(0,1fr); gap: 12px; }
+        .maul-presets-theme .mods-section { margin-bottom: 34px; }
+        .maul-presets-theme .page-wrapper .card .thumb { height: 155px; }
+        .maul-presets-theme .mini-steps { font-size: .86rem; padding-left: 19px; }
+      }
+      @media (max-width: 420px) {
+        .maul-presets-theme .page-header h1 { font-size: clamp(1.9rem,7.7vw,2.6rem); }
+        .maul-presets-theme .hero-panel { width: clamp(70px,21vw,105px); }
+        .maul-presets-theme .featured-heading,
+        .maul-presets-theme .mods-section-title,
+        .maul-presets-theme .mini-steps-title { font-size: 1.55rem; }
+        .maul-presets-theme .maul-page-footer { gap: 10px; }
+        .maul-presets-theme .maul-page-footer p { font-size: .81rem; letter-spacing: .035em; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .maul-presets-theme .page-header h1 .hero-title-line.hero-title-accent { animation: none; }
+        .maul-presets-theme .maul-shooting-star-layer { display: none; }
+      }
+    </style>
   </head>
 
-  <body class="maul-themed">
+  <body class="maul-themed maul-theme maul-presets-theme">
     <div id="navbar"></div>
+    <div class="maul-shooting-star-layer" aria-hidden="true"></div>
 
     <div class="modal-backdrop" id="presetModal" aria-hidden="true">
       <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -995,16 +1304,12 @@ body.spotlight-open { overflow: hidden; }
       <header class="page-header maul-page-hero">
         <div class="hero-copy">
           <h1>
-            <span class="hero-title-line">MAUL</span>
-            <span class="hero-title-line hero-title-accent">Preset</span>
-            <span class="hero-title-line">Studio</span>
+            <span class="hero-title-line">Among Us</span>
+            <span class="hero-title-line hero-title-accent">Mod</span>
+            <span class="hero-title-line">Presets</span>
           </h1>
-          <p class="page-header-subtitle">Ready-to-play presets for Town of Host, EHR, TOU-Mira, and Project Lotus.</p>
+          <p class="page-header-subtitle">Community-made presets for Town of Host, EHR, TOU-Mira, Project Lotus, and TOHE:E.</p>
           <div class="header-actions">
-            <a class="hero-join-link maul-hero-secondary" href="https://moddedamong.us/">
-              
-              Back to Home
-            </a>
             <a class="hero-join-link maul-hero-primary" href="https://discord.gg/MAUL" target="_blank" rel="noopener">
               
               Join MAUL
@@ -1015,26 +1320,303 @@ body.spotlight-open { overflow: hidden; }
           <div class="hero-banner-card" aria-hidden="true">
             <img src="images/banner-transparent-cropped.png" alt="" loading="lazy" decoding="async" />
           </div>
-          <img src="images/maulnobg.png" alt="MAUL mascot" loading="eager" decoding="async" />
+          <img src="https://moddedamong.us/images/maulnobg.png" alt="MAUL mascot" loading="eager" decoding="async" />
         </div>
       </header>
 
       <section class="featured-highlight">
         <div class="featured-highlight-header">
           <h2 class="featured-heading">Featured Presets</h2>
-          <span class="featured-highlight-pill">
-            Community Pick
-          </span>
         </div>
-        <div id="featured-grid" class="grid"></div>
+        <div id="featured-grid" class="grid">
+              <article class="card featured-card">
+                <img src="images/tourmira.png" alt="TOU-Mira" class="thumb">
+                <div class="card-body">
+                  <h3 class="title">TOU-Mira</h3>
+                  <p class="sub">Town of Us: Reactivated rebuilt on MiraAPI with cleaner architecture, new improvements, and long-term maintainability.</p>
+                  <div class="preset-actions">
+                    <a class="btn" href="https://github.com/AU-Avengers/TOU-Mira" target="_blank" rel="noopener">
+                      GitHub
+                    </a>
+                    
+                    <button class="btn secondary" type="button" data-featured-id="tou-mira">
+                  Details
+                </button>
+                  </div>
+                </div>
+              </article>
+            </div>
       </section>
 
       <section class="mods-section">
-        <h2 class="mods-section-title">Mods & Presets</h2>
-        <p class="mods-section-subtitle">
-          Browse each mod and click the entries to see downloadable presets created by our hosts.
-        </p>
-        <div id="mods-grid" class="grid"></div>
+        <h2 class="mods-section-title">Browse Presets</h2>
+        <div id="mods-grid" class="grid">
+              <article class="card">
+                <img src="images/TownOfHost-Title.png" alt="Town of Host" class="thumb">
+                <div class="card-body">
+                  <h3 class="title">Town of Host</h3>
+                  <p class="sub">Host-only base many other mods build on.</p>
+
+                  <div class="preset-actions">
+                    <a class="btn" href="https://github.com/tukasa0001/TownOfHost" target="_blank" rel="noopener">
+                      GitHub
+                    </a>
+                  </div>
+
+                  <div class="presets">
+                    <p class="sub">Available presets</p>
+                    
+                  <details>
+                    <summary>Classic TOH — Sarha</summary>
+                    <div class="preset-meta">
+                      Preset 1 classic roles low kill cooldown (13s).<br>Preset 2 same roles higher kill cooldown (20s).<br>Preset 3 more roles with a medium kill cooldown (15s).
+                    </div>
+                    <div class="preset-actions">
+                      
+          <a class="btn download-btn" href="presets/SarhaTOHOptions.json" download="SarhaTOHOptions.json" data-download-file="presets/SarhaTOHOptions.json" aria-label="Download SarhaTOHOptions.json" data-download-wired="true">
+            Download
+          </a>
+        
+                      
+                  <button class="btn secondary" type="button" data-mod-id="toh" data-preset-index="0">
+                    Details
+                  </button>
+                
+                    </div>
+                  </details>
+                
+                  </div>
+                </div>
+              </article>
+            
+              <article class="card">
+                <img src="images/EHR_logo0.png" alt="Endless Host Roles" class="thumb">
+                <div class="card-body">
+                  <h3 class="title">Endless Host Roles</h3>
+                  <p class="sub">The largest Among Us mod, completely free, fully customizable and host only.</p>
+
+                  <div class="preset-actions">
+                    <a class="btn" href="https://github.com/Gurge44/EndlessHostRoles/releases/tag/v7.2.2" target="_blank" rel="noopener">
+                      GitHub
+                    </a>
+                  </div>
+
+                  <div class="presets">
+                    <p class="sub">Available presets</p>
+                    
+                  <details>
+                    <summary>Balanced Chaos — Sarha</summary>
+                    <div class="preset-meta">
+                      All classic roles with the addition of EHR roles.
+                    </div>
+                    <div class="preset-actions">
+                      
+          <a class="btn download-btn" href="presets/sarhafebOptions.json" download="sarhafebOptions.json" data-download-file="presets/sarhafebOptions.json" aria-label="Download sarhafebOptions.json" data-download-wired="true">
+            Download
+          </a>
+        
+                      
+                  <button class="btn secondary" type="button" data-mod-id="EHR" data-preset-index="0">
+                    Details
+                  </button>
+                
+                    </div>
+                  </details>
+                
+                  <details>
+                    <summary>Gamemode Preset Pack (1–7) — Wyzeris</summary>
+                    <div class="preset-meta">
+                      Chaos preset + multiple gamemodes (Time Juggle, Soul Shift, Apoc, Murder Mystery, Boss Battle).<br>Some modes require CTA or combo-playable support.
+                    </div>
+                    <div class="preset-actions">
+                      
+          <a class="btn download-btn" href="presets/wyzerisfebOptions.json" download="wyzerisfebOptions.json" data-download-file="presets/wyzerisfebOptions.json" aria-label="Download wyzerisfebOptions.json" data-download-wired="true">
+            Download
+          </a>
+        
+                      
+                  <button class="btn secondary" type="button" data-mod-id="EHR" data-preset-index="1">
+                    Details
+                  </button>
+                
+                    </div>
+                  </details>
+                
+                  <details>
+                    <summary>Interesting roles only — GoldenWolf</summary>
+                    <div class="preset-meta">
+                      Settings only on preset 1. Contains only roles with interesting abilities.
+                    </div>
+                    <div class="preset-actions">
+                      
+          <a class="btn download-btn" href="presets/Goldenwolf_EHR6.1.1Options.json" download="Goldenwolf_EHR6.1.1Options.json" data-download-file="presets/Goldenwolf_EHR6.1.1Options.json" aria-label="Download Goldenwolf_EHR6.1.1Options.json" data-download-wired="true">
+            Download
+          </a>
+        
+                      
+                  <button class="btn secondary" type="button" data-mod-id="EHR" data-preset-index="2">
+                    Details
+                  </button>
+                
+                    </div>
+                  </details>
+                
+                  </div>
+                </div>
+              </article>
+            
+              <article class="card">
+                <img src="images/Project lotus.jpg" alt="Project Lotus" class="thumb">
+                <div class="card-body">
+                  <h3 class="title">Project Lotus</h3>
+                  <p class="sub">A host only mod which focuses on quality over quantity and turning your game into an experience. This mod adds custom cosmetics, a variety of unique roles and features, and extensive customizability.</p>
+
+                  <div class="preset-actions">
+                    <a class="btn" href="https://github.com/Lotus-AU/LotusContinued" target="_blank" rel="noopener">
+                      GitHub
+                    </a>
+                  </div>
+
+                  <div class="presets">
+                    <p class="sub">Available presets</p>
+                    
+                  <details>
+                    <summary>Lotus (+Bloom): Cult Takeover — Citrion</summary>
+                    <div class="preset-meta">
+                      This focuses on the Cult faction that the Bloom add-on adds.
+                    </div>
+                    <div class="preset-actions">
+                      
+          <a class="btn download-btn" href="presets/Preset5.zip" download="Preset5.zip" data-download-file="presets/Preset5.zip" aria-label="Download Preset5.zip" data-download-wired="true">
+            Download
+          </a>
+        
+                      
+                  <button class="btn secondary" type="button" data-mod-id="project-lotus" data-preset-index="0">
+                    Details
+                  </button>
+                
+                    </div>
+                  </details>
+                
+                  <details>
+                    <summary>Low Players — Citrion</summary>
+                    <div class="preset-meta">
+                      This is the preset I use if I have 9 players or less.
+                    </div>
+                    <div class="preset-actions">
+                      
+          <a class="btn download-btn" href="presets/Preset4.zip" download="Preset4.zip" data-download-file="presets/Preset4.zip" aria-label="Download Preset4.zip" data-download-wired="true">
+            Download
+          </a>
+        
+                      
+                  <button class="btn secondary" type="button" data-mod-id="project-lotus" data-preset-index="1">
+                    Details
+                  </button>
+                
+                    </div>
+                  </details>
+                
+                  <details>
+                    <summary>Guess Galore — Citrion</summary>
+                    <div class="preset-meta">
+                      In this preset everyone is a guesser.
+                    </div>
+                    <div class="preset-actions">
+                      
+          <a class="btn download-btn" href="presets/Preset6.zip" download="Preset6.zip" data-download-file="presets/Preset6.zip" aria-label="Download Preset6.zip" data-download-wired="true">
+            Download
+          </a>
+        
+                      
+                  <button class="btn secondary" type="button" data-mod-id="project-lotus" data-preset-index="2">
+                    Details
+                  </button>
+                
+                    </div>
+                  </details>
+                
+                  <details>
+                    <summary>Lotus (+Bloom): 15 Players — DashTheSus</summary>
+                    <div class="preset-meta">
+                      Varied roles that somewhat prioritize the Bloom roles. For lobbies with fewer players, lower NK, NP/MM and Impostor counts.
+                    </div>
+                    <div class="preset-actions">
+                      
+          <a class="btn download-btn" href="presets/Preset15.zip" download="Preset15.zip" data-download-file="presets/Preset15.zip" aria-label="Download Preset15.zip" data-download-wired="true">
+            Download
+          </a>
+        
+                      
+                  <button class="btn secondary" type="button" data-mod-id="project-lotus" data-preset-index="3">
+                    Details
+                  </button>
+                
+                    </div>
+                  </details>
+                
+                  </div>
+                </div>
+              </article>
+            
+              <article class="card">
+                <img src="awardimages/tohee.jpg" alt="TOHE:E artwork" class="thumb" loading="lazy" decoding="async" />
+                <div class="card-body">
+                  <h3 class="title">TOHE:E</h3>
+                  <p class="sub">A host-only fork of Town of Host: Enhanced from Niko's Impostor Server.</p>
+
+                  <div class="preset-actions">
+                    <a class="btn" href="https://github.com/Niko-s-Impostor-Server/TownofHost-Enhanced-Enhanced" target="_blank" rel="noopener">
+                      GitHub
+                    </a>
+                  </div>
+
+                  <div class="presets">
+                    <p class="sub">Available presets</p>
+                    
+                  <details>
+                    <summary>0kcd-like settings — Sarha</summary>
+                    <div class="preset-meta">
+                      Many killing roles with low cooldowns; fast games, low tasks.
+                    </div>
+                    <div class="preset-actions">
+                      
+          <a class="btn download-btn" href="presets/TOHE2.3.0b6_Sarhas_Options.json" download="TOHE2.3.0b6_Sarhas_Options.json" data-download-file="presets/TOHE2.3.0b6_Sarhas_Options.json" aria-label="Download TOHE2.3.0b6_Sarhas_Options.json" data-download-wired="true">
+            Download
+          </a>
+        
+                      
+                  <button class="btn secondary" type="button" data-mod-id="tohe-e" data-preset-index="0">
+                    Details
+                  </button>
+                
+                    </div>
+                  </details>
+                
+                  <details>
+                    <summary>Balanced and FFA — Summer</summary>
+                    <div class="preset-meta">
+                      Balanced roles on preset 1.<br>FFA on preset 2.<br>For more info read the preset channel on Discord.
+                    </div>
+                    <div class="preset-actions">
+                      
+          <a class="btn download-btn" href="presets/Summers TOHE Options.json" download="Summers TOHE Options.json" data-download-file="presets/Summers TOHE Options.json" aria-label="Download Summers TOHE Options.json" data-download-wired="true">
+            Download
+          </a>
+        
+                      
+                  <button class="btn secondary" type="button" data-mod-id="tohe-e" data-preset-index="1">
+                    Details
+                  </button>
+                
+                    </div>
+                  </details>
+                
+                  </div>
+                </div>
+              </article>
+            </div>
       </section>
 
       <section class="mini-steps-wrap" aria-labelledby="using-presets">
@@ -1069,11 +1651,7 @@ body.spotlight-open { overflow: hidden; }
         </a>.
       </p>
 
-      <footer class="maul-credit-footer">
-        <div class="footer-inner">
-          <p>Made with ♡ by Maul</p>
-        </div>
-      </footer>
+      <footer class="maul-page-footer" aria-label="MAUL footer"><p>Made with <span class="heart">♡</span> by Maul</p></footer>
     </div>
 
     <script>
@@ -1257,7 +1835,7 @@ body.spotlight-open { overflow: hidden; }
           {
             id: "tohe-e",
             title: "TOHE:E",
-            image: null,
+            image: "awardimages/tohee.jpg",
             blurb: "A host-only fork of Town of Host: Enhanced from Niko's Impostor Server.",
             repo: "https://github.com/Niko-s-Impostor-Server/TownofHost-Enhanced-Enhanced",
             presets: [
@@ -1555,6 +2133,45 @@ body.spotlight-open { overflow: hidden; }
       renderMods();
     </script>
 
-    <script src="scripts/navbar.js"></script>
+
+    <script>
+      (() => {
+        const layer = document.querySelector('.maul-shooting-star-layer');
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (!layer) return;
+        let timer;
+        function scheduleStar() {
+          clearTimeout(timer);
+          if (document.hidden || reduceMotion.matches) return;
+          timer = setTimeout(() => {
+            if (!document.hidden) {
+              const star = document.createElement('span');
+              star.className = 'maul-shooting-star';
+              const x = Math.min(190,Math.max(90,window.innerWidth*.38));
+              const y = x*(90/190);
+              star.style.setProperty('--star-travel-x',`${x}px`);
+              star.style.setProperty('--star-travel-y',`${y}px`);
+              const maxX = Math.max(0,window.innerWidth-x-75);
+              const minY = Math.min(window.innerHeight-20,y+40);
+              star.style.left = `${Math.round(maxX*(.06+Math.random()*.48))}px`;
+              star.style.top = `${Math.round(minY+(window.innerHeight-minY)*(.28+Math.random()*.65))}px`;
+              star.addEventListener('animationend',()=>star.remove(),{once:true});
+              layer.appendChild(star);
+            }
+            scheduleStar();
+          },18000+Math.random()*12000);
+        }
+        document.addEventListener('visibilitychange',()=>{
+          if(document.hidden){clearTimeout(timer);layer.replaceChildren();}
+          else scheduleStar();
+        });
+        reduceMotion.addEventListener('change',(e)=>{
+          if(e.matches){clearTimeout(timer);layer.replaceChildren();}
+          else scheduleStar();
+        });
+        scheduleStar();
+      })();
+    </script>
+    <script src="/scripts/navbar.js"></script>
 </body>
 </html>
